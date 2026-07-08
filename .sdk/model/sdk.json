@@ -32528,9 +32528,11 @@
             "url": "https://api.cloudsmith.io"
           }
         ],
+        "summary": "The API to the Cloudsmith Service",
         "termsOfService": "https://help.cloudsmith.io",
         "title": "Cloudsmith API (v1)",
-        "version": "v1"
+        "version": "v1",
+        "website": "https://cloudsmith.io"
       },
       "option": {},
       "target": {
