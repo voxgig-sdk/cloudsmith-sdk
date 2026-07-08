@@ -1,0 +1,384 @@
+# Entity: repository_webhook
+
+main: kit: entity: repository_webhook: {
+
+  alias: field: {}
+
+  fields: [
+    {
+      name: "created_at"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "created_by"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "created_by_url"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "disable_reason"
+      req: false
+      type: "`$INTEGER`"
+    }
+    {
+      name: "disable_reason_str"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "event"
+      req: true
+      type: "`$ARRAY`"
+    }
+    {
+      name: "identifier"
+      req: false
+      type: "`$INTEGER`"
+    }
+    {
+      name: "is_active"
+      req: false
+      type: "`$BOOLEAN`"
+    }
+    {
+      name: "is_last_response_bad"
+      req: false
+      type: "`$BOOLEAN`"
+    }
+    {
+      name: "last_response_status"
+      req: false
+      type: "`$INTEGER`"
+    }
+    {
+      name: "last_response_status_str"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "num_sent"
+      req: false
+      type: "`$INTEGER`"
+    }
+    {
+      name: "package_query"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "request_body_format"
+      req: false
+      type: "`$INTEGER`"
+    }
+    {
+      name: "request_body_format_str"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "request_body_template_format"
+      req: false
+      type: "`$INTEGER`"
+    }
+    {
+      name: "request_body_template_format_str"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "request_content_type"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "secret_header"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "self_url"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "slug_perm"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "target_url"
+      req: true
+      type: "`$STRING`"
+    }
+    {
+      name: "template"
+      op: {
+        list: {
+          req: false
+          type: "`$STRING`"
+        }
+      }
+      req: true
+      type: "`$ARRAY`"
+    }
+    {
+      name: "updated_at"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "updated_by"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "updated_by_url"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "verify_ssl"
+      req: false
+      type: "`$BOOLEAN`"
+    }
+  ]
+
+  name: "repository_webhook"
+  op: {
+    create: {
+      name: "create"
+      points: [
+        {
+          args: {
+            params: [
+              {
+                kind: "param"
+                name: "owner"
+                orig: "owner"
+                reqd: true
+                type: "`$ANY`"
+              }
+              {
+                kind: "param"
+                name: "repo"
+                orig: "repo"
+                reqd: true
+                type: "`$ANY`"
+              }
+            ]
+            query: [
+              {
+                kind: "query"
+                name: "data"
+                orig: "data"
+                reqd: false
+                type: "`$OBJECT`"
+              }
+            ]
+          }
+          method: "POST"
+          orig: "/webhooks/{owner}/{repo}/"
+          parts: [
+            "webhooks"
+            "{owner}"
+            "{repo}"
+          ]
+          select: {
+            exist: [
+              "data"
+              "owner"
+              "repo"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+    list: {
+      name: "list"
+      points: [
+        {
+          args: {
+            params: [
+              {
+                kind: "param"
+                name: "owner"
+                orig: "owner"
+                reqd: true
+                type: "`$ANY`"
+              }
+              {
+                kind: "param"
+                name: "repo"
+                orig: "repo"
+                reqd: true
+                type: "`$ANY`"
+              }
+            ]
+            query: [
+              {
+                kind: "query"
+                name: "page"
+                orig: "page"
+                reqd: false
+                type: "`$INTEGER`"
+              }
+              {
+                kind: "query"
+                name: "page_size"
+                orig: "page_size"
+                reqd: false
+                type: "`$INTEGER`"
+              }
+            ]
+          }
+          method: "GET"
+          orig: "/webhooks/{owner}/{repo}/"
+          parts: [
+            "webhooks"
+            "{owner}"
+            "{repo}"
+          ]
+          select: {
+            exist: [
+              "owner"
+              "page"
+              "page_size"
+              "repo"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          args: {
+            params: [
+              {
+                kind: "param"
+                name: "identifier"
+                orig: "identifier"
+                reqd: true
+                type: "`$ANY`"
+              }
+              {
+                kind: "param"
+                name: "owner"
+                orig: "owner"
+                reqd: true
+                type: "`$ANY`"
+              }
+              {
+                kind: "param"
+                name: "repo"
+                orig: "repo"
+                reqd: true
+                type: "`$ANY`"
+              }
+            ]
+          }
+          method: "GET"
+          orig: "/webhooks/{owner}/{repo}/{identifier}/"
+          parts: [
+            "webhooks"
+            "{owner}"
+            "{repo}"
+            "{identifier}"
+          ]
+          select: {
+            exist: [
+              "identifier"
+              "owner"
+              "repo"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+    update: {
+      name: "update"
+      points: [
+        {
+          args: {
+            params: [
+              {
+                kind: "param"
+                name: "identifier"
+                orig: "identifier"
+                reqd: true
+                type: "`$ANY`"
+              }
+              {
+                kind: "param"
+                name: "owner"
+                orig: "owner"
+                reqd: true
+                type: "`$ANY`"
+              }
+              {
+                kind: "param"
+                name: "repo"
+                orig: "repo"
+                reqd: true
+                type: "`$ANY`"
+              }
+            ]
+            query: [
+              {
+                kind: "query"
+                name: "data"
+                orig: "data"
+                reqd: false
+                type: "`$OBJECT`"
+              }
+            ]
+          }
+          method: "PATCH"
+          orig: "/webhooks/{owner}/{repo}/{identifier}/"
+          parts: [
+            "webhooks"
+            "{owner}"
+            "{repo}"
+            "{identifier}"
+          ]
+          select: {
+            exist: [
+              "data"
+              "identifier"
+              "owner"
+              "repo"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+  }
+
+  relations: {
+    ancestors: [
+      [
+        "webhook"
+      ]
+    ]
+  }
+
+
+
+}

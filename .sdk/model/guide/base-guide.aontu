@@ -1,0 +1,1682 @@
+# Guide
+
+guide: {
+  metrics: count: entity: 140
+  metrics: count: path: 201
+  metrics: count: method: 325
+
+  entity: abort: {
+    path: "/files/{owner}/{repo}/{identifier}/abort/": {
+    }
+  }
+
+  entity: alpine: {
+    path: "/packages/{owner}/{repo}/upload/alpine/": {
+    }
+    path: "/packages/{owner}/{repo}/validate-upload/alpine/": {
+    }
+  }
+
+  entity: audit_log: {
+    path: "/audit-log/{owner}/": {
+      rename: param: "owner": *"id"
+    }
+    path: "/audit-log/{owner}/{repo}/": {
+    }
+  }
+
+  entity: basic: {
+    path: "/status/check/basic/": {
+    }
+  }
+
+  entity: cargo: {
+    path: "/packages/{owner}/{repo}/upload/cargo/": {
+    }
+    path: "/packages/{owner}/{repo}/validate-upload/cargo/": {
+    }
+    path: "/repos/{owner}/{identifier}/upstream/cargo/": {
+      op: create: method: *POST
+      op: list: method: *GET
+    }
+    path: "/repos/{owner}/{identifier}/upstream/cargo/{slug_perm}/": {
+      rename: param: "slug_perm": *"id"
+      op: load: method: *GET
+      op: patch: method: *PATCH
+      op: update: method: *PUT
+    }
+  }
+
+  entity: cocoapod: {
+    path: "/packages/{owner}/{repo}/upload/cocoapods/": {
+    }
+    path: "/packages/{owner}/{repo}/validate-upload/cocoapods/": {
+    }
+  }
+
+  entity: complete: {
+    path: "/files/{owner}/{repo}/{identifier}/complete/": {
+    }
+  }
+
+  entity: composer: {
+    path: "/packages/{owner}/{repo}/upload/composer/": {
+    }
+    path: "/packages/{owner}/{repo}/validate-upload/composer/": {
+    }
+    path: "/repos/{owner}/{identifier}/upstream/composer/": {
+      op: create: method: *POST
+      op: list: method: *GET
+    }
+    path: "/repos/{owner}/{identifier}/upstream/composer/{slug_perm}/": {
+      rename: param: "slug_perm": *"id"
+      op: load: method: *GET
+      op: patch: method: *PATCH
+      op: update: method: *PUT
+    }
+  }
+
+  entity: conan: {
+    path: "/packages/{owner}/{repo}/upload/conan/": {
+    }
+    path: "/packages/{owner}/{repo}/validate-upload/conan/": {
+    }
+  }
+
+  entity: conda: {
+    path: "/packages/{owner}/{repo}/upload/conda/": {
+    }
+    path: "/packages/{owner}/{repo}/validate-upload/conda/": {
+    }
+    path: "/repos/{owner}/{identifier}/upstream/conda/": {
+      op: create: method: *POST
+      op: list: method: *GET
+    }
+    path: "/repos/{owner}/{identifier}/upstream/conda/{slug_perm}/": {
+      rename: param: "slug_perm": *"id"
+      op: load: method: *GET
+      op: patch: method: *PATCH
+      op: update: method: *PUT
+    }
+  }
+
+  entity: copy: {
+    path: "/packages/{owner}/{repo}/{identifier}/copy/": {
+    }
+  }
+
+  entity: cran: {
+    path: "/packages/{owner}/{repo}/upload/cran/": {
+    }
+    path: "/packages/{owner}/{repo}/validate-upload/cran/": {
+    }
+    path: "/repos/{owner}/{identifier}/upstream/cran/": {
+      op: create: method: *POST
+      op: list: method: *GET
+    }
+    path: "/repos/{owner}/{identifier}/upstream/cran/{slug_perm}/": {
+      rename: param: "slug_perm": *"id"
+      op: load: method: *GET
+      op: patch: method: *PATCH
+      op: update: method: *PUT
+    }
+  }
+
+  entity: dart: {
+    path: "/packages/{owner}/{repo}/upload/dart/": {
+    }
+    path: "/packages/{owner}/{repo}/validate-upload/dart/": {
+    }
+    path: "/repos/{owner}/{identifier}/upstream/dart/": {
+      op: create: method: *POST
+      op: list: method: *GET
+    }
+    path: "/repos/{owner}/{identifier}/upstream/dart/{slug_perm}/": {
+      rename: param: "slug_perm": *"id"
+      op: load: method: *GET
+      op: patch: method: *PATCH
+      op: update: method: *PUT
+    }
+  }
+
+  entity: deb: {
+    path: "/packages/{owner}/{repo}/upload/deb/": {
+    }
+    path: "/packages/{owner}/{repo}/validate-upload/deb/": {
+    }
+    path: "/repos/{owner}/{identifier}/upstream/deb/": {
+      op: create: method: *POST
+      op: list: method: *GET
+    }
+    path: "/repos/{owner}/{identifier}/upstream/deb/{slug_perm}/": {
+      rename: param: "slug_perm": *"id"
+      op: load: method: *GET
+      op: patch: method: *PATCH
+      op: update: method: *PUT
+    }
+  }
+
+  entity: deny_policy: {
+    path: "/orgs/{org}/deny-policy/{slug_perm}/": {
+      rename: param: "org": *"org_id"
+      rename: param: "slug_perm": *"id"
+    }
+  }
+
+  entity: dependency: {
+    path: "/packages/{owner}/{repo}/{identifier}/dependencies/": {
+    }
+  }
+
+  entity: disable: {
+    path: "/entitlements/{owner}/{repo}/{identifier}/disable/": {
+    }
+    path: "/orgs/{org}/saml-group-sync/disable/": {
+      rename: param: "org": *"org_id"
+    }
+    path: "/repos/{owner}/{identifier}/geoip/disable/": {
+    }
+  }
+
+  entity: distribution_full: {
+    path: "/distros/": {
+      op: list: method: *GET
+    }
+    path: "/distros/{slug}/": {
+      op: load: method: *GET
+    }
+  }
+
+  entity: distro: {
+    path: "/distros/": {
+    }
+    path: "/distros/{slug}/": {
+      rename: param: "slug": *"id"
+    }
+  }
+
+  entity: docker: {
+    path: "/packages/{owner}/{repo}/upload/docker/": {
+    }
+    path: "/packages/{owner}/{repo}/validate-upload/docker/": {
+    }
+    path: "/repos/{owner}/{identifier}/upstream/docker/": {
+      op: create: method: *POST
+      op: list: method: *GET
+    }
+    path: "/repos/{owner}/{identifier}/upstream/docker/{slug_perm}/": {
+      rename: param: "slug_perm": *"id"
+      op: load: method: *GET
+      op: patch: method: *PATCH
+      op: update: method: *PUT
+    }
+  }
+
+  entity: dynamic_mapping: {
+    path: "/orgs/{org}/openid-connect/{provider_setting}/dynamic-mappings/": {
+      rename: param: "org": *"org_id"
+      op: list: method: *GET
+    }
+    path: "/orgs/{org}/openid-connect/{provider_setting}/dynamic-mappings/{claim_value}/": {
+      rename: param: "claim_value": *"id"
+      rename: param: "org": *"org_id"
+      rename: param: "provider_setting": *"openid_connect_id"
+      op: load: method: *GET
+    }
+  }
+
+  entity: ecdsa: {
+    path: "/repos/{owner}/{identifier}/ecdsa/": {
+    }
+  }
+
+  entity: enable: {
+    path: "/entitlements/{owner}/{repo}/{identifier}/enable/": {
+    }
+    path: "/orgs/{org}/saml-group-sync/enable/": {
+      rename: param: "org": *"org_id"
+    }
+    path: "/repos/{owner}/{identifier}/geoip/enable/": {
+    }
+  }
+
+  entity: entitlement: {
+    path: "/entitlements/{owner}/{repo}/": {
+    }
+    path: "/entitlements/{owner}/{repo}/{identifier}/": {
+      op: remove: method: *DELETE
+    }
+    path: "/entitlements/{owner}/{repo}/{identifier}/disable/": {
+      op: create: method: *POST
+    }
+    path: "/entitlements/{owner}/{repo}/{identifier}/enable/": {
+      op: create: method: *POST
+    }
+    path: "/entitlements/{owner}/{repo}/{identifier}/reset/": {
+      op: create: method: *POST
+    }
+    path: "/metrics/entitlements/{owner}/": {
+      rename: param: "owner": *"id"
+      op: load: method: *GET
+    }
+    path: "/metrics/entitlements/{owner}/{repo}/": {
+      op: load: method: *GET
+    }
+  }
+
+  entity: evaluation: {
+    path: "/orgs/{org}/license-policy/{policy_slug_perm}/evaluation/{slug_perm}/": {
+      rename: param: "org": *"org_id"
+      rename: param: "policy_slug_perm": *"license_policy_id"
+      rename: param: "slug_perm": *"id"
+    }
+    path: "/orgs/{org}/vulnerability-policy/{policy_slug_perm}/evaluation/{slug_perm}/": {
+      rename: param: "org": *"org_id"
+      rename: param: "policy_slug_perm": *"vulnerability_policy_id"
+      rename: param: "slug_perm": *"id"
+    }
+  }
+
+  entity: file: {
+    path: "/files/{owner}/{repo}/": {
+      op: create: method: *POST
+    }
+    path: "/files/{owner}/{repo}/validate/": {
+      op: create: method: *POST
+    }
+    path: "/files/{owner}/{repo}/{identifier}/abort/": {
+      op: create: method: *POST
+    }
+  }
+
+  entity: format: {
+    path: "/formats/": {
+      op: list: method: *GET
+    }
+    path: "/formats/{slug}/": {
+      rename: param: "slug": *"id"
+      op: load: method: *GET
+    }
+  }
+
+  entity: geoip: {
+    path: "/repos/{owner}/{identifier}/geoip": {
+    }
+  }
+
+  entity: gon: {
+    path: "/packages/{owner}/{repo}/upload/go/": {
+    }
+  }
+
+  entity: gon2: {
+    path: "/packages/{owner}/{repo}/validate-upload/go/": {
+    }
+  }
+
+  entity: gon3: {
+    path: "/repos/{owner}/{identifier}/upstream/go/": {
+      op: list: method: *GET
+    }
+  }
+
+  entity: gon4: {
+    path: "/repos/{owner}/{identifier}/upstream/go/": {
+    }
+  }
+
+  entity: gon5: {
+    path: "/repos/{owner}/{identifier}/upstream/go/": {
+      op: create: method: *POST
+    }
+  }
+
+  entity: gon6: {
+    path: "/repos/{owner}/{identifier}/upstream/go/{slug_perm}/": {
+      op: load: method: *GET
+    }
+  }
+
+  entity: gon7: {
+    path: "/repos/{owner}/{identifier}/upstream/go/{slug_perm}/": {
+    }
+  }
+
+  entity: gon8: {
+    path: "/repos/{owner}/{identifier}/upstream/go/{slug_perm}/": {
+      op: update: method: *PUT
+    }
+  }
+
+  entity: gon9: {
+    path: "/repos/{owner}/{identifier}/upstream/go/{slug_perm}/": {
+      op: patch: method: *PATCH
+    }
+  }
+
+  entity: gpg: {
+    path: "/repos/{owner}/{identifier}/gpg/": {
+    }
+  }
+
+  entity: group: {
+    path: "/packages/{owner}/{repo}/groups/": {
+    }
+  }
+
+  entity: helm: {
+    path: "/packages/{owner}/{repo}/upload/helm/": {
+    }
+    path: "/packages/{owner}/{repo}/validate-upload/helm/": {
+    }
+    path: "/repos/{owner}/{identifier}/upstream/helm/": {
+      op: create: method: *POST
+      op: list: method: *GET
+    }
+    path: "/repos/{owner}/{identifier}/upstream/helm/{slug_perm}/": {
+      rename: param: "slug_perm": *"id"
+      op: load: method: *GET
+      op: patch: method: *PATCH
+      op: update: method: *PUT
+    }
+  }
+
+  entity: hex: {
+    path: "/packages/{owner}/{repo}/upload/hex/": {
+    }
+    path: "/packages/{owner}/{repo}/validate-upload/hex/": {
+    }
+    path: "/repos/{owner}/{identifier}/upstream/hex/": {
+      op: create: method: *POST
+      op: list: method: *GET
+    }
+    path: "/repos/{owner}/{identifier}/upstream/hex/{slug_perm}/": {
+      rename: param: "slug_perm": *"id"
+      op: load: method: *GET
+      op: patch: method: *PATCH
+      op: update: method: *PUT
+    }
+  }
+
+  entity: history: {
+    path: "/quota/history/{owner}/": {
+      rename: param: "owner": *"id"
+    }
+    path: "/quota/oss/history/{owner}/": {
+      rename: param: "owner": *"id"
+    }
+  }
+
+  entity: huggingface: {
+    path: "/packages/{owner}/{repo}/upload/huggingface/": {
+    }
+    path: "/packages/{owner}/{repo}/validate-upload/huggingface/": {
+    }
+    path: "/repos/{owner}/{identifier}/upstream/huggingface/": {
+      op: create: method: *POST
+      op: list: method: *GET
+    }
+    path: "/repos/{owner}/{identifier}/upstream/huggingface/{slug_perm}/": {
+      rename: param: "slug_perm": *"id"
+      op: load: method: *GET
+      op: patch: method: *PATCH
+      op: update: method: *PUT
+    }
+  }
+
+  entity: info: {
+    path: "/files/{owner}/{repo}/{identifier}/info/": {
+    }
+  }
+
+  entity: invite: {
+    path: "/orgs/{org}/invites/{slug_perm}/": {
+      rename: param: "org": *"org_id"
+      rename: param: "slug_perm": *"id"
+    }
+    path: "/orgs/{org}/invites/{slug_perm}/extend/": {
+      action: "extend": {}
+      rename: param: "org": *"org_id"
+    }
+    path: "/orgs/{org}/invites/{slug_perm}/resend/": {
+      action: "resend": {}
+      rename: param: "org": *"org_id"
+    }
+  }
+
+  entity: license_policy: {
+    path: "/orgs/{org}/license-policy/{policy_slug_perm}/evaluation/": {
+      action: "evaluation": {}
+      rename: param: "org": *"org_id"
+    }
+    path: "/orgs/{org}/license-policy/{slug_perm}/": {
+      rename: param: "org": *"org_id"
+      rename: param: "slug_perm": *"id"
+    }
+  }
+
+  entity: limit: {
+    path: "/rates/limits/": {
+    }
+  }
+
+  entity: luarock: {
+    path: "/packages/{owner}/{repo}/upload/luarocks/": {
+    }
+    path: "/packages/{owner}/{repo}/validate-upload/luarocks/": {
+    }
+  }
+
+  entity: maven: {
+    path: "/packages/{owner}/{repo}/upload/maven/": {
+    }
+    path: "/packages/{owner}/{repo}/validate-upload/maven/": {
+    }
+    path: "/repos/{owner}/{identifier}/upstream/maven/": {
+      op: create: method: *POST
+      op: list: method: *GET
+    }
+    path: "/repos/{owner}/{identifier}/upstream/maven/{slug_perm}/": {
+      rename: param: "slug_perm": *"id"
+      op: load: method: *GET
+      op: patch: method: *PATCH
+      op: update: method: *PUT
+    }
+  }
+
+  entity: member: {
+    path: "/orgs/{org}/members/{member}/": {
+      rename: param: "member": *"id"
+      rename: param: "org": *"org_id"
+    }
+    path: "/orgs/{org}/members/{member}/refresh/": {
+      action: "refresh": {}
+      rename: param: "member": *"id"
+      rename: param: "org": *"org_id"
+    }
+    path: "/orgs/{org}/members/{member}/remove/": {
+      action: "remove": {}
+      rename: param: "member": *"id"
+      rename: param: "org": *"org_id"
+    }
+    path: "/orgs/{org}/members/{member}/update-role/": {
+      action: "update_role": {}
+      rename: param: "member": *"id"
+      rename: param: "org": *"org_id"
+    }
+    path: "/orgs/{org}/members/{member}/update-visibility/": {
+      action: "update_visibility": {}
+      rename: param: "member": *"id"
+      rename: param: "org": *"org_id"
+    }
+  }
+
+  entity: move: {
+    path: "/packages/{owner}/{repo}/{identifier}/move/": {
+    }
+  }
+
+  entity: namespace: {
+    path: "/namespaces/": {
+      op: list: method: *GET
+    }
+    path: "/namespaces/{slug}/": {
+      rename: param: "slug": *"id"
+      op: load: method: *GET
+    }
+  }
+
+  entity: namespace_audit_log: {
+    path: "/audit-log/{owner}/": {
+      rename: param: "owner": *"id"
+      op: load: method: *GET
+    }
+  }
+
+  entity: npm: {
+    path: "/packages/{owner}/{repo}/upload/npm/": {
+    }
+    path: "/packages/{owner}/{repo}/validate-upload/npm/": {
+    }
+    path: "/repos/{owner}/{identifier}/upstream/npm/": {
+      op: create: method: *POST
+      op: list: method: *GET
+    }
+    path: "/repos/{owner}/{identifier}/upstream/npm/{slug_perm}/": {
+      rename: param: "slug_perm": *"id"
+      op: load: method: *GET
+      op: patch: method: *PATCH
+      op: update: method: *PUT
+    }
+  }
+
+  entity: nuget: {
+    path: "/packages/{owner}/{repo}/upload/nuget/": {
+    }
+    path: "/packages/{owner}/{repo}/validate-upload/nuget/": {
+    }
+    path: "/repos/{owner}/{identifier}/upstream/nuget/": {
+      op: create: method: *POST
+      op: list: method: *GET
+    }
+    path: "/repos/{owner}/{identifier}/upstream/nuget/{slug_perm}/": {
+      rename: param: "slug_perm": *"id"
+      op: load: method: *GET
+      op: patch: method: *PATCH
+      op: update: method: *PUT
+    }
+  }
+
+  entity: openid_connect: {
+    path: "/orgs/{org}/openid-connect/{provider_setting}/dynamic-mappings/": {
+      action: "dynamic_mapping": {}
+      rename: param: "org": *"org_id"
+    }
+    path: "/orgs/{org}/openid-connect/{slug_perm}/": {
+      rename: param: "org": *"org_id"
+      rename: param: "slug_perm": *"id"
+    }
+  }
+
+  entity: org: {
+    path: "/orgs/": {
+      op: list: method: *GET
+    }
+    path: "/orgs/{org}/": {
+      rename: param: "org": *"id"
+      op: load: method: *GET
+      op: remove: method: *DELETE
+    }
+    path: "/orgs/{org}/deny-policy/": {
+      action: "deny_policy": {}
+      rename: param: "org": *"id"
+    }
+    path: "/orgs/{org}/deny-policy/{slug_perm}/": {
+      rename: param: "org": *"id"
+      op: remove: method: *DELETE
+    }
+    path: "/orgs/{org}/invites/": {
+      action: "invite": {}
+      rename: param: "org": *"id"
+    }
+    path: "/orgs/{org}/invites/{slug_perm}/": {
+      rename: param: "org": *"id"
+      op: remove: method: *DELETE
+    }
+    path: "/orgs/{org}/license-policy-violation/": {
+      action: "license_policy_violation": {}
+      rename: param: "org": *"id"
+      op: list: method: *GET
+    }
+    path: "/orgs/{org}/license-policy/": {
+      action: "license_policy": {}
+      rename: param: "org": *"id"
+    }
+    path: "/orgs/{org}/license-policy/{slug_perm}/": {
+      rename: param: "org": *"id"
+      op: remove: method: *DELETE
+    }
+    path: "/orgs/{org}/members/": {
+      action: "member": {}
+      rename: param: "org": *"id"
+    }
+    path: "/orgs/{org}/members/{member}/": {
+      rename: param: "org": *"id"
+      op: remove: method: *DELETE
+    }
+    path: "/orgs/{org}/members/{member}/refresh/": {
+      rename: param: "member": *"member_id"
+      rename: param: "org": *"id"
+      op: create: method: *POST
+    }
+    path: "/orgs/{org}/members/{member}/remove/": {
+      rename: param: "member": *"member_id"
+      rename: param: "org": *"id"
+      op: load: method: *GET
+    }
+    path: "/orgs/{org}/openid-connect/": {
+      action: "openid_connect": {}
+      rename: param: "org": *"id"
+    }
+    path: "/orgs/{org}/openid-connect/{slug_perm}/": {
+      rename: param: "org": *"id"
+      op: remove: method: *DELETE
+    }
+    path: "/orgs/{org}/saml-authentication": {
+      action: "saml_authentication": {}
+      rename: param: "org": *"id"
+    }
+    path: "/orgs/{org}/saml-group-sync/": {
+      action: "saml_group_sync": {}
+      rename: param: "org": *"id"
+    }
+    path: "/orgs/{org}/saml-group-sync/disable/": {
+      rename: param: "org": *"id"
+      op: create: method: *POST
+    }
+    path: "/orgs/{org}/saml-group-sync/enable/": {
+      rename: param: "org": *"id"
+      op: create: method: *POST
+    }
+    path: "/orgs/{org}/saml-group-sync/{slug_perm}/": {
+      rename: param: "org": *"id"
+      op: remove: method: *DELETE
+    }
+    path: "/orgs/{org}/services/": {
+      action: "service": {}
+      rename: param: "org": *"id"
+    }
+    path: "/orgs/{org}/services/{service}/": {
+      rename: param: "org": *"id"
+      op: remove: method: *DELETE
+    }
+    path: "/orgs/{org}/teams/": {
+      action: "team": {}
+      rename: param: "org": *"id"
+    }
+    path: "/orgs/{org}/teams/{team}/": {
+      rename: param: "org": *"id"
+      op: remove: method: *DELETE
+    }
+    path: "/orgs/{org}/teams/{team}/members": {
+      rename: param: "org": *"id"
+      rename: param: "team": *"team_id"
+      op: update: method: *PUT
+    }
+    path: "/orgs/{org}/vulnerability-policy-violation/": {
+      action: "vulnerability_policy_violation": {}
+      rename: param: "org": *"id"
+      op: list: method: *GET
+    }
+    path: "/orgs/{org}/vulnerability-policy/": {
+      action: "vulnerability_policy": {}
+      rename: param: "org": *"id"
+    }
+    path: "/orgs/{org}/vulnerability-policy/{slug_perm}/": {
+      rename: param: "org": *"id"
+      op: remove: method: *DELETE
+    }
+  }
+
+  entity: organization_group_sync: {
+    path: "/orgs/{org}/saml-group-sync/": {
+      rename: param: "org": *"org_id"
+      op: create: method: *POST
+      op: list: method: *GET
+    }
+  }
+
+  entity: organization_group_sync_status: {
+    path: "/orgs/{org}/saml-group-sync/status/": {
+      rename: param: "org": *"org_id"
+      op: load: method: *GET
+    }
+  }
+
+  entity: organization_invite: {
+    path: "/orgs/{org}/invites/": {
+      rename: param: "org": *"org_id"
+      op: create: method: *POST
+      op: list: method: *GET
+    }
+    path: "/orgs/{org}/invites/{slug_perm}/": {
+      rename: param: "org": *"org_id"
+      rename: param: "slug_perm": *"id"
+      op: patch: method: *PATCH
+    }
+  }
+
+  entity: organization_invite_extend: {
+    path: "/orgs/{org}/invites/{slug_perm}/extend/": {
+      rename: param: "org": *"org_id"
+      op: create: method: *POST
+    }
+    path: "/orgs/{org}/invites/{slug_perm}/resend/": {
+      rename: param: "org": *"org_id"
+      op: create: method: *POST
+    }
+  }
+
+  entity: organization_membership: {
+    path: "/orgs/{org}/members/": {
+      rename: param: "org": *"org_id"
+      op: list: method: *GET
+    }
+    path: "/orgs/{org}/members/{member}/": {
+      rename: param: "org": *"org_id"
+      op: load: method: *GET
+      op: patch: method: *PATCH
+    }
+  }
+
+  entity: organization_membership_role_update: {
+    path: "/orgs/{org}/members/{member}/update-role/": {
+      rename: param: "member": *"member_id"
+      rename: param: "org": *"org_id"
+      op: patch: method: *PATCH
+    }
+  }
+
+  entity: organization_membership_visibility_update: {
+    path: "/orgs/{org}/members/{member}/update-visibility/": {
+      rename: param: "member": *"member_id"
+      rename: param: "org": *"org_id"
+      op: patch: method: *PATCH
+    }
+  }
+
+  entity: organization_package_license_policy: {
+    path: "/orgs/{org}/license-policy/": {
+      rename: param: "org": *"org_id"
+      op: create: method: *POST
+      op: list: method: *GET
+    }
+    path: "/orgs/{org}/license-policy/{slug_perm}/": {
+      rename: param: "org": *"org_id"
+      rename: param: "slug_perm": *"id"
+      op: load: method: *GET
+      op: patch: method: *PATCH
+      op: update: method: *PUT
+    }
+  }
+
+  entity: organization_package_vulnerability_policy: {
+    path: "/orgs/{org}/vulnerability-policy/": {
+      rename: param: "org": *"org_id"
+      op: create: method: *POST
+      op: list: method: *GET
+    }
+    path: "/orgs/{org}/vulnerability-policy/{slug_perm}/": {
+      rename: param: "org": *"org_id"
+      rename: param: "slug_perm": *"id"
+      op: load: method: *GET
+      op: patch: method: *PATCH
+      op: update: method: *PUT
+    }
+  }
+
+  entity: organization_saml_auth: {
+    path: "/orgs/{org}/saml-authentication": {
+      rename: param: "org": *"org_id"
+      op: load: method: *GET
+      op: patch: method: *PATCH
+    }
+  }
+
+  entity: organization_team: {
+    path: "/orgs/{org}/teams/": {
+      rename: param: "org": *"org_id"
+      op: create: method: *POST
+      op: list: method: *GET
+    }
+    path: "/orgs/{org}/teams/{team}/": {
+      rename: param: "org": *"org_id"
+      rename: param: "team": *"id"
+      op: load: method: *GET
+      op: patch: method: *PATCH
+    }
+  }
+
+  entity: organization_team_member: {
+    path: "/orgs/{org}/teams/{team}/members": {
+      rename: param: "org": *"org_id"
+      rename: param: "team": *"team_id"
+      op: create: method: *POST
+      op: list: method: *GET
+    }
+  }
+
+  entity: oss: {
+    path: "/quota/oss/{owner}/": {
+      rename: param: "owner": *"id"
+    }
+  }
+
+  entity: p2n: {
+    path: "/packages/{owner}/{repo}/upload/p2/": {
+    }
+  }
+
+  entity: p2n2: {
+    path: "/packages/{owner}/{repo}/validate-upload/p2/": {
+    }
+  }
+
+  entity: package: {
+    path: "/metrics/packages/{owner}/{repo}/": {
+      op: load: method: *GET
+    }
+    path: "/packages/{owner}/{repo}/": {
+      op: list: method: *GET
+    }
+    path: "/packages/{owner}/{repo}/groups/": {
+      op: list: method: *GET
+    }
+    path: "/packages/{owner}/{repo}/upload/alpine/": {
+      op: create: method: *POST
+    }
+    path: "/packages/{owner}/{repo}/upload/cargo/": {
+      op: create: method: *POST
+    }
+    path: "/packages/{owner}/{repo}/upload/cocoapods/": {
+      op: create: method: *POST
+    }
+    path: "/packages/{owner}/{repo}/upload/composer/": {
+      op: create: method: *POST
+    }
+    path: "/packages/{owner}/{repo}/upload/conan/": {
+      op: create: method: *POST
+    }
+    path: "/packages/{owner}/{repo}/upload/conda/": {
+      op: create: method: *POST
+    }
+    path: "/packages/{owner}/{repo}/upload/cran/": {
+      op: create: method: *POST
+    }
+    path: "/packages/{owner}/{repo}/upload/dart/": {
+      op: create: method: *POST
+    }
+    path: "/packages/{owner}/{repo}/upload/deb/": {
+      op: create: method: *POST
+    }
+    path: "/packages/{owner}/{repo}/upload/docker/": {
+      op: create: method: *POST
+    }
+    path: "/packages/{owner}/{repo}/upload/go/": {
+      op: create: method: *POST
+    }
+    path: "/packages/{owner}/{repo}/upload/helm/": {
+      op: create: method: *POST
+    }
+    path: "/packages/{owner}/{repo}/upload/hex/": {
+      op: create: method: *POST
+    }
+    path: "/packages/{owner}/{repo}/upload/huggingface/": {
+      op: create: method: *POST
+    }
+    path: "/packages/{owner}/{repo}/upload/luarocks/": {
+      op: create: method: *POST
+    }
+    path: "/packages/{owner}/{repo}/upload/maven/": {
+      op: create: method: *POST
+    }
+    path: "/packages/{owner}/{repo}/upload/npm/": {
+      op: create: method: *POST
+    }
+    path: "/packages/{owner}/{repo}/upload/nuget/": {
+      op: create: method: *POST
+    }
+    path: "/packages/{owner}/{repo}/upload/p2/": {
+      op: create: method: *POST
+    }
+    path: "/packages/{owner}/{repo}/upload/python/": {
+      op: create: method: *POST
+    }
+    path: "/packages/{owner}/{repo}/upload/raw/": {
+      op: create: method: *POST
+    }
+    path: "/packages/{owner}/{repo}/upload/rpm/": {
+      op: create: method: *POST
+    }
+    path: "/packages/{owner}/{repo}/upload/ruby/": {
+      op: create: method: *POST
+    }
+    path: "/packages/{owner}/{repo}/upload/swift/": {
+      op: create: method: *POST
+    }
+    path: "/packages/{owner}/{repo}/upload/terraform/": {
+      op: create: method: *POST
+    }
+    path: "/packages/{owner}/{repo}/upload/vagrant/": {
+      op: create: method: *POST
+    }
+    path: "/packages/{owner}/{repo}/validate-upload/alpine/": {
+      op: create: method: *POST
+    }
+    path: "/packages/{owner}/{repo}/validate-upload/cargo/": {
+      op: create: method: *POST
+    }
+    path: "/packages/{owner}/{repo}/validate-upload/cocoapods/": {
+      op: create: method: *POST
+    }
+    path: "/packages/{owner}/{repo}/validate-upload/composer/": {
+      op: create: method: *POST
+    }
+    path: "/packages/{owner}/{repo}/validate-upload/conan/": {
+      op: create: method: *POST
+    }
+    path: "/packages/{owner}/{repo}/validate-upload/conda/": {
+      op: create: method: *POST
+    }
+    path: "/packages/{owner}/{repo}/validate-upload/cran/": {
+      op: create: method: *POST
+    }
+    path: "/packages/{owner}/{repo}/validate-upload/dart/": {
+      op: create: method: *POST
+    }
+    path: "/packages/{owner}/{repo}/validate-upload/deb/": {
+      op: create: method: *POST
+    }
+    path: "/packages/{owner}/{repo}/validate-upload/docker/": {
+      op: create: method: *POST
+    }
+    path: "/packages/{owner}/{repo}/validate-upload/go/": {
+      op: create: method: *POST
+    }
+    path: "/packages/{owner}/{repo}/validate-upload/helm/": {
+      op: create: method: *POST
+    }
+    path: "/packages/{owner}/{repo}/validate-upload/hex/": {
+      op: create: method: *POST
+    }
+    path: "/packages/{owner}/{repo}/validate-upload/huggingface/": {
+      op: create: method: *POST
+    }
+    path: "/packages/{owner}/{repo}/validate-upload/luarocks/": {
+      op: create: method: *POST
+    }
+    path: "/packages/{owner}/{repo}/validate-upload/maven/": {
+      op: create: method: *POST
+    }
+    path: "/packages/{owner}/{repo}/validate-upload/npm/": {
+      op: create: method: *POST
+    }
+    path: "/packages/{owner}/{repo}/validate-upload/nuget/": {
+      op: create: method: *POST
+    }
+    path: "/packages/{owner}/{repo}/validate-upload/p2/": {
+      op: create: method: *POST
+    }
+    path: "/packages/{owner}/{repo}/validate-upload/python/": {
+      op: create: method: *POST
+    }
+    path: "/packages/{owner}/{repo}/validate-upload/raw/": {
+      op: create: method: *POST
+    }
+    path: "/packages/{owner}/{repo}/validate-upload/rpm/": {
+      op: create: method: *POST
+    }
+    path: "/packages/{owner}/{repo}/validate-upload/ruby/": {
+      op: create: method: *POST
+    }
+    path: "/packages/{owner}/{repo}/validate-upload/swift/": {
+      op: create: method: *POST
+    }
+    path: "/packages/{owner}/{repo}/validate-upload/terraform/": {
+      op: create: method: *POST
+    }
+    path: "/packages/{owner}/{repo}/validate-upload/vagrant/": {
+      op: create: method: *POST
+    }
+    path: "/packages/{owner}/{repo}/{identifier}/": {
+      op: list: method: *GET
+      op: remove: method: *DELETE
+    }
+    path: "/packages/{owner}/{repo}/{identifier}/copy/": {
+      op: create: method: *POST
+    }
+    path: "/packages/{owner}/{repo}/{identifier}/dependencies/": {
+      op: list: method: *GET
+    }
+    path: "/packages/{owner}/{repo}/{identifier}/move/": {
+      op: create: method: *POST
+    }
+    path: "/packages/{owner}/{repo}/{identifier}/quarantine/": {
+      op: create: method: *POST
+    }
+    path: "/packages/{owner}/{repo}/{identifier}/resync/": {
+      op: create: method: *POST
+    }
+    path: "/packages/{owner}/{repo}/{identifier}/scan/": {
+      op: create: method: *POST
+    }
+    path: "/packages/{owner}/{repo}/{identifier}/status/": {
+      op: load: method: *GET
+    }
+    path: "/packages/{owner}/{repo}/{identifier}/tag/": {
+      op: create: method: *POST
+    }
+  }
+
+  entity: package_deny_policy: {
+    path: "/orgs/{org}/deny-policy/": {
+      rename: param: "org": *"org_id"
+      op: create: method: *POST
+      op: list: method: *GET
+    }
+    path: "/orgs/{org}/deny-policy/{slug_perm}/": {
+      rename: param: "org": *"org_id"
+      rename: param: "slug_perm": *"id"
+      op: load: method: *GET
+      op: patch: method: *PATCH
+      op: update: method: *PUT
+    }
+  }
+
+  entity: package_file_parts_upload: {
+    path: "/files/{owner}/{repo}/{identifier}/info/": {
+      op: load: method: *GET
+    }
+  }
+
+  entity: package_file_upload: {
+    path: "/files/{owner}/{repo}/{identifier}/complete/": {
+      op: create: method: *POST
+    }
+  }
+
+  entity: package_license_policy_evaluation: {
+    path: "/orgs/{org}/license-policy/{policy_slug_perm}/evaluation/": {
+      rename: param: "org": *"org_id"
+      op: create: method: *POST
+      op: list: method: *GET
+    }
+    path: "/orgs/{org}/license-policy/{policy_slug_perm}/evaluation/{slug_perm}/": {
+      rename: param: "org": *"org_id"
+      rename: param: "policy_slug_perm": *"license_policy_id"
+      rename: param: "slug_perm": *"id"
+      op: load: method: *GET
+    }
+  }
+
+  entity: package_version_badge: {
+    path: "/badges/version/{owner}/{repo}/{package_format}/{package_name}/{package_version}/{package_identifiers}/": {
+      rename: param: "package_identifiers": *"package_identifier"
+      op: load: method: *GET
+    }
+  }
+
+  entity: package_vulnerability_policy_evaluation: {
+    path: "/orgs/{org}/vulnerability-policy/{policy_slug_perm}/evaluation/": {
+      rename: param: "org": *"org_id"
+      op: create: method: *POST
+      op: list: method: *GET
+    }
+    path: "/orgs/{org}/vulnerability-policy/{policy_slug_perm}/evaluation/{slug_perm}/": {
+      rename: param: "org": *"org_id"
+      rename: param: "policy_slug_perm": *"vulnerability_policy_id"
+      rename: param: "slug_perm": *"id"
+      op: load: method: *GET
+    }
+  }
+
+  entity: privilege: {
+    path: "/repos/{owner}/{identifier}/privileges": {
+    }
+  }
+
+  entity: profile: {
+    path: "/users/profile/{slug}/": {
+      rename: param: "slug": *"id"
+    }
+  }
+
+  entity: provider_setting: {
+    path: "/orgs/{org}/openid-connect/": {
+      rename: param: "org": *"org_id"
+      op: list: method: *GET
+    }
+    path: "/orgs/{org}/openid-connect/{slug_perm}/": {
+      rename: param: "org": *"org_id"
+      op: load: method: *GET
+    }
+  }
+
+  entity: provider_settings_write: {
+    path: "/orgs/{org}/openid-connect/": {
+      rename: param: "org": *"org_id"
+      op: create: method: *POST
+    }
+    path: "/orgs/{org}/openid-connect/{slug_perm}/": {
+      rename: param: "org": *"org_id"
+      op: patch: method: *PATCH
+      op: update: method: *PUT
+    }
+  }
+
+  entity: python: {
+    path: "/packages/{owner}/{repo}/upload/python/": {
+    }
+    path: "/packages/{owner}/{repo}/validate-upload/python/": {
+    }
+    path: "/repos/{owner}/{identifier}/upstream/python/": {
+      op: create: method: *POST
+      op: list: method: *GET
+    }
+    path: "/repos/{owner}/{identifier}/upstream/python/{slug_perm}/": {
+      rename: param: "slug_perm": *"id"
+      op: load: method: *GET
+      op: patch: method: *PATCH
+      op: update: method: *PUT
+    }
+  }
+
+  entity: quarantine: {
+    path: "/packages/{owner}/{repo}/{identifier}/quarantine/": {
+    }
+  }
+
+  entity: quota: {
+    path: "/quota/history/{owner}/": {
+      op: load: method: *GET
+    }
+    path: "/quota/oss/history/{owner}/": {
+      op: load: method: *GET
+    }
+    path: "/quota/oss/{owner}/": {
+      op: load: method: *GET
+    }
+    path: "/quota/{owner}/": {
+      rename: param: "owner": *"id"
+      op: load: method: *GET
+    }
+  }
+
+  entity: raw: {
+    path: "/packages/{owner}/{repo}/upload/raw/": {
+    }
+    path: "/packages/{owner}/{repo}/validate-upload/raw/": {
+    }
+  }
+
+  entity: refresh: {
+    path: "/entitlements/{owner}/{repo}/{identifier}/refresh/": {
+    }
+  }
+
+  entity: regenerate: {
+    path: "/repos/{owner}/{identifier}/ecdsa/regenerate/": {
+    }
+    path: "/repos/{owner}/{identifier}/gpg/regenerate/": {
+    }
+    path: "/repos/{owner}/{identifier}/rsa/regenerate/": {
+    }
+  }
+
+  entity: repo: {
+    path: "/repos/": {
+      op: list: method: *GET
+    }
+    path: "/repos/{owner}/": {
+      rename: param: "owner": *"id"
+      op: create: method: *POST
+      op: load: method: *GET
+    }
+    path: "/repos/{owner}/{identifier}/": {
+      op: list: method: *GET
+      op: patch: method: *PATCH
+      op: remove: method: *DELETE
+    }
+    path: "/repos/{owner}/{identifier}/geoip/disable/": {
+      op: create: method: *POST
+    }
+    path: "/repos/{owner}/{identifier}/geoip/enable/": {
+      op: create: method: *POST
+    }
+    path: "/repos/{owner}/{identifier}/privileges": {
+      op: patch: method: *PATCH
+      op: update: method: *PUT
+    }
+    path: "/repos/{owner}/{identifier}/upstream/cargo/{slug_perm}/": {
+      op: remove: method: *DELETE
+    }
+    path: "/repos/{owner}/{identifier}/upstream/composer/{slug_perm}/": {
+      op: remove: method: *DELETE
+    }
+    path: "/repos/{owner}/{identifier}/upstream/conda/{slug_perm}/": {
+      op: remove: method: *DELETE
+    }
+    path: "/repos/{owner}/{identifier}/upstream/cran/{slug_perm}/": {
+      op: remove: method: *DELETE
+    }
+    path: "/repos/{owner}/{identifier}/upstream/dart/{slug_perm}/": {
+      op: remove: method: *DELETE
+    }
+    path: "/repos/{owner}/{identifier}/upstream/deb/{slug_perm}/": {
+      op: remove: method: *DELETE
+    }
+    path: "/repos/{owner}/{identifier}/upstream/docker/{slug_perm}/": {
+      op: remove: method: *DELETE
+    }
+    path: "/repos/{owner}/{identifier}/upstream/go/{slug_perm}/": {
+      op: remove: method: *DELETE
+    }
+    path: "/repos/{owner}/{identifier}/upstream/helm/{slug_perm}/": {
+      op: remove: method: *DELETE
+    }
+    path: "/repos/{owner}/{identifier}/upstream/hex/{slug_perm}/": {
+      op: remove: method: *DELETE
+    }
+    path: "/repos/{owner}/{identifier}/upstream/huggingface/{slug_perm}/": {
+      op: remove: method: *DELETE
+    }
+    path: "/repos/{owner}/{identifier}/upstream/maven/{slug_perm}/": {
+      op: remove: method: *DELETE
+    }
+    path: "/repos/{owner}/{identifier}/upstream/npm/{slug_perm}/": {
+      op: remove: method: *DELETE
+    }
+    path: "/repos/{owner}/{identifier}/upstream/nuget/{slug_perm}/": {
+      op: remove: method: *DELETE
+    }
+    path: "/repos/{owner}/{identifier}/upstream/python/{slug_perm}/": {
+      op: remove: method: *DELETE
+    }
+    path: "/repos/{owner}/{identifier}/upstream/rpm/{slug_perm}/": {
+      op: remove: method: *DELETE
+    }
+    path: "/repos/{owner}/{identifier}/upstream/ruby/{slug_perm}/": {
+      op: remove: method: *DELETE
+    }
+    path: "/repos/{owner}/{identifier}/upstream/swift/{slug_perm}/": {
+      op: remove: method: *DELETE
+    }
+    path: "/repos/{owner}/{repo}/transfer-region/": {
+      action: "transfer_region": {}
+      op: create: method: *POST
+    }
+  }
+
+  entity: repository_audit_log: {
+    path: "/audit-log/{owner}/{repo}/": {
+      op: list: method: *GET
+    }
+  }
+
+  entity: repository_ecdsa_key: {
+    path: "/repos/{owner}/{identifier}/ecdsa/": {
+      op: create: method: *POST
+      op: load: method: *GET
+    }
+    path: "/repos/{owner}/{identifier}/ecdsa/regenerate/": {
+      op: create: method: *POST
+    }
+  }
+
+  entity: repository_geo_ip_rule: {
+    path: "/repos/{owner}/{identifier}/geoip": {
+      op: load: method: *GET
+      op: patch: method: *PATCH
+      op: update: method: *PUT
+    }
+  }
+
+  entity: repository_geo_ip_status: {
+    path: "/repos/{owner}/{identifier}/geoip/status/": {
+      op: load: method: *GET
+    }
+  }
+
+  entity: repository_geo_ip_test_address: {
+    path: "/repos/{owner}/{identifier}/geoip/test/": {
+      op: create: method: *POST
+    }
+  }
+
+  entity: repository_gpg_key: {
+    path: "/repos/{owner}/{identifier}/gpg/": {
+      op: create: method: *POST
+      op: load: method: *GET
+    }
+    path: "/repos/{owner}/{identifier}/gpg/regenerate/": {
+      op: create: method: *POST
+    }
+  }
+
+  entity: repository_privilege_input: {
+    path: "/repos/{owner}/{identifier}/privileges": {
+      op: list: method: *GET
+    }
+  }
+
+  entity: repository_retention_rule: {
+    path: "/repos/{owner}/{repo}/retention/": {
+      op: load: method: *GET
+      op: patch: method: *PATCH
+    }
+  }
+
+  entity: repository_rsa_key: {
+    path: "/repos/{owner}/{identifier}/rsa/": {
+      op: create: method: *POST
+      op: load: method: *GET
+    }
+    path: "/repos/{owner}/{identifier}/rsa/regenerate/": {
+      op: create: method: *POST
+    }
+  }
+
+  entity: repository_token: {
+    path: "/entitlements/{owner}/{repo}/": {
+      op: create: method: *POST
+      op: list: method: *GET
+    }
+    path: "/entitlements/{owner}/{repo}/{identifier}/": {
+      op: load: method: *GET
+      op: patch: method: *PATCH
+    }
+  }
+
+  entity: repository_token_refresh: {
+    path: "/entitlements/{owner}/{repo}/{identifier}/refresh/": {
+      op: create: method: *POST
+    }
+  }
+
+  entity: repository_token_sync: {
+    path: "/entitlements/{owner}/{repo}/sync/": {
+      op: create: method: *POST
+    }
+  }
+
+  entity: repository_webhook: {
+    path: "/webhooks/{owner}/{repo}/": {
+      op: create: method: *POST
+      op: list: method: *GET
+    }
+    path: "/webhooks/{owner}/{repo}/{identifier}/": {
+      op: list: method: *GET
+      op: patch: method: *PATCH
+    }
+  }
+
+  entity: repository_x509_ecdsa_certificate: {
+    path: "/repos/{owner}/{identifier}/x509-ecdsa/": {
+      op: load: method: *GET
+    }
+  }
+
+  entity: repository_x509_rsa_certificate: {
+    path: "/repos/{owner}/{identifier}/x509-rsa/": {
+      op: load: method: *GET
+    }
+  }
+
+  entity: reset: {
+    path: "/entitlements/{owner}/{repo}/{identifier}/reset/": {
+    }
+  }
+
+  entity: resources_rate_check: {
+    path: "/rates/limits/": {
+      op: load: method: *GET
+    }
+  }
+
+  entity: resync: {
+    path: "/packages/{owner}/{repo}/{identifier}/resync/": {
+    }
+  }
+
+  entity: retention: {
+    path: "/repos/{owner}/{repo}/retention/": {
+    }
+  }
+
+  entity: rpm: {
+    path: "/packages/{owner}/{repo}/upload/rpm/": {
+    }
+    path: "/packages/{owner}/{repo}/validate-upload/rpm/": {
+    }
+    path: "/repos/{owner}/{identifier}/upstream/rpm/": {
+      op: create: method: *POST
+      op: list: method: *GET
+    }
+    path: "/repos/{owner}/{identifier}/upstream/rpm/{slug_perm}/": {
+      rename: param: "slug_perm": *"id"
+      op: load: method: *GET
+      op: patch: method: *PATCH
+      op: update: method: *PUT
+    }
+  }
+
+  entity: rsa: {
+    path: "/repos/{owner}/{identifier}/rsa/": {
+    }
+  }
+
+  entity: ruby: {
+    path: "/packages/{owner}/{repo}/upload/ruby/": {
+    }
+    path: "/packages/{owner}/{repo}/validate-upload/ruby/": {
+    }
+    path: "/repos/{owner}/{identifier}/upstream/ruby/": {
+      op: create: method: *POST
+      op: list: method: *GET
+    }
+    path: "/repos/{owner}/{identifier}/upstream/ruby/{slug_perm}/": {
+      rename: param: "slug_perm": *"id"
+      op: load: method: *GET
+      op: patch: method: *PATCH
+      op: update: method: *PUT
+    }
+  }
+
+  entity: saml_group_sync: {
+    path: "/orgs/{org}/saml-group-sync/{slug_perm}/": {
+      rename: param: "org": *"org_id"
+      rename: param: "slug_perm": *"id"
+    }
+  }
+
+  entity: scan: {
+    path: "/packages/{owner}/{repo}/{identifier}/scan/": {
+    }
+  }
+
+  entity: self: {
+    path: "/user/self/": {
+    }
+  }
+
+  entity: service: {
+    path: "/orgs/{org}/services/": {
+      rename: param: "org": *"org_id"
+      op: create: method: *POST
+      op: list: method: *GET
+    }
+    path: "/orgs/{org}/services/{service}/": {
+      rename: param: "org": *"org_id"
+      rename: param: "service": *"id"
+      op: load: method: *GET
+      op: patch: method: *PATCH
+    }
+    path: "/orgs/{org}/services/{service}/refresh/": {
+      action: "refresh": {}
+      rename: param: "org": *"org_id"
+      rename: param: "service": *"id"
+      op: create: method: *POST
+    }
+  }
+
+  entity: status: {
+    path: "/orgs/{org}/saml-group-sync/status/": {
+      rename: param: "org": *"org_id"
+    }
+    path: "/packages/{owner}/{repo}/{identifier}/status/": {
+    }
+    path: "/repos/{owner}/{identifier}/geoip/status/": {
+    }
+  }
+
+  entity: status_basic: {
+    path: "/status/check/basic/": {
+      op: load: method: *GET
+    }
+  }
+
+  entity: storage_region: {
+    path: "/storage-regions/": {
+      op: list: method: *GET
+    }
+    path: "/storage-regions/{slug}/": {
+      rename: param: "slug": *"id"
+      op: load: method: *GET
+    }
+  }
+
+  entity: swift: {
+    path: "/packages/{owner}/{repo}/upload/swift/": {
+    }
+    path: "/packages/{owner}/{repo}/validate-upload/swift/": {
+    }
+    path: "/repos/{owner}/{identifier}/upstream/swift/": {
+      op: create: method: *POST
+      op: list: method: *GET
+    }
+    path: "/repos/{owner}/{identifier}/upstream/swift/{slug_perm}/": {
+      rename: param: "slug_perm": *"id"
+      op: load: method: *GET
+      op: patch: method: *PATCH
+      op: update: method: *PUT
+    }
+  }
+
+  entity: sync: {
+    path: "/entitlements/{owner}/{repo}/sync/": {
+    }
+  }
+
+  entity: tag: {
+    path: "/packages/{owner}/{repo}/{identifier}/tag/": {
+    }
+  }
+
+  entity: team: {
+    path: "/orgs/{org}/teams/{team}/": {
+      rename: param: "org": *"org_id"
+      rename: param: "team": *"id"
+    }
+    path: "/orgs/{org}/teams/{team}/members": {
+      action: "member": {}
+      rename: param: "org": *"org_id"
+      rename: param: "team": *"id"
+    }
+  }
+
+  entity: terraform: {
+    path: "/packages/{owner}/{repo}/upload/terraform/": {
+    }
+    path: "/packages/{owner}/{repo}/validate-upload/terraform/": {
+    }
+  }
+
+  entity: test: {
+    path: "/repos/{owner}/{identifier}/geoip/test/": {
+    }
+  }
+
+  entity: token: {
+    path: "/user/token/": {
+    }
+    path: "/user/tokens/": {
+    }
+    path: "/user/tokens/{slug_perm}/refresh/": {
+      action: "refresh": {}
+    }
+  }
+
+  entity: transfer_region: {
+    path: "/repos/{owner}/{repo}/transfer-region/": {
+    }
+  }
+
+  entity: user: {
+    path: "/user/tokens/": {
+      action: "token": {}
+      op: list: method: *GET
+    }
+  }
+
+  entity: user_auth_token: {
+    path: "/user/token/": {
+      op: create: method: *POST
+    }
+  }
+
+  entity: user_authentication_token: {
+    path: "/user/tokens/": {
+      op: create: method: *POST
+    }
+    path: "/user/tokens/{slug_perm}/refresh/": {
+      op: update: method: *PUT
+    }
+  }
+
+  entity: user_brief: {
+    path: "/user/self/": {
+      op: load: method: *GET
+    }
+  }
+
+  entity: user_profile: {
+    path: "/users/profile/{slug}/": {
+      rename: param: "slug": *"id"
+      op: load: method: *GET
+    }
+  }
+
+  entity: vagrant: {
+    path: "/packages/{owner}/{repo}/upload/vagrant/": {
+    }
+    path: "/packages/{owner}/{repo}/validate-upload/vagrant/": {
+    }
+  }
+
+  entity: validate: {
+    path: "/files/{owner}/{repo}/validate/": {
+    }
+  }
+
+  entity: version: {
+    path: "/badges/version/{owner}/{repo}/{package_format}/{package_name}/{package_version}/{package_identifiers}/": {
+      rename: param: "package_identifiers": *"package_identifier"
+    }
+  }
+
+  entity: vulnerability: {
+    path: "/vulnerabilities/{owner}/": {
+      rename: param: "owner": *"id"
+      op: load: method: *GET
+    }
+    path: "/vulnerabilities/{owner}/{repo}/": {
+      op: list: method: *GET
+    }
+    path: "/vulnerabilities/{owner}/{repo}/{package}/": {
+      op: list: method: *GET
+    }
+    path: "/vulnerabilities/{owner}/{repo}/{package}/{identifier}/": {
+      op: list: method: *GET
+    }
+  }
+
+  entity: vulnerability_policy: {
+    path: "/orgs/{org}/vulnerability-policy/{policy_slug_perm}/evaluation/": {
+      action: "evaluation": {}
+      rename: param: "org": *"org_id"
+    }
+    path: "/orgs/{org}/vulnerability-policy/{slug_perm}/": {
+      rename: param: "org": *"org_id"
+      rename: param: "slug_perm": *"id"
+    }
+  }
+
+  entity: webhook: {
+    path: "/webhooks/{owner}/{repo}/": {
+    }
+    path: "/webhooks/{owner}/{repo}/{identifier}/": {
+      op: remove: method: *DELETE
+    }
+  }
+
+  entity: x509_ecdsa: {
+    path: "/repos/{owner}/{identifier}/x509-ecdsa/": {
+    }
+  }
+
+  entity: x509_rsa: {
+    path: "/repos/{owner}/{identifier}/x509-rsa/": {
+    }
+  }
+
+}

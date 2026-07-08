@@ -1,0 +1,18 @@
+# Entity: alpine
+
+main: kit: entity: alpine: {
+
+  alias: field: {}
+
+  name: "alpine"
+  relations: {
+    ancestors: [
+      [
+        "package"
+      ]
+    ]
+  }
+
+
+
+}

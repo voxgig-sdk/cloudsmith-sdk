@@ -1,0 +1,14 @@
+{
+  "existing": {
+    "x509_ecdsa": {
+      "X509_ECDSA00": {},
+      "X509_ECDSA01": {},
+      "X509_ECDSA02": {}
+    }
+  },
+  "new": {
+    "x509_ecdsa": {
+      "x509_ecdsa_ref01": {}
+    }
+  }
+}

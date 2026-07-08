@@ -1,0 +1,26 @@
+{
+  "existing": {
+    "gon5": {
+      "GON500": {
+        "identifier": "IDENTIFIER01",
+        "owner": "OWNER01",
+        "id": "GON500"
+      },
+      "GON501": {
+        "identifier": "IDENTIFIER01",
+        "owner": "OWNER01",
+        "id": "GON501"
+      },
+      "GON502": {
+        "identifier": "IDENTIFIER01",
+        "owner": "OWNER01",
+        "id": "GON502"
+      }
+    }
+  },
+  "new": {
+    "gon5": {
+      "gon5_ref01": {}
+    }
+  }
+}

@@ -1,0 +1,9 @@
+# BasicTransferRegionFlow
+
+main: kit: flow: BasicTransferRegionFlow:
+{
+  entity: "transfer_region",
+  kind: "basic",
+  name: "BasicTransferRegionFlow",
+  "key$": "BasicTransferRegionFlow"
+}

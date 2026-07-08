@@ -1,0 +1,9 @@
+# BasicQuarantineFlow
+
+main: kit: flow: BasicQuarantineFlow:
+{
+  entity: "quarantine",
+  kind: "basic",
+  name: "BasicQuarantineFlow",
+  "key$": "BasicQuarantineFlow"
+}

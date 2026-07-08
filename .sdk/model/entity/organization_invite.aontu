@@ -1,0 +1,239 @@
+# Entity: organization_invite
+
+main: kit: entity: organization_invite: {
+
+  alias: field: {}
+
+  fields: [
+    {
+      name: "email"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "expires_at"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "inviter"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "inviter_url"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "org"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "role"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "slug_perm"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "team"
+      req: false
+      type: "`$ARRAY`"
+    }
+    {
+      name: "user"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "user_url"
+      req: false
+      type: "`$STRING`"
+    }
+  ]
+
+  name: "organization_invite"
+  op: {
+    create: {
+      name: "create"
+      points: [
+        {
+          args: {
+            params: [
+              {
+                kind: "param"
+                name: "org_id"
+                orig: "org"
+                reqd: true
+                type: "`$STRING`"
+              }
+            ]
+            query: [
+              {
+                kind: "query"
+                name: "data"
+                orig: "data"
+                reqd: false
+                type: "`$OBJECT`"
+              }
+            ]
+          }
+          method: "POST"
+          orig: "/orgs/{org}/invites/"
+          parts: [
+            "orgs"
+            "{org_id}"
+            "invites"
+          ]
+          rename: {
+            param: {
+              org: "org_id"
+            }
+          }
+          select: {
+            exist: [
+              "data"
+              "org_id"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+    list: {
+      name: "list"
+      points: [
+        {
+          args: {
+            params: [
+              {
+                kind: "param"
+                name: "org_id"
+                orig: "org"
+                reqd: true
+                type: "`$STRING`"
+              }
+            ]
+            query: [
+              {
+                kind: "query"
+                name: "page"
+                orig: "page"
+                reqd: false
+                type: "`$INTEGER`"
+              }
+              {
+                kind: "query"
+                name: "page_size"
+                orig: "page_size"
+                reqd: false
+                type: "`$INTEGER`"
+              }
+            ]
+          }
+          method: "GET"
+          orig: "/orgs/{org}/invites/"
+          parts: [
+            "orgs"
+            "{org_id}"
+            "invites"
+          ]
+          rename: {
+            param: {
+              org: "org_id"
+            }
+          }
+          select: {
+            exist: [
+              "org_id"
+              "page"
+              "page_size"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+    update: {
+      name: "update"
+      points: [
+        {
+          args: {
+            params: [
+              {
+                kind: "param"
+                name: "id"
+                orig: "slug_perm"
+                reqd: true
+                type: "`$STRING`"
+              }
+              {
+                kind: "param"
+                name: "org_id"
+                orig: "org"
+                reqd: true
+                type: "`$STRING`"
+              }
+            ]
+            query: [
+              {
+                kind: "query"
+                name: "data"
+                orig: "data"
+                reqd: false
+                type: "`$OBJECT`"
+              }
+            ]
+          }
+          method: "PATCH"
+          orig: "/orgs/{org}/invites/{slug_perm}/"
+          parts: [
+            "orgs"
+            "{org_id}"
+            "invites"
+            "{id}"
+          ]
+          rename: {
+            param: {
+              org: "org_id"
+              slug_perm: "id"
+            }
+          }
+          select: {
+            exist: [
+              "data"
+              "id"
+              "org_id"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+  }
+
+  relations: {
+    ancestors: [
+      [
+        "org"
+      ]
+    ]
+  }
+
+
+
+}

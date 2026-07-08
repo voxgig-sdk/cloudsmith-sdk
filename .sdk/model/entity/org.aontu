@@ -1,0 +1,942 @@
+# Entity: org
+
+main: kit: entity: org: {
+
+  alias: field: {}
+
+  fields: [
+    {
+      name: "country"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "created_at"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "event_at"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "location"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "name"
+      req: true
+      type: "`$STRING`"
+    }
+    {
+      name: "package"
+      req: true
+      type: "`$OBJECT`"
+    }
+    {
+      name: "policy"
+      req: true
+      type: "`$OBJECT`"
+    }
+    {
+      name: "reason"
+      req: true
+      type: "`$ARRAY`"
+    }
+    {
+      name: "slug"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "slug_perm"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "tagline"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "vulnerability_scan_result"
+      req: true
+      type: "`$OBJECT`"
+    }
+  ]
+
+  name: "org"
+  op: {
+    create: {
+      name: "create"
+      points: [
+        {
+          args: {
+            params: [
+              {
+                kind: "param"
+                name: "id"
+                orig: "org"
+                reqd: true
+                type: "`$STRING`"
+              }
+              {
+                kind: "param"
+                name: "member_id"
+                orig: "member"
+                reqd: true
+                type: "`$STRING`"
+              }
+            ]
+          }
+          method: "POST"
+          orig: "/orgs/{org}/members/{member}/refresh/"
+          parts: [
+            "orgs"
+            "{id}"
+            "members"
+            "{member_id}"
+            "refresh"
+          ]
+          rename: {
+            param: {
+              member: "member_id"
+              org: "id"
+            }
+          }
+          select: {
+            exist: [
+              "id"
+              "member_id"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          args: {
+            params: [
+              {
+                kind: "param"
+                name: "id"
+                orig: "org"
+                reqd: true
+                type: "`$STRING`"
+              }
+            ]
+          }
+          method: "POST"
+          orig: "/orgs/{org}/saml-group-sync/disable/"
+          parts: [
+            "orgs"
+            "{id}"
+            "saml-group-sync"
+            "disable"
+          ]
+          rename: {
+            param: {
+              org: "id"
+            }
+          }
+          select: {
+            exist: [
+              "id"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          args: {
+            params: [
+              {
+                kind: "param"
+                name: "id"
+                orig: "org"
+                reqd: true
+                type: "`$STRING`"
+              }
+            ]
+          }
+          method: "POST"
+          orig: "/orgs/{org}/saml-group-sync/enable/"
+          parts: [
+            "orgs"
+            "{id}"
+            "saml-group-sync"
+            "enable"
+          ]
+          rename: {
+            param: {
+              org: "id"
+            }
+          }
+          select: {
+            exist: [
+              "id"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+    list: {
+      name: "list"
+      points: [
+        {
+          args: {
+            params: [
+              {
+                kind: "param"
+                name: "id"
+                orig: "org"
+                reqd: true
+                type: "`$STRING`"
+              }
+            ]
+            query: [
+              {
+                kind: "query"
+                name: "cursor"
+                orig: "cursor"
+                reqd: false
+                type: "`$ANY`"
+              }
+              {
+                kind: "query"
+                name: "page_size"
+                orig: "page_size"
+                reqd: false
+                type: "`$INTEGER`"
+              }
+            ]
+          }
+          method: "GET"
+          orig: "/orgs/{org}/license-policy-violation/"
+          parts: [
+            "orgs"
+            "{id}"
+            "license-policy-violation"
+          ]
+          rename: {
+            param: {
+              org: "id"
+            }
+          }
+          select: {
+            "$action": "license_policy_violation"
+            exist: [
+              "cursor"
+              "id"
+              "page_size"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          args: {
+            params: [
+              {
+                kind: "param"
+                name: "id"
+                orig: "org"
+                reqd: true
+                type: "`$STRING`"
+              }
+            ]
+            query: [
+              {
+                kind: "query"
+                name: "cursor"
+                orig: "cursor"
+                reqd: false
+                type: "`$ANY`"
+              }
+              {
+                kind: "query"
+                name: "page_size"
+                orig: "page_size"
+                reqd: false
+                type: "`$INTEGER`"
+              }
+            ]
+          }
+          method: "GET"
+          orig: "/orgs/{org}/vulnerability-policy-violation/"
+          parts: [
+            "orgs"
+            "{id}"
+            "vulnerability-policy-violation"
+          ]
+          rename: {
+            param: {
+              org: "id"
+            }
+          }
+          select: {
+            "$action": "vulnerability_policy_violation"
+            exist: [
+              "cursor"
+              "id"
+              "page_size"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          args: {
+            query: [
+              {
+                kind: "query"
+                name: "page"
+                orig: "page"
+                reqd: false
+                type: "`$INTEGER`"
+              }
+              {
+                kind: "query"
+                name: "page_size"
+                orig: "page_size"
+                reqd: false
+                type: "`$INTEGER`"
+              }
+            ]
+          }
+          method: "GET"
+          orig: "/orgs/"
+          parts: [
+            "orgs"
+          ]
+          select: {
+            exist: [
+              "page"
+              "page_size"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+    load: {
+      name: "load"
+      points: [
+        {
+          args: {
+            params: [
+              {
+                kind: "param"
+                name: "id"
+                orig: "org"
+                reqd: true
+                type: "`$STRING`"
+              }
+              {
+                kind: "param"
+                name: "member_id"
+                orig: "member"
+                reqd: true
+                type: "`$STRING`"
+              }
+            ]
+          }
+          method: "GET"
+          orig: "/orgs/{org}/members/{member}/remove/"
+          parts: [
+            "orgs"
+            "{id}"
+            "members"
+            "{member_id}"
+            "remove"
+          ]
+          rename: {
+            param: {
+              member: "member_id"
+              org: "id"
+            }
+          }
+          select: {
+            exist: [
+              "id"
+              "member_id"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          args: {
+            params: [
+              {
+                kind: "param"
+                name: "id"
+                orig: "org"
+                reqd: true
+                type: "`$STRING`"
+              }
+            ]
+          }
+          method: "GET"
+          orig: "/orgs/{org}/"
+          parts: [
+            "orgs"
+            "{id}"
+          ]
+          rename: {
+            param: {
+              org: "id"
+            }
+          }
+          select: {
+            exist: [
+              "id"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+    remove: {
+      name: "remove"
+      points: [
+        {
+          args: {
+            params: [
+              {
+                kind: "param"
+                name: "id"
+                orig: "org"
+                reqd: true
+                type: "`$STRING`"
+              }
+              {
+                kind: "param"
+                name: "member"
+                orig: "member"
+                reqd: true
+                type: "`$ANY`"
+              }
+            ]
+          }
+          method: "DELETE"
+          orig: "/orgs/{org}/members/{member}/"
+          parts: [
+            "orgs"
+            "{id}"
+            "members"
+            "{member}"
+          ]
+          rename: {
+            param: {
+              org: "id"
+            }
+          }
+          select: {
+            exist: [
+              "id"
+              "member"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          args: {
+            params: [
+              {
+                kind: "param"
+                name: "id"
+                orig: "org"
+                reqd: true
+                type: "`$STRING`"
+              }
+              {
+                kind: "param"
+                name: "service"
+                orig: "service"
+                reqd: true
+                type: "`$ANY`"
+              }
+            ]
+          }
+          method: "DELETE"
+          orig: "/orgs/{org}/services/{service}/"
+          parts: [
+            "orgs"
+            "{id}"
+            "services"
+            "{service}"
+          ]
+          rename: {
+            param: {
+              org: "id"
+            }
+          }
+          select: {
+            exist: [
+              "id"
+              "service"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          args: {
+            params: [
+              {
+                kind: "param"
+                name: "id"
+                orig: "org"
+                reqd: true
+                type: "`$STRING`"
+              }
+              {
+                kind: "param"
+                name: "slug_perm"
+                orig: "slug_perm"
+                reqd: true
+                type: "`$ANY`"
+              }
+            ]
+          }
+          method: "DELETE"
+          orig: "/orgs/{org}/deny-policy/{slug_perm}/"
+          parts: [
+            "orgs"
+            "{id}"
+            "deny-policy"
+            "{slug_perm}"
+          ]
+          rename: {
+            param: {
+              org: "id"
+            }
+          }
+          select: {
+            exist: [
+              "id"
+              "slug_perm"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          args: {
+            params: [
+              {
+                kind: "param"
+                name: "id"
+                orig: "org"
+                reqd: true
+                type: "`$STRING`"
+              }
+              {
+                kind: "param"
+                name: "slug_perm"
+                orig: "slug_perm"
+                reqd: true
+                type: "`$ANY`"
+              }
+            ]
+          }
+          method: "DELETE"
+          orig: "/orgs/{org}/invites/{slug_perm}/"
+          parts: [
+            "orgs"
+            "{id}"
+            "invites"
+            "{slug_perm}"
+          ]
+          rename: {
+            param: {
+              org: "id"
+            }
+          }
+          select: {
+            exist: [
+              "id"
+              "slug_perm"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          args: {
+            params: [
+              {
+                kind: "param"
+                name: "id"
+                orig: "org"
+                reqd: true
+                type: "`$STRING`"
+              }
+              {
+                kind: "param"
+                name: "slug_perm"
+                orig: "slug_perm"
+                reqd: true
+                type: "`$ANY`"
+              }
+            ]
+          }
+          method: "DELETE"
+          orig: "/orgs/{org}/license-policy/{slug_perm}/"
+          parts: [
+            "orgs"
+            "{id}"
+            "license-policy"
+            "{slug_perm}"
+          ]
+          rename: {
+            param: {
+              org: "id"
+            }
+          }
+          select: {
+            exist: [
+              "id"
+              "slug_perm"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          args: {
+            params: [
+              {
+                kind: "param"
+                name: "id"
+                orig: "org"
+                reqd: true
+                type: "`$STRING`"
+              }
+              {
+                kind: "param"
+                name: "slug_perm"
+                orig: "slug_perm"
+                reqd: true
+                type: "`$ANY`"
+              }
+            ]
+          }
+          method: "DELETE"
+          orig: "/orgs/{org}/openid-connect/{slug_perm}/"
+          parts: [
+            "orgs"
+            "{id}"
+            "openid-connect"
+            "{slug_perm}"
+          ]
+          rename: {
+            param: {
+              org: "id"
+            }
+          }
+          select: {
+            exist: [
+              "id"
+              "slug_perm"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          args: {
+            params: [
+              {
+                kind: "param"
+                name: "id"
+                orig: "org"
+                reqd: true
+                type: "`$STRING`"
+              }
+              {
+                kind: "param"
+                name: "slug_perm"
+                orig: "slug_perm"
+                reqd: true
+                type: "`$ANY`"
+              }
+            ]
+          }
+          method: "DELETE"
+          orig: "/orgs/{org}/saml-group-sync/{slug_perm}/"
+          parts: [
+            "orgs"
+            "{id}"
+            "saml-group-sync"
+            "{slug_perm}"
+          ]
+          rename: {
+            param: {
+              org: "id"
+            }
+          }
+          select: {
+            exist: [
+              "id"
+              "slug_perm"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          args: {
+            params: [
+              {
+                kind: "param"
+                name: "id"
+                orig: "org"
+                reqd: true
+                type: "`$STRING`"
+              }
+              {
+                kind: "param"
+                name: "slug_perm"
+                orig: "slug_perm"
+                reqd: true
+                type: "`$ANY`"
+              }
+            ]
+          }
+          method: "DELETE"
+          orig: "/orgs/{org}/vulnerability-policy/{slug_perm}/"
+          parts: [
+            "orgs"
+            "{id}"
+            "vulnerability-policy"
+            "{slug_perm}"
+          ]
+          rename: {
+            param: {
+              org: "id"
+            }
+          }
+          select: {
+            exist: [
+              "id"
+              "slug_perm"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          args: {
+            params: [
+              {
+                kind: "param"
+                name: "id"
+                orig: "org"
+                reqd: true
+                type: "`$STRING`"
+              }
+              {
+                kind: "param"
+                name: "team"
+                orig: "team"
+                reqd: true
+                type: "`$ANY`"
+              }
+            ]
+          }
+          method: "DELETE"
+          orig: "/orgs/{org}/teams/{team}/"
+          parts: [
+            "orgs"
+            "{id}"
+            "teams"
+            "{team}"
+          ]
+          rename: {
+            param: {
+              org: "id"
+            }
+          }
+          select: {
+            exist: [
+              "id"
+              "team"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          args: {
+            params: [
+              {
+                kind: "param"
+                name: "id"
+                orig: "org"
+                reqd: true
+                type: "`$STRING`"
+              }
+            ]
+          }
+          method: "DELETE"
+          orig: "/orgs/{org}/"
+          parts: [
+            "orgs"
+            "{id}"
+          ]
+          rename: {
+            param: {
+              org: "id"
+            }
+          }
+          select: {
+            exist: [
+              "id"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+    update: {
+      name: "update"
+      points: [
+        {
+          args: {
+            params: [
+              {
+                kind: "param"
+                name: "id"
+                orig: "org"
+                reqd: true
+                type: "`$STRING`"
+              }
+              {
+                kind: "param"
+                name: "team_id"
+                orig: "team"
+                reqd: true
+                type: "`$STRING`"
+              }
+            ]
+            query: [
+              {
+                kind: "query"
+                name: "data"
+                orig: "data"
+                reqd: false
+                type: "`$OBJECT`"
+              }
+            ]
+          }
+          method: "PUT"
+          orig: "/orgs/{org}/teams/{team}/members"
+          parts: [
+            "orgs"
+            "{id}"
+            "teams"
+            "{team_id}"
+            "members"
+          ]
+          rename: {
+            param: {
+              org: "id"
+              team: "team_id"
+            }
+          }
+          select: {
+            exist: [
+              "data"
+              "id"
+              "team_id"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+  }
+
+  relations: {
+    ancestors: [
+      [
+        "deny_policy"
+      ]
+      [
+        "invite"
+      ]
+      [
+        "license_policy"
+      ]
+      [
+        "member"
+      ]
+      [
+        "openid_connect"
+      ]
+      [
+        "saml_group_sync"
+      ]
+      [
+        "service"
+      ]
+      [
+        "team"
+      ]
+      [
+        "vulnerability_policy"
+      ]
+    ]
+  }
+
+
+
+}

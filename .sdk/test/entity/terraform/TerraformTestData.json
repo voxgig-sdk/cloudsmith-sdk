@@ -1,0 +1,14 @@
+{
+  "existing": {
+    "terraform": {
+      "TERRAFORM00": {},
+      "TERRAFORM01": {},
+      "TERRAFORM02": {}
+    }
+  },
+  "new": {
+    "terraform": {
+      "terraform_ref01": {}
+    }
+  }
+}

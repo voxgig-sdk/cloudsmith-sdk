@@ -1,0 +1,14 @@
+{
+  "existing": {
+    "move": {
+      "MOVE00": {},
+      "MOVE01": {},
+      "MOVE02": {}
+    }
+  },
+  "new": {
+    "move": {
+      "move_ref01": {}
+    }
+  }
+}

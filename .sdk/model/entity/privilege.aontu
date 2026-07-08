@@ -1,0 +1,18 @@
+# Entity: privilege
+
+main: kit: entity: privilege: {
+
+  alias: field: {}
+
+  name: "privilege"
+  relations: {
+    ancestors: [
+      [
+        "repo"
+      ]
+    ]
+  }
+
+
+
+}

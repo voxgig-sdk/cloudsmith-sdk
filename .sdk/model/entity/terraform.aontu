@@ -1,0 +1,18 @@
+# Entity: terraform
+
+main: kit: entity: terraform: {
+
+  alias: field: {}
+
+  name: "terraform"
+  relations: {
+    ancestors: [
+      [
+        "package"
+      ]
+    ]
+  }
+
+
+
+}

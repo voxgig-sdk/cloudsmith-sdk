@@ -1,0 +1,14 @@
+{
+  "existing": {
+    "license_policy": {
+      "LICENSE_POLICY00": {},
+      "LICENSE_POLICY01": {},
+      "LICENSE_POLICY02": {}
+    }
+  },
+  "new": {
+    "license_policy": {
+      "license_policy_ref01": {}
+    }
+  }
+}

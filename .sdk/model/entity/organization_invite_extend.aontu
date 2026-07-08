@@ -1,0 +1,168 @@
+# Entity: organization_invite_extend
+
+main: kit: entity: organization_invite_extend: {
+
+  alias: field: {}
+
+  fields: [
+    {
+      name: "email"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "expires_at"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "inviter"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "inviter_url"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "org"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "role"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "slug_perm"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "team"
+      req: false
+      type: "`$ARRAY`"
+    }
+    {
+      name: "user"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "user_url"
+      req: false
+      type: "`$STRING`"
+    }
+  ]
+
+  name: "organization_invite_extend"
+  op: {
+    create: {
+      name: "create"
+      points: [
+        {
+          args: {
+            params: [
+              {
+                kind: "param"
+                name: "org_id"
+                orig: "org"
+                reqd: true
+                type: "`$STRING`"
+              }
+              {
+                kind: "param"
+                name: "slug_perm"
+                orig: "slug_perm"
+                reqd: true
+                type: "`$ANY`"
+              }
+            ]
+          }
+          method: "POST"
+          orig: "/orgs/{org}/invites/{slug_perm}/extend/"
+          parts: [
+            "orgs"
+            "{org_id}"
+            "invites"
+            "{slug_perm}"
+            "extend"
+          ]
+          rename: {
+            param: {
+              org: "org_id"
+            }
+          }
+          select: {
+            exist: [
+              "org_id"
+              "slug_perm"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          args: {
+            params: [
+              {
+                kind: "param"
+                name: "org_id"
+                orig: "org"
+                reqd: true
+                type: "`$STRING`"
+              }
+              {
+                kind: "param"
+                name: "slug_perm"
+                orig: "slug_perm"
+                reqd: true
+                type: "`$ANY`"
+              }
+            ]
+          }
+          method: "POST"
+          orig: "/orgs/{org}/invites/{slug_perm}/resend/"
+          parts: [
+            "orgs"
+            "{org_id}"
+            "invites"
+            "{slug_perm}"
+            "resend"
+          ]
+          rename: {
+            param: {
+              org: "org_id"
+            }
+          }
+          select: {
+            exist: [
+              "org_id"
+              "slug_perm"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+  }
+
+  relations: {
+    ancestors: [
+      [
+        "org"
+        "invite"
+      ]
+    ]
+  }
+
+
+
+}

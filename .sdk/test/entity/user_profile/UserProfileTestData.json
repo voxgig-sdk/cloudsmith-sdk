@@ -1,0 +1,61 @@
+{
+  "existing": {
+    "user_profile": {
+      "USER_PROFILE00": {
+        "company": "s64",
+        "first_name": "s65",
+        "job_title": "s66",
+        "joined_at": "s67",
+        "last_name": "s68",
+        "name": "s69",
+        "slug": "s6a",
+        "slug_perm": "s6b",
+        "tagline": "s6c",
+        "url": "s6d",
+        "id": "USER_PROFILE00"
+      },
+      "USER_PROFILE01": {
+        "company": "sc8",
+        "first_name": "sc9",
+        "job_title": "sca",
+        "joined_at": "scb",
+        "last_name": "scc",
+        "name": "scd",
+        "slug": "sce",
+        "slug_perm": "scf",
+        "tagline": "sd0",
+        "url": "sd1",
+        "id": "USER_PROFILE01"
+      },
+      "USER_PROFILE02": {
+        "company": "s12c",
+        "first_name": "s12d",
+        "job_title": "s12e",
+        "joined_at": "s12f",
+        "last_name": "s130",
+        "name": "s131",
+        "slug": "s132",
+        "slug_perm": "s133",
+        "tagline": "s134",
+        "url": "s135",
+        "id": "USER_PROFILE02"
+      }
+    }
+  },
+  "new": {
+    "user_profile": {
+      "user_profile_ref01": {
+        "company": "s190",
+        "first_name": "s191",
+        "job_title": "s192",
+        "joined_at": "s193",
+        "last_name": "s194",
+        "name": "s195",
+        "slug": "s196",
+        "slug_perm": "s197",
+        "tagline": "s198",
+        "url": "s199"
+      }
+    }
+  }
+}

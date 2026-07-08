@@ -1,0 +1,14 @@
+{
+  "existing": {
+    "copy": {
+      "COPY00": {},
+      "COPY01": {},
+      "COPY02": {}
+    }
+  },
+  "new": {
+    "copy": {
+      "copy_ref01": {}
+    }
+  }
+}

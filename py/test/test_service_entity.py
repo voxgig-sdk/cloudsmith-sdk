@@ -1,0 +1,150 @@
+# Service entity test
+
+import json
+import os
+import time
+
+import pytest
+
+from utility.voxgig_struct import voxgig_struct as vs
+from cloudsmith_sdk import CloudsmithSDK
+from core import helpers
+
+_TEST_DIR = os.path.dirname(os.path.abspath(__file__))
+from test import runner
+
+
+class TestServiceEntity:
+
+    def test_should_create_instance(self):
+        testsdk = CloudsmithSDK.test(None, None)
+        ent = testsdk.Service(None)
+        assert ent is not None
+
+    def test_should_run_basic_flow(self):
+        setup = _service_basic_setup(None)
+        # Per-op sdk-test-control.json skip — basic test exercises a flow with
+        # multiple ops; skipping any one skips the whole flow (steps depend
+        # on each other).
+        _live = setup.get("live", False)
+        for _op in ["create", "list", "update", "load"]:
+            _skip, _reason = runner.is_control_skipped("entityOp", "service." + _op, "live" if _live else "unit")
+            if _skip:
+                pytest.skip(_reason or "skipped via sdk-test-control.json")
+                return
+        # The basic flow consumes synthetic IDs from the fixture. In live mode
+        # without an *_ENTID env override, those IDs hit the live API and 4xx.
+        if setup.get("synthetic_only"):
+            pytest.skip("live entity test uses synthetic IDs from fixture — "
+                        "set CLOUDSMITH_TEST_SERVICE_ENTID JSON to run live")
+        client = setup["client"]
+
+        # CREATE
+        service_ref01_ent = client.Service(None)
+        service_ref01_data = helpers.to_map(vs.getprop(
+            vs.getpath(setup["data"], "new.service"), "service_ref01"))
+        service_ref01_data["org_id"] = setup["idmap"]["org01"]
+        service_ref01_data["service"] = setup["idmap"]["service01"]
+
+        service_ref01_data = helpers.to_map(service_ref01_ent.create(service_ref01_data, None))
+        assert service_ref01_data is not None
+
+        # LIST
+        service_ref01_match = {
+            "org_id": setup["idmap"]["org01"],
+        }
+
+        service_ref01_list_result = service_ref01_ent.list(service_ref01_match, None)
+        assert isinstance(service_ref01_list_result, list)
+
+        found_item = vs.select(
+            runner.entity_list_to_data(service_ref01_list_result),
+            {"id": service_ref01_data["id"]})
+        assert not vs.isempty(found_item)
+
+        # UPDATE
+        service_ref01_data_up0_up = {
+            "org_id": setup["idmap"]["org_id"],
+        }
+
+        service_ref01_markdef_up0_name = "created_at"
+        service_ref01_markdef_up0_value = "Mark01-service_ref01_" + str(setup["now"])
+        service_ref01_data_up0_up[service_ref01_markdef_up0_name] = service_ref01_markdef_up0_value
+
+        service_ref01_resdata_up0 = helpers.to_map(service_ref01_ent.update(service_ref01_data_up0_up, None))
+        assert service_ref01_resdata_up0 is not None
+        assert service_ref01_resdata_up0[service_ref01_markdef_up0_name] == service_ref01_markdef_up0_value
+
+        # LOAD
+        service_ref01_match_dt0 = {}
+        service_ref01_data_dt0_loaded = service_ref01_ent.load(service_ref01_match_dt0, None)
+        assert service_ref01_data_dt0_loaded is not None
+
+
+
+def _service_basic_setup(extra):
+    runner.load_env_local()
+
+    entity_data_file = os.path.join(_TEST_DIR, "../../.sdk/test/entity/service/ServiceTestData.json")
+    with open(entity_data_file, "r") as f:
+        entity_data_source = f.read()
+
+    entity_data = json.loads(entity_data_source)
+
+    options = {}
+    options["entity"] = entity_data.get("existing")
+
+    client = CloudsmithSDK.test(options, extra)
+
+    # Generate idmap via transform.
+    idmap = vs.transform(
+        ["service01", "service02", "service03", "org01", "org02", "org03"],
+        {
+            "`$PACK`": ["", {
+                "`$KEY`": "`$COPY`",
+                "`$VAL`": ["`$FORMAT`", "upper", "`$COPY`"],
+            }],
+        }
+    )
+
+    # Detect ENTID env override before envOverride consumes it. When live
+    # mode is on without a real override, the basic test runs against synthetic
+    # IDs from the fixture and 4xx's. We surface this so the test can skip.
+    _entid_env_raw = os.environ.get(
+        "CLOUDSMITH_TEST_SERVICE_ENTID")
+    _idmap_overridden = _entid_env_raw is not None and _entid_env_raw.strip().startswith("{")
+
+    env = runner.env_override({
+        "CLOUDSMITH_TEST_SERVICE_ENTID": idmap,
+        "CLOUDSMITH_TEST_LIVE": "FALSE",
+        "CLOUDSMITH_TEST_EXPLAIN": "FALSE",
+        "CLOUDSMITH_APIKEY": "NONE",
+    })
+
+    idmap_resolved = helpers.to_map(
+        env.get("CLOUDSMITH_TEST_SERVICE_ENTID"))
+    if idmap_resolved is None:
+        idmap_resolved = helpers.to_map(idmap)
+    if idmap_resolved.get("org_id") is None:
+        idmap_resolved["org_id"] = idmap_resolved.get("org01")
+
+    if env.get("CLOUDSMITH_TEST_LIVE") == "TRUE":
+        merged_opts = vs.merge([
+            {
+                "apikey": env.get("CLOUDSMITH_APIKEY"),
+            },
+            extra or {},
+        ])
+        client = CloudsmithSDK(helpers.to_map(merged_opts))
+
+    _live = env.get("CLOUDSMITH_TEST_LIVE") == "TRUE"
+    return {
+        "client": client,
+        "data": entity_data,
+        "idmap": idmap_resolved,
+        "env": env,
+        "explain": env.get("CLOUDSMITH_TEST_EXPLAIN") == "TRUE",
+        "live": _live,
+        "synthetic_only": _live and not _idmap_overridden,
+        "now": int(time.time() * 1000),
+    }

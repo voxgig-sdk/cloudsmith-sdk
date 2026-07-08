@@ -1,0 +1,49 @@
+{
+  "existing": {
+    "user_brief": {
+      "USER_BRIEF00": {
+        "authenticated": true,
+        "email": "s47",
+        "name": "s48",
+        "profile_url": "s49",
+        "self_url": "s4a",
+        "slug": "s4b",
+        "slug_perm": "s4c",
+        "id": "USER_BRIEF00"
+      },
+      "USER_BRIEF01": {
+        "authenticated": true,
+        "email": "s8d",
+        "name": "s8e",
+        "profile_url": "s8f",
+        "self_url": "s90",
+        "slug": "s91",
+        "slug_perm": "s92",
+        "id": "USER_BRIEF01"
+      },
+      "USER_BRIEF02": {
+        "authenticated": true,
+        "email": "sd3",
+        "name": "sd4",
+        "profile_url": "sd5",
+        "self_url": "sd6",
+        "slug": "sd7",
+        "slug_perm": "sd8",
+        "id": "USER_BRIEF02"
+      }
+    }
+  },
+  "new": {
+    "user_brief": {
+      "user_brief_ref01": {
+        "authenticated": true,
+        "email": "s119",
+        "name": "s11a",
+        "profile_url": "s11b",
+        "self_url": "s11c",
+        "slug": "s11d",
+        "slug_perm": "s11e"
+      }
+    }
+  }
+}

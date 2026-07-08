@@ -1,0 +1,14 @@
+{
+  "existing": {
+    "limit": {
+      "LIMIT00": {},
+      "LIMIT01": {},
+      "LIMIT02": {}
+    }
+  },
+  "new": {
+    "limit": {
+      "limit_ref01": {}
+    }
+  }
+}

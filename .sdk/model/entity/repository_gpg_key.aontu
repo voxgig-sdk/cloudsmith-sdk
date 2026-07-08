@@ -1,0 +1,194 @@
+# Entity: repository_gpg_key
+
+main: kit: entity: repository_gpg_key: {
+
+  alias: field: {}
+
+  fields: [
+    {
+      name: "active"
+      req: false
+      type: "`$BOOLEAN`"
+    }
+    {
+      name: "comment"
+      req: true
+      type: "`$STRING`"
+    }
+    {
+      name: "created_at"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "default"
+      req: false
+      type: "`$BOOLEAN`"
+    }
+    {
+      name: "fingerprint"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "fingerprint_short"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "public_key"
+      req: false
+      type: "`$STRING`"
+    }
+  ]
+
+  name: "repository_gpg_key"
+  op: {
+    create: {
+      name: "create"
+      points: [
+        {
+          args: {
+            params: [
+              {
+                kind: "param"
+                name: "identifier"
+                orig: "identifier"
+                reqd: true
+                type: "`$ANY`"
+              }
+              {
+                kind: "param"
+                name: "owner"
+                orig: "owner"
+                reqd: true
+                type: "`$ANY`"
+              }
+            ]
+            query: [
+              {
+                kind: "query"
+                name: "data"
+                orig: "data"
+                reqd: false
+                type: "`$OBJECT`"
+              }
+            ]
+          }
+          method: "POST"
+          orig: "/repos/{owner}/{identifier}/gpg/"
+          parts: [
+            "repos"
+            "{owner}"
+            "{identifier}"
+            "gpg"
+          ]
+          select: {
+            exist: [
+              "data"
+              "identifier"
+              "owner"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          args: {
+            params: [
+              {
+                kind: "param"
+                name: "identifier"
+                orig: "identifier"
+                reqd: true
+                type: "`$ANY`"
+              }
+              {
+                kind: "param"
+                name: "owner"
+                orig: "owner"
+                reqd: true
+                type: "`$ANY`"
+              }
+            ]
+          }
+          method: "POST"
+          orig: "/repos/{owner}/{identifier}/gpg/regenerate/"
+          parts: [
+            "repos"
+            "{owner}"
+            "{identifier}"
+            "gpg"
+            "regenerate"
+          ]
+          select: {
+            exist: [
+              "identifier"
+              "owner"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+    load: {
+      name: "load"
+      points: [
+        {
+          args: {
+            params: [
+              {
+                kind: "param"
+                name: "identifier"
+                orig: "identifier"
+                reqd: true
+                type: "`$ANY`"
+              }
+              {
+                kind: "param"
+                name: "owner"
+                orig: "owner"
+                reqd: true
+                type: "`$ANY`"
+              }
+            ]
+          }
+          method: "GET"
+          orig: "/repos/{owner}/{identifier}/gpg/"
+          parts: [
+            "repos"
+            "{owner}"
+            "{identifier}"
+            "gpg"
+          ]
+          select: {
+            exist: [
+              "identifier"
+              "owner"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+  }
+
+  relations: {
+    ancestors: [
+      [
+        "repo"
+      ]
+    ]
+  }
+
+
+
+}

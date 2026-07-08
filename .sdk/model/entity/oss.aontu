@@ -1,0 +1,10 @@
+# Entity: oss
+
+main: kit: entity: oss: {
+
+  alias: field: {}
+
+  name: "oss"
+
+
+}

@@ -1,0 +1,18 @@
+# Entity: dependency
+
+main: kit: entity: dependency: {
+
+  alias: field: {}
+
+  name: "dependency"
+  relations: {
+    ancestors: [
+      [
+        "package"
+      ]
+    ]
+  }
+
+
+
+}

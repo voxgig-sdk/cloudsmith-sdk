@@ -1,0 +1,9 @@
+# BasicCocoapodFlow
+
+main: kit: flow: BasicCocoapodFlow:
+{
+  entity: "cocoapod",
+  kind: "basic",
+  name: "BasicCocoapodFlow",
+  "key$": "BasicCocoapodFlow"
+}

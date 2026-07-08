@@ -1,0 +1,9 @@
+# BasicLuarockFlow
+
+main: kit: flow: BasicLuarockFlow:
+{
+  entity: "luarock",
+  kind: "basic",
+  name: "BasicLuarockFlow",
+  "key$": "BasicLuarockFlow"
+}

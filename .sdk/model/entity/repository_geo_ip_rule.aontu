@@ -1,0 +1,183 @@
+# Entity: repository_geo_ip_rule
+
+main: kit: entity: repository_geo_ip_rule: {
+
+  alias: field: {}
+
+  fields: [
+    {
+      name: "cidr"
+      req: true
+      type: "`$OBJECT`"
+    }
+    {
+      name: "country_code"
+      req: true
+      type: "`$OBJECT`"
+    }
+  ]
+
+  name: "repository_geo_ip_rule"
+  op: {
+    load: {
+      name: "load"
+      points: [
+        {
+          args: {
+            params: [
+              {
+                kind: "param"
+                name: "identifier"
+                orig: "identifier"
+                reqd: true
+                type: "`$ANY`"
+              }
+              {
+                kind: "param"
+                name: "owner"
+                orig: "owner"
+                reqd: true
+                type: "`$ANY`"
+              }
+            ]
+          }
+          method: "GET"
+          orig: "/repos/{owner}/{identifier}/geoip"
+          parts: [
+            "repos"
+            "{owner}"
+            "{identifier}"
+            "geoip"
+          ]
+          select: {
+            exist: [
+              "identifier"
+              "owner"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+    patch: {
+      name: "patch"
+      points: [
+        {
+          args: {
+            params: [
+              {
+                kind: "param"
+                name: "identifier"
+                orig: "identifier"
+                reqd: true
+                type: "`$ANY`"
+              }
+              {
+                kind: "param"
+                name: "owner"
+                orig: "owner"
+                reqd: true
+                type: "`$ANY`"
+              }
+            ]
+            query: [
+              {
+                kind: "query"
+                name: "data"
+                orig: "data"
+                reqd: false
+                type: "`$OBJECT`"
+              }
+            ]
+          }
+          method: "PATCH"
+          orig: "/repos/{owner}/{identifier}/geoip"
+          parts: [
+            "repos"
+            "{owner}"
+            "{identifier}"
+            "geoip"
+          ]
+          select: {
+            exist: [
+              "data"
+              "identifier"
+              "owner"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+    update: {
+      name: "update"
+      points: [
+        {
+          args: {
+            params: [
+              {
+                kind: "param"
+                name: "identifier"
+                orig: "identifier"
+                reqd: true
+                type: "`$ANY`"
+              }
+              {
+                kind: "param"
+                name: "owner"
+                orig: "owner"
+                reqd: true
+                type: "`$ANY`"
+              }
+            ]
+            query: [
+              {
+                kind: "query"
+                name: "data"
+                orig: "data"
+                reqd: false
+                type: "`$OBJECT`"
+              }
+            ]
+          }
+          method: "PUT"
+          orig: "/repos/{owner}/{identifier}/geoip"
+          parts: [
+            "repos"
+            "{owner}"
+            "{identifier}"
+            "geoip"
+          ]
+          select: {
+            exist: [
+              "data"
+              "identifier"
+              "owner"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+  }
+
+  relations: {
+    ancestors: [
+      [
+        "repo"
+      ]
+    ]
+  }
+
+
+
+}

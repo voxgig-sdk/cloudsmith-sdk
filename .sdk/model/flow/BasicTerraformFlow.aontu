@@ -1,0 +1,9 @@
+# BasicTerraformFlow
+
+main: kit: flow: BasicTerraformFlow:
+{
+  entity: "terraform",
+  kind: "basic",
+  name: "BasicTerraformFlow",
+  "key$": "BasicTerraformFlow"
+}

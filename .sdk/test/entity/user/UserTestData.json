@@ -1,0 +1,30 @@
+{
+  "existing": {
+    "user": {
+      "USER00": {
+        "created": "s1e",
+        "key": "s1f",
+        "slug_perm": "s20"
+      },
+      "USER01": {
+        "created": "s3c",
+        "key": "s3d",
+        "slug_perm": "s3e"
+      },
+      "USER02": {
+        "created": "s5a",
+        "key": "s5b",
+        "slug_perm": "s5c"
+      }
+    }
+  },
+  "new": {
+    "user": {
+      "user_ref01": {
+        "created": "s78",
+        "key": "s79",
+        "slug_perm": "s7a"
+      }
+    }
+  }
+}

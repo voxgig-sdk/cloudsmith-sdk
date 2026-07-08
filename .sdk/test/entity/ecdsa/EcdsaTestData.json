@@ -1,0 +1,14 @@
+{
+  "existing": {
+    "ecdsa": {
+      "ECDSA00": {},
+      "ECDSA01": {},
+      "ECDSA02": {}
+    }
+  },
+  "new": {
+    "ecdsa": {
+      "ecdsa_ref01": {}
+    }
+  }
+}

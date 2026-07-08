@@ -1,0 +1,9 @@
+# BasicSelfFlow
+
+main: kit: flow: BasicSelfFlow:
+{
+  entity: "self",
+  kind: "basic",
+  name: "BasicSelfFlow",
+  "key$": "BasicSelfFlow"
+}

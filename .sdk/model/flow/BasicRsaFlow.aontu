@@ -1,0 +1,9 @@
+# BasicRsaFlow
+
+main: kit: flow: BasicRsaFlow:
+{
+  entity: "rsa",
+  kind: "basic",
+  name: "BasicRsaFlow",
+  "key$": "BasicRsaFlow"
+}

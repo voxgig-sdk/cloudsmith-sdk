@@ -1,0 +1,29 @@
+{
+  "existing": {
+    "file": {
+      "FILE00": {
+        "identifier": "IDENTIFIER01",
+        "owner": "OWNER01",
+        "repo": "REPO01",
+        "id": "FILE00"
+      },
+      "FILE01": {
+        "identifier": "IDENTIFIER01",
+        "owner": "OWNER01",
+        "repo": "REPO01",
+        "id": "FILE01"
+      },
+      "FILE02": {
+        "identifier": "IDENTIFIER01",
+        "owner": "OWNER01",
+        "repo": "REPO01",
+        "id": "FILE02"
+      }
+    }
+  },
+  "new": {
+    "file": {
+      "file_ref01": {}
+    }
+  }
+}

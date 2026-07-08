@@ -1,0 +1,14 @@
+{
+  "existing": {
+    "validate": {
+      "VALIDATE00": {},
+      "VALIDATE01": {},
+      "VALIDATE02": {}
+    }
+  },
+  "new": {
+    "validate": {
+      "validate_ref01": {}
+    }
+  }
+}

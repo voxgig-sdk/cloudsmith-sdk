@@ -1,0 +1,14 @@
+{
+  "existing": {
+    "quarantine": {
+      "QUARANTINE00": {},
+      "QUARANTINE01": {},
+      "QUARANTINE02": {}
+    }
+  },
+  "new": {
+    "quarantine": {
+      "quarantine_ref01": {}
+    }
+  }
+}

@@ -1,0 +1,35 @@
+{
+  "existing": {
+    "repository_geo_ip_rule": {
+      "REPOSITORY_GEO_IP_RULE00": {
+        "cidr": {},
+        "country_code": {},
+        "identifier": "IDENTIFIER01",
+        "owner": "OWNER01",
+        "id": "REPOSITORY_GEO_IP_RULE00"
+      },
+      "REPOSITORY_GEO_IP_RULE01": {
+        "cidr": {},
+        "country_code": {},
+        "identifier": "IDENTIFIER01",
+        "owner": "OWNER01",
+        "id": "REPOSITORY_GEO_IP_RULE01"
+      },
+      "REPOSITORY_GEO_IP_RULE02": {
+        "cidr": {},
+        "country_code": {},
+        "identifier": "IDENTIFIER01",
+        "owner": "OWNER01",
+        "id": "REPOSITORY_GEO_IP_RULE02"
+      }
+    }
+  },
+  "new": {
+    "repository_geo_ip_rule": {
+      "repository_geo_ip_rule_ref01": {
+        "cidr": {},
+        "country_code": {}
+      }
+    }
+  }
+}

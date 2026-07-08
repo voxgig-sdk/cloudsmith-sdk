@@ -1,0 +1,9 @@
+# BasicResetFlow
+
+main: kit: flow: BasicResetFlow:
+{
+  entity: "reset",
+  kind: "basic",
+  name: "BasicResetFlow",
+  "key$": "BasicResetFlow"
+}

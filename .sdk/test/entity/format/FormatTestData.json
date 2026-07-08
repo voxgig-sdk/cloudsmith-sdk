@@ -1,0 +1,57 @@
+{
+  "existing": {
+    "format": {
+      "FORMAT00": {
+        "description": "s5a",
+        "distribution": [],
+        "extension": [],
+        "name": "s5d",
+        "premium": true,
+        "premium_plan_id": "PREMIUM_PLAN01",
+        "premium_plan_name": "s60",
+        "slug": "s61",
+        "support": {},
+        "id": "FORMAT00"
+      },
+      "FORMAT01": {
+        "description": "sb4",
+        "distribution": [],
+        "extension": [],
+        "name": "sb7",
+        "premium": true,
+        "premium_plan_id": "PREMIUM_PLAN01",
+        "premium_plan_name": "sba",
+        "slug": "sbb",
+        "support": {},
+        "id": "FORMAT01"
+      },
+      "FORMAT02": {
+        "description": "s10e",
+        "distribution": [],
+        "extension": [],
+        "name": "s111",
+        "premium": true,
+        "premium_plan_id": "PREMIUM_PLAN01",
+        "premium_plan_name": "s114",
+        "slug": "s115",
+        "support": {},
+        "id": "FORMAT02"
+      }
+    }
+  },
+  "new": {
+    "format": {
+      "format_ref01": {
+        "description": "s168",
+        "distribution": [],
+        "extension": [],
+        "name": "s16b",
+        "premium": true,
+        "premium_plan_id": "PREMIUM_PLAN01",
+        "premium_plan_name": "s16e",
+        "slug": "s16f",
+        "support": {}
+      }
+    }
+  }
+}

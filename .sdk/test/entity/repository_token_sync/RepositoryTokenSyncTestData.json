@@ -1,0 +1,31 @@
+{
+  "existing": {
+    "repository_token_sync": {
+      "REPOSITORY_TOKEN_SYNC00": {
+        "token": [],
+        "owner": "OWNER01",
+        "repo": "REPO01",
+        "id": "REPOSITORY_TOKEN_SYNC00"
+      },
+      "REPOSITORY_TOKEN_SYNC01": {
+        "token": [],
+        "owner": "OWNER01",
+        "repo": "REPO01",
+        "id": "REPOSITORY_TOKEN_SYNC01"
+      },
+      "REPOSITORY_TOKEN_SYNC02": {
+        "token": [],
+        "owner": "OWNER01",
+        "repo": "REPO01",
+        "id": "REPOSITORY_TOKEN_SYNC02"
+      }
+    }
+  },
+  "new": {
+    "repository_token_sync": {
+      "repository_token_sync_ref01": {
+        "token": []
+      }
+    }
+  }
+}

@@ -1,0 +1,88 @@
+# BasicCranFlow
+
+main: kit: flow: BasicCranFlow:
+{
+  entity: "cran",
+  kind: "basic",
+  name: "BasicCranFlow",
+  step: [
+    {
+      input: {
+        ref: "cran_ref01"
+      }
+
+      match: {
+        identifier: "identifier01",
+        owner: "owner01"
+      }
+
+      op: "create"
+    }
+
+    {
+      match: {
+        identifier: "identifier01",
+        owner: "owner01"
+      }
+
+      op: "list",
+      valid: [
+        {
+          apply: "ItemExists",
+          def: {
+            ref: "cran_ref01"
+          }
+        }
+      ]
+    }
+
+    {
+      data: {
+        identifier: "identifier01",
+        owner: "owner01"
+      }
+
+      input: {
+        ref: "cran_ref01",
+        srcdatavar: "cran_ref01_data",
+        suffix: "_up0",
+        textfield: "auth_mode"
+      }
+
+      op: "update",
+      spec: [
+        {
+          apply: "TextFieldMark",
+          def: {
+            mark: "Mark01-cran_ref01"
+          }
+        }
+      ]
+    }
+
+    {
+      input: {
+        ref: "cran_ref01",
+        srcdatavar: "cran_ref01_data",
+        suffix: "_dt0"
+      }
+
+      match: {
+        id: "cran01",
+        identifier: "identifier01",
+        owner: "owner01"
+      }
+
+      op: "load",
+      valid: [
+        {
+          apply: "TextFieldMark",
+          def: {
+            mark: "Mark01-cran_ref01"
+          }
+        }
+      ]
+    }
+  ],
+  "key$": "BasicCranFlow"
+}

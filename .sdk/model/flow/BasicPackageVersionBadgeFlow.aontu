@@ -1,0 +1,37 @@
+# BasicPackageVersionBadgeFlow
+
+main: kit: flow: BasicPackageVersionBadgeFlow:
+{
+  entity: "package_version_badge",
+  kind: "basic",
+  name: "BasicPackageVersionBadgeFlow",
+  step: [
+    {
+      input: {
+        ref: "package_version_badge_ref01",
+        srcdatavar: "package_version_badge_ref01_data",
+        suffix: "_dt0"
+      }
+
+      match: {
+        id: "package_version_badge01",
+        owner: "owner01",
+        package_format: "package_format01",
+        package_name: "package_name01",
+        package_version: "package_version01",
+        repo: "repo01"
+      }
+
+      op: "load",
+      valid: [
+        {
+          apply: "TextFieldMark",
+          def: {
+            mark: "Mark01-package_version_badge_ref01"
+          }
+        }
+      ]
+    }
+  ],
+  "key$": "BasicPackageVersionBadgeFlow"
+}

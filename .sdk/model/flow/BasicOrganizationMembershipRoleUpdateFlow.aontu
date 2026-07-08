@@ -1,0 +1,33 @@
+# BasicOrganizationMembershipRoleUpdateFlow
+
+main: kit: flow: BasicOrganizationMembershipRoleUpdateFlow:
+{
+  entity: "organization_membership_role_update",
+  kind: "basic",
+  name: "BasicOrganizationMembershipRoleUpdateFlow",
+  step: [
+    {
+      data: {
+        org_id: "org01"
+      }
+
+      input: {
+        ref: "organization_membership_role_update_ref01",
+        srcdatavar: "organization_membership_role_update_ref01_data",
+        suffix: "_up0",
+        textfield: "email"
+      }
+
+      op: "update",
+      spec: [
+        {
+          apply: "TextFieldMark",
+          def: {
+            mark: "Mark01-organization_membership_role_update_ref01"
+          }
+        }
+      ]
+    }
+  ],
+  "key$": "BasicOrganizationMembershipRoleUpdateFlow"
+}

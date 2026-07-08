@@ -1,0 +1,84 @@
+{
+  "existing": {
+    "org": {
+      "ORG00": {
+        "country": "s78",
+        "created_at": "s79",
+        "event_at": "s7a",
+        "location": "s7b",
+        "name": "s7c",
+        "package": {},
+        "policy": {},
+        "reason": [],
+        "slug": "s80",
+        "slug_perm": "s81",
+        "tagline": "s82",
+        "vulnerability_scan_result": {},
+        "member_id": "MEMBER01",
+        "member": "MEMBER01",
+        "service": "SERVICE01",
+        "team": "TEAM01",
+        "team_id": "TEAM01",
+        "id": "ORG00"
+      },
+      "ORG01": {
+        "country": "sf0",
+        "created_at": "sf1",
+        "event_at": "sf2",
+        "location": "sf3",
+        "name": "sf4",
+        "package": {},
+        "policy": {},
+        "reason": [],
+        "slug": "sf8",
+        "slug_perm": "sf9",
+        "tagline": "sfa",
+        "vulnerability_scan_result": {},
+        "member_id": "MEMBER01",
+        "member": "MEMBER01",
+        "service": "SERVICE01",
+        "team": "TEAM01",
+        "team_id": "TEAM01",
+        "id": "ORG01"
+      },
+      "ORG02": {
+        "country": "s168",
+        "created_at": "s169",
+        "event_at": "s16a",
+        "location": "s16b",
+        "name": "s16c",
+        "package": {},
+        "policy": {},
+        "reason": [],
+        "slug": "s170",
+        "slug_perm": "s171",
+        "tagline": "s172",
+        "vulnerability_scan_result": {},
+        "member_id": "MEMBER01",
+        "member": "MEMBER01",
+        "service": "SERVICE01",
+        "team": "TEAM01",
+        "team_id": "TEAM01",
+        "id": "ORG02"
+      }
+    }
+  },
+  "new": {
+    "org": {
+      "org_ref01": {
+        "country": "s1e0",
+        "created_at": "s1e1",
+        "event_at": "s1e2",
+        "location": "s1e3",
+        "name": "s1e4",
+        "package": {},
+        "policy": {},
+        "reason": [],
+        "slug": "s1e8",
+        "slug_perm": "s1e9",
+        "tagline": "s1ea",
+        "vulnerability_scan_result": {}
+      }
+    }
+  }
+}

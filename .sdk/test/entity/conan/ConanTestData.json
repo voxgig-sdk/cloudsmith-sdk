@@ -1,0 +1,14 @@
+{
+  "existing": {
+    "conan": {
+      "CONAN00": {},
+      "CONAN01": {},
+      "CONAN02": {}
+    }
+  },
+  "new": {
+    "conan": {
+      "conan_ref01": {}
+    }
+  }
+}

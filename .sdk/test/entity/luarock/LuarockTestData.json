@@ -1,0 +1,14 @@
+{
+  "existing": {
+    "luarock": {
+      "LUAROCK00": {},
+      "LUAROCK01": {},
+      "LUAROCK02": {}
+    }
+  },
+  "new": {
+    "luarock": {
+      "luarock_ref01": {}
+    }
+  }
+}

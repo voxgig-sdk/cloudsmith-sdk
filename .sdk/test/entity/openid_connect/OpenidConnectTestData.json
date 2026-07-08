@@ -1,0 +1,14 @@
+{
+  "existing": {
+    "openid_connect": {
+      "OPENID_CONNECT00": {},
+      "OPENID_CONNECT01": {},
+      "OPENID_CONNECT02": {}
+    }
+  },
+  "new": {
+    "openid_connect": {
+      "openid_connect_ref01": {}
+    }
+  }
+}

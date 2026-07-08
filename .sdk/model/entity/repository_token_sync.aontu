@@ -1,0 +1,90 @@
+# Entity: repository_token_sync
+
+main: kit: entity: repository_token_sync: {
+
+  alias: field: {}
+
+  fields: [
+    {
+      name: "token"
+      req: false
+      type: "`$ARRAY`"
+    }
+  ]
+
+  name: "repository_token_sync"
+  op: {
+    create: {
+      name: "create"
+      points: [
+        {
+          args: {
+            params: [
+              {
+                kind: "param"
+                name: "owner"
+                orig: "owner"
+                reqd: true
+                type: "`$ANY`"
+              }
+              {
+                kind: "param"
+                name: "repo"
+                orig: "repo"
+                reqd: true
+                type: "`$ANY`"
+              }
+            ]
+            query: [
+              {
+                kind: "query"
+                name: "data"
+                orig: "data"
+                reqd: false
+                type: "`$OBJECT`"
+              }
+              {
+                kind: "query"
+                name: "show_token"
+                orig: "show_token"
+                reqd: false
+                type: "`$ANY`"
+              }
+            ]
+          }
+          method: "POST"
+          orig: "/entitlements/{owner}/{repo}/sync/"
+          parts: [
+            "entitlements"
+            "{owner}"
+            "{repo}"
+            "sync"
+          ]
+          select: {
+            exist: [
+              "data"
+              "owner"
+              "repo"
+              "show_token"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+  }
+
+  relations: {
+    ancestors: [
+      [
+        "entitlement"
+      ]
+    ]
+  }
+
+
+
+}

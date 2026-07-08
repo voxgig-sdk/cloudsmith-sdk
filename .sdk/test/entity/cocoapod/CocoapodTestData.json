@@ -1,0 +1,14 @@
+{
+  "existing": {
+    "cocoapod": {
+      "COCOAPOD00": {},
+      "COCOAPOD01": {},
+      "COCOAPOD02": {}
+    }
+  },
+  "new": {
+    "cocoapod": {
+      "cocoapod_ref01": {}
+    }
+  }
+}

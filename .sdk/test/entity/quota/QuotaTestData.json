@@ -1,0 +1,32 @@
+{
+  "existing": {
+    "quota": {
+      "QUOTA00": {
+        "history": [],
+        "usage": {},
+        "owner": "OWNER01",
+        "id": "QUOTA00"
+      },
+      "QUOTA01": {
+        "history": [],
+        "usage": {},
+        "owner": "OWNER01",
+        "id": "QUOTA01"
+      },
+      "QUOTA02": {
+        "history": [],
+        "usage": {},
+        "owner": "OWNER01",
+        "id": "QUOTA02"
+      }
+    }
+  },
+  "new": {
+    "quota": {
+      "quota_ref01": {
+        "history": [],
+        "usage": {}
+      }
+    }
+  }
+}

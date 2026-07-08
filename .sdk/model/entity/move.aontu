@@ -1,0 +1,18 @@
+# Entity: move
+
+main: kit: entity: move: {
+
+  alias: field: {}
+
+  name: "move"
+  relations: {
+    ancestors: [
+      [
+        "package"
+      ]
+    ]
+  }
+
+
+
+}

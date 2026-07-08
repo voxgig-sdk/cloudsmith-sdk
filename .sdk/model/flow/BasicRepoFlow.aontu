@@ -1,0 +1,110 @@
+# BasicRepoFlow
+
+main: kit: flow: BasicRepoFlow:
+{
+  entity: "repo",
+  kind: "basic",
+  name: "BasicRepoFlow",
+  step: [
+    {
+      input: {
+        ref: "repo_ref01"
+      }
+
+      match: {
+        identifier: "identifier01",
+        owner: "owner01"
+      }
+
+      op: "create"
+    }
+
+    {
+      op: "list",
+      valid: [
+        {
+          apply: "ItemExists",
+          def: {
+            ref: "repo_ref01"
+          }
+        }
+      ]
+    }
+
+    {
+      data: {
+        owner: "owner01"
+      }
+
+      input: {
+        ref: "repo_ref01",
+        srcdatavar: "repo_ref01_data",
+        suffix: "_up0",
+        textfield: "cdn_url"
+      }
+
+      op: "update",
+      spec: [
+        {
+          apply: "TextFieldMark",
+          def: {
+            mark: "Mark01-repo_ref01"
+          }
+        }
+      ]
+    }
+
+    {
+      input: {
+        ref: "repo_ref01",
+        srcdatavar: "repo_ref01_data",
+        suffix: "_dt0"
+      }
+
+      match: {
+        id: "repo01"
+      }
+
+      op: "load",
+      valid: [
+        {
+          apply: "TextFieldMark",
+          def: {
+            mark: "Mark01-repo_ref01"
+          }
+        }
+      ]
+    }
+
+    {
+      input: {
+        ref: "repo_ref01",
+        suffix: "_rm0"
+      }
+
+      match: {
+        id: "repo01",
+        owner: "owner01"
+      }
+
+      op: "remove"
+    }
+
+    {
+      input: {
+        suffix: "_rt0"
+      }
+
+      op: "list",
+      valid: [
+        {
+          apply: "ItemNotExists",
+          def: {
+            ref: "repo_ref01"
+          }
+        }
+      ]
+    }
+  ],
+  "key$": "BasicRepoFlow"
+}

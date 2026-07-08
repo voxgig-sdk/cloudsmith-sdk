@@ -1,0 +1,9 @@
+# BasicDisableFlow
+
+main: kit: flow: BasicDisableFlow:
+{
+  entity: "disable",
+  kind: "basic",
+  name: "BasicDisableFlow",
+  "key$": "BasicDisableFlow"
+}

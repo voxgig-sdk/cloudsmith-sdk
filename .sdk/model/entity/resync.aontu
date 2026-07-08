@@ -1,0 +1,18 @@
+# Entity: resync
+
+main: kit: entity: resync: {
+
+  alias: field: {}
+
+  name: "resync"
+  relations: {
+    ancestors: [
+      [
+        "package"
+      ]
+    ]
+  }
+
+
+
+}

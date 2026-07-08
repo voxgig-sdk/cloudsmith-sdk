@@ -1,0 +1,51 @@
+# BasicOrganizationSamlAuthFlow
+
+main: kit: flow: BasicOrganizationSamlAuthFlow:
+{
+  entity: "organization_saml_auth",
+  kind: "basic",
+  name: "BasicOrganizationSamlAuthFlow",
+  step: [
+    {
+      input: {
+        ref: "organization_saml_auth_ref01",
+        srcdatavar: "organization_saml_auth_ref01_data",
+        suffix: "_up0",
+        textfield: "saml_metadata_inline"
+      }
+
+      op: "update",
+      spec: [
+        {
+          apply: "TextFieldMark",
+          def: {
+            mark: "Mark01-organization_saml_auth_ref01"
+          }
+        }
+      ]
+    }
+
+    {
+      input: {
+        ref: "organization_saml_auth_ref01",
+        srcdatavar: "organization_saml_auth_ref01_data",
+        suffix: "_dt0"
+      }
+
+      match: {
+        id: "organization_saml_auth01"
+      }
+
+      op: "load",
+      valid: [
+        {
+          apply: "TextFieldMark",
+          def: {
+            mark: "Mark01-organization_saml_auth_ref01"
+          }
+        }
+      ]
+    }
+  ],
+  "key$": "BasicOrganizationSamlAuthFlow"
+}

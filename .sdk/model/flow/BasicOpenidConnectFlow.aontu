@@ -1,0 +1,9 @@
+# BasicOpenidConnectFlow
+
+main: kit: flow: BasicOpenidConnectFlow:
+{
+  entity: "openid_connect",
+  kind: "basic",
+  name: "BasicOpenidConnectFlow",
+  "key$": "BasicOpenidConnectFlow"
+}

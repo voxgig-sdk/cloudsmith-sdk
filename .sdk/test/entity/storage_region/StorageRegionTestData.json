@@ -1,0 +1,29 @@
+{
+  "existing": {
+    "storage_region": {
+      "STORAGE_REGION00": {
+        "label": "s14",
+        "slug": "s15",
+        "id": "STORAGE_REGION00"
+      },
+      "STORAGE_REGION01": {
+        "label": "s28",
+        "slug": "s29",
+        "id": "STORAGE_REGION01"
+      },
+      "STORAGE_REGION02": {
+        "label": "s3c",
+        "slug": "s3d",
+        "id": "STORAGE_REGION02"
+      }
+    }
+  },
+  "new": {
+    "storage_region": {
+      "storage_region_ref01": {
+        "label": "s50",
+        "slug": "s51"
+      }
+    }
+  }
+}

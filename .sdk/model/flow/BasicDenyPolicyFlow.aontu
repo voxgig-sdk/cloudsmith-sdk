@@ -1,0 +1,9 @@
+# BasicDenyPolicyFlow
+
+main: kit: flow: BasicDenyPolicyFlow:
+{
+  entity: "deny_policy",
+  kind: "basic",
+  name: "BasicDenyPolicyFlow",
+  "key$": "BasicDenyPolicyFlow"
+}

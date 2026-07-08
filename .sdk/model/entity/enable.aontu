@@ -1,0 +1,24 @@
+# Entity: enable
+
+main: kit: entity: enable: {
+
+  alias: field: {}
+
+  name: "enable"
+  relations: {
+    ancestors: [
+      [
+        "entitlement"
+      ]
+      [
+        "org"
+      ]
+      [
+        "repo"
+      ]
+    ]
+  }
+
+
+
+}

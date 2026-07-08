@@ -1,0 +1,14 @@
+{
+  "existing": {
+    "info": {
+      "INFO00": {},
+      "INFO01": {},
+      "INFO02": {}
+    }
+  },
+  "new": {
+    "info": {
+      "info_ref01": {}
+    }
+  }
+}

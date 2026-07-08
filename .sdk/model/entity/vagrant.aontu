@@ -1,0 +1,18 @@
+# Entity: vagrant
+
+main: kit: entity: vagrant: {
+
+  alias: field: {}
+
+  name: "vagrant"
+  relations: {
+    ancestors: [
+      [
+        "package"
+      ]
+    ]
+  }
+
+
+
+}

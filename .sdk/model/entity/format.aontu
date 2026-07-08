@@ -1,0 +1,115 @@
+# Entity: format
+
+main: kit: entity: format: {
+
+  alias: field: {}
+
+  fields: [
+    {
+      name: "description"
+      req: true
+      type: "`$STRING`"
+    }
+    {
+      name: "distribution"
+      req: false
+      type: "`$ARRAY`"
+    }
+    {
+      name: "extension"
+      req: true
+      type: "`$ARRAY`"
+    }
+    {
+      name: "name"
+      req: true
+      type: "`$STRING`"
+    }
+    {
+      name: "premium"
+      req: true
+      type: "`$BOOLEAN`"
+    }
+    {
+      name: "premium_plan_id"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "premium_plan_name"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "slug"
+      req: true
+      type: "`$STRING`"
+    }
+    {
+      name: "support"
+      req: true
+      type: "`$OBJECT`"
+    }
+  ]
+
+  name: "format"
+  op: {
+    list: {
+      name: "list"
+      points: [
+        {
+          method: "GET"
+          orig: "/formats/"
+          parts: [
+            "formats"
+          ]
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+    load: {
+      name: "load"
+      points: [
+        {
+          args: {
+            params: [
+              {
+                kind: "param"
+                name: "id"
+                orig: "slug"
+                reqd: true
+                type: "`$STRING`"
+              }
+            ]
+          }
+          method: "GET"
+          orig: "/formats/{slug}/"
+          parts: [
+            "formats"
+            "{id}"
+          ]
+          rename: {
+            param: {
+              slug: "id"
+            }
+          }
+          select: {
+            exist: [
+              "id"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+  }
+
+
+
+}

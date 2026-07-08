@@ -1,0 +1,14 @@
+{
+  "existing": {
+    "team": {
+      "TEAM00": {},
+      "TEAM01": {},
+      "TEAM02": {}
+    }
+  },
+  "new": {
+    "team": {
+      "team_ref01": {}
+    }
+  }
+}

@@ -1,0 +1,88 @@
+# BasicDebFlow
+
+main: kit: flow: BasicDebFlow:
+{
+  entity: "deb",
+  kind: "basic",
+  name: "BasicDebFlow",
+  step: [
+    {
+      input: {
+        ref: "deb_ref01"
+      }
+
+      match: {
+        identifier: "identifier01",
+        owner: "owner01"
+      }
+
+      op: "create"
+    }
+
+    {
+      match: {
+        identifier: "identifier01",
+        owner: "owner01"
+      }
+
+      op: "list",
+      valid: [
+        {
+          apply: "ItemExists",
+          def: {
+            ref: "deb_ref01"
+          }
+        }
+      ]
+    }
+
+    {
+      data: {
+        identifier: "identifier01",
+        owner: "owner01"
+      }
+
+      input: {
+        ref: "deb_ref01",
+        srcdatavar: "deb_ref01_data",
+        suffix: "_up0",
+        textfield: "auth_mode"
+      }
+
+      op: "update",
+      spec: [
+        {
+          apply: "TextFieldMark",
+          def: {
+            mark: "Mark01-deb_ref01"
+          }
+        }
+      ]
+    }
+
+    {
+      input: {
+        ref: "deb_ref01",
+        srcdatavar: "deb_ref01_data",
+        suffix: "_dt0"
+      }
+
+      match: {
+        id: "deb01",
+        identifier: "identifier01",
+        owner: "owner01"
+      }
+
+      op: "load",
+      valid: [
+        {
+          apply: "TextFieldMark",
+          def: {
+            mark: "Mark01-deb_ref01"
+          }
+        }
+      ]
+    }
+  ],
+  "key$": "BasicDebFlow"
+}

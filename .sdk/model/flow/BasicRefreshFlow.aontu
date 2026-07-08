@@ -1,0 +1,9 @@
+# BasicRefreshFlow
+
+main: kit: flow: BasicRefreshFlow:
+{
+  entity: "refresh",
+  kind: "basic",
+  name: "BasicRefreshFlow",
+  "key$": "BasicRefreshFlow"
+}

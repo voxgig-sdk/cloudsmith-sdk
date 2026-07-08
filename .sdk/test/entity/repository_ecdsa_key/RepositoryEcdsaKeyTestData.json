@@ -1,0 +1,55 @@
+{
+  "existing": {
+    "repository_ecdsa_key": {
+      "REPOSITORY_ECDSA_KEY00": {
+        "active": true,
+        "created_at": "s47",
+        "default": true,
+        "fingerprint": "s49",
+        "fingerprint_short": "s4a",
+        "public_key": "s4b",
+        "ssh_fingerprint": "s4c",
+        "identifier": "IDENTIFIER01",
+        "owner": "OWNER01",
+        "id": "REPOSITORY_ECDSA_KEY00"
+      },
+      "REPOSITORY_ECDSA_KEY01": {
+        "active": true,
+        "created_at": "s8d",
+        "default": true,
+        "fingerprint": "s8f",
+        "fingerprint_short": "s90",
+        "public_key": "s91",
+        "ssh_fingerprint": "s92",
+        "identifier": "IDENTIFIER01",
+        "owner": "OWNER01",
+        "id": "REPOSITORY_ECDSA_KEY01"
+      },
+      "REPOSITORY_ECDSA_KEY02": {
+        "active": true,
+        "created_at": "sd3",
+        "default": true,
+        "fingerprint": "sd5",
+        "fingerprint_short": "sd6",
+        "public_key": "sd7",
+        "ssh_fingerprint": "sd8",
+        "identifier": "IDENTIFIER01",
+        "owner": "OWNER01",
+        "id": "REPOSITORY_ECDSA_KEY02"
+      }
+    }
+  },
+  "new": {
+    "repository_ecdsa_key": {
+      "repository_ecdsa_key_ref01": {
+        "active": true,
+        "created_at": "s119",
+        "default": true,
+        "fingerprint": "s11b",
+        "fingerprint_short": "s11c",
+        "public_key": "s11d",
+        "ssh_fingerprint": "s11e"
+      }
+    }
+  }
+}

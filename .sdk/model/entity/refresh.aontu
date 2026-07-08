@@ -1,0 +1,18 @@
+# Entity: refresh
+
+main: kit: entity: refresh: {
+
+  alias: field: {}
+
+  name: "refresh"
+  relations: {
+    ancestors: [
+      [
+        "entitlement"
+      ]
+    ]
+  }
+
+
+
+}

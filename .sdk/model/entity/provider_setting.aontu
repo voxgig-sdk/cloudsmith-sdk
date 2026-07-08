@@ -1,0 +1,189 @@
+# Entity: provider_setting
+
+main: kit: entity: provider_setting: {
+
+  alias: field: {}
+
+  fields: [
+    {
+      name: "claim"
+      req: true
+      type: "`$OBJECT`"
+    }
+    {
+      name: "enabled"
+      req: true
+      type: "`$BOOLEAN`"
+    }
+    {
+      name: "mapping_claim"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "name"
+      req: true
+      type: "`$STRING`"
+    }
+    {
+      name: "provider_url"
+      req: true
+      type: "`$STRING`"
+    }
+    {
+      name: "service_account"
+      req: false
+      type: "`$ARRAY`"
+    }
+    {
+      name: "slug"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "slug_perm"
+      req: false
+      type: "`$STRING`"
+    }
+  ]
+
+  name: "provider_setting"
+  op: {
+    list: {
+      name: "list"
+      points: [
+        {
+          args: {
+            params: [
+              {
+                kind: "param"
+                name: "org_id"
+                orig: "org"
+                reqd: true
+                type: "`$STRING`"
+              }
+            ]
+            query: [
+              {
+                kind: "query"
+                name: "page"
+                orig: "page"
+                reqd: false
+                type: "`$INTEGER`"
+              }
+              {
+                kind: "query"
+                name: "page_size"
+                orig: "page_size"
+                reqd: false
+                type: "`$INTEGER`"
+              }
+              {
+                kind: "query"
+                name: "query"
+                orig: "query"
+                reqd: false
+                type: "`$ANY`"
+              }
+              {
+                kind: "query"
+                name: "sort"
+                orig: "sort"
+                reqd: false
+                type: "`$ANY`"
+              }
+            ]
+          }
+          method: "GET"
+          orig: "/orgs/{org}/openid-connect/"
+          parts: [
+            "orgs"
+            "{org_id}"
+            "openid-connect"
+          ]
+          rename: {
+            param: {
+              org: "org_id"
+            }
+          }
+          select: {
+            exist: [
+              "org_id"
+              "page"
+              "page_size"
+              "query"
+              "sort"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+    load: {
+      name: "load"
+      points: [
+        {
+          args: {
+            params: [
+              {
+                kind: "param"
+                name: "org_id"
+                orig: "org"
+                reqd: true
+                type: "`$STRING`"
+              }
+              {
+                kind: "param"
+                name: "slug_perm"
+                orig: "slug_perm"
+                reqd: true
+                type: "`$ANY`"
+              }
+            ]
+          }
+          method: "GET"
+          orig: "/orgs/{org}/openid-connect/{slug_perm}/"
+          parts: [
+            "orgs"
+            "{org_id}"
+            "openid-connect"
+            "{slug_perm}"
+          ]
+          rename: {
+            param: {
+              org: "org_id"
+            }
+          }
+          select: {
+            exist: [
+              "org_id"
+              "slug_perm"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+  }
+
+  relations: {
+    ancestors: [
+      [
+        "org"
+      ]
+      [
+        "org"
+        "openid_connect"
+      ]
+    ]
+  }
+
+
+
+}

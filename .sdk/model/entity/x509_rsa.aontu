@@ -1,0 +1,18 @@
+# Entity: x509_rsa
+
+main: kit: entity: x509_rsa: {
+
+  alias: field: {}
+
+  name: "x509_rsa"
+  relations: {
+    ancestors: [
+      [
+        "repo"
+      ]
+    ]
+  }
+
+
+
+}

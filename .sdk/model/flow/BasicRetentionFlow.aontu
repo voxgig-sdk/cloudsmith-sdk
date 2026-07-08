@@ -1,0 +1,9 @@
+# BasicRetentionFlow
+
+main: kit: flow: BasicRetentionFlow:
+{
+  entity: "retention",
+  kind: "basic",
+  name: "BasicRetentionFlow",
+  "key$": "BasicRetentionFlow"
+}

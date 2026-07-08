@@ -1,0 +1,34 @@
+# BasicGon6Flow
+
+main: kit: flow: BasicGon6Flow:
+{
+  entity: "gon6",
+  kind: "basic",
+  name: "BasicGon6Flow",
+  step: [
+    {
+      input: {
+        ref: "gon6_ref01",
+        srcdatavar: "gon6_ref01_data",
+        suffix: "_dt0"
+      }
+
+      match: {
+        id: "gon601",
+        identifier: "identifier01",
+        owner: "owner01"
+      }
+
+      op: "load",
+      valid: [
+        {
+          apply: "TextFieldMark",
+          def: {
+            mark: "Mark01-gon6_ref01"
+          }
+        }
+      ]
+    }
+  ],
+  "key$": "BasicGon6Flow"
+}

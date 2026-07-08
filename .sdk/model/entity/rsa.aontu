@@ -1,0 +1,18 @@
+# Entity: rsa
+
+main: kit: entity: rsa: {
+
+  alias: field: {}
+
+  name: "rsa"
+  relations: {
+    ancestors: [
+      [
+        "repo"
+      ]
+    ]
+  }
+
+
+
+}

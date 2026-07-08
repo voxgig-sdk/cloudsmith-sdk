@@ -1,0 +1,44 @@
+# BasicFormatFlow
+
+main: kit: flow: BasicFormatFlow:
+{
+  entity: "format",
+  kind: "basic",
+  name: "BasicFormatFlow",
+  step: [
+    {
+      op: "list",
+      valid: [
+        {
+          apply: "ItemExists",
+          def: {
+            ref: "format_ref01"
+          }
+        }
+      ]
+    }
+
+    {
+      input: {
+        ref: "format_ref01",
+        srcdatavar: "format_ref01_data",
+        suffix: "_dt0"
+      }
+
+      match: {
+        id: "format01"
+      }
+
+      op: "load",
+      valid: [
+        {
+          apply: "TextFieldMark",
+          def: {
+            mark: "Mark01-format_ref01"
+          }
+        }
+      ]
+    }
+  ],
+  "key$": "BasicFormatFlow"
+}

@@ -1,0 +1,10 @@
+# Entity: limit
+
+main: kit: entity: limit: {
+
+  alias: field: {}
+
+  name: "limit"
+
+
+}

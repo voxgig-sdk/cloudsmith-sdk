@@ -1,0 +1,9 @@
+# BasicAbortFlow
+
+main: kit: flow: BasicAbortFlow:
+{
+  entity: "abort",
+  kind: "basic",
+  name: "BasicAbortFlow",
+  "key$": "BasicAbortFlow"
+}

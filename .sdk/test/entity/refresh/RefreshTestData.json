@@ -1,0 +1,14 @@
+{
+  "existing": {
+    "refresh": {
+      "REFRESH00": {},
+      "REFRESH01": {},
+      "REFRESH02": {}
+    }
+  },
+  "new": {
+    "refresh": {
+      "refresh_ref01": {}
+    }
+  }
+}

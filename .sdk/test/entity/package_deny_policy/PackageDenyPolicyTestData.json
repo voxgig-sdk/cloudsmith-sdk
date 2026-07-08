@@ -1,0 +1,60 @@
+{
+  "existing": {
+    "package_deny_policy": {
+      "PACKAGE_DENY_POLICY00": {
+        "action": "s5a",
+        "created_at": "s5b",
+        "description": "s5c",
+        "enabled": false,
+        "name": "s5e",
+        "package_query_string": "s5f",
+        "slug_perm": "s60",
+        "status": "s61",
+        "updated_at": "s62",
+        "org_id": "ORG01",
+        "id": "PACKAGE_DENY_POLICY00"
+      },
+      "PACKAGE_DENY_POLICY01": {
+        "action": "sb4",
+        "created_at": "sb5",
+        "description": "sb6",
+        "enabled": false,
+        "name": "sb8",
+        "package_query_string": "sb9",
+        "slug_perm": "sba",
+        "status": "sbb",
+        "updated_at": "sbc",
+        "org_id": "ORG01",
+        "id": "PACKAGE_DENY_POLICY01"
+      },
+      "PACKAGE_DENY_POLICY02": {
+        "action": "s10e",
+        "created_at": "s10f",
+        "description": "s110",
+        "enabled": false,
+        "name": "s112",
+        "package_query_string": "s113",
+        "slug_perm": "s114",
+        "status": "s115",
+        "updated_at": "s116",
+        "org_id": "ORG01",
+        "id": "PACKAGE_DENY_POLICY02"
+      }
+    }
+  },
+  "new": {
+    "package_deny_policy": {
+      "package_deny_policy_ref01": {
+        "action": "s168",
+        "created_at": "s169",
+        "description": "s16a",
+        "enabled": false,
+        "name": "s16c",
+        "package_query_string": "s16d",
+        "slug_perm": "s16e",
+        "status": "s16f",
+        "updated_at": "s170"
+      }
+    }
+  }
+}

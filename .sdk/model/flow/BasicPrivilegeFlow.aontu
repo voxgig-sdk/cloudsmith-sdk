@@ -1,0 +1,9 @@
+# BasicPrivilegeFlow
+
+main: kit: flow: BasicPrivilegeFlow:
+{
+  entity: "privilege",
+  kind: "basic",
+  name: "BasicPrivilegeFlow",
+  "key$": "BasicPrivilegeFlow"
+}

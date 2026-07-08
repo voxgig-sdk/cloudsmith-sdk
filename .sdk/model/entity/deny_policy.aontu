@@ -1,0 +1,18 @@
+# Entity: deny_policy
+
+main: kit: entity: deny_policy: {
+
+  alias: field: {}
+
+  name: "deny_policy"
+  relations: {
+    ancestors: [
+      [
+        "org"
+      ]
+    ]
+  }
+
+
+
+}

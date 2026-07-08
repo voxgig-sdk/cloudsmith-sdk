@@ -1,0 +1,9 @@
+# BasicRawFlow
+
+main: kit: flow: BasicRawFlow:
+{
+  entity: "raw",
+  kind: "basic",
+  name: "BasicRawFlow",
+  "key$": "BasicRawFlow"
+}

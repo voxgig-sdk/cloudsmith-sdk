@@ -1,0 +1,14 @@
+{
+  "existing": {
+    "geoip": {
+      "GEOIP00": {},
+      "GEOIP01": {},
+      "GEOIP02": {}
+    }
+  },
+  "new": {
+    "geoip": {
+      "geoip_ref01": {}
+    }
+  }
+}

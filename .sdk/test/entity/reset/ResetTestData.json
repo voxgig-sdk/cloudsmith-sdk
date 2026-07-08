@@ -1,0 +1,14 @@
+{
+  "existing": {
+    "reset": {
+      "RESET00": {},
+      "RESET01": {},
+      "RESET02": {}
+    }
+  },
+  "new": {
+    "reset": {
+      "reset_ref01": {}
+    }
+  }
+}

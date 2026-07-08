@@ -1,0 +1,18 @@
+# Entity: ecdsa
+
+main: kit: entity: ecdsa: {
+
+  alias: field: {}
+
+  name: "ecdsa"
+  relations: {
+    ancestors: [
+      [
+        "repo"
+      ]
+    ]
+  }
+
+
+
+}

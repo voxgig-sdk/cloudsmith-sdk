@@ -1,0 +1,59 @@
+{
+  "existing": {
+    "repository_retention_rule": {
+      "REPOSITORY_RETENTION_RULE00": {
+        "retention_count_limit": "s50",
+        "retention_days_limit": "s51",
+        "retention_enabled": true,
+        "retention_group_by_format": false,
+        "retention_group_by_name": true,
+        "retention_group_by_package_type": false,
+        "retention_package_query_string": "s56",
+        "retention_size_limit": "s57",
+        "owner": "OWNER01",
+        "repo": "REPO01",
+        "id": "REPOSITORY_RETENTION_RULE00"
+      },
+      "REPOSITORY_RETENTION_RULE01": {
+        "retention_count_limit": "sa0",
+        "retention_days_limit": "sa1",
+        "retention_enabled": true,
+        "retention_group_by_format": false,
+        "retention_group_by_name": true,
+        "retention_group_by_package_type": false,
+        "retention_package_query_string": "sa6",
+        "retention_size_limit": "sa7",
+        "owner": "OWNER01",
+        "repo": "REPO01",
+        "id": "REPOSITORY_RETENTION_RULE01"
+      },
+      "REPOSITORY_RETENTION_RULE02": {
+        "retention_count_limit": "sf0",
+        "retention_days_limit": "sf1",
+        "retention_enabled": true,
+        "retention_group_by_format": false,
+        "retention_group_by_name": true,
+        "retention_group_by_package_type": false,
+        "retention_package_query_string": "sf6",
+        "retention_size_limit": "sf7",
+        "owner": "OWNER01",
+        "repo": "REPO01",
+        "id": "REPOSITORY_RETENTION_RULE02"
+      }
+    }
+  },
+  "new": {
+    "repository_retention_rule": {
+      "repository_retention_rule_ref01": {
+        "retention_count_limit": "s140",
+        "retention_days_limit": "s141",
+        "retention_enabled": true,
+        "retention_group_by_format": false,
+        "retention_group_by_name": true,
+        "retention_group_by_package_type": false,
+        "retention_package_query_string": "s146",
+        "retention_size_limit": "s147"
+      }
+    }
+  }
+}

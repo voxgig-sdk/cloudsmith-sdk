@@ -1,0 +1,163 @@
+# Entity: quota
+
+main: kit: entity: quota: {
+
+  alias: field: {}
+
+  fields: [
+    {
+      name: "history"
+      req: true
+      type: "`$ARRAY`"
+    }
+    {
+      name: "usage"
+      req: true
+      type: "`$OBJECT`"
+    }
+  ]
+
+  name: "quota"
+  op: {
+    load: {
+      name: "load"
+      points: [
+        {
+          args: {
+            params: [
+              {
+                kind: "param"
+                name: "id"
+                orig: "owner"
+                reqd: true
+                type: "`$STRING`"
+              }
+            ]
+          }
+          method: "GET"
+          orig: "/quota/{owner}/"
+          parts: [
+            "quota"
+            "{id}"
+          ]
+          rename: {
+            param: {
+              owner: "id"
+            }
+          }
+          select: {
+            exist: [
+              "id"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          args: {
+            params: [
+              {
+                kind: "param"
+                name: "owner"
+                orig: "owner"
+                reqd: true
+                type: "`$ANY`"
+              }
+            ]
+          }
+          method: "GET"
+          orig: "/quota/history/{owner}/"
+          parts: [
+            "quota"
+            "history"
+            "{owner}"
+          ]
+          select: {
+            exist: [
+              "owner"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          args: {
+            params: [
+              {
+                kind: "param"
+                name: "owner"
+                orig: "owner"
+                reqd: true
+                type: "`$ANY`"
+              }
+            ]
+          }
+          method: "GET"
+          orig: "/quota/oss/history/{owner}/"
+          parts: [
+            "quota"
+            "oss"
+            "history"
+            "{owner}"
+          ]
+          select: {
+            exist: [
+              "owner"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          args: {
+            params: [
+              {
+                kind: "param"
+                name: "owner"
+                orig: "owner"
+                reqd: true
+                type: "`$ANY`"
+              }
+            ]
+          }
+          method: "GET"
+          orig: "/quota/oss/{owner}/"
+          parts: [
+            "quota"
+            "oss"
+            "{owner}"
+          ]
+          select: {
+            exist: [
+              "owner"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+  }
+
+  relations: {
+    ancestors: [
+      [
+        "history"
+      ]
+      [
+        "oss"
+      ]
+    ]
+  }
+
+
+
+}

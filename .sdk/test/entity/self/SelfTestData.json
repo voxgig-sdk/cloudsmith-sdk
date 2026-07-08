@@ -1,0 +1,14 @@
+{
+  "existing": {
+    "self": {
+      "SELF00": {},
+      "SELF01": {},
+      "SELF02": {}
+    }
+  },
+  "new": {
+    "self": {
+      "self_ref01": {}
+    }
+  }
+}

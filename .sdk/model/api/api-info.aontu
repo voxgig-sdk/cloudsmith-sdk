@@ -1,0 +1,35 @@
+# API Information
+
+
+main: {
+  kit: {
+    info: {
+      contact: {
+        email: "support@cloudsmith.io"
+        name: "Cloudsmith Support"
+        url: "https://help.cloudsmith.io"
+      }
+      description: "The API to the Cloudsmith Service"
+      license: {
+        name: "MIT"
+        url: "https://opensource.org/licenses/MIT"
+      }
+      security: {
+        in: "header"
+        name: "X-Api-Key"
+        prefix: ""
+        scheme: "apikey"
+        type: "apiKey"
+      }
+      servers: [
+        {
+          url: "https://api.cloudsmith.io"
+        }
+      ]
+      termsOfService: "https://help.cloudsmith.io"
+      title: "Cloudsmith API (v1)"
+      version: "v1"
+    }
+  }
+}
+

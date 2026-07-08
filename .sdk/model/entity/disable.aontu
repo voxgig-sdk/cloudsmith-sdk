@@ -1,0 +1,24 @@
+# Entity: disable
+
+main: kit: entity: disable: {
+
+  alias: field: {}
+
+  name: "disable"
+  relations: {
+    ancestors: [
+      [
+        "entitlement"
+      ]
+      [
+        "org"
+      ]
+      [
+        "repo"
+      ]
+    ]
+  }
+
+
+
+}

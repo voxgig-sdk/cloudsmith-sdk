@@ -1,0 +1,27 @@
+# BasicGon3Flow
+
+main: kit: flow: BasicGon3Flow:
+{
+  entity: "gon3",
+  kind: "basic",
+  name: "BasicGon3Flow",
+  step: [
+    {
+      match: {
+        identifier: "identifier01",
+        owner: "owner01"
+      }
+
+      op: "list",
+      valid: [
+        {
+          apply: "ItemExists",
+          def: {
+            ref: "gon3_ref01"
+          }
+        }
+      ]
+    }
+  ],
+  "key$": "BasicGon3Flow"
+}

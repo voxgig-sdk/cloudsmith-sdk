@@ -1,0 +1,18 @@
+# Entity: abort
+
+main: kit: entity: abort: {
+
+  alias: field: {}
+
+  name: "abort"
+  relations: {
+    ancestors: [
+      [
+        "file"
+      ]
+    ]
+  }
+
+
+
+}

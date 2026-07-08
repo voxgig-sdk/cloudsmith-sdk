@@ -1,0 +1,65 @@
+# BasicPackageLicensePolicyEvaluationFlow
+
+main: kit: flow: BasicPackageLicensePolicyEvaluationFlow:
+{
+  entity: "package_license_policy_evaluation",
+  kind: "basic",
+  name: "BasicPackageLicensePolicyEvaluationFlow",
+  step: [
+    {
+      input: {
+        ref: "package_license_policy_evaluation_ref01"
+      }
+
+      match: {
+        license_policy_id: "license_policy01",
+        org_id: "org01",
+        policy_slug_perm: "policy_slug_perm01"
+      }
+
+      op: "create"
+    }
+
+    {
+      match: {
+        org_id: "org01",
+        policy_slug_perm: "policy_slug_perm01"
+      }
+
+      op: "list",
+      valid: [
+        {
+          apply: "ItemExists",
+          def: {
+            ref: "package_license_policy_evaluation_ref01"
+          }
+        }
+      ]
+    }
+
+    {
+      input: {
+        ref: "package_license_policy_evaluation_ref01",
+        srcdatavar: "package_license_policy_evaluation_ref01_data",
+        suffix: "_dt0"
+      }
+
+      match: {
+        id: "package_license_policy_evaluation01",
+        license_policy_id: "license_policy01",
+        org_id: "org01"
+      }
+
+      op: "load",
+      valid: [
+        {
+          apply: "TextFieldMark",
+          def: {
+            mark: "Mark01-package_license_policy_evaluation_ref01"
+          }
+        }
+      ]
+    }
+  ],
+  "key$": "BasicPackageLicensePolicyEvaluationFlow"
+}

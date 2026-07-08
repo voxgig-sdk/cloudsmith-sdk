@@ -1,0 +1,69 @@
+# Entity: organization_group_sync_status
+
+main: kit: entity: organization_group_sync_status: {
+
+  alias: field: {}
+
+  fields: [
+    {
+      name: "saml_group_sync_status"
+      req: false
+      type: "`$BOOLEAN`"
+    }
+  ]
+
+  name: "organization_group_sync_status"
+  op: {
+    load: {
+      name: "load"
+      points: [
+        {
+          args: {
+            params: [
+              {
+                kind: "param"
+                name: "org_id"
+                orig: "org"
+                reqd: true
+                type: "`$STRING`"
+              }
+            ]
+          }
+          method: "GET"
+          orig: "/orgs/{org}/saml-group-sync/status/"
+          parts: [
+            "orgs"
+            "{org_id}"
+            "saml-group-sync"
+            "status"
+          ]
+          rename: {
+            param: {
+              org: "org_id"
+            }
+          }
+          select: {
+            exist: [
+              "org_id"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+  }
+
+  relations: {
+    ancestors: [
+      [
+        "org"
+      ]
+    ]
+  }
+
+
+
+}

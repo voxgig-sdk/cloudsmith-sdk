@@ -1,0 +1,14 @@
+{
+  "existing": {
+    "disable": {
+      "DISABLE00": {},
+      "DISABLE01": {},
+      "DISABLE02": {}
+    }
+  },
+  "new": {
+    "disable": {
+      "disable_ref01": {}
+    }
+  }
+}

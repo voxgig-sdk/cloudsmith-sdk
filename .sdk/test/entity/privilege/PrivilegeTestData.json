@@ -1,0 +1,14 @@
+{
+  "existing": {
+    "privilege": {
+      "PRIVILEGE00": {},
+      "PRIVILEGE01": {},
+      "PRIVILEGE02": {}
+    }
+  },
+  "new": {
+    "privilege": {
+      "privilege_ref01": {}
+    }
+  }
+}

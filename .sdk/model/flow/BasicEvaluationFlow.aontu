@@ -1,0 +1,9 @@
+# BasicEvaluationFlow
+
+main: kit: flow: BasicEvaluationFlow:
+{
+  entity: "evaluation",
+  kind: "basic",
+  name: "BasicEvaluationFlow",
+  "key$": "BasicEvaluationFlow"
+}

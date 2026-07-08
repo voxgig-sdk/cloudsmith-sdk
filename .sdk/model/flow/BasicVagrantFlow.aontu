@@ -1,0 +1,9 @@
+# BasicVagrantFlow
+
+main: kit: flow: BasicVagrantFlow:
+{
+  entity: "vagrant",
+  kind: "basic",
+  name: "BasicVagrantFlow",
+  "key$": "BasicVagrantFlow"
+}

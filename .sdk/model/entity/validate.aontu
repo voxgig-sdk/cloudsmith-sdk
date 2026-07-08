@@ -1,0 +1,18 @@
+# Entity: validate
+
+main: kit: entity: validate: {
+
+  alias: field: {}
+
+  name: "validate"
+  relations: {
+    ancestors: [
+      [
+        "file"
+      ]
+    ]
+  }
+
+
+
+}

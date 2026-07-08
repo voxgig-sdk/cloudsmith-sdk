@@ -1,0 +1,68 @@
+# Entity: user_brief
+
+main: kit: entity: user_brief: {
+
+  alias: field: {}
+
+  fields: [
+    {
+      name: "authenticated"
+      req: false
+      type: "`$BOOLEAN`"
+    }
+    {
+      name: "email"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "name"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "profile_url"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "self_url"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "slug"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "slug_perm"
+      req: false
+      type: "`$STRING`"
+    }
+  ]
+
+  name: "user_brief"
+  op: {
+    load: {
+      name: "load"
+      points: [
+        {
+          method: "GET"
+          orig: "/user/self/"
+          parts: [
+            "user"
+            "self"
+          ]
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+  }
+
+
+
+}

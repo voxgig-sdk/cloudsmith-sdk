@@ -1,0 +1,9 @@
+# BasicOssFlow
+
+main: kit: flow: BasicOssFlow:
+{
+  entity: "oss",
+  kind: "basic",
+  name: "BasicOssFlow",
+  "key$": "BasicOssFlow"
+}

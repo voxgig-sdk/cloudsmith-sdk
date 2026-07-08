@@ -1,0 +1,14 @@
+{
+  "existing": {
+    "transfer_region": {
+      "TRANSFER_REGION00": {},
+      "TRANSFER_REGION01": {},
+      "TRANSFER_REGION02": {}
+    }
+  },
+  "new": {
+    "transfer_region": {
+      "transfer_region_ref01": {}
+    }
+  }
+}

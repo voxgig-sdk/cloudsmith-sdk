@@ -1,0 +1,33 @@
+# BasicRepositoryGeoIpStatusFlow
+
+main: kit: flow: BasicRepositoryGeoIpStatusFlow:
+{
+  entity: "repository_geo_ip_status",
+  kind: "basic",
+  name: "BasicRepositoryGeoIpStatusFlow",
+  step: [
+    {
+      input: {
+        ref: "repository_geo_ip_status_ref01",
+        srcdatavar: "repository_geo_ip_status_ref01_data",
+        suffix: "_dt0"
+      }
+
+      match: {
+        id: "repository_geo_ip_status01",
+        owner: "owner01"
+      }
+
+      op: "load",
+      valid: [
+        {
+          apply: "TextFieldMark",
+          def: {
+            mark: "Mark01-repository_geo_ip_status_ref01"
+          }
+        }
+      ]
+    }
+  ],
+  "key$": "BasicRepositoryGeoIpStatusFlow"
+}

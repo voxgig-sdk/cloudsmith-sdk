@@ -1,0 +1,24 @@
+# Entity: status
+
+main: kit: entity: status: {
+
+  alias: field: {}
+
+  name: "status"
+  relations: {
+    ancestors: [
+      [
+        "org"
+      ]
+      [
+        "package"
+      ]
+      [
+        "repo"
+      ]
+    ]
+  }
+
+
+
+}

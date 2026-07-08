@@ -1,0 +1,9 @@
+# BasicLimitFlow
+
+main: kit: flow: BasicLimitFlow:
+{
+  entity: "limit",
+  kind: "basic",
+  name: "BasicLimitFlow",
+  "key$": "BasicLimitFlow"
+}

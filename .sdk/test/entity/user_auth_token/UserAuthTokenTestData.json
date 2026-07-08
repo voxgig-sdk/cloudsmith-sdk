@@ -1,0 +1,20 @@
+{
+  "existing": {
+    "user_auth_token": {
+      "USER_AUTH_TOKEN00": {
+        "id": "USER_AUTH_TOKEN00"
+      },
+      "USER_AUTH_TOKEN01": {
+        "id": "USER_AUTH_TOKEN01"
+      },
+      "USER_AUTH_TOKEN02": {
+        "id": "USER_AUTH_TOKEN02"
+      }
+    }
+  },
+  "new": {
+    "user_auth_token": {
+      "user_auth_token_ref01": {}
+    }
+  }
+}

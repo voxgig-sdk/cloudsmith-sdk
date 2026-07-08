@@ -1,0 +1,22 @@
+# Entity: license_policy
+
+main: kit: entity: license_policy: {
+
+  alias: field: {}
+
+  name: "license_policy"
+  relations: {
+    ancestors: [
+      [
+        "org"
+      ]
+      [
+        "org"
+        "license_policy"
+      ]
+    ]
+  }
+
+
+
+}

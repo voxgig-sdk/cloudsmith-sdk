@@ -1,0 +1,33 @@
+{
+  "existing": {
+    "user_authentication_token": {
+      "USER_AUTHENTICATION_TOKEN00": {
+        "created": "s1e",
+        "key": "s1f",
+        "slug_perm": "s20",
+        "id": "USER_AUTHENTICATION_TOKEN00"
+      },
+      "USER_AUTHENTICATION_TOKEN01": {
+        "created": "s3c",
+        "key": "s3d",
+        "slug_perm": "s3e",
+        "id": "USER_AUTHENTICATION_TOKEN01"
+      },
+      "USER_AUTHENTICATION_TOKEN02": {
+        "created": "s5a",
+        "key": "s5b",
+        "slug_perm": "s5c",
+        "id": "USER_AUTHENTICATION_TOKEN02"
+      }
+    }
+  },
+  "new": {
+    "user_authentication_token": {
+      "user_authentication_token_ref01": {
+        "created": "s78",
+        "key": "s79",
+        "slug_perm": "s7a"
+      }
+    }
+  }
+}

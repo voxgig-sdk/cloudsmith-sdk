@@ -1,0 +1,33 @@
+# BasicRepositoryX509EcdsaCertificateFlow
+
+main: kit: flow: BasicRepositoryX509EcdsaCertificateFlow:
+{
+  entity: "repository_x509_ecdsa_certificate",
+  kind: "basic",
+  name: "BasicRepositoryX509EcdsaCertificateFlow",
+  step: [
+    {
+      input: {
+        ref: "repository_x509_ecdsa_certificate_ref01",
+        srcdatavar: "repository_x509_ecdsa_certificate_ref01_data",
+        suffix: "_dt0"
+      }
+
+      match: {
+        id: "repository_x509_ecdsa_certificate01",
+        owner: "owner01"
+      }
+
+      op: "load",
+      valid: [
+        {
+          apply: "TextFieldMark",
+          def: {
+            mark: "Mark01-repository_x509_ecdsa_certificate_ref01"
+          }
+        }
+      ]
+    }
+  ],
+  "key$": "BasicRepositoryX509EcdsaCertificateFlow"
+}

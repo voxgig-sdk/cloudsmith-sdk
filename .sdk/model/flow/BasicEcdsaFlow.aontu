@@ -1,0 +1,9 @@
+# BasicEcdsaFlow
+
+main: kit: flow: BasicEcdsaFlow:
+{
+  entity: "ecdsa",
+  kind: "basic",
+  name: "BasicEcdsaFlow",
+  "key$": "BasicEcdsaFlow"
+}

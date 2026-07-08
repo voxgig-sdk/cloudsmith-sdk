@@ -1,0 +1,29 @@
+{
+  "existing": {
+    "package_file_upload": {
+      "PACKAGE_FILE_UPLOAD00": {
+        "identifier": "IDENTIFIER01",
+        "owner": "OWNER01",
+        "repo": "REPO01",
+        "id": "PACKAGE_FILE_UPLOAD00"
+      },
+      "PACKAGE_FILE_UPLOAD01": {
+        "identifier": "IDENTIFIER01",
+        "owner": "OWNER01",
+        "repo": "REPO01",
+        "id": "PACKAGE_FILE_UPLOAD01"
+      },
+      "PACKAGE_FILE_UPLOAD02": {
+        "identifier": "IDENTIFIER01",
+        "owner": "OWNER01",
+        "repo": "REPO01",
+        "id": "PACKAGE_FILE_UPLOAD02"
+      }
+    }
+  },
+  "new": {
+    "package_file_upload": {
+      "package_file_upload_ref01": {}
+    }
+  }
+}

@@ -1,0 +1,3777 @@
+# Entity: package
+
+main: kit: entity: package: {
+
+  alias: field: {}
+
+  fields: [
+    {
+      name: "architecture"
+      req: false
+      type: "`$ARRAY`"
+    }
+    {
+      name: "backend_kind"
+      req: false
+      type: "`$INTEGER`"
+    }
+    {
+      name: "cdn_url"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "checksum_md5"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "checksum_sha1"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "checksum_sha256"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "checksum_sha512"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "count"
+      req: true
+      type: "`$INTEGER`"
+    }
+    {
+      name: "dep_type"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "dependencies_checksum_md5"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "dependencies_url"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "description"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "display_name"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "distro"
+      req: true
+      type: "`$OBJECT`"
+    }
+    {
+      name: "distro_version"
+      req: false
+      type: "`$OBJECT`"
+    }
+    {
+      name: "download"
+      req: false
+      type: "`$INTEGER`"
+    }
+    {
+      name: "epoch"
+      req: false
+      type: "`$INTEGER`"
+    }
+    {
+      name: "extension"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "file"
+      req: false
+      type: "`$ARRAY`"
+    }
+    {
+      name: "filename"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "format"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "format_url"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "freeable_storage"
+      req: false
+      type: "`$INTEGER`"
+    }
+    {
+      name: "fully_qualified_name"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "identifier"
+      req: false
+      type: "`$OBJECT`"
+    }
+    {
+      name: "identifier_perm"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "indexed"
+      req: false
+      type: "`$BOOLEAN`"
+    }
+    {
+      name: "is_cancellable"
+      req: false
+      type: "`$BOOLEAN`"
+    }
+    {
+      name: "is_copyable"
+      req: false
+      type: "`$BOOLEAN`"
+    }
+    {
+      name: "is_deleteable"
+      req: false
+      type: "`$BOOLEAN`"
+    }
+    {
+      name: "is_downloadable"
+      req: false
+      type: "`$BOOLEAN`"
+    }
+    {
+      name: "is_moveable"
+      req: false
+      type: "`$BOOLEAN`"
+    }
+    {
+      name: "is_quarantinable"
+      req: false
+      type: "`$BOOLEAN`"
+    }
+    {
+      name: "is_quarantined"
+      req: false
+      type: "`$BOOLEAN`"
+    }
+    {
+      name: "is_resyncable"
+      req: false
+      type: "`$BOOLEAN`"
+    }
+    {
+      name: "is_security_scannable"
+      req: false
+      type: "`$BOOLEAN`"
+    }
+    {
+      name: "is_sync_awaiting"
+      req: false
+      type: "`$BOOLEAN`"
+    }
+    {
+      name: "is_sync_completed"
+      req: false
+      type: "`$BOOLEAN`"
+    }
+    {
+      name: "is_sync_failed"
+      req: false
+      type: "`$BOOLEAN`"
+    }
+    {
+      name: "is_sync_in_flight"
+      req: false
+      type: "`$BOOLEAN`"
+    }
+    {
+      name: "is_sync_in_progress"
+      req: false
+      type: "`$BOOLEAN`"
+    }
+    {
+      name: "last_push"
+      req: true
+      type: "`$STRING`"
+    }
+    {
+      name: "license"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "name"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "namespace"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "namespace_url"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "num_download"
+      req: true
+      type: "`$INTEGER`"
+    }
+    {
+      name: "num_file"
+      req: false
+      type: "`$INTEGER`"
+    }
+    {
+      name: "operator"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "origin_repository"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "origin_repository_url"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "package"
+      req: true
+      type: "`$OBJECT`"
+    }
+    {
+      name: "package_type"
+      req: false
+      type: "`$INTEGER`"
+    }
+    {
+      name: "policy_violated"
+      req: false
+      type: "`$BOOLEAN`"
+    }
+    {
+      name: "release"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "repository"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "repository_url"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "security_scan_completed_at"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "security_scan_started_at"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "security_scan_status"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "security_scan_status_updated_at"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "self_html_url"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "self_url"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "signature_url"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "size"
+      op: {
+        list: {
+          req: true
+          type: "`$INTEGER`"
+        }
+      }
+      req: false
+      type: "`$INTEGER`"
+    }
+    {
+      name: "slug"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "slug_perm"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "stage"
+      req: false
+      type: "`$INTEGER`"
+    }
+    {
+      name: "stage_str"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "stage_updated_at"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "status"
+      req: false
+      type: "`$INTEGER`"
+    }
+    {
+      name: "status_reason"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "status_str"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "status_updated_at"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "status_url"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "subtype"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "summary"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "sync_finished_at"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "sync_progress"
+      req: false
+      type: "`$INTEGER`"
+    }
+    {
+      name: "tag"
+      req: false
+      type: "`$OBJECT`"
+    }
+    {
+      name: "tags_immutable"
+      req: false
+      type: "`$OBJECT`"
+    }
+    {
+      name: "type_display"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "uploaded_at"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "uploader"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "uploader_url"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "version"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "version_orig"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "vulnerability_scan_results_url"
+      req: false
+      type: "`$STRING`"
+    }
+  ]
+
+  name: "package"
+  op: {
+    create: {
+      name: "create"
+      points: [
+        {
+          args: {
+            params: [
+              {
+                kind: "param"
+                name: "identifier"
+                orig: "identifier"
+                reqd: true
+                type: "`$ANY`"
+              }
+              {
+                kind: "param"
+                name: "owner"
+                orig: "owner"
+                reqd: true
+                type: "`$ANY`"
+              }
+              {
+                kind: "param"
+                name: "repo"
+                orig: "repo"
+                reqd: true
+                type: "`$ANY`"
+              }
+            ]
+            query: [
+              {
+                kind: "query"
+                name: "data"
+                orig: "data"
+                reqd: false
+                type: "`$OBJECT`"
+              }
+            ]
+          }
+          method: "POST"
+          orig: "/packages/{owner}/{repo}/{identifier}/copy/"
+          parts: [
+            "packages"
+            "{owner}"
+            "{repo}"
+            "{identifier}"
+            "copy"
+          ]
+          select: {
+            exist: [
+              "data"
+              "identifier"
+              "owner"
+              "repo"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          args: {
+            params: [
+              {
+                kind: "param"
+                name: "identifier"
+                orig: "identifier"
+                reqd: true
+                type: "`$ANY`"
+              }
+              {
+                kind: "param"
+                name: "owner"
+                orig: "owner"
+                reqd: true
+                type: "`$ANY`"
+              }
+              {
+                kind: "param"
+                name: "repo"
+                orig: "repo"
+                reqd: true
+                type: "`$ANY`"
+              }
+            ]
+            query: [
+              {
+                kind: "query"
+                name: "data"
+                orig: "data"
+                reqd: false
+                type: "`$OBJECT`"
+              }
+            ]
+          }
+          method: "POST"
+          orig: "/packages/{owner}/{repo}/{identifier}/move/"
+          parts: [
+            "packages"
+            "{owner}"
+            "{repo}"
+            "{identifier}"
+            "move"
+          ]
+          select: {
+            exist: [
+              "data"
+              "identifier"
+              "owner"
+              "repo"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          args: {
+            params: [
+              {
+                kind: "param"
+                name: "identifier"
+                orig: "identifier"
+                reqd: true
+                type: "`$ANY`"
+              }
+              {
+                kind: "param"
+                name: "owner"
+                orig: "owner"
+                reqd: true
+                type: "`$ANY`"
+              }
+              {
+                kind: "param"
+                name: "repo"
+                orig: "repo"
+                reqd: true
+                type: "`$ANY`"
+              }
+            ]
+            query: [
+              {
+                kind: "query"
+                name: "data"
+                orig: "data"
+                reqd: false
+                type: "`$OBJECT`"
+              }
+            ]
+          }
+          method: "POST"
+          orig: "/packages/{owner}/{repo}/{identifier}/quarantine/"
+          parts: [
+            "packages"
+            "{owner}"
+            "{repo}"
+            "{identifier}"
+            "quarantine"
+          ]
+          select: {
+            exist: [
+              "data"
+              "identifier"
+              "owner"
+              "repo"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          args: {
+            params: [
+              {
+                kind: "param"
+                name: "identifier"
+                orig: "identifier"
+                reqd: true
+                type: "`$ANY`"
+              }
+              {
+                kind: "param"
+                name: "owner"
+                orig: "owner"
+                reqd: true
+                type: "`$ANY`"
+              }
+              {
+                kind: "param"
+                name: "repo"
+                orig: "repo"
+                reqd: true
+                type: "`$ANY`"
+              }
+            ]
+            query: [
+              {
+                kind: "query"
+                name: "data"
+                orig: "data"
+                reqd: false
+                type: "`$OBJECT`"
+              }
+            ]
+          }
+          method: "POST"
+          orig: "/packages/{owner}/{repo}/{identifier}/tag/"
+          parts: [
+            "packages"
+            "{owner}"
+            "{repo}"
+            "{identifier}"
+            "tag"
+          ]
+          select: {
+            exist: [
+              "data"
+              "identifier"
+              "owner"
+              "repo"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          args: {
+            params: [
+              {
+                kind: "param"
+                name: "owner"
+                orig: "owner"
+                reqd: true
+                type: "`$ANY`"
+              }
+              {
+                kind: "param"
+                name: "repo"
+                orig: "repo"
+                reqd: true
+                type: "`$ANY`"
+              }
+            ]
+            query: [
+              {
+                kind: "query"
+                name: "data"
+                orig: "data"
+                reqd: false
+                type: "`$OBJECT`"
+              }
+            ]
+          }
+          method: "POST"
+          orig: "/packages/{owner}/{repo}/upload/alpine/"
+          parts: [
+            "packages"
+            "{owner}"
+            "{repo}"
+            "upload"
+            "alpine"
+          ]
+          select: {
+            exist: [
+              "data"
+              "owner"
+              "repo"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          args: {
+            params: [
+              {
+                kind: "param"
+                name: "owner"
+                orig: "owner"
+                reqd: true
+                type: "`$ANY`"
+              }
+              {
+                kind: "param"
+                name: "repo"
+                orig: "repo"
+                reqd: true
+                type: "`$ANY`"
+              }
+            ]
+            query: [
+              {
+                kind: "query"
+                name: "data"
+                orig: "data"
+                reqd: false
+                type: "`$OBJECT`"
+              }
+            ]
+          }
+          method: "POST"
+          orig: "/packages/{owner}/{repo}/upload/cargo/"
+          parts: [
+            "packages"
+            "{owner}"
+            "{repo}"
+            "upload"
+            "cargo"
+          ]
+          select: {
+            exist: [
+              "data"
+              "owner"
+              "repo"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          args: {
+            params: [
+              {
+                kind: "param"
+                name: "owner"
+                orig: "owner"
+                reqd: true
+                type: "`$ANY`"
+              }
+              {
+                kind: "param"
+                name: "repo"
+                orig: "repo"
+                reqd: true
+                type: "`$ANY`"
+              }
+            ]
+            query: [
+              {
+                kind: "query"
+                name: "data"
+                orig: "data"
+                reqd: false
+                type: "`$OBJECT`"
+              }
+            ]
+          }
+          method: "POST"
+          orig: "/packages/{owner}/{repo}/upload/cocoapods/"
+          parts: [
+            "packages"
+            "{owner}"
+            "{repo}"
+            "upload"
+            "cocoapods"
+          ]
+          select: {
+            exist: [
+              "data"
+              "owner"
+              "repo"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          args: {
+            params: [
+              {
+                kind: "param"
+                name: "owner"
+                orig: "owner"
+                reqd: true
+                type: "`$ANY`"
+              }
+              {
+                kind: "param"
+                name: "repo"
+                orig: "repo"
+                reqd: true
+                type: "`$ANY`"
+              }
+            ]
+            query: [
+              {
+                kind: "query"
+                name: "data"
+                orig: "data"
+                reqd: false
+                type: "`$OBJECT`"
+              }
+            ]
+          }
+          method: "POST"
+          orig: "/packages/{owner}/{repo}/upload/composer/"
+          parts: [
+            "packages"
+            "{owner}"
+            "{repo}"
+            "upload"
+            "composer"
+          ]
+          select: {
+            exist: [
+              "data"
+              "owner"
+              "repo"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          args: {
+            params: [
+              {
+                kind: "param"
+                name: "owner"
+                orig: "owner"
+                reqd: true
+                type: "`$ANY`"
+              }
+              {
+                kind: "param"
+                name: "repo"
+                orig: "repo"
+                reqd: true
+                type: "`$ANY`"
+              }
+            ]
+            query: [
+              {
+                kind: "query"
+                name: "data"
+                orig: "data"
+                reqd: false
+                type: "`$OBJECT`"
+              }
+            ]
+          }
+          method: "POST"
+          orig: "/packages/{owner}/{repo}/upload/conan/"
+          parts: [
+            "packages"
+            "{owner}"
+            "{repo}"
+            "upload"
+            "conan"
+          ]
+          select: {
+            exist: [
+              "data"
+              "owner"
+              "repo"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          args: {
+            params: [
+              {
+                kind: "param"
+                name: "owner"
+                orig: "owner"
+                reqd: true
+                type: "`$ANY`"
+              }
+              {
+                kind: "param"
+                name: "repo"
+                orig: "repo"
+                reqd: true
+                type: "`$ANY`"
+              }
+            ]
+            query: [
+              {
+                kind: "query"
+                name: "data"
+                orig: "data"
+                reqd: false
+                type: "`$OBJECT`"
+              }
+            ]
+          }
+          method: "POST"
+          orig: "/packages/{owner}/{repo}/upload/conda/"
+          parts: [
+            "packages"
+            "{owner}"
+            "{repo}"
+            "upload"
+            "conda"
+          ]
+          select: {
+            exist: [
+              "data"
+              "owner"
+              "repo"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          args: {
+            params: [
+              {
+                kind: "param"
+                name: "owner"
+                orig: "owner"
+                reqd: true
+                type: "`$ANY`"
+              }
+              {
+                kind: "param"
+                name: "repo"
+                orig: "repo"
+                reqd: true
+                type: "`$ANY`"
+              }
+            ]
+            query: [
+              {
+                kind: "query"
+                name: "data"
+                orig: "data"
+                reqd: false
+                type: "`$OBJECT`"
+              }
+            ]
+          }
+          method: "POST"
+          orig: "/packages/{owner}/{repo}/upload/cran/"
+          parts: [
+            "packages"
+            "{owner}"
+            "{repo}"
+            "upload"
+            "cran"
+          ]
+          select: {
+            exist: [
+              "data"
+              "owner"
+              "repo"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          args: {
+            params: [
+              {
+                kind: "param"
+                name: "owner"
+                orig: "owner"
+                reqd: true
+                type: "`$ANY`"
+              }
+              {
+                kind: "param"
+                name: "repo"
+                orig: "repo"
+                reqd: true
+                type: "`$ANY`"
+              }
+            ]
+            query: [
+              {
+                kind: "query"
+                name: "data"
+                orig: "data"
+                reqd: false
+                type: "`$OBJECT`"
+              }
+            ]
+          }
+          method: "POST"
+          orig: "/packages/{owner}/{repo}/upload/dart/"
+          parts: [
+            "packages"
+            "{owner}"
+            "{repo}"
+            "upload"
+            "dart"
+          ]
+          select: {
+            exist: [
+              "data"
+              "owner"
+              "repo"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          args: {
+            params: [
+              {
+                kind: "param"
+                name: "owner"
+                orig: "owner"
+                reqd: true
+                type: "`$ANY`"
+              }
+              {
+                kind: "param"
+                name: "repo"
+                orig: "repo"
+                reqd: true
+                type: "`$ANY`"
+              }
+            ]
+            query: [
+              {
+                kind: "query"
+                name: "data"
+                orig: "data"
+                reqd: false
+                type: "`$OBJECT`"
+              }
+            ]
+          }
+          method: "POST"
+          orig: "/packages/{owner}/{repo}/upload/deb/"
+          parts: [
+            "packages"
+            "{owner}"
+            "{repo}"
+            "upload"
+            "deb"
+          ]
+          select: {
+            exist: [
+              "data"
+              "owner"
+              "repo"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          args: {
+            params: [
+              {
+                kind: "param"
+                name: "owner"
+                orig: "owner"
+                reqd: true
+                type: "`$ANY`"
+              }
+              {
+                kind: "param"
+                name: "repo"
+                orig: "repo"
+                reqd: true
+                type: "`$ANY`"
+              }
+            ]
+            query: [
+              {
+                kind: "query"
+                name: "data"
+                orig: "data"
+                reqd: false
+                type: "`$OBJECT`"
+              }
+            ]
+          }
+          method: "POST"
+          orig: "/packages/{owner}/{repo}/upload/docker/"
+          parts: [
+            "packages"
+            "{owner}"
+            "{repo}"
+            "upload"
+            "docker"
+          ]
+          select: {
+            exist: [
+              "data"
+              "owner"
+              "repo"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          args: {
+            params: [
+              {
+                kind: "param"
+                name: "owner"
+                orig: "owner"
+                reqd: true
+                type: "`$ANY`"
+              }
+              {
+                kind: "param"
+                name: "repo"
+                orig: "repo"
+                reqd: true
+                type: "`$ANY`"
+              }
+            ]
+            query: [
+              {
+                kind: "query"
+                name: "data"
+                orig: "data"
+                reqd: false
+                type: "`$OBJECT`"
+              }
+            ]
+          }
+          method: "POST"
+          orig: "/packages/{owner}/{repo}/upload/go/"
+          parts: [
+            "packages"
+            "{owner}"
+            "{repo}"
+            "upload"
+            "go"
+          ]
+          select: {
+            exist: [
+              "data"
+              "owner"
+              "repo"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          args: {
+            params: [
+              {
+                kind: "param"
+                name: "owner"
+                orig: "owner"
+                reqd: true
+                type: "`$ANY`"
+              }
+              {
+                kind: "param"
+                name: "repo"
+                orig: "repo"
+                reqd: true
+                type: "`$ANY`"
+              }
+            ]
+            query: [
+              {
+                kind: "query"
+                name: "data"
+                orig: "data"
+                reqd: false
+                type: "`$OBJECT`"
+              }
+            ]
+          }
+          method: "POST"
+          orig: "/packages/{owner}/{repo}/upload/helm/"
+          parts: [
+            "packages"
+            "{owner}"
+            "{repo}"
+            "upload"
+            "helm"
+          ]
+          select: {
+            exist: [
+              "data"
+              "owner"
+              "repo"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          args: {
+            params: [
+              {
+                kind: "param"
+                name: "owner"
+                orig: "owner"
+                reqd: true
+                type: "`$ANY`"
+              }
+              {
+                kind: "param"
+                name: "repo"
+                orig: "repo"
+                reqd: true
+                type: "`$ANY`"
+              }
+            ]
+            query: [
+              {
+                kind: "query"
+                name: "data"
+                orig: "data"
+                reqd: false
+                type: "`$OBJECT`"
+              }
+            ]
+          }
+          method: "POST"
+          orig: "/packages/{owner}/{repo}/upload/hex/"
+          parts: [
+            "packages"
+            "{owner}"
+            "{repo}"
+            "upload"
+            "hex"
+          ]
+          select: {
+            exist: [
+              "data"
+              "owner"
+              "repo"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          args: {
+            params: [
+              {
+                kind: "param"
+                name: "owner"
+                orig: "owner"
+                reqd: true
+                type: "`$ANY`"
+              }
+              {
+                kind: "param"
+                name: "repo"
+                orig: "repo"
+                reqd: true
+                type: "`$ANY`"
+              }
+            ]
+            query: [
+              {
+                kind: "query"
+                name: "data"
+                orig: "data"
+                reqd: false
+                type: "`$OBJECT`"
+              }
+            ]
+          }
+          method: "POST"
+          orig: "/packages/{owner}/{repo}/upload/huggingface/"
+          parts: [
+            "packages"
+            "{owner}"
+            "{repo}"
+            "upload"
+            "huggingface"
+          ]
+          select: {
+            exist: [
+              "data"
+              "owner"
+              "repo"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          args: {
+            params: [
+              {
+                kind: "param"
+                name: "owner"
+                orig: "owner"
+                reqd: true
+                type: "`$ANY`"
+              }
+              {
+                kind: "param"
+                name: "repo"
+                orig: "repo"
+                reqd: true
+                type: "`$ANY`"
+              }
+            ]
+            query: [
+              {
+                kind: "query"
+                name: "data"
+                orig: "data"
+                reqd: false
+                type: "`$OBJECT`"
+              }
+            ]
+          }
+          method: "POST"
+          orig: "/packages/{owner}/{repo}/upload/luarocks/"
+          parts: [
+            "packages"
+            "{owner}"
+            "{repo}"
+            "upload"
+            "luarocks"
+          ]
+          select: {
+            exist: [
+              "data"
+              "owner"
+              "repo"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          args: {
+            params: [
+              {
+                kind: "param"
+                name: "owner"
+                orig: "owner"
+                reqd: true
+                type: "`$ANY`"
+              }
+              {
+                kind: "param"
+                name: "repo"
+                orig: "repo"
+                reqd: true
+                type: "`$ANY`"
+              }
+            ]
+            query: [
+              {
+                kind: "query"
+                name: "data"
+                orig: "data"
+                reqd: false
+                type: "`$OBJECT`"
+              }
+            ]
+          }
+          method: "POST"
+          orig: "/packages/{owner}/{repo}/upload/maven/"
+          parts: [
+            "packages"
+            "{owner}"
+            "{repo}"
+            "upload"
+            "maven"
+          ]
+          select: {
+            exist: [
+              "data"
+              "owner"
+              "repo"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          args: {
+            params: [
+              {
+                kind: "param"
+                name: "owner"
+                orig: "owner"
+                reqd: true
+                type: "`$ANY`"
+              }
+              {
+                kind: "param"
+                name: "repo"
+                orig: "repo"
+                reqd: true
+                type: "`$ANY`"
+              }
+            ]
+            query: [
+              {
+                kind: "query"
+                name: "data"
+                orig: "data"
+                reqd: false
+                type: "`$OBJECT`"
+              }
+            ]
+          }
+          method: "POST"
+          orig: "/packages/{owner}/{repo}/upload/npm/"
+          parts: [
+            "packages"
+            "{owner}"
+            "{repo}"
+            "upload"
+            "npm"
+          ]
+          select: {
+            exist: [
+              "data"
+              "owner"
+              "repo"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          args: {
+            params: [
+              {
+                kind: "param"
+                name: "owner"
+                orig: "owner"
+                reqd: true
+                type: "`$ANY`"
+              }
+              {
+                kind: "param"
+                name: "repo"
+                orig: "repo"
+                reqd: true
+                type: "`$ANY`"
+              }
+            ]
+            query: [
+              {
+                kind: "query"
+                name: "data"
+                orig: "data"
+                reqd: false
+                type: "`$OBJECT`"
+              }
+            ]
+          }
+          method: "POST"
+          orig: "/packages/{owner}/{repo}/upload/nuget/"
+          parts: [
+            "packages"
+            "{owner}"
+            "{repo}"
+            "upload"
+            "nuget"
+          ]
+          select: {
+            exist: [
+              "data"
+              "owner"
+              "repo"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          args: {
+            params: [
+              {
+                kind: "param"
+                name: "owner"
+                orig: "owner"
+                reqd: true
+                type: "`$ANY`"
+              }
+              {
+                kind: "param"
+                name: "repo"
+                orig: "repo"
+                reqd: true
+                type: "`$ANY`"
+              }
+            ]
+            query: [
+              {
+                kind: "query"
+                name: "data"
+                orig: "data"
+                reqd: false
+                type: "`$OBJECT`"
+              }
+            ]
+          }
+          method: "POST"
+          orig: "/packages/{owner}/{repo}/upload/p2/"
+          parts: [
+            "packages"
+            "{owner}"
+            "{repo}"
+            "upload"
+            "p2"
+          ]
+          select: {
+            exist: [
+              "data"
+              "owner"
+              "repo"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          args: {
+            params: [
+              {
+                kind: "param"
+                name: "owner"
+                orig: "owner"
+                reqd: true
+                type: "`$ANY`"
+              }
+              {
+                kind: "param"
+                name: "repo"
+                orig: "repo"
+                reqd: true
+                type: "`$ANY`"
+              }
+            ]
+            query: [
+              {
+                kind: "query"
+                name: "data"
+                orig: "data"
+                reqd: false
+                type: "`$OBJECT`"
+              }
+            ]
+          }
+          method: "POST"
+          orig: "/packages/{owner}/{repo}/upload/python/"
+          parts: [
+            "packages"
+            "{owner}"
+            "{repo}"
+            "upload"
+            "python"
+          ]
+          select: {
+            exist: [
+              "data"
+              "owner"
+              "repo"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          args: {
+            params: [
+              {
+                kind: "param"
+                name: "owner"
+                orig: "owner"
+                reqd: true
+                type: "`$ANY`"
+              }
+              {
+                kind: "param"
+                name: "repo"
+                orig: "repo"
+                reqd: true
+                type: "`$ANY`"
+              }
+            ]
+            query: [
+              {
+                kind: "query"
+                name: "data"
+                orig: "data"
+                reqd: false
+                type: "`$OBJECT`"
+              }
+            ]
+          }
+          method: "POST"
+          orig: "/packages/{owner}/{repo}/upload/raw/"
+          parts: [
+            "packages"
+            "{owner}"
+            "{repo}"
+            "upload"
+            "raw"
+          ]
+          select: {
+            exist: [
+              "data"
+              "owner"
+              "repo"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          args: {
+            params: [
+              {
+                kind: "param"
+                name: "owner"
+                orig: "owner"
+                reqd: true
+                type: "`$ANY`"
+              }
+              {
+                kind: "param"
+                name: "repo"
+                orig: "repo"
+                reqd: true
+                type: "`$ANY`"
+              }
+            ]
+            query: [
+              {
+                kind: "query"
+                name: "data"
+                orig: "data"
+                reqd: false
+                type: "`$OBJECT`"
+              }
+            ]
+          }
+          method: "POST"
+          orig: "/packages/{owner}/{repo}/upload/rpm/"
+          parts: [
+            "packages"
+            "{owner}"
+            "{repo}"
+            "upload"
+            "rpm"
+          ]
+          select: {
+            exist: [
+              "data"
+              "owner"
+              "repo"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          args: {
+            params: [
+              {
+                kind: "param"
+                name: "owner"
+                orig: "owner"
+                reqd: true
+                type: "`$ANY`"
+              }
+              {
+                kind: "param"
+                name: "repo"
+                orig: "repo"
+                reqd: true
+                type: "`$ANY`"
+              }
+            ]
+            query: [
+              {
+                kind: "query"
+                name: "data"
+                orig: "data"
+                reqd: false
+                type: "`$OBJECT`"
+              }
+            ]
+          }
+          method: "POST"
+          orig: "/packages/{owner}/{repo}/upload/ruby/"
+          parts: [
+            "packages"
+            "{owner}"
+            "{repo}"
+            "upload"
+            "ruby"
+          ]
+          select: {
+            exist: [
+              "data"
+              "owner"
+              "repo"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          args: {
+            params: [
+              {
+                kind: "param"
+                name: "owner"
+                orig: "owner"
+                reqd: true
+                type: "`$ANY`"
+              }
+              {
+                kind: "param"
+                name: "repo"
+                orig: "repo"
+                reqd: true
+                type: "`$ANY`"
+              }
+            ]
+            query: [
+              {
+                kind: "query"
+                name: "data"
+                orig: "data"
+                reqd: false
+                type: "`$OBJECT`"
+              }
+            ]
+          }
+          method: "POST"
+          orig: "/packages/{owner}/{repo}/upload/swift/"
+          parts: [
+            "packages"
+            "{owner}"
+            "{repo}"
+            "upload"
+            "swift"
+          ]
+          select: {
+            exist: [
+              "data"
+              "owner"
+              "repo"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          args: {
+            params: [
+              {
+                kind: "param"
+                name: "owner"
+                orig: "owner"
+                reqd: true
+                type: "`$ANY`"
+              }
+              {
+                kind: "param"
+                name: "repo"
+                orig: "repo"
+                reqd: true
+                type: "`$ANY`"
+              }
+            ]
+            query: [
+              {
+                kind: "query"
+                name: "data"
+                orig: "data"
+                reqd: false
+                type: "`$OBJECT`"
+              }
+            ]
+          }
+          method: "POST"
+          orig: "/packages/{owner}/{repo}/upload/terraform/"
+          parts: [
+            "packages"
+            "{owner}"
+            "{repo}"
+            "upload"
+            "terraform"
+          ]
+          select: {
+            exist: [
+              "data"
+              "owner"
+              "repo"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          args: {
+            params: [
+              {
+                kind: "param"
+                name: "owner"
+                orig: "owner"
+                reqd: true
+                type: "`$ANY`"
+              }
+              {
+                kind: "param"
+                name: "repo"
+                orig: "repo"
+                reqd: true
+                type: "`$ANY`"
+              }
+            ]
+            query: [
+              {
+                kind: "query"
+                name: "data"
+                orig: "data"
+                reqd: false
+                type: "`$OBJECT`"
+              }
+            ]
+          }
+          method: "POST"
+          orig: "/packages/{owner}/{repo}/upload/vagrant/"
+          parts: [
+            "packages"
+            "{owner}"
+            "{repo}"
+            "upload"
+            "vagrant"
+          ]
+          select: {
+            exist: [
+              "data"
+              "owner"
+              "repo"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          args: {
+            params: [
+              {
+                kind: "param"
+                name: "owner"
+                orig: "owner"
+                reqd: true
+                type: "`$ANY`"
+              }
+              {
+                kind: "param"
+                name: "repo"
+                orig: "repo"
+                reqd: true
+                type: "`$ANY`"
+              }
+            ]
+            query: [
+              {
+                kind: "query"
+                name: "data"
+                orig: "data"
+                reqd: false
+                type: "`$OBJECT`"
+              }
+            ]
+          }
+          method: "POST"
+          orig: "/packages/{owner}/{repo}/validate-upload/alpine/"
+          parts: [
+            "packages"
+            "{owner}"
+            "{repo}"
+            "validate-upload"
+            "alpine"
+          ]
+          select: {
+            exist: [
+              "data"
+              "owner"
+              "repo"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          args: {
+            params: [
+              {
+                kind: "param"
+                name: "owner"
+                orig: "owner"
+                reqd: true
+                type: "`$ANY`"
+              }
+              {
+                kind: "param"
+                name: "repo"
+                orig: "repo"
+                reqd: true
+                type: "`$ANY`"
+              }
+            ]
+            query: [
+              {
+                kind: "query"
+                name: "data"
+                orig: "data"
+                reqd: false
+                type: "`$OBJECT`"
+              }
+            ]
+          }
+          method: "POST"
+          orig: "/packages/{owner}/{repo}/validate-upload/cargo/"
+          parts: [
+            "packages"
+            "{owner}"
+            "{repo}"
+            "validate-upload"
+            "cargo"
+          ]
+          select: {
+            exist: [
+              "data"
+              "owner"
+              "repo"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          args: {
+            params: [
+              {
+                kind: "param"
+                name: "owner"
+                orig: "owner"
+                reqd: true
+                type: "`$ANY`"
+              }
+              {
+                kind: "param"
+                name: "repo"
+                orig: "repo"
+                reqd: true
+                type: "`$ANY`"
+              }
+            ]
+            query: [
+              {
+                kind: "query"
+                name: "data"
+                orig: "data"
+                reqd: false
+                type: "`$OBJECT`"
+              }
+            ]
+          }
+          method: "POST"
+          orig: "/packages/{owner}/{repo}/validate-upload/cocoapods/"
+          parts: [
+            "packages"
+            "{owner}"
+            "{repo}"
+            "validate-upload"
+            "cocoapods"
+          ]
+          select: {
+            exist: [
+              "data"
+              "owner"
+              "repo"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          args: {
+            params: [
+              {
+                kind: "param"
+                name: "owner"
+                orig: "owner"
+                reqd: true
+                type: "`$ANY`"
+              }
+              {
+                kind: "param"
+                name: "repo"
+                orig: "repo"
+                reqd: true
+                type: "`$ANY`"
+              }
+            ]
+            query: [
+              {
+                kind: "query"
+                name: "data"
+                orig: "data"
+                reqd: false
+                type: "`$OBJECT`"
+              }
+            ]
+          }
+          method: "POST"
+          orig: "/packages/{owner}/{repo}/validate-upload/composer/"
+          parts: [
+            "packages"
+            "{owner}"
+            "{repo}"
+            "validate-upload"
+            "composer"
+          ]
+          select: {
+            exist: [
+              "data"
+              "owner"
+              "repo"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          args: {
+            params: [
+              {
+                kind: "param"
+                name: "owner"
+                orig: "owner"
+                reqd: true
+                type: "`$ANY`"
+              }
+              {
+                kind: "param"
+                name: "repo"
+                orig: "repo"
+                reqd: true
+                type: "`$ANY`"
+              }
+            ]
+            query: [
+              {
+                kind: "query"
+                name: "data"
+                orig: "data"
+                reqd: false
+                type: "`$OBJECT`"
+              }
+            ]
+          }
+          method: "POST"
+          orig: "/packages/{owner}/{repo}/validate-upload/conan/"
+          parts: [
+            "packages"
+            "{owner}"
+            "{repo}"
+            "validate-upload"
+            "conan"
+          ]
+          select: {
+            exist: [
+              "data"
+              "owner"
+              "repo"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          args: {
+            params: [
+              {
+                kind: "param"
+                name: "owner"
+                orig: "owner"
+                reqd: true
+                type: "`$ANY`"
+              }
+              {
+                kind: "param"
+                name: "repo"
+                orig: "repo"
+                reqd: true
+                type: "`$ANY`"
+              }
+            ]
+            query: [
+              {
+                kind: "query"
+                name: "data"
+                orig: "data"
+                reqd: false
+                type: "`$OBJECT`"
+              }
+            ]
+          }
+          method: "POST"
+          orig: "/packages/{owner}/{repo}/validate-upload/conda/"
+          parts: [
+            "packages"
+            "{owner}"
+            "{repo}"
+            "validate-upload"
+            "conda"
+          ]
+          select: {
+            exist: [
+              "data"
+              "owner"
+              "repo"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          args: {
+            params: [
+              {
+                kind: "param"
+                name: "owner"
+                orig: "owner"
+                reqd: true
+                type: "`$ANY`"
+              }
+              {
+                kind: "param"
+                name: "repo"
+                orig: "repo"
+                reqd: true
+                type: "`$ANY`"
+              }
+            ]
+            query: [
+              {
+                kind: "query"
+                name: "data"
+                orig: "data"
+                reqd: false
+                type: "`$OBJECT`"
+              }
+            ]
+          }
+          method: "POST"
+          orig: "/packages/{owner}/{repo}/validate-upload/cran/"
+          parts: [
+            "packages"
+            "{owner}"
+            "{repo}"
+            "validate-upload"
+            "cran"
+          ]
+          select: {
+            exist: [
+              "data"
+              "owner"
+              "repo"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          args: {
+            params: [
+              {
+                kind: "param"
+                name: "owner"
+                orig: "owner"
+                reqd: true
+                type: "`$ANY`"
+              }
+              {
+                kind: "param"
+                name: "repo"
+                orig: "repo"
+                reqd: true
+                type: "`$ANY`"
+              }
+            ]
+            query: [
+              {
+                kind: "query"
+                name: "data"
+                orig: "data"
+                reqd: false
+                type: "`$OBJECT`"
+              }
+            ]
+          }
+          method: "POST"
+          orig: "/packages/{owner}/{repo}/validate-upload/dart/"
+          parts: [
+            "packages"
+            "{owner}"
+            "{repo}"
+            "validate-upload"
+            "dart"
+          ]
+          select: {
+            exist: [
+              "data"
+              "owner"
+              "repo"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          args: {
+            params: [
+              {
+                kind: "param"
+                name: "owner"
+                orig: "owner"
+                reqd: true
+                type: "`$ANY`"
+              }
+              {
+                kind: "param"
+                name: "repo"
+                orig: "repo"
+                reqd: true
+                type: "`$ANY`"
+              }
+            ]
+            query: [
+              {
+                kind: "query"
+                name: "data"
+                orig: "data"
+                reqd: false
+                type: "`$OBJECT`"
+              }
+            ]
+          }
+          method: "POST"
+          orig: "/packages/{owner}/{repo}/validate-upload/deb/"
+          parts: [
+            "packages"
+            "{owner}"
+            "{repo}"
+            "validate-upload"
+            "deb"
+          ]
+          select: {
+            exist: [
+              "data"
+              "owner"
+              "repo"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          args: {
+            params: [
+              {
+                kind: "param"
+                name: "owner"
+                orig: "owner"
+                reqd: true
+                type: "`$ANY`"
+              }
+              {
+                kind: "param"
+                name: "repo"
+                orig: "repo"
+                reqd: true
+                type: "`$ANY`"
+              }
+            ]
+            query: [
+              {
+                kind: "query"
+                name: "data"
+                orig: "data"
+                reqd: false
+                type: "`$OBJECT`"
+              }
+            ]
+          }
+          method: "POST"
+          orig: "/packages/{owner}/{repo}/validate-upload/docker/"
+          parts: [
+            "packages"
+            "{owner}"
+            "{repo}"
+            "validate-upload"
+            "docker"
+          ]
+          select: {
+            exist: [
+              "data"
+              "owner"
+              "repo"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          args: {
+            params: [
+              {
+                kind: "param"
+                name: "owner"
+                orig: "owner"
+                reqd: true
+                type: "`$ANY`"
+              }
+              {
+                kind: "param"
+                name: "repo"
+                orig: "repo"
+                reqd: true
+                type: "`$ANY`"
+              }
+            ]
+            query: [
+              {
+                kind: "query"
+                name: "data"
+                orig: "data"
+                reqd: false
+                type: "`$OBJECT`"
+              }
+            ]
+          }
+          method: "POST"
+          orig: "/packages/{owner}/{repo}/validate-upload/go/"
+          parts: [
+            "packages"
+            "{owner}"
+            "{repo}"
+            "validate-upload"
+            "go"
+          ]
+          select: {
+            exist: [
+              "data"
+              "owner"
+              "repo"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          args: {
+            params: [
+              {
+                kind: "param"
+                name: "owner"
+                orig: "owner"
+                reqd: true
+                type: "`$ANY`"
+              }
+              {
+                kind: "param"
+                name: "repo"
+                orig: "repo"
+                reqd: true
+                type: "`$ANY`"
+              }
+            ]
+            query: [
+              {
+                kind: "query"
+                name: "data"
+                orig: "data"
+                reqd: false
+                type: "`$OBJECT`"
+              }
+            ]
+          }
+          method: "POST"
+          orig: "/packages/{owner}/{repo}/validate-upload/helm/"
+          parts: [
+            "packages"
+            "{owner}"
+            "{repo}"
+            "validate-upload"
+            "helm"
+          ]
+          select: {
+            exist: [
+              "data"
+              "owner"
+              "repo"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          args: {
+            params: [
+              {
+                kind: "param"
+                name: "owner"
+                orig: "owner"
+                reqd: true
+                type: "`$ANY`"
+              }
+              {
+                kind: "param"
+                name: "repo"
+                orig: "repo"
+                reqd: true
+                type: "`$ANY`"
+              }
+            ]
+            query: [
+              {
+                kind: "query"
+                name: "data"
+                orig: "data"
+                reqd: false
+                type: "`$OBJECT`"
+              }
+            ]
+          }
+          method: "POST"
+          orig: "/packages/{owner}/{repo}/validate-upload/hex/"
+          parts: [
+            "packages"
+            "{owner}"
+            "{repo}"
+            "validate-upload"
+            "hex"
+          ]
+          select: {
+            exist: [
+              "data"
+              "owner"
+              "repo"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          args: {
+            params: [
+              {
+                kind: "param"
+                name: "owner"
+                orig: "owner"
+                reqd: true
+                type: "`$ANY`"
+              }
+              {
+                kind: "param"
+                name: "repo"
+                orig: "repo"
+                reqd: true
+                type: "`$ANY`"
+              }
+            ]
+            query: [
+              {
+                kind: "query"
+                name: "data"
+                orig: "data"
+                reqd: false
+                type: "`$OBJECT`"
+              }
+            ]
+          }
+          method: "POST"
+          orig: "/packages/{owner}/{repo}/validate-upload/huggingface/"
+          parts: [
+            "packages"
+            "{owner}"
+            "{repo}"
+            "validate-upload"
+            "huggingface"
+          ]
+          select: {
+            exist: [
+              "data"
+              "owner"
+              "repo"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          args: {
+            params: [
+              {
+                kind: "param"
+                name: "owner"
+                orig: "owner"
+                reqd: true
+                type: "`$ANY`"
+              }
+              {
+                kind: "param"
+                name: "repo"
+                orig: "repo"
+                reqd: true
+                type: "`$ANY`"
+              }
+            ]
+            query: [
+              {
+                kind: "query"
+                name: "data"
+                orig: "data"
+                reqd: false
+                type: "`$OBJECT`"
+              }
+            ]
+          }
+          method: "POST"
+          orig: "/packages/{owner}/{repo}/validate-upload/luarocks/"
+          parts: [
+            "packages"
+            "{owner}"
+            "{repo}"
+            "validate-upload"
+            "luarocks"
+          ]
+          select: {
+            exist: [
+              "data"
+              "owner"
+              "repo"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          args: {
+            params: [
+              {
+                kind: "param"
+                name: "owner"
+                orig: "owner"
+                reqd: true
+                type: "`$ANY`"
+              }
+              {
+                kind: "param"
+                name: "repo"
+                orig: "repo"
+                reqd: true
+                type: "`$ANY`"
+              }
+            ]
+            query: [
+              {
+                kind: "query"
+                name: "data"
+                orig: "data"
+                reqd: false
+                type: "`$OBJECT`"
+              }
+            ]
+          }
+          method: "POST"
+          orig: "/packages/{owner}/{repo}/validate-upload/maven/"
+          parts: [
+            "packages"
+            "{owner}"
+            "{repo}"
+            "validate-upload"
+            "maven"
+          ]
+          select: {
+            exist: [
+              "data"
+              "owner"
+              "repo"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          args: {
+            params: [
+              {
+                kind: "param"
+                name: "owner"
+                orig: "owner"
+                reqd: true
+                type: "`$ANY`"
+              }
+              {
+                kind: "param"
+                name: "repo"
+                orig: "repo"
+                reqd: true
+                type: "`$ANY`"
+              }
+            ]
+            query: [
+              {
+                kind: "query"
+                name: "data"
+                orig: "data"
+                reqd: false
+                type: "`$OBJECT`"
+              }
+            ]
+          }
+          method: "POST"
+          orig: "/packages/{owner}/{repo}/validate-upload/npm/"
+          parts: [
+            "packages"
+            "{owner}"
+            "{repo}"
+            "validate-upload"
+            "npm"
+          ]
+          select: {
+            exist: [
+              "data"
+              "owner"
+              "repo"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          args: {
+            params: [
+              {
+                kind: "param"
+                name: "owner"
+                orig: "owner"
+                reqd: true
+                type: "`$ANY`"
+              }
+              {
+                kind: "param"
+                name: "repo"
+                orig: "repo"
+                reqd: true
+                type: "`$ANY`"
+              }
+            ]
+            query: [
+              {
+                kind: "query"
+                name: "data"
+                orig: "data"
+                reqd: false
+                type: "`$OBJECT`"
+              }
+            ]
+          }
+          method: "POST"
+          orig: "/packages/{owner}/{repo}/validate-upload/nuget/"
+          parts: [
+            "packages"
+            "{owner}"
+            "{repo}"
+            "validate-upload"
+            "nuget"
+          ]
+          select: {
+            exist: [
+              "data"
+              "owner"
+              "repo"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          args: {
+            params: [
+              {
+                kind: "param"
+                name: "owner"
+                orig: "owner"
+                reqd: true
+                type: "`$ANY`"
+              }
+              {
+                kind: "param"
+                name: "repo"
+                orig: "repo"
+                reqd: true
+                type: "`$ANY`"
+              }
+            ]
+            query: [
+              {
+                kind: "query"
+                name: "data"
+                orig: "data"
+                reqd: false
+                type: "`$OBJECT`"
+              }
+            ]
+          }
+          method: "POST"
+          orig: "/packages/{owner}/{repo}/validate-upload/p2/"
+          parts: [
+            "packages"
+            "{owner}"
+            "{repo}"
+            "validate-upload"
+            "p2"
+          ]
+          select: {
+            exist: [
+              "data"
+              "owner"
+              "repo"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          args: {
+            params: [
+              {
+                kind: "param"
+                name: "owner"
+                orig: "owner"
+                reqd: true
+                type: "`$ANY`"
+              }
+              {
+                kind: "param"
+                name: "repo"
+                orig: "repo"
+                reqd: true
+                type: "`$ANY`"
+              }
+            ]
+            query: [
+              {
+                kind: "query"
+                name: "data"
+                orig: "data"
+                reqd: false
+                type: "`$OBJECT`"
+              }
+            ]
+          }
+          method: "POST"
+          orig: "/packages/{owner}/{repo}/validate-upload/python/"
+          parts: [
+            "packages"
+            "{owner}"
+            "{repo}"
+            "validate-upload"
+            "python"
+          ]
+          select: {
+            exist: [
+              "data"
+              "owner"
+              "repo"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          args: {
+            params: [
+              {
+                kind: "param"
+                name: "owner"
+                orig: "owner"
+                reqd: true
+                type: "`$ANY`"
+              }
+              {
+                kind: "param"
+                name: "repo"
+                orig: "repo"
+                reqd: true
+                type: "`$ANY`"
+              }
+            ]
+            query: [
+              {
+                kind: "query"
+                name: "data"
+                orig: "data"
+                reqd: false
+                type: "`$OBJECT`"
+              }
+            ]
+          }
+          method: "POST"
+          orig: "/packages/{owner}/{repo}/validate-upload/raw/"
+          parts: [
+            "packages"
+            "{owner}"
+            "{repo}"
+            "validate-upload"
+            "raw"
+          ]
+          select: {
+            exist: [
+              "data"
+              "owner"
+              "repo"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          args: {
+            params: [
+              {
+                kind: "param"
+                name: "owner"
+                orig: "owner"
+                reqd: true
+                type: "`$ANY`"
+              }
+              {
+                kind: "param"
+                name: "repo"
+                orig: "repo"
+                reqd: true
+                type: "`$ANY`"
+              }
+            ]
+            query: [
+              {
+                kind: "query"
+                name: "data"
+                orig: "data"
+                reqd: false
+                type: "`$OBJECT`"
+              }
+            ]
+          }
+          method: "POST"
+          orig: "/packages/{owner}/{repo}/validate-upload/rpm/"
+          parts: [
+            "packages"
+            "{owner}"
+            "{repo}"
+            "validate-upload"
+            "rpm"
+          ]
+          select: {
+            exist: [
+              "data"
+              "owner"
+              "repo"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          args: {
+            params: [
+              {
+                kind: "param"
+                name: "owner"
+                orig: "owner"
+                reqd: true
+                type: "`$ANY`"
+              }
+              {
+                kind: "param"
+                name: "repo"
+                orig: "repo"
+                reqd: true
+                type: "`$ANY`"
+              }
+            ]
+            query: [
+              {
+                kind: "query"
+                name: "data"
+                orig: "data"
+                reqd: false
+                type: "`$OBJECT`"
+              }
+            ]
+          }
+          method: "POST"
+          orig: "/packages/{owner}/{repo}/validate-upload/ruby/"
+          parts: [
+            "packages"
+            "{owner}"
+            "{repo}"
+            "validate-upload"
+            "ruby"
+          ]
+          select: {
+            exist: [
+              "data"
+              "owner"
+              "repo"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          args: {
+            params: [
+              {
+                kind: "param"
+                name: "owner"
+                orig: "owner"
+                reqd: true
+                type: "`$ANY`"
+              }
+              {
+                kind: "param"
+                name: "repo"
+                orig: "repo"
+                reqd: true
+                type: "`$ANY`"
+              }
+            ]
+            query: [
+              {
+                kind: "query"
+                name: "data"
+                orig: "data"
+                reqd: false
+                type: "`$OBJECT`"
+              }
+            ]
+          }
+          method: "POST"
+          orig: "/packages/{owner}/{repo}/validate-upload/swift/"
+          parts: [
+            "packages"
+            "{owner}"
+            "{repo}"
+            "validate-upload"
+            "swift"
+          ]
+          select: {
+            exist: [
+              "data"
+              "owner"
+              "repo"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          args: {
+            params: [
+              {
+                kind: "param"
+                name: "owner"
+                orig: "owner"
+                reqd: true
+                type: "`$ANY`"
+              }
+              {
+                kind: "param"
+                name: "repo"
+                orig: "repo"
+                reqd: true
+                type: "`$ANY`"
+              }
+            ]
+            query: [
+              {
+                kind: "query"
+                name: "data"
+                orig: "data"
+                reqd: false
+                type: "`$OBJECT`"
+              }
+            ]
+          }
+          method: "POST"
+          orig: "/packages/{owner}/{repo}/validate-upload/terraform/"
+          parts: [
+            "packages"
+            "{owner}"
+            "{repo}"
+            "validate-upload"
+            "terraform"
+          ]
+          select: {
+            exist: [
+              "data"
+              "owner"
+              "repo"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          args: {
+            params: [
+              {
+                kind: "param"
+                name: "owner"
+                orig: "owner"
+                reqd: true
+                type: "`$ANY`"
+              }
+              {
+                kind: "param"
+                name: "repo"
+                orig: "repo"
+                reqd: true
+                type: "`$ANY`"
+              }
+            ]
+            query: [
+              {
+                kind: "query"
+                name: "data"
+                orig: "data"
+                reqd: false
+                type: "`$OBJECT`"
+              }
+            ]
+          }
+          method: "POST"
+          orig: "/packages/{owner}/{repo}/validate-upload/vagrant/"
+          parts: [
+            "packages"
+            "{owner}"
+            "{repo}"
+            "validate-upload"
+            "vagrant"
+          ]
+          select: {
+            exist: [
+              "data"
+              "owner"
+              "repo"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          args: {
+            params: [
+              {
+                kind: "param"
+                name: "identifier"
+                orig: "identifier"
+                reqd: true
+                type: "`$ANY`"
+              }
+              {
+                kind: "param"
+                name: "owner"
+                orig: "owner"
+                reqd: true
+                type: "`$ANY`"
+              }
+              {
+                kind: "param"
+                name: "repo"
+                orig: "repo"
+                reqd: true
+                type: "`$ANY`"
+              }
+            ]
+          }
+          method: "POST"
+          orig: "/packages/{owner}/{repo}/{identifier}/resync/"
+          parts: [
+            "packages"
+            "{owner}"
+            "{repo}"
+            "{identifier}"
+            "resync"
+          ]
+          select: {
+            exist: [
+              "identifier"
+              "owner"
+              "repo"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          args: {
+            params: [
+              {
+                kind: "param"
+                name: "identifier"
+                orig: "identifier"
+                reqd: true
+                type: "`$ANY`"
+              }
+              {
+                kind: "param"
+                name: "owner"
+                orig: "owner"
+                reqd: true
+                type: "`$ANY`"
+              }
+              {
+                kind: "param"
+                name: "repo"
+                orig: "repo"
+                reqd: true
+                type: "`$ANY`"
+              }
+            ]
+          }
+          method: "POST"
+          orig: "/packages/{owner}/{repo}/{identifier}/scan/"
+          parts: [
+            "packages"
+            "{owner}"
+            "{repo}"
+            "{identifier}"
+            "scan"
+          ]
+          select: {
+            exist: [
+              "identifier"
+              "owner"
+              "repo"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+    list: {
+      name: "list"
+      points: [
+        {
+          args: {
+            params: [
+              {
+                kind: "param"
+                name: "owner"
+                orig: "owner"
+                reqd: true
+                type: "`$ANY`"
+              }
+              {
+                kind: "param"
+                name: "repo"
+                orig: "repo"
+                reqd: true
+                type: "`$ANY`"
+              }
+            ]
+            query: [
+              {
+                kind: "query"
+                name: "group_by"
+                orig: "group_by"
+                reqd: false
+                type: "`$ANY`"
+              }
+              {
+                kind: "query"
+                name: "page"
+                orig: "page"
+                reqd: false
+                type: "`$INTEGER`"
+              }
+              {
+                kind: "query"
+                name: "page_size"
+                orig: "page_size"
+                reqd: false
+                type: "`$INTEGER`"
+              }
+              {
+                kind: "query"
+                name: "query"
+                orig: "query"
+                reqd: false
+                type: "`$ANY`"
+              }
+              {
+                kind: "query"
+                name: "sort"
+                orig: "sort"
+                reqd: false
+                type: "`$ANY`"
+              }
+            ]
+          }
+          method: "GET"
+          orig: "/packages/{owner}/{repo}/groups/"
+          parts: [
+            "packages"
+            "{owner}"
+            "{repo}"
+            "groups"
+          ]
+          select: {
+            exist: [
+              "group_by"
+              "owner"
+              "page"
+              "page_size"
+              "query"
+              "repo"
+              "sort"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          args: {
+            params: [
+              {
+                kind: "param"
+                name: "owner"
+                orig: "owner"
+                reqd: true
+                type: "`$ANY`"
+              }
+              {
+                kind: "param"
+                name: "repo"
+                orig: "repo"
+                reqd: true
+                type: "`$ANY`"
+              }
+            ]
+            query: [
+              {
+                kind: "query"
+                name: "page"
+                orig: "page"
+                reqd: false
+                type: "`$INTEGER`"
+              }
+              {
+                kind: "query"
+                name: "page_size"
+                orig: "page_size"
+                reqd: false
+                type: "`$INTEGER`"
+              }
+              {
+                kind: "query"
+                name: "query"
+                orig: "query"
+                reqd: false
+                type: "`$ANY`"
+              }
+              {
+                kind: "query"
+                name: "sort"
+                orig: "sort"
+                reqd: false
+                type: "`$ANY`"
+              }
+            ]
+          }
+          method: "GET"
+          orig: "/packages/{owner}/{repo}/"
+          parts: [
+            "packages"
+            "{owner}"
+            "{repo}"
+          ]
+          select: {
+            exist: [
+              "owner"
+              "page"
+              "page_size"
+              "query"
+              "repo"
+              "sort"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          args: {
+            params: [
+              {
+                kind: "param"
+                name: "identifier"
+                orig: "identifier"
+                reqd: true
+                type: "`$ANY`"
+              }
+              {
+                kind: "param"
+                name: "owner"
+                orig: "owner"
+                reqd: true
+                type: "`$ANY`"
+              }
+              {
+                kind: "param"
+                name: "repo"
+                orig: "repo"
+                reqd: true
+                type: "`$ANY`"
+              }
+            ]
+          }
+          method: "GET"
+          orig: "/packages/{owner}/{repo}/{identifier}/"
+          parts: [
+            "packages"
+            "{owner}"
+            "{repo}"
+            "{identifier}"
+          ]
+          select: {
+            exist: [
+              "identifier"
+              "owner"
+              "repo"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          args: {
+            params: [
+              {
+                kind: "param"
+                name: "identifier"
+                orig: "identifier"
+                reqd: true
+                type: "`$ANY`"
+              }
+              {
+                kind: "param"
+                name: "owner"
+                orig: "owner"
+                reqd: true
+                type: "`$ANY`"
+              }
+              {
+                kind: "param"
+                name: "repo"
+                orig: "repo"
+                reqd: true
+                type: "`$ANY`"
+              }
+            ]
+          }
+          method: "GET"
+          orig: "/packages/{owner}/{repo}/{identifier}/dependencies/"
+          parts: [
+            "packages"
+            "{owner}"
+            "{repo}"
+            "{identifier}"
+            "dependencies"
+          ]
+          select: {
+            exist: [
+              "identifier"
+              "owner"
+              "repo"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+    load: {
+      name: "load"
+      points: [
+        {
+          args: {
+            params: [
+              {
+                kind: "param"
+                name: "owner"
+                orig: "owner"
+                reqd: true
+                type: "`$ANY`"
+              }
+              {
+                kind: "param"
+                name: "repo"
+                orig: "repo"
+                reqd: true
+                type: "`$ANY`"
+              }
+            ]
+            query: [
+              {
+                kind: "query"
+                name: "finish"
+                orig: "finish"
+                reqd: false
+                type: "`$ANY`"
+              }
+              {
+                kind: "query"
+                name: "package"
+                orig: "package"
+                reqd: false
+                type: "`$ANY`"
+              }
+              {
+                kind: "query"
+                name: "page"
+                orig: "page"
+                reqd: false
+                type: "`$INTEGER`"
+              }
+              {
+                kind: "query"
+                name: "page_size"
+                orig: "page_size"
+                reqd: false
+                type: "`$INTEGER`"
+              }
+              {
+                kind: "query"
+                name: "start"
+                orig: "start"
+                reqd: false
+                type: "`$ANY`"
+              }
+            ]
+          }
+          method: "GET"
+          orig: "/metrics/packages/{owner}/{repo}/"
+          parts: [
+            "metrics"
+            "packages"
+            "{owner}"
+            "{repo}"
+          ]
+          select: {
+            exist: [
+              "finish"
+              "owner"
+              "package"
+              "page"
+              "page_size"
+              "repo"
+              "start"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          args: {
+            params: [
+              {
+                kind: "param"
+                name: "identifier"
+                orig: "identifier"
+                reqd: true
+                type: "`$ANY`"
+              }
+              {
+                kind: "param"
+                name: "owner"
+                orig: "owner"
+                reqd: true
+                type: "`$ANY`"
+              }
+              {
+                kind: "param"
+                name: "repo"
+                orig: "repo"
+                reqd: true
+                type: "`$ANY`"
+              }
+            ]
+          }
+          method: "GET"
+          orig: "/packages/{owner}/{repo}/{identifier}/status/"
+          parts: [
+            "packages"
+            "{owner}"
+            "{repo}"
+            "{identifier}"
+            "status"
+          ]
+          select: {
+            exist: [
+              "identifier"
+              "owner"
+              "repo"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+    remove: {
+      name: "remove"
+      points: [
+        {
+          args: {
+            params: [
+              {
+                kind: "param"
+                name: "identifier"
+                orig: "identifier"
+                reqd: true
+                type: "`$ANY`"
+              }
+              {
+                kind: "param"
+                name: "owner"
+                orig: "owner"
+                reqd: true
+                type: "`$ANY`"
+              }
+              {
+                kind: "param"
+                name: "repo"
+                orig: "repo"
+                reqd: true
+                type: "`$ANY`"
+              }
+            ]
+          }
+          method: "DELETE"
+          orig: "/packages/{owner}/{repo}/{identifier}/"
+          parts: [
+            "packages"
+            "{owner}"
+            "{repo}"
+            "{identifier}"
+          ]
+          select: {
+            exist: [
+              "identifier"
+              "owner"
+              "repo"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+  }
+
+  relations: {
+    ancestors: [
+      [
+        "package"
+      ]
+    ]
+  }
+
+
+
+}

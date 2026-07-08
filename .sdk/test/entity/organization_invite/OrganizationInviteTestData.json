@@ -1,0 +1,64 @@
+{
+  "existing": {
+    "organization_invite": {
+      "ORGANIZATION_INVITE00": {
+        "email": "s64",
+        "expires_at": "s65",
+        "inviter": "s66",
+        "inviter_url": "s67",
+        "org": "s68",
+        "role": "s69",
+        "slug_perm": "s6a",
+        "team": [],
+        "user": "s6c",
+        "user_url": "s6d",
+        "org_id": "ORG01",
+        "id": "ORGANIZATION_INVITE00"
+      },
+      "ORGANIZATION_INVITE01": {
+        "email": "sc8",
+        "expires_at": "sc9",
+        "inviter": "sca",
+        "inviter_url": "scb",
+        "org": "scc",
+        "role": "scd",
+        "slug_perm": "sce",
+        "team": [],
+        "user": "sd0",
+        "user_url": "sd1",
+        "org_id": "ORG01",
+        "id": "ORGANIZATION_INVITE01"
+      },
+      "ORGANIZATION_INVITE02": {
+        "email": "s12c",
+        "expires_at": "s12d",
+        "inviter": "s12e",
+        "inviter_url": "s12f",
+        "org": "s130",
+        "role": "s131",
+        "slug_perm": "s132",
+        "team": [],
+        "user": "s134",
+        "user_url": "s135",
+        "org_id": "ORG01",
+        "id": "ORGANIZATION_INVITE02"
+      }
+    }
+  },
+  "new": {
+    "organization_invite": {
+      "organization_invite_ref01": {
+        "email": "s190",
+        "expires_at": "s191",
+        "inviter": "s192",
+        "inviter_url": "s193",
+        "org": "s194",
+        "role": "s195",
+        "slug_perm": "s196",
+        "team": [],
+        "user": "s198",
+        "user_url": "s199"
+      }
+    }
+  }
+}

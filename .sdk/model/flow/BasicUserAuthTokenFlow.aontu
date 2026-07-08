@@ -1,0 +1,18 @@
+# BasicUserAuthTokenFlow
+
+main: kit: flow: BasicUserAuthTokenFlow:
+{
+  entity: "user_auth_token",
+  kind: "basic",
+  name: "BasicUserAuthTokenFlow",
+  step: [
+    {
+      input: {
+        ref: "user_auth_token_ref01"
+      }
+
+      op: "create"
+    }
+  ],
+  "key$": "BasicUserAuthTokenFlow"
+}

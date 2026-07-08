@@ -1,0 +1,55 @@
+{
+  "existing": {
+    "repository_gpg_key": {
+      "REPOSITORY_GPG_KEY00": {
+        "active": true,
+        "comment": "s47",
+        "created_at": "s48",
+        "default": false,
+        "fingerprint": "s4a",
+        "fingerprint_short": "s4b",
+        "public_key": "s4c",
+        "identifier": "IDENTIFIER01",
+        "owner": "OWNER01",
+        "id": "REPOSITORY_GPG_KEY00"
+      },
+      "REPOSITORY_GPG_KEY01": {
+        "active": true,
+        "comment": "s8d",
+        "created_at": "s8e",
+        "default": false,
+        "fingerprint": "s90",
+        "fingerprint_short": "s91",
+        "public_key": "s92",
+        "identifier": "IDENTIFIER01",
+        "owner": "OWNER01",
+        "id": "REPOSITORY_GPG_KEY01"
+      },
+      "REPOSITORY_GPG_KEY02": {
+        "active": true,
+        "comment": "sd3",
+        "created_at": "sd4",
+        "default": false,
+        "fingerprint": "sd6",
+        "fingerprint_short": "sd7",
+        "public_key": "sd8",
+        "identifier": "IDENTIFIER01",
+        "owner": "OWNER01",
+        "id": "REPOSITORY_GPG_KEY02"
+      }
+    }
+  },
+  "new": {
+    "repository_gpg_key": {
+      "repository_gpg_key_ref01": {
+        "active": true,
+        "comment": "s119",
+        "created_at": "s11a",
+        "default": false,
+        "fingerprint": "s11c",
+        "fingerprint_short": "s11d",
+        "public_key": "s11e"
+      }
+    }
+  }
+}

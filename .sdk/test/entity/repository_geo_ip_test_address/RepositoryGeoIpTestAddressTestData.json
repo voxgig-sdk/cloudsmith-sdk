@@ -1,0 +1,26 @@
+{
+  "existing": {
+    "repository_geo_ip_test_address": {
+      "REPOSITORY_GEO_IP_TEST_ADDRESS00": {
+        "identifier": "IDENTIFIER01",
+        "owner": "OWNER01",
+        "id": "REPOSITORY_GEO_IP_TEST_ADDRESS00"
+      },
+      "REPOSITORY_GEO_IP_TEST_ADDRESS01": {
+        "identifier": "IDENTIFIER01",
+        "owner": "OWNER01",
+        "id": "REPOSITORY_GEO_IP_TEST_ADDRESS01"
+      },
+      "REPOSITORY_GEO_IP_TEST_ADDRESS02": {
+        "identifier": "IDENTIFIER01",
+        "owner": "OWNER01",
+        "id": "REPOSITORY_GEO_IP_TEST_ADDRESS02"
+      }
+    }
+  },
+  "new": {
+    "repository_geo_ip_test_address": {
+      "repository_geo_ip_test_address_ref01": {}
+    }
+  }
+}

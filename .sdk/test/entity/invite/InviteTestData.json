@@ -1,0 +1,14 @@
+{
+  "existing": {
+    "invite": {
+      "INVITE00": {},
+      "INVITE01": {},
+      "INVITE02": {}
+    }
+  },
+  "new": {
+    "invite": {
+      "invite_ref01": {}
+    }
+  }
+}

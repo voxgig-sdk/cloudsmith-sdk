@@ -1,0 +1,88 @@
+# BasicRubyFlow
+
+main: kit: flow: BasicRubyFlow:
+{
+  entity: "ruby",
+  kind: "basic",
+  name: "BasicRubyFlow",
+  step: [
+    {
+      input: {
+        ref: "ruby_ref01"
+      }
+
+      match: {
+        identifier: "identifier01",
+        owner: "owner01"
+      }
+
+      op: "create"
+    }
+
+    {
+      match: {
+        identifier: "identifier01",
+        owner: "owner01"
+      }
+
+      op: "list",
+      valid: [
+        {
+          apply: "ItemExists",
+          def: {
+            ref: "ruby_ref01"
+          }
+        }
+      ]
+    }
+
+    {
+      data: {
+        identifier: "identifier01",
+        owner: "owner01"
+      }
+
+      input: {
+        ref: "ruby_ref01",
+        srcdatavar: "ruby_ref01_data",
+        suffix: "_up0",
+        textfield: "auth_mode"
+      }
+
+      op: "update",
+      spec: [
+        {
+          apply: "TextFieldMark",
+          def: {
+            mark: "Mark01-ruby_ref01"
+          }
+        }
+      ]
+    }
+
+    {
+      input: {
+        ref: "ruby_ref01",
+        srcdatavar: "ruby_ref01_data",
+        suffix: "_dt0"
+      }
+
+      match: {
+        id: "ruby01",
+        identifier: "identifier01",
+        owner: "owner01"
+      }
+
+      op: "load",
+      valid: [
+        {
+          apply: "TextFieldMark",
+          def: {
+            mark: "Mark01-ruby_ref01"
+          }
+        }
+      ]
+    }
+  ],
+  "key$": "BasicRubyFlow"
+}

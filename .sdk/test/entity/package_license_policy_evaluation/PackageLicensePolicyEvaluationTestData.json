@@ -1,0 +1,58 @@
+{
+  "existing": {
+    "package_license_policy_evaluation": {
+      "PACKAGE_LICENSE_POLICY_EVALUATION00": {
+        "created_at": "s46",
+        "evaluation_count": "s47",
+        "policy": {},
+        "slug_perm": "s49",
+        "status": "s4a",
+        "updated_at": "s4b",
+        "violation_count": "s4c",
+        "org_id": "ORG01",
+        "policy_slug_perm": "POLICY_SLUG_PERM01",
+        "license_policy_id": "LICENSE_POLICY01",
+        "id": "PACKAGE_LICENSE_POLICY_EVALUATION00"
+      },
+      "PACKAGE_LICENSE_POLICY_EVALUATION01": {
+        "created_at": "s8c",
+        "evaluation_count": "s8d",
+        "policy": {},
+        "slug_perm": "s8f",
+        "status": "s90",
+        "updated_at": "s91",
+        "violation_count": "s92",
+        "org_id": "ORG01",
+        "policy_slug_perm": "POLICY_SLUG_PERM01",
+        "license_policy_id": "LICENSE_POLICY01",
+        "id": "PACKAGE_LICENSE_POLICY_EVALUATION01"
+      },
+      "PACKAGE_LICENSE_POLICY_EVALUATION02": {
+        "created_at": "sd2",
+        "evaluation_count": "sd3",
+        "policy": {},
+        "slug_perm": "sd5",
+        "status": "sd6",
+        "updated_at": "sd7",
+        "violation_count": "sd8",
+        "org_id": "ORG01",
+        "policy_slug_perm": "POLICY_SLUG_PERM01",
+        "license_policy_id": "LICENSE_POLICY01",
+        "id": "PACKAGE_LICENSE_POLICY_EVALUATION02"
+      }
+    }
+  },
+  "new": {
+    "package_license_policy_evaluation": {
+      "package_license_policy_evaluation_ref01": {
+        "created_at": "s118",
+        "evaluation_count": "s119",
+        "policy": {},
+        "slug_perm": "s11b",
+        "status": "s11c",
+        "updated_at": "s11d",
+        "violation_count": "s11e"
+      }
+    }
+  }
+}

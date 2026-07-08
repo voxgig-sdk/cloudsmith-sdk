@@ -1,0 +1,56 @@
+# BasicRepositoryRetentionRuleFlow
+
+main: kit: flow: BasicRepositoryRetentionRuleFlow:
+{
+  entity: "repository_retention_rule",
+  kind: "basic",
+  name: "BasicRepositoryRetentionRuleFlow",
+  step: [
+    {
+      data: {
+        owner: "owner01"
+      }
+
+      input: {
+        ref: "repository_retention_rule_ref01",
+        srcdatavar: "repository_retention_rule_ref01_data",
+        suffix: "_up0",
+        textfield: "retention_package_query_string"
+      }
+
+      op: "update",
+      spec: [
+        {
+          apply: "TextFieldMark",
+          def: {
+            mark: "Mark01-repository_retention_rule_ref01"
+          }
+        }
+      ]
+    }
+
+    {
+      input: {
+        ref: "repository_retention_rule_ref01",
+        srcdatavar: "repository_retention_rule_ref01_data",
+        suffix: "_dt0"
+      }
+
+      match: {
+        id: "repository_retention_rule01",
+        owner: "owner01"
+      }
+
+      op: "load",
+      valid: [
+        {
+          apply: "TextFieldMark",
+          def: {
+            mark: "Mark01-repository_retention_rule_ref01"
+          }
+        }
+      ]
+    }
+  ],
+  "key$": "BasicRepositoryRetentionRuleFlow"
+}

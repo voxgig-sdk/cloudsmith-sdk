@@ -1,0 +1,28 @@
+{
+  "existing": {
+    "organization_group_sync_status": {
+      "ORGANIZATION_GROUP_SYNC_STATUS00": {
+        "saml_group_sync_status": true,
+        "org_id": "ORG01",
+        "id": "ORGANIZATION_GROUP_SYNC_STATUS00"
+      },
+      "ORGANIZATION_GROUP_SYNC_STATUS01": {
+        "saml_group_sync_status": true,
+        "org_id": "ORG01",
+        "id": "ORGANIZATION_GROUP_SYNC_STATUS01"
+      },
+      "ORGANIZATION_GROUP_SYNC_STATUS02": {
+        "saml_group_sync_status": true,
+        "org_id": "ORG01",
+        "id": "ORGANIZATION_GROUP_SYNC_STATUS02"
+      }
+    }
+  },
+  "new": {
+    "organization_group_sync_status": {
+      "organization_group_sync_status_ref01": {
+        "saml_group_sync_status": true
+      }
+    }
+  }
+}

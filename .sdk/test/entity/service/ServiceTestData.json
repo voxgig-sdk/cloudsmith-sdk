@@ -1,0 +1,64 @@
+{
+  "existing": {
+    "service": {
+      "SERVICE00": {
+        "created_at": "s64",
+        "created_by": "s65",
+        "created_by_url": "s66",
+        "description": "s67",
+        "key": "s68",
+        "key_expires_at": "s69",
+        "name": "s6a",
+        "role": "s6b",
+        "slug": "s6c",
+        "team": [],
+        "org_id": "ORG01",
+        "id": "SERVICE00"
+      },
+      "SERVICE01": {
+        "created_at": "sc8",
+        "created_by": "sc9",
+        "created_by_url": "sca",
+        "description": "scb",
+        "key": "scc",
+        "key_expires_at": "scd",
+        "name": "sce",
+        "role": "scf",
+        "slug": "sd0",
+        "team": [],
+        "org_id": "ORG01",
+        "id": "SERVICE01"
+      },
+      "SERVICE02": {
+        "created_at": "s12c",
+        "created_by": "s12d",
+        "created_by_url": "s12e",
+        "description": "s12f",
+        "key": "s130",
+        "key_expires_at": "s131",
+        "name": "s132",
+        "role": "s133",
+        "slug": "s134",
+        "team": [],
+        "org_id": "ORG01",
+        "id": "SERVICE02"
+      }
+    }
+  },
+  "new": {
+    "service": {
+      "service_ref01": {
+        "created_at": "s190",
+        "created_by": "s191",
+        "created_by_url": "s192",
+        "description": "s193",
+        "key": "s194",
+        "key_expires_at": "s195",
+        "name": "s196",
+        "role": "s197",
+        "slug": "s198",
+        "team": []
+      }
+    }
+  }
+}

@@ -1,0 +1,18 @@
+# Entity: scan
+
+main: kit: entity: scan: {
+
+  alias: field: {}
+
+  name: "scan"
+  relations: {
+    ancestors: [
+      [
+        "package"
+      ]
+    ]
+  }
+
+
+
+}

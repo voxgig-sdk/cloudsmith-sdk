@@ -1,0 +1,71 @@
+{
+  "existing": {
+    "organization_membership_visibility_update": {
+      "ORGANIZATION_MEMBERSHIP_VISIBILITY_UPDATE00": {
+        "email": "s6e",
+        "has_two_factor": false,
+        "joined_at": "s70",
+        "last_login_at": "s71",
+        "last_login_method": "s72",
+        "role": "s73",
+        "user": "s74",
+        "user_id": "USER01",
+        "user_name": "s76",
+        "user_url": "s77",
+        "visibility": "s78",
+        "member_id": "MEMBER01",
+        "org_id": "ORG01",
+        "id": "ORGANIZATION_MEMBERSHIP_VISIBILITY_UPDATE00"
+      },
+      "ORGANIZATION_MEMBERSHIP_VISIBILITY_UPDATE01": {
+        "email": "sdc",
+        "has_two_factor": false,
+        "joined_at": "sde",
+        "last_login_at": "sdf",
+        "last_login_method": "se0",
+        "role": "se1",
+        "user": "se2",
+        "user_id": "USER01",
+        "user_name": "se4",
+        "user_url": "se5",
+        "visibility": "se6",
+        "member_id": "MEMBER01",
+        "org_id": "ORG01",
+        "id": "ORGANIZATION_MEMBERSHIP_VISIBILITY_UPDATE01"
+      },
+      "ORGANIZATION_MEMBERSHIP_VISIBILITY_UPDATE02": {
+        "email": "s14a",
+        "has_two_factor": false,
+        "joined_at": "s14c",
+        "last_login_at": "s14d",
+        "last_login_method": "s14e",
+        "role": "s14f",
+        "user": "s150",
+        "user_id": "USER01",
+        "user_name": "s152",
+        "user_url": "s153",
+        "visibility": "s154",
+        "member_id": "MEMBER01",
+        "org_id": "ORG01",
+        "id": "ORGANIZATION_MEMBERSHIP_VISIBILITY_UPDATE02"
+      }
+    }
+  },
+  "new": {
+    "organization_membership_visibility_update": {
+      "organization_membership_visibility_update_ref01": {
+        "email": "s1b8",
+        "has_two_factor": false,
+        "joined_at": "s1ba",
+        "last_login_at": "s1bb",
+        "last_login_method": "s1bc",
+        "role": "s1bd",
+        "user": "s1be",
+        "user_id": "USER01",
+        "user_name": "s1c0",
+        "user_url": "s1c1",
+        "visibility": "s1c2"
+      }
+    }
+  }
+}

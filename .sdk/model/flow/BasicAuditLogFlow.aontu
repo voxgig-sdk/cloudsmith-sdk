@@ -1,0 +1,9 @@
+# BasicAuditLogFlow
+
+main: kit: flow: BasicAuditLogFlow:
+{
+  entity: "audit_log",
+  kind: "basic",
+  name: "BasicAuditLogFlow",
+  "key$": "BasicAuditLogFlow"
+}

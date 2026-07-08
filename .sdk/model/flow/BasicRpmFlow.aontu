@@ -1,0 +1,88 @@
+# BasicRpmFlow
+
+main: kit: flow: BasicRpmFlow:
+{
+  entity: "rpm",
+  kind: "basic",
+  name: "BasicRpmFlow",
+  step: [
+    {
+      input: {
+        ref: "rpm_ref01"
+      }
+
+      match: {
+        identifier: "identifier01",
+        owner: "owner01"
+      }
+
+      op: "create"
+    }
+
+    {
+      match: {
+        identifier: "identifier01",
+        owner: "owner01"
+      }
+
+      op: "list",
+      valid: [
+        {
+          apply: "ItemExists",
+          def: {
+            ref: "rpm_ref01"
+          }
+        }
+      ]
+    }
+
+    {
+      data: {
+        identifier: "identifier01",
+        owner: "owner01"
+      }
+
+      input: {
+        ref: "rpm_ref01",
+        srcdatavar: "rpm_ref01_data",
+        suffix: "_up0",
+        textfield: "auth_mode"
+      }
+
+      op: "update",
+      spec: [
+        {
+          apply: "TextFieldMark",
+          def: {
+            mark: "Mark01-rpm_ref01"
+          }
+        }
+      ]
+    }
+
+    {
+      input: {
+        ref: "rpm_ref01",
+        srcdatavar: "rpm_ref01_data",
+        suffix: "_dt0"
+      }
+
+      match: {
+        id: "rpm01",
+        identifier: "identifier01",
+        owner: "owner01"
+      }
+
+      op: "load",
+      valid: [
+        {
+          apply: "TextFieldMark",
+          def: {
+            mark: "Mark01-rpm_ref01"
+          }
+        }
+      ]
+    }
+  ],
+  "key$": "BasicRpmFlow"
+}

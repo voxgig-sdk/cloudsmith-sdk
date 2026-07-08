@@ -1,0 +1,38 @@
+{
+  "existing": {
+    "dynamic_mapping": {
+      "DYNAMIC_MAPPING00": {
+        "claim_value": "s14",
+        "service_account": "s15",
+        "org_id": "ORG01",
+        "provider_setting": "PROVIDER_SETTING01",
+        "openid_connect_id": "OPENID_CONNECT01",
+        "id": "DYNAMIC_MAPPING00"
+      },
+      "DYNAMIC_MAPPING01": {
+        "claim_value": "s28",
+        "service_account": "s29",
+        "org_id": "ORG01",
+        "provider_setting": "PROVIDER_SETTING01",
+        "openid_connect_id": "OPENID_CONNECT01",
+        "id": "DYNAMIC_MAPPING01"
+      },
+      "DYNAMIC_MAPPING02": {
+        "claim_value": "s3c",
+        "service_account": "s3d",
+        "org_id": "ORG01",
+        "provider_setting": "PROVIDER_SETTING01",
+        "openid_connect_id": "OPENID_CONNECT01",
+        "id": "DYNAMIC_MAPPING02"
+      }
+    }
+  },
+  "new": {
+    "dynamic_mapping": {
+      "dynamic_mapping_ref01": {
+        "claim_value": "s50",
+        "service_account": "s51"
+      }
+    }
+  }
+}

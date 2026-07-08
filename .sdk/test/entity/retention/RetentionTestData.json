@@ -1,0 +1,14 @@
+{
+  "existing": {
+    "retention": {
+      "RETENTION00": {},
+      "RETENTION01": {},
+      "RETENTION02": {}
+    }
+  },
+  "new": {
+    "retention": {
+      "retention_ref01": {}
+    }
+  }
+}

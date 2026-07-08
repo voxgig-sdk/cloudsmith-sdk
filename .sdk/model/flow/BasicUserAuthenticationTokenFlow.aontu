@@ -1,0 +1,37 @@
+# BasicUserAuthenticationTokenFlow
+
+main: kit: flow: BasicUserAuthenticationTokenFlow:
+{
+  entity: "user_authentication_token",
+  kind: "basic",
+  name: "BasicUserAuthenticationTokenFlow",
+  step: [
+    {
+      input: {
+        ref: "user_authentication_token_ref01"
+      }
+
+      op: "create"
+    }
+
+    {
+      input: {
+        ref: "user_authentication_token_ref01",
+        srcdatavar: "user_authentication_token_ref01_data",
+        suffix: "_up0",
+        textfield: "created"
+      }
+
+      op: "update",
+      spec: [
+        {
+          apply: "TextFieldMark",
+          def: {
+            mark: "Mark01-user_authentication_token_ref01"
+          }
+        }
+      ]
+    }
+  ],
+  "key$": "BasicUserAuthenticationTokenFlow"
+}

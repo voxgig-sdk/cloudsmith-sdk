@@ -1,0 +1,160 @@
+# Entity: repository_retention_rule
+
+main: kit: entity: repository_retention_rule: {
+
+  alias: field: {}
+
+  fields: [
+    {
+      name: "retention_count_limit"
+      req: false
+      type: "`$INTEGER`"
+    }
+    {
+      name: "retention_days_limit"
+      req: false
+      type: "`$INTEGER`"
+    }
+    {
+      name: "retention_enabled"
+      req: false
+      type: "`$BOOLEAN`"
+    }
+    {
+      name: "retention_group_by_format"
+      req: false
+      type: "`$BOOLEAN`"
+    }
+    {
+      name: "retention_group_by_name"
+      req: false
+      type: "`$BOOLEAN`"
+    }
+    {
+      name: "retention_group_by_package_type"
+      req: false
+      type: "`$BOOLEAN`"
+    }
+    {
+      name: "retention_package_query_string"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "retention_size_limit"
+      req: false
+      type: "`$INTEGER`"
+    }
+  ]
+
+  name: "repository_retention_rule"
+  op: {
+    load: {
+      name: "load"
+      points: [
+        {
+          args: {
+            params: [
+              {
+                kind: "param"
+                name: "owner"
+                orig: "owner"
+                reqd: true
+                type: "`$ANY`"
+              }
+              {
+                kind: "param"
+                name: "repo"
+                orig: "repo"
+                reqd: true
+                type: "`$ANY`"
+              }
+            ]
+          }
+          method: "GET"
+          orig: "/repos/{owner}/{repo}/retention/"
+          parts: [
+            "repos"
+            "{owner}"
+            "{repo}"
+            "retention"
+          ]
+          select: {
+            exist: [
+              "owner"
+              "repo"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+    update: {
+      name: "update"
+      points: [
+        {
+          args: {
+            params: [
+              {
+                kind: "param"
+                name: "owner"
+                orig: "owner"
+                reqd: true
+                type: "`$ANY`"
+              }
+              {
+                kind: "param"
+                name: "repo"
+                orig: "repo"
+                reqd: true
+                type: "`$ANY`"
+              }
+            ]
+            query: [
+              {
+                kind: "query"
+                name: "data"
+                orig: "data"
+                reqd: false
+                type: "`$OBJECT`"
+              }
+            ]
+          }
+          method: "PATCH"
+          orig: "/repos/{owner}/{repo}/retention/"
+          parts: [
+            "repos"
+            "{owner}"
+            "{repo}"
+            "retention"
+          ]
+          select: {
+            exist: [
+              "data"
+              "owner"
+              "repo"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+  }
+
+  relations: {
+    ancestors: [
+      [
+        "repo"
+      ]
+    ]
+  }
+
+
+
+}

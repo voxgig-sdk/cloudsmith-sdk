@@ -1,0 +1,29 @@
+{
+  "existing": {
+    "webhook": {
+      "WEBHOOK00": {
+        "identifier": "IDENTIFIER01",
+        "owner": "OWNER01",
+        "repo": "REPO01",
+        "id": "WEBHOOK00"
+      },
+      "WEBHOOK01": {
+        "identifier": "IDENTIFIER01",
+        "owner": "OWNER01",
+        "repo": "REPO01",
+        "id": "WEBHOOK01"
+      },
+      "WEBHOOK02": {
+        "identifier": "IDENTIFIER01",
+        "owner": "OWNER01",
+        "repo": "REPO01",
+        "id": "WEBHOOK02"
+      }
+    }
+  },
+  "new": {
+    "webhook": {
+      "webhook_ref01": {}
+    }
+  }
+}

@@ -1,0 +1,14 @@
+{
+  "existing": {
+    "test": {
+      "TEST00": {},
+      "TEST01": {},
+      "TEST02": {}
+    }
+  },
+  "new": {
+    "test": {
+      "test_ref01": {}
+    }
+  }
+}

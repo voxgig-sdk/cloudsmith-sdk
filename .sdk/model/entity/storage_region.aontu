@@ -1,0 +1,80 @@
+# Entity: storage_region
+
+main: kit: entity: storage_region: {
+
+  alias: field: {}
+
+  fields: [
+    {
+      name: "label"
+      req: true
+      type: "`$STRING`"
+    }
+    {
+      name: "slug"
+      req: true
+      type: "`$STRING`"
+    }
+  ]
+
+  name: "storage_region"
+  op: {
+    list: {
+      name: "list"
+      points: [
+        {
+          method: "GET"
+          orig: "/storage-regions/"
+          parts: [
+            "storage-regions"
+          ]
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+    load: {
+      name: "load"
+      points: [
+        {
+          args: {
+            params: [
+              {
+                kind: "param"
+                name: "id"
+                orig: "slug"
+                reqd: true
+                type: "`$STRING`"
+              }
+            ]
+          }
+          method: "GET"
+          orig: "/storage-regions/{slug}/"
+          parts: [
+            "storage-regions"
+            "{id}"
+          ]
+          rename: {
+            param: {
+              slug: "id"
+            }
+          }
+          select: {
+            exist: [
+              "id"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+  }
+
+
+
+}

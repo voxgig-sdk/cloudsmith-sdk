@@ -1,0 +1,157 @@
+# Entity: repository_audit_log
+
+main: kit: entity: repository_audit_log: {
+
+  alias: field: {}
+
+  fields: [
+    {
+      name: "actor"
+      req: true
+      type: "`$STRING`"
+    }
+    {
+      name: "actor_ip_address"
+      req: true
+      type: "`$STRING`"
+    }
+    {
+      name: "actor_kind"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "actor_location"
+      req: true
+      type: "`$OBJECT`"
+    }
+    {
+      name: "actor_slug_perm"
+      req: true
+      type: "`$STRING`"
+    }
+    {
+      name: "actor_url"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "context"
+      req: true
+      type: "`$STRING`"
+    }
+    {
+      name: "event"
+      req: true
+      type: "`$STRING`"
+    }
+    {
+      name: "event_at"
+      req: true
+      type: "`$STRING`"
+    }
+    {
+      name: "object"
+      req: true
+      type: "`$STRING`"
+    }
+    {
+      name: "object_kind"
+      req: true
+      type: "`$STRING`"
+    }
+    {
+      name: "object_slug_perm"
+      req: true
+      type: "`$STRING`"
+    }
+    {
+      name: "uuid"
+      req: false
+      type: "`$STRING`"
+    }
+  ]
+
+  name: "repository_audit_log"
+  op: {
+    list: {
+      name: "list"
+      points: [
+        {
+          args: {
+            params: [
+              {
+                kind: "param"
+                name: "owner"
+                orig: "owner"
+                reqd: true
+                type: "`$ANY`"
+              }
+              {
+                kind: "param"
+                name: "repo"
+                orig: "repo"
+                reqd: true
+                type: "`$ANY`"
+              }
+            ]
+            query: [
+              {
+                kind: "query"
+                name: "page"
+                orig: "page"
+                reqd: false
+                type: "`$INTEGER`"
+              }
+              {
+                kind: "query"
+                name: "page_size"
+                orig: "page_size"
+                reqd: false
+                type: "`$INTEGER`"
+              }
+              {
+                kind: "query"
+                name: "query"
+                orig: "query"
+                reqd: false
+                type: "`$ANY`"
+              }
+            ]
+          }
+          method: "GET"
+          orig: "/audit-log/{owner}/{repo}/"
+          parts: [
+            "audit-log"
+            "{owner}"
+            "{repo}"
+          ]
+          select: {
+            exist: [
+              "owner"
+              "page"
+              "page_size"
+              "query"
+              "repo"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+  }
+
+  relations: {
+    ancestors: [
+      [
+        "audit_log"
+      ]
+    ]
+  }
+
+
+
+}

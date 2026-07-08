@@ -1,0 +1,46 @@
+# BasicRepositoryEcdsaKeyFlow
+
+main: kit: flow: BasicRepositoryEcdsaKeyFlow:
+{
+  entity: "repository_ecdsa_key",
+  kind: "basic",
+  name: "BasicRepositoryEcdsaKeyFlow",
+  step: [
+    {
+      input: {
+        ref: "repository_ecdsa_key_ref01"
+      }
+
+      match: {
+        identifier: "identifier01",
+        owner: "owner01"
+      }
+
+      op: "create"
+    }
+
+    {
+      input: {
+        ref: "repository_ecdsa_key_ref01",
+        srcdatavar: "repository_ecdsa_key_ref01_data",
+        suffix: "_dt0"
+      }
+
+      match: {
+        id: "repository_ecdsa_key01",
+        owner: "owner01"
+      }
+
+      op: "load",
+      valid: [
+        {
+          apply: "TextFieldMark",
+          def: {
+            mark: "Mark01-repository_ecdsa_key_ref01"
+          }
+        }
+      ]
+    }
+  ],
+  "key$": "BasicRepositoryEcdsaKeyFlow"
+}

@@ -1,0 +1,14 @@
+{
+  "existing": {
+    "alpine": {
+      "ALPINE00": {},
+      "ALPINE01": {},
+      "ALPINE02": {}
+    }
+  },
+  "new": {
+    "alpine": {
+      "alpine_ref01": {}
+    }
+  }
+}

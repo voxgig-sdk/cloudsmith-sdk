@@ -1,0 +1,18 @@
+# Entity: conan
+
+main: kit: entity: conan: {
+
+  alias: field: {}
+
+  name: "conan"
+  relations: {
+    ancestors: [
+      [
+        "package"
+      ]
+    ]
+  }
+
+
+
+}

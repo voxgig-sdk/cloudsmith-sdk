@@ -1,0 +1,60 @@
+{
+  "existing": {
+    "provider_settings_write": {
+      "PROVIDER_SETTINGS_WRITE00": {
+        "claim": {},
+        "dynamic_mapping": [],
+        "enabled": true,
+        "mapping_claim": "s5d",
+        "name": "s5e",
+        "provider_url": "s5f",
+        "service_account": [],
+        "slug": "s61",
+        "slug_perm": "s62",
+        "org_id": "ORG01",
+        "id": "PROVIDER_SETTINGS_WRITE00"
+      },
+      "PROVIDER_SETTINGS_WRITE01": {
+        "claim": {},
+        "dynamic_mapping": [],
+        "enabled": true,
+        "mapping_claim": "sb7",
+        "name": "sb8",
+        "provider_url": "sb9",
+        "service_account": [],
+        "slug": "sbb",
+        "slug_perm": "sbc",
+        "org_id": "ORG01",
+        "id": "PROVIDER_SETTINGS_WRITE01"
+      },
+      "PROVIDER_SETTINGS_WRITE02": {
+        "claim": {},
+        "dynamic_mapping": [],
+        "enabled": true,
+        "mapping_claim": "s111",
+        "name": "s112",
+        "provider_url": "s113",
+        "service_account": [],
+        "slug": "s115",
+        "slug_perm": "s116",
+        "org_id": "ORG01",
+        "id": "PROVIDER_SETTINGS_WRITE02"
+      }
+    }
+  },
+  "new": {
+    "provider_settings_write": {
+      "provider_settings_write_ref01": {
+        "claim": {},
+        "dynamic_mapping": [],
+        "enabled": true,
+        "mapping_claim": "s16b",
+        "name": "s16c",
+        "provider_url": "s16d",
+        "service_account": [],
+        "slug": "s16f",
+        "slug_perm": "s170"
+      }
+    }
+  }
+}

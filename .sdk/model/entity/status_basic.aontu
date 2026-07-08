@@ -1,0 +1,44 @@
+# Entity: status_basic
+
+main: kit: entity: status_basic: {
+
+  alias: field: {}
+
+  fields: [
+    {
+      name: "detail"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "version"
+      req: false
+      type: "`$STRING`"
+    }
+  ]
+
+  name: "status_basic"
+  op: {
+    load: {
+      name: "load"
+      points: [
+        {
+          method: "GET"
+          orig: "/status/check/basic/"
+          parts: [
+            "status"
+            "check"
+            "basic"
+          ]
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+  }
+
+
+
+}

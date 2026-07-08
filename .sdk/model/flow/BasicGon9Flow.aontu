@@ -1,0 +1,34 @@
+# BasicGon9Flow
+
+main: kit: flow: BasicGon9Flow:
+{
+  entity: "gon9",
+  kind: "basic",
+  name: "BasicGon9Flow",
+  step: [
+    {
+      data: {
+        identifier: "identifier01",
+        owner: "owner01"
+      }
+
+      input: {
+        ref: "gon9_ref01",
+        srcdatavar: "gon9_ref01_data",
+        suffix: "_up0",
+        textfield: "auth_mode"
+      }
+
+      op: "update",
+      spec: [
+        {
+          apply: "TextFieldMark",
+          def: {
+            mark: "Mark01-gon9_ref01"
+          }
+        }
+      ]
+    }
+  ],
+  "key$": "BasicGon9Flow"
+}

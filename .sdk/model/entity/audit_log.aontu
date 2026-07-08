@@ -1,0 +1,18 @@
+# Entity: audit_log
+
+main: kit: entity: audit_log: {
+
+  alias: field: {}
+
+  name: "audit_log"
+  relations: {
+    ancestors: [
+      [
+        "audit_log"
+      ]
+    ]
+  }
+
+
+
+}

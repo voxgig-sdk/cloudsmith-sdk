@@ -1,0 +1,14 @@
+{
+  "existing": {
+    "profile": {
+      "PROFILE00": {},
+      "PROFILE01": {},
+      "PROFILE02": {}
+    }
+  },
+  "new": {
+    "profile": {
+      "profile_ref01": {}
+    }
+  }
+}

@@ -1,0 +1,28 @@
+# BasicResourcesRateCheckFlow
+
+main: kit: flow: BasicResourcesRateCheckFlow:
+{
+  entity: "resources_rate_check",
+  kind: "basic",
+  name: "BasicResourcesRateCheckFlow",
+  step: [
+    {
+      input: {
+        ref: "resources_rate_check_ref01",
+        srcdatavar: "resources_rate_check_ref01_data",
+        suffix: "_dt0"
+      }
+
+      op: "load",
+      valid: [
+        {
+          apply: "TextFieldMark",
+          def: {
+            mark: "Mark01-resources_rate_check_ref01"
+          }
+        }
+      ]
+    }
+  ],
+  "key$": "BasicResourcesRateCheckFlow"
+}

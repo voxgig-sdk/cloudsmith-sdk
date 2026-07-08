@@ -1,0 +1,23 @@
+# BasicOrganizationInviteExtendFlow
+
+main: kit: flow: BasicOrganizationInviteExtendFlow:
+{
+  entity: "organization_invite_extend",
+  kind: "basic",
+  name: "BasicOrganizationInviteExtendFlow",
+  step: [
+    {
+      input: {
+        ref: "organization_invite_extend_ref01"
+      }
+
+      match: {
+        org_id: "org01",
+        slug_perm: "slug_perm01"
+      }
+
+      op: "create"
+    }
+  ],
+  "key$": "BasicOrganizationInviteExtendFlow"
+}

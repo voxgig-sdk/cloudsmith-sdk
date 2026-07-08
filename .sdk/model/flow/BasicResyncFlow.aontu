@@ -1,0 +1,9 @@
+# BasicResyncFlow
+
+main: kit: flow: BasicResyncFlow:
+{
+  entity: "resync",
+  kind: "basic",
+  name: "BasicResyncFlow",
+  "key$": "BasicResyncFlow"
+}

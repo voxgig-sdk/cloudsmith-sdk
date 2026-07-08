@@ -1,0 +1,37 @@
+{
+  "existing": {
+    "namespace": {
+      "NAMESPACE00": {
+        "name": "s28",
+        "slug": "s29",
+        "slug_perm": "s2a",
+        "type_name": "s2b",
+        "id": "NAMESPACE00"
+      },
+      "NAMESPACE01": {
+        "name": "s50",
+        "slug": "s51",
+        "slug_perm": "s52",
+        "type_name": "s53",
+        "id": "NAMESPACE01"
+      },
+      "NAMESPACE02": {
+        "name": "s78",
+        "slug": "s79",
+        "slug_perm": "s7a",
+        "type_name": "s7b",
+        "id": "NAMESPACE02"
+      }
+    }
+  },
+  "new": {
+    "namespace": {
+      "namespace_ref01": {
+        "name": "sa0",
+        "slug": "sa1",
+        "slug_perm": "sa2",
+        "type_name": "sa3"
+      }
+    }
+  }
+}

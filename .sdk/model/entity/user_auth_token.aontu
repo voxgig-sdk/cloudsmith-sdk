@@ -1,0 +1,46 @@
+# Entity: user_auth_token
+
+main: kit: entity: user_auth_token: {
+
+  alias: field: {}
+
+  name: "user_auth_token"
+  op: {
+    create: {
+      name: "create"
+      points: [
+        {
+          args: {
+            query: [
+              {
+                kind: "query"
+                name: "data"
+                orig: "data"
+                reqd: false
+                type: "`$OBJECT`"
+              }
+            ]
+          }
+          method: "POST"
+          orig: "/user/token/"
+          parts: [
+            "user"
+            "token"
+          ]
+          select: {
+            exist: [
+              "data"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+  }
+
+
+
+}

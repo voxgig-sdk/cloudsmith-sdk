@@ -1,0 +1,49 @@
+{
+  "existing": {
+    "distribution_full": {
+      "DISTRIBUTION_FULL00": {
+        "format": "s46",
+        "format_url": "s47",
+        "name": "s48",
+        "self_url": "s49",
+        "slug": "s4a",
+        "variant": "s4b",
+        "version": [],
+        "id": "DISTRIBUTION_FULL00"
+      },
+      "DISTRIBUTION_FULL01": {
+        "format": "s8c",
+        "format_url": "s8d",
+        "name": "s8e",
+        "self_url": "s8f",
+        "slug": "s90",
+        "variant": "s91",
+        "version": [],
+        "id": "DISTRIBUTION_FULL01"
+      },
+      "DISTRIBUTION_FULL02": {
+        "format": "sd2",
+        "format_url": "sd3",
+        "name": "sd4",
+        "self_url": "sd5",
+        "slug": "sd6",
+        "variant": "sd7",
+        "version": [],
+        "id": "DISTRIBUTION_FULL02"
+      }
+    }
+  },
+  "new": {
+    "distribution_full": {
+      "distribution_full_ref01": {
+        "format": "s118",
+        "format_url": "s119",
+        "name": "s11a",
+        "self_url": "s11b",
+        "slug": "s11c",
+        "variant": "s11d",
+        "version": []
+      }
+    }
+  }
+}

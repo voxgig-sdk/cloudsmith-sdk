@@ -1,0 +1,160 @@
+# Entity: namespace_audit_log
+
+main: kit: entity: namespace_audit_log: {
+
+  alias: field: {}
+
+  fields: [
+    {
+      name: "actor"
+      req: true
+      type: "`$STRING`"
+    }
+    {
+      name: "actor_ip_address"
+      req: true
+      type: "`$STRING`"
+    }
+    {
+      name: "actor_kind"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "actor_location"
+      req: true
+      type: "`$OBJECT`"
+    }
+    {
+      name: "actor_slug_perm"
+      req: true
+      type: "`$STRING`"
+    }
+    {
+      name: "actor_url"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "context"
+      req: true
+      type: "`$STRING`"
+    }
+    {
+      name: "event"
+      req: true
+      type: "`$STRING`"
+    }
+    {
+      name: "event_at"
+      req: true
+      type: "`$STRING`"
+    }
+    {
+      name: "object"
+      req: true
+      type: "`$STRING`"
+    }
+    {
+      name: "object_kind"
+      req: true
+      type: "`$STRING`"
+    }
+    {
+      name: "object_slug_perm"
+      req: true
+      type: "`$STRING`"
+    }
+    {
+      name: "target"
+      req: true
+      type: "`$STRING`"
+    }
+    {
+      name: "target_kind"
+      req: true
+      type: "`$STRING`"
+    }
+    {
+      name: "target_slug_perm"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "uuid"
+      req: false
+      type: "`$STRING`"
+    }
+  ]
+
+  name: "namespace_audit_log"
+  op: {
+    load: {
+      name: "load"
+      points: [
+        {
+          args: {
+            params: [
+              {
+                kind: "param"
+                name: "id"
+                orig: "owner"
+                reqd: true
+                type: "`$STRING`"
+              }
+            ]
+            query: [
+              {
+                kind: "query"
+                name: "page"
+                orig: "page"
+                reqd: false
+                type: "`$INTEGER`"
+              }
+              {
+                kind: "query"
+                name: "page_size"
+                orig: "page_size"
+                reqd: false
+                type: "`$INTEGER`"
+              }
+              {
+                kind: "query"
+                name: "query"
+                orig: "query"
+                reqd: false
+                type: "`$ANY`"
+              }
+            ]
+          }
+          method: "GET"
+          orig: "/audit-log/{owner}/"
+          parts: [
+            "audit-log"
+            "{id}"
+          ]
+          rename: {
+            param: {
+              owner: "id"
+            }
+          }
+          select: {
+            exist: [
+              "id"
+              "page"
+              "page_size"
+              "query"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+  }
+
+
+
+}

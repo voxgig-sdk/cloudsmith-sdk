@@ -1,0 +1,34 @@
+# BasicPackageFilePartsUploadFlow
+
+main: kit: flow: BasicPackageFilePartsUploadFlow:
+{
+  entity: "package_file_parts_upload",
+  kind: "basic",
+  name: "BasicPackageFilePartsUploadFlow",
+  step: [
+    {
+      input: {
+        ref: "package_file_parts_upload_ref01",
+        srcdatavar: "package_file_parts_upload_ref01_data",
+        suffix: "_dt0"
+      }
+
+      match: {
+        id: "package_file_parts_upload01",
+        owner: "owner01",
+        repo: "repo01"
+      }
+
+      op: "load",
+      valid: [
+        {
+          apply: "TextFieldMark",
+          def: {
+            mark: "Mark01-package_file_parts_upload_ref01"
+          }
+        }
+      ]
+    }
+  ],
+  "key$": "BasicPackageFilePartsUploadFlow"
+}

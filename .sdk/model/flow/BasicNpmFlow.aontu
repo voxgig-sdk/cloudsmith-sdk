@@ -1,0 +1,88 @@
+# BasicNpmFlow
+
+main: kit: flow: BasicNpmFlow:
+{
+  entity: "npm",
+  kind: "basic",
+  name: "BasicNpmFlow",
+  step: [
+    {
+      input: {
+        ref: "npm_ref01"
+      }
+
+      match: {
+        identifier: "identifier01",
+        owner: "owner01"
+      }
+
+      op: "create"
+    }
+
+    {
+      match: {
+        identifier: "identifier01",
+        owner: "owner01"
+      }
+
+      op: "list",
+      valid: [
+        {
+          apply: "ItemExists",
+          def: {
+            ref: "npm_ref01"
+          }
+        }
+      ]
+    }
+
+    {
+      data: {
+        identifier: "identifier01",
+        owner: "owner01"
+      }
+
+      input: {
+        ref: "npm_ref01",
+        srcdatavar: "npm_ref01_data",
+        suffix: "_up0",
+        textfield: "auth_mode"
+      }
+
+      op: "update",
+      spec: [
+        {
+          apply: "TextFieldMark",
+          def: {
+            mark: "Mark01-npm_ref01"
+          }
+        }
+      ]
+    }
+
+    {
+      input: {
+        ref: "npm_ref01",
+        srcdatavar: "npm_ref01_data",
+        suffix: "_dt0"
+      }
+
+      match: {
+        id: "npm01",
+        identifier: "identifier01",
+        owner: "owner01"
+      }
+
+      op: "load",
+      valid: [
+        {
+          apply: "TextFieldMark",
+          def: {
+            mark: "Mark01-npm_ref01"
+          }
+        }
+      ]
+    }
+  ],
+  "key$": "BasicNpmFlow"
+}

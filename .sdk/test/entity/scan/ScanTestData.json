@@ -1,0 +1,14 @@
+{
+  "existing": {
+    "scan": {
+      "SCAN00": {},
+      "SCAN01": {},
+      "SCAN02": {}
+    }
+  },
+  "new": {
+    "scan": {
+      "scan_ref01": {}
+    }
+  }
+}

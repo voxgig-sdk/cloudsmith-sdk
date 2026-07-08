@@ -1,0 +1,109 @@
+# Entity: package_file_parts_upload
+
+main: kit: entity: package_file_parts_upload: {
+
+  alias: field: {}
+
+  fields: [
+    {
+      name: "identifier"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "upload_querystring"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "upload_url"
+      req: false
+      type: "`$STRING`"
+    }
+  ]
+
+  name: "package_file_parts_upload"
+  op: {
+    load: {
+      name: "load"
+      points: [
+        {
+          args: {
+            params: [
+              {
+                kind: "param"
+                name: "identifier"
+                orig: "identifier"
+                reqd: true
+                type: "`$ANY`"
+              }
+              {
+                kind: "param"
+                name: "owner"
+                orig: "owner"
+                reqd: true
+                type: "`$ANY`"
+              }
+              {
+                kind: "param"
+                name: "repo"
+                orig: "repo"
+                reqd: true
+                type: "`$ANY`"
+              }
+            ]
+            query: [
+              {
+                kind: "query"
+                name: "filename"
+                orig: "filename"
+                reqd: true
+                type: "`$ANY`"
+              }
+              {
+                kind: "query"
+                name: "part_number"
+                orig: "part_number"
+                reqd: false
+                type: "`$INTEGER`"
+              }
+            ]
+          }
+          method: "GET"
+          orig: "/files/{owner}/{repo}/{identifier}/info/"
+          parts: [
+            "files"
+            "{owner}"
+            "{repo}"
+            "{identifier}"
+            "info"
+          ]
+          select: {
+            exist: [
+              "filename"
+              "identifier"
+              "owner"
+              "part_number"
+              "repo"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+  }
+
+  relations: {
+    ancestors: [
+      [
+        "file"
+      ]
+    ]
+  }
+
+
+
+}

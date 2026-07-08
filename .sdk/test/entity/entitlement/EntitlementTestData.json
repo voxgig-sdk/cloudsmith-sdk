@@ -1,0 +1,34 @@
+{
+  "existing": {
+    "entitlement": {
+      "ENTITLEMENT00": {
+        "token": {},
+        "identifier": "IDENTIFIER01",
+        "owner": "OWNER01",
+        "repo": "REPO01",
+        "id": "ENTITLEMENT00"
+      },
+      "ENTITLEMENT01": {
+        "token": {},
+        "identifier": "IDENTIFIER01",
+        "owner": "OWNER01",
+        "repo": "REPO01",
+        "id": "ENTITLEMENT01"
+      },
+      "ENTITLEMENT02": {
+        "token": {},
+        "identifier": "IDENTIFIER01",
+        "owner": "OWNER01",
+        "repo": "REPO01",
+        "id": "ENTITLEMENT02"
+      }
+    }
+  },
+  "new": {
+    "entitlement": {
+      "entitlement_ref01": {
+        "token": {}
+      }
+    }
+  }
+}

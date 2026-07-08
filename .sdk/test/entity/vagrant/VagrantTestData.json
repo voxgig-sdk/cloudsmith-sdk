@@ -1,0 +1,14 @@
+{
+  "existing": {
+    "vagrant": {
+      "VAGRANT00": {},
+      "VAGRANT01": {},
+      "VAGRANT02": {}
+    }
+  },
+  "new": {
+    "vagrant": {
+      "vagrant_ref01": {}
+    }
+  }
+}

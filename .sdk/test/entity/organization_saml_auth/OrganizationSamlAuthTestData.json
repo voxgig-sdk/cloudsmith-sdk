@@ -1,0 +1,40 @@
+{
+  "existing": {
+    "organization_saml_auth": {
+      "ORGANIZATION_SAML_AUTH00": {
+        "saml_auth_enabled": true,
+        "saml_auth_enforced": false,
+        "saml_metadata_inline": "s2a",
+        "saml_metadata_url": "s2b",
+        "org_id": "ORG01",
+        "id": "ORGANIZATION_SAML_AUTH00"
+      },
+      "ORGANIZATION_SAML_AUTH01": {
+        "saml_auth_enabled": true,
+        "saml_auth_enforced": false,
+        "saml_metadata_inline": "s52",
+        "saml_metadata_url": "s53",
+        "org_id": "ORG01",
+        "id": "ORGANIZATION_SAML_AUTH01"
+      },
+      "ORGANIZATION_SAML_AUTH02": {
+        "saml_auth_enabled": true,
+        "saml_auth_enforced": false,
+        "saml_metadata_inline": "s7a",
+        "saml_metadata_url": "s7b",
+        "org_id": "ORG01",
+        "id": "ORGANIZATION_SAML_AUTH02"
+      }
+    }
+  },
+  "new": {
+    "organization_saml_auth": {
+      "organization_saml_auth_ref01": {
+        "saml_auth_enabled": true,
+        "saml_auth_enforced": false,
+        "saml_metadata_inline": "sa2",
+        "saml_metadata_url": "sa3"
+      }
+    }
+  }
+}

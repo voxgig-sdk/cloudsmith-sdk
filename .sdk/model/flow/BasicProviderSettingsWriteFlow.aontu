@@ -1,0 +1,45 @@
+# BasicProviderSettingsWriteFlow
+
+main: kit: flow: BasicProviderSettingsWriteFlow:
+{
+  entity: "provider_settings_write",
+  kind: "basic",
+  name: "BasicProviderSettingsWriteFlow",
+  step: [
+    {
+      input: {
+        ref: "provider_settings_write_ref01"
+      }
+
+      match: {
+        org_id: "org01"
+      }
+
+      op: "create"
+    }
+
+    {
+      data: {
+        org_id: "org01"
+      }
+
+      input: {
+        ref: "provider_settings_write_ref01",
+        srcdatavar: "provider_settings_write_ref01_data",
+        suffix: "_up0",
+        textfield: "mapping_claim"
+      }
+
+      op: "update",
+      spec: [
+        {
+          apply: "TextFieldMark",
+          def: {
+            mark: "Mark01-provider_settings_write_ref01"
+          }
+        }
+      ]
+    }
+  ],
+  "key$": "BasicProviderSettingsWriteFlow"
+}

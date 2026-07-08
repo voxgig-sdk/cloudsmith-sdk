@@ -1,0 +1,22 @@
+# Entity: invite
+
+main: kit: entity: invite: {
+
+  alias: field: {}
+
+  name: "invite"
+  relations: {
+    ancestors: [
+      [
+        "org"
+      ]
+      [
+        "org"
+        "invite"
+      ]
+    ]
+  }
+
+
+
+}

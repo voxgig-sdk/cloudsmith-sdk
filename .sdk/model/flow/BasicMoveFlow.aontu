@@ -1,0 +1,9 @@
+# BasicMoveFlow
+
+main: kit: flow: BasicMoveFlow:
+{
+  entity: "move",
+  kind: "basic",
+  name: "BasicMoveFlow",
+  "key$": "BasicMoveFlow"
+}

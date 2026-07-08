@@ -1,0 +1,22 @@
+# Entity: openid_connect
+
+main: kit: entity: openid_connect: {
+
+  alias: field: {}
+
+  name: "openid_connect"
+  relations: {
+    ancestors: [
+      [
+        "org"
+      ]
+      [
+        "org"
+        "openid_connect"
+      ]
+    ]
+  }
+
+
+
+}

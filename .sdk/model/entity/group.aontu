@@ -1,0 +1,18 @@
+# Entity: group
+
+main: kit: entity: group: {
+
+  alias: field: {}
+
+  name: "group"
+  relations: {
+    ancestors: [
+      [
+        "package"
+      ]
+    ]
+  }
+
+
+
+}

@@ -1,0 +1,9 @@
+# BasicGon7Flow
+
+main: kit: flow: BasicGon7Flow:
+{
+  entity: "gon7",
+  kind: "basic",
+  name: "BasicGon7Flow",
+  "key$": "BasicGon7Flow"
+}

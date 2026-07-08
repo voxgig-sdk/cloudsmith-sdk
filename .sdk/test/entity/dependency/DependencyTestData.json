@@ -1,0 +1,14 @@
+{
+  "existing": {
+    "dependency": {
+      "DEPENDENCY00": {},
+      "DEPENDENCY01": {},
+      "DEPENDENCY02": {}
+    }
+  },
+  "new": {
+    "dependency": {
+      "dependency_ref01": {}
+    }
+  }
+}

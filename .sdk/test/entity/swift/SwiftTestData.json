@@ -1,0 +1,99 @@
+{
+  "existing": {
+    "swift": {
+      "SWIFT00": {
+        "auth_mode": "sb4",
+        "auth_secret": "sb5",
+        "auth_username": "sb6",
+        "created_at": "sb7",
+        "disable_reason": "sb8",
+        "extra_header_1": "sb9",
+        "extra_header_2": "sba",
+        "extra_value_1": "sbb",
+        "extra_value_2": "sbc",
+        "is_active": false,
+        "mode": "sbe",
+        "name": "sbf",
+        "pending_validation": true,
+        "priority": "sc1",
+        "slug_perm": "sc2",
+        "updated_at": "sc3",
+        "upstream_url": "sc4",
+        "verify_ssl": false,
+        "identifier": "IDENTIFIER01",
+        "owner": "OWNER01",
+        "id": "SWIFT00"
+      },
+      "SWIFT01": {
+        "auth_mode": "s168",
+        "auth_secret": "s169",
+        "auth_username": "s16a",
+        "created_at": "s16b",
+        "disable_reason": "s16c",
+        "extra_header_1": "s16d",
+        "extra_header_2": "s16e",
+        "extra_value_1": "s16f",
+        "extra_value_2": "s170",
+        "is_active": false,
+        "mode": "s172",
+        "name": "s173",
+        "pending_validation": true,
+        "priority": "s175",
+        "slug_perm": "s176",
+        "updated_at": "s177",
+        "upstream_url": "s178",
+        "verify_ssl": false,
+        "identifier": "IDENTIFIER01",
+        "owner": "OWNER01",
+        "id": "SWIFT01"
+      },
+      "SWIFT02": {
+        "auth_mode": "s21c",
+        "auth_secret": "s21d",
+        "auth_username": "s21e",
+        "created_at": "s21f",
+        "disable_reason": "s220",
+        "extra_header_1": "s221",
+        "extra_header_2": "s222",
+        "extra_value_1": "s223",
+        "extra_value_2": "s224",
+        "is_active": false,
+        "mode": "s226",
+        "name": "s227",
+        "pending_validation": true,
+        "priority": "s229",
+        "slug_perm": "s22a",
+        "updated_at": "s22b",
+        "upstream_url": "s22c",
+        "verify_ssl": false,
+        "identifier": "IDENTIFIER01",
+        "owner": "OWNER01",
+        "id": "SWIFT02"
+      }
+    }
+  },
+  "new": {
+    "swift": {
+      "swift_ref01": {
+        "auth_mode": "s2d0",
+        "auth_secret": "s2d1",
+        "auth_username": "s2d2",
+        "created_at": "s2d3",
+        "disable_reason": "s2d4",
+        "extra_header_1": "s2d5",
+        "extra_header_2": "s2d6",
+        "extra_value_1": "s2d7",
+        "extra_value_2": "s2d8",
+        "is_active": false,
+        "mode": "s2da",
+        "name": "s2db",
+        "pending_validation": true,
+        "priority": "s2dd",
+        "slug_perm": "s2de",
+        "updated_at": "s2df",
+        "upstream_url": "s2e0",
+        "verify_ssl": false
+      }
+    }
+  }
+}

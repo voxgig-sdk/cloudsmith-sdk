@@ -1,0 +1,18 @@
+# Entity: retention
+
+main: kit: entity: retention: {
+
+  alias: field: {}
+
+  name: "retention"
+  relations: {
+    ancestors: [
+      [
+        "repo"
+      ]
+    ]
+  }
+
+
+
+}

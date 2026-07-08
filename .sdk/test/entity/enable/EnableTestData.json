@@ -1,0 +1,14 @@
+{
+  "existing": {
+    "enable": {
+      "ENABLE00": {},
+      "ENABLE01": {},
+      "ENABLE02": {}
+    }
+  },
+  "new": {
+    "enable": {
+      "enable_ref01": {}
+    }
+  }
+}

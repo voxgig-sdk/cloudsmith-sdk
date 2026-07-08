@@ -1,0 +1,24 @@
+# BasicRepositoryTokenRefreshFlow
+
+main: kit: flow: BasicRepositoryTokenRefreshFlow:
+{
+  entity: "repository_token_refresh",
+  kind: "basic",
+  name: "BasicRepositoryTokenRefreshFlow",
+  step: [
+    {
+      input: {
+        ref: "repository_token_refresh_ref01"
+      }
+
+      match: {
+        identifier: "identifier01",
+        owner: "owner01",
+        repo: "repo01"
+      }
+
+      op: "create"
+    }
+  ],
+  "key$": "BasicRepositoryTokenRefreshFlow"
+}

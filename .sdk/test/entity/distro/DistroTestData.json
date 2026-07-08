@@ -1,0 +1,14 @@
+{
+  "existing": {
+    "distro": {
+      "DISTRO00": {},
+      "DISTRO01": {},
+      "DISTRO02": {}
+    }
+  },
+  "new": {
+    "distro": {
+      "distro_ref01": {}
+    }
+  }
+}

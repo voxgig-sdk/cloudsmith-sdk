@@ -1,0 +1,18 @@
+# Entity: gpg
+
+main: kit: entity: gpg: {
+
+  alias: field: {}
+
+  name: "gpg"
+  relations: {
+    ancestors: [
+      [
+        "repo"
+      ]
+    ]
+  }
+
+
+
+}

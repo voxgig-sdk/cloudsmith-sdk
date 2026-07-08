@@ -1,0 +1,9 @@
+# BasicCompleteFlow
+
+main: kit: flow: BasicCompleteFlow:
+{
+  entity: "complete",
+  kind: "basic",
+  name: "BasicCompleteFlow",
+  "key$": "BasicCompleteFlow"
+}

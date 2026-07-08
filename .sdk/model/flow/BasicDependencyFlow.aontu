@@ -1,0 +1,9 @@
+# BasicDependencyFlow
+
+main: kit: flow: BasicDependencyFlow:
+{
+  entity: "dependency",
+  kind: "basic",
+  name: "BasicDependencyFlow",
+  "key$": "BasicDependencyFlow"
+}

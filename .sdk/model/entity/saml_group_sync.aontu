@@ -1,0 +1,18 @@
+# Entity: saml_group_sync
+
+main: kit: entity: saml_group_sync: {
+
+  alias: field: {}
+
+  name: "saml_group_sync"
+  relations: {
+    ancestors: [
+      [
+        "org"
+      ]
+    ]
+  }
+
+
+
+}

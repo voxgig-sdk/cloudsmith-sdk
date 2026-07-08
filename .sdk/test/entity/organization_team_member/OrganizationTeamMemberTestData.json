@@ -1,0 +1,35 @@
+{
+  "existing": {
+    "organization_team_member": {
+      "ORGANIZATION_TEAM_MEMBER00": {
+        "role": "s14",
+        "user": "s15",
+        "org_id": "ORG01",
+        "team_id": "TEAM01",
+        "id": "ORGANIZATION_TEAM_MEMBER00"
+      },
+      "ORGANIZATION_TEAM_MEMBER01": {
+        "role": "s28",
+        "user": "s29",
+        "org_id": "ORG01",
+        "team_id": "TEAM01",
+        "id": "ORGANIZATION_TEAM_MEMBER01"
+      },
+      "ORGANIZATION_TEAM_MEMBER02": {
+        "role": "s3c",
+        "user": "s3d",
+        "org_id": "ORG01",
+        "team_id": "TEAM01",
+        "id": "ORGANIZATION_TEAM_MEMBER02"
+      }
+    }
+  },
+  "new": {
+    "organization_team_member": {
+      "organization_team_member_ref01": {
+        "role": "s50",
+        "user": "s51"
+      }
+    }
+  }
+}

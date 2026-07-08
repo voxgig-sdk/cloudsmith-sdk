@@ -1,0 +1,18 @@
+# Entity: copy
+
+main: kit: entity: copy: {
+
+  alias: field: {}
+
+  name: "copy"
+  relations: {
+    ancestors: [
+      [
+        "package"
+      ]
+    ]
+  }
+
+
+
+}

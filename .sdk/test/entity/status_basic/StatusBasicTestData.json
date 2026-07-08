@@ -1,0 +1,29 @@
+{
+  "existing": {
+    "status_basic": {
+      "STATUS_BASIC00": {
+        "detail": "s14",
+        "version": "s15",
+        "id": "STATUS_BASIC00"
+      },
+      "STATUS_BASIC01": {
+        "detail": "s28",
+        "version": "s29",
+        "id": "STATUS_BASIC01"
+      },
+      "STATUS_BASIC02": {
+        "detail": "s3c",
+        "version": "s3d",
+        "id": "STATUS_BASIC02"
+      }
+    }
+  },
+  "new": {
+    "status_basic": {
+      "status_basic_ref01": {
+        "detail": "s50",
+        "version": "s51"
+      }
+    }
+  }
+}

@@ -1,0 +1,51 @@
+# BasicDynamicMappingFlow
+
+main: kit: flow: BasicDynamicMappingFlow:
+{
+  entity: "dynamic_mapping",
+  kind: "basic",
+  name: "BasicDynamicMappingFlow",
+  step: [
+    {
+      match: {
+        org_id: "org01",
+        provider_setting: "provider_setting01"
+      }
+
+      op: "list",
+      valid: [
+        {
+          apply: "ItemExists",
+          def: {
+            ref: "dynamic_mapping_ref01"
+          }
+        }
+      ]
+    }
+
+    {
+      input: {
+        ref: "dynamic_mapping_ref01",
+        srcdatavar: "dynamic_mapping_ref01_data",
+        suffix: "_dt0"
+      }
+
+      match: {
+        id: "dynamic_mapping01",
+        openid_connect_id: "openid_connect01",
+        org_id: "org01"
+      }
+
+      op: "load",
+      valid: [
+        {
+          apply: "TextFieldMark",
+          def: {
+            mark: "Mark01-dynamic_mapping_ref01"
+          }
+        }
+      ]
+    }
+  ],
+  "key$": "BasicDynamicMappingFlow"
+}

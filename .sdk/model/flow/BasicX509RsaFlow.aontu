@@ -1,0 +1,9 @@
+# BasicX509RsaFlow
+
+main: kit: flow: BasicX509RsaFlow:
+{
+  entity: "x509_rsa",
+  kind: "basic",
+  name: "BasicX509RsaFlow",
+  "key$": "BasicX509RsaFlow"
+}

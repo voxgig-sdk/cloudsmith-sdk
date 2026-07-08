@@ -1,0 +1,18 @@
+# Entity: quarantine
+
+main: kit: entity: quarantine: {
+
+  alias: field: {}
+
+  name: "quarantine"
+  relations: {
+    ancestors: [
+      [
+        "package"
+      ]
+    ]
+  }
+
+
+
+}

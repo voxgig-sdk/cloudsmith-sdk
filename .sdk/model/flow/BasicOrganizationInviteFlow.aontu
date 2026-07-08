@@ -1,0 +1,61 @@
+# BasicOrganizationInviteFlow
+
+main: kit: flow: BasicOrganizationInviteFlow:
+{
+  entity: "organization_invite",
+  kind: "basic",
+  name: "BasicOrganizationInviteFlow",
+  step: [
+    {
+      input: {
+        ref: "organization_invite_ref01"
+      }
+
+      match: {
+        org_id: "org01"
+      }
+
+      op: "create"
+    }
+
+    {
+      match: {
+        org_id: "org01"
+      }
+
+      op: "list",
+      valid: [
+        {
+          apply: "ItemExists",
+          def: {
+            ref: "organization_invite_ref01"
+          }
+        }
+      ]
+    }
+
+    {
+      data: {
+        org_id: "org01"
+      }
+
+      input: {
+        ref: "organization_invite_ref01",
+        srcdatavar: "organization_invite_ref01_data",
+        suffix: "_up0",
+        textfield: "email"
+      }
+
+      op: "update",
+      spec: [
+        {
+          apply: "TextFieldMark",
+          def: {
+            mark: "Mark01-organization_invite_ref01"
+          }
+        }
+      ]
+    }
+  ],
+  "key$": "BasicOrganizationInviteFlow"
+}

@@ -1,0 +1,23 @@
+# BasicGon5Flow
+
+main: kit: flow: BasicGon5Flow:
+{
+  entity: "gon5",
+  kind: "basic",
+  name: "BasicGon5Flow",
+  step: [
+    {
+      input: {
+        ref: "gon5_ref01"
+      }
+
+      match: {
+        identifier: "identifier01",
+        owner: "owner01"
+      }
+
+      op: "create"
+    }
+  ],
+  "key$": "BasicGon5Flow"
+}

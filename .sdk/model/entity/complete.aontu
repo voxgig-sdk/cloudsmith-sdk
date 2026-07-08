@@ -1,0 +1,18 @@
+# Entity: complete
+
+main: kit: entity: complete: {
+
+  alias: field: {}
+
+  name: "complete"
+  relations: {
+    ancestors: [
+      [
+        "file"
+      ]
+    ]
+  }
+
+
+
+}

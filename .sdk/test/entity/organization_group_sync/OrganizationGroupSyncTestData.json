@@ -1,0 +1,44 @@
+{
+  "existing": {
+    "organization_group_sync": {
+      "ORGANIZATION_GROUP_SYNC00": {
+        "idp_key": "s32",
+        "idp_value": "s33",
+        "role": "s34",
+        "slug_perm": "s35",
+        "team": "s36",
+        "org_id": "ORG01",
+        "id": "ORGANIZATION_GROUP_SYNC00"
+      },
+      "ORGANIZATION_GROUP_SYNC01": {
+        "idp_key": "s64",
+        "idp_value": "s65",
+        "role": "s66",
+        "slug_perm": "s67",
+        "team": "s68",
+        "org_id": "ORG01",
+        "id": "ORGANIZATION_GROUP_SYNC01"
+      },
+      "ORGANIZATION_GROUP_SYNC02": {
+        "idp_key": "s96",
+        "idp_value": "s97",
+        "role": "s98",
+        "slug_perm": "s99",
+        "team": "s9a",
+        "org_id": "ORG01",
+        "id": "ORGANIZATION_GROUP_SYNC02"
+      }
+    }
+  },
+  "new": {
+    "organization_group_sync": {
+      "organization_group_sync_ref01": {
+        "idp_key": "sc8",
+        "idp_value": "sc9",
+        "role": "sca",
+        "slug_perm": "scb",
+        "team": "scc"
+      }
+    }
+  }
+}

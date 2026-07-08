@@ -1,0 +1,9 @@
+# BasicGeoipFlow
+
+main: kit: flow: BasicGeoipFlow:
+{
+  entity: "geoip",
+  kind: "basic",
+  name: "BasicGeoipFlow",
+  "key$": "BasicGeoipFlow"
+}

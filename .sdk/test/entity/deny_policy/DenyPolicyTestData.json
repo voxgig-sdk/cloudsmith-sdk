@@ -1,0 +1,14 @@
+{
+  "existing": {
+    "deny_policy": {
+      "DENY_POLICY00": {},
+      "DENY_POLICY01": {},
+      "DENY_POLICY02": {}
+    }
+  },
+  "new": {
+    "deny_policy": {
+      "deny_policy_ref01": {}
+    }
+  }
+}

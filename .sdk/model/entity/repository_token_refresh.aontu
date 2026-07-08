@@ -1,0 +1,289 @@
+# Entity: repository_token_refresh
+
+main: kit: entity: repository_token_refresh: {
+
+  alias: field: {}
+
+  fields: [
+    {
+      name: "client"
+      req: false
+      type: "`$INTEGER`"
+    }
+    {
+      name: "created_at"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "created_by"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "created_by_url"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "default"
+      req: false
+      type: "`$BOOLEAN`"
+    }
+    {
+      name: "disable_url"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "download"
+      req: false
+      type: "`$INTEGER`"
+    }
+    {
+      name: "enable_url"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "eula_accepted"
+      req: false
+      type: "`$OBJECT`"
+    }
+    {
+      name: "eula_accepted_at"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "eula_accepted_from"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "eula_required"
+      req: false
+      type: "`$BOOLEAN`"
+    }
+    {
+      name: "has_limit"
+      req: false
+      type: "`$BOOLEAN`"
+    }
+    {
+      name: "identifier"
+      req: false
+      type: "`$INTEGER`"
+    }
+    {
+      name: "is_active"
+      req: false
+      type: "`$BOOLEAN`"
+    }
+    {
+      name: "is_limited"
+      req: false
+      type: "`$BOOLEAN`"
+    }
+    {
+      name: "limit_bandwidth"
+      req: false
+      type: "`$INTEGER`"
+    }
+    {
+      name: "limit_bandwidth_unit"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "limit_date_range_from"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "limit_date_range_to"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "limit_num_client"
+      req: false
+      type: "`$INTEGER`"
+    }
+    {
+      name: "limit_num_download"
+      req: false
+      type: "`$INTEGER`"
+    }
+    {
+      name: "limit_package_query"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "limit_path_query"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "metadata"
+      req: false
+      type: "`$OBJECT`"
+    }
+    {
+      name: "name"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "refresh_url"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "reset_url"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "scheduled_reset_at"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "scheduled_reset_period"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "self_url"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "slug_perm"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "token"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "updated_at"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "updated_by"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "updated_by_url"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "usage"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "user"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "user_url"
+      req: false
+      type: "`$STRING`"
+    }
+  ]
+
+  name: "repository_token_refresh"
+  op: {
+    create: {
+      name: "create"
+      points: [
+        {
+          args: {
+            params: [
+              {
+                kind: "param"
+                name: "identifier"
+                orig: "identifier"
+                reqd: true
+                type: "`$ANY`"
+              }
+              {
+                kind: "param"
+                name: "owner"
+                orig: "owner"
+                reqd: true
+                type: "`$ANY`"
+              }
+              {
+                kind: "param"
+                name: "repo"
+                orig: "repo"
+                reqd: true
+                type: "`$ANY`"
+              }
+            ]
+            query: [
+              {
+                kind: "query"
+                name: "data"
+                orig: "data"
+                reqd: false
+                type: "`$OBJECT`"
+              }
+              {
+                kind: "query"
+                name: "show_token"
+                orig: "show_token"
+                reqd: false
+                type: "`$ANY`"
+              }
+            ]
+          }
+          method: "POST"
+          orig: "/entitlements/{owner}/{repo}/{identifier}/refresh/"
+          parts: [
+            "entitlements"
+            "{owner}"
+            "{repo}"
+            "{identifier}"
+            "refresh"
+          ]
+          select: {
+            exist: [
+              "data"
+              "identifier"
+              "owner"
+              "repo"
+              "show_token"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+  }
+
+  relations: {
+    ancestors: [
+      [
+        "entitlement"
+      ]
+    ]
+  }
+
+
+
+}

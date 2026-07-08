@@ -1,0 +1,18 @@
+# Entity: cocoapod
+
+main: kit: entity: cocoapod: {
+
+  alias: field: {}
+
+  name: "cocoapod"
+  relations: {
+    ancestors: [
+      [
+        "package"
+      ]
+    ]
+  }
+
+
+
+}

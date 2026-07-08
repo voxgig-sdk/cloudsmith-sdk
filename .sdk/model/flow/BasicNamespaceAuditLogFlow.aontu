@@ -1,0 +1,32 @@
+# BasicNamespaceAuditLogFlow
+
+main: kit: flow: BasicNamespaceAuditLogFlow:
+{
+  entity: "namespace_audit_log",
+  kind: "basic",
+  name: "BasicNamespaceAuditLogFlow",
+  step: [
+    {
+      input: {
+        ref: "namespace_audit_log_ref01",
+        srcdatavar: "namespace_audit_log_ref01_data",
+        suffix: "_dt0"
+      }
+
+      match: {
+        id: "namespace_audit_log01"
+      }
+
+      op: "load",
+      valid: [
+        {
+          apply: "TextFieldMark",
+          def: {
+            mark: "Mark01-namespace_audit_log_ref01"
+          }
+        }
+      ]
+    }
+  ],
+  "key$": "BasicNamespaceAuditLogFlow"
+}

@@ -1,0 +1,14 @@
+{
+  "existing": {
+    "regenerate": {
+      "REGENERATE00": {},
+      "REGENERATE01": {},
+      "REGENERATE02": {}
+    }
+  },
+  "new": {
+    "regenerate": {
+      "regenerate_ref01": {}
+    }
+  }
+}

@@ -1,0 +1,91 @@
+# Entity: user_authentication_token
+
+main: kit: entity: user_authentication_token: {
+
+  alias: field: {}
+
+  fields: [
+    {
+      name: "created"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "key"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "slug_perm"
+      req: false
+      type: "`$STRING`"
+    }
+  ]
+
+  name: "user_authentication_token"
+  op: {
+    create: {
+      name: "create"
+      points: [
+        {
+          method: "POST"
+          orig: "/user/tokens/"
+          parts: [
+            "user"
+            "tokens"
+          ]
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+    update: {
+      name: "update"
+      points: [
+        {
+          args: {
+            params: [
+              {
+                kind: "param"
+                name: "slug_perm"
+                orig: "slug_perm"
+                reqd: true
+                type: "`$ANY`"
+              }
+            ]
+          }
+          method: "PUT"
+          orig: "/user/tokens/{slug_perm}/refresh/"
+          parts: [
+            "user"
+            "tokens"
+            "{slug_perm}"
+            "refresh"
+          ]
+          select: {
+            exist: [
+              "slug_perm"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+  }
+
+  relations: {
+    ancestors: [
+      [
+        "token"
+      ]
+    ]
+  }
+
+
+
+}

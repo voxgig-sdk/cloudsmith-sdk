@@ -1,0 +1,14 @@
+{
+  "existing": {
+    "saml_group_sync": {
+      "SAML_GROUP_SYNC00": {},
+      "SAML_GROUP_SYNC01": {},
+      "SAML_GROUP_SYNC02": {}
+    }
+  },
+  "new": {
+    "saml_group_sync": {
+      "saml_group_sync_ref01": {}
+    }
+  }
+}

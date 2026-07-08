@@ -1,0 +1,18 @@
+# Entity: regenerate
+
+main: kit: entity: regenerate: {
+
+  alias: field: {}
+
+  name: "regenerate"
+  relations: {
+    ancestors: [
+      [
+        "repo"
+      ]
+    ]
+  }
+
+
+
+}

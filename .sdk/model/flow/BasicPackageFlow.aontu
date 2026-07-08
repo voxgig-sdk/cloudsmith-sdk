@@ -1,0 +1,103 @@
+# BasicPackageFlow
+
+main: kit: flow: BasicPackageFlow:
+{
+  entity: "package",
+  kind: "basic",
+  name: "BasicPackageFlow",
+  step: [
+    {
+      input: {
+        ref: "package_ref01"
+      }
+
+      match: {
+        identifier: "identifier01",
+        owner: "owner01",
+        repo: "repo01"
+      }
+
+      op: "create"
+    }
+
+    {
+      match: {
+        identifier: "identifier01",
+        owner: "owner01",
+        repo: "repo01"
+      }
+
+      op: "list",
+      valid: [
+        {
+          apply: "ItemExists",
+          def: {
+            ref: "package_ref01"
+          }
+        }
+      ]
+    }
+
+    {
+      input: {
+        ref: "package_ref01",
+        srcdatavar: "package_ref01_data",
+        suffix: "_dt0"
+      }
+
+      match: {
+        id: "package01",
+        owner: "owner01",
+        repo: "repo01"
+      }
+
+      op: "load",
+      valid: [
+        {
+          apply: "TextFieldMark",
+          def: {
+            mark: "Mark01-package_ref01"
+          }
+        }
+      ]
+    }
+
+    {
+      input: {
+        ref: "package_ref01",
+        suffix: "_rm0"
+      }
+
+      match: {
+        id: "package01",
+        owner: "owner01",
+        repo: "repo01"
+      }
+
+      op: "remove"
+    }
+
+    {
+      input: {
+        suffix: "_rt0"
+      }
+
+      match: {
+        identifier: "identifier01",
+        owner: "owner01",
+        repo: "repo01"
+      }
+
+      op: "list",
+      valid: [
+        {
+          apply: "ItemNotExists",
+          def: {
+            ref: "package_ref01"
+          }
+        }
+      ]
+    }
+  ],
+  "key$": "BasicPackageFlow"
+}

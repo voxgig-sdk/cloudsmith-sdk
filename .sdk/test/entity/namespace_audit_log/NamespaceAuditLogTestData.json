@@ -1,0 +1,85 @@
+{
+  "existing": {
+    "namespace_audit_log": {
+      "NAMESPACE_AUDIT_LOG00": {
+        "actor": "sa0",
+        "actor_ip_address": "sa1",
+        "actor_kind": "sa2",
+        "actor_location": {},
+        "actor_slug_perm": "sa4",
+        "actor_url": "sa5",
+        "context": "sa6",
+        "event": "sa7",
+        "event_at": "sa8",
+        "object": "sa9",
+        "object_kind": "saa",
+        "object_slug_perm": "sab",
+        "target": "sac",
+        "target_kind": "sad",
+        "target_slug_perm": "sae",
+        "uuid": "saf",
+        "id": "NAMESPACE_AUDIT_LOG00"
+      },
+      "NAMESPACE_AUDIT_LOG01": {
+        "actor": "s140",
+        "actor_ip_address": "s141",
+        "actor_kind": "s142",
+        "actor_location": {},
+        "actor_slug_perm": "s144",
+        "actor_url": "s145",
+        "context": "s146",
+        "event": "s147",
+        "event_at": "s148",
+        "object": "s149",
+        "object_kind": "s14a",
+        "object_slug_perm": "s14b",
+        "target": "s14c",
+        "target_kind": "s14d",
+        "target_slug_perm": "s14e",
+        "uuid": "s14f",
+        "id": "NAMESPACE_AUDIT_LOG01"
+      },
+      "NAMESPACE_AUDIT_LOG02": {
+        "actor": "s1e0",
+        "actor_ip_address": "s1e1",
+        "actor_kind": "s1e2",
+        "actor_location": {},
+        "actor_slug_perm": "s1e4",
+        "actor_url": "s1e5",
+        "context": "s1e6",
+        "event": "s1e7",
+        "event_at": "s1e8",
+        "object": "s1e9",
+        "object_kind": "s1ea",
+        "object_slug_perm": "s1eb",
+        "target": "s1ec",
+        "target_kind": "s1ed",
+        "target_slug_perm": "s1ee",
+        "uuid": "s1ef",
+        "id": "NAMESPACE_AUDIT_LOG02"
+      }
+    }
+  },
+  "new": {
+    "namespace_audit_log": {
+      "namespace_audit_log_ref01": {
+        "actor": "s280",
+        "actor_ip_address": "s281",
+        "actor_kind": "s282",
+        "actor_location": {},
+        "actor_slug_perm": "s284",
+        "actor_url": "s285",
+        "context": "s286",
+        "event": "s287",
+        "event_at": "s288",
+        "object": "s289",
+        "object_kind": "s28a",
+        "object_slug_perm": "s28b",
+        "target": "s28c",
+        "target_kind": "s28d",
+        "target_slug_perm": "s28e",
+        "uuid": "s28f"
+      }
+    }
+  }
+}

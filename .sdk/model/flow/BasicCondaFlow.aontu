@@ -1,0 +1,88 @@
+# BasicCondaFlow
+
+main: kit: flow: BasicCondaFlow:
+{
+  entity: "conda",
+  kind: "basic",
+  name: "BasicCondaFlow",
+  step: [
+    {
+      input: {
+        ref: "conda_ref01"
+      }
+
+      match: {
+        identifier: "identifier01",
+        owner: "owner01"
+      }
+
+      op: "create"
+    }
+
+    {
+      match: {
+        identifier: "identifier01",
+        owner: "owner01"
+      }
+
+      op: "list",
+      valid: [
+        {
+          apply: "ItemExists",
+          def: {
+            ref: "conda_ref01"
+          }
+        }
+      ]
+    }
+
+    {
+      data: {
+        identifier: "identifier01",
+        owner: "owner01"
+      }
+
+      input: {
+        ref: "conda_ref01",
+        srcdatavar: "conda_ref01_data",
+        suffix: "_up0",
+        textfield: "auth_mode"
+      }
+
+      op: "update",
+      spec: [
+        {
+          apply: "TextFieldMark",
+          def: {
+            mark: "Mark01-conda_ref01"
+          }
+        }
+      ]
+    }
+
+    {
+      input: {
+        ref: "conda_ref01",
+        srcdatavar: "conda_ref01_data",
+        suffix: "_dt0"
+      }
+
+      match: {
+        id: "conda01",
+        identifier: "identifier01",
+        owner: "owner01"
+      }
+
+      op: "load",
+      valid: [
+        {
+          apply: "TextFieldMark",
+          def: {
+            mark: "Mark01-conda_ref01"
+          }
+        }
+      ]
+    }
+  ],
+  "key$": "BasicCondaFlow"
+}

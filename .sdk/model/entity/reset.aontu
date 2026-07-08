@@ -1,0 +1,18 @@
+# Entity: reset
+
+main: kit: entity: reset: {
+
+  alias: field: {}
+
+  name: "reset"
+  relations: {
+    ancestors: [
+      [
+        "entitlement"
+      ]
+    ]
+  }
+
+
+
+}

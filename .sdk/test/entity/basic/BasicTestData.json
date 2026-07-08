@@ -1,0 +1,14 @@
+{
+  "existing": {
+    "basic": {
+      "BASIC00": {},
+      "BASIC01": {},
+      "BASIC02": {}
+    }
+  },
+  "new": {
+    "basic": {
+      "basic_ref01": {}
+    }
+  }
+}

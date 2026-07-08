@@ -1,0 +1,18 @@
+# Entity: p2n
+
+main: kit: entity: p2n: {
+
+  alias: field: {}
+
+  name: "p2n"
+  relations: {
+    ancestors: [
+      [
+        "package"
+      ]
+    ]
+  }
+
+
+
+}

@@ -1,0 +1,14 @@
+{
+  "existing": {
+    "resync": {
+      "RESYNC00": {},
+      "RESYNC01": {},
+      "RESYNC02": {}
+    }
+  },
+  "new": {
+    "resync": {
+      "resync_ref01": {}
+    }
+  }
+}

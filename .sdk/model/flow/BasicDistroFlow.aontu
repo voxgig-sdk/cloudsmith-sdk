@@ -1,0 +1,9 @@
+# BasicDistroFlow
+
+main: kit: flow: BasicDistroFlow:
+{
+  entity: "distro",
+  kind: "basic",
+  name: "BasicDistroFlow",
+  "key$": "BasicDistroFlow"
+}

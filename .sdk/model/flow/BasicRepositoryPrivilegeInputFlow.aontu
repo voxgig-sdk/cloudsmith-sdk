@@ -1,0 +1,27 @@
+# BasicRepositoryPrivilegeInputFlow
+
+main: kit: flow: BasicRepositoryPrivilegeInputFlow:
+{
+  entity: "repository_privilege_input",
+  kind: "basic",
+  name: "BasicRepositoryPrivilegeInputFlow",
+  step: [
+    {
+      match: {
+        identifier: "identifier01",
+        owner: "owner01"
+      }
+
+      op: "list",
+      valid: [
+        {
+          apply: "ItemExists",
+          def: {
+            ref: "repository_privilege_input_ref01"
+          }
+        }
+      ]
+    }
+  ],
+  "key$": "BasicRepositoryPrivilegeInputFlow"
+}

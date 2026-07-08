@@ -1,0 +1,55 @@
+# BasicRepositoryGeoIpRuleFlow
+
+main: kit: flow: BasicRepositoryGeoIpRuleFlow:
+{
+  entity: "repository_geo_ip_rule",
+  kind: "basic",
+  name: "BasicRepositoryGeoIpRuleFlow",
+  step: [
+    {
+      data: {
+        owner: "owner01"
+      }
+
+      input: {
+        ref: "repository_geo_ip_rule_ref01",
+        srcdatavar: "repository_geo_ip_rule_ref01_data",
+        suffix: "_up0"
+      }
+
+      op: "update",
+      spec: [
+        {
+          apply: "TextFieldMark",
+          def: {
+            mark: "Mark01-repository_geo_ip_rule_ref01"
+          }
+        }
+      ]
+    }
+
+    {
+      input: {
+        ref: "repository_geo_ip_rule_ref01",
+        srcdatavar: "repository_geo_ip_rule_ref01_data",
+        suffix: "_dt0"
+      }
+
+      match: {
+        id: "repository_geo_ip_rule01",
+        owner: "owner01"
+      }
+
+      op: "load",
+      valid: [
+        {
+          apply: "TextFieldMark",
+          def: {
+            mark: "Mark01-repository_geo_ip_rule_ref01"
+          }
+        }
+      ]
+    }
+  ],
+  "key$": "BasicRepositoryGeoIpRuleFlow"
+}

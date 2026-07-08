@@ -1,0 +1,14 @@
+{
+  "existing": {
+    "audit_log": {
+      "AUDIT_LOG00": {},
+      "AUDIT_LOG01": {},
+      "AUDIT_LOG02": {}
+    }
+  },
+  "new": {
+    "audit_log": {
+      "audit_log_ref01": {}
+    }
+  }
+}

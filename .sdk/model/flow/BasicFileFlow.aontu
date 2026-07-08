@@ -1,0 +1,23 @@
+# BasicFileFlow
+
+main: kit: flow: BasicFileFlow:
+{
+  entity: "file",
+  kind: "basic",
+  name: "BasicFileFlow",
+  step: [
+    {
+      input: {
+        ref: "file_ref01"
+      }
+
+      match: {
+        owner: "owner01",
+        repo: "repo01"
+      }
+
+      op: "create"
+    }
+  ],
+  "key$": "BasicFileFlow"
+}

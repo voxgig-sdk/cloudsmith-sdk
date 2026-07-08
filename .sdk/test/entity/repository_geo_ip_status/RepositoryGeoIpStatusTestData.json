@@ -1,0 +1,31 @@
+{
+  "existing": {
+    "repository_geo_ip_status": {
+      "REPOSITORY_GEO_IP_STATUS00": {
+        "geoip_enabled": true,
+        "identifier": "IDENTIFIER01",
+        "owner": "OWNER01",
+        "id": "REPOSITORY_GEO_IP_STATUS00"
+      },
+      "REPOSITORY_GEO_IP_STATUS01": {
+        "geoip_enabled": true,
+        "identifier": "IDENTIFIER01",
+        "owner": "OWNER01",
+        "id": "REPOSITORY_GEO_IP_STATUS01"
+      },
+      "REPOSITORY_GEO_IP_STATUS02": {
+        "geoip_enabled": true,
+        "identifier": "IDENTIFIER01",
+        "owner": "OWNER01",
+        "id": "REPOSITORY_GEO_IP_STATUS02"
+      }
+    }
+  },
+  "new": {
+    "repository_geo_ip_status": {
+      "repository_geo_ip_status_ref01": {
+        "geoip_enabled": true
+      }
+    }
+  }
+}

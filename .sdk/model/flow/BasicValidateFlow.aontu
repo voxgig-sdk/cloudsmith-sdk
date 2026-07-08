@@ -1,0 +1,9 @@
+# BasicValidateFlow
+
+main: kit: flow: BasicValidateFlow:
+{
+  entity: "validate",
+  kind: "basic",
+  name: "BasicValidateFlow",
+  "key$": "BasicValidateFlow"
+}

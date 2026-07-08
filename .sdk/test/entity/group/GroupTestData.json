@@ -1,0 +1,14 @@
+{
+  "existing": {
+    "group": {
+      "GROUP00": {},
+      "GROUP01": {},
+      "GROUP02": {}
+    }
+  },
+  "new": {
+    "group": {
+      "group_ref01": {}
+    }
+  }
+}

@@ -1,0 +1,162 @@
+# Entity: dynamic_mapping
+
+main: kit: entity: dynamic_mapping: {
+
+  alias: field: {}
+
+  fields: [
+    {
+      name: "claim_value"
+      req: true
+      type: "`$STRING`"
+    }
+    {
+      name: "service_account"
+      req: true
+      type: "`$STRING`"
+    }
+  ]
+
+  name: "dynamic_mapping"
+  op: {
+    list: {
+      name: "list"
+      points: [
+        {
+          args: {
+            params: [
+              {
+                kind: "param"
+                name: "org_id"
+                orig: "org"
+                reqd: true
+                type: "`$STRING`"
+              }
+              {
+                kind: "param"
+                name: "provider_setting"
+                orig: "provider_setting"
+                reqd: true
+                type: "`$ANY`"
+              }
+            ]
+            query: [
+              {
+                kind: "query"
+                name: "page"
+                orig: "page"
+                reqd: false
+                type: "`$INTEGER`"
+              }
+              {
+                kind: "query"
+                name: "page_size"
+                orig: "page_size"
+                reqd: false
+                type: "`$INTEGER`"
+              }
+            ]
+          }
+          method: "GET"
+          orig: "/orgs/{org}/openid-connect/{provider_setting}/dynamic-mappings/"
+          parts: [
+            "orgs"
+            "{org_id}"
+            "openid-connect"
+            "{provider_setting}"
+            "dynamic-mappings"
+          ]
+          rename: {
+            param: {
+              org: "org_id"
+            }
+          }
+          select: {
+            exist: [
+              "org_id"
+              "page"
+              "page_size"
+              "provider_setting"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+    load: {
+      name: "load"
+      points: [
+        {
+          args: {
+            params: [
+              {
+                kind: "param"
+                name: "id"
+                orig: "claim_value"
+                reqd: true
+                type: "`$STRING`"
+              }
+              {
+                kind: "param"
+                name: "openid_connect_id"
+                orig: "provider_setting"
+                reqd: true
+                type: "`$STRING`"
+              }
+              {
+                kind: "param"
+                name: "org_id"
+                orig: "org"
+                reqd: true
+                type: "`$STRING`"
+              }
+            ]
+          }
+          method: "GET"
+          orig: "/orgs/{org}/openid-connect/{provider_setting}/dynamic-mappings/{claim_value}/"
+          parts: [
+            "orgs"
+            "{org_id}"
+            "openid-connect"
+            "{openid_connect_id}"
+            "dynamic-mappings"
+            "{id}"
+          ]
+          rename: {
+            param: {
+              claim_value: "id"
+              org: "org_id"
+              provider_setting: "openid_connect_id"
+            }
+          }
+          select: {
+            exist: [
+              "id"
+              "openid_connect_id"
+              "org_id"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+  }
+
+  relations: {
+    ancestors: [
+      [
+        "org"
+        "openid_connect"
+      ]
+    ]
+  }
+
+
+
+}

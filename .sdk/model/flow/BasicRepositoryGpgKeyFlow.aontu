@@ -1,0 +1,46 @@
+# BasicRepositoryGpgKeyFlow
+
+main: kit: flow: BasicRepositoryGpgKeyFlow:
+{
+  entity: "repository_gpg_key",
+  kind: "basic",
+  name: "BasicRepositoryGpgKeyFlow",
+  step: [
+    {
+      input: {
+        ref: "repository_gpg_key_ref01"
+      }
+
+      match: {
+        identifier: "identifier01",
+        owner: "owner01"
+      }
+
+      op: "create"
+    }
+
+    {
+      input: {
+        ref: "repository_gpg_key_ref01",
+        srcdatavar: "repository_gpg_key_ref01_data",
+        suffix: "_dt0"
+      }
+
+      match: {
+        id: "repository_gpg_key01",
+        owner: "owner01"
+      }
+
+      op: "load",
+      valid: [
+        {
+          apply: "TextFieldMark",
+          def: {
+            mark: "Mark01-repository_gpg_key_ref01"
+          }
+        }
+      ]
+    }
+  ],
+  "key$": "BasicRepositoryGpgKeyFlow"
+}

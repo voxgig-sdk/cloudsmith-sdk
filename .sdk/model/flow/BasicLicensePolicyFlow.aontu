@@ -1,0 +1,9 @@
+# BasicLicensePolicyFlow
+
+main: kit: flow: BasicLicensePolicyFlow:
+{
+  entity: "license_policy",
+  kind: "basic",
+  name: "BasicLicensePolicyFlow",
+  "key$": "BasicLicensePolicyFlow"
+}

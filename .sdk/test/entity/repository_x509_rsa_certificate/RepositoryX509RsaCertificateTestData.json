@@ -1,0 +1,67 @@
+{
+  "existing": {
+    "repository_x509_rsa_certificate": {
+      "REPOSITORY_X509_RSA_CERTIFICATE00": {
+        "active": true,
+        "certificate": "s65",
+        "certificate_chain": "s66",
+        "certificate_chain_fingerprint": "s67",
+        "certificate_chain_fingerprint_short": "s68",
+        "certificate_fingerprint": "s69",
+        "certificate_fingerprint_short": "s6a",
+        "created_at": "s6b",
+        "default": true,
+        "issuing_status": "s6d",
+        "identifier": "IDENTIFIER01",
+        "owner": "OWNER01",
+        "id": "REPOSITORY_X509_RSA_CERTIFICATE00"
+      },
+      "REPOSITORY_X509_RSA_CERTIFICATE01": {
+        "active": true,
+        "certificate": "sc9",
+        "certificate_chain": "sca",
+        "certificate_chain_fingerprint": "scb",
+        "certificate_chain_fingerprint_short": "scc",
+        "certificate_fingerprint": "scd",
+        "certificate_fingerprint_short": "sce",
+        "created_at": "scf",
+        "default": true,
+        "issuing_status": "sd1",
+        "identifier": "IDENTIFIER01",
+        "owner": "OWNER01",
+        "id": "REPOSITORY_X509_RSA_CERTIFICATE01"
+      },
+      "REPOSITORY_X509_RSA_CERTIFICATE02": {
+        "active": true,
+        "certificate": "s12d",
+        "certificate_chain": "s12e",
+        "certificate_chain_fingerprint": "s12f",
+        "certificate_chain_fingerprint_short": "s130",
+        "certificate_fingerprint": "s131",
+        "certificate_fingerprint_short": "s132",
+        "created_at": "s133",
+        "default": true,
+        "issuing_status": "s135",
+        "identifier": "IDENTIFIER01",
+        "owner": "OWNER01",
+        "id": "REPOSITORY_X509_RSA_CERTIFICATE02"
+      }
+    }
+  },
+  "new": {
+    "repository_x509_rsa_certificate": {
+      "repository_x509_rsa_certificate_ref01": {
+        "active": true,
+        "certificate": "s191",
+        "certificate_chain": "s192",
+        "certificate_chain_fingerprint": "s193",
+        "certificate_chain_fingerprint_short": "s194",
+        "certificate_fingerprint": "s195",
+        "certificate_fingerprint_short": "s196",
+        "created_at": "s197",
+        "default": true,
+        "issuing_status": "s199"
+      }
+    }
+  }
+}

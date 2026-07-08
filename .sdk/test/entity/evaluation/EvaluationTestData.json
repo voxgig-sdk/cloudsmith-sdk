@@ -1,0 +1,14 @@
+{
+  "existing": {
+    "evaluation": {
+      "EVALUATION00": {},
+      "EVALUATION01": {},
+      "EVALUATION02": {}
+    }
+  },
+  "new": {
+    "evaluation": {
+      "evaluation_ref01": {}
+    }
+  }
+}

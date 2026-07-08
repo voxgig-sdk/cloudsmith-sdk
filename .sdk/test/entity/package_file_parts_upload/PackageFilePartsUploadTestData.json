@@ -1,0 +1,39 @@
+{
+  "existing": {
+    "package_file_parts_upload": {
+      "PACKAGE_FILE_PARTS_UPLOAD00": {
+        "identifier": "s1e",
+        "upload_querystring": "s1f",
+        "upload_url": "s20",
+        "owner": "OWNER01",
+        "repo": "REPO01",
+        "id": "PACKAGE_FILE_PARTS_UPLOAD00"
+      },
+      "PACKAGE_FILE_PARTS_UPLOAD01": {
+        "identifier": "s3c",
+        "upload_querystring": "s3d",
+        "upload_url": "s3e",
+        "owner": "OWNER01",
+        "repo": "REPO01",
+        "id": "PACKAGE_FILE_PARTS_UPLOAD01"
+      },
+      "PACKAGE_FILE_PARTS_UPLOAD02": {
+        "identifier": "s5a",
+        "upload_querystring": "s5b",
+        "upload_url": "s5c",
+        "owner": "OWNER01",
+        "repo": "REPO01",
+        "id": "PACKAGE_FILE_PARTS_UPLOAD02"
+      }
+    }
+  },
+  "new": {
+    "package_file_parts_upload": {
+      "package_file_parts_upload_ref01": {
+        "identifier": "s78",
+        "upload_querystring": "s79",
+        "upload_url": "s7a"
+      }
+    }
+  }
+}

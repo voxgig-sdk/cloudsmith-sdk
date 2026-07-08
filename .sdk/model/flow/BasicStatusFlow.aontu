@@ -1,0 +1,9 @@
+# BasicStatusFlow
+
+main: kit: flow: BasicStatusFlow:
+{
+  entity: "status",
+  kind: "basic",
+  name: "BasicStatusFlow",
+  "key$": "BasicStatusFlow"
+}

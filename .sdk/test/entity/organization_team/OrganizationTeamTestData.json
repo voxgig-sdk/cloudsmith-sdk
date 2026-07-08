@@ -1,0 +1,44 @@
+{
+  "existing": {
+    "organization_team": {
+      "ORGANIZATION_TEAM00": {
+        "description": "s32",
+        "name": "s33",
+        "slug": "s34",
+        "slug_perm": "s35",
+        "visibility": "s36",
+        "org_id": "ORG01",
+        "id": "ORGANIZATION_TEAM00"
+      },
+      "ORGANIZATION_TEAM01": {
+        "description": "s64",
+        "name": "s65",
+        "slug": "s66",
+        "slug_perm": "s67",
+        "visibility": "s68",
+        "org_id": "ORG01",
+        "id": "ORGANIZATION_TEAM01"
+      },
+      "ORGANIZATION_TEAM02": {
+        "description": "s96",
+        "name": "s97",
+        "slug": "s98",
+        "slug_perm": "s99",
+        "visibility": "s9a",
+        "org_id": "ORG01",
+        "id": "ORGANIZATION_TEAM02"
+      }
+    }
+  },
+  "new": {
+    "organization_team": {
+      "organization_team_ref01": {
+        "description": "sc8",
+        "name": "sc9",
+        "slug": "sca",
+        "slug_perm": "scb",
+        "visibility": "scc"
+      }
+    }
+  }
+}

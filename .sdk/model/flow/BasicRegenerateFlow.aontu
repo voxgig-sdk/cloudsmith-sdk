@@ -1,0 +1,9 @@
+# BasicRegenerateFlow
+
+main: kit: flow: BasicRegenerateFlow:
+{
+  entity: "regenerate",
+  kind: "basic",
+  name: "BasicRegenerateFlow",
+  "key$": "BasicRegenerateFlow"
+}

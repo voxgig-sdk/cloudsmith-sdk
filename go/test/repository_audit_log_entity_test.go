@@ -1,0 +1,154 @@
+package sdktest
+
+import (
+	"encoding/json"
+	"os"
+	"path/filepath"
+	"runtime"
+	"strings"
+	"testing"
+	"time"
+
+	sdk "github.com/voxgig-sdk/cloudsmith-sdk/go"
+	"github.com/voxgig-sdk/cloudsmith-sdk/go/core"
+
+	vs "github.com/voxgig-sdk/cloudsmith-sdk/go/utility/struct"
+)
+
+func TestRepositoryAuditLogEntity(t *testing.T) {
+	t.Run("instance", func(t *testing.T) {
+		testsdk := sdk.TestSDK(nil, nil)
+		ent := testsdk.RepositoryAuditLog(nil)
+		if ent == nil {
+			t.Fatal("expected non-nil RepositoryAuditLogEntity")
+		}
+	})
+
+	t.Run("basic", func(t *testing.T) {
+		setup := repository_audit_logBasicSetup(nil)
+		// Per-op sdk-test-control.json skip — basic test exercises a flow
+		// with multiple ops; skipping any op skips the whole flow.
+		_mode := "unit"
+		if setup.live {
+			_mode = "live"
+		}
+		for _, _op := range []string{"list"} {
+			if _shouldSkip, _reason := isControlSkipped("entityOp", "repository_audit_log." + _op, _mode); _shouldSkip {
+				if _reason == "" {
+					_reason = "skipped via sdk-test-control.json"
+				}
+				t.Skip(_reason)
+				return
+			}
+		}
+		// The basic flow consumes synthetic IDs from the fixture. In live mode
+		// without an *_ENTID env override, those IDs hit the live API and 4xx.
+		if setup.syntheticOnly {
+			t.Skip("live entity test uses synthetic IDs from fixture — set CLOUDSMITH_TEST_REPOSITORY_AUDIT_LOG_ENTID JSON to run live")
+			return
+		}
+		client := setup.client
+
+		// Bootstrap entity data from existing test data (no create step in flow).
+		repositoryAuditLogRef01DataRaw := vs.Items(core.ToMapAny(vs.GetPath("existing.repository_audit_log", setup.data)))
+		var repositoryAuditLogRef01Data map[string]any
+		if len(repositoryAuditLogRef01DataRaw) > 0 {
+			repositoryAuditLogRef01Data = core.ToMapAny(repositoryAuditLogRef01DataRaw[0][1])
+		}
+		// Discard guards against Go's unused-var check when the flow's steps
+		// happen not to consume the bootstrap data (e.g. list-only flows).
+		_ = repositoryAuditLogRef01Data
+
+		// LIST
+		repositoryAuditLogRef01Ent := client.RepositoryAuditLog(nil)
+		repositoryAuditLogRef01Match := map[string]any{
+			"owner": setup.idmap["owner01"],
+			"repo": setup.idmap["repo01"],
+		}
+
+		repositoryAuditLogRef01ListResult, err := repositoryAuditLogRef01Ent.List(repositoryAuditLogRef01Match, nil)
+		if err != nil {
+			t.Fatalf("list failed: %v", err)
+		}
+		_, repositoryAuditLogRef01ListOk := repositoryAuditLogRef01ListResult.([]any)
+		if !repositoryAuditLogRef01ListOk {
+			t.Fatalf("expected list result to be an array, got %T", repositoryAuditLogRef01ListResult)
+		}
+
+	})
+}
+
+func repository_audit_logBasicSetup(extra map[string]any) *entityTestSetup {
+	loadEnvLocal()
+
+	_, filename, _, _ := runtime.Caller(0)
+	dir := filepath.Dir(filename)
+
+	entityDataFile := filepath.Join(dir, "..", "..", ".sdk", "test", "entity", "repository_audit_log", "RepositoryAuditLogTestData.json")
+
+	entityDataSource, err := os.ReadFile(entityDataFile)
+	if err != nil {
+		panic("failed to read repository_audit_log test data: " + err.Error())
+	}
+
+	var entityData map[string]any
+	if err := json.Unmarshal(entityDataSource, &entityData); err != nil {
+		panic("failed to parse repository_audit_log test data: " + err.Error())
+	}
+
+	options := map[string]any{}
+	options["entity"] = entityData["existing"]
+
+	client := sdk.TestSDK(options, extra)
+
+	// Generate idmap via transform, matching TS pattern.
+	idmap := vs.Transform(
+		[]any{"repository_audit_log01", "repository_audit_log02", "repository_audit_log03", "audit_log01", "audit_log02", "audit_log03", "owner01", "repo01"},
+		map[string]any{
+			"`$PACK`": []any{"", map[string]any{
+				"`$KEY`": "`$COPY`",
+				"`$VAL`": []any{"`$FORMAT`", "upper", "`$COPY`"},
+			}},
+		},
+	)
+
+	// Detect ENTID env override before envOverride consumes it. When live
+	// mode is on without a real override, the basic test runs against synthetic
+	// IDs from the fixture and 4xx's. Surface this so the test can skip.
+	entidEnvRaw := os.Getenv("CLOUDSMITH_TEST_REPOSITORY_AUDIT_LOG_ENTID")
+	idmapOverridden := entidEnvRaw != "" && strings.HasPrefix(strings.TrimSpace(entidEnvRaw), "{")
+
+	env := envOverride(map[string]any{
+		"CLOUDSMITH_TEST_REPOSITORY_AUDIT_LOG_ENTID": idmap,
+		"CLOUDSMITH_TEST_LIVE":      "FALSE",
+		"CLOUDSMITH_TEST_EXPLAIN":   "FALSE",
+		"CLOUDSMITH_APIKEY":         "NONE",
+	})
+
+	idmapResolved := core.ToMapAny(env["CLOUDSMITH_TEST_REPOSITORY_AUDIT_LOG_ENTID"])
+	if idmapResolved == nil {
+		idmapResolved = core.ToMapAny(idmap)
+	}
+
+	if env["CLOUDSMITH_TEST_LIVE"] == "TRUE" {
+		mergedOpts := vs.Merge([]any{
+			map[string]any{
+				"apikey": env["CLOUDSMITH_APIKEY"],
+			},
+			extra,
+		})
+		client = sdk.NewCloudsmithSDK(core.ToMapAny(mergedOpts))
+	}
+
+	live := env["CLOUDSMITH_TEST_LIVE"] == "TRUE"
+	return &entityTestSetup{
+		client:        client,
+		data:          entityData,
+		idmap:         idmapResolved,
+		env:           env,
+		explain:       env["CLOUDSMITH_TEST_EXPLAIN"] == "TRUE",
+		live:          live,
+		syntheticOnly: live && !idmapOverridden,
+		now:           time.Now().UnixMilli(),
+	}
+}

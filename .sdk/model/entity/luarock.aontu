@@ -1,0 +1,18 @@
+# Entity: luarock
+
+main: kit: entity: luarock: {
+
+  alias: field: {}
+
+  name: "luarock"
+  relations: {
+    ancestors: [
+      [
+        "package"
+      ]
+    ]
+  }
+
+
+
+}

@@ -1,0 +1,104 @@
+# BasicOrgFlow
+
+main: kit: flow: BasicOrgFlow:
+{
+  entity: "org",
+  kind: "basic",
+  name: "BasicOrgFlow",
+  step: [
+    {
+      input: {
+        ref: "org_ref01"
+      }
+
+      match: {
+        org: "org01"
+      }
+
+      op: "create"
+    }
+
+    {
+      op: "list",
+      valid: [
+        {
+          apply: "ItemExists",
+          def: {
+            ref: "org_ref01"
+          }
+        }
+      ]
+    }
+
+    {
+      input: {
+        ref: "org_ref01",
+        srcdatavar: "org_ref01_data",
+        suffix: "_up0",
+        textfield: "country"
+      }
+
+      op: "update",
+      spec: [
+        {
+          apply: "TextFieldMark",
+          def: {
+            mark: "Mark01-org_ref01"
+          }
+        }
+      ]
+    }
+
+    {
+      input: {
+        ref: "org_ref01",
+        srcdatavar: "org_ref01_data",
+        suffix: "_dt0"
+      }
+
+      match: {
+        id: "org01"
+      }
+
+      op: "load",
+      valid: [
+        {
+          apply: "TextFieldMark",
+          def: {
+            mark: "Mark01-org_ref01"
+          }
+        }
+      ]
+    }
+
+    {
+      input: {
+        ref: "org_ref01",
+        suffix: "_rm0"
+      }
+
+      match: {
+        id: "org01"
+      }
+
+      op: "remove"
+    }
+
+    {
+      input: {
+        suffix: "_rt0"
+      }
+
+      op: "list",
+      valid: [
+        {
+          apply: "ItemNotExists",
+          def: {
+            ref: "org_ref01"
+          }
+        }
+      ]
+    }
+  ],
+  "key$": "BasicOrgFlow"
+}

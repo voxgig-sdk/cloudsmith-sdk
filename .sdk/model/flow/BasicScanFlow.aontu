@@ -1,0 +1,9 @@
+# BasicScanFlow
+
+main: kit: flow: BasicScanFlow:
+{
+  entity: "scan",
+  kind: "basic",
+  name: "BasicScanFlow",
+  "key$": "BasicScanFlow"
+}

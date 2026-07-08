@@ -1,0 +1,9 @@
+# BasicInviteFlow
+
+main: kit: flow: BasicInviteFlow:
+{
+  entity: "invite",
+  kind: "basic",
+  name: "BasicInviteFlow",
+  "key$": "BasicInviteFlow"
+}

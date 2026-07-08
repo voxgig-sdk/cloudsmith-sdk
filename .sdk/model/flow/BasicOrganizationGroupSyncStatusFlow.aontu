@@ -1,0 +1,32 @@
+# BasicOrganizationGroupSyncStatusFlow
+
+main: kit: flow: BasicOrganizationGroupSyncStatusFlow:
+{
+  entity: "organization_group_sync_status",
+  kind: "basic",
+  name: "BasicOrganizationGroupSyncStatusFlow",
+  step: [
+    {
+      input: {
+        ref: "organization_group_sync_status_ref01",
+        srcdatavar: "organization_group_sync_status_ref01_data",
+        suffix: "_dt0"
+      }
+
+      match: {
+        id: "organization_group_sync_status01"
+      }
+
+      op: "load",
+      valid: [
+        {
+          apply: "TextFieldMark",
+          def: {
+            mark: "Mark01-organization_group_sync_status_ref01"
+          }
+        }
+      ]
+    }
+  ],
+  "key$": "BasicOrganizationGroupSyncStatusFlow"
+}

@@ -1,0 +1,25 @@
+{
+  "existing": {
+    "resources_rate_check": {
+      "RESOURCES_RATE_CHECK00": {
+        "resource": {},
+        "id": "RESOURCES_RATE_CHECK00"
+      },
+      "RESOURCES_RATE_CHECK01": {
+        "resource": {},
+        "id": "RESOURCES_RATE_CHECK01"
+      },
+      "RESOURCES_RATE_CHECK02": {
+        "resource": {},
+        "id": "RESOURCES_RATE_CHECK02"
+      }
+    }
+  },
+  "new": {
+    "resources_rate_check": {
+      "resources_rate_check_ref01": {
+        "resource": {}
+      }
+    }
+  }
+}

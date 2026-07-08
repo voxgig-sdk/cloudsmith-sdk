@@ -1,0 +1,38 @@
+{
+  "existing": {
+    "package_version_badge": {
+      "PACKAGE_VERSION_BADGE00": {
+        "owner": "OWNER01",
+        "package_format": "PACKAGE_FORMAT01",
+        "package_identifier": "PACKAGE_IDENTIFIER01",
+        "package_name": "PACKAGE_NAME01",
+        "package_version": "PACKAGE_VERSION01",
+        "repo": "REPO01",
+        "id": "PACKAGE_VERSION_BADGE00"
+      },
+      "PACKAGE_VERSION_BADGE01": {
+        "owner": "OWNER01",
+        "package_format": "PACKAGE_FORMAT01",
+        "package_identifier": "PACKAGE_IDENTIFIER01",
+        "package_name": "PACKAGE_NAME01",
+        "package_version": "PACKAGE_VERSION01",
+        "repo": "REPO01",
+        "id": "PACKAGE_VERSION_BADGE01"
+      },
+      "PACKAGE_VERSION_BADGE02": {
+        "owner": "OWNER01",
+        "package_format": "PACKAGE_FORMAT01",
+        "package_identifier": "PACKAGE_IDENTIFIER01",
+        "package_name": "PACKAGE_NAME01",
+        "package_version": "PACKAGE_VERSION01",
+        "repo": "REPO01",
+        "id": "PACKAGE_VERSION_BADGE02"
+      }
+    }
+  },
+  "new": {
+    "package_version_badge": {
+      "package_version_badge_ref01": {}
+    }
+  }
+}

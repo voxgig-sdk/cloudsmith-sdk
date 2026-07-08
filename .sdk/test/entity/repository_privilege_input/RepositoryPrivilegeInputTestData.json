@@ -1,0 +1,40 @@
+{
+  "existing": {
+    "repository_privilege_input": {
+      "REPOSITORY_PRIVILEGE_INPUT00": {
+        "privilege": "s28",
+        "service": "s29",
+        "team": "s2a",
+        "user": "s2b",
+        "identifier": "IDENTIFIER01",
+        "owner": "OWNER01"
+      },
+      "REPOSITORY_PRIVILEGE_INPUT01": {
+        "privilege": "s50",
+        "service": "s51",
+        "team": "s52",
+        "user": "s53",
+        "identifier": "IDENTIFIER01",
+        "owner": "OWNER01"
+      },
+      "REPOSITORY_PRIVILEGE_INPUT02": {
+        "privilege": "s78",
+        "service": "s79",
+        "team": "s7a",
+        "user": "s7b",
+        "identifier": "IDENTIFIER01",
+        "owner": "OWNER01"
+      }
+    }
+  },
+  "new": {
+    "repository_privilege_input": {
+      "repository_privilege_input_ref01": {
+        "privilege": "sa0",
+        "service": "sa1",
+        "team": "sa2",
+        "user": "sa3"
+      }
+    }
+  }
+}

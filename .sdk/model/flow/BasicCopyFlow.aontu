@@ -1,0 +1,9 @@
+# BasicCopyFlow
+
+main: kit: flow: BasicCopyFlow:
+{
+  entity: "copy",
+  kind: "basic",
+  name: "BasicCopyFlow",
+  "key$": "BasicCopyFlow"
+}
