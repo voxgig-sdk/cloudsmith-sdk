@@ -59,10 +59,10 @@ Entity operations raise on failure, so wrap them in `try` / `except`:
 
 ```python
 try:
-    abort = client.Abort().load()
-    print(abort)
+    cargos = client.Cargo().list()
+    print(cargos)
 except Exception as err:
-    print(f"load failed: {err}")
+    print(f"list failed: {err}")
 ```
 
 `direct()` does **not** raise — it returns the result envelope. Branch
@@ -127,8 +127,8 @@ Create a mock client for unit testing — no server required:
 client = CloudsmithSDK.test()
 
 # Entity ops return the bare record and raise on error.
-abort = client.Abort().load()
-# abort contains the mock response record
+cargo = client.Cargo().list()
+# cargo contains the mock response record
 ```
 
 ### Use a custom fetch function
@@ -6280,15 +6280,15 @@ Import entity or utility modules directly only when needed.
 
 ### Entity state
 
-Entity instances are stateful. After a successful `load`, the entity
+Entity instances are stateful. After a successful `list`, the entity
 stores the returned data and match criteria internally.
 
 ```python
-abort = client.Abort()
-abort.load()
+cargo = client.Cargo()
+cargo.list()
 
-# abort.data_get() now returns the abort data from the last load
-# abort.match_get() returns the last match criteria
+# cargo.data_get() now returns the cargo data from the last list
+# cargo.match_get() returns the last match criteria
 ```
 
 Call `make()` to create a fresh instance with the same configuration

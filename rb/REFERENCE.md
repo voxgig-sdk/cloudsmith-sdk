@@ -7833,7 +7833,7 @@ Return the entity name.
 ## SelfEntity
 
 ```ruby
-self = client.Self
+self_ = client.Self
 ```
 
 ### Common Methods

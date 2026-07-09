@@ -830,8 +830,8 @@ Create a new entity with the given data.
 
 ```go
 result, err := client.Cargo(nil).Create(map[string]any{
-    "identifier": /* any */,
-    "owner": /* any */,
+    "identifier": "example_identifier",
+    "owner": "example_owner",
 }, nil)
 if err != nil {
     panic(err)
@@ -1004,8 +1004,8 @@ Create a new entity with the given data.
 
 ```go
 result, err := client.Composer(nil).Create(map[string]any{
-    "identifier": /* any */,
-    "owner": /* any */,
+    "identifier": "example_identifier",
+    "owner": "example_owner",
 }, nil)
 if err != nil {
     panic(err)
@@ -1147,8 +1147,8 @@ Create a new entity with the given data.
 
 ```go
 result, err := client.Conda(nil).Create(map[string]any{
-    "identifier": /* any */,
-    "owner": /* any */,
+    "identifier": "example_identifier",
+    "owner": "example_owner",
 }, nil)
 if err != nil {
     panic(err)
@@ -1290,8 +1290,8 @@ Create a new entity with the given data.
 
 ```go
 result, err := client.Cran(nil).Create(map[string]any{
-    "identifier": /* any */,
-    "owner": /* any */,
+    "identifier": "example_identifier",
+    "owner": "example_owner",
 }, nil)
 if err != nil {
     panic(err)
@@ -1402,8 +1402,8 @@ Create a new entity with the given data.
 
 ```go
 result, err := client.Dart(nil).Create(map[string]any{
-    "identifier": /* any */,
-    "owner": /* any */,
+    "identifier": "example_identifier",
+    "owner": "example_owner",
 }, nil)
 if err != nil {
     panic(err)
@@ -1522,8 +1522,8 @@ Create a new entity with the given data.
 
 ```go
 result, err := client.Deb(nil).Create(map[string]any{
-    "identifier": /* any */,
-    "owner": /* any */,
+    "identifier": "example_identifier",
+    "owner": "example_owner",
 }, nil)
 if err != nil {
     panic(err)
@@ -1827,8 +1827,8 @@ Create a new entity with the given data.
 
 ```go
 result, err := client.Docker(nil).Create(map[string]any{
-    "identifier": /* any */,
-    "owner": /* any */,
+    "identifier": "example_identifier",
+    "owner": "example_owner",
 }, nil)
 if err != nil {
     panic(err)
@@ -2036,9 +2036,9 @@ Create a new entity with the given data.
 
 ```go
 result, err := client.Entitlement(nil).Create(map[string]any{
-    "identifier": /* any */,
-    "owner": /* any */,
-    "repo": /* any */,
+    "identifier": "example_identifier",
+    "owner": "example_owner",
+    "repo": "example_repo",
 }, nil)
 if err != nil {
     panic(err)
@@ -2128,8 +2128,8 @@ Create a new entity with the given data.
 
 ```go
 result, err := client.File(nil).Create(map[string]any{
-    "owner": /* any */,
-    "repo": /* any */,
+    "owner": "example_owner",
+    "repo": "example_repo",
 }, nil)
 if err != nil {
     panic(err)
@@ -2439,8 +2439,8 @@ Create a new entity with the given data.
 
 ```go
 result, err := client.Gon5(nil).Create(map[string]any{
-    "identifier": /* any */,
-    "owner": /* any */,
+    "identifier": "example_identifier",
+    "owner": "example_owner",
 }, nil)
 if err != nil {
     panic(err)
@@ -2841,8 +2841,8 @@ Create a new entity with the given data.
 
 ```go
 result, err := client.Helm(nil).Create(map[string]any{
-    "identifier": /* any */,
-    "owner": /* any */,
+    "identifier": "example_identifier",
+    "owner": "example_owner",
 }, nil)
 if err != nil {
     panic(err)
@@ -2953,8 +2953,8 @@ Create a new entity with the given data.
 
 ```go
 result, err := client.Hex(nil).Create(map[string]any{
-    "identifier": /* any */,
-    "owner": /* any */,
+    "identifier": "example_identifier",
+    "owner": "example_owner",
 }, nil)
 if err != nil {
     panic(err)
@@ -3096,8 +3096,8 @@ Create a new entity with the given data.
 
 ```go
 result, err := client.Huggingface(nil).Create(map[string]any{
-    "identifier": /* any */,
-    "owner": /* any */,
+    "identifier": "example_identifier",
+    "owner": "example_owner",
 }, nil)
 if err != nil {
     panic(err)
@@ -3367,8 +3367,8 @@ Create a new entity with the given data.
 
 ```go
 result, err := client.Maven(nil).Create(map[string]any{
-    "identifier": /* any */,
-    "owner": /* any */,
+    "identifier": "example_identifier",
+    "owner": "example_owner",
 }, nil)
 if err != nil {
     panic(err)
@@ -3673,8 +3673,8 @@ Create a new entity with the given data.
 
 ```go
 result, err := client.Npm(nil).Create(map[string]any{
-    "identifier": /* any */,
-    "owner": /* any */,
+    "identifier": "example_identifier",
+    "owner": "example_owner",
 }, nil)
 if err != nil {
     panic(err)
@@ -3785,8 +3785,8 @@ Create a new entity with the given data.
 
 ```go
 result, err := client.Nuget(nil).Create(map[string]any{
-    "identifier": /* any */,
-    "owner": /* any */,
+    "identifier": "example_identifier",
+    "owner": "example_owner",
 }, nil)
 if err != nil {
     panic(err)
@@ -3922,7 +3922,7 @@ Create a new entity with the given data.
 
 ```go
 result, err := client.Org(nil).Create(map[string]any{
-    "id": /* string */,
+    "id": "example_id",
 }, nil)
 if err != nil {
     panic(err)
@@ -4019,7 +4019,7 @@ Create a new entity with the given data.
 
 ```go
 result, err := client.OrganizationGroupSync(nil).Create(map[string]any{
-    "org_id": /* string */,
+    "org_id": "example_org_id",
 }, nil)
 if err != nil {
     panic(err)
@@ -4144,7 +4144,7 @@ Create a new entity with the given data.
 
 ```go
 result, err := client.OrganizationInvite(nil).Create(map[string]any{
-    "org_id": /* string */,
+    "org_id": "example_org_id",
 }, nil)
 if err != nil {
     panic(err)
@@ -4222,8 +4222,8 @@ Create a new entity with the given data.
 
 ```go
 result, err := client.OrganizationInviteExtend(nil).Create(map[string]any{
-    "org_id": /* string */,
-    "slug_perm": /* any */,
+    "org_id": "example_org_id",
+    "slug_perm": "example_slug_perm",
 }, nil)
 if err != nil {
     panic(err)
@@ -4528,7 +4528,7 @@ Create a new entity with the given data.
 
 ```go
 result, err := client.OrganizationPackageLicensePolicy(nil).Create(map[string]any{
-    "org_id": /* string */,
+    "org_id": "example_org_id",
 }, nil)
 if err != nil {
     panic(err)
@@ -4629,7 +4629,7 @@ Create a new entity with the given data.
 
 ```go
 result, err := client.OrganizationPackageVulnerabilityPolicy(nil).Create(map[string]any{
-    "org_id": /* string */,
+    "org_id": "example_org_id",
 }, nil)
 if err != nil {
     panic(err)
@@ -4795,7 +4795,7 @@ Create a new entity with the given data.
 
 ```go
 result, err := client.OrganizationTeam(nil).Create(map[string]any{
-    "org_id": /* string */,
+    "org_id": "example_org_id",
 }, nil)
 if err != nil {
     panic(err)
@@ -4877,8 +4877,8 @@ Create a new entity with the given data.
 
 ```go
 result, err := client.OrganizationTeamMember(nil).Create(map[string]any{
-    "org_id": /* string */,
-    "team_id": /* string */,
+    "org_id": "example_org_id",
+    "team_id": "example_team_id",
 }, nil)
 if err != nil {
     panic(err)
@@ -5228,8 +5228,8 @@ Create a new entity with the given data.
 
 ```go
 result, err := client.Package(nil).Create(map[string]any{
-    "owner": /* any */,
-    "repo": /* any */,
+    "owner": "example_owner",
+    "repo": "example_repo",
 }, nil)
 if err != nil {
     panic(err)
@@ -5326,7 +5326,7 @@ Create a new entity with the given data.
 
 ```go
 result, err := client.PackageDenyPolicy(nil).Create(map[string]any{
-    "org_id": /* string */,
+    "org_id": "example_org_id",
 }, nil)
 if err != nil {
     panic(err)
@@ -5442,9 +5442,9 @@ Create a new entity with the given data.
 
 ```go
 result, err := client.PackageFileUpload(nil).Create(map[string]any{
-    "identifier": /* any */,
-    "owner": /* any */,
-    "repo": /* any */,
+    "identifier": "example_identifier",
+    "owner": "example_owner",
+    "repo": "example_repo",
 }, nil)
 if err != nil {
     panic(err)
@@ -5527,8 +5527,8 @@ Create a new entity with the given data.
 
 ```go
 result, err := client.PackageLicensePolicyEvaluation(nil).Create(map[string]any{
-    "org_id": /* string */,
-    "policy_slug_perm": /* any */,
+    "org_id": "example_org_id",
+    "policy_slug_perm": "example_policy_slug_perm",
 }, nil)
 if err != nil {
     panic(err)
@@ -5656,8 +5656,8 @@ Create a new entity with the given data.
 
 ```go
 result, err := client.PackageVulnerabilityPolicyEvaluation(nil).Create(map[string]any{
-    "org_id": /* string */,
-    "policy_slug_perm": /* any */,
+    "org_id": "example_org_id",
+    "policy_slug_perm": "example_policy_slug_perm",
 }, nil)
 if err != nil {
     panic(err)
@@ -5850,7 +5850,7 @@ Create a new entity with the given data.
 
 ```go
 result, err := client.ProviderSettingsWrite(nil).Create(map[string]any{
-    "org_id": /* string */,
+    "org_id": "example_org_id",
 }, nil)
 if err != nil {
     panic(err)
@@ -5960,8 +5960,8 @@ Create a new entity with the given data.
 
 ```go
 result, err := client.Python(nil).Create(map[string]any{
-    "identifier": /* any */,
-    "owner": /* any */,
+    "identifier": "example_identifier",
+    "owner": "example_owner",
 }, nil)
 if err != nil {
     panic(err)
@@ -6456,8 +6456,8 @@ Create a new entity with the given data.
 
 ```go
 result, err := client.RepositoryEcdsaKey(nil).Create(map[string]any{
-    "identifier": /* any */,
-    "owner": /* any */,
+    "identifier": "example_identifier",
+    "owner": "example_owner",
 }, nil)
 if err != nil {
     panic(err)
@@ -6623,8 +6623,8 @@ Create a new entity with the given data.
 
 ```go
 result, err := client.RepositoryGeoIpTestAddress(nil).Create(map[string]any{
-    "identifier": /* any */,
-    "owner": /* any */,
+    "identifier": "example_identifier",
+    "owner": "example_owner",
 }, nil)
 if err != nil {
     panic(err)
@@ -6695,8 +6695,8 @@ Create a new entity with the given data.
 
 ```go
 result, err := client.RepositoryGpgKey(nil).Create(map[string]any{
-    "identifier": /* any */,
-    "owner": /* any */,
+    "identifier": "example_identifier",
+    "owner": "example_owner",
 }, nil)
 if err != nil {
     panic(err)
@@ -6895,8 +6895,8 @@ Create a new entity with the given data.
 
 ```go
 result, err := client.RepositoryRsaKey(nil).Create(map[string]any{
-    "identifier": /* any */,
-    "owner": /* any */,
+    "identifier": "example_identifier",
+    "owner": "example_owner",
 }, nil)
 if err != nil {
     panic(err)
@@ -7011,8 +7011,8 @@ Create a new entity with the given data.
 
 ```go
 result, err := client.RepositoryToken(nil).Create(map[string]any{
-    "owner": /* any */,
-    "repo": /* any */,
+    "owner": "example_owner",
+    "repo": "example_repo",
 }, nil)
 if err != nil {
     panic(err)
@@ -7120,9 +7120,9 @@ Create a new entity with the given data.
 
 ```go
 result, err := client.RepositoryTokenRefresh(nil).Create(map[string]any{
-    "identifier": /* any */,
-    "owner": /* any */,
-    "repo": /* any */,
+    "identifier": "example_identifier",
+    "owner": "example_owner",
+    "repo": "example_repo",
 }, nil)
 if err != nil {
     panic(err)
@@ -7175,8 +7175,8 @@ Create a new entity with the given data.
 
 ```go
 result, err := client.RepositoryTokenSync(nil).Create(map[string]any{
-    "owner": /* any */,
-    "repo": /* any */,
+    "owner": "example_owner",
+    "repo": "example_repo",
 }, nil)
 if err != nil {
     panic(err)
@@ -7299,8 +7299,8 @@ Create a new entity with the given data.
 
 ```go
 result, err := client.RepositoryWebhook(nil).Create(map[string]any{
-    "owner": /* any */,
-    "repo": /* any */,
+    "owner": "example_owner",
+    "repo": "example_repo",
 }, nil)
 if err != nil {
     panic(err)
@@ -7681,8 +7681,8 @@ Create a new entity with the given data.
 
 ```go
 result, err := client.Rpm(nil).Create(map[string]any{
-    "identifier": /* any */,
-    "owner": /* any */,
+    "identifier": "example_identifier",
+    "owner": "example_owner",
 }, nil)
 if err != nil {
     panic(err)
@@ -7824,8 +7824,8 @@ Create a new entity with the given data.
 
 ```go
 result, err := client.Ruby(nil).Create(map[string]any{
-    "identifier": /* any */,
-    "owner": /* any */,
+    "identifier": "example_identifier",
+    "owner": "example_owner",
 }, nil)
 if err != nil {
     panic(err)
@@ -8021,7 +8021,7 @@ Create a new entity with the given data.
 
 ```go
 result, err := client.Service(nil).Create(map[string]any{
-    "org_id": /* string */,
+    "org_id": "example_org_id",
 }, nil)
 if err != nil {
     panic(err)
@@ -8278,8 +8278,8 @@ Create a new entity with the given data.
 
 ```go
 result, err := client.Swift(nil).Create(map[string]any{
-    "identifier": /* any */,
-    "owner": /* any */,
+    "identifier": "example_identifier",
+    "owner": "example_owner",
 }, nil)
 if err != nil {
     panic(err)

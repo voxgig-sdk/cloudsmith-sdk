@@ -63,12 +63,12 @@ Every entity operation returns `(value, error)`. Check `err` before
 using the value — there is no exception to catch:
 
 ```go
-abort, err := client.Abort(nil).Load(nil, nil)
+cargos, err := client.Cargo(nil).List(nil, nil)
 if err != nil {
     // handle err
     return
 }
-_ = abort
+_ = cargos
 ```
 
 `Direct` follows the same `(value, error)` convention:
@@ -132,13 +132,13 @@ Create a mock client for unit testing — no server required:
 ```go
 client := sdk.Test()
 
-abort, err := client.Abort(nil).Load(
+cargo, err := client.Cargo(nil).List(
     nil, nil,
 )
 if err != nil {
     panic(err)
 }
-fmt.Println(abort) // the returned mock data
+fmt.Println(cargo) // the returned mock data
 ```
 
 ### Use a custom fetch function
@@ -388,9 +388,9 @@ Check `err` first, then use the value directly (or the typed
 `...Typed` variants, which return the entity's model struct and a typed
 slice):
 
-    abort, err := client.Abort(nil).Load(nil, nil)
+    cargo, err := client.Cargo(nil).List(map[string]any{/* fields */}, nil)
     if err != nil { /* handle */ }
-    // abort is the returned record
+    // cargo is the returned record
 
 Only `Direct()` returns a response envelope — a `map[string]any` with
 `"ok"`, `"status"`, `"headers"`, and `"data"` keys.
@@ -2699,8 +2699,8 @@ fmt.Println(cargos) // the array of records
 
 ```go
 result, err := client.Cargo(nil).Create(map[string]any{
-    "identifier": /* any */,
-    "owner": /* any */,
+    "identifier": "example_identifier",
+    "owner": "example_owner",
 }, nil)
 if err != nil {
     panic(err)
@@ -2779,8 +2779,8 @@ fmt.Println(composers) // the array of records
 
 ```go
 result, err := client.Composer(nil).Create(map[string]any{
-    "identifier": /* any */,
-    "owner": /* any */,
+    "identifier": "example_identifier",
+    "owner": "example_owner",
 }, nil)
 if err != nil {
     panic(err)
@@ -2854,8 +2854,8 @@ fmt.Println(condas) // the array of records
 
 ```go
 result, err := client.Conda(nil).Create(map[string]any{
-    "identifier": /* any */,
-    "owner": /* any */,
+    "identifier": "example_identifier",
+    "owner": "example_owner",
 }, nil)
 if err != nil {
     panic(err)
@@ -2929,8 +2929,8 @@ fmt.Println(crans) // the array of records
 
 ```go
 result, err := client.Cran(nil).Create(map[string]any{
-    "identifier": /* any */,
-    "owner": /* any */,
+    "identifier": "example_identifier",
+    "owner": "example_owner",
 }, nil)
 if err != nil {
     panic(err)
@@ -2999,8 +2999,8 @@ fmt.Println(darts) // the array of records
 
 ```go
 result, err := client.Dart(nil).Create(map[string]any{
-    "identifier": /* any */,
-    "owner": /* any */,
+    "identifier": "example_identifier",
+    "owner": "example_owner",
 }, nil)
 if err != nil {
     panic(err)
@@ -3077,8 +3077,8 @@ fmt.Println(debs) // the array of records
 
 ```go
 result, err := client.Deb(nil).Create(map[string]any{
-    "identifier": /* any */,
-    "owner": /* any */,
+    "identifier": "example_identifier",
+    "owner": "example_owner",
 }, nil)
 if err != nil {
     panic(err)
@@ -3211,8 +3211,8 @@ fmt.Println(dockers) // the array of records
 
 ```go
 result, err := client.Docker(nil).Create(map[string]any{
-    "identifier": /* any */,
-    "owner": /* any */,
+    "identifier": "example_identifier",
+    "owner": "example_owner",
 }, nil)
 if err != nil {
     panic(err)
@@ -3302,9 +3302,9 @@ fmt.Println(entitlement) // the loaded record
 
 ```go
 result, err := client.Entitlement(nil).Create(map[string]any{
-    "identifier": /* any */,
-    "owner": /* any */,
-    "repo": /* any */,
+    "identifier": "example_identifier",
+    "owner": "example_owner",
+    "repo": "example_repo",
 }, nil)
 if err != nil {
     panic(err)
@@ -3332,8 +3332,8 @@ Create an instance: `file := client.File(nil)`
 
 ```go
 result, err := client.File(nil).Create(map[string]any{
-    "owner": /* any */,
-    "repo": /* any */,
+    "owner": "example_owner",
+    "repo": "example_repo",
 }, nil)
 if err != nil {
     panic(err)
@@ -3466,8 +3466,8 @@ Create an instance: `gon5 := client.Gon5(nil)`
 
 ```go
 result, err := client.Gon5(nil).Create(map[string]any{
-    "identifier": /* any */,
-    "owner": /* any */,
+    "identifier": "example_identifier",
+    "owner": "example_owner",
 }, nil)
 if err != nil {
     panic(err)
@@ -3663,8 +3663,8 @@ fmt.Println(helms) // the array of records
 
 ```go
 result, err := client.Helm(nil).Create(map[string]any{
-    "identifier": /* any */,
-    "owner": /* any */,
+    "identifier": "example_identifier",
+    "owner": "example_owner",
 }, nil)
 if err != nil {
     panic(err)
@@ -3733,8 +3733,8 @@ fmt.Println(hexs) // the array of records
 
 ```go
 result, err := client.Hex(nil).Create(map[string]any{
-    "identifier": /* any */,
-    "owner": /* any */,
+    "identifier": "example_identifier",
+    "owner": "example_owner",
 }, nil)
 if err != nil {
     panic(err)
@@ -3808,8 +3808,8 @@ fmt.Println(huggingfaces) // the array of records
 
 ```go
 result, err := client.Huggingface(nil).Create(map[string]any{
-    "identifier": /* any */,
-    "owner": /* any */,
+    "identifier": "example_identifier",
+    "owner": "example_owner",
 }, nil)
 if err != nil {
     panic(err)
@@ -3907,8 +3907,8 @@ fmt.Println(mavens) // the array of records
 
 ```go
 result, err := client.Maven(nil).Create(map[string]any{
-    "identifier": /* any */,
-    "owner": /* any */,
+    "identifier": "example_identifier",
+    "owner": "example_owner",
 }, nil)
 if err != nil {
     panic(err)
@@ -4070,8 +4070,8 @@ fmt.Println(npms) // the array of records
 
 ```go
 result, err := client.Npm(nil).Create(map[string]any{
-    "identifier": /* any */,
-    "owner": /* any */,
+    "identifier": "example_identifier",
+    "owner": "example_owner",
 }, nil)
 if err != nil {
     panic(err)
@@ -4140,8 +4140,8 @@ fmt.Println(nugets) // the array of records
 
 ```go
 result, err := client.Nuget(nil).Create(map[string]any{
-    "identifier": /* any */,
-    "owner": /* any */,
+    "identifier": "example_identifier",
+    "owner": "example_owner",
 }, nil)
 if err != nil {
     panic(err)
@@ -4210,7 +4210,7 @@ fmt.Println(orgs) // the array of records
 
 ```go
 result, err := client.Org(nil).Create(map[string]any{
-    "id": /* string */,
+    "id": "example_id",
 }, nil)
 if err != nil {
     panic(err)
@@ -4254,7 +4254,7 @@ fmt.Println(organizationGroupSyncs) // the array of records
 
 ```go
 result, err := client.OrganizationGroupSync(nil).Create(map[string]any{
-    "org_id": /* string */,
+    "org_id": "example_org_id",
 }, nil)
 if err != nil {
     panic(err)
@@ -4331,7 +4331,7 @@ fmt.Println(organizationInvites) // the array of records
 
 ```go
 result, err := client.OrganizationInvite(nil).Create(map[string]any{
-    "org_id": /* string */,
+    "org_id": "example_org_id",
 }, nil)
 if err != nil {
     panic(err)
@@ -4369,8 +4369,8 @@ Create an instance: `organizationInviteExtend := client.OrganizationInviteExtend
 
 ```go
 result, err := client.OrganizationInviteExtend(nil).Create(map[string]any{
-    "org_id": /* string */,
-    "slug_perm": /* any */,
+    "org_id": "example_org_id",
+    "slug_perm": "example_slug_perm",
 }, nil)
 if err != nil {
     panic(err)
@@ -4534,7 +4534,7 @@ fmt.Println(organizationPackageLicensePolicys) // the array of records
 
 ```go
 result, err := client.OrganizationPackageLicensePolicy(nil).Create(map[string]any{
-    "org_id": /* string */,
+    "org_id": "example_org_id",
 }, nil)
 if err != nil {
     panic(err)
@@ -4594,7 +4594,7 @@ fmt.Println(organizationPackageVulnerabilityPolicys) // the array of records
 
 ```go
 result, err := client.OrganizationPackageVulnerabilityPolicy(nil).Create(map[string]any{
-    "org_id": /* string */,
+    "org_id": "example_org_id",
 }, nil)
 if err != nil {
     panic(err)
@@ -4681,7 +4681,7 @@ fmt.Println(organizationTeams) // the array of records
 
 ```go
 result, err := client.OrganizationTeam(nil).Create(map[string]any{
-    "org_id": /* string */,
+    "org_id": "example_org_id",
 }, nil)
 if err != nil {
     panic(err)
@@ -4722,8 +4722,8 @@ fmt.Println(organizationTeamMembers) // the array of records
 
 ```go
 result, err := client.OrganizationTeamMember(nil).Create(map[string]any{
-    "org_id": /* string */,
-    "team_id": /* string */,
+    "org_id": "example_org_id",
+    "team_id": "example_team_id",
 }, nil)
 if err != nil {
     panic(err)
@@ -4877,8 +4877,8 @@ fmt.Println(package_s) // the array of records
 
 ```go
 result, err := client.Package(nil).Create(map[string]any{
-    "owner": /* any */,
-    "repo": /* any */,
+    "owner": "example_owner",
+    "repo": "example_repo",
 }, nil)
 if err != nil {
     panic(err)
@@ -4938,7 +4938,7 @@ fmt.Println(packageDenyPolicys) // the array of records
 
 ```go
 result, err := client.PackageDenyPolicy(nil).Create(map[string]any{
-    "org_id": /* string */,
+    "org_id": "example_org_id",
 }, nil)
 if err != nil {
     panic(err)
@@ -4990,9 +4990,9 @@ Create an instance: `packageFileUpload := client.PackageFileUpload(nil)`
 
 ```go
 result, err := client.PackageFileUpload(nil).Create(map[string]any{
-    "identifier": /* any */,
-    "owner": /* any */,
-    "repo": /* any */,
+    "identifier": "example_identifier",
+    "owner": "example_owner",
+    "repo": "example_repo",
 }, nil)
 if err != nil {
     panic(err)
@@ -5049,8 +5049,8 @@ fmt.Println(packageLicensePolicyEvaluations) // the array of records
 
 ```go
 result, err := client.PackageLicensePolicyEvaluation(nil).Create(map[string]any{
-    "org_id": /* string */,
-    "policy_slug_perm": /* any */,
+    "org_id": "example_org_id",
+    "policy_slug_perm": "example_policy_slug_perm",
 }, nil)
 if err != nil {
     panic(err)
@@ -5128,8 +5128,8 @@ fmt.Println(packageVulnerabilityPolicyEvaluations) // the array of records
 
 ```go
 result, err := client.PackageVulnerabilityPolicyEvaluation(nil).Create(map[string]any{
-    "org_id": /* string */,
-    "policy_slug_perm": /* any */,
+    "org_id": "example_org_id",
+    "policy_slug_perm": "example_policy_slug_perm",
 }, nil)
 if err != nil {
     panic(err)
@@ -5222,7 +5222,7 @@ Create an instance: `providerSettingsWrite := client.ProviderSettingsWrite(nil)`
 
 ```go
 result, err := client.ProviderSettingsWrite(nil).Create(map[string]any{
-    "org_id": /* string */,
+    "org_id": "example_org_id",
 }, nil)
 if err != nil {
     panic(err)
@@ -5291,8 +5291,8 @@ fmt.Println(pythons) // the array of records
 
 ```go
 result, err := client.Python(nil).Create(map[string]any{
-    "identifier": /* any */,
-    "owner": /* any */,
+    "identifier": "example_identifier",
+    "owner": "example_owner",
 }, nil)
 if err != nil {
     panic(err)
@@ -5541,8 +5541,8 @@ fmt.Println(repositoryEcdsaKey) // the loaded record
 
 ```go
 result, err := client.RepositoryEcdsaKey(nil).Create(map[string]any{
-    "identifier": /* any */,
-    "owner": /* any */,
+    "identifier": "example_identifier",
+    "owner": "example_owner",
 }, nil)
 if err != nil {
     panic(err)
@@ -5621,8 +5621,8 @@ Create an instance: `repositoryGeoIpTestAddress := client.RepositoryGeoIpTestAdd
 
 ```go
 result, err := client.RepositoryGeoIpTestAddress(nil).Create(map[string]any{
-    "identifier": /* any */,
-    "owner": /* any */,
+    "identifier": "example_identifier",
+    "owner": "example_owner",
 }, nil)
 if err != nil {
     panic(err)
@@ -5668,8 +5668,8 @@ fmt.Println(repositoryGpgKey) // the loaded record
 
 ```go
 result, err := client.RepositoryGpgKey(nil).Create(map[string]any{
-    "identifier": /* any */,
-    "owner": /* any */,
+    "identifier": "example_identifier",
+    "owner": "example_owner",
 }, nil)
 if err != nil {
     panic(err)
@@ -5780,8 +5780,8 @@ fmt.Println(repositoryRsaKey) // the loaded record
 
 ```go
 result, err := client.RepositoryRsaKey(nil).Create(map[string]any{
-    "identifier": /* any */,
-    "owner": /* any */,
+    "identifier": "example_identifier",
+    "owner": "example_owner",
 }, nil)
 if err != nil {
     panic(err)
@@ -5871,8 +5871,8 @@ fmt.Println(repositoryTokens) // the array of records
 
 ```go
 result, err := client.RepositoryToken(nil).Create(map[string]any{
-    "owner": /* any */,
-    "repo": /* any */,
+    "owner": "example_owner",
+    "repo": "example_repo",
 }, nil)
 if err != nil {
     panic(err)
@@ -5939,9 +5939,9 @@ Create an instance: `repositoryTokenRefresh := client.RepositoryTokenRefresh(nil
 
 ```go
 result, err := client.RepositoryTokenRefresh(nil).Create(map[string]any{
-    "identifier": /* any */,
-    "owner": /* any */,
-    "repo": /* any */,
+    "identifier": "example_identifier",
+    "owner": "example_owner",
+    "repo": "example_repo",
 }, nil)
 if err != nil {
     panic(err)
@@ -5970,8 +5970,8 @@ Create an instance: `repositoryTokenSync := client.RepositoryTokenSync(nil)`
 
 ```go
 result, err := client.RepositoryTokenSync(nil).Create(map[string]any{
-    "owner": /* any */,
-    "repo": /* any */,
+    "owner": "example_owner",
+    "repo": "example_repo",
 }, nil)
 if err != nil {
     panic(err)
@@ -6038,8 +6038,8 @@ fmt.Println(repositoryWebhooks) // the array of records
 
 ```go
 result, err := client.RepositoryWebhook(nil).Create(map[string]any{
-    "owner": /* any */,
-    "repo": /* any */,
+    "owner": "example_owner",
+    "repo": "example_repo",
 }, nil)
 if err != nil {
     panic(err)
@@ -6228,8 +6228,8 @@ fmt.Println(rpms) // the array of records
 
 ```go
 result, err := client.Rpm(nil).Create(map[string]any{
-    "identifier": /* any */,
-    "owner": /* any */,
+    "identifier": "example_identifier",
+    "owner": "example_owner",
 }, nil)
 if err != nil {
     panic(err)
@@ -6303,8 +6303,8 @@ fmt.Println(rubys) // the array of records
 
 ```go
 result, err := client.Ruby(nil).Create(map[string]any{
-    "identifier": /* any */,
-    "owner": /* any */,
+    "identifier": "example_identifier",
+    "owner": "example_owner",
 }, nil)
 if err != nil {
     panic(err)
@@ -6380,7 +6380,7 @@ fmt.Println(services) // the array of records
 
 ```go
 result, err := client.Service(nil).Create(map[string]any{
-    "org_id": /* string */,
+    "org_id": "example_org_id",
 }, nil)
 if err != nil {
     panic(err)
@@ -6521,8 +6521,8 @@ fmt.Println(swifts) // the array of records
 
 ```go
 result, err := client.Swift(nil).Create(map[string]any{
-    "identifier": /* any */,
-    "owner": /* any */,
+    "identifier": "example_identifier",
+    "owner": "example_owner",
 }, nil)
 if err != nil {
     panic(err)
@@ -6874,15 +6874,15 @@ like `core.ToMapAny`.
 
 ### Entity state
 
-Entity instances are stateful. After a successful `Load`, the entity
+Entity instances are stateful. After a successful `List`, the entity
 stores the returned data and match criteria internally.
 
 ```go
-abort := client.Abort(nil)
-abort.Load(nil, nil)
+cargo := client.Cargo(nil)
+cargo.List(nil, nil)
 
-// abort.Data() now returns the abort data from the last load
-// abort.Match() returns the last match criteria
+// cargo.Data() now returns the cargo data from the last list
+// cargo.Match() returns the last match criteria
 ```
 
 Call `Make()` to create a fresh instance with the same configuration

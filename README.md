@@ -266,24 +266,24 @@ in-memory mock, so unit tests run offline.
 
 ```ts
 const client = CloudsmithSDK.test()
-const abort = await client.Abort().load()
-// abort is a bare Abort populated with mock data
-console.log(abort)
+const cargos = await client.Cargo().list()
+// cargos is an array of bare Cargo records populated with mock data
+console.log(cargos)
 ```
 
 ### Python
 
 ```python
 client = CloudsmithSDK.test()
-abort = client.Abort().load()
-print(abort)
+cargos = client.Cargo().list()
+print(cargos)
 ```
 
 ### Golang
 
 ```go
 client := sdk.Test()
-result, err := client.Abort(nil).Load(
+result, err := client.Cargo(nil).List(
     nil, nil,
 )
 ```
@@ -293,9 +293,9 @@ result, err := client.Abort(nil).Load(
 ```ruby
 # Seed fixture data so offline calls resolve without a live server.
 client = CloudsmithSDK.test({
-  "entity" => { "abort" => { "test01" => {} } },
+  "entity" => { "cargo" => { "test01" => { "id" => "test01" } } },
 })
-abort = client.Abort.load()
+cargos = client.Cargo.list()
 ```
 
 ## Direct and prepare

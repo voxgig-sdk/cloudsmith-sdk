@@ -60,10 +60,10 @@ Entity operations reject on failure, so wrap them in `try` / `catch`:
 
 ```ts
 try {
-  const abort = await client.Abort().load()
-  console.log(abort)
+  const cargos = await client.Cargo().list()
+  console.log(cargos)
 } catch (err) {
-  console.error('load failed:', err)
+  console.error('list failed:', err)
 }
 ```
 
@@ -127,9 +127,9 @@ Create a mock client for unit testing — no server required:
 ```ts
 const client = CloudsmithSDK.test()
 
-const abort = await client.Abort().load()
-// abort is a bare entity populated with mock response data
-console.log(abort)
+const cargo = await client.Cargo().list()
+// cargo is a bare entity populated with mock response data
+console.log(cargo)
 ```
 
 You can also use the instance method:
@@ -144,10 +144,10 @@ const testClient = client.tester()
 Entity instances remember their last match and data:
 
 ```ts
-const entity = client.Abort()
+const entity = client.Cargo()
 
 // First call runs the operation and stores its result
-await entity.load()
+await entity.list()
 
 // Subsequent calls reuse the stored state
 const data = entity.data()
@@ -2731,8 +2731,8 @@ const cargos = await client.Cargo().list()
 
 ```ts
 const cargo = await client.Cargo().create({
-  identifier: /* any */,
-  owner: /* any */,
+  identifier: 'example_identifier',
+  owner: 'example_owner',
 })
 ```
 
@@ -2799,8 +2799,8 @@ const composers = await client.Composer().list()
 
 ```ts
 const composer = await client.Composer().create({
-  identifier: /* any */,
-  owner: /* any */,
+  identifier: 'example_identifier',
+  owner: 'example_owner',
 })
 ```
 
@@ -2862,8 +2862,8 @@ const condas = await client.Conda().list()
 
 ```ts
 const conda = await client.Conda().create({
-  identifier: /* any */,
-  owner: /* any */,
+  identifier: 'example_identifier',
+  owner: 'example_owner',
 })
 ```
 
@@ -2925,8 +2925,8 @@ const crans = await client.Cran().list()
 
 ```ts
 const cran = await client.Cran().create({
-  identifier: /* any */,
-  owner: /* any */,
+  identifier: 'example_identifier',
+  owner: 'example_owner',
 })
 ```
 
@@ -2983,8 +2983,8 @@ const darts = await client.Dart().list()
 
 ```ts
 const dart = await client.Dart().create({
-  identifier: /* any */,
-  owner: /* any */,
+  identifier: 'example_identifier',
+  owner: 'example_owner',
 })
 ```
 
@@ -3049,8 +3049,8 @@ const debs = await client.Deb().list()
 
 ```ts
 const deb = await client.Deb().create({
-  identifier: /* any */,
-  owner: /* any */,
+  identifier: 'example_identifier',
+  owner: 'example_owner',
 })
 ```
 
@@ -3163,8 +3163,8 @@ const dockers = await client.Docker().list()
 
 ```ts
 const docker = await client.Docker().create({
-  identifier: /* any */,
-  owner: /* any */,
+  identifier: 'example_identifier',
+  owner: 'example_owner',
 })
 ```
 
@@ -3238,9 +3238,9 @@ const entitlement = await client.Entitlement().load({ id: 'entitlement_id' })
 
 ```ts
 const entitlement = await client.Entitlement().create({
-  identifier: /* any */,
-  owner: /* any */,
-  repo: /* any */,
+  identifier: 'example_identifier',
+  owner: 'example_owner',
+  repo: 'example_repo',
 })
 ```
 
@@ -3264,8 +3264,8 @@ Create an instance: `const file = client.File()`
 
 ```ts
 const file = await client.File().create({
-  owner: /* any */,
-  repo: /* any */,
+  owner: 'example_owner',
+  repo: 'example_repo',
 })
 ```
 
@@ -3382,8 +3382,8 @@ Create an instance: `const gon5 = client.Gon5()`
 
 ```ts
 const gon5 = await client.Gon5().create({
-  identifier: /* any */,
-  owner: /* any */,
+  identifier: 'example_identifier',
+  owner: 'example_owner',
 })
 ```
 
@@ -3563,8 +3563,8 @@ const helms = await client.Helm().list()
 
 ```ts
 const helm = await client.Helm().create({
-  identifier: /* any */,
-  owner: /* any */,
+  identifier: 'example_identifier',
+  owner: 'example_owner',
 })
 ```
 
@@ -3621,8 +3621,8 @@ const hexs = await client.Hex().list()
 
 ```ts
 const hex = await client.Hex().create({
-  identifier: /* any */,
-  owner: /* any */,
+  identifier: 'example_identifier',
+  owner: 'example_owner',
 })
 ```
 
@@ -3684,8 +3684,8 @@ const huggingfaces = await client.Huggingface().list()
 
 ```ts
 const huggingface = await client.Huggingface().create({
-  identifier: /* any */,
-  owner: /* any */,
+  identifier: 'example_identifier',
+  owner: 'example_owner',
 })
 ```
 
@@ -3771,8 +3771,8 @@ const mavens = await client.Maven().list()
 
 ```ts
 const maven = await client.Maven().create({
-  identifier: /* any */,
-  owner: /* any */,
+  identifier: 'example_identifier',
+  owner: 'example_owner',
 })
 ```
 
@@ -3910,8 +3910,8 @@ const npms = await client.Npm().list()
 
 ```ts
 const npm = await client.Npm().create({
-  identifier: /* any */,
-  owner: /* any */,
+  identifier: 'example_identifier',
+  owner: 'example_owner',
 })
 ```
 
@@ -3968,8 +3968,8 @@ const nugets = await client.Nuget().list()
 
 ```ts
 const nuget = await client.Nuget().create({
-  identifier: /* any */,
-  owner: /* any */,
+  identifier: 'example_identifier',
+  owner: 'example_owner',
 })
 ```
 
@@ -4026,7 +4026,7 @@ const orgs = await client.Org().list()
 
 ```ts
 const org = await client.Org().create({
-  id: /* string */,
+  id: 'example_id',
 })
 ```
 
@@ -4062,7 +4062,7 @@ const organization_group_syncs = await client.OrganizationGroupSync().list()
 
 ```ts
 const organization_group_sync = await client.OrganizationGroupSync().create({
-  org_id: /* string */,
+  org_id: 'example_org_id',
 })
 ```
 
@@ -4127,7 +4127,7 @@ const organization_invites = await client.OrganizationInvite().list()
 
 ```ts
 const organization_invite = await client.OrganizationInvite().create({
-  org_id: /* string */,
+  org_id: 'example_org_id',
 })
 ```
 
@@ -4161,8 +4161,8 @@ Create an instance: `const organization_invite_extend = client.OrganizationInvit
 
 ```ts
 const organization_invite_extend = await client.OrganizationInviteExtend().create({
-  org_id: /* string */,
-  slug_perm: /* any */,
+  org_id: 'example_org_id',
+  slug_perm: 'example_slug_perm',
 })
 ```
 
@@ -4306,7 +4306,7 @@ const organization_package_license_policys = await client.OrganizationPackageLic
 
 ```ts
 const organization_package_license_policy = await client.OrganizationPackageLicensePolicy().create({
-  org_id: /* string */,
+  org_id: 'example_org_id',
 })
 ```
 
@@ -4354,7 +4354,7 @@ const organization_package_vulnerability_policys = await client.OrganizationPack
 
 ```ts
 const organization_package_vulnerability_policy = await client.OrganizationPackageVulnerabilityPolicy().create({
-  org_id: /* string */,
+  org_id: 'example_org_id',
 })
 ```
 
@@ -4425,7 +4425,7 @@ const organization_teams = await client.OrganizationTeam().list()
 
 ```ts
 const organization_team = await client.OrganizationTeam().create({
-  org_id: /* string */,
+  org_id: 'example_org_id',
 })
 ```
 
@@ -4458,8 +4458,8 @@ const organization_team_members = await client.OrganizationTeamMember().list()
 
 ```ts
 const organization_team_member = await client.OrganizationTeamMember().create({
-  org_id: /* string */,
-  team_id: /* string */,
+  org_id: 'example_org_id',
+  team_id: 'example_team_id',
 })
 ```
 
@@ -4601,8 +4601,8 @@ const package_s = await client.Package().list()
 
 ```ts
 const package_ = await client.Package().create({
-  owner: /* any */,
-  repo: /* any */,
+  owner: 'example_owner',
+  repo: 'example_repo',
 })
 ```
 
@@ -4650,7 +4650,7 @@ const package_deny_policys = await client.PackageDenyPolicy().list()
 
 ```ts
 const package_deny_policy = await client.PackageDenyPolicy().create({
-  org_id: /* string */,
+  org_id: 'example_org_id',
 })
 ```
 
@@ -4694,9 +4694,9 @@ Create an instance: `const package_file_upload = client.PackageFileUpload()`
 
 ```ts
 const package_file_upload = await client.PackageFileUpload().create({
-  identifier: /* any */,
-  owner: /* any */,
-  repo: /* any */,
+  identifier: 'example_identifier',
+  owner: 'example_owner',
+  repo: 'example_repo',
 })
 ```
 
@@ -4741,8 +4741,8 @@ const package_license_policy_evaluations = await client.PackageLicensePolicyEval
 
 ```ts
 const package_license_policy_evaluation = await client.PackageLicensePolicyEvaluation().create({
-  org_id: /* string */,
-  policy_slug_perm: /* any */,
+  org_id: 'example_org_id',
+  policy_slug_perm: 'example_policy_slug_perm',
 })
 ```
 
@@ -4804,8 +4804,8 @@ const package_vulnerability_policy_evaluations = await client.PackageVulnerabili
 
 ```ts
 const package_vulnerability_policy_evaluation = await client.PackageVulnerabilityPolicyEvaluation().create({
-  org_id: /* string */,
-  policy_slug_perm: /* any */,
+  org_id: 'example_org_id',
+  policy_slug_perm: 'example_policy_slug_perm',
 })
 ```
 
@@ -4886,7 +4886,7 @@ Create an instance: `const provider_settings_write = client.ProviderSettingsWrit
 
 ```ts
 const provider_settings_write = await client.ProviderSettingsWrite().create({
-  org_id: /* string */,
+  org_id: 'example_org_id',
 })
 ```
 
@@ -4943,8 +4943,8 @@ const pythons = await client.Python().list()
 
 ```ts
 const python = await client.Python().create({
-  identifier: /* any */,
-  owner: /* any */,
+  identifier: 'example_identifier',
+  owner: 'example_owner',
 })
 ```
 
@@ -5165,8 +5165,8 @@ const repository_ecdsa_key = await client.RepositoryEcdsaKey().load({ identifier
 
 ```ts
 const repository_ecdsa_key = await client.RepositoryEcdsaKey().create({
-  identifier: /* any */,
-  owner: /* any */,
+  identifier: 'example_identifier',
+  owner: 'example_owner',
 })
 ```
 
@@ -5233,8 +5233,8 @@ Create an instance: `const repository_geo_ip_test_address = client.RepositoryGeo
 
 ```ts
 const repository_geo_ip_test_address = await client.RepositoryGeoIpTestAddress().create({
-  identifier: /* any */,
-  owner: /* any */,
+  identifier: 'example_identifier',
+  owner: 'example_owner',
 })
 ```
 
@@ -5272,8 +5272,8 @@ const repository_gpg_key = await client.RepositoryGpgKey().load({ identifier: 'i
 
 ```ts
 const repository_gpg_key = await client.RepositoryGpgKey().create({
-  identifier: /* any */,
-  owner: /* any */,
+  identifier: 'example_identifier',
+  owner: 'example_owner',
 })
 ```
 
@@ -5368,8 +5368,8 @@ const repository_rsa_key = await client.RepositoryRsaKey().load({ identifier: 'i
 
 ```ts
 const repository_rsa_key = await client.RepositoryRsaKey().create({
-  identifier: /* any */,
-  owner: /* any */,
+  identifier: 'example_identifier',
+  owner: 'example_owner',
 })
 ```
 
@@ -5447,8 +5447,8 @@ const repository_tokens = await client.RepositoryToken().list()
 
 ```ts
 const repository_token = await client.RepositoryToken().create({
-  owner: /* any */,
-  repo: /* any */,
+  owner: 'example_owner',
+  repo: 'example_repo',
 })
 ```
 
@@ -5511,9 +5511,9 @@ Create an instance: `const repository_token_refresh = client.RepositoryTokenRefr
 
 ```ts
 const repository_token_refresh = await client.RepositoryTokenRefresh().create({
-  identifier: /* any */,
-  owner: /* any */,
-  repo: /* any */,
+  identifier: 'example_identifier',
+  owner: 'example_owner',
+  repo: 'example_repo',
 })
 ```
 
@@ -5538,8 +5538,8 @@ Create an instance: `const repository_token_sync = client.RepositoryTokenSync()`
 
 ```ts
 const repository_token_sync = await client.RepositoryTokenSync().create({
-  owner: /* any */,
-  repo: /* any */,
+  owner: 'example_owner',
+  repo: 'example_repo',
 })
 ```
 
@@ -5598,8 +5598,8 @@ const repository_webhooks = await client.RepositoryWebhook().list()
 
 ```ts
 const repository_webhook = await client.RepositoryWebhook().create({
-  owner: /* any */,
-  repo: /* any */,
+  owner: 'example_owner',
+  repo: 'example_repo',
 })
 ```
 
@@ -5764,8 +5764,8 @@ const rpms = await client.Rpm().list()
 
 ```ts
 const rpm = await client.Rpm().create({
-  identifier: /* any */,
-  owner: /* any */,
+  identifier: 'example_identifier',
+  owner: 'example_owner',
 })
 ```
 
@@ -5827,8 +5827,8 @@ const rubys = await client.Ruby().list()
 
 ```ts
 const ruby = await client.Ruby().create({
-  identifier: /* any */,
-  owner: /* any */,
+  identifier: 'example_identifier',
+  owner: 'example_owner',
 })
 ```
 
@@ -5892,7 +5892,7 @@ const services = await client.Service().list()
 
 ```ts
 const service = await client.Service().create({
-  org_id: /* string */,
+  org_id: 'example_org_id',
 })
 ```
 
@@ -6009,8 +6009,8 @@ const swifts = await client.Swift().list()
 
 ```ts
 const swift = await client.Swift().create({
-  identifier: /* any */,
-  owner: /* any */,
+  identifier: 'example_identifier',
+  owner: 'example_owner',
 })
 ```
 
@@ -6325,16 +6325,16 @@ import { CloudsmithSDK } from '@voxgig-sdk/cloudsmith'
 
 ### Entity state
 
-Entity instances are stateful. After a successful `load`, the entity
+Entity instances are stateful. After a successful `list`, the entity
 stores the returned data and match criteria internally. Subsequent
 calls on the same instance can rely on this state.
 
 ```ts
-const abort = client.Abort()
-await abort.load()
+const cargo = client.Cargo()
+await cargo.list()
 
-// abort.data() now returns the abort data from the last `load`
-// abort.match() returns the last match criteria
+// cargo.data() now returns the cargo data from the last `list`
+// cargo.match() returns the last match criteria
 ```
 
 Call `make()` to create a fresh instance with the same configuration

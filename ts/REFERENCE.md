@@ -1948,8 +1948,8 @@ Create a new entity with the given data.
 
 ```ts
 const result = await client.Cargo().create({
-  identifier: /* any */,
-  owner: /* any */,
+  identifier: 'example_identifier',
+  owner: 'example_owner',
 })
 ```
 
@@ -2115,8 +2115,8 @@ Create a new entity with the given data.
 
 ```ts
 const result = await client.Composer().create({
-  identifier: /* any */,
-  owner: /* any */,
+  identifier: 'example_identifier',
+  owner: 'example_owner',
 })
 ```
 
@@ -2248,8 +2248,8 @@ Create a new entity with the given data.
 
 ```ts
 const result = await client.Conda().create({
-  identifier: /* any */,
-  owner: /* any */,
+  identifier: 'example_identifier',
+  owner: 'example_owner',
 })
 ```
 
@@ -2381,8 +2381,8 @@ Create a new entity with the given data.
 
 ```ts
 const result = await client.Cran().create({
-  identifier: /* any */,
-  owner: /* any */,
+  identifier: 'example_identifier',
+  owner: 'example_owner',
 })
 ```
 
@@ -2480,8 +2480,8 @@ Create a new entity with the given data.
 
 ```ts
 const result = await client.Dart().create({
-  identifier: /* any */,
-  owner: /* any */,
+  identifier: 'example_identifier',
+  owner: 'example_owner',
 })
 ```
 
@@ -2587,8 +2587,8 @@ Create a new entity with the given data.
 
 ```ts
 const result = await client.Deb().create({
-  identifier: /* any */,
-  owner: /* any */,
+  identifier: 'example_identifier',
+  owner: 'example_owner',
 })
 ```
 
@@ -2886,8 +2886,8 @@ Create a new entity with the given data.
 
 ```ts
 const result = await client.Docker().create({
-  identifier: /* any */,
-  owner: /* any */,
+  identifier: 'example_identifier',
+  owner: 'example_owner',
 })
 ```
 
@@ -3095,9 +3095,9 @@ Create a new entity with the given data.
 
 ```ts
 const result = await client.Entitlement().create({
-  identifier: /* any */,
-  owner: /* any */,
-  repo: /* any */,
+  identifier: 'example_identifier',
+  owner: 'example_owner',
+  repo: 'example_repo',
 })
 ```
 
@@ -3193,8 +3193,8 @@ Create a new entity with the given data.
 
 ```ts
 const result = await client.File().create({
-  owner: /* any */,
-  repo: /* any */,
+  owner: 'example_owner',
+  repo: 'example_repo',
 })
 ```
 
@@ -3509,8 +3509,8 @@ Create a new entity with the given data.
 
 ```ts
 const result = await client.Gon5().create({
-  identifier: /* any */,
-  owner: /* any */,
+  identifier: 'example_identifier',
+  owner: 'example_owner',
 })
 ```
 
@@ -3892,8 +3892,8 @@ Create a new entity with the given data.
 
 ```ts
 const result = await client.Helm().create({
-  identifier: /* any */,
-  owner: /* any */,
+  identifier: 'example_identifier',
+  owner: 'example_owner',
 })
 ```
 
@@ -3991,8 +3991,8 @@ Create a new entity with the given data.
 
 ```ts
 const result = await client.Hex().create({
-  identifier: /* any */,
-  owner: /* any */,
+  identifier: 'example_identifier',
+  owner: 'example_owner',
 })
 ```
 
@@ -4124,8 +4124,8 @@ Create a new entity with the given data.
 
 ```ts
 const result = await client.Huggingface().create({
-  identifier: /* any */,
-  owner: /* any */,
+  identifier: 'example_identifier',
+  owner: 'example_owner',
 })
 ```
 
@@ -4397,8 +4397,8 @@ Create a new entity with the given data.
 
 ```ts
 const result = await client.Maven().create({
-  identifier: /* any */,
-  owner: /* any */,
+  identifier: 'example_identifier',
+  owner: 'example_owner',
 })
 ```
 
@@ -4690,8 +4690,8 @@ Create a new entity with the given data.
 
 ```ts
 const result = await client.Npm().create({
-  identifier: /* any */,
-  owner: /* any */,
+  identifier: 'example_identifier',
+  owner: 'example_owner',
 })
 ```
 
@@ -4789,8 +4789,8 @@ Create a new entity with the given data.
 
 ```ts
 const result = await client.Nuget().create({
-  identifier: /* any */,
-  owner: /* any */,
+  identifier: 'example_identifier',
+  owner: 'example_owner',
 })
 ```
 
@@ -4916,7 +4916,7 @@ Create a new entity with the given data.
 
 ```ts
 const result = await client.Org().create({
-  id: /* string */,
+  id: 'example_id',
 })
 ```
 
@@ -5008,7 +5008,7 @@ Create a new entity with the given data.
 
 ```ts
 const result = await client.OrganizationGroupSync().create({
-  org_id: /* string */,
+  org_id: 'example_org_id',
 })
 ```
 
@@ -5127,7 +5127,7 @@ Create a new entity with the given data.
 
 ```ts
 const result = await client.OrganizationInvite().create({
-  org_id: /* string */,
+  org_id: 'example_org_id',
 })
 ```
 
@@ -5208,8 +5208,8 @@ Create a new entity with the given data.
 
 ```ts
 const result = await client.OrganizationInviteExtend().create({
-  org_id: /* string */,
-  slug_perm: /* any */,
+  org_id: 'example_org_id',
+  slug_perm: 'example_slug_perm',
 })
 ```
 
@@ -5478,7 +5478,7 @@ Create a new entity with the given data.
 
 ```ts
 const result = await client.OrganizationPackageLicensePolicy().create({
-  org_id: /* string */,
+  org_id: 'example_org_id',
 })
 ```
 
@@ -5566,7 +5566,7 @@ Create a new entity with the given data.
 
 ```ts
 const result = await client.OrganizationPackageVulnerabilityPolicy().create({
-  org_id: /* string */,
+  org_id: 'example_org_id',
 })
 ```
 
@@ -5714,7 +5714,7 @@ Create a new entity with the given data.
 
 ```ts
 const result = await client.OrganizationTeam().create({
-  org_id: /* string */,
+  org_id: 'example_org_id',
 })
 ```
 
@@ -5795,8 +5795,8 @@ Create a new entity with the given data.
 
 ```ts
 const result = await client.OrganizationTeamMember().create({
-  org_id: /* string */,
-  team_id: /* string */,
+  org_id: 'example_org_id',
+  team_id: 'example_team_id',
 })
 ```
 
@@ -6138,8 +6138,8 @@ Create a new entity with the given data.
 
 ```ts
 const result = await client.Package().create({
-  owner: /* any */,
-  repo: /* any */,
+  owner: 'example_owner',
+  repo: 'example_repo',
 })
 ```
 
@@ -6223,7 +6223,7 @@ Create a new entity with the given data.
 
 ```ts
 const result = await client.PackageDenyPolicy().create({
-  org_id: /* string */,
+  org_id: 'example_org_id',
 })
 ```
 
@@ -6349,9 +6349,9 @@ Create a new entity with the given data.
 
 ```ts
 const result = await client.PackageFileUpload().create({
-  identifier: /* any */,
-  owner: /* any */,
-  repo: /* any */,
+  identifier: 'example_identifier',
+  owner: 'example_owner',
+  repo: 'example_repo',
 })
 ```
 
@@ -6409,8 +6409,8 @@ Create a new entity with the given data.
 
 ```ts
 const result = await client.PackageLicensePolicyEvaluation().create({
-  org_id: /* string */,
-  policy_slug_perm: /* any */,
+  org_id: 'example_org_id',
+  policy_slug_perm: 'example_policy_slug_perm',
 })
 ```
 
@@ -6528,8 +6528,8 @@ Create a new entity with the given data.
 
 ```ts
 const result = await client.PackageVulnerabilityPolicyEvaluation().create({
-  org_id: /* string */,
-  policy_slug_perm: /* any */,
+  org_id: 'example_org_id',
+  policy_slug_perm: 'example_policy_slug_perm',
 })
 ```
 
@@ -6738,7 +6738,7 @@ Create a new entity with the given data.
 
 ```ts
 const result = await client.ProviderSettingsWrite().create({
-  org_id: /* string */,
+  org_id: 'example_org_id',
 })
 ```
 
@@ -6819,8 +6819,8 @@ Create a new entity with the given data.
 
 ```ts
 const result = await client.Python().create({
-  identifier: /* any */,
-  owner: /* any */,
+  identifier: 'example_identifier',
+  owner: 'example_owner',
 })
 ```
 
@@ -7307,8 +7307,8 @@ Create a new entity with the given data.
 
 ```ts
 const result = await client.RepositoryEcdsaKey().create({
-  identifier: /* any */,
-  owner: /* any */,
+  identifier: 'example_identifier',
+  owner: 'example_owner',
 })
 ```
 
@@ -7475,8 +7475,8 @@ Create a new entity with the given data.
 
 ```ts
 const result = await client.RepositoryGeoIpTestAddress().create({
-  identifier: /* any */,
-  owner: /* any */,
+  identifier: 'example_identifier',
+  owner: 'example_owner',
 })
 ```
 
@@ -7534,8 +7534,8 @@ Create a new entity with the given data.
 
 ```ts
 const result = await client.RepositoryGpgKey().create({
-  identifier: /* any */,
-  owner: /* any */,
+  identifier: 'example_identifier',
+  owner: 'example_owner',
 })
 ```
 
@@ -7723,8 +7723,8 @@ Create a new entity with the given data.
 
 ```ts
 const result = await client.RepositoryRsaKey().create({
-  identifier: /* any */,
-  owner: /* any */,
+  identifier: 'example_identifier',
+  owner: 'example_owner',
 })
 ```
 
@@ -7822,8 +7822,8 @@ Create a new entity with the given data.
 
 ```ts
 const result = await client.RepositoryToken().create({
-  owner: /* any */,
-  repo: /* any */,
+  owner: 'example_owner',
+  repo: 'example_repo',
 })
 ```
 
@@ -7942,9 +7942,9 @@ Create a new entity with the given data.
 
 ```ts
 const result = await client.RepositoryTokenRefresh().create({
-  identifier: /* any */,
-  owner: /* any */,
-  repo: /* any */,
+  identifier: 'example_identifier',
+  owner: 'example_owner',
+  repo: 'example_repo',
 })
 ```
 
@@ -7996,8 +7996,8 @@ Create a new entity with the given data.
 
 ```ts
 const result = await client.RepositoryTokenSync().create({
-  owner: /* any */,
-  repo: /* any */,
+  owner: 'example_owner',
+  repo: 'example_repo',
 })
 ```
 
@@ -8107,8 +8107,8 @@ Create a new entity with the given data.
 
 ```ts
 const result = await client.RepositoryWebhook().create({
-  owner: /* any */,
-  repo: /* any */,
+  owner: 'example_owner',
+  repo: 'example_repo',
 })
 ```
 
@@ -8474,8 +8474,8 @@ Create a new entity with the given data.
 
 ```ts
 const result = await client.Rpm().create({
-  identifier: /* any */,
-  owner: /* any */,
+  identifier: 'example_identifier',
+  owner: 'example_owner',
 })
 ```
 
@@ -8607,8 +8607,8 @@ Create a new entity with the given data.
 
 ```ts
 const result = await client.Ruby().create({
-  identifier: /* any */,
-  owner: /* any */,
+  identifier: 'example_identifier',
+  owner: 'example_owner',
 })
 ```
 
@@ -8800,7 +8800,7 @@ Create a new entity with the given data.
 
 ```ts
 const result = await client.Service().create({
-  org_id: /* string */,
+  org_id: 'example_org_id',
 })
 ```
 
@@ -9041,8 +9041,8 @@ Create a new entity with the given data.
 
 ```ts
 const result = await client.Swift().create({
-  identifier: /* any */,
-  owner: /* any */,
+  identifier: 'example_identifier',
+  owner: 'example_owner',
 })
 ```
 

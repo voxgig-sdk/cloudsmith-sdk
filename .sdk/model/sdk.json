@@ -1,6 +1,15 @@
 {
+  "NAME": "CLOUDSMITH",
+  "Name": "Cloudsmith",
   "def": "cloudsmith-openapi.json",
   "main": {
+    "api": {
+      "entity": {},
+      "guide": {}
+    },
+    "custom": {
+      "plurals": {}
+    },
     "def": {
       "desc": ""
     },
@@ -32721,5 +32730,8 @@
     }
   },
   "name": "cloudsmith",
+  "name-": "cloudsmith",
+  "name_": "cloudsmith",
+  "name__orig": "cloudsmith",
   "origin": "voxgig-sdk"
 }

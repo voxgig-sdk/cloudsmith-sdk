@@ -53,9 +53,9 @@ Entity operations raise on failure, so rescue them:
 
 ```ruby
 begin
-  abort = client.Abort.load()
+  cargos = client.Cargo.list()
 rescue => err
-  warn "load failed: #{err}"
+  warn "list failed: #{err}"
 end
 ```
 
@@ -116,14 +116,17 @@ end
 
 ### Use test mode
 
-Create a mock client for unit testing — no server required:
+Create a mock client for unit testing — no server required. Seed fixture
+data via the `entity` option so offline calls resolve without a live server:
 
 ```ruby
-client = CloudsmithSDK.test
+client = CloudsmithSDK.test({
+  "entity" => { "cargo" => { "test01" => { "id" => "test01" } } },
+})
 
 # Entity ops return the bare mock record (raises on error).
-abort = client.Abort.load()
-puts abort
+cargo = client.Cargo.list()
+puts cargo
 ```
 
 ### Use a custom fetch function
@@ -5875,7 +5878,7 @@ Create an instance: `scan = client.Scan`
 
 ### Self
 
-Create an instance: `self = client.Self`
+Create an instance: `self_ = client.Self`
 
 
 ### Service
@@ -6375,15 +6378,15 @@ when needed.
 
 ### Entity state
 
-Entity instances are stateful. After a successful `load`, the entity
+Entity instances are stateful. After a successful `list`, the entity
 stores the returned data and match criteria internally.
 
 ```ruby
-abort = client.Abort
-abort.load()
+cargo = client.Cargo
+cargo.list()
 
-# abort.data_get now returns the abort data from the last load
-# abort.match_get returns the last match criteria
+# cargo.data_get now returns the cargo data from the last list
+# cargo.match_get returns the last match criteria
 ```
 
 Call `make` to create a fresh instance with the same configuration
