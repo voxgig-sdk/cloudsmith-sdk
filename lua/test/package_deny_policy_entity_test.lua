@@ -1,0 +1,158 @@
+-- PackageDenyPolicy entity test
+
+local json = require("dkjson")
+local vs = require("utility.struct.struct")
+local sdk = require("cloudsmith_sdk")
+local helpers = require("core.helpers")
+local runner = require("test.runner")
+
+local _test_dir = debug.getinfo(1, "S").source:match("^@(.+/)")  or "./"
+
+describe("PackageDenyPolicyEntity", function()
+  it("should create instance", function()
+    local testsdk = sdk.test(nil, nil)
+    local ent = testsdk:PackageDenyPolicy(nil)
+    assert.is_not_nil(ent)
+  end)
+
+  it("should run basic flow", function()
+    local setup = package_deny_policy_basic_setup(nil)
+    -- Per-op sdk-test-control.json skip.
+    local _live = setup.live or false
+    for _, _op in ipairs({"create", "list", "update", "load"}) do
+      local _should_skip, _reason = runner.is_control_skipped("entityOp", "package_deny_policy." .. _op, _live and "live" or "unit")
+      if _should_skip then
+        pending(_reason or "skipped via sdk-test-control.json")
+        return
+      end
+    end
+    -- The basic flow consumes synthetic IDs from the fixture. In live mode
+    -- without an *_ENTID env override, those IDs hit the live API and 4xx.
+    if setup.synthetic_only then
+      pending("live entity test uses synthetic IDs from fixture — set CLOUDSMITH_TEST_PACKAGE_DENY_POLICY_ENTID JSON to run live")
+      return
+    end
+    local client = setup.client
+
+    -- CREATE
+    local package_deny_policy_ref01_ent = client:PackageDenyPolicy(nil)
+    local package_deny_policy_ref01_data = helpers.to_map(vs.getprop(
+      vs.getpath(setup.data, "new.package_deny_policy"), "package_deny_policy_ref01"))
+    package_deny_policy_ref01_data["org_id"] = setup.idmap["org01"]
+
+    local package_deny_policy_ref01_data_result, err = package_deny_policy_ref01_ent:create(package_deny_policy_ref01_data, nil)
+    assert.is_nil(err)
+    package_deny_policy_ref01_data = helpers.to_map(package_deny_policy_ref01_data_result)
+    assert.is_not_nil(package_deny_policy_ref01_data)
+
+    -- LIST
+    local package_deny_policy_ref01_match = {
+      ["org_id"] = setup.idmap["org01"],
+    }
+
+    local package_deny_policy_ref01_list_result, err = package_deny_policy_ref01_ent:list(package_deny_policy_ref01_match, nil)
+    assert.is_nil(err)
+    assert.is_table(package_deny_policy_ref01_list_result)
+
+    local found_item = vs.select(
+      runner.entity_list_to_data(package_deny_policy_ref01_list_result),
+      { id = package_deny_policy_ref01_data["id"] })
+    assert.is_false(vs.isempty(found_item))
+
+    -- UPDATE
+    local package_deny_policy_ref01_data_up0_up = {
+      ["org_id"] = setup.idmap["org_id"],
+    }
+
+    local package_deny_policy_ref01_markdef_up0_name = "action"
+    local package_deny_policy_ref01_markdef_up0_value = "Mark01-package_deny_policy_ref01_" .. tostring(setup.now)
+    package_deny_policy_ref01_data_up0_up[package_deny_policy_ref01_markdef_up0_name] = package_deny_policy_ref01_markdef_up0_value
+
+    local package_deny_policy_ref01_resdata_up0_result, err = package_deny_policy_ref01_ent:update(package_deny_policy_ref01_data_up0_up, nil)
+    assert.is_nil(err)
+    local package_deny_policy_ref01_resdata_up0 = helpers.to_map(package_deny_policy_ref01_resdata_up0_result)
+    assert.is_not_nil(package_deny_policy_ref01_resdata_up0)
+    assert.are.equal(package_deny_policy_ref01_resdata_up0[package_deny_policy_ref01_markdef_up0_name], package_deny_policy_ref01_markdef_up0_value)
+
+    -- LOAD
+    local package_deny_policy_ref01_match_dt0 = {}
+    local package_deny_policy_ref01_data_dt0_loaded, err = package_deny_policy_ref01_ent:load(package_deny_policy_ref01_match_dt0, nil)
+    assert.is_nil(err)
+    assert.is_not_nil(package_deny_policy_ref01_data_dt0_loaded)
+
+  end)
+end)
+
+function package_deny_policy_basic_setup(extra)
+  runner.load_env_local()
+
+  local entity_data_file = _test_dir .. "../../.sdk/test/entity/package_deny_policy/PackageDenyPolicyTestData.json"
+  local f = io.open(entity_data_file, "r")
+  if f == nil then
+    error("failed to read package_deny_policy test data: " .. entity_data_file)
+  end
+  local entity_data_source = f:read("*a")
+  f:close()
+
+  local entity_data = json.decode(entity_data_source)
+
+  local options = {}
+  options["entity"] = entity_data["existing"]
+
+  local client = sdk.test(options, extra)
+
+  -- Generate idmap via transform.
+  local idmap = vs.transform(
+    { "package_deny_policy01", "package_deny_policy02", "package_deny_policy03", "org01", "org02", "org03" },
+    {
+      ["`$PACK`"] = { "", {
+        ["`$KEY`"] = "`$COPY`",
+        ["`$VAL`"] = { "`$FORMAT`", "upper", "`$COPY`" },
+      }},
+    }
+  )
+
+  -- Detect ENTID env override before envOverride consumes it. When live
+  -- mode is on without a real override, the basic test runs against synthetic
+  -- IDs from the fixture and 4xx's. Surface this so the test can skip.
+  local entid_env_raw = os.getenv("CLOUDSMITH_TEST_PACKAGE_DENY_POLICY_ENTID")
+  local idmap_overridden = entid_env_raw ~= nil and entid_env_raw:match("^%s*{") ~= nil
+
+  local env = runner.env_override({
+    ["CLOUDSMITH_TEST_PACKAGE_DENY_POLICY_ENTID"] = idmap,
+    ["CLOUDSMITH_TEST_LIVE"] = "FALSE",
+    ["CLOUDSMITH_TEST_EXPLAIN"] = "FALSE",
+    ["CLOUDSMITH_APIKEY"] = "NONE",
+  })
+
+  local idmap_resolved = helpers.to_map(
+    env["CLOUDSMITH_TEST_PACKAGE_DENY_POLICY_ENTID"])
+  if idmap_resolved == nil then
+    idmap_resolved = helpers.to_map(idmap)
+  end
+  if idmap_resolved["org_id"] == nil then
+    idmap_resolved["org_id"] = idmap_resolved["org01"]
+  end
+
+  if env["CLOUDSMITH_TEST_LIVE"] == "TRUE" then
+    local merged_opts = vs.merge({
+      {
+        apikey = env["CLOUDSMITH_APIKEY"],
+      },
+      extra or {},
+    })
+    client = sdk.new(helpers.to_map(merged_opts))
+  end
+
+  local live = env["CLOUDSMITH_TEST_LIVE"] == "TRUE"
+  return {
+    client = client,
+    data = entity_data,
+    idmap = idmap_resolved,
+    env = env,
+    explain = env["CLOUDSMITH_TEST_EXPLAIN"] == "TRUE",
+    live = live,
+    synthetic_only = live and not idmap_overridden,
+    now = os.time() * 1000,
+  }
+end
