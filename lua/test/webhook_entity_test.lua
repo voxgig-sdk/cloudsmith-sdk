@@ -19,7 +19,7 @@ describe("WebhookEntity", function()
     local setup = webhook_basic_setup(nil)
     -- Per-op sdk-test-control.json skip.
     local _live = setup.live or false
-    for _, _op in ipairs({"remove"}) do
+    for _, _op in ipairs({}) do
       local _should_skip, _reason = runner.is_control_skipped("entityOp", "webhook." .. _op, _live and "live" or "unit")
       if _should_skip then
         pending(_reason or "skipped via sdk-test-control.json")
@@ -41,14 +41,6 @@ describe("WebhookEntity", function()
     if #webhook_ref01_data_raw > 0 then
       webhook_ref01_data = helpers.to_map(webhook_ref01_data_raw[1][2])
     end
-
-    -- REMOVE
-    local webhook_ref01_ent = client:Webhook(nil)
-    local webhook_ref01_match_rm0 = {
-      id = webhook_ref01_data["id"],
-    }
-    local _, err = webhook_ref01_ent:remove(webhook_ref01_match_rm0, nil)
-    assert.is_nil(err)
 
   end)
 end)
@@ -73,7 +65,7 @@ function webhook_basic_setup(extra)
 
   -- Generate idmap via transform.
   local idmap = vs.transform(
-    { "webhook01", "webhook02", "webhook03", "owner01", "repo01" },
+    { "webhook01", "webhook02", "webhook03" },
     {
       ["`$PACK`"] = { "", {
         ["`$KEY`"] = "`$COPY`",

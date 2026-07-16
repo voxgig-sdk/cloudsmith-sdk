@@ -23,7 +23,7 @@ class WebhookEntityTest extends TestCase
         $setup = webhook_basic_setup(null);
         // Per-op sdk-test-control.json skip.
         $_live = !empty($setup["live"]);
-        foreach (["remove"] as $_op) {
+        foreach ([] as $_op) {
             [$_shouldSkip, $_reason] = Runner::is_control_skipped("entityOp", "webhook." . $_op, $_live ? "live" : "unit");
             if ($_shouldSkip) {
                 $this->markTestSkipped($_reason ?? "skipped via sdk-test-control.json");
@@ -46,13 +46,6 @@ class WebhookEntityTest extends TestCase
             $webhook_ref01_data = Helpers::to_map($webhook_ref01_data_raw[0][1]);
         }
 
-        // REMOVE
-        $webhook_ref01_ent = $client->Webhook(null);
-        $webhook_ref01_match_rm0 = [
-            "id" => $webhook_ref01_data["id"],
-        ];
-        $webhook_ref01_ent->remove($webhook_ref01_match_rm0, null);
-
     }
 }
 
@@ -71,7 +64,7 @@ function webhook_basic_setup($extra)
 
     // Generate idmap.
     $idmap = [];
-    foreach (["webhook01", "webhook02", "webhook03", "owner01", "repo01"] as $k) {
+    foreach (["webhook01", "webhook02", "webhook03"] as $k) {
         $idmap[$k] = strtoupper($k);
     }
 

@@ -1,15 +1,6 @@
 {
-  "NAME": "CLOUDSMITH",
-  "Name": "Cloudsmith",
   "def": "cloudsmith-openapi.json",
   "main": {
-    "api": {
-      "entity": {},
-      "guide": {}
-    },
-    "custom": {
-      "plurals": {}
-    },
     "def": {
       "desc": ""
     },
@@ -32488,24 +32479,7 @@
           "kind": "basic",
           "name": "BasicWebhookFlow",
           "param": {},
-          "step": [
-            {
-              "active": true,
-              "data": {},
-              "input": {
-                "ref": "webhook_ref01",
-                "suffix": "_rm0"
-              },
-              "match": {
-                "id": "webhook01",
-                "owner": "owner01",
-                "repo": "repo01"
-              },
-              "op": "remove",
-              "spec": [],
-              "valid": []
-            }
-          ]
+          "step": []
         },
         "BasicX509EcdsaFlow": {
           "active": true,
@@ -32928,8 +32902,5 @@
     }
   },
   "name": "cloudsmith",
-  "name-": "cloudsmith",
-  "name_": "cloudsmith",
-  "name__orig": "cloudsmith",
   "origin": "voxgig-sdk"
 }

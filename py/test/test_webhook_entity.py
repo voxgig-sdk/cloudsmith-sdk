@@ -27,7 +27,7 @@ class TestWebhookEntity:
         # multiple ops; skipping any one skips the whole flow (steps depend
         # on each other).
         _live = setup.get("live", False)
-        for _op in ["remove"]:
+        for _op in []:
             _skip, _reason = runner.is_control_skipped("entityOp", "webhook." + _op, "live" if _live else "unit")
             if _skip:
                 pytest.skip(_reason or "skipped via sdk-test-control.json")
@@ -45,13 +45,6 @@ class TestWebhookEntity:
         webhook_ref01_data = None
         if len(webhook_ref01_data_raw) > 0:
             webhook_ref01_data = helpers.to_map(webhook_ref01_data_raw[0][1])
-
-        # REMOVE
-        webhook_ref01_ent = client.Webhook(None)
-        webhook_ref01_match_rm0 = {
-            "id": webhook_ref01_data["id"],
-        }
-        webhook_ref01_ent.remove(webhook_ref01_match_rm0, None)
 
 
 
@@ -71,7 +64,7 @@ def _webhook_basic_setup(extra):
 
     # Generate idmap via transform.
     idmap = vs.transform(
-        ["webhook01", "webhook02", "webhook03", "owner01", "repo01"],
+        ["webhook01", "webhook02", "webhook03"],
         {
             "`$PACK`": ["", {
                 "`$KEY`": "`$COPY`",

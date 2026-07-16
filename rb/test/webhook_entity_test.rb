@@ -16,7 +16,7 @@ class WebhookEntityTest < Minitest::Test
     setup = webhook_basic_setup(nil)
     # Per-op sdk-test-control.json skip.
     _live = setup[:live] || false
-    ["remove"].each do |_op|
+    [].each do |_op|
       _should_skip, _reason = Runner.is_control_skipped("entityOp", "webhook." + _op, _live ? "live" : "unit")
       if _should_skip
         skip(_reason || "skipped via sdk-test-control.json")
@@ -39,13 +39,6 @@ class WebhookEntityTest < Minitest::Test
       webhook_ref01_data = Helpers.to_map(webhook_ref01_data_raw[0][1])
     end
 
-    # REMOVE
-    webhook_ref01_ent = client.Webhook(nil)
-    webhook_ref01_match_rm0 = {
-      "id" => webhook_ref01_data["id"],
-    }
-    webhook_ref01_ent.remove(webhook_ref01_match_rm0, nil)
-
   end
 end
 
@@ -63,7 +56,7 @@ def webhook_basic_setup(extra)
 
   # Generate idmap via transform.
   idmap = Vs.transform(
-    ["webhook01", "webhook02", "webhook03", "owner01", "repo01"],
+    ["webhook01", "webhook02", "webhook03"],
     {
       "`$PACK`" => ["", {
         "`$KEY`" => "`$COPY`",

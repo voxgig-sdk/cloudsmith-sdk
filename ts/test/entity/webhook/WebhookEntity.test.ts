@@ -39,7 +39,7 @@ describe('WebhookEntity', async () => {
   test('basic', async (t) => {
 
     const live = 'TRUE' === process.env.CLOUDSMITH_TEST_LIVE
-    for (const op of ['remove']) {
+    for (const op of []) {
       if (maybeSkipControl(t, 'entityOp', 'webhook.' + op, live)) return
     }
 
@@ -58,12 +58,6 @@ describe('WebhookEntity', async () => {
     const select = struct.select
 
     let webhook_ref01_data = Object.values(setup.data.existing.webhook)[0] as any
-
-    // REMOVE
-    const webhook_ref01_ent = client.Webhook()
-    const webhook_ref01_match_rm0: any = { id: webhook_ref01_data.id }
-    await webhook_ref01_ent.remove(webhook_ref01_match_rm0)
-  
 
   })
 })

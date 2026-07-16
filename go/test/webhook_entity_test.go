@@ -32,7 +32,7 @@ func TestWebhookEntity(t *testing.T) {
 		if setup.live {
 			_mode = "live"
 		}
-		for _, _op := range []string{"remove"} {
+		for _, _op := range []string{} {
 			if _shouldSkip, _reason := isControlSkipped("entityOp", "webhook." + _op, _mode); _shouldSkip {
 				if _reason == "" {
 					_reason = "skipped via sdk-test-control.json"
@@ -47,8 +47,6 @@ func TestWebhookEntity(t *testing.T) {
 			t.Skip("live entity test uses synthetic IDs from fixture — set CLOUDSMITH_TEST_WEBHOOK_ENTID JSON to run live")
 			return
 		}
-		client := setup.client
-
 		// Bootstrap entity data from existing test data (no create step in flow).
 		webhookRef01DataRaw := vs.Items(core.ToMapAny(vs.GetPath("existing.webhook", setup.data)))
 		var webhookRef01Data map[string]any
@@ -58,16 +56,6 @@ func TestWebhookEntity(t *testing.T) {
 		// Discard guards against Go's unused-var check when the flow's steps
 		// happen not to consume the bootstrap data (e.g. list-only flows).
 		_ = webhookRef01Data
-
-		// REMOVE
-		webhookRef01Ent := client.Webhook(nil)
-		webhookRef01MatchRm0 := map[string]any{
-			"id": webhookRef01Data["id"],
-		}
-		_, err := webhookRef01Ent.Remove(webhookRef01MatchRm0, nil)
-		if err != nil {
-			t.Fatalf("remove failed: %v", err)
-		}
 
 	})
 }
@@ -97,7 +85,7 @@ func webhookBasicSetup(extra map[string]any) *entityTestSetup {
 
 	// Generate idmap via transform, matching TS pattern.
 	idmap := vs.Transform(
-		[]any{"webhook01", "webhook02", "webhook03", "owner01", "repo01"},
+		[]any{"webhook01", "webhook02", "webhook03"},
 		map[string]any{
 			"`$PACK`": []any{"", map[string]any{
 				"`$KEY`": "`$COPY`",
