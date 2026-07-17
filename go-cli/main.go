@@ -19,14 +19,36 @@ import (
 // prompt is the REPL prompt prefix (matches the SDK slug).
 const prompt = "cloudsmith"
 
-// entitiesHelp is the space-separated entity list shown by :help.
+// entitiesHelp is the space-separated entity list shown by /help.
 const entitiesHelp = "abort alpine audit_log basic cargo cocoapod complete composer conan conda copy cran dart deb deny_policy dependency disable distribution_full distro docker dynamic_mapping ecdsa enable entitlement evaluation file format geoip gon gon2 gon3 gon4 gon5 gon6 gon7 gon8 gon9 gpg group helm hex history huggingface info invite license_policy limit luarock maven member move namespace namespace_audit_log npm nuget openid_connect org organization_group_sync organization_group_sync_status organization_invite organization_invite_extend organization_membership organization_membership_role_update organization_membership_visibility_update organization_package_license_policy organization_package_vulnerability_policy organization_saml_auth organization_team organization_team_member oss p2n p2n2 package package_deny_policy package_file_parts_upload package_file_upload package_license_policy_evaluation package_version_badge package_vulnerability_policy_evaluation privilege profile provider_setting provider_settings_write python quarantine quota raw refresh regenerate repo repository_audit_log repository_ecdsa_key repository_geo_ip_rule repository_geo_ip_status repository_geo_ip_test_address repository_gpg_key repository_privilege_input repository_retention_rule repository_rsa_key repository_token repository_token_refresh repository_token_sync repository_webhook repository_x509_ecdsa_certificate repository_x509_rsa_certificate reset resources_rate_check resync retention rpm rsa ruby saml_group_sync scan self service status status_basic storage_region swift sync tag team terraform test token transfer_region user user_auth_token user_authentication_token user_brief user_profile vagrant validate version vulnerability vulnerability_policy webhook x509_ecdsa x509_rsa"
 
 func main() {
 	os.Exit(run(os.Args[1:], os.Stdin, os.Stdout, os.Stderr))
 }
 
+// usage prints the CLI help (for --help / -h). No client or network setup.
+func usage(out io.Writer) {
+	fmt.Fprintf(out, "%s-cli — AQL-driven CLI + REPL for the %s SDK\n\n", prompt, prompt)
+	fmt.Fprintln(out, "Usage:")
+	fmt.Fprintf(out, "  %s-cli [--help] [<AQL expression>]\n\n", prompt)
+	fmt.Fprintln(out, "With arguments, they are joined into a single AQL expression and")
+	fmt.Fprintln(out, "evaluated against the API. With no arguments, starts an interactive REPL.")
+	fmt.Fprintln(out)
+	fmt.Fprintln(out, "Words:    list / load / update <query?> <entity>")
+	fmt.Fprintln(out, "Entities:", entitiesHelp)
+	fmt.Fprintln(out, "Env:      CLOUDSMITH_APIKEY (api key), CLOUDSMITH_BASE (base url override)")
+	fmt.Fprintln(out, "REPL:     /help  /quit")
+}
+
 func run(args []string, in io.Reader, out, errOut io.Writer) int {
+	// --help / -h: print usage and exit before any config or network setup.
+	for _, a := range args {
+		if a == "--help" || a == "-h" {
+			usage(out)
+			return 0
+		}
+	}
+
 	// Configure from the environment: CLOUDSMITH_APIKEY carries the API key and
 	// CLOUDSMITH_BASE optionally overrides the API base URL (e.g. production).
 	// Both injectable by a secrets vault. Unset -> nil config defaults.
@@ -94,12 +116,12 @@ func repl(r *eng.Registry, in io.Reader, out io.Writer) {
 			continue
 		}
 		switch line {
-		case ":quit", ":q", ":exit":
+		case "/quit", "/q", "/exit":
 			return
-		case ":help", ":h", ":?":
-			fmt.Fprintln(out, "commands: list / load / update <query?> <entity>")
+		case "/help", "/h", "/?":
+			fmt.Fprintln(out, "words:    list / load / update <query?> <entity>")
 			fmt.Fprintln(out, "entities:", entitiesHelp)
-			fmt.Fprintln(out, "meta:     :quit :help")
+			fmt.Fprintln(out, "meta:     /help  /quit")
 			continue
 		}
 		values, err := parser.Parse(line)
