@@ -1,4 +1,4 @@
--- ProjectName SDK exists test
+-- Cloudsmith SDK exists test
 
 local sdk = require("cloudsmith_sdk")
 
