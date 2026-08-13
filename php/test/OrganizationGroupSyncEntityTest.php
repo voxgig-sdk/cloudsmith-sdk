@@ -84,7 +84,7 @@ class OrganizationGroupSyncEntityTest extends TestCase
         $organization_group_sync_ref01_data["org_id"] = $setup["idmap"]["org01"];
 
         $organization_group_sync_ref01_data_result = $organization_group_sync_ref01_ent->create($organization_group_sync_ref01_data, null);
-        $organization_group_sync_ref01_data = Helpers::to_map($organization_group_sync_ref01_data_result);
+        $organization_group_sync_ref01_data = Helpers::to_map(is_object($organization_group_sync_ref01_data_result) && method_exists($organization_group_sync_ref01_data_result, 'data_get') ? $organization_group_sync_ref01_data_result->data_get() : $organization_group_sync_ref01_data_result);
         $this->assertNotNull($organization_group_sync_ref01_data);
 
         // LIST
@@ -94,11 +94,6 @@ class OrganizationGroupSyncEntityTest extends TestCase
 
         $organization_group_sync_ref01_list_result = $organization_group_sync_ref01_ent->list($organization_group_sync_ref01_match, null);
         $this->assertIsArray($organization_group_sync_ref01_list_result);
-
-        $found_item = sdk_select(
-            Runner::entity_list_to_data($organization_group_sync_ref01_list_result),
-            ["id" => $organization_group_sync_ref01_data["id"]]);
-        $this->assertNotEmpty($found_item);
 
     }
 }

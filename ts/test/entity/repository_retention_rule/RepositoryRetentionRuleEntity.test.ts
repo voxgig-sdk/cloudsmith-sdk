@@ -67,7 +67,7 @@ describe('RepositoryRetentionRuleEntity', async () => {
     const repository_retention_rule_ref01_markdef_up0 = { name: 'retention_package_query_string', value: 'Mark01-repository_retention_rule_ref01_' + setup.now }
     ;(repository_retention_rule_ref01_data_up0 as any)[repository_retention_rule_ref01_markdef_up0.name] = repository_retention_rule_ref01_markdef_up0.value
 
-    const repository_retention_rule_ref01_resdata_up0 = await repository_retention_rule_ref01_ent.update(repository_retention_rule_ref01_data_up0)
+    const repository_retention_rule_ref01_resdata_up0 = (await repository_retention_rule_ref01_ent.update(repository_retention_rule_ref01_data_up0)).data()
     assert(null != repository_retention_rule_ref01_resdata_up0)
 
     assert((repository_retention_rule_ref01_resdata_up0 as any)[repository_retention_rule_ref01_markdef_up0.name] === repository_retention_rule_ref01_markdef_up0.value)

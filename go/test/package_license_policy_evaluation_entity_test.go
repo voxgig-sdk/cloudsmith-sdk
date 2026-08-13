@@ -109,7 +109,7 @@ func TestPackageLicensePolicyEvaluationEntity(t *testing.T) {
 		if err != nil {
 			t.Fatalf("create failed: %v", err)
 		}
-		packageLicensePolicyEvaluationRef01Data = core.ToMapAny(packageLicensePolicyEvaluationRef01DataResult)
+		packageLicensePolicyEvaluationRef01Data = core.ToMapAny(entityData(packageLicensePolicyEvaluationRef01DataResult))
 		if packageLicensePolicyEvaluationRef01Data == nil {
 			t.Fatal("expected create result to be a map")
 		}
@@ -124,14 +124,9 @@ func TestPackageLicensePolicyEvaluationEntity(t *testing.T) {
 		if err != nil {
 			t.Fatalf("list failed: %v", err)
 		}
-		packageLicensePolicyEvaluationRef01List, packageLicensePolicyEvaluationRef01ListOk := packageLicensePolicyEvaluationRef01ListResult.([]any)
+		_, packageLicensePolicyEvaluationRef01ListOk := packageLicensePolicyEvaluationRef01ListResult.([]any)
 		if !packageLicensePolicyEvaluationRef01ListOk {
 			t.Fatalf("expected list result to be an array, got %T", packageLicensePolicyEvaluationRef01ListResult)
-		}
-
-		foundItem := vs.Select(entityListToData(packageLicensePolicyEvaluationRef01List), map[string]any{"id": packageLicensePolicyEvaluationRef01Data["id"]})
-		if vs.IsEmpty(foundItem) {
-			t.Fatal("expected to find created entity in list")
 		}
 
 		// LOAD

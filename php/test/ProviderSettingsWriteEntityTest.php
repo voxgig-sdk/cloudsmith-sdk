@@ -45,7 +45,7 @@ class ProviderSettingsWriteEntityTest extends TestCase
         $provider_settings_write_ref01_data["org_id"] = $setup["idmap"]["org01"];
 
         $provider_settings_write_ref01_data_result = $provider_settings_write_ref01_ent->create($provider_settings_write_ref01_data, null);
-        $provider_settings_write_ref01_data = Helpers::to_map($provider_settings_write_ref01_data_result);
+        $provider_settings_write_ref01_data = Helpers::to_map(is_object($provider_settings_write_ref01_data_result) && method_exists($provider_settings_write_ref01_data_result, 'data_get') ? $provider_settings_write_ref01_data_result->data_get() : $provider_settings_write_ref01_data_result);
         $this->assertNotNull($provider_settings_write_ref01_data);
 
         // UPDATE
@@ -58,7 +58,7 @@ class ProviderSettingsWriteEntityTest extends TestCase
         $provider_settings_write_ref01_data_up0_up[$provider_settings_write_ref01_markdef_up0_name] = $provider_settings_write_ref01_markdef_up0_value;
 
         $provider_settings_write_ref01_resdata_up0_result = $provider_settings_write_ref01_ent->update($provider_settings_write_ref01_data_up0_up, null);
-        $provider_settings_write_ref01_resdata_up0 = Helpers::to_map($provider_settings_write_ref01_resdata_up0_result);
+        $provider_settings_write_ref01_resdata_up0 = Helpers::to_map(is_object($provider_settings_write_ref01_resdata_up0_result) && method_exists($provider_settings_write_ref01_resdata_up0_result, 'data_get') ? $provider_settings_write_ref01_resdata_up0_result->data_get() : $provider_settings_write_ref01_resdata_up0_result);
         $this->assertNotNull($provider_settings_write_ref01_resdata_up0);
         $this->assertEquals($provider_settings_write_ref01_resdata_up0[$provider_settings_write_ref01_markdef_up0_name], $provider_settings_write_ref01_markdef_up0_value);
 

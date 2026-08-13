@@ -8,6 +8,9 @@ local helpers = require("core.helpers")
 -- Load utility registration (populates Utility._registrar)
 require("utility.register")
 
+-- Typed-model annotations (LuaLS ---@class); empty at runtime.
+require("cloudsmith_types")
+
 -- Load features
 local BaseFeature = require("feature.base_feature")
 local features_factory = require("features")
@@ -90,7 +93,8 @@ function CloudsmithSDK.new(options)
 
   utility.feature_hook(self._rootctx, "PostConstruct")
 
-  -- #BuildFeatures
+    -- feature: test
+
 
   return self
 end
@@ -177,7 +181,41 @@ function CloudsmithSDK:prepare(fetchargs)
 end
 
 
+-- Raw endpoint access is operator-controllable, like every entity op.
+-- Blocking it means denying BOTH the 'direct' and 'graphql' tokens, since
+-- either one reaches the same endpoint.
 function CloudsmithSDK:direct(fetchargs)
+  if not self:_op_allowed("direct") then
+    return self:_op_denied("direct"), nil
+  end
+
+  return self:_raw_request(fetchargs)
+end
+
+
+-- Is this raw-access op permitted by the SDK's allow.op option?
+function CloudsmithSDK:_op_allowed(op)
+  local allow = vs.getpath(self.options, "allow.op")
+  return type(allow) == "string" and allow:find(op, 1, true) ~= nil
+end
+
+
+function CloudsmithSDK:_op_denied(op)
+  local allow = vs.getpath(self.options, "allow.op")
+  if type(allow) ~= "string" then allow = "" end
+  return {
+    ok = false,
+    err = "CloudsmithSDK: " .. op .. ": operation not allowed by" ..
+      " SDK option allow.op value: \"" .. allow .. "\"",
+  }
+end
+
+
+-- Ungated request path shared by direct and graphql, each of which checks its
+-- own allow.op token first. Private, rather than a flag on fetchargs: a
+-- caller-supplied marker would let anyone opt straight back out of the gate
+-- by passing it.
+function CloudsmithSDK:_raw_request(fetchargs)
   local utility = self._utility
 
   local fetchdef, err = self:prepare(fetchargs)
@@ -243,6 +281,57 @@ function CloudsmithSDK:direct(fetchargs)
     ok = false,
     err = ctx:make_error("direct_invalid", "invalid response type"),
   }, nil
+end
+
+
+-- Raw GraphQL access: the pressure valve that makes the generated surface's
+-- deliberate omissions (per-call selection sets, typed filter builders,
+-- batching, subscriptions) livable — the whole schema stays reachable.
+--
+-- Thin wrapper over the same prepare/fetch path direct uses, with the one
+-- thing raw direct cannot do for GraphQL: a GraphQL failure rides HTTP 200 as
+-- a top-level `errors` array, so status alone would report a failed query as
+-- ok.
+--
+-- NOTE: like direct, this bypasses the feature pipeline — no retry, ratelimit
+-- or paging features apply.
+function CloudsmithSDK:graphql(query, variables, ctrl)
+  if not self:_op_allowed("graphql") then
+    return self:_op_denied("graphql"), nil
+  end
+
+  local res, err = self:_raw_request({
+    method = "POST",
+    headers = { ["content-type"] = "application/json" },
+    body = {
+      query = query,
+      variables = type(variables) == "table" and variables or {},
+    },
+    ctrl = type(ctrl) == "table" and ctrl or {},
+  })
+
+  if err ~= nil or type(res) ~= "table" then
+    return res, err
+  end
+
+  -- Errors are read BEFORE any status check: a GraphQL parse or validation
+  -- failure comes back as HTTP 400 carrying the standard { errors = {...} }
+  -- body, and the raw path represents a non-2xx as ok=false with no err — so
+  -- returning early on status would discard the server's own diagnostics,
+  -- which are the only useful part of that response.
+  local errors = vs.getpath(res, "data.errors")
+
+  if type(errors) == "table" and 0 < #errors then
+    local msg = vs.getprop(errors[1], "message")
+    if type(msg) ~= "string" or msg == "" then
+      msg = "graphql error"
+    end
+    res.ok = false
+    res.err = "CloudsmithSDK: graphql: " .. msg
+    res.graphql = errors
+  end
+
+  return res, nil
 end
 
 
@@ -648,118 +737,6 @@ function CloudsmithSDK:Gon(data)
       self._gon = EntityMod.new(self, nil)
     end
     return self._gon
-  end
-  return EntityMod.new(self, data)
-end
-
-
--- Idiomatic facade: client:Gon2():list() / client:Gon2():load({ id = ... })
--- Entity access is capitalised (PascalCase) for parity with the other SDKs.
-function CloudsmithSDK:Gon2(data)
-  local EntityMod = require("entity.gon2_entity")
-  if data == nil then
-    if self._gon2 == nil then
-      self._gon2 = EntityMod.new(self, nil)
-    end
-    return self._gon2
-  end
-  return EntityMod.new(self, data)
-end
-
-
--- Idiomatic facade: client:Gon3():list() / client:Gon3():load({ id = ... })
--- Entity access is capitalised (PascalCase) for parity with the other SDKs.
-function CloudsmithSDK:Gon3(data)
-  local EntityMod = require("entity.gon3_entity")
-  if data == nil then
-    if self._gon3 == nil then
-      self._gon3 = EntityMod.new(self, nil)
-    end
-    return self._gon3
-  end
-  return EntityMod.new(self, data)
-end
-
-
--- Idiomatic facade: client:Gon4():list() / client:Gon4():load({ id = ... })
--- Entity access is capitalised (PascalCase) for parity with the other SDKs.
-function CloudsmithSDK:Gon4(data)
-  local EntityMod = require("entity.gon4_entity")
-  if data == nil then
-    if self._gon4 == nil then
-      self._gon4 = EntityMod.new(self, nil)
-    end
-    return self._gon4
-  end
-  return EntityMod.new(self, data)
-end
-
-
--- Idiomatic facade: client:Gon5():list() / client:Gon5():load({ id = ... })
--- Entity access is capitalised (PascalCase) for parity with the other SDKs.
-function CloudsmithSDK:Gon5(data)
-  local EntityMod = require("entity.gon5_entity")
-  if data == nil then
-    if self._gon5 == nil then
-      self._gon5 = EntityMod.new(self, nil)
-    end
-    return self._gon5
-  end
-  return EntityMod.new(self, data)
-end
-
-
--- Idiomatic facade: client:Gon6():list() / client:Gon6():load({ id = ... })
--- Entity access is capitalised (PascalCase) for parity with the other SDKs.
-function CloudsmithSDK:Gon6(data)
-  local EntityMod = require("entity.gon6_entity")
-  if data == nil then
-    if self._gon6 == nil then
-      self._gon6 = EntityMod.new(self, nil)
-    end
-    return self._gon6
-  end
-  return EntityMod.new(self, data)
-end
-
-
--- Idiomatic facade: client:Gon7():list() / client:Gon7():load({ id = ... })
--- Entity access is capitalised (PascalCase) for parity with the other SDKs.
-function CloudsmithSDK:Gon7(data)
-  local EntityMod = require("entity.gon7_entity")
-  if data == nil then
-    if self._gon7 == nil then
-      self._gon7 = EntityMod.new(self, nil)
-    end
-    return self._gon7
-  end
-  return EntityMod.new(self, data)
-end
-
-
--- Idiomatic facade: client:Gon8():list() / client:Gon8():load({ id = ... })
--- Entity access is capitalised (PascalCase) for parity with the other SDKs.
-function CloudsmithSDK:Gon8(data)
-  local EntityMod = require("entity.gon8_entity")
-  if data == nil then
-    if self._gon8 == nil then
-      self._gon8 = EntityMod.new(self, nil)
-    end
-    return self._gon8
-  end
-  return EntityMod.new(self, data)
-end
-
-
--- Idiomatic facade: client:Gon9():list() / client:Gon9():load({ id = ... })
--- Entity access is capitalised (PascalCase) for parity with the other SDKs.
-function CloudsmithSDK:Gon9(data)
-  local EntityMod = require("entity.gon9_entity")
-  if data == nil then
-    if self._gon9 == nil then
-      self._gon9 = EntityMod.new(self, nil)
-    end
-    return self._gon9
   end
   return EntityMod.new(self, data)
 end
@@ -1236,20 +1213,6 @@ function CloudsmithSDK:P2n(data)
       self._p2n = EntityMod.new(self, nil)
     end
     return self._p2n
-  end
-  return EntityMod.new(self, data)
-end
-
-
--- Idiomatic facade: client:P2n2():list() / client:P2n2():load({ id = ... })
--- Entity access is capitalised (PascalCase) for parity with the other SDKs.
-function CloudsmithSDK:P2n2(data)
-  local EntityMod = require("entity.p2n2_entity")
-  if data == nil then
-    if self._p2n2 == nil then
-      self._p2n2 = EntityMod.new(self, nil)
-    end
-    return self._p2n2
   end
   return EntityMod.new(self, data)
 end

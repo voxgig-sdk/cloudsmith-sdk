@@ -64,7 +64,7 @@ describe('ProviderSettingEntity', async () => {
     const provider_setting_ref01_match: any = {}
     provider_setting_ref01_match['org_id'] = setup.idmap['org01']
 
-    const provider_setting_ref01_list = await provider_setting_ref01_ent.list(provider_setting_ref01_match)
+    const provider_setting_ref01_list = (await provider_setting_ref01_ent.list(provider_setting_ref01_match)).map((e: any) => e.data())
 
 
 

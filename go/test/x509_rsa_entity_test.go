@@ -44,7 +44,7 @@ func TestX509RsaEntity(t *testing.T) {
 		// The basic flow consumes synthetic IDs from the fixture. In live mode
 		// without an *_ENTID env override, those IDs hit the live API and 4xx.
 		if setup.syntheticOnly {
-			t.Skip("live entity test uses synthetic IDs from fixture — set CLOUDSMITH_TEST_X____RSA_ENTID JSON to run live")
+			t.Skip("live entity test uses synthetic IDs from fixture — set CLOUDSMITH_TEST_X509_RSA_ENTID JSON to run live")
 			return
 		}
 		// Bootstrap entity data from existing test data (no create step in flow).
@@ -97,17 +97,17 @@ func x509_rsaBasicSetup(extra map[string]any) *entityTestSetup {
 	// Detect ENTID env override before envOverride consumes it. When live
 	// mode is on without a real override, the basic test runs against synthetic
 	// IDs from the fixture and 4xx's. Surface this so the test can skip.
-	entidEnvRaw := os.Getenv("CLOUDSMITH_TEST_X____RSA_ENTID")
+	entidEnvRaw := os.Getenv("CLOUDSMITH_TEST_X509_RSA_ENTID")
 	idmapOverridden := entidEnvRaw != "" && strings.HasPrefix(strings.TrimSpace(entidEnvRaw), "{")
 
 	env := envOverride(map[string]any{
-		"CLOUDSMITH_TEST_X____RSA_ENTID": idmap,
+		"CLOUDSMITH_TEST_X509_RSA_ENTID": idmap,
 		"CLOUDSMITH_TEST_LIVE":      "FALSE",
 		"CLOUDSMITH_TEST_EXPLAIN":   "FALSE",
 		"CLOUDSMITH_APIKEY":         "NONE",
 	})
 
-	idmapResolved := core.ToMapAny(env["CLOUDSMITH_TEST_X____RSA_ENTID"])
+	idmapResolved := core.ToMapAny(env["CLOUDSMITH_TEST_X509_RSA_ENTID"])
 	if idmapResolved == nil {
 		idmapResolved = core.ToMapAny(idmap)
 	}

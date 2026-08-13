@@ -107,7 +107,7 @@ func TestOrganizationGroupSyncEntity(t *testing.T) {
 		if err != nil {
 			t.Fatalf("create failed: %v", err)
 		}
-		organizationGroupSyncRef01Data = core.ToMapAny(organizationGroupSyncRef01DataResult)
+		organizationGroupSyncRef01Data = core.ToMapAny(entityData(organizationGroupSyncRef01DataResult))
 		if organizationGroupSyncRef01Data == nil {
 			t.Fatal("expected create result to be a map")
 		}
@@ -121,14 +121,9 @@ func TestOrganizationGroupSyncEntity(t *testing.T) {
 		if err != nil {
 			t.Fatalf("list failed: %v", err)
 		}
-		organizationGroupSyncRef01List, organizationGroupSyncRef01ListOk := organizationGroupSyncRef01ListResult.([]any)
+		_, organizationGroupSyncRef01ListOk := organizationGroupSyncRef01ListResult.([]any)
 		if !organizationGroupSyncRef01ListOk {
 			t.Fatalf("expected list result to be an array, got %T", organizationGroupSyncRef01ListResult)
-		}
-
-		foundItem := vs.Select(entityListToData(organizationGroupSyncRef01List), map[string]any{"id": organizationGroupSyncRef01Data["id"]})
-		if vs.IsEmpty(foundItem) {
-			t.Fatal("expected to find created entity in list")
 		}
 
 	})

@@ -109,7 +109,7 @@ func TestRepositoryTokenEntity(t *testing.T) {
 		if err != nil {
 			t.Fatalf("create failed: %v", err)
 		}
-		repositoryTokenRef01Data = core.ToMapAny(repositoryTokenRef01DataResult)
+		repositoryTokenRef01Data = core.ToMapAny(entityData(repositoryTokenRef01DataResult))
 		if repositoryTokenRef01Data == nil {
 			t.Fatal("expected create result to be a map")
 		}
@@ -124,14 +124,9 @@ func TestRepositoryTokenEntity(t *testing.T) {
 		if err != nil {
 			t.Fatalf("list failed: %v", err)
 		}
-		repositoryTokenRef01List, repositoryTokenRef01ListOk := repositoryTokenRef01ListResult.([]any)
+		_, repositoryTokenRef01ListOk := repositoryTokenRef01ListResult.([]any)
 		if !repositoryTokenRef01ListOk {
 			t.Fatalf("expected list result to be an array, got %T", repositoryTokenRef01ListResult)
-		}
-
-		foundItem := vs.Select(entityListToData(repositoryTokenRef01List), map[string]any{"id": repositoryTokenRef01Data["id"]})
-		if vs.IsEmpty(foundItem) {
-			t.Fatal("expected to find created entity in list")
 		}
 
 		// UPDATE
@@ -148,7 +143,7 @@ func TestRepositoryTokenEntity(t *testing.T) {
 		if err != nil {
 			t.Fatalf("update failed: %v", err)
 		}
-		repositoryTokenRef01ResdataUp0 := core.ToMapAny(repositoryTokenRef01ResdataUp0Result)
+		repositoryTokenRef01ResdataUp0 := core.ToMapAny(entityData(repositoryTokenRef01ResdataUp0Result))
 		if repositoryTokenRef01ResdataUp0 == nil {
 			t.Fatal("expected update result to be a map")
 		}

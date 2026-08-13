@@ -40,7 +40,7 @@ class PackageFileUploadEntityTest < Minitest::Test
     package_file_upload_ref01_data["repo"] = setup[:idmap]["repo01"]
 
     package_file_upload_ref01_data_result = package_file_upload_ref01_ent.create(package_file_upload_ref01_data, nil)
-    package_file_upload_ref01_data = Helpers.to_map(package_file_upload_ref01_data_result)
+    package_file_upload_ref01_data = Helpers.to_map(package_file_upload_ref01_data_result.respond_to?(:data_get) ? package_file_upload_ref01_data_result.data_get : package_file_upload_ref01_data_result)
     assert !package_file_upload_ref01_data.nil?
 
   end

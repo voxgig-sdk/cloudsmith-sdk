@@ -65,7 +65,7 @@ describe('PackageFileUploadEntity', async () => {
     package_file_upload_ref01_data['owner'] = setup.idmap['owner01']
     package_file_upload_ref01_data['repo'] = setup.idmap['repo01']
 
-    package_file_upload_ref01_data = await package_file_upload_ref01_ent.create(package_file_upload_ref01_data)
+    package_file_upload_ref01_data = (await package_file_upload_ref01_ent.create(package_file_upload_ref01_data)).data()
     assert(null != package_file_upload_ref01_data)
 
 

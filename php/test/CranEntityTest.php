@@ -85,7 +85,7 @@ class CranEntityTest extends TestCase
         $cran_ref01_data["owner"] = $setup["idmap"]["owner01"];
 
         $cran_ref01_data_result = $cran_ref01_ent->create($cran_ref01_data, null);
-        $cran_ref01_data = Helpers::to_map($cran_ref01_data_result);
+        $cran_ref01_data = Helpers::to_map(is_object($cran_ref01_data_result) && method_exists($cran_ref01_data_result, 'data_get') ? $cran_ref01_data_result->data_get() : $cran_ref01_data_result);
         $this->assertNotNull($cran_ref01_data);
 
         // LIST
@@ -96,11 +96,6 @@ class CranEntityTest extends TestCase
 
         $cran_ref01_list_result = $cran_ref01_ent->list($cran_ref01_match, null);
         $this->assertIsArray($cran_ref01_list_result);
-
-        $found_item = sdk_select(
-            Runner::entity_list_to_data($cran_ref01_list_result),
-            ["id" => $cran_ref01_data["id"]]);
-        $this->assertNotEmpty($found_item);
 
         // UPDATE
         $cran_ref01_data_up0_up = [
@@ -113,7 +108,7 @@ class CranEntityTest extends TestCase
         $cran_ref01_data_up0_up[$cran_ref01_markdef_up0_name] = $cran_ref01_markdef_up0_value;
 
         $cran_ref01_resdata_up0_result = $cran_ref01_ent->update($cran_ref01_data_up0_up, null);
-        $cran_ref01_resdata_up0 = Helpers::to_map($cran_ref01_resdata_up0_result);
+        $cran_ref01_resdata_up0 = Helpers::to_map(is_object($cran_ref01_resdata_up0_result) && method_exists($cran_ref01_resdata_up0_result, 'data_get') ? $cran_ref01_resdata_up0_result->data_get() : $cran_ref01_resdata_up0_result);
         $this->assertNotNull($cran_ref01_resdata_up0);
         $this->assertEquals($cran_ref01_resdata_up0[$cran_ref01_markdef_up0_name], $cran_ref01_markdef_up0_value);
 

@@ -65,7 +65,7 @@ describe('DynamicMappingEntity', async () => {
     dynamic_mapping_ref01_match['org_id'] = setup.idmap['org01']
     dynamic_mapping_ref01_match['provider_setting'] = setup.idmap['provider_setting01']
 
-    const dynamic_mapping_ref01_list = await dynamic_mapping_ref01_ent.list(dynamic_mapping_ref01_match)
+    const dynamic_mapping_ref01_list = (await dynamic_mapping_ref01_ent.list(dynamic_mapping_ref01_match)).map((e: any) => e.data())
 
 
 

@@ -60,7 +60,7 @@ func TestRepositoryGpgKeyEntity(t *testing.T) {
 		if err != nil {
 			t.Fatalf("create failed: %v", err)
 		}
-		repositoryGpgKeyRef01Data = core.ToMapAny(repositoryGpgKeyRef01DataResult)
+		repositoryGpgKeyRef01Data = core.ToMapAny(entityData(repositoryGpgKeyRef01DataResult))
 		if repositoryGpgKeyRef01Data == nil {
 			t.Fatal("expected create result to be a map")
 		}

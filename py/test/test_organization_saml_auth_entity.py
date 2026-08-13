@@ -6,9 +6,9 @@ import time
 
 import pytest
 
-from utility.voxgig_struct import voxgig_struct as vs
+from cloudsmith_sdk.utility.voxgig_struct import voxgig_struct as vs
 from cloudsmith_sdk import CloudsmithSDK
-from core import helpers
+from cloudsmith_sdk.core import helpers
 
 _TEST_DIR = os.path.dirname(os.path.abspath(__file__))
 from test import runner
@@ -55,7 +55,7 @@ class TestOrganizationSamlAuthEntity:
         organization_saml_auth_ref01_markdef_up0_value = "Mark01-organization_saml_auth_ref01_" + str(setup["now"])
         organization_saml_auth_ref01_data_up0_up[organization_saml_auth_ref01_markdef_up0_name] = organization_saml_auth_ref01_markdef_up0_value
 
-        organization_saml_auth_ref01_resdata_up0 = helpers.to_map(organization_saml_auth_ref01_ent.update(organization_saml_auth_ref01_data_up0_up, None))
+        organization_saml_auth_ref01_resdata_up0 = helpers.to_map(runner.entity_data(organization_saml_auth_ref01_ent.update(organization_saml_auth_ref01_data_up0_up, None)))
         assert organization_saml_auth_ref01_resdata_up0 is not None
         assert organization_saml_auth_ref01_resdata_up0[organization_saml_auth_ref01_markdef_up0_name] == organization_saml_auth_ref01_markdef_up0_value
 

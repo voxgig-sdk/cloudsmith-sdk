@@ -1,10 +1,14 @@
 {
-  "def": "cloudsmith-openapi.json",
+  "def": "cloudsmith-v1-swagger-2.0.json",
   "main": {
     "def": {
       "desc": ""
     },
     "kit": {
+      "author": {
+        "name": "",
+        "url": ""
+      },
       "config": {
         "docs_order": [
           "ts",
@@ -18,6 +22,7 @@
           "content-type": "application/json"
         }
       },
+      "contributor": {},
       "entity": {
         "abort": {
           "active": true,
@@ -232,6 +237,7 @@
                       }
                     ]
                   },
+                  "kind": "http",
                   "method": "POST",
                   "orig": "/repos/{owner}/{identifier}/upstream/cargo/",
                   "parts": [
@@ -299,6 +305,7 @@
                       }
                     ]
                   },
+                  "kind": "http",
                   "method": "GET",
                   "orig": "/repos/{owner}/{identifier}/upstream/cargo/",
                   "parts": [
@@ -357,6 +364,7 @@
                       }
                     ]
                   },
+                  "kind": "http",
                   "method": "GET",
                   "orig": "/repos/{owner}/{identifier}/upstream/cargo/{slug_perm}/",
                   "parts": [
@@ -430,6 +438,7 @@
                       }
                     ]
                   },
+                  "kind": "http",
                   "method": "PATCH",
                   "orig": "/repos/{owner}/{identifier}/upstream/cargo/{slug_perm}/",
                   "parts": [
@@ -504,6 +513,7 @@
                       }
                     ]
                   },
+                  "kind": "http",
                   "method": "PUT",
                   "orig": "/repos/{owner}/{identifier}/upstream/cargo/{slug_perm}/",
                   "parts": [
@@ -731,6 +741,7 @@
                       }
                     ]
                   },
+                  "kind": "http",
                   "method": "POST",
                   "orig": "/repos/{owner}/{identifier}/upstream/composer/",
                   "parts": [
@@ -798,6 +809,7 @@
                       }
                     ]
                   },
+                  "kind": "http",
                   "method": "GET",
                   "orig": "/repos/{owner}/{identifier}/upstream/composer/",
                   "parts": [
@@ -856,6 +868,7 @@
                       }
                     ]
                   },
+                  "kind": "http",
                   "method": "GET",
                   "orig": "/repos/{owner}/{identifier}/upstream/composer/{slug_perm}/",
                   "parts": [
@@ -929,6 +942,7 @@
                       }
                     ]
                   },
+                  "kind": "http",
                   "method": "PATCH",
                   "orig": "/repos/{owner}/{identifier}/upstream/composer/{slug_perm}/",
                   "parts": [
@@ -1003,6 +1017,7 @@
                       }
                     ]
                   },
+                  "kind": "http",
                   "method": "PUT",
                   "orig": "/repos/{owner}/{identifier}/upstream/composer/{slug_perm}/",
                   "parts": [
@@ -1214,6 +1229,7 @@
                       }
                     ]
                   },
+                  "kind": "http",
                   "method": "POST",
                   "orig": "/repos/{owner}/{identifier}/upstream/conda/",
                   "parts": [
@@ -1281,6 +1297,7 @@
                       }
                     ]
                   },
+                  "kind": "http",
                   "method": "GET",
                   "orig": "/repos/{owner}/{identifier}/upstream/conda/",
                   "parts": [
@@ -1339,6 +1356,7 @@
                       }
                     ]
                   },
+                  "kind": "http",
                   "method": "GET",
                   "orig": "/repos/{owner}/{identifier}/upstream/conda/{slug_perm}/",
                   "parts": [
@@ -1412,6 +1430,7 @@
                       }
                     ]
                   },
+                  "kind": "http",
                   "method": "PATCH",
                   "orig": "/repos/{owner}/{identifier}/upstream/conda/{slug_perm}/",
                   "parts": [
@@ -1486,6 +1505,7 @@
                       }
                     ]
                   },
+                  "kind": "http",
                   "method": "PUT",
                   "orig": "/repos/{owner}/{identifier}/upstream/conda/{slug_perm}/",
                   "parts": [
@@ -1697,6 +1717,7 @@
                       }
                     ]
                   },
+                  "kind": "http",
                   "method": "POST",
                   "orig": "/repos/{owner}/{identifier}/upstream/cran/",
                   "parts": [
@@ -1764,6 +1785,7 @@
                       }
                     ]
                   },
+                  "kind": "http",
                   "method": "GET",
                   "orig": "/repos/{owner}/{identifier}/upstream/cran/",
                   "parts": [
@@ -1822,6 +1844,7 @@
                       }
                     ]
                   },
+                  "kind": "http",
                   "method": "GET",
                   "orig": "/repos/{owner}/{identifier}/upstream/cran/{slug_perm}/",
                   "parts": [
@@ -1895,6 +1918,7 @@
                       }
                     ]
                   },
+                  "kind": "http",
                   "method": "PATCH",
                   "orig": "/repos/{owner}/{identifier}/upstream/cran/{slug_perm}/",
                   "parts": [
@@ -1969,6 +1993,7 @@
                       }
                     ]
                   },
+                  "kind": "http",
                   "method": "PUT",
                   "orig": "/repos/{owner}/{identifier}/upstream/cran/{slug_perm}/",
                   "parts": [
@@ -2164,6 +2189,7 @@
                       }
                     ]
                   },
+                  "kind": "http",
                   "method": "POST",
                   "orig": "/repos/{owner}/{identifier}/upstream/dart/",
                   "parts": [
@@ -2231,6 +2257,7 @@
                       }
                     ]
                   },
+                  "kind": "http",
                   "method": "GET",
                   "orig": "/repos/{owner}/{identifier}/upstream/dart/",
                   "parts": [
@@ -2289,6 +2316,7 @@
                       }
                     ]
                   },
+                  "kind": "http",
                   "method": "GET",
                   "orig": "/repos/{owner}/{identifier}/upstream/dart/{slug_perm}/",
                   "parts": [
@@ -2362,6 +2390,7 @@
                       }
                     ]
                   },
+                  "kind": "http",
                   "method": "PATCH",
                   "orig": "/repos/{owner}/{identifier}/upstream/dart/{slug_perm}/",
                   "parts": [
@@ -2436,6 +2465,7 @@
                       }
                     ]
                   },
+                  "kind": "http",
                   "method": "PUT",
                   "orig": "/repos/{owner}/{identifier}/upstream/dart/{slug_perm}/",
                   "parts": [
@@ -2522,7 +2552,7 @@
             },
             {
               "active": true,
-              "name": "distro_version",
+              "name": "distro_versions",
               "req": true,
               "type": "`$ARRAY`"
             },
@@ -2570,7 +2600,7 @@
             },
             {
               "active": true,
-              "name": "include_source",
+              "name": "include_sources",
               "req": false,
               "type": "`$BOOLEAN`"
             },
@@ -2679,6 +2709,7 @@
                       }
                     ]
                   },
+                  "kind": "http",
                   "method": "POST",
                   "orig": "/repos/{owner}/{identifier}/upstream/deb/",
                   "parts": [
@@ -2746,6 +2777,7 @@
                       }
                     ]
                   },
+                  "kind": "http",
                   "method": "GET",
                   "orig": "/repos/{owner}/{identifier}/upstream/deb/",
                   "parts": [
@@ -2804,6 +2836,7 @@
                       }
                     ]
                   },
+                  "kind": "http",
                   "method": "GET",
                   "orig": "/repos/{owner}/{identifier}/upstream/deb/{slug_perm}/",
                   "parts": [
@@ -2877,6 +2910,7 @@
                       }
                     ]
                   },
+                  "kind": "http",
                   "method": "PATCH",
                   "orig": "/repos/{owner}/{identifier}/upstream/deb/{slug_perm}/",
                   "parts": [
@@ -2951,6 +2985,7 @@
                       }
                     ]
                   },
+                  "kind": "http",
                   "method": "PUT",
                   "orig": "/repos/{owner}/{identifier}/upstream/deb/{slug_perm}/",
                   "parts": [
@@ -3085,13 +3120,13 @@
             },
             {
               "active": true,
-              "name": "variant",
+              "name": "variants",
               "req": false,
               "type": "`$STRING`"
             },
             {
               "active": true,
-              "name": "version",
+              "name": "versions",
               "req": false,
               "type": "`$ARRAY`"
             }
@@ -3105,6 +3140,7 @@
                 {
                   "active": true,
                   "args": {},
+                  "kind": "http",
                   "method": "GET",
                   "orig": "/distros/",
                   "parts": [
@@ -3136,6 +3172,7 @@
                       }
                     ]
                   },
+                  "kind": "http",
                   "method": "GET",
                   "orig": "/distros/{slug}/",
                   "parts": [
@@ -3328,6 +3365,7 @@
                       }
                     ]
                   },
+                  "kind": "http",
                   "method": "POST",
                   "orig": "/repos/{owner}/{identifier}/upstream/docker/",
                   "parts": [
@@ -3395,6 +3433,7 @@
                       }
                     ]
                   },
+                  "kind": "http",
                   "method": "GET",
                   "orig": "/repos/{owner}/{identifier}/upstream/docker/",
                   "parts": [
@@ -3453,6 +3492,7 @@
                       }
                     ]
                   },
+                  "kind": "http",
                   "method": "GET",
                   "orig": "/repos/{owner}/{identifier}/upstream/docker/{slug_perm}/",
                   "parts": [
@@ -3526,6 +3566,7 @@
                       }
                     ]
                   },
+                  "kind": "http",
                   "method": "PATCH",
                   "orig": "/repos/{owner}/{identifier}/upstream/docker/{slug_perm}/",
                   "parts": [
@@ -3600,6 +3641,7 @@
                       }
                     ]
                   },
+                  "kind": "http",
                   "method": "PUT",
                   "orig": "/repos/{owner}/{identifier}/upstream/docker/{slug_perm}/",
                   "parts": [
@@ -3707,6 +3749,7 @@
                       }
                     ]
                   },
+                  "kind": "http",
                   "method": "GET",
                   "orig": "/orgs/{org}/openid-connect/{provider_setting}/dynamic-mappings/",
                   "parts": [
@@ -3770,6 +3813,7 @@
                       }
                     ]
                   },
+                  "kind": "http",
                   "method": "GET",
                   "orig": "/orgs/{org}/openid-connect/{provider_setting}/dynamic-mappings/{claim_value}/",
                   "parts": [
@@ -3857,9 +3901,33 @@
           "fields": [
             {
               "active": true,
-              "name": "token",
+              "name": "active",
+              "req": false,
+              "type": "`$INTEGER`"
+            },
+            {
+              "active": true,
+              "name": "bandwidth",
               "req": true,
               "type": "`$OBJECT`"
+            },
+            {
+              "active": true,
+              "name": "downloads",
+              "req": true,
+              "type": "`$OBJECT`"
+            },
+            {
+              "active": true,
+              "name": "inactive",
+              "req": false,
+              "type": "`$INTEGER`"
+            },
+            {
+              "active": true,
+              "name": "total",
+              "req": false,
+              "type": "`$INTEGER`"
             }
           ],
           "name": "entitlement",
@@ -3908,6 +3976,7 @@
                       }
                     ]
                   },
+                  "kind": "http",
                   "method": "POST",
                   "orig": "/entitlements/{owner}/{repo}/{identifier}/reset/",
                   "parts": [
@@ -3960,6 +4029,7 @@
                       }
                     ]
                   },
+                  "kind": "http",
                   "method": "POST",
                   "orig": "/entitlements/{owner}/{repo}/{identifier}/disable/",
                   "parts": [
@@ -4011,6 +4081,7 @@
                       }
                     ]
                   },
+                  "kind": "http",
                   "method": "POST",
                   "orig": "/entitlements/{owner}/{repo}/{identifier}/enable/",
                   "parts": [
@@ -4102,6 +4173,7 @@
                       }
                     ]
                   },
+                  "kind": "http",
                   "method": "GET",
                   "orig": "/metrics/entitlements/{owner}/{repo}/",
                   "parts": [
@@ -4123,7 +4195,7 @@
                   },
                   "transform": {
                     "req": "`reqdata`",
-                    "res": "`body`"
+                    "res": "`body.tokens`"
                   }
                 },
                 {
@@ -4182,6 +4254,7 @@
                       }
                     ]
                   },
+                  "kind": "http",
                   "method": "GET",
                   "orig": "/metrics/entitlements/{owner}/",
                   "parts": [
@@ -4206,7 +4279,7 @@
                   },
                   "transform": {
                     "req": "`reqdata`",
-                    "res": "`body`"
+                    "res": "`body.tokens`"
                   }
                 }
               ]
@@ -4245,6 +4318,7 @@
                       }
                     ]
                   },
+                  "kind": "http",
                   "method": "DELETE",
                   "orig": "/entitlements/{owner}/{repo}/{identifier}/",
                   "parts": [
@@ -4349,6 +4423,7 @@
                       }
                     ]
                   },
+                  "kind": "http",
                   "method": "POST",
                   "orig": "/files/{owner}/{repo}/{identifier}/abort/",
                   "parts": [
@@ -4403,6 +4478,7 @@
                       }
                     ]
                   },
+                  "kind": "http",
                   "method": "POST",
                   "orig": "/files/{owner}/{repo}/",
                   "parts": [
@@ -4454,6 +4530,7 @@
                       }
                     ]
                   },
+                  "kind": "http",
                   "method": "POST",
                   "orig": "/files/{owner}/{repo}/validate/",
                   "parts": [
@@ -4499,13 +4576,13 @@
             },
             {
               "active": true,
-              "name": "distribution",
+              "name": "distributions",
               "req": false,
               "type": "`$ARRAY`"
             },
             {
               "active": true,
-              "name": "extension",
+              "name": "extensions",
               "req": true,
               "type": "`$ARRAY`"
             },
@@ -4541,7 +4618,7 @@
             },
             {
               "active": true,
-              "name": "support",
+              "name": "supports",
               "req": true,
               "type": "`$OBJECT`"
             }
@@ -4555,6 +4632,7 @@
                 {
                   "active": true,
                   "args": {},
+                  "kind": "http",
                   "method": "GET",
                   "orig": "/formats/",
                   "parts": [
@@ -4586,6 +4664,7 @@
                       }
                     ]
                   },
+                  "kind": "http",
                   "method": "GET",
                   "orig": "/formats/{slug}/",
                   "parts": [
@@ -4635,38 +4714,6 @@
           "alias": {
             "field": {}
           },
-          "fields": [],
-          "name": "gon",
-          "op": {},
-          "relations": {
-            "ancestors": [
-              [
-                "package"
-              ]
-            ]
-          }
-        },
-        "gon2": {
-          "active": true,
-          "alias": {
-            "field": {}
-          },
-          "fields": [],
-          "name": "gon2",
-          "op": {},
-          "relations": {
-            "ancestors": [
-              [
-                "package"
-              ]
-            ]
-          }
-        },
-        "gon3": {
-          "active": true,
-          "alias": {
-            "field": {}
-          },
           "fields": [
             {
               "active": true,
@@ -4777,8 +4824,68 @@
               "type": "`$BOOLEAN`"
             }
           ],
-          "name": "gon3",
+          "name": "gon",
           "op": {
+            "create": {
+              "input": "data",
+              "name": "create",
+              "points": [
+                {
+                  "active": true,
+                  "args": {
+                    "params": [
+                      {
+                        "active": true,
+                        "kind": "param",
+                        "name": "identifier",
+                        "orig": "identifier",
+                        "reqd": true,
+                        "type": "`$ANY`"
+                      },
+                      {
+                        "active": true,
+                        "kind": "param",
+                        "name": "owner",
+                        "orig": "owner",
+                        "reqd": true,
+                        "type": "`$ANY`"
+                      }
+                    ],
+                    "query": [
+                      {
+                        "active": true,
+                        "kind": "query",
+                        "name": "data",
+                        "orig": "data",
+                        "reqd": false,
+                        "type": "`$OBJECT`"
+                      }
+                    ]
+                  },
+                  "kind": "http",
+                  "method": "POST",
+                  "orig": "/repos/{owner}/{identifier}/upstream/go/",
+                  "parts": [
+                    "repos",
+                    "{owner}",
+                    "{identifier}",
+                    "upstream",
+                    "go"
+                  ],
+                  "select": {
+                    "exist": [
+                      "data",
+                      "identifier",
+                      "owner"
+                    ]
+                  },
+                  "transform": {
+                    "req": "`reqdata`",
+                    "res": "`body`"
+                  }
+                }
+              ]
+            },
             "list": {
               "input": "data",
               "name": "list",
@@ -4823,6 +4930,7 @@
                       }
                     ]
                   },
+                  "kind": "http",
                   "method": "GET",
                   "orig": "/repos/{owner}/{identifier}/upstream/go/",
                   "parts": [
@@ -4846,225 +4954,7 @@
                   }
                 }
               ]
-            }
-          },
-          "relations": {
-            "ancestors": [
-              [
-                "repo"
-              ]
-            ]
-          }
-        },
-        "gon4": {
-          "active": true,
-          "alias": {
-            "field": {}
-          },
-          "fields": [],
-          "name": "gon4",
-          "op": {},
-          "relations": {
-            "ancestors": [
-              [
-                "repo"
-              ]
-            ]
-          }
-        },
-        "gon5": {
-          "active": true,
-          "alias": {
-            "field": {}
-          },
-          "fields": [],
-          "name": "gon5",
-          "op": {
-            "create": {
-              "input": "data",
-              "name": "create",
-              "points": [
-                {
-                  "active": true,
-                  "args": {
-                    "params": [
-                      {
-                        "active": true,
-                        "kind": "param",
-                        "name": "identifier",
-                        "orig": "identifier",
-                        "reqd": true,
-                        "type": "`$ANY`"
-                      },
-                      {
-                        "active": true,
-                        "kind": "param",
-                        "name": "owner",
-                        "orig": "owner",
-                        "reqd": true,
-                        "type": "`$ANY`"
-                      }
-                    ],
-                    "query": [
-                      {
-                        "active": true,
-                        "kind": "query",
-                        "name": "data",
-                        "orig": "data",
-                        "reqd": false,
-                        "type": "`$OBJECT`"
-                      }
-                    ]
-                  },
-                  "method": "POST",
-                  "orig": "/repos/{owner}/{identifier}/upstream/go/",
-                  "parts": [
-                    "repos",
-                    "{owner}",
-                    "{identifier}",
-                    "upstream",
-                    "go"
-                  ],
-                  "select": {
-                    "exist": [
-                      "data",
-                      "identifier",
-                      "owner"
-                    ]
-                  },
-                  "transform": {
-                    "req": "`reqdata`",
-                    "res": "`body`"
-                  }
-                }
-              ]
-            }
-          },
-          "relations": {
-            "ancestors": [
-              [
-                "repo"
-              ]
-            ]
-          }
-        },
-        "gon6": {
-          "active": true,
-          "alias": {
-            "field": {}
-          },
-          "fields": [
-            {
-              "active": true,
-              "name": "auth_mode",
-              "req": false,
-              "type": "`$STRING`"
             },
-            {
-              "active": true,
-              "name": "auth_secret",
-              "req": false,
-              "type": "`$STRING`"
-            },
-            {
-              "active": true,
-              "name": "auth_username",
-              "req": false,
-              "type": "`$STRING`"
-            },
-            {
-              "active": true,
-              "name": "created_at",
-              "req": false,
-              "type": "`$STRING`"
-            },
-            {
-              "active": true,
-              "name": "disable_reason",
-              "req": false,
-              "type": "`$STRING`"
-            },
-            {
-              "active": true,
-              "name": "extra_header_1",
-              "req": false,
-              "type": "`$STRING`"
-            },
-            {
-              "active": true,
-              "name": "extra_header_2",
-              "req": false,
-              "type": "`$STRING`"
-            },
-            {
-              "active": true,
-              "name": "extra_value_1",
-              "req": false,
-              "type": "`$STRING`"
-            },
-            {
-              "active": true,
-              "name": "extra_value_2",
-              "req": false,
-              "type": "`$STRING`"
-            },
-            {
-              "active": true,
-              "name": "is_active",
-              "req": false,
-              "type": "`$BOOLEAN`"
-            },
-            {
-              "active": true,
-              "name": "mode",
-              "req": false,
-              "type": "`$STRING`"
-            },
-            {
-              "active": true,
-              "name": "name",
-              "req": true,
-              "type": "`$STRING`"
-            },
-            {
-              "active": true,
-              "name": "pending_validation",
-              "req": false,
-              "type": "`$BOOLEAN`"
-            },
-            {
-              "active": true,
-              "name": "priority",
-              "req": false,
-              "type": "`$INTEGER`"
-            },
-            {
-              "active": true,
-              "name": "slug_perm",
-              "req": false,
-              "type": "`$STRING`"
-            },
-            {
-              "active": true,
-              "name": "updated_at",
-              "req": false,
-              "type": "`$STRING`"
-            },
-            {
-              "active": true,
-              "name": "upstream_url",
-              "req": true,
-              "type": "`$STRING`"
-            },
-            {
-              "active": true,
-              "name": "verify_ssl",
-              "req": false,
-              "type": "`$BOOLEAN`"
-            }
-          ],
-          "name": "gon6",
-          "op": {
             "load": {
               "input": "data",
               "name": "load",
@@ -5099,6 +4989,7 @@
                       }
                     ]
                   },
+                  "kind": "http",
                   "method": "GET",
                   "orig": "/repos/{owner}/{identifier}/upstream/go/{slug_perm}/",
                   "parts": [
@@ -5122,151 +5013,77 @@
                   }
                 }
               ]
-            }
-          },
-          "relations": {
-            "ancestors": [
-              [
-                "repo",
-                "go"
+            },
+            "patch": {
+              "input": "data",
+              "name": "patch",
+              "points": [
+                {
+                  "active": true,
+                  "args": {
+                    "params": [
+                      {
+                        "active": true,
+                        "kind": "param",
+                        "name": "identifier",
+                        "orig": "identifier",
+                        "reqd": true,
+                        "type": "`$ANY`"
+                      },
+                      {
+                        "active": true,
+                        "kind": "param",
+                        "name": "owner",
+                        "orig": "owner",
+                        "reqd": true,
+                        "type": "`$ANY`"
+                      },
+                      {
+                        "active": true,
+                        "kind": "param",
+                        "name": "slug_perm",
+                        "orig": "slug_perm",
+                        "reqd": true,
+                        "type": "`$ANY`"
+                      }
+                    ],
+                    "query": [
+                      {
+                        "active": true,
+                        "kind": "query",
+                        "name": "data",
+                        "orig": "data",
+                        "reqd": false,
+                        "type": "`$OBJECT`"
+                      }
+                    ]
+                  },
+                  "kind": "http",
+                  "method": "PATCH",
+                  "orig": "/repos/{owner}/{identifier}/upstream/go/{slug_perm}/",
+                  "parts": [
+                    "repos",
+                    "{owner}",
+                    "{identifier}",
+                    "upstream",
+                    "go",
+                    "{slug_perm}"
+                  ],
+                  "select": {
+                    "exist": [
+                      "data",
+                      "identifier",
+                      "owner",
+                      "slug_perm"
+                    ]
+                  },
+                  "transform": {
+                    "req": "`reqdata`",
+                    "res": "`body`"
+                  }
+                }
               ]
-            ]
-          }
-        },
-        "gon7": {
-          "active": true,
-          "alias": {
-            "field": {}
-          },
-          "fields": [],
-          "name": "gon7",
-          "op": {},
-          "relations": {
-            "ancestors": [
-              [
-                "repo",
-                "go"
-              ]
-            ]
-          }
-        },
-        "gon8": {
-          "active": true,
-          "alias": {
-            "field": {}
-          },
-          "fields": [
-            {
-              "active": true,
-              "name": "auth_mode",
-              "req": false,
-              "type": "`$STRING`"
             },
-            {
-              "active": true,
-              "name": "auth_secret",
-              "req": false,
-              "type": "`$STRING`"
-            },
-            {
-              "active": true,
-              "name": "auth_username",
-              "req": false,
-              "type": "`$STRING`"
-            },
-            {
-              "active": true,
-              "name": "created_at",
-              "req": false,
-              "type": "`$STRING`"
-            },
-            {
-              "active": true,
-              "name": "disable_reason",
-              "req": false,
-              "type": "`$STRING`"
-            },
-            {
-              "active": true,
-              "name": "extra_header_1",
-              "req": false,
-              "type": "`$STRING`"
-            },
-            {
-              "active": true,
-              "name": "extra_header_2",
-              "req": false,
-              "type": "`$STRING`"
-            },
-            {
-              "active": true,
-              "name": "extra_value_1",
-              "req": false,
-              "type": "`$STRING`"
-            },
-            {
-              "active": true,
-              "name": "extra_value_2",
-              "req": false,
-              "type": "`$STRING`"
-            },
-            {
-              "active": true,
-              "name": "is_active",
-              "req": false,
-              "type": "`$BOOLEAN`"
-            },
-            {
-              "active": true,
-              "name": "mode",
-              "req": false,
-              "type": "`$STRING`"
-            },
-            {
-              "active": true,
-              "name": "name",
-              "req": true,
-              "type": "`$STRING`"
-            },
-            {
-              "active": true,
-              "name": "pending_validation",
-              "req": false,
-              "type": "`$BOOLEAN`"
-            },
-            {
-              "active": true,
-              "name": "priority",
-              "req": false,
-              "type": "`$INTEGER`"
-            },
-            {
-              "active": true,
-              "name": "slug_perm",
-              "req": false,
-              "type": "`$STRING`"
-            },
-            {
-              "active": true,
-              "name": "updated_at",
-              "req": false,
-              "type": "`$STRING`"
-            },
-            {
-              "active": true,
-              "name": "upstream_url",
-              "req": true,
-              "type": "`$STRING`"
-            },
-            {
-              "active": true,
-              "name": "verify_ssl",
-              "req": false,
-              "type": "`$BOOLEAN`"
-            }
-          ],
-          "name": "gon8",
-          "op": {
             "update": {
               "input": "data",
               "name": "update",
@@ -5311,6 +5128,7 @@
                       }
                     ]
                   },
+                  "kind": "http",
                   "method": "PUT",
                   "orig": "/repos/{owner}/{identifier}/upstream/go/{slug_perm}/",
                   "parts": [
@@ -5340,201 +5158,11 @@
           "relations": {
             "ancestors": [
               [
-                "repo",
-                "go"
-              ]
-            ]
-          }
-        },
-        "gon9": {
-          "active": true,
-          "alias": {
-            "field": {}
-          },
-          "fields": [
-            {
-              "active": true,
-              "name": "auth_mode",
-              "req": false,
-              "type": "`$STRING`"
-            },
-            {
-              "active": true,
-              "name": "auth_secret",
-              "req": false,
-              "type": "`$STRING`"
-            },
-            {
-              "active": true,
-              "name": "auth_username",
-              "req": false,
-              "type": "`$STRING`"
-            },
-            {
-              "active": true,
-              "name": "created_at",
-              "req": false,
-              "type": "`$STRING`"
-            },
-            {
-              "active": true,
-              "name": "disable_reason",
-              "req": false,
-              "type": "`$STRING`"
-            },
-            {
-              "active": true,
-              "name": "extra_header_1",
-              "req": false,
-              "type": "`$STRING`"
-            },
-            {
-              "active": true,
-              "name": "extra_header_2",
-              "req": false,
-              "type": "`$STRING`"
-            },
-            {
-              "active": true,
-              "name": "extra_value_1",
-              "req": false,
-              "type": "`$STRING`"
-            },
-            {
-              "active": true,
-              "name": "extra_value_2",
-              "req": false,
-              "type": "`$STRING`"
-            },
-            {
-              "active": true,
-              "name": "is_active",
-              "req": false,
-              "type": "`$BOOLEAN`"
-            },
-            {
-              "active": true,
-              "name": "mode",
-              "req": false,
-              "type": "`$STRING`"
-            },
-            {
-              "active": true,
-              "name": "name",
-              "req": true,
-              "type": "`$STRING`"
-            },
-            {
-              "active": true,
-              "name": "pending_validation",
-              "req": false,
-              "type": "`$BOOLEAN`"
-            },
-            {
-              "active": true,
-              "name": "priority",
-              "req": false,
-              "type": "`$INTEGER`"
-            },
-            {
-              "active": true,
-              "name": "slug_perm",
-              "req": false,
-              "type": "`$STRING`"
-            },
-            {
-              "active": true,
-              "name": "updated_at",
-              "req": false,
-              "type": "`$STRING`"
-            },
-            {
-              "active": true,
-              "name": "upstream_url",
-              "req": true,
-              "type": "`$STRING`"
-            },
-            {
-              "active": true,
-              "name": "verify_ssl",
-              "req": false,
-              "type": "`$BOOLEAN`"
-            }
-          ],
-          "name": "gon9",
-          "op": {
-            "update": {
-              "input": "data",
-              "name": "update",
-              "points": [
-                {
-                  "active": true,
-                  "args": {
-                    "params": [
-                      {
-                        "active": true,
-                        "kind": "param",
-                        "name": "identifier",
-                        "orig": "identifier",
-                        "reqd": true,
-                        "type": "`$ANY`"
-                      },
-                      {
-                        "active": true,
-                        "kind": "param",
-                        "name": "owner",
-                        "orig": "owner",
-                        "reqd": true,
-                        "type": "`$ANY`"
-                      },
-                      {
-                        "active": true,
-                        "kind": "param",
-                        "name": "slug_perm",
-                        "orig": "slug_perm",
-                        "reqd": true,
-                        "type": "`$ANY`"
-                      }
-                    ],
-                    "query": [
-                      {
-                        "active": true,
-                        "kind": "query",
-                        "name": "data",
-                        "orig": "data",
-                        "reqd": false,
-                        "type": "`$OBJECT`"
-                      }
-                    ]
-                  },
-                  "method": "PATCH",
-                  "orig": "/repos/{owner}/{identifier}/upstream/go/{slug_perm}/",
-                  "parts": [
-                    "repos",
-                    "{owner}",
-                    "{identifier}",
-                    "upstream",
-                    "go",
-                    "{slug_perm}"
-                  ],
-                  "select": {
-                    "exist": [
-                      "data",
-                      "identifier",
-                      "owner",
-                      "slug_perm"
-                    ]
-                  },
-                  "transform": {
-                    "req": "`reqdata`",
-                    "res": "`body`"
-                  }
-                }
-              ]
-            }
-          },
-          "relations": {
-            "ancestors": [
+                "package"
+              ],
+              [
+                "repo"
+              ],
               [
                 "repo",
                 "go"
@@ -5727,6 +5355,7 @@
                       }
                     ]
                   },
+                  "kind": "http",
                   "method": "POST",
                   "orig": "/repos/{owner}/{identifier}/upstream/helm/",
                   "parts": [
@@ -5794,6 +5423,7 @@
                       }
                     ]
                   },
+                  "kind": "http",
                   "method": "GET",
                   "orig": "/repos/{owner}/{identifier}/upstream/helm/",
                   "parts": [
@@ -5852,6 +5482,7 @@
                       }
                     ]
                   },
+                  "kind": "http",
                   "method": "GET",
                   "orig": "/repos/{owner}/{identifier}/upstream/helm/{slug_perm}/",
                   "parts": [
@@ -5925,6 +5556,7 @@
                       }
                     ]
                   },
+                  "kind": "http",
                   "method": "PATCH",
                   "orig": "/repos/{owner}/{identifier}/upstream/helm/{slug_perm}/",
                   "parts": [
@@ -5999,6 +5631,7 @@
                       }
                     ]
                   },
+                  "kind": "http",
                   "method": "PUT",
                   "orig": "/repos/{owner}/{identifier}/upstream/helm/{slug_perm}/",
                   "parts": [
@@ -6194,6 +5827,7 @@
                       }
                     ]
                   },
+                  "kind": "http",
                   "method": "POST",
                   "orig": "/repos/{owner}/{identifier}/upstream/hex/",
                   "parts": [
@@ -6261,6 +5895,7 @@
                       }
                     ]
                   },
+                  "kind": "http",
                   "method": "GET",
                   "orig": "/repos/{owner}/{identifier}/upstream/hex/",
                   "parts": [
@@ -6319,6 +5954,7 @@
                       }
                     ]
                   },
+                  "kind": "http",
                   "method": "GET",
                   "orig": "/repos/{owner}/{identifier}/upstream/hex/{slug_perm}/",
                   "parts": [
@@ -6392,6 +6028,7 @@
                       }
                     ]
                   },
+                  "kind": "http",
                   "method": "PATCH",
                   "orig": "/repos/{owner}/{identifier}/upstream/hex/{slug_perm}/",
                   "parts": [
@@ -6466,6 +6103,7 @@
                       }
                     ]
                   },
+                  "kind": "http",
                   "method": "PUT",
                   "orig": "/repos/{owner}/{identifier}/upstream/hex/{slug_perm}/",
                   "parts": [
@@ -6673,6 +6311,7 @@
                       }
                     ]
                   },
+                  "kind": "http",
                   "method": "POST",
                   "orig": "/repos/{owner}/{identifier}/upstream/huggingface/",
                   "parts": [
@@ -6740,6 +6379,7 @@
                       }
                     ]
                   },
+                  "kind": "http",
                   "method": "GET",
                   "orig": "/repos/{owner}/{identifier}/upstream/huggingface/",
                   "parts": [
@@ -6798,6 +6438,7 @@
                       }
                     ]
                   },
+                  "kind": "http",
                   "method": "GET",
                   "orig": "/repos/{owner}/{identifier}/upstream/huggingface/{slug_perm}/",
                   "parts": [
@@ -6871,6 +6512,7 @@
                       }
                     ]
                   },
+                  "kind": "http",
                   "method": "PATCH",
                   "orig": "/repos/{owner}/{identifier}/upstream/huggingface/{slug_perm}/",
                   "parts": [
@@ -6945,6 +6587,7 @@
                       }
                     ]
                   },
+                  "kind": "http",
                   "method": "PUT",
                   "orig": "/repos/{owner}/{identifier}/upstream/huggingface/{slug_perm}/",
                   "parts": [
@@ -7248,6 +6891,7 @@
                       }
                     ]
                   },
+                  "kind": "http",
                   "method": "POST",
                   "orig": "/repos/{owner}/{identifier}/upstream/maven/",
                   "parts": [
@@ -7315,6 +6959,7 @@
                       }
                     ]
                   },
+                  "kind": "http",
                   "method": "GET",
                   "orig": "/repos/{owner}/{identifier}/upstream/maven/",
                   "parts": [
@@ -7373,6 +7018,7 @@
                       }
                     ]
                   },
+                  "kind": "http",
                   "method": "GET",
                   "orig": "/repos/{owner}/{identifier}/upstream/maven/{slug_perm}/",
                   "parts": [
@@ -7446,6 +7092,7 @@
                       }
                     ]
                   },
+                  "kind": "http",
                   "method": "PATCH",
                   "orig": "/repos/{owner}/{identifier}/upstream/maven/{slug_perm}/",
                   "parts": [
@@ -7520,6 +7167,7 @@
                       }
                     ]
                   },
+                  "kind": "http",
                   "method": "PUT",
                   "orig": "/repos/{owner}/{identifier}/upstream/maven/{slug_perm}/",
                   "parts": [
@@ -7653,6 +7301,7 @@
                       }
                     ]
                   },
+                  "kind": "http",
                   "method": "GET",
                   "orig": "/namespaces/",
                   "parts": [
@@ -7689,6 +7338,7 @@
                       }
                     ]
                   },
+                  "kind": "http",
                   "method": "GET",
                   "orig": "/namespaces/{slug}/",
                   "parts": [
@@ -7866,6 +7516,7 @@
                       }
                     ]
                   },
+                  "kind": "http",
                   "method": "GET",
                   "orig": "/audit-log/{owner}/",
                   "parts": [
@@ -8050,6 +7701,7 @@
                       }
                     ]
                   },
+                  "kind": "http",
                   "method": "POST",
                   "orig": "/repos/{owner}/{identifier}/upstream/npm/",
                   "parts": [
@@ -8117,6 +7769,7 @@
                       }
                     ]
                   },
+                  "kind": "http",
                   "method": "GET",
                   "orig": "/repos/{owner}/{identifier}/upstream/npm/",
                   "parts": [
@@ -8175,6 +7828,7 @@
                       }
                     ]
                   },
+                  "kind": "http",
                   "method": "GET",
                   "orig": "/repos/{owner}/{identifier}/upstream/npm/{slug_perm}/",
                   "parts": [
@@ -8248,6 +7902,7 @@
                       }
                     ]
                   },
+                  "kind": "http",
                   "method": "PATCH",
                   "orig": "/repos/{owner}/{identifier}/upstream/npm/{slug_perm}/",
                   "parts": [
@@ -8322,6 +7977,7 @@
                       }
                     ]
                   },
+                  "kind": "http",
                   "method": "PUT",
                   "orig": "/repos/{owner}/{identifier}/upstream/npm/{slug_perm}/",
                   "parts": [
@@ -8517,6 +8173,7 @@
                       }
                     ]
                   },
+                  "kind": "http",
                   "method": "POST",
                   "orig": "/repos/{owner}/{identifier}/upstream/nuget/",
                   "parts": [
@@ -8584,6 +8241,7 @@
                       }
                     ]
                   },
+                  "kind": "http",
                   "method": "GET",
                   "orig": "/repos/{owner}/{identifier}/upstream/nuget/",
                   "parts": [
@@ -8642,6 +8300,7 @@
                       }
                     ]
                   },
+                  "kind": "http",
                   "method": "GET",
                   "orig": "/repos/{owner}/{identifier}/upstream/nuget/{slug_perm}/",
                   "parts": [
@@ -8715,6 +8374,7 @@
                       }
                     ]
                   },
+                  "kind": "http",
                   "method": "PATCH",
                   "orig": "/repos/{owner}/{identifier}/upstream/nuget/{slug_perm}/",
                   "parts": [
@@ -8789,6 +8449,7 @@
                       }
                     ]
                   },
+                  "kind": "http",
                   "method": "PUT",
                   "orig": "/repos/{owner}/{identifier}/upstream/nuget/{slug_perm}/",
                   "parts": [
@@ -8901,7 +8562,7 @@
             },
             {
               "active": true,
-              "name": "reason",
+              "name": "reasons",
               "req": true,
               "type": "`$ARRAY`"
             },
@@ -8925,7 +8586,7 @@
             },
             {
               "active": true,
-              "name": "vulnerability_scan_result",
+              "name": "vulnerability_scan_results",
               "req": true,
               "type": "`$OBJECT`"
             }
@@ -8958,6 +8619,7 @@
                       }
                     ]
                   },
+                  "kind": "http",
                   "method": "POST",
                   "orig": "/orgs/{org}/members/{member}/refresh/",
                   "parts": [
@@ -8998,6 +8660,7 @@
                       }
                     ]
                   },
+                  "kind": "http",
                   "method": "POST",
                   "orig": "/orgs/{org}/saml-group-sync/disable/",
                   "parts": [
@@ -9035,6 +8698,7 @@
                       }
                     ]
                   },
+                  "kind": "http",
                   "method": "POST",
                   "orig": "/orgs/{org}/saml-group-sync/enable/",
                   "parts": [
@@ -9096,6 +8760,7 @@
                       }
                     ]
                   },
+                  "kind": "http",
                   "method": "GET",
                   "orig": "/orgs/{org}/license-policy-violation/",
                   "parts": [
@@ -9118,7 +8783,7 @@
                   },
                   "transform": {
                     "req": "`reqdata`",
-                    "res": "`body`"
+                    "res": "`body.results`"
                   }
                 },
                 {
@@ -9153,6 +8818,7 @@
                       }
                     ]
                   },
+                  "kind": "http",
                   "method": "GET",
                   "orig": "/orgs/{org}/vulnerability-policy-violation/",
                   "parts": [
@@ -9175,7 +8841,7 @@
                   },
                   "transform": {
                     "req": "`reqdata`",
-                    "res": "`body`"
+                    "res": "`body.results`"
                   }
                 },
                 {
@@ -9200,6 +8866,7 @@
                       }
                     ]
                   },
+                  "kind": "http",
                   "method": "GET",
                   "orig": "/orgs/",
                   "parts": [
@@ -9244,6 +8911,7 @@
                       }
                     ]
                   },
+                  "kind": "http",
                   "method": "GET",
                   "orig": "/orgs/{org}/members/{member}/remove/",
                   "parts": [
@@ -9284,6 +8952,7 @@
                       }
                     ]
                   },
+                  "kind": "http",
                   "method": "GET",
                   "orig": "/orgs/{org}/",
                   "parts": [
@@ -9333,6 +9002,7 @@
                       }
                     ]
                   },
+                  "kind": "http",
                   "method": "DELETE",
                   "orig": "/orgs/{org}/members/{member}/",
                   "parts": [
@@ -9379,6 +9049,7 @@
                       }
                     ]
                   },
+                  "kind": "http",
                   "method": "DELETE",
                   "orig": "/orgs/{org}/services/{service}/",
                   "parts": [
@@ -9425,6 +9096,7 @@
                       }
                     ]
                   },
+                  "kind": "http",
                   "method": "DELETE",
                   "orig": "/orgs/{org}/deny-policy/{slug_perm}/",
                   "parts": [
@@ -9471,6 +9143,7 @@
                       }
                     ]
                   },
+                  "kind": "http",
                   "method": "DELETE",
                   "orig": "/orgs/{org}/invites/{slug_perm}/",
                   "parts": [
@@ -9517,6 +9190,7 @@
                       }
                     ]
                   },
+                  "kind": "http",
                   "method": "DELETE",
                   "orig": "/orgs/{org}/license-policy/{slug_perm}/",
                   "parts": [
@@ -9563,6 +9237,7 @@
                       }
                     ]
                   },
+                  "kind": "http",
                   "method": "DELETE",
                   "orig": "/orgs/{org}/openid-connect/{slug_perm}/",
                   "parts": [
@@ -9609,6 +9284,7 @@
                       }
                     ]
                   },
+                  "kind": "http",
                   "method": "DELETE",
                   "orig": "/orgs/{org}/saml-group-sync/{slug_perm}/",
                   "parts": [
@@ -9655,6 +9331,7 @@
                       }
                     ]
                   },
+                  "kind": "http",
                   "method": "DELETE",
                   "orig": "/orgs/{org}/vulnerability-policy/{slug_perm}/",
                   "parts": [
@@ -9701,6 +9378,7 @@
                       }
                     ]
                   },
+                  "kind": "http",
                   "method": "DELETE",
                   "orig": "/orgs/{org}/teams/{team}/",
                   "parts": [
@@ -9739,6 +9417,7 @@
                       }
                     ]
                   },
+                  "kind": "http",
                   "method": "DELETE",
                   "orig": "/orgs/{org}/",
                   "parts": [
@@ -9798,6 +9477,7 @@
                       }
                     ]
                   },
+                  "kind": "http",
                   "method": "PUT",
                   "orig": "/orgs/{org}/teams/{team}/members",
                   "parts": [
@@ -9927,6 +9607,7 @@
                       }
                     ]
                   },
+                  "kind": "http",
                   "method": "POST",
                   "orig": "/orgs/{org}/saml-group-sync/",
                   "parts": [
@@ -9988,6 +9669,7 @@
                       }
                     ]
                   },
+                  "kind": "http",
                   "method": "GET",
                   "orig": "/orgs/{org}/saml-group-sync/",
                   "parts": [
@@ -10056,6 +9738,7 @@
                       }
                     ]
                   },
+                  "kind": "http",
                   "method": "GET",
                   "orig": "/orgs/{org}/saml-group-sync/status/",
                   "parts": [
@@ -10140,7 +9823,7 @@
             },
             {
               "active": true,
-              "name": "team",
+              "name": "teams",
               "req": false,
               "type": "`$ARRAY`"
             },
@@ -10187,6 +9870,7 @@
                       }
                     ]
                   },
+                  "kind": "http",
                   "method": "POST",
                   "orig": "/orgs/{org}/invites/",
                   "parts": [
@@ -10248,6 +9932,7 @@
                       }
                     ]
                   },
+                  "kind": "http",
                   "method": "GET",
                   "orig": "/orgs/{org}/invites/",
                   "parts": [
@@ -10310,6 +9995,7 @@
                       }
                     ]
                   },
+                  "kind": "http",
                   "method": "PATCH",
                   "orig": "/orgs/{org}/invites/{slug_perm}/",
                   "parts": [
@@ -10397,7 +10083,7 @@
             },
             {
               "active": true,
-              "name": "team",
+              "name": "teams",
               "req": false,
               "type": "`$ARRAY`"
             },
@@ -10442,6 +10128,7 @@
                       }
                     ]
                   },
+                  "kind": "http",
                   "method": "POST",
                   "orig": "/orgs/{org}/invites/{slug_perm}/extend/",
                   "parts": [
@@ -10489,6 +10176,7 @@
                       }
                     ]
                   },
+                  "kind": "http",
                   "method": "POST",
                   "orig": "/orgs/{org}/invites/{slug_perm}/resend/",
                   "parts": [
@@ -10667,6 +10355,7 @@
                       }
                     ]
                   },
+                  "kind": "http",
                   "method": "GET",
                   "orig": "/orgs/{org}/members/",
                   "parts": [
@@ -10722,6 +10411,7 @@
                       }
                     ]
                   },
+                  "kind": "http",
                   "method": "GET",
                   "orig": "/orgs/{org}/members/{member}/",
                   "parts": [
@@ -10784,6 +10474,7 @@
                       }
                     ]
                   },
+                  "kind": "http",
                   "method": "PATCH",
                   "orig": "/orgs/{org}/members/{member}/",
                   "parts": [
@@ -10935,6 +10626,7 @@
                       }
                     ]
                   },
+                  "kind": "http",
                   "method": "PATCH",
                   "orig": "/orgs/{org}/members/{member}/update-role/",
                   "parts": [
@@ -11085,6 +10777,7 @@
                       }
                     ]
                   },
+                  "kind": "http",
                   "method": "PATCH",
                   "orig": "/orgs/{org}/members/{member}/update-visibility/",
                   "parts": [
@@ -11132,7 +10825,7 @@
           "fields": [
             {
               "active": true,
-              "name": "allow_unknown_license",
+              "name": "allow_unknown_licenses",
               "req": false,
               "type": "`$BOOLEAN`"
             },
@@ -11174,7 +10867,7 @@
             },
             {
               "active": true,
-              "name": "spdx_identifier",
+              "name": "spdx_identifiers",
               "req": true,
               "type": "`$ARRAY`"
             },
@@ -11215,6 +10908,7 @@
                       }
                     ]
                   },
+                  "kind": "http",
                   "method": "POST",
                   "orig": "/orgs/{org}/license-policy/",
                   "parts": [
@@ -11276,6 +10970,7 @@
                       }
                     ]
                   },
+                  "kind": "http",
                   "method": "GET",
                   "orig": "/orgs/{org}/license-policy/",
                   "parts": [
@@ -11328,6 +11023,7 @@
                       }
                     ]
                   },
+                  "kind": "http",
                   "method": "GET",
                   "orig": "/orgs/{org}/license-policy/{slug_perm}/",
                   "parts": [
@@ -11391,6 +11087,7 @@
                       }
                     ]
                   },
+                  "kind": "http",
                   "method": "PATCH",
                   "orig": "/orgs/{org}/license-policy/{slug_perm}/",
                   "parts": [
@@ -11455,6 +11152,7 @@
                       }
                     ]
                   },
+                  "kind": "http",
                   "method": "PUT",
                   "orig": "/orgs/{org}/license-policy/{slug_perm}/",
                   "parts": [
@@ -11583,6 +11281,7 @@
                       }
                     ]
                   },
+                  "kind": "http",
                   "method": "POST",
                   "orig": "/orgs/{org}/vulnerability-policy/",
                   "parts": [
@@ -11644,6 +11343,7 @@
                       }
                     ]
                   },
+                  "kind": "http",
                   "method": "GET",
                   "orig": "/orgs/{org}/vulnerability-policy/",
                   "parts": [
@@ -11696,6 +11396,7 @@
                       }
                     ]
                   },
+                  "kind": "http",
                   "method": "GET",
                   "orig": "/orgs/{org}/vulnerability-policy/{slug_perm}/",
                   "parts": [
@@ -11759,6 +11460,7 @@
                       }
                     ]
                   },
+                  "kind": "http",
                   "method": "PATCH",
                   "orig": "/orgs/{org}/vulnerability-policy/{slug_perm}/",
                   "parts": [
@@ -11823,6 +11525,7 @@
                       }
                     ]
                   },
+                  "kind": "http",
                   "method": "PUT",
                   "orig": "/orgs/{org}/vulnerability-policy/{slug_perm}/",
                   "parts": [
@@ -11911,6 +11614,7 @@
                       }
                     ]
                   },
+                  "kind": "http",
                   "method": "GET",
                   "orig": "/orgs/{org}/saml-authentication",
                   "parts": [
@@ -11963,6 +11667,7 @@
                       }
                     ]
                   },
+                  "kind": "http",
                   "method": "PATCH",
                   "orig": "/orgs/{org}/saml-authentication",
                   "parts": [
@@ -12064,6 +11769,7 @@
                       }
                     ]
                   },
+                  "kind": "http",
                   "method": "POST",
                   "orig": "/orgs/{org}/teams/",
                   "parts": [
@@ -12149,6 +11855,7 @@
                       }
                     ]
                   },
+                  "kind": "http",
                   "method": "GET",
                   "orig": "/orgs/{org}/teams/",
                   "parts": [
@@ -12204,6 +11911,7 @@
                       }
                     ]
                   },
+                  "kind": "http",
                   "method": "GET",
                   "orig": "/orgs/{org}/teams/{team}/",
                   "parts": [
@@ -12267,6 +11975,7 @@
                       }
                     ]
                   },
+                  "kind": "http",
                   "method": "PATCH",
                   "orig": "/orgs/{org}/teams/{team}/",
                   "parts": [
@@ -12361,6 +12070,7 @@
                       }
                     ]
                   },
+                  "kind": "http",
                   "method": "POST",
                   "orig": "/orgs/{org}/teams/{team}/members",
                   "parts": [
@@ -12416,6 +12126,7 @@
                       }
                     ]
                   },
+                  "kind": "http",
                   "method": "GET",
                   "orig": "/orgs/{org}/teams/{team}/members",
                   "parts": [
@@ -12439,7 +12150,7 @@
                   },
                   "transform": {
                     "req": "`reqdata`",
-                    "res": "`body`"
+                    "res": "`body.members`"
                   }
                 }
               ]
@@ -12482,22 +12193,6 @@
             ]
           }
         },
-        "p2n2": {
-          "active": true,
-          "alias": {
-            "field": {}
-          },
-          "fields": [],
-          "name": "p2n2",
-          "op": {},
-          "relations": {
-            "ancestors": [
-              [
-                "package"
-              ]
-            ]
-          }
-        },
         "package": {
           "active": true,
           "alias": {
@@ -12506,7 +12201,13 @@
           "fields": [
             {
               "active": true,
-              "name": "architecture",
+              "name": "active",
+              "req": false,
+              "type": "`$INTEGER`"
+            },
+            {
+              "active": true,
+              "name": "architectures",
               "req": false,
               "type": "`$ARRAY`"
             },
@@ -12515,6 +12216,12 @@
               "name": "backend_kind",
               "req": false,
               "type": "`$INTEGER`"
+            },
+            {
+              "active": true,
+              "name": "bandwidth",
+              "req": true,
+              "type": "`$OBJECT`"
             },
             {
               "active": true,
@@ -12596,9 +12303,19 @@
             },
             {
               "active": true,
-              "name": "download",
-              "req": false,
-              "type": "`$INTEGER`"
+              "name": "downloads",
+              "op": {
+                "create": {
+                  "req": false,
+                  "type": "`$INTEGER`"
+                },
+                "list": {
+                  "req": false,
+                  "type": "`$INTEGER`"
+                }
+              },
+              "req": true,
+              "type": "`$OBJECT`"
             },
             {
               "active": true,
@@ -12614,15 +12331,15 @@
             },
             {
               "active": true,
-              "name": "file",
-              "req": false,
-              "type": "`$ARRAY`"
-            },
-            {
-              "active": true,
               "name": "filename",
               "req": false,
               "type": "`$STRING`"
+            },
+            {
+              "active": true,
+              "name": "files",
+              "req": false,
+              "type": "`$ARRAY`"
             },
             {
               "active": true,
@@ -12650,15 +12367,21 @@
             },
             {
               "active": true,
-              "name": "identifier",
+              "name": "identifier_perm",
+              "req": false,
+              "type": "`$STRING`"
+            },
+            {
+              "active": true,
+              "name": "identifiers",
               "req": false,
               "type": "`$OBJECT`"
             },
             {
               "active": true,
-              "name": "identifier_perm",
+              "name": "inactive",
               "req": false,
-              "type": "`$STRING`"
+              "type": "`$INTEGER`"
             },
             {
               "active": true,
@@ -12782,13 +12505,13 @@
             },
             {
               "active": true,
-              "name": "num_download",
+              "name": "num_downloads",
               "req": true,
               "type": "`$INTEGER`"
             },
             {
               "active": true,
-              "name": "num_file",
+              "name": "num_files",
               "req": false,
               "type": "`$INTEGER`"
             },
@@ -12809,12 +12532,6 @@
               "name": "origin_repository_url",
               "req": false,
               "type": "`$STRING`"
-            },
-            {
-              "active": true,
-              "name": "package",
-              "req": true,
-              "type": "`$OBJECT`"
             },
             {
               "active": true,
@@ -12986,7 +12703,7 @@
             },
             {
               "active": true,
-              "name": "tag",
+              "name": "tags",
               "req": false,
               "type": "`$OBJECT`"
             },
@@ -12995,6 +12712,12 @@
               "name": "tags_immutable",
               "req": false,
               "type": "`$OBJECT`"
+            },
+            {
+              "active": true,
+              "name": "total",
+              "req": false,
+              "type": "`$INTEGER`"
             },
             {
               "active": true,
@@ -13085,6 +12808,7 @@
                       }
                     ]
                   },
+                  "kind": "http",
                   "method": "POST",
                   "orig": "/packages/{owner}/{repo}/{identifier}/copy/",
                   "parts": [
@@ -13147,6 +12871,7 @@
                       }
                     ]
                   },
+                  "kind": "http",
                   "method": "POST",
                   "orig": "/packages/{owner}/{repo}/{identifier}/move/",
                   "parts": [
@@ -13209,6 +12934,7 @@
                       }
                     ]
                   },
+                  "kind": "http",
                   "method": "POST",
                   "orig": "/packages/{owner}/{repo}/{identifier}/quarantine/",
                   "parts": [
@@ -13271,6 +12997,7 @@
                       }
                     ]
                   },
+                  "kind": "http",
                   "method": "POST",
                   "orig": "/packages/{owner}/{repo}/{identifier}/tag/",
                   "parts": [
@@ -13325,6 +13052,7 @@
                       }
                     ]
                   },
+                  "kind": "http",
                   "method": "POST",
                   "orig": "/packages/{owner}/{repo}/upload/alpine/",
                   "parts": [
@@ -13378,6 +13106,7 @@
                       }
                     ]
                   },
+                  "kind": "http",
                   "method": "POST",
                   "orig": "/packages/{owner}/{repo}/upload/cargo/",
                   "parts": [
@@ -13431,6 +13160,7 @@
                       }
                     ]
                   },
+                  "kind": "http",
                   "method": "POST",
                   "orig": "/packages/{owner}/{repo}/upload/cocoapods/",
                   "parts": [
@@ -13484,6 +13214,7 @@
                       }
                     ]
                   },
+                  "kind": "http",
                   "method": "POST",
                   "orig": "/packages/{owner}/{repo}/upload/composer/",
                   "parts": [
@@ -13537,6 +13268,7 @@
                       }
                     ]
                   },
+                  "kind": "http",
                   "method": "POST",
                   "orig": "/packages/{owner}/{repo}/upload/conan/",
                   "parts": [
@@ -13590,6 +13322,7 @@
                       }
                     ]
                   },
+                  "kind": "http",
                   "method": "POST",
                   "orig": "/packages/{owner}/{repo}/upload/conda/",
                   "parts": [
@@ -13643,6 +13376,7 @@
                       }
                     ]
                   },
+                  "kind": "http",
                   "method": "POST",
                   "orig": "/packages/{owner}/{repo}/upload/cran/",
                   "parts": [
@@ -13696,6 +13430,7 @@
                       }
                     ]
                   },
+                  "kind": "http",
                   "method": "POST",
                   "orig": "/packages/{owner}/{repo}/upload/dart/",
                   "parts": [
@@ -13749,6 +13484,7 @@
                       }
                     ]
                   },
+                  "kind": "http",
                   "method": "POST",
                   "orig": "/packages/{owner}/{repo}/upload/deb/",
                   "parts": [
@@ -13802,6 +13538,7 @@
                       }
                     ]
                   },
+                  "kind": "http",
                   "method": "POST",
                   "orig": "/packages/{owner}/{repo}/upload/docker/",
                   "parts": [
@@ -13855,6 +13592,7 @@
                       }
                     ]
                   },
+                  "kind": "http",
                   "method": "POST",
                   "orig": "/packages/{owner}/{repo}/upload/go/",
                   "parts": [
@@ -13908,6 +13646,7 @@
                       }
                     ]
                   },
+                  "kind": "http",
                   "method": "POST",
                   "orig": "/packages/{owner}/{repo}/upload/helm/",
                   "parts": [
@@ -13961,6 +13700,7 @@
                       }
                     ]
                   },
+                  "kind": "http",
                   "method": "POST",
                   "orig": "/packages/{owner}/{repo}/upload/hex/",
                   "parts": [
@@ -14014,6 +13754,7 @@
                       }
                     ]
                   },
+                  "kind": "http",
                   "method": "POST",
                   "orig": "/packages/{owner}/{repo}/upload/huggingface/",
                   "parts": [
@@ -14067,6 +13808,7 @@
                       }
                     ]
                   },
+                  "kind": "http",
                   "method": "POST",
                   "orig": "/packages/{owner}/{repo}/upload/luarocks/",
                   "parts": [
@@ -14120,6 +13862,7 @@
                       }
                     ]
                   },
+                  "kind": "http",
                   "method": "POST",
                   "orig": "/packages/{owner}/{repo}/upload/maven/",
                   "parts": [
@@ -14173,6 +13916,7 @@
                       }
                     ]
                   },
+                  "kind": "http",
                   "method": "POST",
                   "orig": "/packages/{owner}/{repo}/upload/npm/",
                   "parts": [
@@ -14226,6 +13970,7 @@
                       }
                     ]
                   },
+                  "kind": "http",
                   "method": "POST",
                   "orig": "/packages/{owner}/{repo}/upload/nuget/",
                   "parts": [
@@ -14279,6 +14024,7 @@
                       }
                     ]
                   },
+                  "kind": "http",
                   "method": "POST",
                   "orig": "/packages/{owner}/{repo}/upload/p2/",
                   "parts": [
@@ -14332,6 +14078,7 @@
                       }
                     ]
                   },
+                  "kind": "http",
                   "method": "POST",
                   "orig": "/packages/{owner}/{repo}/upload/python/",
                   "parts": [
@@ -14385,6 +14132,7 @@
                       }
                     ]
                   },
+                  "kind": "http",
                   "method": "POST",
                   "orig": "/packages/{owner}/{repo}/upload/raw/",
                   "parts": [
@@ -14438,6 +14186,7 @@
                       }
                     ]
                   },
+                  "kind": "http",
                   "method": "POST",
                   "orig": "/packages/{owner}/{repo}/upload/rpm/",
                   "parts": [
@@ -14491,6 +14240,7 @@
                       }
                     ]
                   },
+                  "kind": "http",
                   "method": "POST",
                   "orig": "/packages/{owner}/{repo}/upload/ruby/",
                   "parts": [
@@ -14544,6 +14294,7 @@
                       }
                     ]
                   },
+                  "kind": "http",
                   "method": "POST",
                   "orig": "/packages/{owner}/{repo}/upload/swift/",
                   "parts": [
@@ -14597,6 +14348,7 @@
                       }
                     ]
                   },
+                  "kind": "http",
                   "method": "POST",
                   "orig": "/packages/{owner}/{repo}/upload/terraform/",
                   "parts": [
@@ -14650,6 +14402,7 @@
                       }
                     ]
                   },
+                  "kind": "http",
                   "method": "POST",
                   "orig": "/packages/{owner}/{repo}/upload/vagrant/",
                   "parts": [
@@ -14703,6 +14456,7 @@
                       }
                     ]
                   },
+                  "kind": "http",
                   "method": "POST",
                   "orig": "/packages/{owner}/{repo}/validate-upload/alpine/",
                   "parts": [
@@ -14756,6 +14510,7 @@
                       }
                     ]
                   },
+                  "kind": "http",
                   "method": "POST",
                   "orig": "/packages/{owner}/{repo}/validate-upload/cargo/",
                   "parts": [
@@ -14809,6 +14564,7 @@
                       }
                     ]
                   },
+                  "kind": "http",
                   "method": "POST",
                   "orig": "/packages/{owner}/{repo}/validate-upload/cocoapods/",
                   "parts": [
@@ -14862,6 +14618,7 @@
                       }
                     ]
                   },
+                  "kind": "http",
                   "method": "POST",
                   "orig": "/packages/{owner}/{repo}/validate-upload/composer/",
                   "parts": [
@@ -14915,6 +14672,7 @@
                       }
                     ]
                   },
+                  "kind": "http",
                   "method": "POST",
                   "orig": "/packages/{owner}/{repo}/validate-upload/conan/",
                   "parts": [
@@ -14968,6 +14726,7 @@
                       }
                     ]
                   },
+                  "kind": "http",
                   "method": "POST",
                   "orig": "/packages/{owner}/{repo}/validate-upload/conda/",
                   "parts": [
@@ -15021,6 +14780,7 @@
                       }
                     ]
                   },
+                  "kind": "http",
                   "method": "POST",
                   "orig": "/packages/{owner}/{repo}/validate-upload/cran/",
                   "parts": [
@@ -15074,6 +14834,7 @@
                       }
                     ]
                   },
+                  "kind": "http",
                   "method": "POST",
                   "orig": "/packages/{owner}/{repo}/validate-upload/dart/",
                   "parts": [
@@ -15127,6 +14888,7 @@
                       }
                     ]
                   },
+                  "kind": "http",
                   "method": "POST",
                   "orig": "/packages/{owner}/{repo}/validate-upload/deb/",
                   "parts": [
@@ -15180,6 +14942,7 @@
                       }
                     ]
                   },
+                  "kind": "http",
                   "method": "POST",
                   "orig": "/packages/{owner}/{repo}/validate-upload/docker/",
                   "parts": [
@@ -15233,6 +14996,7 @@
                       }
                     ]
                   },
+                  "kind": "http",
                   "method": "POST",
                   "orig": "/packages/{owner}/{repo}/validate-upload/go/",
                   "parts": [
@@ -15286,6 +15050,7 @@
                       }
                     ]
                   },
+                  "kind": "http",
                   "method": "POST",
                   "orig": "/packages/{owner}/{repo}/validate-upload/helm/",
                   "parts": [
@@ -15339,6 +15104,7 @@
                       }
                     ]
                   },
+                  "kind": "http",
                   "method": "POST",
                   "orig": "/packages/{owner}/{repo}/validate-upload/hex/",
                   "parts": [
@@ -15392,6 +15158,7 @@
                       }
                     ]
                   },
+                  "kind": "http",
                   "method": "POST",
                   "orig": "/packages/{owner}/{repo}/validate-upload/huggingface/",
                   "parts": [
@@ -15445,6 +15212,7 @@
                       }
                     ]
                   },
+                  "kind": "http",
                   "method": "POST",
                   "orig": "/packages/{owner}/{repo}/validate-upload/luarocks/",
                   "parts": [
@@ -15498,6 +15266,7 @@
                       }
                     ]
                   },
+                  "kind": "http",
                   "method": "POST",
                   "orig": "/packages/{owner}/{repo}/validate-upload/maven/",
                   "parts": [
@@ -15551,6 +15320,7 @@
                       }
                     ]
                   },
+                  "kind": "http",
                   "method": "POST",
                   "orig": "/packages/{owner}/{repo}/validate-upload/npm/",
                   "parts": [
@@ -15604,6 +15374,7 @@
                       }
                     ]
                   },
+                  "kind": "http",
                   "method": "POST",
                   "orig": "/packages/{owner}/{repo}/validate-upload/nuget/",
                   "parts": [
@@ -15657,6 +15428,7 @@
                       }
                     ]
                   },
+                  "kind": "http",
                   "method": "POST",
                   "orig": "/packages/{owner}/{repo}/validate-upload/p2/",
                   "parts": [
@@ -15710,6 +15482,7 @@
                       }
                     ]
                   },
+                  "kind": "http",
                   "method": "POST",
                   "orig": "/packages/{owner}/{repo}/validate-upload/python/",
                   "parts": [
@@ -15763,6 +15536,7 @@
                       }
                     ]
                   },
+                  "kind": "http",
                   "method": "POST",
                   "orig": "/packages/{owner}/{repo}/validate-upload/raw/",
                   "parts": [
@@ -15816,6 +15590,7 @@
                       }
                     ]
                   },
+                  "kind": "http",
                   "method": "POST",
                   "orig": "/packages/{owner}/{repo}/validate-upload/rpm/",
                   "parts": [
@@ -15869,6 +15644,7 @@
                       }
                     ]
                   },
+                  "kind": "http",
                   "method": "POST",
                   "orig": "/packages/{owner}/{repo}/validate-upload/ruby/",
                   "parts": [
@@ -15922,6 +15698,7 @@
                       }
                     ]
                   },
+                  "kind": "http",
                   "method": "POST",
                   "orig": "/packages/{owner}/{repo}/validate-upload/swift/",
                   "parts": [
@@ -15975,6 +15752,7 @@
                       }
                     ]
                   },
+                  "kind": "http",
                   "method": "POST",
                   "orig": "/packages/{owner}/{repo}/validate-upload/terraform/",
                   "parts": [
@@ -16028,6 +15806,7 @@
                       }
                     ]
                   },
+                  "kind": "http",
                   "method": "POST",
                   "orig": "/packages/{owner}/{repo}/validate-upload/vagrant/",
                   "parts": [
@@ -16079,6 +15858,7 @@
                       }
                     ]
                   },
+                  "kind": "http",
                   "method": "POST",
                   "orig": "/packages/{owner}/{repo}/{identifier}/resync/",
                   "parts": [
@@ -16130,6 +15910,7 @@
                       }
                     ]
                   },
+                  "kind": "http",
                   "method": "POST",
                   "orig": "/packages/{owner}/{repo}/{identifier}/scan/",
                   "parts": [
@@ -16221,6 +16002,7 @@
                       }
                     ]
                   },
+                  "kind": "http",
                   "method": "GET",
                   "orig": "/packages/{owner}/{repo}/groups/",
                   "parts": [
@@ -16242,7 +16024,7 @@
                   },
                   "transform": {
                     "req": "`reqdata`",
-                    "res": "`body`"
+                    "res": "`body.results`"
                   }
                 },
                 {
@@ -16301,6 +16083,7 @@
                       }
                     ]
                   },
+                  "kind": "http",
                   "method": "GET",
                   "orig": "/packages/{owner}/{repo}/",
                   "parts": [
@@ -16353,6 +16136,7 @@
                       }
                     ]
                   },
+                  "kind": "http",
                   "method": "GET",
                   "orig": "/packages/{owner}/{repo}/{identifier}/",
                   "parts": [
@@ -16403,6 +16187,7 @@
                       }
                     ]
                   },
+                  "kind": "http",
                   "method": "GET",
                   "orig": "/packages/{owner}/{repo}/{identifier}/dependencies/",
                   "parts": [
@@ -16421,7 +16206,7 @@
                   },
                   "transform": {
                     "req": "`reqdata`",
-                    "res": "`body`"
+                    "res": "`body.dependencies`"
                   }
                 }
               ]
@@ -16494,6 +16279,7 @@
                       }
                     ]
                   },
+                  "kind": "http",
                   "method": "GET",
                   "orig": "/metrics/packages/{owner}/{repo}/",
                   "parts": [
@@ -16515,7 +16301,7 @@
                   },
                   "transform": {
                     "req": "`reqdata`",
-                    "res": "`body`"
+                    "res": "`body.packages`"
                   }
                 },
                 {
@@ -16548,6 +16334,7 @@
                       }
                     ]
                   },
+                  "kind": "http",
                   "method": "GET",
                   "orig": "/packages/{owner}/{repo}/{identifier}/status/",
                   "parts": [
@@ -16605,6 +16392,7 @@
                       }
                     ]
                   },
+                  "kind": "http",
                   "method": "DELETE",
                   "orig": "/packages/{owner}/{repo}/{identifier}/",
                   "parts": [
@@ -16727,6 +16515,7 @@
                       }
                     ]
                   },
+                  "kind": "http",
                   "method": "POST",
                   "orig": "/orgs/{org}/deny-policy/",
                   "parts": [
@@ -16788,6 +16577,7 @@
                       }
                     ]
                   },
+                  "kind": "http",
                   "method": "GET",
                   "orig": "/orgs/{org}/deny-policy/",
                   "parts": [
@@ -16840,6 +16630,7 @@
                       }
                     ]
                   },
+                  "kind": "http",
                   "method": "GET",
                   "orig": "/orgs/{org}/deny-policy/{slug_perm}/",
                   "parts": [
@@ -16903,6 +16694,7 @@
                       }
                     ]
                   },
+                  "kind": "http",
                   "method": "PATCH",
                   "orig": "/orgs/{org}/deny-policy/{slug_perm}/",
                   "parts": [
@@ -16967,6 +16759,7 @@
                       }
                     ]
                   },
+                  "kind": "http",
                   "method": "PUT",
                   "orig": "/orgs/{org}/deny-policy/{slug_perm}/",
                   "parts": [
@@ -17083,6 +16876,7 @@
                       }
                     ]
                   },
+                  "kind": "http",
                   "method": "GET",
                   "orig": "/files/{owner}/{repo}/{identifier}/info/",
                   "parts": [
@@ -17169,6 +16963,7 @@
                       }
                     ]
                   },
+                  "kind": "http",
                   "method": "POST",
                   "orig": "/files/{owner}/{repo}/{identifier}/complete/",
                   "parts": [
@@ -17210,7 +17005,19 @@
           "fields": [
             {
               "active": true,
+              "name": "allow_unknown_licenses",
+              "req": false,
+              "type": "`$BOOLEAN`"
+            },
+            {
+              "active": true,
               "name": "created_at",
+              "req": false,
+              "type": "`$STRING`"
+            },
+            {
+              "active": true,
+              "name": "description",
               "req": false,
               "type": "`$STRING`"
             },
@@ -17219,6 +17026,24 @@
               "name": "evaluation_count",
               "req": false,
               "type": "`$INTEGER`"
+            },
+            {
+              "active": true,
+              "name": "name",
+              "req": false,
+              "type": "`$STRING`"
+            },
+            {
+              "active": true,
+              "name": "on_violation_quarantine",
+              "req": false,
+              "type": "`$BOOLEAN`"
+            },
+            {
+              "active": true,
+              "name": "package_query_string",
+              "req": false,
+              "type": "`$STRING`"
             },
             {
               "active": true,
@@ -17234,6 +17059,12 @@
             },
             {
               "active": true,
+              "name": "spdx_identifiers",
+              "req": true,
+              "type": "`$ARRAY`"
+            },
+            {
+              "active": true,
               "name": "status",
               "req": false,
               "type": "`$STRING`"
@@ -17241,6 +17072,12 @@
             {
               "active": true,
               "name": "updated_at",
+              "req": false,
+              "type": "`$STRING`"
+            },
+            {
+              "active": true,
+              "name": "url",
               "req": false,
               "type": "`$STRING`"
             },
@@ -17289,6 +17126,7 @@
                       }
                     ]
                   },
+                  "kind": "http",
                   "method": "POST",
                   "orig": "/orgs/{org}/license-policy/{policy_slug_perm}/evaluation/",
                   "parts": [
@@ -17312,7 +17150,7 @@
                   },
                   "transform": {
                     "req": "`reqdata`",
-                    "res": "`body`"
+                    "res": "`body.policy`"
                   }
                 }
               ]
@@ -17361,6 +17199,7 @@
                       }
                     ]
                   },
+                  "kind": "http",
                   "method": "GET",
                   "orig": "/orgs/{org}/license-policy/{policy_slug_perm}/evaluation/",
                   "parts": [
@@ -17424,6 +17263,7 @@
                       }
                     ]
                   },
+                  "kind": "http",
                   "method": "GET",
                   "orig": "/orgs/{org}/license-policy/{policy_slug_perm}/evaluation/{slug_perm}/",
                   "parts": [
@@ -17450,7 +17290,7 @@
                   },
                   "transform": {
                     "req": "`reqdata`",
-                    "res": "`body`"
+                    "res": "`body.policy`"
                   }
                 }
               ]
@@ -17621,6 +17461,7 @@
                       }
                     ]
                   },
+                  "kind": "http",
                   "method": "GET",
                   "orig": "/badges/version/{owner}/{repo}/{package_format}/{package_name}/{package_version}/{package_identifiers}/",
                   "parts": [
@@ -17683,7 +17524,19 @@
           "fields": [
             {
               "active": true,
+              "name": "allow_unknown_severity",
+              "req": false,
+              "type": "`$BOOLEAN`"
+            },
+            {
+              "active": true,
               "name": "created_at",
+              "req": false,
+              "type": "`$STRING`"
+            },
+            {
+              "active": true,
+              "name": "description",
               "req": false,
               "type": "`$STRING`"
             },
@@ -17692,6 +17545,30 @@
               "name": "evaluation_count",
               "req": false,
               "type": "`$INTEGER`"
+            },
+            {
+              "active": true,
+              "name": "min_severity",
+              "req": false,
+              "type": "`$STRING`"
+            },
+            {
+              "active": true,
+              "name": "name",
+              "req": false,
+              "type": "`$STRING`"
+            },
+            {
+              "active": true,
+              "name": "on_violation_quarantine",
+              "req": false,
+              "type": "`$BOOLEAN`"
+            },
+            {
+              "active": true,
+              "name": "package_query_string",
+              "req": false,
+              "type": "`$STRING`"
             },
             {
               "active": true,
@@ -17714,6 +17591,12 @@
             {
               "active": true,
               "name": "updated_at",
+              "req": false,
+              "type": "`$STRING`"
+            },
+            {
+              "active": true,
+              "name": "url",
               "req": false,
               "type": "`$STRING`"
             },
@@ -17762,6 +17645,7 @@
                       }
                     ]
                   },
+                  "kind": "http",
                   "method": "POST",
                   "orig": "/orgs/{org}/vulnerability-policy/{policy_slug_perm}/evaluation/",
                   "parts": [
@@ -17785,7 +17669,7 @@
                   },
                   "transform": {
                     "req": "`reqdata`",
-                    "res": "`body`"
+                    "res": "`body.policy`"
                   }
                 }
               ]
@@ -17834,6 +17718,7 @@
                       }
                     ]
                   },
+                  "kind": "http",
                   "method": "GET",
                   "orig": "/orgs/{org}/vulnerability-policy/{policy_slug_perm}/evaluation/",
                   "parts": [
@@ -17897,6 +17782,7 @@
                       }
                     ]
                   },
+                  "kind": "http",
                   "method": "GET",
                   "orig": "/orgs/{org}/vulnerability-policy/{policy_slug_perm}/evaluation/{slug_perm}/",
                   "parts": [
@@ -17923,7 +17809,7 @@
                   },
                   "transform": {
                     "req": "`reqdata`",
-                    "res": "`body`"
+                    "res": "`body.policy`"
                   }
                 }
               ]
@@ -17974,7 +17860,7 @@
           "fields": [
             {
               "active": true,
-              "name": "claim",
+              "name": "claims",
               "req": true,
               "type": "`$OBJECT`"
             },
@@ -18004,7 +17890,7 @@
             },
             {
               "active": true,
-              "name": "service_account",
+              "name": "service_accounts",
               "req": false,
               "type": "`$ARRAY`"
             },
@@ -18075,6 +17961,7 @@
                       }
                     ]
                   },
+                  "kind": "http",
                   "method": "GET",
                   "orig": "/orgs/{org}/openid-connect/",
                   "parts": [
@@ -18129,6 +18016,7 @@
                       }
                     ]
                   },
+                  "kind": "http",
                   "method": "GET",
                   "orig": "/orgs/{org}/openid-connect/{slug_perm}/",
                   "parts": [
@@ -18176,13 +18064,13 @@
           "fields": [
             {
               "active": true,
-              "name": "claim",
+              "name": "claims",
               "req": true,
               "type": "`$OBJECT`"
             },
             {
               "active": true,
-              "name": "dynamic_mapping",
+              "name": "dynamic_mappings",
               "req": false,
               "type": "`$ARRAY`"
             },
@@ -18212,7 +18100,7 @@
             },
             {
               "active": true,
-              "name": "service_account",
+              "name": "service_accounts",
               "req": false,
               "type": "`$ARRAY`"
             },
@@ -18259,6 +18147,7 @@
                       }
                     ]
                   },
+                  "kind": "http",
                   "method": "POST",
                   "orig": "/orgs/{org}/openid-connect/",
                   "parts": [
@@ -18320,6 +18209,7 @@
                       }
                     ]
                   },
+                  "kind": "http",
                   "method": "PATCH",
                   "orig": "/orgs/{org}/openid-connect/{slug_perm}/",
                   "parts": [
@@ -18383,6 +18273,7 @@
                       }
                     ]
                   },
+                  "kind": "http",
                   "method": "PUT",
                   "orig": "/orgs/{org}/openid-connect/{slug_perm}/",
                   "parts": [
@@ -18576,6 +18467,7 @@
                       }
                     ]
                   },
+                  "kind": "http",
                   "method": "POST",
                   "orig": "/repos/{owner}/{identifier}/upstream/python/",
                   "parts": [
@@ -18643,6 +18535,7 @@
                       }
                     ]
                   },
+                  "kind": "http",
                   "method": "GET",
                   "orig": "/repos/{owner}/{identifier}/upstream/python/",
                   "parts": [
@@ -18701,6 +18594,7 @@
                       }
                     ]
                   },
+                  "kind": "http",
                   "method": "GET",
                   "orig": "/repos/{owner}/{identifier}/upstream/python/{slug_perm}/",
                   "parts": [
@@ -18774,6 +18668,7 @@
                       }
                     ]
                   },
+                  "kind": "http",
                   "method": "PATCH",
                   "orig": "/repos/{owner}/{identifier}/upstream/python/{slug_perm}/",
                   "parts": [
@@ -18848,6 +18743,7 @@
                       }
                     ]
                   },
+                  "kind": "http",
                   "method": "PUT",
                   "orig": "/repos/{owner}/{identifier}/upstream/python/{slug_perm}/",
                   "parts": [
@@ -18914,13 +18810,19 @@
           "fields": [
             {
               "active": true,
+              "name": "display",
+              "req": true,
+              "type": "`$OBJECT`"
+            },
+            {
+              "active": true,
               "name": "history",
               "req": true,
               "type": "`$ARRAY`"
             },
             {
               "active": true,
-              "name": "usage",
+              "name": "raw",
               "req": true,
               "type": "`$OBJECT`"
             }
@@ -18945,6 +18847,7 @@
                       }
                     ]
                   },
+                  "kind": "http",
                   "method": "GET",
                   "orig": "/quota/{owner}/",
                   "parts": [
@@ -18963,7 +18866,7 @@
                   },
                   "transform": {
                     "req": "`reqdata`",
-                    "res": "`body`"
+                    "res": "`body.usage`"
                   }
                 },
                 {
@@ -18980,6 +18883,7 @@
                       }
                     ]
                   },
+                  "kind": "http",
                   "method": "GET",
                   "orig": "/quota/history/{owner}/",
                   "parts": [
@@ -19011,6 +18915,7 @@
                       }
                     ]
                   },
+                  "kind": "http",
                   "method": "GET",
                   "orig": "/quota/oss/history/{owner}/",
                   "parts": [
@@ -19043,6 +18948,7 @@
                       }
                     ]
                   },
+                  "kind": "http",
                   "method": "GET",
                   "orig": "/quota/oss/{owner}/",
                   "parts": [
@@ -19057,7 +18963,7 @@
                   },
                   "transform": {
                     "req": "`reqdata`",
-                    "res": "`body`"
+                    "res": "`body.usage`"
                   }
                 }
               ]
@@ -19154,7 +19060,7 @@
             },
             {
               "active": true,
-              "name": "copy_package",
+              "name": "copy_packages",
               "req": false,
               "type": "`$STRING`"
             },
@@ -19184,7 +19090,7 @@
             },
             {
               "active": true,
-              "name": "delete_package",
+              "name": "delete_packages",
               "req": false,
               "type": "`$STRING`"
             },
@@ -19202,7 +19108,7 @@
             },
             {
               "active": true,
-              "name": "distribute",
+              "name": "distributes",
               "req": false,
               "type": "`$ARRAY`"
             },
@@ -19214,7 +19120,7 @@
             },
             {
               "active": true,
-              "name": "ecdsa_key",
+              "name": "ecdsa_keys",
               "req": false,
               "type": "`$ARRAY`"
             },
@@ -19226,13 +19132,13 @@
             },
             {
               "active": true,
-              "name": "gpg_key",
+              "name": "gpg_keys",
               "req": false,
               "type": "`$ARRAY`"
             },
             {
               "active": true,
-              "name": "index_file",
+              "name": "index_files",
               "req": false,
               "type": "`$BOOLEAN`"
             },
@@ -19268,7 +19174,7 @@
             },
             {
               "active": true,
-              "name": "move_package",
+              "name": "move_packages",
               "req": false,
               "type": "`$STRING`"
             },
@@ -19298,19 +19204,19 @@
             },
             {
               "active": true,
-              "name": "num_download",
+              "name": "num_downloads",
               "req": false,
               "type": "`$INTEGER`"
             },
             {
               "active": true,
-              "name": "num_policy_violated_package",
+              "name": "num_policy_violated_packages",
               "req": false,
               "type": "`$INTEGER`"
             },
             {
               "active": true,
-              "name": "num_quarantined_package",
+              "name": "num_quarantined_packages",
               "req": false,
               "type": "`$INTEGER`"
             },
@@ -19340,7 +19246,7 @@
             },
             {
               "active": true,
-              "name": "proxy_npmj",
+              "name": "proxy_npmjs",
               "req": false,
               "type": "`$BOOLEAN`"
             },
@@ -19364,7 +19270,7 @@
             },
             {
               "active": true,
-              "name": "replace_package",
+              "name": "replace_packages",
               "req": false,
               "type": "`$STRING`"
             },
@@ -19394,7 +19300,7 @@
             },
             {
               "active": true,
-              "name": "resync_package",
+              "name": "resync_packages",
               "req": false,
               "type": "`$STRING`"
             },
@@ -19406,7 +19312,7 @@
             },
             {
               "active": true,
-              "name": "scan_package",
+              "name": "scan_packages",
               "req": false,
               "type": "`$STRING`"
             },
@@ -19472,7 +19378,7 @@
             },
             {
               "active": true,
-              "name": "use_debian_label",
+              "name": "use_debian_labels",
               "req": false,
               "type": "`$BOOLEAN`"
             },
@@ -19490,13 +19396,13 @@
             },
             {
               "active": true,
-              "name": "use_noarch_package",
+              "name": "use_noarch_packages",
               "req": false,
               "type": "`$BOOLEAN`"
             },
             {
               "active": true,
-              "name": "use_source_package",
+              "name": "use_source_packages",
               "req": false,
               "type": "`$BOOLEAN`"
             },
@@ -19514,7 +19420,7 @@
             },
             {
               "active": true,
-              "name": "view_statistic",
+              "name": "view_statistics",
               "req": false,
               "type": "`$STRING`"
             }
@@ -19557,6 +19463,7 @@
                       }
                     ]
                   },
+                  "kind": "http",
                   "method": "POST",
                   "orig": "/repos/{owner}/{identifier}/geoip/disable/",
                   "parts": [
@@ -19610,6 +19517,7 @@
                       }
                     ]
                   },
+                  "kind": "http",
                   "method": "POST",
                   "orig": "/repos/{owner}/{identifier}/geoip/enable/",
                   "parts": [
@@ -19663,6 +19571,7 @@
                       }
                     ]
                   },
+                  "kind": "http",
                   "method": "POST",
                   "orig": "/repos/{owner}/{repo}/transfer-region/",
                   "parts": [
@@ -19708,6 +19617,7 @@
                       }
                     ]
                   },
+                  "kind": "http",
                   "method": "POST",
                   "orig": "/repos/{owner}/",
                   "parts": [
@@ -19758,6 +19668,7 @@
                       }
                     ]
                   },
+                  "kind": "http",
                   "method": "GET",
                   "orig": "/repos/{owner}/{identifier}/",
                   "parts": [
@@ -19798,6 +19709,7 @@
                       }
                     ]
                   },
+                  "kind": "http",
                   "method": "GET",
                   "orig": "/repos/",
                   "parts": [
@@ -19852,6 +19764,7 @@
                       }
                     ]
                   },
+                  "kind": "http",
                   "method": "GET",
                   "orig": "/repos/{owner}/",
                   "parts": [
@@ -19913,6 +19826,7 @@
                       }
                     ]
                   },
+                  "kind": "http",
                   "method": "PATCH",
                   "orig": "/repos/{owner}/{identifier}/",
                   "parts": [
@@ -19964,6 +19878,7 @@
                       }
                     ]
                   },
+                  "kind": "http",
                   "method": "PATCH",
                   "orig": "/repos/{owner}/{identifier}/privileges",
                   "parts": [
@@ -20020,6 +19935,7 @@
                       }
                     ]
                   },
+                  "kind": "http",
                   "method": "DELETE",
                   "orig": "/repos/{owner}/{identifier}/upstream/cargo/{slug_perm}/",
                   "parts": [
@@ -20072,6 +19988,7 @@
                       }
                     ]
                   },
+                  "kind": "http",
                   "method": "DELETE",
                   "orig": "/repos/{owner}/{identifier}/upstream/composer/{slug_perm}/",
                   "parts": [
@@ -20124,6 +20041,7 @@
                       }
                     ]
                   },
+                  "kind": "http",
                   "method": "DELETE",
                   "orig": "/repos/{owner}/{identifier}/upstream/conda/{slug_perm}/",
                   "parts": [
@@ -20176,6 +20094,7 @@
                       }
                     ]
                   },
+                  "kind": "http",
                   "method": "DELETE",
                   "orig": "/repos/{owner}/{identifier}/upstream/cran/{slug_perm}/",
                   "parts": [
@@ -20228,6 +20147,7 @@
                       }
                     ]
                   },
+                  "kind": "http",
                   "method": "DELETE",
                   "orig": "/repos/{owner}/{identifier}/upstream/dart/{slug_perm}/",
                   "parts": [
@@ -20280,6 +20200,7 @@
                       }
                     ]
                   },
+                  "kind": "http",
                   "method": "DELETE",
                   "orig": "/repos/{owner}/{identifier}/upstream/deb/{slug_perm}/",
                   "parts": [
@@ -20332,6 +20253,7 @@
                       }
                     ]
                   },
+                  "kind": "http",
                   "method": "DELETE",
                   "orig": "/repos/{owner}/{identifier}/upstream/docker/{slug_perm}/",
                   "parts": [
@@ -20384,6 +20306,7 @@
                       }
                     ]
                   },
+                  "kind": "http",
                   "method": "DELETE",
                   "orig": "/repos/{owner}/{identifier}/upstream/go/{slug_perm}/",
                   "parts": [
@@ -20436,6 +20359,7 @@
                       }
                     ]
                   },
+                  "kind": "http",
                   "method": "DELETE",
                   "orig": "/repos/{owner}/{identifier}/upstream/helm/{slug_perm}/",
                   "parts": [
@@ -20488,6 +20412,7 @@
                       }
                     ]
                   },
+                  "kind": "http",
                   "method": "DELETE",
                   "orig": "/repos/{owner}/{identifier}/upstream/hex/{slug_perm}/",
                   "parts": [
@@ -20540,6 +20465,7 @@
                       }
                     ]
                   },
+                  "kind": "http",
                   "method": "DELETE",
                   "orig": "/repos/{owner}/{identifier}/upstream/huggingface/{slug_perm}/",
                   "parts": [
@@ -20592,6 +20518,7 @@
                       }
                     ]
                   },
+                  "kind": "http",
                   "method": "DELETE",
                   "orig": "/repos/{owner}/{identifier}/upstream/maven/{slug_perm}/",
                   "parts": [
@@ -20644,6 +20571,7 @@
                       }
                     ]
                   },
+                  "kind": "http",
                   "method": "DELETE",
                   "orig": "/repos/{owner}/{identifier}/upstream/npm/{slug_perm}/",
                   "parts": [
@@ -20696,6 +20624,7 @@
                       }
                     ]
                   },
+                  "kind": "http",
                   "method": "DELETE",
                   "orig": "/repos/{owner}/{identifier}/upstream/nuget/{slug_perm}/",
                   "parts": [
@@ -20748,6 +20677,7 @@
                       }
                     ]
                   },
+                  "kind": "http",
                   "method": "DELETE",
                   "orig": "/repos/{owner}/{identifier}/upstream/python/{slug_perm}/",
                   "parts": [
@@ -20800,6 +20730,7 @@
                       }
                     ]
                   },
+                  "kind": "http",
                   "method": "DELETE",
                   "orig": "/repos/{owner}/{identifier}/upstream/rpm/{slug_perm}/",
                   "parts": [
@@ -20852,6 +20783,7 @@
                       }
                     ]
                   },
+                  "kind": "http",
                   "method": "DELETE",
                   "orig": "/repos/{owner}/{identifier}/upstream/ruby/{slug_perm}/",
                   "parts": [
@@ -20904,6 +20836,7 @@
                       }
                     ]
                   },
+                  "kind": "http",
                   "method": "DELETE",
                   "orig": "/repos/{owner}/{identifier}/upstream/swift/{slug_perm}/",
                   "parts": [
@@ -20948,6 +20881,7 @@
                       }
                     ]
                   },
+                  "kind": "http",
                   "method": "DELETE",
                   "orig": "/repos/{owner}/{identifier}/",
                   "parts": [
@@ -21004,6 +20938,7 @@
                       }
                     ]
                   },
+                  "kind": "http",
                   "method": "PUT",
                   "orig": "/repos/{owner}/{identifier}/privileges",
                   "parts": [
@@ -21246,6 +21181,7 @@
                       }
                     ]
                   },
+                  "kind": "http",
                   "method": "GET",
                   "orig": "/audit-log/{owner}/{repo}/",
                   "parts": [
@@ -21365,6 +21301,7 @@
                       }
                     ]
                   },
+                  "kind": "http",
                   "method": "POST",
                   "orig": "/repos/{owner}/{identifier}/ecdsa/",
                   "parts": [
@@ -21407,6 +21344,7 @@
                       }
                     ]
                   },
+                  "kind": "http",
                   "method": "POST",
                   "orig": "/repos/{owner}/{identifier}/ecdsa/regenerate/",
                   "parts": [
@@ -21455,6 +21393,7 @@
                       }
                     ]
                   },
+                  "kind": "http",
                   "method": "GET",
                   "orig": "/repos/{owner}/{identifier}/ecdsa/",
                   "parts": [
@@ -21532,6 +21471,7 @@
                       }
                     ]
                   },
+                  "kind": "http",
                   "method": "GET",
                   "orig": "/repos/{owner}/{identifier}/geoip",
                   "parts": [
@@ -21589,6 +21529,7 @@
                       }
                     ]
                   },
+                  "kind": "http",
                   "method": "PATCH",
                   "orig": "/repos/{owner}/{identifier}/geoip",
                   "parts": [
@@ -21647,6 +21588,7 @@
                       }
                     ]
                   },
+                  "kind": "http",
                   "method": "PUT",
                   "orig": "/repos/{owner}/{identifier}/geoip",
                   "parts": [
@@ -21719,6 +21661,7 @@
                       }
                     ]
                   },
+                  "kind": "http",
                   "method": "GET",
                   "orig": "/repos/{owner}/{identifier}/geoip/status/",
                   "parts": [
@@ -21794,6 +21737,7 @@
                       }
                     ]
                   },
+                  "kind": "http",
                   "method": "POST",
                   "orig": "/repos/{owner}/{identifier}/geoip/test/",
                   "parts": [
@@ -21913,6 +21857,7 @@
                       }
                     ]
                   },
+                  "kind": "http",
                   "method": "POST",
                   "orig": "/repos/{owner}/{identifier}/gpg/",
                   "parts": [
@@ -21955,6 +21900,7 @@
                       }
                     ]
                   },
+                  "kind": "http",
                   "method": "POST",
                   "orig": "/repos/{owner}/{identifier}/gpg/regenerate/",
                   "parts": [
@@ -22003,6 +21949,7 @@
                       }
                     ]
                   },
+                  "kind": "http",
                   "method": "GET",
                   "orig": "/repos/{owner}/{identifier}/gpg/",
                   "parts": [
@@ -22110,6 +22057,7 @@
                       }
                     ]
                   },
+                  "kind": "http",
                   "method": "GET",
                   "orig": "/repos/{owner}/{identifier}/privileges",
                   "parts": [
@@ -22128,7 +22076,7 @@
                   },
                   "transform": {
                     "req": "`reqdata`",
-                    "res": "`body`"
+                    "res": "`body.privileges`"
                   }
                 }
               ]
@@ -22225,6 +22173,7 @@
                       }
                     ]
                   },
+                  "kind": "http",
                   "method": "GET",
                   "orig": "/repos/{owner}/{repo}/retention/",
                   "parts": [
@@ -22282,6 +22231,7 @@
                       }
                     ]
                   },
+                  "kind": "http",
                   "method": "PATCH",
                   "orig": "/repos/{owner}/{repo}/retention/",
                   "parts": [
@@ -22400,6 +22350,7 @@
                       }
                     ]
                   },
+                  "kind": "http",
                   "method": "POST",
                   "orig": "/repos/{owner}/{identifier}/rsa/",
                   "parts": [
@@ -22442,6 +22393,7 @@
                       }
                     ]
                   },
+                  "kind": "http",
                   "method": "POST",
                   "orig": "/repos/{owner}/{identifier}/rsa/regenerate/",
                   "parts": [
@@ -22490,6 +22442,7 @@
                       }
                     ]
                   },
+                  "kind": "http",
                   "method": "GET",
                   "orig": "/repos/{owner}/{identifier}/rsa/",
                   "parts": [
@@ -22528,7 +22481,7 @@
           "fields": [
             {
               "active": true,
-              "name": "client",
+              "name": "clients",
               "req": false,
               "type": "`$INTEGER`"
             },
@@ -22564,7 +22517,7 @@
             },
             {
               "active": true,
-              "name": "download",
+              "name": "downloads",
               "req": false,
               "type": "`$INTEGER`"
             },
@@ -22600,7 +22553,7 @@
             },
             {
               "active": true,
-              "name": "has_limit",
+              "name": "has_limits",
               "req": false,
               "type": "`$BOOLEAN`"
             },
@@ -22648,13 +22601,13 @@
             },
             {
               "active": true,
-              "name": "limit_num_client",
+              "name": "limit_num_clients",
               "req": false,
               "type": "`$INTEGER`"
             },
             {
               "active": true,
-              "name": "limit_num_download",
+              "name": "limit_num_downloads",
               "req": false,
               "type": "`$INTEGER`"
             },
@@ -22807,6 +22760,7 @@
                       }
                     ]
                   },
+                  "kind": "http",
                   "method": "POST",
                   "orig": "/entitlements/{owner}/{repo}/",
                   "parts": [
@@ -22905,6 +22859,7 @@
                       }
                     ]
                   },
+                  "kind": "http",
                   "method": "GET",
                   "orig": "/entitlements/{owner}/{repo}/",
                   "parts": [
@@ -22983,6 +22938,7 @@
                       }
                     ]
                   },
+                  "kind": "http",
                   "method": "GET",
                   "orig": "/entitlements/{owner}/{repo}/{identifier}/",
                   "parts": [
@@ -23059,6 +23015,7 @@
                       }
                     ]
                   },
+                  "kind": "http",
                   "method": "PATCH",
                   "orig": "/entitlements/{owner}/{repo}/{identifier}/",
                   "parts": [
@@ -23100,7 +23057,7 @@
           "fields": [
             {
               "active": true,
-              "name": "client",
+              "name": "clients",
               "req": false,
               "type": "`$INTEGER`"
             },
@@ -23136,7 +23093,7 @@
             },
             {
               "active": true,
-              "name": "download",
+              "name": "downloads",
               "req": false,
               "type": "`$INTEGER`"
             },
@@ -23172,7 +23129,7 @@
             },
             {
               "active": true,
-              "name": "has_limit",
+              "name": "has_limits",
               "req": false,
               "type": "`$BOOLEAN`"
             },
@@ -23220,13 +23177,13 @@
             },
             {
               "active": true,
-              "name": "limit_num_client",
+              "name": "limit_num_clients",
               "req": false,
               "type": "`$INTEGER`"
             },
             {
               "active": true,
-              "name": "limit_num_download",
+              "name": "limit_num_downloads",
               "req": false,
               "type": "`$INTEGER`"
             },
@@ -23387,6 +23344,7 @@
                       }
                     ]
                   },
+                  "kind": "http",
                   "method": "POST",
                   "orig": "/entitlements/{owner}/{repo}/{identifier}/refresh/",
                   "parts": [
@@ -23429,7 +23387,7 @@
           "fields": [
             {
               "active": true,
-              "name": "token",
+              "name": "tokens",
               "req": false,
               "type": "`$ARRAY`"
             }
@@ -23480,6 +23438,7 @@
                       }
                     ]
                   },
+                  "kind": "http",
                   "method": "POST",
                   "orig": "/entitlements/{owner}/{repo}/sync/",
                   "parts": [
@@ -23551,6 +23510,12 @@
             {
               "active": true,
               "name": "event",
+              "req": true,
+              "type": "`$STRING`"
+            },
+            {
+              "active": true,
+              "name": "events",
               "req": true,
               "type": "`$ARRAY`"
             },
@@ -23653,12 +23618,12 @@
             {
               "active": true,
               "name": "template",
-              "op": {
-                "list": {
-                  "req": false,
-                  "type": "`$STRING`"
-                }
-              },
+              "req": false,
+              "type": "`$STRING`"
+            },
+            {
+              "active": true,
+              "name": "templates",
               "req": true,
               "type": "`$ARRAY`"
             },
@@ -23725,6 +23690,7 @@
                       }
                     ]
                   },
+                  "kind": "http",
                   "method": "POST",
                   "orig": "/webhooks/{owner}/{repo}/",
                   "parts": [
@@ -23790,6 +23756,7 @@
                       }
                     ]
                   },
+                  "kind": "http",
                   "method": "GET",
                   "orig": "/webhooks/{owner}/{repo}/",
                   "parts": [
@@ -23840,6 +23807,7 @@
                       }
                     ]
                   },
+                  "kind": "http",
                   "method": "GET",
                   "orig": "/webhooks/{owner}/{repo}/{identifier}/",
                   "parts": [
@@ -23906,6 +23874,7 @@
                       }
                     ]
                   },
+                  "kind": "http",
                   "method": "PATCH",
                   "orig": "/webhooks/{owner}/{repo}/{identifier}/",
                   "parts": [
@@ -24033,6 +24002,7 @@
                       }
                     ]
                   },
+                  "kind": "http",
                   "method": "GET",
                   "orig": "/repos/{owner}/{identifier}/x509-ecdsa/",
                   "parts": [
@@ -24158,6 +24128,7 @@
                       }
                     ]
                   },
+                  "kind": "http",
                   "method": "GET",
                   "orig": "/repos/{owner}/{identifier}/x509-rsa/",
                   "parts": [
@@ -24212,9 +24183,39 @@
           "fields": [
             {
               "active": true,
-              "name": "resource",
+              "name": "interval",
               "req": false,
-              "type": "`$OBJECT`"
+              "type": "`$NUMBER`"
+            },
+            {
+              "active": true,
+              "name": "limit",
+              "req": false,
+              "type": "`$INTEGER`"
+            },
+            {
+              "active": true,
+              "name": "remaining",
+              "req": false,
+              "type": "`$INTEGER`"
+            },
+            {
+              "active": true,
+              "name": "reset",
+              "req": false,
+              "type": "`$INTEGER`"
+            },
+            {
+              "active": true,
+              "name": "reset_iso_8601",
+              "req": false,
+              "type": "`$STRING`"
+            },
+            {
+              "active": true,
+              "name": "throttled",
+              "req": false,
+              "type": "`$BOOLEAN`"
             }
           ],
           "name": "resources_rate_check",
@@ -24226,6 +24227,7 @@
                 {
                   "active": true,
                   "args": {},
+                  "kind": "http",
                   "method": "GET",
                   "orig": "/rates/limits/",
                   "parts": [
@@ -24235,7 +24237,7 @@
                   "select": {},
                   "transform": {
                     "req": "`reqdata`",
-                    "res": "`body`"
+                    "res": "`body.resources`"
                   }
                 }
               ]
@@ -24363,7 +24365,7 @@
             },
             {
               "active": true,
-              "name": "include_source",
+              "name": "include_sources",
               "req": false,
               "type": "`$BOOLEAN`"
             },
@@ -24466,6 +24468,7 @@
                       }
                     ]
                   },
+                  "kind": "http",
                   "method": "POST",
                   "orig": "/repos/{owner}/{identifier}/upstream/rpm/",
                   "parts": [
@@ -24533,6 +24536,7 @@
                       }
                     ]
                   },
+                  "kind": "http",
                   "method": "GET",
                   "orig": "/repos/{owner}/{identifier}/upstream/rpm/",
                   "parts": [
@@ -24591,6 +24595,7 @@
                       }
                     ]
                   },
+                  "kind": "http",
                   "method": "GET",
                   "orig": "/repos/{owner}/{identifier}/upstream/rpm/{slug_perm}/",
                   "parts": [
@@ -24664,6 +24669,7 @@
                       }
                     ]
                   },
+                  "kind": "http",
                   "method": "PATCH",
                   "orig": "/repos/{owner}/{identifier}/upstream/rpm/{slug_perm}/",
                   "parts": [
@@ -24738,6 +24744,7 @@
                       }
                     ]
                   },
+                  "kind": "http",
                   "method": "PUT",
                   "orig": "/repos/{owner}/{identifier}/upstream/rpm/{slug_perm}/",
                   "parts": [
@@ -24949,6 +24956,7 @@
                       }
                     ]
                   },
+                  "kind": "http",
                   "method": "POST",
                   "orig": "/repos/{owner}/{identifier}/upstream/ruby/",
                   "parts": [
@@ -25016,6 +25024,7 @@
                       }
                     ]
                   },
+                  "kind": "http",
                   "method": "GET",
                   "orig": "/repos/{owner}/{identifier}/upstream/ruby/",
                   "parts": [
@@ -25074,6 +25083,7 @@
                       }
                     ]
                   },
+                  "kind": "http",
                   "method": "GET",
                   "orig": "/repos/{owner}/{identifier}/upstream/ruby/{slug_perm}/",
                   "parts": [
@@ -25147,6 +25157,7 @@
                       }
                     ]
                   },
+                  "kind": "http",
                   "method": "PATCH",
                   "orig": "/repos/{owner}/{identifier}/upstream/ruby/{slug_perm}/",
                   "parts": [
@@ -25221,6 +25232,7 @@
                       }
                     ]
                   },
+                  "kind": "http",
                   "method": "PUT",
                   "orig": "/repos/{owner}/{identifier}/upstream/ruby/{slug_perm}/",
                   "parts": [
@@ -25369,7 +25381,7 @@
             },
             {
               "active": true,
-              "name": "team",
+              "name": "teams",
               "req": false,
               "type": "`$ARRAY`"
             }
@@ -25404,6 +25416,7 @@
                       }
                     ]
                   },
+                  "kind": "http",
                   "method": "POST",
                   "orig": "/orgs/{org}/services/",
                   "parts": [
@@ -25449,6 +25462,7 @@
                       }
                     ]
                   },
+                  "kind": "http",
                   "method": "POST",
                   "orig": "/orgs/{org}/services/{service}/refresh/",
                   "parts": [
@@ -25530,6 +25544,7 @@
                       }
                     ]
                   },
+                  "kind": "http",
                   "method": "GET",
                   "orig": "/orgs/{org}/services/",
                   "parts": [
@@ -25584,6 +25599,7 @@
                       }
                     ]
                   },
+                  "kind": "http",
                   "method": "GET",
                   "orig": "/orgs/{org}/services/{service}/",
                   "parts": [
@@ -25647,6 +25663,7 @@
                       }
                     ]
                   },
+                  "kind": "http",
                   "method": "PATCH",
                   "orig": "/orgs/{org}/services/{service}/",
                   "parts": [
@@ -25734,6 +25751,7 @@
                 {
                   "active": true,
                   "args": {},
+                  "kind": "http",
                   "method": "GET",
                   "orig": "/status/check/basic/",
                   "parts": [
@@ -25782,6 +25800,7 @@
                 {
                   "active": true,
                   "args": {},
+                  "kind": "http",
                   "method": "GET",
                   "orig": "/storage-regions/",
                   "parts": [
@@ -25813,6 +25832,7 @@
                       }
                     ]
                   },
+                  "kind": "http",
                   "method": "GET",
                   "orig": "/storage-regions/{slug}/",
                   "parts": [
@@ -25994,6 +26014,7 @@
                       }
                     ]
                   },
+                  "kind": "http",
                   "method": "POST",
                   "orig": "/repos/{owner}/{identifier}/upstream/swift/",
                   "parts": [
@@ -26061,6 +26082,7 @@
                       }
                     ]
                   },
+                  "kind": "http",
                   "method": "GET",
                   "orig": "/repos/{owner}/{identifier}/upstream/swift/",
                   "parts": [
@@ -26119,6 +26141,7 @@
                       }
                     ]
                   },
+                  "kind": "http",
                   "method": "GET",
                   "orig": "/repos/{owner}/{identifier}/upstream/swift/{slug_perm}/",
                   "parts": [
@@ -26192,6 +26215,7 @@
                       }
                     ]
                   },
+                  "kind": "http",
                   "method": "PATCH",
                   "orig": "/repos/{owner}/{identifier}/upstream/swift/{slug_perm}/",
                   "parts": [
@@ -26266,6 +26290,7 @@
                       }
                     ]
                   },
+                  "kind": "http",
                   "method": "PUT",
                   "orig": "/repos/{owner}/{identifier}/upstream/swift/{slug_perm}/",
                   "parts": [
@@ -26473,6 +26498,7 @@
                       }
                     ]
                   },
+                  "kind": "http",
                   "method": "GET",
                   "orig": "/user/tokens/",
                   "parts": [
@@ -26488,7 +26514,7 @@
                   },
                   "transform": {
                     "req": "`reqdata`",
-                    "res": "`body`"
+                    "res": "`body.results`"
                   }
                 }
               ]
@@ -26524,6 +26550,7 @@
                       }
                     ]
                   },
+                  "kind": "http",
                   "method": "POST",
                   "orig": "/user/token/",
                   "parts": [
@@ -26581,6 +26608,7 @@
                 {
                   "active": true,
                   "args": {},
+                  "kind": "http",
                   "method": "POST",
                   "orig": "/user/tokens/",
                   "parts": [
@@ -26613,6 +26641,7 @@
                       }
                     ]
                   },
+                  "kind": "http",
                   "method": "PUT",
                   "orig": "/user/tokens/{slug_perm}/refresh/",
                   "parts": [
@@ -26700,6 +26729,7 @@
                 {
                   "active": true,
                   "args": {},
+                  "kind": "http",
                   "method": "GET",
                   "orig": "/user/self/",
                   "parts": [
@@ -26806,6 +26836,7 @@
                       }
                     ]
                   },
+                  "kind": "http",
                   "method": "GET",
                   "orig": "/users/profile/{slug}/",
                   "parts": [
@@ -26897,7 +26928,7 @@
             },
             {
               "active": true,
-              "name": "has_vulnerability",
+              "name": "has_vulnerabilities",
               "req": false,
               "type": "`$BOOLEAN`"
             },
@@ -26915,7 +26946,7 @@
             },
             {
               "active": true,
-              "name": "num_vulnerability",
+              "name": "num_vulnerabilities",
               "req": false,
               "type": "`$INTEGER`"
             },
@@ -26927,7 +26958,7 @@
             },
             {
               "active": true,
-              "name": "result",
+              "name": "results",
               "req": true,
               "type": "`$ARRAY`"
             },
@@ -27004,6 +27035,7 @@
                       }
                     ]
                   },
+                  "kind": "http",
                   "method": "GET",
                   "orig": "/vulnerabilities/{owner}/{repo}/{package}/",
                   "parts": [
@@ -27064,6 +27096,7 @@
                       }
                     ]
                   },
+                  "kind": "http",
                   "method": "GET",
                   "orig": "/vulnerabilities/{owner}/{repo}/{package}/{identifier}/",
                   "parts": [
@@ -27126,6 +27159,7 @@
                       }
                     ]
                   },
+                  "kind": "http",
                   "method": "GET",
                   "orig": "/vulnerabilities/{owner}/{repo}/",
                   "parts": [
@@ -27184,6 +27218,7 @@
                       }
                     ]
                   },
+                  "kind": "http",
                   "method": "GET",
                   "orig": "/vulnerabilities/{owner}/",
                   "parts": [
@@ -27280,6 +27315,7 @@
                       }
                     ]
                   },
+                  "kind": "http",
                   "method": "DELETE",
                   "orig": "/webhooks/{owner}/{repo}/{identifier}/",
                   "parts": [
@@ -28455,23 +28491,28 @@
           "param": {},
           "step": []
         },
-        "BasicGon2Flow": {
+        "BasicGonFlow": {
           "active": true,
-          "entity": "gon2",
-          "key$": "BasicGon2Flow",
+          "entity": "gon",
+          "key$": "BasicGonFlow",
           "kind": "basic",
-          "name": "BasicGon2Flow",
-          "param": {},
-          "step": []
-        },
-        "BasicGon3Flow": {
-          "active": true,
-          "entity": "gon3",
-          "key$": "BasicGon3Flow",
-          "kind": "basic",
-          "name": "BasicGon3Flow",
+          "name": "BasicGonFlow",
           "param": {},
           "step": [
+            {
+              "active": true,
+              "data": {},
+              "input": {
+                "ref": "gon_ref01"
+              },
+              "match": {
+                "identifier": "identifier01",
+                "owner": "owner01"
+              },
+              "op": "create",
+              "spec": [],
+              "valid": []
+            },
             {
               "active": true,
               "data": {},
@@ -28486,64 +28527,45 @@
                 {
                   "apply": "ItemExists",
                   "def": {
-                    "ref": "gon3_ref01"
+                    "ref": "gon_ref01"
                   }
                 }
               ]
-            }
-          ]
-        },
-        "BasicGon4Flow": {
-          "active": true,
-          "entity": "gon4",
-          "key$": "BasicGon4Flow",
-          "kind": "basic",
-          "name": "BasicGon4Flow",
-          "param": {},
-          "step": []
-        },
-        "BasicGon5Flow": {
-          "active": true,
-          "entity": "gon5",
-          "key$": "BasicGon5Flow",
-          "kind": "basic",
-          "name": "BasicGon5Flow",
-          "param": {},
-          "step": [
+            },
             {
               "active": true,
-              "data": {},
-              "input": {
-                "ref": "gon5_ref01"
-              },
-              "match": {
+              "data": {
                 "identifier": "identifier01",
                 "owner": "owner01"
               },
-              "op": "create",
-              "spec": [],
+              "input": {
+                "ref": "gon_ref01",
+                "srcdatavar": "gon_ref01_data",
+                "suffix": "_up0",
+                "textfield": "auth_mode"
+              },
+              "match": {},
+              "op": "update",
+              "spec": [
+                {
+                  "apply": "TextFieldMark",
+                  "def": {
+                    "mark": "Mark01-gon_ref01"
+                  }
+                }
+              ],
               "valid": []
-            }
-          ]
-        },
-        "BasicGon6Flow": {
-          "active": true,
-          "entity": "gon6",
-          "key$": "BasicGon6Flow",
-          "kind": "basic",
-          "name": "BasicGon6Flow",
-          "param": {},
-          "step": [
+            },
             {
               "active": true,
               "data": {},
               "input": {
-                "ref": "gon6_ref01",
-                "srcdatavar": "gon6_ref01_data",
+                "ref": "gon_ref01",
+                "srcdatavar": "gon_ref01_data",
                 "suffix": "_dt0"
               },
               "match": {
-                "id": "gon601",
+                "id": "gon01",
                 "identifier": "identifier01",
                 "owner": "owner01"
               },
@@ -28553,98 +28575,12 @@
                 {
                   "apply": "TextFieldMark",
                   "def": {
-                    "mark": "Mark01-gon6_ref01"
+                    "mark": "Mark01-gon_ref01"
                   }
                 }
               ]
             }
           ]
-        },
-        "BasicGon7Flow": {
-          "active": true,
-          "entity": "gon7",
-          "key$": "BasicGon7Flow",
-          "kind": "basic",
-          "name": "BasicGon7Flow",
-          "param": {},
-          "step": []
-        },
-        "BasicGon8Flow": {
-          "active": true,
-          "entity": "gon8",
-          "key$": "BasicGon8Flow",
-          "kind": "basic",
-          "name": "BasicGon8Flow",
-          "param": {},
-          "step": [
-            {
-              "active": true,
-              "data": {
-                "identifier": "identifier01",
-                "owner": "owner01"
-              },
-              "input": {
-                "ref": "gon8_ref01",
-                "srcdatavar": "gon8_ref01_data",
-                "suffix": "_up0",
-                "textfield": "auth_mode"
-              },
-              "match": {},
-              "op": "update",
-              "spec": [
-                {
-                  "apply": "TextFieldMark",
-                  "def": {
-                    "mark": "Mark01-gon8_ref01"
-                  }
-                }
-              ],
-              "valid": []
-            }
-          ]
-        },
-        "BasicGon9Flow": {
-          "active": true,
-          "entity": "gon9",
-          "key$": "BasicGon9Flow",
-          "kind": "basic",
-          "name": "BasicGon9Flow",
-          "param": {},
-          "step": [
-            {
-              "active": true,
-              "data": {
-                "identifier": "identifier01",
-                "owner": "owner01"
-              },
-              "input": {
-                "ref": "gon9_ref01",
-                "srcdatavar": "gon9_ref01_data",
-                "suffix": "_up0",
-                "textfield": "auth_mode"
-              },
-              "match": {},
-              "op": "update",
-              "spec": [
-                {
-                  "apply": "TextFieldMark",
-                  "def": {
-                    "mark": "Mark01-gon9_ref01"
-                  }
-                }
-              ],
-              "valid": []
-            }
-          ]
-        },
-        "BasicGonFlow": {
-          "active": true,
-          "entity": "gon",
-          "key$": "BasicGonFlow",
-          "kind": "basic",
-          "name": "BasicGonFlow",
-          "param": {},
-          "step": []
         },
         "BasicGpgFlow": {
           "active": true,
@@ -30149,15 +30085,6 @@
           "key$": "BasicOssFlow",
           "kind": "basic",
           "name": "BasicOssFlow",
-          "param": {},
-          "step": []
-        },
-        "BasicP2n2Flow": {
-          "active": true,
-          "entity": "p2n2",
-          "key$": "BasicP2n2Flow",
-          "kind": "basic",
-          "name": "BasicP2n2Flow",
           "param": {},
           "step": []
         },
@@ -32530,18 +32457,41 @@
         "website": "https://cloudsmith.io"
       },
       "option": {},
+      "repo": {
+        "host": "github.com",
+        "path": ""
+      },
       "target": {
         "go": {
           "active": true,
+          "author": {
+            "name": "",
+            "url": ""
+          },
           "comment": {
             "line": "//"
           },
           "deps": {},
           "ext": "go",
+          "feature": {
+            "fullset": [
+              "test/feature_test.go"
+            ],
+            "trim": true
+          },
           "module": {
-            "name": "cloudsmith"
+            "goversion": "",
+            "name": "cloudsmith",
+            "package": "",
+            "path": ""
           },
           "name": "go",
+          "output": {
+            "adopt": false,
+            "path": "",
+            "repo": "",
+            "sdkrel": ""
+          },
           "publish": {
             "registry": {
               "active": false,
@@ -32563,22 +32513,40 @@
                 "recipe": "github"
               },
               "via": "port"
-            }
+            },
+            "version": "0.0.1"
           },
           "srcfeature": false,
           "title": "Golang"
         },
         "go-cli": {
           "active": true,
+          "author": {
+            "name": "",
+            "url": ""
+          },
           "comment": {
             "line": "//"
           },
           "deps": {},
           "ext": "go",
+          "feature": {
+            "fullset": [],
+            "trim": true
+          },
           "module": {
-            "name": "cloudsmith"
+            "goversion": "",
+            "name": "cloudsmith",
+            "package": "",
+            "path": ""
           },
           "name": "go-cli",
+          "output": {
+            "adopt": false,
+            "path": "",
+            "repo": "",
+            "sdkrel": ""
+          },
           "phase": {
             "agentguide": {
               "active": false
@@ -32617,21 +32585,39 @@
                 "recipe": "github"
               },
               "via": "root"
-            }
+            },
+            "version": "0.0.1"
           },
           "title": "Go CLI"
         },
         "go-mcp": {
           "active": true,
+          "author": {
+            "name": "",
+            "url": ""
+          },
           "comment": {
             "line": "//"
           },
           "deps": {},
           "ext": "go",
+          "feature": {
+            "fullset": [],
+            "trim": true
+          },
           "module": {
-            "name": "cloudsmith"
+            "goversion": "",
+            "name": "cloudsmith",
+            "package": "",
+            "path": ""
           },
           "name": "go-mcp",
+          "output": {
+            "adopt": false,
+            "path": "",
+            "repo": "",
+            "sdkrel": ""
+          },
           "phase": {
             "agentguide": {
               "active": false
@@ -32670,12 +32656,17 @@
                 "recipe": "github"
               },
               "via": "root"
-            }
+            },
+            "version": "0.0.1"
           },
           "title": "Go MCP server"
         },
         "lua": {
           "active": true,
+          "author": {
+            "name": "",
+            "url": ""
+          },
           "comment": {
             "line": "--"
           },
@@ -32687,10 +32678,23 @@
             }
           },
           "ext": "lua",
+          "feature": {
+            "fullset": [],
+            "trim": true
+          },
           "module": {
-            "name": "cloudsmith"
+            "goversion": "",
+            "name": "cloudsmith",
+            "package": "",
+            "path": ""
           },
           "name": "lua",
+          "output": {
+            "adopt": false,
+            "path": "",
+            "repo": "",
+            "sdkrel": ""
+          },
           "publish": {
             "registry": {
               "active": false,
@@ -32712,22 +32716,40 @@
                 "recipe": "github"
               },
               "via": "port"
-            }
+            },
+            "version": "0.0.1"
           },
           "srcfeature": false,
           "title": "Lua"
         },
         "php": {
           "active": true,
+          "author": {
+            "name": "",
+            "url": ""
+          },
           "comment": {
             "line": "//"
           },
           "deps": {},
           "ext": "php",
+          "feature": {
+            "fullset": [],
+            "trim": true
+          },
           "module": {
-            "name": "cloudsmith"
+            "goversion": "",
+            "name": "cloudsmith",
+            "package": "",
+            "path": ""
           },
           "name": "php",
+          "output": {
+            "adopt": false,
+            "path": "",
+            "repo": "",
+            "sdkrel": ""
+          },
           "publish": {
             "registry": {
               "active": false,
@@ -32749,13 +32771,18 @@
                 "recipe": "github"
               },
               "via": "port"
-            }
+            },
+            "version": "0.0.1"
           },
           "srcfeature": false,
           "title": "PHP"
         },
         "py": {
           "active": true,
+          "author": {
+            "name": "",
+            "url": ""
+          },
           "comment": {
             "line": "#"
           },
@@ -32767,10 +32794,23 @@
             }
           },
           "ext": "py",
+          "feature": {
+            "fullset": [],
+            "trim": true
+          },
           "module": {
-            "name": "cloudsmith"
+            "goversion": "",
+            "name": "cloudsmith",
+            "package": "",
+            "path": ""
           },
           "name": "py",
+          "output": {
+            "adopt": false,
+            "path": "",
+            "repo": "",
+            "sdkrel": ""
+          },
           "publish": {
             "registry": {
               "active": false,
@@ -32792,13 +32832,18 @@
                 "recipe": "github"
               },
               "via": "port"
-            }
+            },
+            "version": "0.0.1"
           },
           "srcfeature": false,
           "title": "Python"
         },
         "rb": {
           "active": true,
+          "author": {
+            "name": "",
+            "url": ""
+          },
           "comment": {
             "line": "#"
           },
@@ -32815,10 +32860,23 @@
             }
           },
           "ext": "rb",
+          "feature": {
+            "fullset": [],
+            "trim": true
+          },
           "module": {
-            "name": "cloudsmith"
+            "goversion": "",
+            "name": "cloudsmith",
+            "package": "",
+            "path": ""
           },
           "name": "rb",
+          "output": {
+            "adopt": false,
+            "path": "",
+            "repo": "",
+            "sdkrel": ""
+          },
           "publish": {
             "registry": {
               "active": false,
@@ -32840,13 +32898,18 @@
                 "recipe": "github"
               },
               "via": "port"
-            }
+            },
+            "version": "0.0.1"
           },
           "srcfeature": false,
           "title": "Ruby"
         },
         "ts": {
           "active": true,
+          "author": {
+            "name": "",
+            "url": ""
+          },
           "base": "node_modules/@voxgig/sdkgen/project/.sdk",
           "comment": {
             "line": "//"
@@ -32869,10 +32932,23 @@
             }
           },
           "ext": "ts",
+          "feature": {
+            "fullset": [],
+            "trim": true
+          },
           "module": {
-            "name": "cloudsmith"
+            "goversion": "",
+            "name": "cloudsmith",
+            "package": "",
+            "path": ""
           },
           "name": "ts",
+          "output": {
+            "adopt": false,
+            "path": "",
+            "repo": "",
+            "sdkrel": ""
+          },
           "publish": {
             "registry": {
               "active": false,
@@ -32894,9 +32970,17 @@
                 "recipe": "github"
               },
               "via": "port"
-            }
+            },
+            "version": "0.0.1"
           },
           "title": "TypeScript"
+        }
+      },
+      "test": {
+        "live": {
+          "app": false,
+          "base": "",
+          "strict": false
         }
       }
     }

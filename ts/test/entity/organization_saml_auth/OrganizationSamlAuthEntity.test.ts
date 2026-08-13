@@ -66,7 +66,7 @@ describe('OrganizationSamlAuthEntity', async () => {
     const organization_saml_auth_ref01_markdef_up0 = { name: 'saml_metadata_inline', value: 'Mark01-organization_saml_auth_ref01_' + setup.now }
     ;(organization_saml_auth_ref01_data_up0 as any)[organization_saml_auth_ref01_markdef_up0.name] = organization_saml_auth_ref01_markdef_up0.value
 
-    const organization_saml_auth_ref01_resdata_up0 = await organization_saml_auth_ref01_ent.update(organization_saml_auth_ref01_data_up0)
+    const organization_saml_auth_ref01_resdata_up0 = (await organization_saml_auth_ref01_ent.update(organization_saml_auth_ref01_data_up0)).data()
     assert(null != organization_saml_auth_ref01_resdata_up0)
 
     assert((organization_saml_auth_ref01_resdata_up0 as any)[organization_saml_auth_ref01_markdef_up0.name] === organization_saml_auth_ref01_markdef_up0.value)

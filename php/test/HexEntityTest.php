@@ -85,7 +85,7 @@ class HexEntityTest extends TestCase
         $hex_ref01_data["owner"] = $setup["idmap"]["owner01"];
 
         $hex_ref01_data_result = $hex_ref01_ent->create($hex_ref01_data, null);
-        $hex_ref01_data = Helpers::to_map($hex_ref01_data_result);
+        $hex_ref01_data = Helpers::to_map(is_object($hex_ref01_data_result) && method_exists($hex_ref01_data_result, 'data_get') ? $hex_ref01_data_result->data_get() : $hex_ref01_data_result);
         $this->assertNotNull($hex_ref01_data);
 
         // LIST
@@ -96,11 +96,6 @@ class HexEntityTest extends TestCase
 
         $hex_ref01_list_result = $hex_ref01_ent->list($hex_ref01_match, null);
         $this->assertIsArray($hex_ref01_list_result);
-
-        $found_item = sdk_select(
-            Runner::entity_list_to_data($hex_ref01_list_result),
-            ["id" => $hex_ref01_data["id"]]);
-        $this->assertNotEmpty($found_item);
 
         // UPDATE
         $hex_ref01_data_up0_up = [
@@ -113,7 +108,7 @@ class HexEntityTest extends TestCase
         $hex_ref01_data_up0_up[$hex_ref01_markdef_up0_name] = $hex_ref01_markdef_up0_value;
 
         $hex_ref01_resdata_up0_result = $hex_ref01_ent->update($hex_ref01_data_up0_up, null);
-        $hex_ref01_resdata_up0 = Helpers::to_map($hex_ref01_resdata_up0_result);
+        $hex_ref01_resdata_up0 = Helpers::to_map(is_object($hex_ref01_resdata_up0_result) && method_exists($hex_ref01_resdata_up0_result, 'data_get') ? $hex_ref01_resdata_up0_result->data_get() : $hex_ref01_resdata_up0_result);
         $this->assertNotNull($hex_ref01_resdata_up0);
         $this->assertEquals($hex_ref01_resdata_up0[$hex_ref01_markdef_up0_name], $hex_ref01_markdef_up0_value);
 

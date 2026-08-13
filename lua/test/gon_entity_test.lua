@@ -15,11 +15,52 @@ describe("GonEntity", function()
     assert.is_not_nil(ent)
   end)
 
+  -- Feature #4: the entity stream(action, ...) method runs the op pipeline and
+  -- returns an iterator over result items. With the streaming feature active it
+  -- yields the feature's incremental output; otherwise it falls back to the
+  -- materialised list so stream always yields.
+  it("should stream", function()
+    local seed = {
+      entity = {
+        ["gon"] = {
+          s1 = { id = "s1" },
+          s2 = { id = "s2" },
+          s3 = { id = "s3" },
+        },
+      },
+    }
+
+    -- Fallback: streaming inactive -> yields the materialised list items.
+    local base = sdk.test(seed, nil)
+    local seen = {}
+    for item in base:Gon(nil):stream("list", nil, nil) do
+      table.insert(seen, item)
+    end
+    assert.are.equal(3, #seen)
+
+    -- Inbound: streaming active -> yields each item from the feature.
+    local config = require("config")()
+    if type(config.feature) == "table" and config.feature.streaming ~= nil then
+      local streamsdk = sdk.test(seed, { feature = { streaming = { active = true } } })
+      local got = {}
+      for item in streamsdk:Gon(nil):stream("list", nil, nil) do
+        if vs.islist(item) then
+          for _, sub in ipairs(item) do
+            table.insert(got, sub)
+          end
+        else
+          table.insert(got, item)
+        end
+      end
+      assert.are.equal(3, #got)
+    end
+  end)
+
   it("should run basic flow", function()
     local setup = gon_basic_setup(nil)
     -- Per-op sdk-test-control.json skip.
     local _live = setup.live or false
-    for _, _op in ipairs({}) do
+    for _, _op in ipairs({"create", "list", "update", "load"}) do
       local _should_skip, _reason = runner.is_control_skipped("entityOp", "gon." .. _op, _live and "live" or "unit")
       if _should_skip then
         pending(_reason or "skipped via sdk-test-control.json")
@@ -34,13 +75,49 @@ describe("GonEntity", function()
     end
     local client = setup.client
 
-    -- Bootstrap entity data from existing test data.
-    local gon_ref01_data_raw = vs.items(helpers.to_map(
-      vs.getpath(setup.data, "existing.gon")))
-    local gon_ref01_data = nil
-    if #gon_ref01_data_raw > 0 then
-      gon_ref01_data = helpers.to_map(gon_ref01_data_raw[1][2])
-    end
+    -- CREATE
+    local gon_ref01_ent = client:Gon(nil)
+    local gon_ref01_data = helpers.to_map(vs.getprop(
+      vs.getpath(setup.data, "new.gon"), "gon_ref01"))
+    gon_ref01_data["identifier"] = setup.idmap["identifier01"]
+    gon_ref01_data["owner"] = setup.idmap["owner01"]
+
+    local gon_ref01_data_result, err = gon_ref01_ent:create(gon_ref01_data, nil)
+    assert.is_nil(err)
+    gon_ref01_data = helpers.to_map(type(gon_ref01_data_result) == 'table' and gon_ref01_data_result.data_get and gon_ref01_data_result:data_get() or gon_ref01_data_result)
+    assert.is_not_nil(gon_ref01_data)
+
+    -- LIST
+    local gon_ref01_match = {
+      ["identifier"] = setup.idmap["identifier01"],
+      ["owner"] = setup.idmap["owner01"],
+    }
+
+    local gon_ref01_list_result, err = gon_ref01_ent:list(gon_ref01_match, nil)
+    assert.is_nil(err)
+    assert.is_table(gon_ref01_list_result)
+
+    -- UPDATE
+    local gon_ref01_data_up0_up = {
+      ["identifier"] = setup.idmap["identifier"],
+      ["owner"] = setup.idmap["owner"],
+    }
+
+    local gon_ref01_markdef_up0_name = "auth_mode"
+    local gon_ref01_markdef_up0_value = "Mark01-gon_ref01_" .. tostring(setup.now)
+    gon_ref01_data_up0_up[gon_ref01_markdef_up0_name] = gon_ref01_markdef_up0_value
+
+    local gon_ref01_resdata_up0_result, err = gon_ref01_ent:update(gon_ref01_data_up0_up, nil)
+    assert.is_nil(err)
+    local gon_ref01_resdata_up0 = helpers.to_map(type(gon_ref01_resdata_up0_result) == 'table' and gon_ref01_resdata_up0_result.data_get and gon_ref01_resdata_up0_result:data_get() or gon_ref01_resdata_up0_result)
+    assert.is_not_nil(gon_ref01_resdata_up0)
+    assert.are.equal(gon_ref01_resdata_up0[gon_ref01_markdef_up0_name], gon_ref01_markdef_up0_value)
+
+    -- LOAD
+    local gon_ref01_match_dt0 = {}
+    local gon_ref01_data_dt0_loaded, err = gon_ref01_ent:load(gon_ref01_match_dt0, nil)
+    assert.is_nil(err)
+    assert.is_not_nil(gon_ref01_data_dt0_loaded)
 
   end)
 end)
@@ -65,7 +142,7 @@ function gon_basic_setup(extra)
 
   -- Generate idmap via transform.
   local idmap = vs.transform(
-    { "gon01", "gon02", "gon03", "package01", "package02", "package03" },
+    { "gon01", "gon02", "gon03", "package01", "package02", "package03", "repo01", "repo02", "repo03", "go01", "go02", "go03", "identifier01", "owner01" },
     {
       ["`$PACK`"] = { "", {
         ["`$KEY`"] = "`$COPY`",
@@ -91,6 +168,12 @@ function gon_basic_setup(extra)
     env["CLOUDSMITH_TEST_GON_ENTID"])
   if idmap_resolved == nil then
     idmap_resolved = helpers.to_map(idmap)
+  end
+  if idmap_resolved["identifier"] == nil then
+    idmap_resolved["identifier"] = idmap_resolved["identifier01"]
+  end
+  if idmap_resolved["owner"] == nil then
+    idmap_resolved["owner"] = idmap_resolved["owner01"]
   end
 
   if env["CLOUDSMITH_TEST_LIVE"] == "TRUE" then

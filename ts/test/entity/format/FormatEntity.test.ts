@@ -63,7 +63,7 @@ describe('FormatEntity', async () => {
     const format_ref01_ent = client.Format()
     const format_ref01_match: any = {}
 
-    const format_ref01_list = await format_ref01_ent.list(format_ref01_match)
+    const format_ref01_list = (await format_ref01_ent.list(format_ref01_match)).map((e: any) => e.data())
 
 
 

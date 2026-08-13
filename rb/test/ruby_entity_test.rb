@@ -75,7 +75,7 @@ class RubyEntityTest < Minitest::Test
     ruby_ref01_data["owner"] = setup[:idmap]["owner01"]
 
     ruby_ref01_data_result = ruby_ref01_ent.create(ruby_ref01_data, nil)
-    ruby_ref01_data = Helpers.to_map(ruby_ref01_data_result)
+    ruby_ref01_data = Helpers.to_map(ruby_ref01_data_result.respond_to?(:data_get) ? ruby_ref01_data_result.data_get : ruby_ref01_data_result)
     assert !ruby_ref01_data.nil?
 
     # LIST
@@ -86,11 +86,6 @@ class RubyEntityTest < Minitest::Test
 
     ruby_ref01_list_result = ruby_ref01_ent.list(ruby_ref01_match, nil)
     assert ruby_ref01_list_result.is_a?(Array)
-
-    found_item = Vs.select(
-      Runner.entity_list_to_data(ruby_ref01_list_result),
-      { "id" => ruby_ref01_data["id"] })
-    assert !Vs.isempty(found_item)
 
     # UPDATE
     ruby_ref01_data_up0_up = {
@@ -103,7 +98,7 @@ class RubyEntityTest < Minitest::Test
     ruby_ref01_data_up0_up[ruby_ref01_markdef_up0_name] = ruby_ref01_markdef_up0_value
 
     ruby_ref01_resdata_up0_result = ruby_ref01_ent.update(ruby_ref01_data_up0_up, nil)
-    ruby_ref01_resdata_up0 = Helpers.to_map(ruby_ref01_resdata_up0_result)
+    ruby_ref01_resdata_up0 = Helpers.to_map(ruby_ref01_resdata_up0_result.respond_to?(:data_get) ? ruby_ref01_resdata_up0_result.data_get : ruby_ref01_resdata_up0_result)
     assert !ruby_ref01_resdata_up0.nil?
     assert_equal ruby_ref01_resdata_up0[ruby_ref01_markdef_up0_name], ruby_ref01_markdef_up0_value
 

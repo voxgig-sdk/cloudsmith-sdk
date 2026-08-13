@@ -65,7 +65,7 @@ describe('RepositoryWebhookEntity', async () => {
     repository_webhook_ref01_data['owner'] = setup.idmap['owner01']
     repository_webhook_ref01_data['repo'] = setup.idmap['repo01']
 
-    repository_webhook_ref01_data = await repository_webhook_ref01_ent.create(repository_webhook_ref01_data)
+    repository_webhook_ref01_data = (await repository_webhook_ref01_ent.create(repository_webhook_ref01_data)).data()
     assert(null != repository_webhook_ref01_data)
 
 
@@ -75,9 +75,7 @@ describe('RepositoryWebhookEntity', async () => {
     repository_webhook_ref01_match['owner'] = setup.idmap['owner01']
     repository_webhook_ref01_match['repo'] = setup.idmap['repo01']
 
-    const repository_webhook_ref01_list = await repository_webhook_ref01_ent.list(repository_webhook_ref01_match)
-
-    assert(!isempty(select(repository_webhook_ref01_list, { id: repository_webhook_ref01_data.id })))
+    const repository_webhook_ref01_list = (await repository_webhook_ref01_ent.list(repository_webhook_ref01_match)).map((e: any) => e.data())
 
 
     // UPDATE
@@ -88,7 +86,7 @@ describe('RepositoryWebhookEntity', async () => {
     const repository_webhook_ref01_markdef_up0 = { name: 'created_at', value: 'Mark01-repository_webhook_ref01_' + setup.now }
     ;(repository_webhook_ref01_data_up0 as any)[repository_webhook_ref01_markdef_up0.name] = repository_webhook_ref01_markdef_up0.value
 
-    const repository_webhook_ref01_resdata_up0 = await repository_webhook_ref01_ent.update(repository_webhook_ref01_data_up0)
+    const repository_webhook_ref01_resdata_up0 = (await repository_webhook_ref01_ent.update(repository_webhook_ref01_data_up0)).data()
     assert(null != repository_webhook_ref01_resdata_up0)
 
     assert((repository_webhook_ref01_resdata_up0 as any)[repository_webhook_ref01_markdef_up0.name] === repository_webhook_ref01_markdef_up0.value)

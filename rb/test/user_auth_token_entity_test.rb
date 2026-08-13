@@ -37,7 +37,7 @@ class UserAuthTokenEntityTest < Minitest::Test
       Vs.getpath(setup[:data], "new.user_auth_token"), "user_auth_token_ref01"))
 
     user_auth_token_ref01_data_result = user_auth_token_ref01_ent.create(user_auth_token_ref01_data, nil)
-    user_auth_token_ref01_data = Helpers.to_map(user_auth_token_ref01_data_result)
+    user_auth_token_ref01_data = Helpers.to_map(user_auth_token_ref01_data_result.respond_to?(:data_get) ? user_auth_token_ref01_data_result.data_get : user_auth_token_ref01_data_result)
     assert !user_auth_token_ref01_data.nil?
 
   end

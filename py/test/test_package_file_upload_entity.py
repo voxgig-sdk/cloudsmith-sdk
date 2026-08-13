@@ -6,9 +6,9 @@ import time
 
 import pytest
 
-from utility.voxgig_struct import voxgig_struct as vs
+from cloudsmith_sdk.utility.voxgig_struct import voxgig_struct as vs
 from cloudsmith_sdk import CloudsmithSDK
-from core import helpers
+from cloudsmith_sdk.core import helpers
 
 _TEST_DIR = os.path.dirname(os.path.abspath(__file__))
 from test import runner
@@ -47,7 +47,7 @@ class TestPackageFileUploadEntity:
         package_file_upload_ref01_data["owner"] = setup["idmap"]["owner01"]
         package_file_upload_ref01_data["repo"] = setup["idmap"]["repo01"]
 
-        package_file_upload_ref01_data = helpers.to_map(package_file_upload_ref01_ent.create(package_file_upload_ref01_data, None))
+        package_file_upload_ref01_data = helpers.to_map(runner.entity_data(package_file_upload_ref01_ent.create(package_file_upload_ref01_data, None)))
         assert package_file_upload_ref01_data is not None
 
 

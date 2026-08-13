@@ -29,7 +29,7 @@ describe("P2nEntity", function()
     -- The basic flow consumes synthetic IDs from the fixture. In live mode
     -- without an *_ENTID env override, those IDs hit the live API and 4xx.
     if setup.synthetic_only then
-      pending("live entity test uses synthetic IDs from fixture — set CLOUDSMITH_TEST_P_N_ENTID JSON to run live")
+      pending("live entity test uses synthetic IDs from fixture — set CLOUDSMITH_TEST_P2N_ENTID JSON to run live")
       return
     end
     local client = setup.client
@@ -77,18 +77,18 @@ function p2n_basic_setup(extra)
   -- Detect ENTID env override before envOverride consumes it. When live
   -- mode is on without a real override, the basic test runs against synthetic
   -- IDs from the fixture and 4xx's. Surface this so the test can skip.
-  local entid_env_raw = os.getenv("CLOUDSMITH_TEST_P_N_ENTID")
+  local entid_env_raw = os.getenv("CLOUDSMITH_TEST_P2N_ENTID")
   local idmap_overridden = entid_env_raw ~= nil and entid_env_raw:match("^%s*{") ~= nil
 
   local env = runner.env_override({
-    ["CLOUDSMITH_TEST_P_N_ENTID"] = idmap,
+    ["CLOUDSMITH_TEST_P2N_ENTID"] = idmap,
     ["CLOUDSMITH_TEST_LIVE"] = "FALSE",
     ["CLOUDSMITH_TEST_EXPLAIN"] = "FALSE",
     ["CLOUDSMITH_APIKEY"] = "NONE",
   })
 
   local idmap_resolved = helpers.to_map(
-    env["CLOUDSMITH_TEST_P_N_ENTID"])
+    env["CLOUDSMITH_TEST_P2N_ENTID"])
   if idmap_resolved == nil then
     idmap_resolved = helpers.to_map(idmap)
   end

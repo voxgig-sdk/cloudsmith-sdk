@@ -21,7 +21,7 @@ class Config {
 
 
   main = {
-    name: 'ProjectName',
+    name: 'Cloudsmith',
   }
 
 
@@ -135,30 +135,6 @@ class Config {
       gon: {
       },
 
-      gon2: {
-      },
-
-      gon3: {
-      },
-
-      gon4: {
-      },
-
-      gon5: {
-      },
-
-      gon6: {
-      },
-
-      gon7: {
-      },
-
-      gon8: {
-      },
-
-      gon9: {
-      },
-
       gpg: {
       },
 
@@ -259,9 +235,6 @@ class Config {
       },
 
       p2n: {
-      },
-
-      p2n2: {
       },
 
       package: {
@@ -686,6 +659,7 @@ class Config {
                   }
                 ]
               },
+              "kind": "http",
               "method": "POST",
               "orig": "/repos/{owner}/{identifier}/upstream/cargo/",
               "parts": [
@@ -757,6 +731,7 @@ class Config {
                   }
                 ]
               },
+              "kind": "http",
               "method": "GET",
               "orig": "/repos/{owner}/{identifier}/upstream/cargo/",
               "parts": [
@@ -820,6 +795,7 @@ class Config {
                   }
                 ]
               },
+              "kind": "http",
               "method": "GET",
               "orig": "/repos/{owner}/{identifier}/upstream/cargo/{slug_perm}/",
               "parts": [
@@ -895,6 +871,7 @@ class Config {
                   }
                 ]
               },
+              "kind": "http",
               "method": "PATCH",
               "orig": "/repos/{owner}/{identifier}/upstream/cargo/{slug_perm}/",
               "parts": [
@@ -974,6 +951,7 @@ class Config {
                   }
                 ]
               },
+              "kind": "http",
               "method": "PUT",
               "orig": "/repos/{owner}/{identifier}/upstream/cargo/{slug_perm}/",
               "parts": [
@@ -1211,6 +1189,7 @@ class Config {
                   }
                 ]
               },
+              "kind": "http",
               "method": "POST",
               "orig": "/repos/{owner}/{identifier}/upstream/composer/",
               "parts": [
@@ -1282,6 +1261,7 @@ class Config {
                   }
                 ]
               },
+              "kind": "http",
               "method": "GET",
               "orig": "/repos/{owner}/{identifier}/upstream/composer/",
               "parts": [
@@ -1345,6 +1325,7 @@ class Config {
                   }
                 ]
               },
+              "kind": "http",
               "method": "GET",
               "orig": "/repos/{owner}/{identifier}/upstream/composer/{slug_perm}/",
               "parts": [
@@ -1420,6 +1401,7 @@ class Config {
                   }
                 ]
               },
+              "kind": "http",
               "method": "PATCH",
               "orig": "/repos/{owner}/{identifier}/upstream/composer/{slug_perm}/",
               "parts": [
@@ -1499,6 +1481,7 @@ class Config {
                   }
                 ]
               },
+              "kind": "http",
               "method": "PUT",
               "orig": "/repos/{owner}/{identifier}/upstream/composer/{slug_perm}/",
               "parts": [
@@ -1724,6 +1707,7 @@ class Config {
                   }
                 ]
               },
+              "kind": "http",
               "method": "POST",
               "orig": "/repos/{owner}/{identifier}/upstream/conda/",
               "parts": [
@@ -1795,6 +1779,7 @@ class Config {
                   }
                 ]
               },
+              "kind": "http",
               "method": "GET",
               "orig": "/repos/{owner}/{identifier}/upstream/conda/",
               "parts": [
@@ -1858,6 +1843,7 @@ class Config {
                   }
                 ]
               },
+              "kind": "http",
               "method": "GET",
               "orig": "/repos/{owner}/{identifier}/upstream/conda/{slug_perm}/",
               "parts": [
@@ -1933,6 +1919,7 @@ class Config {
                   }
                 ]
               },
+              "kind": "http",
               "method": "PATCH",
               "orig": "/repos/{owner}/{identifier}/upstream/conda/{slug_perm}/",
               "parts": [
@@ -2012,6 +1999,7 @@ class Config {
                   }
                 ]
               },
+              "kind": "http",
               "method": "PUT",
               "orig": "/repos/{owner}/{identifier}/upstream/conda/{slug_perm}/",
               "parts": [
@@ -2237,6 +2225,7 @@ class Config {
                   }
                 ]
               },
+              "kind": "http",
               "method": "POST",
               "orig": "/repos/{owner}/{identifier}/upstream/cran/",
               "parts": [
@@ -2308,6 +2297,7 @@ class Config {
                   }
                 ]
               },
+              "kind": "http",
               "method": "GET",
               "orig": "/repos/{owner}/{identifier}/upstream/cran/",
               "parts": [
@@ -2371,6 +2361,7 @@ class Config {
                   }
                 ]
               },
+              "kind": "http",
               "method": "GET",
               "orig": "/repos/{owner}/{identifier}/upstream/cran/{slug_perm}/",
               "parts": [
@@ -2446,6 +2437,7 @@ class Config {
                   }
                 ]
               },
+              "kind": "http",
               "method": "PATCH",
               "orig": "/repos/{owner}/{identifier}/upstream/cran/{slug_perm}/",
               "parts": [
@@ -2525,6 +2517,7 @@ class Config {
                   }
                 ]
               },
+              "kind": "http",
               "method": "PUT",
               "orig": "/repos/{owner}/{identifier}/upstream/cran/{slug_perm}/",
               "parts": [
@@ -2738,6 +2731,7 @@ class Config {
                   }
                 ]
               },
+              "kind": "http",
               "method": "POST",
               "orig": "/repos/{owner}/{identifier}/upstream/dart/",
               "parts": [
@@ -2809,6 +2803,7 @@ class Config {
                   }
                 ]
               },
+              "kind": "http",
               "method": "GET",
               "orig": "/repos/{owner}/{identifier}/upstream/dart/",
               "parts": [
@@ -2872,6 +2867,7 @@ class Config {
                   }
                 ]
               },
+              "kind": "http",
               "method": "GET",
               "orig": "/repos/{owner}/{identifier}/upstream/dart/{slug_perm}/",
               "parts": [
@@ -2947,6 +2943,7 @@ class Config {
                   }
                 ]
               },
+              "kind": "http",
               "method": "PATCH",
               "orig": "/repos/{owner}/{identifier}/upstream/dart/{slug_perm}/",
               "parts": [
@@ -3026,6 +3023,7 @@ class Config {
                   }
                 ]
               },
+              "kind": "http",
               "method": "PUT",
               "orig": "/repos/{owner}/{identifier}/upstream/dart/{slug_perm}/",
               "parts": [
@@ -3116,7 +3114,7 @@ class Config {
         },
         {
           "active": true,
-          "name": "distro_version",
+          "name": "distro_versions",
           "req": true,
           "type": "`$ARRAY`",
           "index$": 6
@@ -3172,7 +3170,7 @@ class Config {
         },
         {
           "active": true,
-          "name": "include_source",
+          "name": "include_sources",
           "req": false,
           "type": "`$BOOLEAN`",
           "index$": 14
@@ -3295,6 +3293,7 @@ class Config {
                   }
                 ]
               },
+              "kind": "http",
               "method": "POST",
               "orig": "/repos/{owner}/{identifier}/upstream/deb/",
               "parts": [
@@ -3366,6 +3365,7 @@ class Config {
                   }
                 ]
               },
+              "kind": "http",
               "method": "GET",
               "orig": "/repos/{owner}/{identifier}/upstream/deb/",
               "parts": [
@@ -3429,6 +3429,7 @@ class Config {
                   }
                 ]
               },
+              "kind": "http",
               "method": "GET",
               "orig": "/repos/{owner}/{identifier}/upstream/deb/{slug_perm}/",
               "parts": [
@@ -3504,6 +3505,7 @@ class Config {
                   }
                 ]
               },
+              "kind": "http",
               "method": "PATCH",
               "orig": "/repos/{owner}/{identifier}/upstream/deb/{slug_perm}/",
               "parts": [
@@ -3583,6 +3585,7 @@ class Config {
                   }
                 ]
               },
+              "kind": "http",
               "method": "PUT",
               "orig": "/repos/{owner}/{identifier}/upstream/deb/{slug_perm}/",
               "parts": [
@@ -3708,14 +3711,14 @@ class Config {
         },
         {
           "active": true,
-          "name": "variant",
+          "name": "variants",
           "req": false,
           "type": "`$STRING`",
           "index$": 5
         },
         {
           "active": true,
-          "name": "version",
+          "name": "versions",
           "req": false,
           "type": "`$ARRAY`",
           "index$": 6
@@ -3730,6 +3733,7 @@ class Config {
             {
               "active": true,
               "args": {},
+              "kind": "http",
               "method": "GET",
               "orig": "/distros/",
               "parts": [
@@ -3764,6 +3768,7 @@ class Config {
                   }
                 ]
               },
+              "kind": "http",
               "method": "GET",
               "orig": "/distros/{slug}/",
               "parts": [
@@ -3970,6 +3975,7 @@ class Config {
                   }
                 ]
               },
+              "kind": "http",
               "method": "POST",
               "orig": "/repos/{owner}/{identifier}/upstream/docker/",
               "parts": [
@@ -4041,6 +4047,7 @@ class Config {
                   }
                 ]
               },
+              "kind": "http",
               "method": "GET",
               "orig": "/repos/{owner}/{identifier}/upstream/docker/",
               "parts": [
@@ -4104,6 +4111,7 @@ class Config {
                   }
                 ]
               },
+              "kind": "http",
               "method": "GET",
               "orig": "/repos/{owner}/{identifier}/upstream/docker/{slug_perm}/",
               "parts": [
@@ -4179,6 +4187,7 @@ class Config {
                   }
                 ]
               },
+              "kind": "http",
               "method": "PATCH",
               "orig": "/repos/{owner}/{identifier}/upstream/docker/{slug_perm}/",
               "parts": [
@@ -4258,6 +4267,7 @@ class Config {
                   }
                 ]
               },
+              "kind": "http",
               "method": "PUT",
               "orig": "/repos/{owner}/{identifier}/upstream/docker/{slug_perm}/",
               "parts": [
@@ -4367,6 +4377,7 @@ class Config {
                   }
                 ]
               },
+              "kind": "http",
               "method": "GET",
               "orig": "/orgs/{org}/openid-connect/{provider_setting}/dynamic-mappings/",
               "parts": [
@@ -4435,6 +4446,7 @@ class Config {
                   }
                 ]
               },
+              "kind": "http",
               "method": "GET",
               "orig": "/orgs/{org}/openid-connect/{provider_setting}/dynamic-mappings/{claim_value}/",
               "parts": [
@@ -4512,10 +4524,38 @@ class Config {
       "fields": [
         {
           "active": true,
-          "name": "token",
+          "name": "active",
+          "req": false,
+          "type": "`$INTEGER`",
+          "index$": 0
+        },
+        {
+          "active": true,
+          "name": "bandwidth",
           "req": true,
           "type": "`$OBJECT`",
-          "index$": 0
+          "index$": 1
+        },
+        {
+          "active": true,
+          "name": "downloads",
+          "req": true,
+          "type": "`$OBJECT`",
+          "index$": 2
+        },
+        {
+          "active": true,
+          "name": "inactive",
+          "req": false,
+          "type": "`$INTEGER`",
+          "index$": 3
+        },
+        {
+          "active": true,
+          "name": "total",
+          "req": false,
+          "type": "`$INTEGER`",
+          "index$": 4
         }
       ],
       "name": "entitlement",
@@ -4567,6 +4607,7 @@ class Config {
                   }
                 ]
               },
+              "kind": "http",
               "method": "POST",
               "orig": "/entitlements/{owner}/{repo}/{identifier}/reset/",
               "parts": [
@@ -4623,6 +4664,7 @@ class Config {
                   }
                 ]
               },
+              "kind": "http",
               "method": "POST",
               "orig": "/entitlements/{owner}/{repo}/{identifier}/disable/",
               "parts": [
@@ -4678,6 +4720,7 @@ class Config {
                   }
                 ]
               },
+              "kind": "http",
               "method": "POST",
               "orig": "/entitlements/{owner}/{repo}/{identifier}/enable/",
               "parts": [
@@ -4773,6 +4816,7 @@ class Config {
                   }
                 ]
               },
+              "kind": "http",
               "method": "GET",
               "orig": "/metrics/entitlements/{owner}/{repo}/",
               "parts": [
@@ -4794,7 +4838,7 @@ class Config {
               },
               "transform": {
                 "req": "`reqdata`",
-                "res": "`body`"
+                "res": "`body.tokens`"
               },
               "index$": 0
             },
@@ -4855,6 +4899,7 @@ class Config {
                   }
                 ]
               },
+              "kind": "http",
               "method": "GET",
               "orig": "/metrics/entitlements/{owner}/",
               "parts": [
@@ -4879,7 +4924,7 @@ class Config {
               },
               "transform": {
                 "req": "`reqdata`",
-                "res": "`body`"
+                "res": "`body.tokens`"
               },
               "index$": 1
             }
@@ -4923,6 +4968,7 @@ class Config {
                   }
                 ]
               },
+              "kind": "http",
               "method": "DELETE",
               "orig": "/entitlements/{owner}/{repo}/{identifier}/",
               "parts": [
@@ -5024,6 +5070,7 @@ class Config {
                   }
                 ]
               },
+              "kind": "http",
               "method": "POST",
               "orig": "/files/{owner}/{repo}/{identifier}/abort/",
               "parts": [
@@ -5081,6 +5128,7 @@ class Config {
                   }
                 ]
               },
+              "kind": "http",
               "method": "POST",
               "orig": "/files/{owner}/{repo}/",
               "parts": [
@@ -5135,6 +5183,7 @@ class Config {
                   }
                 ]
               },
+              "kind": "http",
               "method": "POST",
               "orig": "/files/{owner}/{repo}/validate/",
               "parts": [
@@ -5179,14 +5228,14 @@ class Config {
         },
         {
           "active": true,
-          "name": "distribution",
+          "name": "distributions",
           "req": false,
           "type": "`$ARRAY`",
           "index$": 1
         },
         {
           "active": true,
-          "name": "extension",
+          "name": "extensions",
           "req": true,
           "type": "`$ARRAY`",
           "index$": 2
@@ -5228,7 +5277,7 @@ class Config {
         },
         {
           "active": true,
-          "name": "support",
+          "name": "supports",
           "req": true,
           "type": "`$OBJECT`",
           "index$": 8
@@ -5243,6 +5292,7 @@ class Config {
             {
               "active": true,
               "args": {},
+              "kind": "http",
               "method": "GET",
               "orig": "/formats/",
               "parts": [
@@ -5277,6 +5327,7 @@ class Config {
                   }
                 ]
               },
+              "kind": "http",
               "method": "GET",
               "orig": "/formats/{slug}/",
               "parts": [
@@ -5320,30 +5371,6 @@ class Config {
       }
     },
     "gon": {
-      "fields": [],
-      "name": "gon",
-      "op": {},
-      "relations": {
-        "ancestors": [
-          [
-            "package"
-          ]
-        ]
-      }
-    },
-    "gon2": {
-      "fields": [],
-      "name": "gon2",
-      "op": {},
-      "relations": {
-        "ancestors": [
-          [
-            "package"
-          ]
-        ]
-      }
-    },
-    "gon3": {
       "fields": [
         {
           "active": true,
@@ -5472,8 +5499,72 @@ class Config {
           "index$": 17
         }
       ],
-      "name": "gon3",
+      "name": "gon",
       "op": {
+        "create": {
+          "input": "data",
+          "name": "create",
+          "points": [
+            {
+              "active": true,
+              "args": {
+                "params": [
+                  {
+                    "active": true,
+                    "kind": "param",
+                    "name": "identifier",
+                    "orig": "identifier",
+                    "reqd": true,
+                    "type": "`$ANY`",
+                    "index$": 0
+                  },
+                  {
+                    "active": true,
+                    "kind": "param",
+                    "name": "owner",
+                    "orig": "owner",
+                    "reqd": true,
+                    "type": "`$ANY`",
+                    "index$": 1
+                  }
+                ],
+                "query": [
+                  {
+                    "active": true,
+                    "kind": "query",
+                    "name": "data",
+                    "orig": "data",
+                    "reqd": false,
+                    "type": "`$OBJECT`"
+                  }
+                ]
+              },
+              "kind": "http",
+              "method": "POST",
+              "orig": "/repos/{owner}/{identifier}/upstream/go/",
+              "parts": [
+                "repos",
+                "{owner}",
+                "{identifier}",
+                "upstream",
+                "go"
+              ],
+              "select": {
+                "exist": [
+                  "data",
+                  "identifier",
+                  "owner"
+                ]
+              },
+              "transform": {
+                "req": "`reqdata`",
+                "res": "`body`"
+              },
+              "index$": 0
+            }
+          ],
+          "key$": "create"
+        },
         "list": {
           "input": "data",
           "name": "list",
@@ -5520,6 +5611,7 @@ class Config {
                   }
                 ]
               },
+              "kind": "http",
               "method": "GET",
               "orig": "/repos/{owner}/{identifier}/upstream/go/",
               "parts": [
@@ -5545,235 +5637,7 @@ class Config {
             }
           ],
           "key$": "list"
-        }
-      },
-      "relations": {
-        "ancestors": [
-          [
-            "repo"
-          ]
-        ]
-      }
-    },
-    "gon4": {
-      "fields": [],
-      "name": "gon4",
-      "op": {},
-      "relations": {
-        "ancestors": [
-          [
-            "repo"
-          ]
-        ]
-      }
-    },
-    "gon5": {
-      "fields": [],
-      "name": "gon5",
-      "op": {
-        "create": {
-          "input": "data",
-          "name": "create",
-          "points": [
-            {
-              "active": true,
-              "args": {
-                "params": [
-                  {
-                    "active": true,
-                    "kind": "param",
-                    "name": "identifier",
-                    "orig": "identifier",
-                    "reqd": true,
-                    "type": "`$ANY`",
-                    "index$": 0
-                  },
-                  {
-                    "active": true,
-                    "kind": "param",
-                    "name": "owner",
-                    "orig": "owner",
-                    "reqd": true,
-                    "type": "`$ANY`",
-                    "index$": 1
-                  }
-                ],
-                "query": [
-                  {
-                    "active": true,
-                    "kind": "query",
-                    "name": "data",
-                    "orig": "data",
-                    "reqd": false,
-                    "type": "`$OBJECT`"
-                  }
-                ]
-              },
-              "method": "POST",
-              "orig": "/repos/{owner}/{identifier}/upstream/go/",
-              "parts": [
-                "repos",
-                "{owner}",
-                "{identifier}",
-                "upstream",
-                "go"
-              ],
-              "select": {
-                "exist": [
-                  "data",
-                  "identifier",
-                  "owner"
-                ]
-              },
-              "transform": {
-                "req": "`reqdata`",
-                "res": "`body`"
-              },
-              "index$": 0
-            }
-          ],
-          "key$": "create"
-        }
-      },
-      "relations": {
-        "ancestors": [
-          [
-            "repo"
-          ]
-        ]
-      }
-    },
-    "gon6": {
-      "fields": [
-        {
-          "active": true,
-          "name": "auth_mode",
-          "req": false,
-          "type": "`$STRING`",
-          "index$": 0
         },
-        {
-          "active": true,
-          "name": "auth_secret",
-          "req": false,
-          "type": "`$STRING`",
-          "index$": 1
-        },
-        {
-          "active": true,
-          "name": "auth_username",
-          "req": false,
-          "type": "`$STRING`",
-          "index$": 2
-        },
-        {
-          "active": true,
-          "name": "created_at",
-          "req": false,
-          "type": "`$STRING`",
-          "index$": 3
-        },
-        {
-          "active": true,
-          "name": "disable_reason",
-          "req": false,
-          "type": "`$STRING`",
-          "index$": 4
-        },
-        {
-          "active": true,
-          "name": "extra_header_1",
-          "req": false,
-          "type": "`$STRING`",
-          "index$": 5
-        },
-        {
-          "active": true,
-          "name": "extra_header_2",
-          "req": false,
-          "type": "`$STRING`",
-          "index$": 6
-        },
-        {
-          "active": true,
-          "name": "extra_value_1",
-          "req": false,
-          "type": "`$STRING`",
-          "index$": 7
-        },
-        {
-          "active": true,
-          "name": "extra_value_2",
-          "req": false,
-          "type": "`$STRING`",
-          "index$": 8
-        },
-        {
-          "active": true,
-          "name": "is_active",
-          "req": false,
-          "type": "`$BOOLEAN`",
-          "index$": 9
-        },
-        {
-          "active": true,
-          "name": "mode",
-          "req": false,
-          "type": "`$STRING`",
-          "index$": 10
-        },
-        {
-          "active": true,
-          "name": "name",
-          "req": true,
-          "type": "`$STRING`",
-          "index$": 11
-        },
-        {
-          "active": true,
-          "name": "pending_validation",
-          "req": false,
-          "type": "`$BOOLEAN`",
-          "index$": 12
-        },
-        {
-          "active": true,
-          "name": "priority",
-          "req": false,
-          "type": "`$INTEGER`",
-          "index$": 13
-        },
-        {
-          "active": true,
-          "name": "slug_perm",
-          "req": false,
-          "type": "`$STRING`",
-          "index$": 14
-        },
-        {
-          "active": true,
-          "name": "updated_at",
-          "req": false,
-          "type": "`$STRING`",
-          "index$": 15
-        },
-        {
-          "active": true,
-          "name": "upstream_url",
-          "req": true,
-          "type": "`$STRING`",
-          "index$": 16
-        },
-        {
-          "active": true,
-          "name": "verify_ssl",
-          "req": false,
-          "type": "`$BOOLEAN`",
-          "index$": 17
-        }
-      ],
-      "name": "gon6",
-      "op": {
         "load": {
           "input": "data",
           "name": "load",
@@ -5811,6 +5675,7 @@ class Config {
                   }
                 ]
               },
+              "kind": "http",
               "method": "GET",
               "orig": "/repos/{owner}/{identifier}/upstream/go/{slug_perm}/",
               "parts": [
@@ -5836,161 +5701,79 @@ class Config {
             }
           ],
           "key$": "load"
-        }
-      },
-      "relations": {
-        "ancestors": [
-          [
-            "repo",
-            "go"
-          ]
-        ]
-      }
-    },
-    "gon7": {
-      "fields": [],
-      "name": "gon7",
-      "op": {},
-      "relations": {
-        "ancestors": [
-          [
-            "repo",
-            "go"
-          ]
-        ]
-      }
-    },
-    "gon8": {
-      "fields": [
-        {
-          "active": true,
-          "name": "auth_mode",
-          "req": false,
-          "type": "`$STRING`",
-          "index$": 0
         },
-        {
-          "active": true,
-          "name": "auth_secret",
-          "req": false,
-          "type": "`$STRING`",
-          "index$": 1
+        "patch": {
+          "input": "data",
+          "name": "patch",
+          "points": [
+            {
+              "active": true,
+              "args": {
+                "params": [
+                  {
+                    "active": true,
+                    "kind": "param",
+                    "name": "identifier",
+                    "orig": "identifier",
+                    "reqd": true,
+                    "type": "`$ANY`"
+                  },
+                  {
+                    "active": true,
+                    "kind": "param",
+                    "name": "owner",
+                    "orig": "owner",
+                    "reqd": true,
+                    "type": "`$ANY`"
+                  },
+                  {
+                    "active": true,
+                    "kind": "param",
+                    "name": "slug_perm",
+                    "orig": "slug_perm",
+                    "reqd": true,
+                    "type": "`$ANY`"
+                  }
+                ],
+                "query": [
+                  {
+                    "active": true,
+                    "kind": "query",
+                    "name": "data",
+                    "orig": "data",
+                    "reqd": false,
+                    "type": "`$OBJECT`"
+                  }
+                ]
+              },
+              "kind": "http",
+              "method": "PATCH",
+              "orig": "/repos/{owner}/{identifier}/upstream/go/{slug_perm}/",
+              "parts": [
+                "repos",
+                "{owner}",
+                "{identifier}",
+                "upstream",
+                "go",
+                "{slug_perm}"
+              ],
+              "select": {
+                "exist": [
+                  "data",
+                  "identifier",
+                  "owner",
+                  "slug_perm"
+                ]
+              },
+              "transform": {
+                "req": "`reqdata`",
+                "res": "`body`"
+              },
+              "index$": 0
+            }
+          ],
+          "key$": "patch"
         },
-        {
-          "active": true,
-          "name": "auth_username",
-          "req": false,
-          "type": "`$STRING`",
-          "index$": 2
-        },
-        {
-          "active": true,
-          "name": "created_at",
-          "req": false,
-          "type": "`$STRING`",
-          "index$": 3
-        },
-        {
-          "active": true,
-          "name": "disable_reason",
-          "req": false,
-          "type": "`$STRING`",
-          "index$": 4
-        },
-        {
-          "active": true,
-          "name": "extra_header_1",
-          "req": false,
-          "type": "`$STRING`",
-          "index$": 5
-        },
-        {
-          "active": true,
-          "name": "extra_header_2",
-          "req": false,
-          "type": "`$STRING`",
-          "index$": 6
-        },
-        {
-          "active": true,
-          "name": "extra_value_1",
-          "req": false,
-          "type": "`$STRING`",
-          "index$": 7
-        },
-        {
-          "active": true,
-          "name": "extra_value_2",
-          "req": false,
-          "type": "`$STRING`",
-          "index$": 8
-        },
-        {
-          "active": true,
-          "name": "is_active",
-          "req": false,
-          "type": "`$BOOLEAN`",
-          "index$": 9
-        },
-        {
-          "active": true,
-          "name": "mode",
-          "req": false,
-          "type": "`$STRING`",
-          "index$": 10
-        },
-        {
-          "active": true,
-          "name": "name",
-          "req": true,
-          "type": "`$STRING`",
-          "index$": 11
-        },
-        {
-          "active": true,
-          "name": "pending_validation",
-          "req": false,
-          "type": "`$BOOLEAN`",
-          "index$": 12
-        },
-        {
-          "active": true,
-          "name": "priority",
-          "req": false,
-          "type": "`$INTEGER`",
-          "index$": 13
-        },
-        {
-          "active": true,
-          "name": "slug_perm",
-          "req": false,
-          "type": "`$STRING`",
-          "index$": 14
-        },
-        {
-          "active": true,
-          "name": "updated_at",
-          "req": false,
-          "type": "`$STRING`",
-          "index$": 15
-        },
-        {
-          "active": true,
-          "name": "upstream_url",
-          "req": true,
-          "type": "`$STRING`",
-          "index$": 16
-        },
-        {
-          "active": true,
-          "name": "verify_ssl",
-          "req": false,
-          "type": "`$BOOLEAN`",
-          "index$": 17
-        }
-      ],
-      "name": "gon8",
-      "op": {
         "update": {
           "input": "data",
           "name": "update",
@@ -6038,6 +5821,7 @@ class Config {
                   }
                 ]
               },
+              "kind": "http",
               "method": "PUT",
               "orig": "/repos/{owner}/{identifier}/upstream/go/{slug_perm}/",
               "parts": [
@@ -6069,220 +5853,11 @@ class Config {
       "relations": {
         "ancestors": [
           [
-            "repo",
-            "go"
-          ]
-        ]
-      }
-    },
-    "gon9": {
-      "fields": [
-        {
-          "active": true,
-          "name": "auth_mode",
-          "req": false,
-          "type": "`$STRING`",
-          "index$": 0
-        },
-        {
-          "active": true,
-          "name": "auth_secret",
-          "req": false,
-          "type": "`$STRING`",
-          "index$": 1
-        },
-        {
-          "active": true,
-          "name": "auth_username",
-          "req": false,
-          "type": "`$STRING`",
-          "index$": 2
-        },
-        {
-          "active": true,
-          "name": "created_at",
-          "req": false,
-          "type": "`$STRING`",
-          "index$": 3
-        },
-        {
-          "active": true,
-          "name": "disable_reason",
-          "req": false,
-          "type": "`$STRING`",
-          "index$": 4
-        },
-        {
-          "active": true,
-          "name": "extra_header_1",
-          "req": false,
-          "type": "`$STRING`",
-          "index$": 5
-        },
-        {
-          "active": true,
-          "name": "extra_header_2",
-          "req": false,
-          "type": "`$STRING`",
-          "index$": 6
-        },
-        {
-          "active": true,
-          "name": "extra_value_1",
-          "req": false,
-          "type": "`$STRING`",
-          "index$": 7
-        },
-        {
-          "active": true,
-          "name": "extra_value_2",
-          "req": false,
-          "type": "`$STRING`",
-          "index$": 8
-        },
-        {
-          "active": true,
-          "name": "is_active",
-          "req": false,
-          "type": "`$BOOLEAN`",
-          "index$": 9
-        },
-        {
-          "active": true,
-          "name": "mode",
-          "req": false,
-          "type": "`$STRING`",
-          "index$": 10
-        },
-        {
-          "active": true,
-          "name": "name",
-          "req": true,
-          "type": "`$STRING`",
-          "index$": 11
-        },
-        {
-          "active": true,
-          "name": "pending_validation",
-          "req": false,
-          "type": "`$BOOLEAN`",
-          "index$": 12
-        },
-        {
-          "active": true,
-          "name": "priority",
-          "req": false,
-          "type": "`$INTEGER`",
-          "index$": 13
-        },
-        {
-          "active": true,
-          "name": "slug_perm",
-          "req": false,
-          "type": "`$STRING`",
-          "index$": 14
-        },
-        {
-          "active": true,
-          "name": "updated_at",
-          "req": false,
-          "type": "`$STRING`",
-          "index$": 15
-        },
-        {
-          "active": true,
-          "name": "upstream_url",
-          "req": true,
-          "type": "`$STRING`",
-          "index$": 16
-        },
-        {
-          "active": true,
-          "name": "verify_ssl",
-          "req": false,
-          "type": "`$BOOLEAN`",
-          "index$": 17
-        }
-      ],
-      "name": "gon9",
-      "op": {
-        "update": {
-          "input": "data",
-          "name": "update",
-          "points": [
-            {
-              "active": true,
-              "args": {
-                "params": [
-                  {
-                    "active": true,
-                    "kind": "param",
-                    "name": "identifier",
-                    "orig": "identifier",
-                    "reqd": true,
-                    "type": "`$ANY`",
-                    "index$": 0
-                  },
-                  {
-                    "active": true,
-                    "kind": "param",
-                    "name": "owner",
-                    "orig": "owner",
-                    "reqd": true,
-                    "type": "`$ANY`",
-                    "index$": 1
-                  },
-                  {
-                    "active": true,
-                    "kind": "param",
-                    "name": "slug_perm",
-                    "orig": "slug_perm",
-                    "reqd": true,
-                    "type": "`$ANY`",
-                    "index$": 2
-                  }
-                ],
-                "query": [
-                  {
-                    "active": true,
-                    "kind": "query",
-                    "name": "data",
-                    "orig": "data",
-                    "reqd": false,
-                    "type": "`$OBJECT`"
-                  }
-                ]
-              },
-              "method": "PATCH",
-              "orig": "/repos/{owner}/{identifier}/upstream/go/{slug_perm}/",
-              "parts": [
-                "repos",
-                "{owner}",
-                "{identifier}",
-                "upstream",
-                "go",
-                "{slug_perm}"
-              ],
-              "select": {
-                "exist": [
-                  "data",
-                  "identifier",
-                  "owner",
-                  "slug_perm"
-                ]
-              },
-              "transform": {
-                "req": "`reqdata`",
-                "res": "`body`"
-              },
-              "index$": 0
-            }
+            "package"
           ],
-          "key$": "update"
-        }
-      },
-      "relations": {
-        "ancestors": [
+          [
+            "repo"
+          ],
           [
             "repo",
             "go"
@@ -6483,6 +6058,7 @@ class Config {
                   }
                 ]
               },
+              "kind": "http",
               "method": "POST",
               "orig": "/repos/{owner}/{identifier}/upstream/helm/",
               "parts": [
@@ -6554,6 +6130,7 @@ class Config {
                   }
                 ]
               },
+              "kind": "http",
               "method": "GET",
               "orig": "/repos/{owner}/{identifier}/upstream/helm/",
               "parts": [
@@ -6617,6 +6194,7 @@ class Config {
                   }
                 ]
               },
+              "kind": "http",
               "method": "GET",
               "orig": "/repos/{owner}/{identifier}/upstream/helm/{slug_perm}/",
               "parts": [
@@ -6692,6 +6270,7 @@ class Config {
                   }
                 ]
               },
+              "kind": "http",
               "method": "PATCH",
               "orig": "/repos/{owner}/{identifier}/upstream/helm/{slug_perm}/",
               "parts": [
@@ -6771,6 +6350,7 @@ class Config {
                   }
                 ]
               },
+              "kind": "http",
               "method": "PUT",
               "orig": "/repos/{owner}/{identifier}/upstream/helm/{slug_perm}/",
               "parts": [
@@ -6984,6 +6564,7 @@ class Config {
                   }
                 ]
               },
+              "kind": "http",
               "method": "POST",
               "orig": "/repos/{owner}/{identifier}/upstream/hex/",
               "parts": [
@@ -7055,6 +6636,7 @@ class Config {
                   }
                 ]
               },
+              "kind": "http",
               "method": "GET",
               "orig": "/repos/{owner}/{identifier}/upstream/hex/",
               "parts": [
@@ -7118,6 +6700,7 @@ class Config {
                   }
                 ]
               },
+              "kind": "http",
               "method": "GET",
               "orig": "/repos/{owner}/{identifier}/upstream/hex/{slug_perm}/",
               "parts": [
@@ -7193,6 +6776,7 @@ class Config {
                   }
                 ]
               },
+              "kind": "http",
               "method": "PATCH",
               "orig": "/repos/{owner}/{identifier}/upstream/hex/{slug_perm}/",
               "parts": [
@@ -7272,6 +6856,7 @@ class Config {
                   }
                 ]
               },
+              "kind": "http",
               "method": "PUT",
               "orig": "/repos/{owner}/{identifier}/upstream/hex/{slug_perm}/",
               "parts": [
@@ -7493,6 +7078,7 @@ class Config {
                   }
                 ]
               },
+              "kind": "http",
               "method": "POST",
               "orig": "/repos/{owner}/{identifier}/upstream/huggingface/",
               "parts": [
@@ -7564,6 +7150,7 @@ class Config {
                   }
                 ]
               },
+              "kind": "http",
               "method": "GET",
               "orig": "/repos/{owner}/{identifier}/upstream/huggingface/",
               "parts": [
@@ -7627,6 +7214,7 @@ class Config {
                   }
                 ]
               },
+              "kind": "http",
               "method": "GET",
               "orig": "/repos/{owner}/{identifier}/upstream/huggingface/{slug_perm}/",
               "parts": [
@@ -7702,6 +7290,7 @@ class Config {
                   }
                 ]
               },
+              "kind": "http",
               "method": "PATCH",
               "orig": "/repos/{owner}/{identifier}/upstream/huggingface/{slug_perm}/",
               "parts": [
@@ -7781,6 +7370,7 @@ class Config {
                   }
                 ]
               },
+              "kind": "http",
               "method": "PUT",
               "orig": "/repos/{owner}/{identifier}/upstream/huggingface/{slug_perm}/",
               "parts": [
@@ -8086,6 +7676,7 @@ class Config {
                   }
                 ]
               },
+              "kind": "http",
               "method": "POST",
               "orig": "/repos/{owner}/{identifier}/upstream/maven/",
               "parts": [
@@ -8157,6 +7748,7 @@ class Config {
                   }
                 ]
               },
+              "kind": "http",
               "method": "GET",
               "orig": "/repos/{owner}/{identifier}/upstream/maven/",
               "parts": [
@@ -8220,6 +7812,7 @@ class Config {
                   }
                 ]
               },
+              "kind": "http",
               "method": "GET",
               "orig": "/repos/{owner}/{identifier}/upstream/maven/{slug_perm}/",
               "parts": [
@@ -8295,6 +7888,7 @@ class Config {
                   }
                 ]
               },
+              "kind": "http",
               "method": "PATCH",
               "orig": "/repos/{owner}/{identifier}/upstream/maven/{slug_perm}/",
               "parts": [
@@ -8374,6 +7968,7 @@ class Config {
                   }
                 ]
               },
+              "kind": "http",
               "method": "PUT",
               "orig": "/repos/{owner}/{identifier}/upstream/maven/{slug_perm}/",
               "parts": [
@@ -8501,6 +8096,7 @@ class Config {
                   }
                 ]
               },
+              "kind": "http",
               "method": "GET",
               "orig": "/namespaces/",
               "parts": [
@@ -8540,6 +8136,7 @@ class Config {
                   }
                 ]
               },
+              "kind": "http",
               "method": "GET",
               "orig": "/namespaces/{slug}/",
               "parts": [
@@ -8732,6 +8329,7 @@ class Config {
                   }
                 ]
               },
+              "kind": "http",
               "method": "GET",
               "orig": "/audit-log/{owner}/",
               "parts": [
@@ -8934,6 +8532,7 @@ class Config {
                   }
                 ]
               },
+              "kind": "http",
               "method": "POST",
               "orig": "/repos/{owner}/{identifier}/upstream/npm/",
               "parts": [
@@ -9005,6 +8604,7 @@ class Config {
                   }
                 ]
               },
+              "kind": "http",
               "method": "GET",
               "orig": "/repos/{owner}/{identifier}/upstream/npm/",
               "parts": [
@@ -9068,6 +8668,7 @@ class Config {
                   }
                 ]
               },
+              "kind": "http",
               "method": "GET",
               "orig": "/repos/{owner}/{identifier}/upstream/npm/{slug_perm}/",
               "parts": [
@@ -9143,6 +8744,7 @@ class Config {
                   }
                 ]
               },
+              "kind": "http",
               "method": "PATCH",
               "orig": "/repos/{owner}/{identifier}/upstream/npm/{slug_perm}/",
               "parts": [
@@ -9222,6 +8824,7 @@ class Config {
                   }
                 ]
               },
+              "kind": "http",
               "method": "PUT",
               "orig": "/repos/{owner}/{identifier}/upstream/npm/{slug_perm}/",
               "parts": [
@@ -9435,6 +9038,7 @@ class Config {
                   }
                 ]
               },
+              "kind": "http",
               "method": "POST",
               "orig": "/repos/{owner}/{identifier}/upstream/nuget/",
               "parts": [
@@ -9506,6 +9110,7 @@ class Config {
                   }
                 ]
               },
+              "kind": "http",
               "method": "GET",
               "orig": "/repos/{owner}/{identifier}/upstream/nuget/",
               "parts": [
@@ -9569,6 +9174,7 @@ class Config {
                   }
                 ]
               },
+              "kind": "http",
               "method": "GET",
               "orig": "/repos/{owner}/{identifier}/upstream/nuget/{slug_perm}/",
               "parts": [
@@ -9644,6 +9250,7 @@ class Config {
                   }
                 ]
               },
+              "kind": "http",
               "method": "PATCH",
               "orig": "/repos/{owner}/{identifier}/upstream/nuget/{slug_perm}/",
               "parts": [
@@ -9723,6 +9330,7 @@ class Config {
                   }
                 ]
               },
+              "kind": "http",
               "method": "PUT",
               "orig": "/repos/{owner}/{identifier}/upstream/nuget/{slug_perm}/",
               "parts": [
@@ -9836,7 +9444,7 @@ class Config {
         },
         {
           "active": true,
-          "name": "reason",
+          "name": "reasons",
           "req": true,
           "type": "`$ARRAY`",
           "index$": 7
@@ -9864,7 +9472,7 @@ class Config {
         },
         {
           "active": true,
-          "name": "vulnerability_scan_result",
+          "name": "vulnerability_scan_results",
           "req": true,
           "type": "`$OBJECT`",
           "index$": 11
@@ -9900,6 +9508,7 @@ class Config {
                   }
                 ]
               },
+              "kind": "http",
               "method": "POST",
               "orig": "/orgs/{org}/members/{member}/refresh/",
               "parts": [
@@ -9942,6 +9551,7 @@ class Config {
                   }
                 ]
               },
+              "kind": "http",
               "method": "POST",
               "orig": "/orgs/{org}/saml-group-sync/disable/",
               "parts": [
@@ -9981,6 +9591,7 @@ class Config {
                   }
                 ]
               },
+              "kind": "http",
               "method": "POST",
               "orig": "/orgs/{org}/saml-group-sync/enable/",
               "parts": [
@@ -10044,6 +9655,7 @@ class Config {
                   }
                 ]
               },
+              "kind": "http",
               "method": "GET",
               "orig": "/orgs/{org}/license-policy-violation/",
               "parts": [
@@ -10066,7 +9678,7 @@ class Config {
               },
               "transform": {
                 "req": "`reqdata`",
-                "res": "`body`"
+                "res": "`body.results`"
               },
               "index$": 0
             },
@@ -10102,6 +9714,7 @@ class Config {
                   }
                 ]
               },
+              "kind": "http",
               "method": "GET",
               "orig": "/orgs/{org}/vulnerability-policy-violation/",
               "parts": [
@@ -10124,7 +9737,7 @@ class Config {
               },
               "transform": {
                 "req": "`reqdata`",
-                "res": "`body`"
+                "res": "`body.results`"
               },
               "index$": 1
             },
@@ -10150,6 +9763,7 @@ class Config {
                   }
                 ]
               },
+              "kind": "http",
               "method": "GET",
               "orig": "/orgs/",
               "parts": [
@@ -10198,6 +9812,7 @@ class Config {
                   }
                 ]
               },
+              "kind": "http",
               "method": "GET",
               "orig": "/orgs/{org}/members/{member}/remove/",
               "parts": [
@@ -10240,6 +9855,7 @@ class Config {
                   }
                 ]
               },
+              "kind": "http",
               "method": "GET",
               "orig": "/orgs/{org}/",
               "parts": [
@@ -10293,6 +9909,7 @@ class Config {
                   }
                 ]
               },
+              "kind": "http",
               "method": "DELETE",
               "orig": "/orgs/{org}/members/{member}/",
               "parts": [
@@ -10342,6 +9959,7 @@ class Config {
                   }
                 ]
               },
+              "kind": "http",
               "method": "DELETE",
               "orig": "/orgs/{org}/services/{service}/",
               "parts": [
@@ -10391,6 +10009,7 @@ class Config {
                   }
                 ]
               },
+              "kind": "http",
               "method": "DELETE",
               "orig": "/orgs/{org}/deny-policy/{slug_perm}/",
               "parts": [
@@ -10440,6 +10059,7 @@ class Config {
                   }
                 ]
               },
+              "kind": "http",
               "method": "DELETE",
               "orig": "/orgs/{org}/invites/{slug_perm}/",
               "parts": [
@@ -10489,6 +10109,7 @@ class Config {
                   }
                 ]
               },
+              "kind": "http",
               "method": "DELETE",
               "orig": "/orgs/{org}/license-policy/{slug_perm}/",
               "parts": [
@@ -10538,6 +10159,7 @@ class Config {
                   }
                 ]
               },
+              "kind": "http",
               "method": "DELETE",
               "orig": "/orgs/{org}/openid-connect/{slug_perm}/",
               "parts": [
@@ -10587,6 +10209,7 @@ class Config {
                   }
                 ]
               },
+              "kind": "http",
               "method": "DELETE",
               "orig": "/orgs/{org}/saml-group-sync/{slug_perm}/",
               "parts": [
@@ -10636,6 +10259,7 @@ class Config {
                   }
                 ]
               },
+              "kind": "http",
               "method": "DELETE",
               "orig": "/orgs/{org}/vulnerability-policy/{slug_perm}/",
               "parts": [
@@ -10685,6 +10309,7 @@ class Config {
                   }
                 ]
               },
+              "kind": "http",
               "method": "DELETE",
               "orig": "/orgs/{org}/teams/{team}/",
               "parts": [
@@ -10725,6 +10350,7 @@ class Config {
                   }
                 ]
               },
+              "kind": "http",
               "method": "DELETE",
               "orig": "/orgs/{org}/",
               "parts": [
@@ -10788,6 +10414,7 @@ class Config {
                   }
                 ]
               },
+              "kind": "http",
               "method": "PUT",
               "orig": "/orgs/{org}/teams/{team}/members",
               "parts": [
@@ -10921,6 +10548,7 @@ class Config {
                   }
                 ]
               },
+              "kind": "http",
               "method": "POST",
               "orig": "/orgs/{org}/saml-group-sync/",
               "parts": [
@@ -10985,6 +10613,7 @@ class Config {
                   }
                 ]
               },
+              "kind": "http",
               "method": "GET",
               "orig": "/orgs/{org}/saml-group-sync/",
               "parts": [
@@ -11053,6 +10682,7 @@ class Config {
                   }
                 ]
               },
+              "kind": "http",
               "method": "GET",
               "orig": "/orgs/{org}/saml-group-sync/status/",
               "parts": [
@@ -11142,7 +10772,7 @@ class Config {
         },
         {
           "active": true,
-          "name": "team",
+          "name": "teams",
           "req": false,
           "type": "`$ARRAY`",
           "index$": 7
@@ -11193,6 +10823,7 @@ class Config {
                   }
                 ]
               },
+              "kind": "http",
               "method": "POST",
               "orig": "/orgs/{org}/invites/",
               "parts": [
@@ -11257,6 +10888,7 @@ class Config {
                   }
                 ]
               },
+              "kind": "http",
               "method": "GET",
               "orig": "/orgs/{org}/invites/",
               "parts": [
@@ -11323,6 +10955,7 @@ class Config {
                   }
                 ]
               },
+              "kind": "http",
               "method": "PATCH",
               "orig": "/orgs/{org}/invites/{slug_perm}/",
               "parts": [
@@ -11415,7 +11048,7 @@ class Config {
         },
         {
           "active": true,
-          "name": "team",
+          "name": "teams",
           "req": false,
           "type": "`$ARRAY`",
           "index$": 7
@@ -11465,6 +11098,7 @@ class Config {
                   }
                 ]
               },
+              "kind": "http",
               "method": "POST",
               "orig": "/orgs/{org}/invites/{slug_perm}/extend/",
               "parts": [
@@ -11515,6 +11149,7 @@ class Config {
                   }
                 ]
               },
+              "kind": "http",
               "method": "POST",
               "orig": "/orgs/{org}/invites/{slug_perm}/resend/",
               "parts": [
@@ -11704,6 +11339,7 @@ class Config {
                   }
                 ]
               },
+              "kind": "http",
               "method": "GET",
               "orig": "/orgs/{org}/members/",
               "parts": [
@@ -11763,6 +11399,7 @@ class Config {
                   }
                 ]
               },
+              "kind": "http",
               "method": "GET",
               "orig": "/orgs/{org}/members/{member}/",
               "parts": [
@@ -11829,6 +11466,7 @@ class Config {
                   }
                 ]
               },
+              "kind": "http",
               "method": "PATCH",
               "orig": "/orgs/{org}/members/{member}/",
               "parts": [
@@ -11991,6 +11629,7 @@ class Config {
                   }
                 ]
               },
+              "kind": "http",
               "method": "PATCH",
               "orig": "/orgs/{org}/members/{member}/update-role/",
               "parts": [
@@ -12152,6 +11791,7 @@ class Config {
                   }
                 ]
               },
+              "kind": "http",
               "method": "PATCH",
               "orig": "/orgs/{org}/members/{member}/update-visibility/",
               "parts": [
@@ -12197,7 +11837,7 @@ class Config {
       "fields": [
         {
           "active": true,
-          "name": "allow_unknown_license",
+          "name": "allow_unknown_licenses",
           "req": false,
           "type": "`$BOOLEAN`",
           "index$": 0
@@ -12246,7 +11886,7 @@ class Config {
         },
         {
           "active": true,
-          "name": "spdx_identifier",
+          "name": "spdx_identifiers",
           "req": true,
           "type": "`$ARRAY`",
           "index$": 7
@@ -12290,6 +11930,7 @@ class Config {
                   }
                 ]
               },
+              "kind": "http",
               "method": "POST",
               "orig": "/orgs/{org}/license-policy/",
               "parts": [
@@ -12354,6 +11995,7 @@ class Config {
                   }
                 ]
               },
+              "kind": "http",
               "method": "GET",
               "orig": "/orgs/{org}/license-policy/",
               "parts": [
@@ -12410,6 +12052,7 @@ class Config {
                   }
                 ]
               },
+              "kind": "http",
               "method": "GET",
               "orig": "/orgs/{org}/license-policy/{slug_perm}/",
               "parts": [
@@ -12475,6 +12118,7 @@ class Config {
                   }
                 ]
               },
+              "kind": "http",
               "method": "PATCH",
               "orig": "/orgs/{org}/license-policy/{slug_perm}/",
               "parts": [
@@ -12543,6 +12187,7 @@ class Config {
                   }
                 ]
               },
+              "kind": "http",
               "method": "PUT",
               "orig": "/orgs/{org}/license-policy/{slug_perm}/",
               "parts": [
@@ -12679,6 +12324,7 @@ class Config {
                   }
                 ]
               },
+              "kind": "http",
               "method": "POST",
               "orig": "/orgs/{org}/vulnerability-policy/",
               "parts": [
@@ -12743,6 +12389,7 @@ class Config {
                   }
                 ]
               },
+              "kind": "http",
               "method": "GET",
               "orig": "/orgs/{org}/vulnerability-policy/",
               "parts": [
@@ -12799,6 +12446,7 @@ class Config {
                   }
                 ]
               },
+              "kind": "http",
               "method": "GET",
               "orig": "/orgs/{org}/vulnerability-policy/{slug_perm}/",
               "parts": [
@@ -12864,6 +12512,7 @@ class Config {
                   }
                 ]
               },
+              "kind": "http",
               "method": "PATCH",
               "orig": "/orgs/{org}/vulnerability-policy/{slug_perm}/",
               "parts": [
@@ -12932,6 +12581,7 @@ class Config {
                   }
                 ]
               },
+              "kind": "http",
               "method": "PUT",
               "orig": "/orgs/{org}/vulnerability-policy/{slug_perm}/",
               "parts": [
@@ -13023,6 +12673,7 @@ class Config {
                   }
                 ]
               },
+              "kind": "http",
               "method": "GET",
               "orig": "/orgs/{org}/saml-authentication",
               "parts": [
@@ -13078,6 +12729,7 @@ class Config {
                   }
                 ]
               },
+              "kind": "http",
               "method": "PATCH",
               "orig": "/orgs/{org}/saml-authentication",
               "parts": [
@@ -13183,6 +12835,7 @@ class Config {
                   }
                 ]
               },
+              "kind": "http",
               "method": "POST",
               "orig": "/orgs/{org}/teams/",
               "parts": [
@@ -13271,6 +12924,7 @@ class Config {
                   }
                 ]
               },
+              "kind": "http",
               "method": "GET",
               "orig": "/orgs/{org}/teams/",
               "parts": [
@@ -13330,6 +12984,7 @@ class Config {
                   }
                 ]
               },
+              "kind": "http",
               "method": "GET",
               "orig": "/orgs/{org}/teams/{team}/",
               "parts": [
@@ -13397,6 +13052,7 @@ class Config {
                   }
                 ]
               },
+              "kind": "http",
               "method": "PATCH",
               "orig": "/orgs/{org}/teams/{team}/",
               "parts": [
@@ -13493,6 +13149,7 @@ class Config {
                   }
                 ]
               },
+              "kind": "http",
               "method": "POST",
               "orig": "/orgs/{org}/teams/{team}/members",
               "parts": [
@@ -13552,6 +13209,7 @@ class Config {
                   }
                 ]
               },
+              "kind": "http",
               "method": "GET",
               "orig": "/orgs/{org}/teams/{team}/members",
               "parts": [
@@ -13575,7 +13233,7 @@ class Config {
               },
               "transform": {
                 "req": "`reqdata`",
-                "res": "`body`"
+                "res": "`body.members`"
               },
               "index$": 0
             }
@@ -13612,467 +13270,479 @@ class Config {
         ]
       }
     },
-    "p2n2": {
-      "fields": [],
-      "name": "p2n2",
-      "op": {},
-      "relations": {
-        "ancestors": [
-          [
-            "package"
-          ]
-        ]
-      }
-    },
     "package": {
       "fields": [
         {
           "active": true,
-          "name": "architecture",
+          "name": "active",
+          "req": false,
+          "type": "`$INTEGER`",
+          "index$": 0
+        },
+        {
+          "active": true,
+          "name": "architectures",
           "req": false,
           "type": "`$ARRAY`",
-          "index$": 0
+          "index$": 1
         },
         {
           "active": true,
           "name": "backend_kind",
           "req": false,
           "type": "`$INTEGER`",
-          "index$": 1
+          "index$": 2
+        },
+        {
+          "active": true,
+          "name": "bandwidth",
+          "req": true,
+          "type": "`$OBJECT`",
+          "index$": 3
         },
         {
           "active": true,
           "name": "cdn_url",
           "req": false,
           "type": "`$STRING`",
-          "index$": 2
+          "index$": 4
         },
         {
           "active": true,
           "name": "checksum_md5",
           "req": false,
           "type": "`$STRING`",
-          "index$": 3
+          "index$": 5
         },
         {
           "active": true,
           "name": "checksum_sha1",
           "req": false,
           "type": "`$STRING`",
-          "index$": 4
+          "index$": 6
         },
         {
           "active": true,
           "name": "checksum_sha256",
           "req": false,
           "type": "`$STRING`",
-          "index$": 5
+          "index$": 7
         },
         {
           "active": true,
           "name": "checksum_sha512",
           "req": false,
           "type": "`$STRING`",
-          "index$": 6
+          "index$": 8
         },
         {
           "active": true,
           "name": "count",
           "req": true,
           "type": "`$INTEGER`",
-          "index$": 7
+          "index$": 9
         },
         {
           "active": true,
           "name": "dep_type",
           "req": false,
           "type": "`$STRING`",
-          "index$": 8
+          "index$": 10
         },
         {
           "active": true,
           "name": "dependencies_checksum_md5",
           "req": false,
           "type": "`$STRING`",
-          "index$": 9
+          "index$": 11
         },
         {
           "active": true,
           "name": "dependencies_url",
           "req": false,
           "type": "`$STRING`",
-          "index$": 10
+          "index$": 12
         },
         {
           "active": true,
           "name": "description",
           "req": false,
           "type": "`$STRING`",
-          "index$": 11
+          "index$": 13
         },
         {
           "active": true,
           "name": "display_name",
           "req": false,
           "type": "`$STRING`",
-          "index$": 12
+          "index$": 14
         },
         {
           "active": true,
           "name": "distro",
           "req": true,
           "type": "`$OBJECT`",
-          "index$": 13
+          "index$": 15
         },
         {
           "active": true,
           "name": "distro_version",
           "req": false,
           "type": "`$OBJECT`",
-          "index$": 14
+          "index$": 16
         },
         {
           "active": true,
-          "name": "download",
-          "req": false,
-          "type": "`$INTEGER`",
-          "index$": 15
+          "name": "downloads",
+          "op": {
+            "create": {
+              "req": false,
+              "type": "`$INTEGER`"
+            },
+            "list": {
+              "req": false,
+              "type": "`$INTEGER`"
+            }
+          },
+          "req": true,
+          "type": "`$OBJECT`",
+          "index$": 17
         },
         {
           "active": true,
           "name": "epoch",
           "req": false,
           "type": "`$INTEGER`",
-          "index$": 16
+          "index$": 18
         },
         {
           "active": true,
           "name": "extension",
           "req": false,
           "type": "`$STRING`",
-          "index$": 17
-        },
-        {
-          "active": true,
-          "name": "file",
-          "req": false,
-          "type": "`$ARRAY`",
-          "index$": 18
+          "index$": 19
         },
         {
           "active": true,
           "name": "filename",
           "req": false,
           "type": "`$STRING`",
-          "index$": 19
+          "index$": 20
+        },
+        {
+          "active": true,
+          "name": "files",
+          "req": false,
+          "type": "`$ARRAY`",
+          "index$": 21
         },
         {
           "active": true,
           "name": "format",
           "req": false,
           "type": "`$STRING`",
-          "index$": 20
+          "index$": 22
         },
         {
           "active": true,
           "name": "format_url",
           "req": false,
           "type": "`$STRING`",
-          "index$": 21
+          "index$": 23
         },
         {
           "active": true,
           "name": "freeable_storage",
           "req": false,
           "type": "`$INTEGER`",
-          "index$": 22
+          "index$": 24
         },
         {
           "active": true,
           "name": "fully_qualified_name",
           "req": false,
           "type": "`$STRING`",
-          "index$": 23
-        },
-        {
-          "active": true,
-          "name": "identifier",
-          "req": false,
-          "type": "`$OBJECT`",
-          "index$": 24
+          "index$": 25
         },
         {
           "active": true,
           "name": "identifier_perm",
           "req": false,
           "type": "`$STRING`",
-          "index$": 25
+          "index$": 26
+        },
+        {
+          "active": true,
+          "name": "identifiers",
+          "req": false,
+          "type": "`$OBJECT`",
+          "index$": 27
+        },
+        {
+          "active": true,
+          "name": "inactive",
+          "req": false,
+          "type": "`$INTEGER`",
+          "index$": 28
         },
         {
           "active": true,
           "name": "indexed",
           "req": false,
           "type": "`$BOOLEAN`",
-          "index$": 26
+          "index$": 29
         },
         {
           "active": true,
           "name": "is_cancellable",
           "req": false,
           "type": "`$BOOLEAN`",
-          "index$": 27
+          "index$": 30
         },
         {
           "active": true,
           "name": "is_copyable",
           "req": false,
           "type": "`$BOOLEAN`",
-          "index$": 28
+          "index$": 31
         },
         {
           "active": true,
           "name": "is_deleteable",
           "req": false,
           "type": "`$BOOLEAN`",
-          "index$": 29
+          "index$": 32
         },
         {
           "active": true,
           "name": "is_downloadable",
           "req": false,
           "type": "`$BOOLEAN`",
-          "index$": 30
+          "index$": 33
         },
         {
           "active": true,
           "name": "is_moveable",
           "req": false,
           "type": "`$BOOLEAN`",
-          "index$": 31
+          "index$": 34
         },
         {
           "active": true,
           "name": "is_quarantinable",
           "req": false,
           "type": "`$BOOLEAN`",
-          "index$": 32
+          "index$": 35
         },
         {
           "active": true,
           "name": "is_quarantined",
           "req": false,
           "type": "`$BOOLEAN`",
-          "index$": 33
+          "index$": 36
         },
         {
           "active": true,
           "name": "is_resyncable",
           "req": false,
           "type": "`$BOOLEAN`",
-          "index$": 34
+          "index$": 37
         },
         {
           "active": true,
           "name": "is_security_scannable",
           "req": false,
           "type": "`$BOOLEAN`",
-          "index$": 35
+          "index$": 38
         },
         {
           "active": true,
           "name": "is_sync_awaiting",
           "req": false,
           "type": "`$BOOLEAN`",
-          "index$": 36
+          "index$": 39
         },
         {
           "active": true,
           "name": "is_sync_completed",
           "req": false,
           "type": "`$BOOLEAN`",
-          "index$": 37
+          "index$": 40
         },
         {
           "active": true,
           "name": "is_sync_failed",
           "req": false,
           "type": "`$BOOLEAN`",
-          "index$": 38
+          "index$": 41
         },
         {
           "active": true,
           "name": "is_sync_in_flight",
           "req": false,
           "type": "`$BOOLEAN`",
-          "index$": 39
+          "index$": 42
         },
         {
           "active": true,
           "name": "is_sync_in_progress",
           "req": false,
           "type": "`$BOOLEAN`",
-          "index$": 40
+          "index$": 43
         },
         {
           "active": true,
           "name": "last_push",
           "req": true,
           "type": "`$STRING`",
-          "index$": 41
+          "index$": 44
         },
         {
           "active": true,
           "name": "license",
           "req": false,
           "type": "`$STRING`",
-          "index$": 42
+          "index$": 45
         },
         {
           "active": true,
           "name": "name",
           "req": false,
           "type": "`$STRING`",
-          "index$": 43
+          "index$": 46
         },
         {
           "active": true,
           "name": "namespace",
           "req": false,
           "type": "`$STRING`",
-          "index$": 44
+          "index$": 47
         },
         {
           "active": true,
           "name": "namespace_url",
           "req": false,
           "type": "`$STRING`",
-          "index$": 45
+          "index$": 48
         },
         {
           "active": true,
-          "name": "num_download",
+          "name": "num_downloads",
           "req": true,
           "type": "`$INTEGER`",
-          "index$": 46
+          "index$": 49
         },
         {
           "active": true,
-          "name": "num_file",
+          "name": "num_files",
           "req": false,
           "type": "`$INTEGER`",
-          "index$": 47
+          "index$": 50
         },
         {
           "active": true,
           "name": "operator",
           "req": false,
           "type": "`$STRING`",
-          "index$": 48
+          "index$": 51
         },
         {
           "active": true,
           "name": "origin_repository",
           "req": false,
           "type": "`$STRING`",
-          "index$": 49
+          "index$": 52
         },
         {
           "active": true,
           "name": "origin_repository_url",
           "req": false,
           "type": "`$STRING`",
-          "index$": 50
-        },
-        {
-          "active": true,
-          "name": "package",
-          "req": true,
-          "type": "`$OBJECT`",
-          "index$": 51
+          "index$": 53
         },
         {
           "active": true,
           "name": "package_type",
           "req": false,
           "type": "`$INTEGER`",
-          "index$": 52
+          "index$": 54
         },
         {
           "active": true,
           "name": "policy_violated",
           "req": false,
           "type": "`$BOOLEAN`",
-          "index$": 53
+          "index$": 55
         },
         {
           "active": true,
           "name": "release",
           "req": false,
           "type": "`$STRING`",
-          "index$": 54
+          "index$": 56
         },
         {
           "active": true,
           "name": "repository",
           "req": false,
           "type": "`$STRING`",
-          "index$": 55
+          "index$": 57
         },
         {
           "active": true,
           "name": "repository_url",
           "req": false,
           "type": "`$STRING`",
-          "index$": 56
+          "index$": 58
         },
         {
           "active": true,
           "name": "security_scan_completed_at",
           "req": false,
           "type": "`$STRING`",
-          "index$": 57
+          "index$": 59
         },
         {
           "active": true,
           "name": "security_scan_started_at",
           "req": false,
           "type": "`$STRING`",
-          "index$": 58
+          "index$": 60
         },
         {
           "active": true,
           "name": "security_scan_status",
           "req": false,
           "type": "`$STRING`",
-          "index$": 59
+          "index$": 61
         },
         {
           "active": true,
           "name": "security_scan_status_updated_at",
           "req": false,
           "type": "`$STRING`",
-          "index$": 60
+          "index$": 62
         },
         {
           "active": true,
           "name": "self_html_url",
           "req": false,
           "type": "`$STRING`",
-          "index$": 61
+          "index$": 63
         },
         {
           "active": true,
           "name": "self_url",
           "req": false,
           "type": "`$STRING`",
-          "index$": 62
+          "index$": 64
         },
         {
           "active": true,
           "name": "signature_url",
           "req": false,
           "type": "`$STRING`",
-          "index$": 63
+          "index$": 65
         },
         {
           "active": true,
@@ -14085,168 +13755,175 @@ class Config {
           },
           "req": false,
           "type": "`$INTEGER`",
-          "index$": 64
+          "index$": 66
         },
         {
           "active": true,
           "name": "slug",
           "req": false,
           "type": "`$STRING`",
-          "index$": 65
+          "index$": 67
         },
         {
           "active": true,
           "name": "slug_perm",
           "req": false,
           "type": "`$STRING`",
-          "index$": 66
+          "index$": 68
         },
         {
           "active": true,
           "name": "stage",
           "req": false,
           "type": "`$INTEGER`",
-          "index$": 67
+          "index$": 69
         },
         {
           "active": true,
           "name": "stage_str",
           "req": false,
           "type": "`$STRING`",
-          "index$": 68
+          "index$": 70
         },
         {
           "active": true,
           "name": "stage_updated_at",
           "req": false,
           "type": "`$STRING`",
-          "index$": 69
+          "index$": 71
         },
         {
           "active": true,
           "name": "status",
           "req": false,
           "type": "`$INTEGER`",
-          "index$": 70
+          "index$": 72
         },
         {
           "active": true,
           "name": "status_reason",
           "req": false,
           "type": "`$STRING`",
-          "index$": 71
+          "index$": 73
         },
         {
           "active": true,
           "name": "status_str",
           "req": false,
           "type": "`$STRING`",
-          "index$": 72
+          "index$": 74
         },
         {
           "active": true,
           "name": "status_updated_at",
           "req": false,
           "type": "`$STRING`",
-          "index$": 73
+          "index$": 75
         },
         {
           "active": true,
           "name": "status_url",
           "req": false,
           "type": "`$STRING`",
-          "index$": 74
+          "index$": 76
         },
         {
           "active": true,
           "name": "subtype",
           "req": false,
           "type": "`$STRING`",
-          "index$": 75
+          "index$": 77
         },
         {
           "active": true,
           "name": "summary",
           "req": false,
           "type": "`$STRING`",
-          "index$": 76
+          "index$": 78
         },
         {
           "active": true,
           "name": "sync_finished_at",
           "req": false,
           "type": "`$STRING`",
-          "index$": 77
+          "index$": 79
         },
         {
           "active": true,
           "name": "sync_progress",
           "req": false,
           "type": "`$INTEGER`",
-          "index$": 78
+          "index$": 80
         },
         {
           "active": true,
-          "name": "tag",
+          "name": "tags",
           "req": false,
           "type": "`$OBJECT`",
-          "index$": 79
+          "index$": 81
         },
         {
           "active": true,
           "name": "tags_immutable",
           "req": false,
           "type": "`$OBJECT`",
-          "index$": 80
+          "index$": 82
+        },
+        {
+          "active": true,
+          "name": "total",
+          "req": false,
+          "type": "`$INTEGER`",
+          "index$": 83
         },
         {
           "active": true,
           "name": "type_display",
           "req": false,
           "type": "`$STRING`",
-          "index$": 81
+          "index$": 84
         },
         {
           "active": true,
           "name": "uploaded_at",
           "req": false,
           "type": "`$STRING`",
-          "index$": 82
+          "index$": 85
         },
         {
           "active": true,
           "name": "uploader",
           "req": false,
           "type": "`$STRING`",
-          "index$": 83
+          "index$": 86
         },
         {
           "active": true,
           "name": "uploader_url",
           "req": false,
           "type": "`$STRING`",
-          "index$": 84
+          "index$": 87
         },
         {
           "active": true,
           "name": "version",
           "req": false,
           "type": "`$STRING`",
-          "index$": 85
+          "index$": 88
         },
         {
           "active": true,
           "name": "version_orig",
           "req": false,
           "type": "`$STRING`",
-          "index$": 86
+          "index$": 89
         },
         {
           "active": true,
           "name": "vulnerability_scan_results_url",
           "req": false,
           "type": "`$STRING`",
-          "index$": 87
+          "index$": 90
         }
       ],
       "name": "package",
@@ -14298,6 +13975,7 @@ class Config {
                   }
                 ]
               },
+              "kind": "http",
               "method": "POST",
               "orig": "/packages/{owner}/{repo}/{identifier}/copy/",
               "parts": [
@@ -14364,6 +14042,7 @@ class Config {
                   }
                 ]
               },
+              "kind": "http",
               "method": "POST",
               "orig": "/packages/{owner}/{repo}/{identifier}/move/",
               "parts": [
@@ -14430,6 +14109,7 @@ class Config {
                   }
                 ]
               },
+              "kind": "http",
               "method": "POST",
               "orig": "/packages/{owner}/{repo}/{identifier}/quarantine/",
               "parts": [
@@ -14496,6 +14176,7 @@ class Config {
                   }
                 ]
               },
+              "kind": "http",
               "method": "POST",
               "orig": "/packages/{owner}/{repo}/{identifier}/tag/",
               "parts": [
@@ -14553,6 +14234,7 @@ class Config {
                   }
                 ]
               },
+              "kind": "http",
               "method": "POST",
               "orig": "/packages/{owner}/{repo}/upload/alpine/",
               "parts": [
@@ -14609,6 +14291,7 @@ class Config {
                   }
                 ]
               },
+              "kind": "http",
               "method": "POST",
               "orig": "/packages/{owner}/{repo}/upload/cargo/",
               "parts": [
@@ -14665,6 +14348,7 @@ class Config {
                   }
                 ]
               },
+              "kind": "http",
               "method": "POST",
               "orig": "/packages/{owner}/{repo}/upload/cocoapods/",
               "parts": [
@@ -14721,6 +14405,7 @@ class Config {
                   }
                 ]
               },
+              "kind": "http",
               "method": "POST",
               "orig": "/packages/{owner}/{repo}/upload/composer/",
               "parts": [
@@ -14777,6 +14462,7 @@ class Config {
                   }
                 ]
               },
+              "kind": "http",
               "method": "POST",
               "orig": "/packages/{owner}/{repo}/upload/conan/",
               "parts": [
@@ -14833,6 +14519,7 @@ class Config {
                   }
                 ]
               },
+              "kind": "http",
               "method": "POST",
               "orig": "/packages/{owner}/{repo}/upload/conda/",
               "parts": [
@@ -14889,6 +14576,7 @@ class Config {
                   }
                 ]
               },
+              "kind": "http",
               "method": "POST",
               "orig": "/packages/{owner}/{repo}/upload/cran/",
               "parts": [
@@ -14945,6 +14633,7 @@ class Config {
                   }
                 ]
               },
+              "kind": "http",
               "method": "POST",
               "orig": "/packages/{owner}/{repo}/upload/dart/",
               "parts": [
@@ -15001,6 +14690,7 @@ class Config {
                   }
                 ]
               },
+              "kind": "http",
               "method": "POST",
               "orig": "/packages/{owner}/{repo}/upload/deb/",
               "parts": [
@@ -15057,6 +14747,7 @@ class Config {
                   }
                 ]
               },
+              "kind": "http",
               "method": "POST",
               "orig": "/packages/{owner}/{repo}/upload/docker/",
               "parts": [
@@ -15113,6 +14804,7 @@ class Config {
                   }
                 ]
               },
+              "kind": "http",
               "method": "POST",
               "orig": "/packages/{owner}/{repo}/upload/go/",
               "parts": [
@@ -15169,6 +14861,7 @@ class Config {
                   }
                 ]
               },
+              "kind": "http",
               "method": "POST",
               "orig": "/packages/{owner}/{repo}/upload/helm/",
               "parts": [
@@ -15225,6 +14918,7 @@ class Config {
                   }
                 ]
               },
+              "kind": "http",
               "method": "POST",
               "orig": "/packages/{owner}/{repo}/upload/hex/",
               "parts": [
@@ -15281,6 +14975,7 @@ class Config {
                   }
                 ]
               },
+              "kind": "http",
               "method": "POST",
               "orig": "/packages/{owner}/{repo}/upload/huggingface/",
               "parts": [
@@ -15337,6 +15032,7 @@ class Config {
                   }
                 ]
               },
+              "kind": "http",
               "method": "POST",
               "orig": "/packages/{owner}/{repo}/upload/luarocks/",
               "parts": [
@@ -15393,6 +15089,7 @@ class Config {
                   }
                 ]
               },
+              "kind": "http",
               "method": "POST",
               "orig": "/packages/{owner}/{repo}/upload/maven/",
               "parts": [
@@ -15449,6 +15146,7 @@ class Config {
                   }
                 ]
               },
+              "kind": "http",
               "method": "POST",
               "orig": "/packages/{owner}/{repo}/upload/npm/",
               "parts": [
@@ -15505,6 +15203,7 @@ class Config {
                   }
                 ]
               },
+              "kind": "http",
               "method": "POST",
               "orig": "/packages/{owner}/{repo}/upload/nuget/",
               "parts": [
@@ -15561,6 +15260,7 @@ class Config {
                   }
                 ]
               },
+              "kind": "http",
               "method": "POST",
               "orig": "/packages/{owner}/{repo}/upload/p2/",
               "parts": [
@@ -15617,6 +15317,7 @@ class Config {
                   }
                 ]
               },
+              "kind": "http",
               "method": "POST",
               "orig": "/packages/{owner}/{repo}/upload/python/",
               "parts": [
@@ -15673,6 +15374,7 @@ class Config {
                   }
                 ]
               },
+              "kind": "http",
               "method": "POST",
               "orig": "/packages/{owner}/{repo}/upload/raw/",
               "parts": [
@@ -15729,6 +15431,7 @@ class Config {
                   }
                 ]
               },
+              "kind": "http",
               "method": "POST",
               "orig": "/packages/{owner}/{repo}/upload/rpm/",
               "parts": [
@@ -15785,6 +15488,7 @@ class Config {
                   }
                 ]
               },
+              "kind": "http",
               "method": "POST",
               "orig": "/packages/{owner}/{repo}/upload/ruby/",
               "parts": [
@@ -15841,6 +15545,7 @@ class Config {
                   }
                 ]
               },
+              "kind": "http",
               "method": "POST",
               "orig": "/packages/{owner}/{repo}/upload/swift/",
               "parts": [
@@ -15897,6 +15602,7 @@ class Config {
                   }
                 ]
               },
+              "kind": "http",
               "method": "POST",
               "orig": "/packages/{owner}/{repo}/upload/terraform/",
               "parts": [
@@ -15953,6 +15659,7 @@ class Config {
                   }
                 ]
               },
+              "kind": "http",
               "method": "POST",
               "orig": "/packages/{owner}/{repo}/upload/vagrant/",
               "parts": [
@@ -16009,6 +15716,7 @@ class Config {
                   }
                 ]
               },
+              "kind": "http",
               "method": "POST",
               "orig": "/packages/{owner}/{repo}/validate-upload/alpine/",
               "parts": [
@@ -16065,6 +15773,7 @@ class Config {
                   }
                 ]
               },
+              "kind": "http",
               "method": "POST",
               "orig": "/packages/{owner}/{repo}/validate-upload/cargo/",
               "parts": [
@@ -16121,6 +15830,7 @@ class Config {
                   }
                 ]
               },
+              "kind": "http",
               "method": "POST",
               "orig": "/packages/{owner}/{repo}/validate-upload/cocoapods/",
               "parts": [
@@ -16177,6 +15887,7 @@ class Config {
                   }
                 ]
               },
+              "kind": "http",
               "method": "POST",
               "orig": "/packages/{owner}/{repo}/validate-upload/composer/",
               "parts": [
@@ -16233,6 +15944,7 @@ class Config {
                   }
                 ]
               },
+              "kind": "http",
               "method": "POST",
               "orig": "/packages/{owner}/{repo}/validate-upload/conan/",
               "parts": [
@@ -16289,6 +16001,7 @@ class Config {
                   }
                 ]
               },
+              "kind": "http",
               "method": "POST",
               "orig": "/packages/{owner}/{repo}/validate-upload/conda/",
               "parts": [
@@ -16345,6 +16058,7 @@ class Config {
                   }
                 ]
               },
+              "kind": "http",
               "method": "POST",
               "orig": "/packages/{owner}/{repo}/validate-upload/cran/",
               "parts": [
@@ -16401,6 +16115,7 @@ class Config {
                   }
                 ]
               },
+              "kind": "http",
               "method": "POST",
               "orig": "/packages/{owner}/{repo}/validate-upload/dart/",
               "parts": [
@@ -16457,6 +16172,7 @@ class Config {
                   }
                 ]
               },
+              "kind": "http",
               "method": "POST",
               "orig": "/packages/{owner}/{repo}/validate-upload/deb/",
               "parts": [
@@ -16513,6 +16229,7 @@ class Config {
                   }
                 ]
               },
+              "kind": "http",
               "method": "POST",
               "orig": "/packages/{owner}/{repo}/validate-upload/docker/",
               "parts": [
@@ -16569,6 +16286,7 @@ class Config {
                   }
                 ]
               },
+              "kind": "http",
               "method": "POST",
               "orig": "/packages/{owner}/{repo}/validate-upload/go/",
               "parts": [
@@ -16625,6 +16343,7 @@ class Config {
                   }
                 ]
               },
+              "kind": "http",
               "method": "POST",
               "orig": "/packages/{owner}/{repo}/validate-upload/helm/",
               "parts": [
@@ -16681,6 +16400,7 @@ class Config {
                   }
                 ]
               },
+              "kind": "http",
               "method": "POST",
               "orig": "/packages/{owner}/{repo}/validate-upload/hex/",
               "parts": [
@@ -16737,6 +16457,7 @@ class Config {
                   }
                 ]
               },
+              "kind": "http",
               "method": "POST",
               "orig": "/packages/{owner}/{repo}/validate-upload/huggingface/",
               "parts": [
@@ -16793,6 +16514,7 @@ class Config {
                   }
                 ]
               },
+              "kind": "http",
               "method": "POST",
               "orig": "/packages/{owner}/{repo}/validate-upload/luarocks/",
               "parts": [
@@ -16849,6 +16571,7 @@ class Config {
                   }
                 ]
               },
+              "kind": "http",
               "method": "POST",
               "orig": "/packages/{owner}/{repo}/validate-upload/maven/",
               "parts": [
@@ -16905,6 +16628,7 @@ class Config {
                   }
                 ]
               },
+              "kind": "http",
               "method": "POST",
               "orig": "/packages/{owner}/{repo}/validate-upload/npm/",
               "parts": [
@@ -16961,6 +16685,7 @@ class Config {
                   }
                 ]
               },
+              "kind": "http",
               "method": "POST",
               "orig": "/packages/{owner}/{repo}/validate-upload/nuget/",
               "parts": [
@@ -17017,6 +16742,7 @@ class Config {
                   }
                 ]
               },
+              "kind": "http",
               "method": "POST",
               "orig": "/packages/{owner}/{repo}/validate-upload/p2/",
               "parts": [
@@ -17073,6 +16799,7 @@ class Config {
                   }
                 ]
               },
+              "kind": "http",
               "method": "POST",
               "orig": "/packages/{owner}/{repo}/validate-upload/python/",
               "parts": [
@@ -17129,6 +16856,7 @@ class Config {
                   }
                 ]
               },
+              "kind": "http",
               "method": "POST",
               "orig": "/packages/{owner}/{repo}/validate-upload/raw/",
               "parts": [
@@ -17185,6 +16913,7 @@ class Config {
                   }
                 ]
               },
+              "kind": "http",
               "method": "POST",
               "orig": "/packages/{owner}/{repo}/validate-upload/rpm/",
               "parts": [
@@ -17241,6 +16970,7 @@ class Config {
                   }
                 ]
               },
+              "kind": "http",
               "method": "POST",
               "orig": "/packages/{owner}/{repo}/validate-upload/ruby/",
               "parts": [
@@ -17297,6 +17027,7 @@ class Config {
                   }
                 ]
               },
+              "kind": "http",
               "method": "POST",
               "orig": "/packages/{owner}/{repo}/validate-upload/swift/",
               "parts": [
@@ -17353,6 +17084,7 @@ class Config {
                   }
                 ]
               },
+              "kind": "http",
               "method": "POST",
               "orig": "/packages/{owner}/{repo}/validate-upload/terraform/",
               "parts": [
@@ -17409,6 +17141,7 @@ class Config {
                   }
                 ]
               },
+              "kind": "http",
               "method": "POST",
               "orig": "/packages/{owner}/{repo}/validate-upload/vagrant/",
               "parts": [
@@ -17464,6 +17197,7 @@ class Config {
                   }
                 ]
               },
+              "kind": "http",
               "method": "POST",
               "orig": "/packages/{owner}/{repo}/{identifier}/resync/",
               "parts": [
@@ -17519,6 +17253,7 @@ class Config {
                   }
                 ]
               },
+              "kind": "http",
               "method": "POST",
               "orig": "/packages/{owner}/{repo}/{identifier}/scan/",
               "parts": [
@@ -17614,6 +17349,7 @@ class Config {
                   }
                 ]
               },
+              "kind": "http",
               "method": "GET",
               "orig": "/packages/{owner}/{repo}/groups/",
               "parts": [
@@ -17635,7 +17371,7 @@ class Config {
               },
               "transform": {
                 "req": "`reqdata`",
-                "res": "`body`"
+                "res": "`body.results`"
               },
               "index$": 0
             },
@@ -17697,6 +17433,7 @@ class Config {
                   }
                 ]
               },
+              "kind": "http",
               "method": "GET",
               "orig": "/packages/{owner}/{repo}/",
               "parts": [
@@ -17753,6 +17490,7 @@ class Config {
                   }
                 ]
               },
+              "kind": "http",
               "method": "GET",
               "orig": "/packages/{owner}/{repo}/{identifier}/",
               "parts": [
@@ -17807,6 +17545,7 @@ class Config {
                   }
                 ]
               },
+              "kind": "http",
               "method": "GET",
               "orig": "/packages/{owner}/{repo}/{identifier}/dependencies/",
               "parts": [
@@ -17825,7 +17564,7 @@ class Config {
               },
               "transform": {
                 "req": "`reqdata`",
-                "res": "`body`"
+                "res": "`body.dependencies`"
               },
               "index$": 3
             }
@@ -17902,6 +17641,7 @@ class Config {
                   }
                 ]
               },
+              "kind": "http",
               "method": "GET",
               "orig": "/metrics/packages/{owner}/{repo}/",
               "parts": [
@@ -17923,7 +17663,7 @@ class Config {
               },
               "transform": {
                 "req": "`reqdata`",
-                "res": "`body`"
+                "res": "`body.packages`"
               },
               "index$": 0
             },
@@ -17960,6 +17700,7 @@ class Config {
                   }
                 ]
               },
+              "kind": "http",
               "method": "GET",
               "orig": "/packages/{owner}/{repo}/{identifier}/status/",
               "parts": [
@@ -18022,6 +17763,7 @@ class Config {
                   }
                 ]
               },
+              "kind": "http",
               "method": "DELETE",
               "orig": "/packages/{owner}/{repo}/{identifier}/",
               "parts": [
@@ -18152,6 +17894,7 @@ class Config {
                   }
                 ]
               },
+              "kind": "http",
               "method": "POST",
               "orig": "/orgs/{org}/deny-policy/",
               "parts": [
@@ -18216,6 +17959,7 @@ class Config {
                   }
                 ]
               },
+              "kind": "http",
               "method": "GET",
               "orig": "/orgs/{org}/deny-policy/",
               "parts": [
@@ -18272,6 +18016,7 @@ class Config {
                   }
                 ]
               },
+              "kind": "http",
               "method": "GET",
               "orig": "/orgs/{org}/deny-policy/{slug_perm}/",
               "parts": [
@@ -18337,6 +18082,7 @@ class Config {
                   }
                 ]
               },
+              "kind": "http",
               "method": "PATCH",
               "orig": "/orgs/{org}/deny-policy/{slug_perm}/",
               "parts": [
@@ -18405,6 +18151,7 @@ class Config {
                   }
                 ]
               },
+              "kind": "http",
               "method": "PUT",
               "orig": "/orgs/{org}/deny-policy/{slug_perm}/",
               "parts": [
@@ -18525,6 +18272,7 @@ class Config {
                   }
                 ]
               },
+              "kind": "http",
               "method": "GET",
               "orig": "/files/{owner}/{repo}/{identifier}/info/",
               "parts": [
@@ -18612,6 +18360,7 @@ class Config {
                   }
                 ]
               },
+              "kind": "http",
               "method": "POST",
               "orig": "/files/{owner}/{repo}/{identifier}/complete/",
               "parts": [
@@ -18651,52 +18400,101 @@ class Config {
       "fields": [
         {
           "active": true,
+          "name": "allow_unknown_licenses",
+          "req": false,
+          "type": "`$BOOLEAN`",
+          "index$": 0
+        },
+        {
+          "active": true,
           "name": "created_at",
           "req": false,
           "type": "`$STRING`",
-          "index$": 0
+          "index$": 1
+        },
+        {
+          "active": true,
+          "name": "description",
+          "req": false,
+          "type": "`$STRING`",
+          "index$": 2
         },
         {
           "active": true,
           "name": "evaluation_count",
           "req": false,
           "type": "`$INTEGER`",
-          "index$": 1
-        },
-        {
-          "active": true,
-          "name": "policy",
-          "req": true,
-          "type": "`$OBJECT`",
-          "index$": 2
-        },
-        {
-          "active": true,
-          "name": "slug_perm",
-          "req": false,
-          "type": "`$STRING`",
           "index$": 3
         },
         {
           "active": true,
-          "name": "status",
+          "name": "name",
           "req": false,
           "type": "`$STRING`",
           "index$": 4
         },
         {
           "active": true,
+          "name": "on_violation_quarantine",
+          "req": false,
+          "type": "`$BOOLEAN`",
+          "index$": 5
+        },
+        {
+          "active": true,
+          "name": "package_query_string",
+          "req": false,
+          "type": "`$STRING`",
+          "index$": 6
+        },
+        {
+          "active": true,
+          "name": "policy",
+          "req": true,
+          "type": "`$OBJECT`",
+          "index$": 7
+        },
+        {
+          "active": true,
+          "name": "slug_perm",
+          "req": false,
+          "type": "`$STRING`",
+          "index$": 8
+        },
+        {
+          "active": true,
+          "name": "spdx_identifiers",
+          "req": true,
+          "type": "`$ARRAY`",
+          "index$": 9
+        },
+        {
+          "active": true,
+          "name": "status",
+          "req": false,
+          "type": "`$STRING`",
+          "index$": 10
+        },
+        {
+          "active": true,
           "name": "updated_at",
           "req": false,
           "type": "`$STRING`",
-          "index$": 5
+          "index$": 11
+        },
+        {
+          "active": true,
+          "name": "url",
+          "req": false,
+          "type": "`$STRING`",
+          "index$": 12
         },
         {
           "active": true,
           "name": "violation_count",
           "req": false,
           "type": "`$INTEGER`",
-          "index$": 6
+          "index$": 13
         }
       ],
       "name": "package_license_policy_evaluation",
@@ -18739,6 +18537,7 @@ class Config {
                   }
                 ]
               },
+              "kind": "http",
               "method": "POST",
               "orig": "/orgs/{org}/license-policy/{policy_slug_perm}/evaluation/",
               "parts": [
@@ -18762,7 +18561,7 @@ class Config {
               },
               "transform": {
                 "req": "`reqdata`",
-                "res": "`body`"
+                "res": "`body.policy`"
               },
               "index$": 0
             }
@@ -18815,6 +18614,7 @@ class Config {
                   }
                 ]
               },
+              "kind": "http",
               "method": "GET",
               "orig": "/orgs/{org}/license-policy/{policy_slug_perm}/evaluation/",
               "parts": [
@@ -18883,6 +18683,7 @@ class Config {
                   }
                 ]
               },
+              "kind": "http",
               "method": "GET",
               "orig": "/orgs/{org}/license-policy/{policy_slug_perm}/evaluation/{slug_perm}/",
               "parts": [
@@ -18909,7 +18710,7 @@ class Config {
               },
               "transform": {
                 "req": "`reqdata`",
-                "res": "`body`"
+                "res": "`body.policy`"
               },
               "index$": 0
             }
@@ -19084,6 +18885,7 @@ class Config {
                   }
                 ]
               },
+              "kind": "http",
               "method": "GET",
               "orig": "/badges/version/{owner}/{repo}/{package_format}/{package_name}/{package_version}/{package_identifiers}/",
               "parts": [
@@ -19144,52 +18946,101 @@ class Config {
       "fields": [
         {
           "active": true,
+          "name": "allow_unknown_severity",
+          "req": false,
+          "type": "`$BOOLEAN`",
+          "index$": 0
+        },
+        {
+          "active": true,
           "name": "created_at",
           "req": false,
           "type": "`$STRING`",
-          "index$": 0
+          "index$": 1
+        },
+        {
+          "active": true,
+          "name": "description",
+          "req": false,
+          "type": "`$STRING`",
+          "index$": 2
         },
         {
           "active": true,
           "name": "evaluation_count",
           "req": false,
           "type": "`$INTEGER`",
-          "index$": 1
-        },
-        {
-          "active": true,
-          "name": "policy",
-          "req": false,
-          "type": "`$OBJECT`",
-          "index$": 2
-        },
-        {
-          "active": true,
-          "name": "slug_perm",
-          "req": false,
-          "type": "`$STRING`",
           "index$": 3
         },
         {
           "active": true,
-          "name": "status",
+          "name": "min_severity",
           "req": false,
           "type": "`$STRING`",
           "index$": 4
         },
         {
           "active": true,
-          "name": "updated_at",
+          "name": "name",
           "req": false,
           "type": "`$STRING`",
           "index$": 5
         },
         {
           "active": true,
+          "name": "on_violation_quarantine",
+          "req": false,
+          "type": "`$BOOLEAN`",
+          "index$": 6
+        },
+        {
+          "active": true,
+          "name": "package_query_string",
+          "req": false,
+          "type": "`$STRING`",
+          "index$": 7
+        },
+        {
+          "active": true,
+          "name": "policy",
+          "req": false,
+          "type": "`$OBJECT`",
+          "index$": 8
+        },
+        {
+          "active": true,
+          "name": "slug_perm",
+          "req": false,
+          "type": "`$STRING`",
+          "index$": 9
+        },
+        {
+          "active": true,
+          "name": "status",
+          "req": false,
+          "type": "`$STRING`",
+          "index$": 10
+        },
+        {
+          "active": true,
+          "name": "updated_at",
+          "req": false,
+          "type": "`$STRING`",
+          "index$": 11
+        },
+        {
+          "active": true,
+          "name": "url",
+          "req": false,
+          "type": "`$STRING`",
+          "index$": 12
+        },
+        {
+          "active": true,
           "name": "violation_count",
           "req": false,
           "type": "`$INTEGER`",
-          "index$": 6
+          "index$": 13
         }
       ],
       "name": "package_vulnerability_policy_evaluation",
@@ -19232,6 +19083,7 @@ class Config {
                   }
                 ]
               },
+              "kind": "http",
               "method": "POST",
               "orig": "/orgs/{org}/vulnerability-policy/{policy_slug_perm}/evaluation/",
               "parts": [
@@ -19255,7 +19107,7 @@ class Config {
               },
               "transform": {
                 "req": "`reqdata`",
-                "res": "`body`"
+                "res": "`body.policy`"
               },
               "index$": 0
             }
@@ -19308,6 +19160,7 @@ class Config {
                   }
                 ]
               },
+              "kind": "http",
               "method": "GET",
               "orig": "/orgs/{org}/vulnerability-policy/{policy_slug_perm}/evaluation/",
               "parts": [
@@ -19376,6 +19229,7 @@ class Config {
                   }
                 ]
               },
+              "kind": "http",
               "method": "GET",
               "orig": "/orgs/{org}/vulnerability-policy/{policy_slug_perm}/evaluation/{slug_perm}/",
               "parts": [
@@ -19402,7 +19256,7 @@ class Config {
               },
               "transform": {
                 "req": "`reqdata`",
-                "res": "`body`"
+                "res": "`body.policy`"
               },
               "index$": 0
             }
@@ -19443,7 +19297,7 @@ class Config {
       "fields": [
         {
           "active": true,
-          "name": "claim",
+          "name": "claims",
           "req": true,
           "type": "`$OBJECT`",
           "index$": 0
@@ -19478,7 +19332,7 @@ class Config {
         },
         {
           "active": true,
-          "name": "service_account",
+          "name": "service_accounts",
           "req": false,
           "type": "`$ARRAY`",
           "index$": 5
@@ -19553,6 +19407,7 @@ class Config {
                   }
                 ]
               },
+              "kind": "http",
               "method": "GET",
               "orig": "/orgs/{org}/openid-connect/",
               "parts": [
@@ -19611,6 +19466,7 @@ class Config {
                   }
                 ]
               },
+              "kind": "http",
               "method": "GET",
               "orig": "/orgs/{org}/openid-connect/{slug_perm}/",
               "parts": [
@@ -19656,14 +19512,14 @@ class Config {
       "fields": [
         {
           "active": true,
-          "name": "claim",
+          "name": "claims",
           "req": true,
           "type": "`$OBJECT`",
           "index$": 0
         },
         {
           "active": true,
-          "name": "dynamic_mapping",
+          "name": "dynamic_mappings",
           "req": false,
           "type": "`$ARRAY`",
           "index$": 1
@@ -19698,7 +19554,7 @@ class Config {
         },
         {
           "active": true,
-          "name": "service_account",
+          "name": "service_accounts",
           "req": false,
           "type": "`$ARRAY`",
           "index$": 6
@@ -19749,6 +19605,7 @@ class Config {
                   }
                 ]
               },
+              "kind": "http",
               "method": "POST",
               "orig": "/orgs/{org}/openid-connect/",
               "parts": [
@@ -19812,6 +19669,7 @@ class Config {
                   }
                 ]
               },
+              "kind": "http",
               "method": "PATCH",
               "orig": "/orgs/{org}/openid-connect/{slug_perm}/",
               "parts": [
@@ -19879,6 +19737,7 @@ class Config {
                   }
                 ]
               },
+              "kind": "http",
               "method": "PUT",
               "orig": "/orgs/{org}/openid-connect/{slug_perm}/",
               "parts": [
@@ -20090,6 +19949,7 @@ class Config {
                   }
                 ]
               },
+              "kind": "http",
               "method": "POST",
               "orig": "/repos/{owner}/{identifier}/upstream/python/",
               "parts": [
@@ -20161,6 +20021,7 @@ class Config {
                   }
                 ]
               },
+              "kind": "http",
               "method": "GET",
               "orig": "/repos/{owner}/{identifier}/upstream/python/",
               "parts": [
@@ -20224,6 +20085,7 @@ class Config {
                   }
                 ]
               },
+              "kind": "http",
               "method": "GET",
               "orig": "/repos/{owner}/{identifier}/upstream/python/{slug_perm}/",
               "parts": [
@@ -20299,6 +20161,7 @@ class Config {
                   }
                 ]
               },
+              "kind": "http",
               "method": "PATCH",
               "orig": "/repos/{owner}/{identifier}/upstream/python/{slug_perm}/",
               "parts": [
@@ -20378,6 +20241,7 @@ class Config {
                   }
                 ]
               },
+              "kind": "http",
               "method": "PUT",
               "orig": "/repos/{owner}/{identifier}/upstream/python/{slug_perm}/",
               "parts": [
@@ -20438,17 +20302,24 @@ class Config {
       "fields": [
         {
           "active": true,
-          "name": "history",
+          "name": "display",
           "req": true,
-          "type": "`$ARRAY`",
+          "type": "`$OBJECT`",
           "index$": 0
         },
         {
           "active": true,
-          "name": "usage",
+          "name": "history",
+          "req": true,
+          "type": "`$ARRAY`",
+          "index$": 1
+        },
+        {
+          "active": true,
+          "name": "raw",
           "req": true,
           "type": "`$OBJECT`",
-          "index$": 1
+          "index$": 2
         }
       ],
       "name": "quota",
@@ -20472,6 +20343,7 @@ class Config {
                   }
                 ]
               },
+              "kind": "http",
               "method": "GET",
               "orig": "/quota/{owner}/",
               "parts": [
@@ -20490,7 +20362,7 @@ class Config {
               },
               "transform": {
                 "req": "`reqdata`",
-                "res": "`body`"
+                "res": "`body.usage`"
               },
               "index$": 0
             },
@@ -20509,6 +20381,7 @@ class Config {
                   }
                 ]
               },
+              "kind": "http",
               "method": "GET",
               "orig": "/quota/history/{owner}/",
               "parts": [
@@ -20542,6 +20415,7 @@ class Config {
                   }
                 ]
               },
+              "kind": "http",
               "method": "GET",
               "orig": "/quota/oss/history/{owner}/",
               "parts": [
@@ -20576,6 +20450,7 @@ class Config {
                   }
                 ]
               },
+              "kind": "http",
               "method": "GET",
               "orig": "/quota/oss/{owner}/",
               "parts": [
@@ -20590,7 +20465,7 @@ class Config {
               },
               "transform": {
                 "req": "`reqdata`",
-                "res": "`body`"
+                "res": "`body.usage`"
               },
               "index$": 3
             }
@@ -20677,7 +20552,7 @@ class Config {
         },
         {
           "active": true,
-          "name": "copy_package",
+          "name": "copy_packages",
           "req": false,
           "type": "`$STRING`",
           "index$": 4
@@ -20712,7 +20587,7 @@ class Config {
         },
         {
           "active": true,
-          "name": "delete_package",
+          "name": "delete_packages",
           "req": false,
           "type": "`$STRING`",
           "index$": 9
@@ -20733,7 +20608,7 @@ class Config {
         },
         {
           "active": true,
-          "name": "distribute",
+          "name": "distributes",
           "req": false,
           "type": "`$ARRAY`",
           "index$": 12
@@ -20747,7 +20622,7 @@ class Config {
         },
         {
           "active": true,
-          "name": "ecdsa_key",
+          "name": "ecdsa_keys",
           "req": false,
           "type": "`$ARRAY`",
           "index$": 14
@@ -20761,14 +20636,14 @@ class Config {
         },
         {
           "active": true,
-          "name": "gpg_key",
+          "name": "gpg_keys",
           "req": false,
           "type": "`$ARRAY`",
           "index$": 16
         },
         {
           "active": true,
-          "name": "index_file",
+          "name": "index_files",
           "req": false,
           "type": "`$BOOLEAN`",
           "index$": 17
@@ -20810,7 +20685,7 @@ class Config {
         },
         {
           "active": true,
-          "name": "move_package",
+          "name": "move_packages",
           "req": false,
           "type": "`$STRING`",
           "index$": 23
@@ -20845,21 +20720,21 @@ class Config {
         },
         {
           "active": true,
-          "name": "num_download",
+          "name": "num_downloads",
           "req": false,
           "type": "`$INTEGER`",
           "index$": 28
         },
         {
           "active": true,
-          "name": "num_policy_violated_package",
+          "name": "num_policy_violated_packages",
           "req": false,
           "type": "`$INTEGER`",
           "index$": 29
         },
         {
           "active": true,
-          "name": "num_quarantined_package",
+          "name": "num_quarantined_packages",
           "req": false,
           "type": "`$INTEGER`",
           "index$": 30
@@ -20894,7 +20769,7 @@ class Config {
         },
         {
           "active": true,
-          "name": "proxy_npmj",
+          "name": "proxy_npmjs",
           "req": false,
           "type": "`$BOOLEAN`",
           "index$": 35
@@ -20922,7 +20797,7 @@ class Config {
         },
         {
           "active": true,
-          "name": "replace_package",
+          "name": "replace_packages",
           "req": false,
           "type": "`$STRING`",
           "index$": 39
@@ -20957,7 +20832,7 @@ class Config {
         },
         {
           "active": true,
-          "name": "resync_package",
+          "name": "resync_packages",
           "req": false,
           "type": "`$STRING`",
           "index$": 44
@@ -20971,7 +20846,7 @@ class Config {
         },
         {
           "active": true,
-          "name": "scan_package",
+          "name": "scan_packages",
           "req": false,
           "type": "`$STRING`",
           "index$": 46
@@ -21048,7 +20923,7 @@ class Config {
         },
         {
           "active": true,
-          "name": "use_debian_label",
+          "name": "use_debian_labels",
           "req": false,
           "type": "`$BOOLEAN`",
           "index$": 57
@@ -21069,14 +20944,14 @@ class Config {
         },
         {
           "active": true,
-          "name": "use_noarch_package",
+          "name": "use_noarch_packages",
           "req": false,
           "type": "`$BOOLEAN`",
           "index$": 60
         },
         {
           "active": true,
-          "name": "use_source_package",
+          "name": "use_source_packages",
           "req": false,
           "type": "`$BOOLEAN`",
           "index$": 61
@@ -21097,7 +20972,7 @@ class Config {
         },
         {
           "active": true,
-          "name": "view_statistic",
+          "name": "view_statistics",
           "req": false,
           "type": "`$STRING`",
           "index$": 64
@@ -21143,6 +21018,7 @@ class Config {
                   }
                 ]
               },
+              "kind": "http",
               "method": "POST",
               "orig": "/repos/{owner}/{identifier}/geoip/disable/",
               "parts": [
@@ -21199,6 +21075,7 @@ class Config {
                   }
                 ]
               },
+              "kind": "http",
               "method": "POST",
               "orig": "/repos/{owner}/{identifier}/geoip/enable/",
               "parts": [
@@ -21231,7 +21108,8 @@ class Config {
                     "name": "owner",
                     "orig": "owner",
                     "reqd": true,
-                    "type": "`$ANY`"
+                    "type": "`$ANY`",
+                    "index$": 0
                   },
                   {
                     "active": true,
@@ -21239,7 +21117,8 @@ class Config {
                     "name": "repo",
                     "orig": "repo",
                     "reqd": true,
-                    "type": "`$ANY`"
+                    "type": "`$ANY`",
+                    "index$": 1
                   }
                 ],
                 "query": [
@@ -21253,6 +21132,7 @@ class Config {
                   }
                 ]
               },
+              "kind": "http",
               "method": "POST",
               "orig": "/repos/{owner}/{repo}/transfer-region/",
               "parts": [
@@ -21300,6 +21180,7 @@ class Config {
                   }
                 ]
               },
+              "kind": "http",
               "method": "POST",
               "orig": "/repos/{owner}/",
               "parts": [
@@ -21354,6 +21235,7 @@ class Config {
                   }
                 ]
               },
+              "kind": "http",
               "method": "GET",
               "orig": "/repos/{owner}/{identifier}/",
               "parts": [
@@ -21395,6 +21277,7 @@ class Config {
                   }
                 ]
               },
+              "kind": "http",
               "method": "GET",
               "orig": "/repos/",
               "parts": [
@@ -21452,6 +21335,7 @@ class Config {
                   }
                 ]
               },
+              "kind": "http",
               "method": "GET",
               "orig": "/repos/{owner}/",
               "parts": [
@@ -21515,6 +21399,7 @@ class Config {
                   }
                 ]
               },
+              "kind": "http",
               "method": "PATCH",
               "orig": "/repos/{owner}/{identifier}/",
               "parts": [
@@ -21567,6 +21452,7 @@ class Config {
                   }
                 ]
               },
+              "kind": "http",
               "method": "PATCH",
               "orig": "/repos/{owner}/{identifier}/privileges",
               "parts": [
@@ -21628,6 +21514,7 @@ class Config {
                   }
                 ]
               },
+              "kind": "http",
               "method": "DELETE",
               "orig": "/repos/{owner}/{identifier}/upstream/cargo/{slug_perm}/",
               "parts": [
@@ -21684,6 +21571,7 @@ class Config {
                   }
                 ]
               },
+              "kind": "http",
               "method": "DELETE",
               "orig": "/repos/{owner}/{identifier}/upstream/composer/{slug_perm}/",
               "parts": [
@@ -21740,6 +21628,7 @@ class Config {
                   }
                 ]
               },
+              "kind": "http",
               "method": "DELETE",
               "orig": "/repos/{owner}/{identifier}/upstream/conda/{slug_perm}/",
               "parts": [
@@ -21796,6 +21685,7 @@ class Config {
                   }
                 ]
               },
+              "kind": "http",
               "method": "DELETE",
               "orig": "/repos/{owner}/{identifier}/upstream/cran/{slug_perm}/",
               "parts": [
@@ -21852,6 +21742,7 @@ class Config {
                   }
                 ]
               },
+              "kind": "http",
               "method": "DELETE",
               "orig": "/repos/{owner}/{identifier}/upstream/dart/{slug_perm}/",
               "parts": [
@@ -21908,6 +21799,7 @@ class Config {
                   }
                 ]
               },
+              "kind": "http",
               "method": "DELETE",
               "orig": "/repos/{owner}/{identifier}/upstream/deb/{slug_perm}/",
               "parts": [
@@ -21964,6 +21856,7 @@ class Config {
                   }
                 ]
               },
+              "kind": "http",
               "method": "DELETE",
               "orig": "/repos/{owner}/{identifier}/upstream/docker/{slug_perm}/",
               "parts": [
@@ -22020,6 +21913,7 @@ class Config {
                   }
                 ]
               },
+              "kind": "http",
               "method": "DELETE",
               "orig": "/repos/{owner}/{identifier}/upstream/go/{slug_perm}/",
               "parts": [
@@ -22076,6 +21970,7 @@ class Config {
                   }
                 ]
               },
+              "kind": "http",
               "method": "DELETE",
               "orig": "/repos/{owner}/{identifier}/upstream/helm/{slug_perm}/",
               "parts": [
@@ -22132,6 +22027,7 @@ class Config {
                   }
                 ]
               },
+              "kind": "http",
               "method": "DELETE",
               "orig": "/repos/{owner}/{identifier}/upstream/hex/{slug_perm}/",
               "parts": [
@@ -22188,6 +22084,7 @@ class Config {
                   }
                 ]
               },
+              "kind": "http",
               "method": "DELETE",
               "orig": "/repos/{owner}/{identifier}/upstream/huggingface/{slug_perm}/",
               "parts": [
@@ -22244,6 +22141,7 @@ class Config {
                   }
                 ]
               },
+              "kind": "http",
               "method": "DELETE",
               "orig": "/repos/{owner}/{identifier}/upstream/maven/{slug_perm}/",
               "parts": [
@@ -22300,6 +22198,7 @@ class Config {
                   }
                 ]
               },
+              "kind": "http",
               "method": "DELETE",
               "orig": "/repos/{owner}/{identifier}/upstream/npm/{slug_perm}/",
               "parts": [
@@ -22356,6 +22255,7 @@ class Config {
                   }
                 ]
               },
+              "kind": "http",
               "method": "DELETE",
               "orig": "/repos/{owner}/{identifier}/upstream/nuget/{slug_perm}/",
               "parts": [
@@ -22412,6 +22312,7 @@ class Config {
                   }
                 ]
               },
+              "kind": "http",
               "method": "DELETE",
               "orig": "/repos/{owner}/{identifier}/upstream/python/{slug_perm}/",
               "parts": [
@@ -22468,6 +22369,7 @@ class Config {
                   }
                 ]
               },
+              "kind": "http",
               "method": "DELETE",
               "orig": "/repos/{owner}/{identifier}/upstream/rpm/{slug_perm}/",
               "parts": [
@@ -22524,6 +22426,7 @@ class Config {
                   }
                 ]
               },
+              "kind": "http",
               "method": "DELETE",
               "orig": "/repos/{owner}/{identifier}/upstream/ruby/{slug_perm}/",
               "parts": [
@@ -22580,6 +22483,7 @@ class Config {
                   }
                 ]
               },
+              "kind": "http",
               "method": "DELETE",
               "orig": "/repos/{owner}/{identifier}/upstream/swift/{slug_perm}/",
               "parts": [
@@ -22627,6 +22531,7 @@ class Config {
                   }
                 ]
               },
+              "kind": "http",
               "method": "DELETE",
               "orig": "/repos/{owner}/{identifier}/",
               "parts": [
@@ -22687,6 +22592,7 @@ class Config {
                   }
                 ]
               },
+              "kind": "http",
               "method": "PUT",
               "orig": "/repos/{owner}/{identifier}/privileges",
               "parts": [
@@ -22942,6 +22848,7 @@ class Config {
                   }
                 ]
               },
+              "kind": "http",
               "method": "GET",
               "orig": "/audit-log/{owner}/{repo}/",
               "parts": [
@@ -23068,6 +22975,7 @@ class Config {
                   }
                 ]
               },
+              "kind": "http",
               "method": "POST",
               "orig": "/repos/{owner}/{identifier}/ecdsa/",
               "parts": [
@@ -23113,6 +23021,7 @@ class Config {
                   }
                 ]
               },
+              "kind": "http",
               "method": "POST",
               "orig": "/repos/{owner}/{identifier}/ecdsa/regenerate/",
               "parts": [
@@ -23165,6 +23074,7 @@ class Config {
                   }
                 ]
               },
+              "kind": "http",
               "method": "GET",
               "orig": "/repos/{owner}/{identifier}/ecdsa/",
               "parts": [
@@ -23244,6 +23154,7 @@ class Config {
                   }
                 ]
               },
+              "kind": "http",
               "method": "GET",
               "orig": "/repos/{owner}/{identifier}/geoip",
               "parts": [
@@ -23303,6 +23214,7 @@ class Config {
                   }
                 ]
               },
+              "kind": "http",
               "method": "PATCH",
               "orig": "/repos/{owner}/{identifier}/geoip",
               "parts": [
@@ -23365,6 +23277,7 @@ class Config {
                   }
                 ]
               },
+              "kind": "http",
               "method": "PUT",
               "orig": "/repos/{owner}/{identifier}/geoip",
               "parts": [
@@ -23438,6 +23351,7 @@ class Config {
                   }
                 ]
               },
+              "kind": "http",
               "method": "GET",
               "orig": "/repos/{owner}/{identifier}/geoip/status/",
               "parts": [
@@ -23513,6 +23427,7 @@ class Config {
                   }
                 ]
               },
+              "kind": "http",
               "method": "POST",
               "orig": "/repos/{owner}/{identifier}/geoip/test/",
               "parts": [
@@ -23639,6 +23554,7 @@ class Config {
                   }
                 ]
               },
+              "kind": "http",
               "method": "POST",
               "orig": "/repos/{owner}/{identifier}/gpg/",
               "parts": [
@@ -23684,6 +23600,7 @@ class Config {
                   }
                 ]
               },
+              "kind": "http",
               "method": "POST",
               "orig": "/repos/{owner}/{identifier}/gpg/regenerate/",
               "parts": [
@@ -23736,6 +23653,7 @@ class Config {
                   }
                 ]
               },
+              "kind": "http",
               "method": "GET",
               "orig": "/repos/{owner}/{identifier}/gpg/",
               "parts": [
@@ -23847,6 +23765,7 @@ class Config {
                   }
                 ]
               },
+              "kind": "http",
               "method": "GET",
               "orig": "/repos/{owner}/{identifier}/privileges",
               "parts": [
@@ -23865,7 +23784,7 @@ class Config {
               },
               "transform": {
                 "req": "`reqdata`",
-                "res": "`body`"
+                "res": "`body.privileges`"
               },
               "index$": 0
             }
@@ -23970,6 +23889,7 @@ class Config {
                   }
                 ]
               },
+              "kind": "http",
               "method": "GET",
               "orig": "/repos/{owner}/{repo}/retention/",
               "parts": [
@@ -24031,6 +23951,7 @@ class Config {
                   }
                 ]
               },
+              "kind": "http",
               "method": "PATCH",
               "orig": "/repos/{owner}/{repo}/retention/",
               "parts": [
@@ -24156,6 +24077,7 @@ class Config {
                   }
                 ]
               },
+              "kind": "http",
               "method": "POST",
               "orig": "/repos/{owner}/{identifier}/rsa/",
               "parts": [
@@ -24201,6 +24123,7 @@ class Config {
                   }
                 ]
               },
+              "kind": "http",
               "method": "POST",
               "orig": "/repos/{owner}/{identifier}/rsa/regenerate/",
               "parts": [
@@ -24253,6 +24176,7 @@ class Config {
                   }
                 ]
               },
+              "kind": "http",
               "method": "GET",
               "orig": "/repos/{owner}/{identifier}/rsa/",
               "parts": [
@@ -24289,7 +24213,7 @@ class Config {
       "fields": [
         {
           "active": true,
-          "name": "client",
+          "name": "clients",
           "req": false,
           "type": "`$INTEGER`",
           "index$": 0
@@ -24331,7 +24255,7 @@ class Config {
         },
         {
           "active": true,
-          "name": "download",
+          "name": "downloads",
           "req": false,
           "type": "`$INTEGER`",
           "index$": 6
@@ -24373,7 +24297,7 @@ class Config {
         },
         {
           "active": true,
-          "name": "has_limit",
+          "name": "has_limits",
           "req": false,
           "type": "`$BOOLEAN`",
           "index$": 12
@@ -24429,14 +24353,14 @@ class Config {
         },
         {
           "active": true,
-          "name": "limit_num_client",
+          "name": "limit_num_clients",
           "req": false,
           "type": "`$INTEGER`",
           "index$": 20
         },
         {
           "active": true,
-          "name": "limit_num_download",
+          "name": "limit_num_downloads",
           "req": false,
           "type": "`$INTEGER`",
           "index$": 21
@@ -24609,6 +24533,7 @@ class Config {
                   }
                 ]
               },
+              "kind": "http",
               "method": "POST",
               "orig": "/entitlements/{owner}/{repo}/",
               "parts": [
@@ -24711,6 +24636,7 @@ class Config {
                   }
                 ]
               },
+              "kind": "http",
               "method": "GET",
               "orig": "/entitlements/{owner}/{repo}/",
               "parts": [
@@ -24794,6 +24720,7 @@ class Config {
                   }
                 ]
               },
+              "kind": "http",
               "method": "GET",
               "orig": "/entitlements/{owner}/{repo}/{identifier}/",
               "parts": [
@@ -24875,6 +24802,7 @@ class Config {
                   }
                 ]
               },
+              "kind": "http",
               "method": "PATCH",
               "orig": "/entitlements/{owner}/{repo}/{identifier}/",
               "parts": [
@@ -24914,7 +24842,7 @@ class Config {
       "fields": [
         {
           "active": true,
-          "name": "client",
+          "name": "clients",
           "req": false,
           "type": "`$INTEGER`",
           "index$": 0
@@ -24956,7 +24884,7 @@ class Config {
         },
         {
           "active": true,
-          "name": "download",
+          "name": "downloads",
           "req": false,
           "type": "`$INTEGER`",
           "index$": 6
@@ -24998,7 +24926,7 @@ class Config {
         },
         {
           "active": true,
-          "name": "has_limit",
+          "name": "has_limits",
           "req": false,
           "type": "`$BOOLEAN`",
           "index$": 12
@@ -25054,14 +24982,14 @@ class Config {
         },
         {
           "active": true,
-          "name": "limit_num_client",
+          "name": "limit_num_clients",
           "req": false,
           "type": "`$INTEGER`",
           "index$": 20
         },
         {
           "active": true,
-          "name": "limit_num_download",
+          "name": "limit_num_downloads",
           "req": false,
           "type": "`$INTEGER`",
           "index$": 21
@@ -25243,6 +25171,7 @@ class Config {
                   }
                 ]
               },
+              "kind": "http",
               "method": "POST",
               "orig": "/entitlements/{owner}/{repo}/{identifier}/refresh/",
               "parts": [
@@ -25283,7 +25212,7 @@ class Config {
       "fields": [
         {
           "active": true,
-          "name": "token",
+          "name": "tokens",
           "req": false,
           "type": "`$ARRAY`",
           "index$": 0
@@ -25337,6 +25266,7 @@ class Config {
                   }
                 ]
               },
+              "kind": "http",
               "method": "POST",
               "orig": "/entitlements/{owner}/{repo}/sync/",
               "parts": [
@@ -25412,161 +25342,169 @@ class Config {
           "active": true,
           "name": "event",
           "req": true,
-          "type": "`$ARRAY`",
+          "type": "`$STRING`",
           "index$": 5
+        },
+        {
+          "active": true,
+          "name": "events",
+          "req": true,
+          "type": "`$ARRAY`",
+          "index$": 6
         },
         {
           "active": true,
           "name": "identifier",
           "req": false,
           "type": "`$INTEGER`",
-          "index$": 6
+          "index$": 7
         },
         {
           "active": true,
           "name": "is_active",
           "req": false,
           "type": "`$BOOLEAN`",
-          "index$": 7
+          "index$": 8
         },
         {
           "active": true,
           "name": "is_last_response_bad",
           "req": false,
           "type": "`$BOOLEAN`",
-          "index$": 8
+          "index$": 9
         },
         {
           "active": true,
           "name": "last_response_status",
           "req": false,
           "type": "`$INTEGER`",
-          "index$": 9
+          "index$": 10
         },
         {
           "active": true,
           "name": "last_response_status_str",
           "req": false,
           "type": "`$STRING`",
-          "index$": 10
+          "index$": 11
         },
         {
           "active": true,
           "name": "num_sent",
           "req": false,
           "type": "`$INTEGER`",
-          "index$": 11
+          "index$": 12
         },
         {
           "active": true,
           "name": "package_query",
           "req": false,
           "type": "`$STRING`",
-          "index$": 12
+          "index$": 13
         },
         {
           "active": true,
           "name": "request_body_format",
           "req": false,
           "type": "`$INTEGER`",
-          "index$": 13
+          "index$": 14
         },
         {
           "active": true,
           "name": "request_body_format_str",
           "req": false,
           "type": "`$STRING`",
-          "index$": 14
+          "index$": 15
         },
         {
           "active": true,
           "name": "request_body_template_format",
           "req": false,
           "type": "`$INTEGER`",
-          "index$": 15
+          "index$": 16
         },
         {
           "active": true,
           "name": "request_body_template_format_str",
           "req": false,
           "type": "`$STRING`",
-          "index$": 16
+          "index$": 17
         },
         {
           "active": true,
           "name": "request_content_type",
           "req": false,
           "type": "`$STRING`",
-          "index$": 17
+          "index$": 18
         },
         {
           "active": true,
           "name": "secret_header",
           "req": false,
           "type": "`$STRING`",
-          "index$": 18
+          "index$": 19
         },
         {
           "active": true,
           "name": "self_url",
           "req": false,
           "type": "`$STRING`",
-          "index$": 19
+          "index$": 20
         },
         {
           "active": true,
           "name": "slug_perm",
           "req": false,
           "type": "`$STRING`",
-          "index$": 20
+          "index$": 21
         },
         {
           "active": true,
           "name": "target_url",
           "req": true,
           "type": "`$STRING`",
-          "index$": 21
-        },
-        {
-          "active": true,
-          "name": "template",
-          "op": {
-            "list": {
-              "req": false,
-              "type": "`$STRING`"
-            }
-          },
-          "req": true,
-          "type": "`$ARRAY`",
           "index$": 22
         },
         {
           "active": true,
-          "name": "updated_at",
+          "name": "template",
           "req": false,
           "type": "`$STRING`",
           "index$": 23
         },
         {
           "active": true,
-          "name": "updated_by",
-          "req": false,
-          "type": "`$STRING`",
+          "name": "templates",
+          "req": true,
+          "type": "`$ARRAY`",
           "index$": 24
         },
         {
           "active": true,
-          "name": "updated_by_url",
+          "name": "updated_at",
           "req": false,
           "type": "`$STRING`",
           "index$": 25
         },
         {
           "active": true,
+          "name": "updated_by",
+          "req": false,
+          "type": "`$STRING`",
+          "index$": 26
+        },
+        {
+          "active": true,
+          "name": "updated_by_url",
+          "req": false,
+          "type": "`$STRING`",
+          "index$": 27
+        },
+        {
+          "active": true,
           "name": "verify_ssl",
           "req": false,
           "type": "`$BOOLEAN`",
-          "index$": 26
+          "index$": 28
         }
       ],
       "name": "repository_webhook",
@@ -25609,6 +25547,7 @@ class Config {
                   }
                 ]
               },
+              "kind": "http",
               "method": "POST",
               "orig": "/webhooks/{owner}/{repo}/",
               "parts": [
@@ -25678,6 +25617,7 @@ class Config {
                   }
                 ]
               },
+              "kind": "http",
               "method": "GET",
               "orig": "/webhooks/{owner}/{repo}/",
               "parts": [
@@ -25732,6 +25672,7 @@ class Config {
                   }
                 ]
               },
+              "kind": "http",
               "method": "GET",
               "orig": "/webhooks/{owner}/{repo}/{identifier}/",
               "parts": [
@@ -25803,6 +25744,7 @@ class Config {
                   }
                 ]
               },
+              "kind": "http",
               "method": "PATCH",
               "orig": "/webhooks/{owner}/{repo}/{identifier}/",
               "parts": [
@@ -25940,6 +25882,7 @@ class Config {
                   }
                 ]
               },
+              "kind": "http",
               "method": "GET",
               "orig": "/repos/{owner}/{identifier}/x509-ecdsa/",
               "parts": [
@@ -26075,6 +26018,7 @@ class Config {
                   }
                 ]
               },
+              "kind": "http",
               "method": "GET",
               "orig": "/repos/{owner}/{identifier}/x509-rsa/",
               "parts": [
@@ -26123,10 +26067,45 @@ class Config {
       "fields": [
         {
           "active": true,
-          "name": "resource",
+          "name": "interval",
           "req": false,
-          "type": "`$OBJECT`",
+          "type": "`$NUMBER`",
           "index$": 0
+        },
+        {
+          "active": true,
+          "name": "limit",
+          "req": false,
+          "type": "`$INTEGER`",
+          "index$": 1
+        },
+        {
+          "active": true,
+          "name": "remaining",
+          "req": false,
+          "type": "`$INTEGER`",
+          "index$": 2
+        },
+        {
+          "active": true,
+          "name": "reset",
+          "req": false,
+          "type": "`$INTEGER`",
+          "index$": 3
+        },
+        {
+          "active": true,
+          "name": "reset_iso_8601",
+          "req": false,
+          "type": "`$STRING`",
+          "index$": 4
+        },
+        {
+          "active": true,
+          "name": "throttled",
+          "req": false,
+          "type": "`$BOOLEAN`",
+          "index$": 5
         }
       ],
       "name": "resources_rate_check",
@@ -26138,6 +26117,7 @@ class Config {
             {
               "active": true,
               "args": {},
+              "kind": "http",
               "method": "GET",
               "orig": "/rates/limits/",
               "parts": [
@@ -26147,7 +26127,7 @@ class Config {
               "select": {},
               "transform": {
                 "req": "`reqdata`",
-                "res": "`body`"
+                "res": "`body.resources`"
               },
               "index$": 0
             }
@@ -26278,7 +26258,7 @@ class Config {
         },
         {
           "active": true,
-          "name": "include_source",
+          "name": "include_sources",
           "req": false,
           "type": "`$BOOLEAN`",
           "index$": 13
@@ -26394,6 +26374,7 @@ class Config {
                   }
                 ]
               },
+              "kind": "http",
               "method": "POST",
               "orig": "/repos/{owner}/{identifier}/upstream/rpm/",
               "parts": [
@@ -26465,6 +26446,7 @@ class Config {
                   }
                 ]
               },
+              "kind": "http",
               "method": "GET",
               "orig": "/repos/{owner}/{identifier}/upstream/rpm/",
               "parts": [
@@ -26528,6 +26510,7 @@ class Config {
                   }
                 ]
               },
+              "kind": "http",
               "method": "GET",
               "orig": "/repos/{owner}/{identifier}/upstream/rpm/{slug_perm}/",
               "parts": [
@@ -26603,6 +26586,7 @@ class Config {
                   }
                 ]
               },
+              "kind": "http",
               "method": "PATCH",
               "orig": "/repos/{owner}/{identifier}/upstream/rpm/{slug_perm}/",
               "parts": [
@@ -26682,6 +26666,7 @@ class Config {
                   }
                 ]
               },
+              "kind": "http",
               "method": "PUT",
               "orig": "/repos/{owner}/{identifier}/upstream/rpm/{slug_perm}/",
               "parts": [
@@ -26907,6 +26892,7 @@ class Config {
                   }
                 ]
               },
+              "kind": "http",
               "method": "POST",
               "orig": "/repos/{owner}/{identifier}/upstream/ruby/",
               "parts": [
@@ -26978,6 +26964,7 @@ class Config {
                   }
                 ]
               },
+              "kind": "http",
               "method": "GET",
               "orig": "/repos/{owner}/{identifier}/upstream/ruby/",
               "parts": [
@@ -27041,6 +27028,7 @@ class Config {
                   }
                 ]
               },
+              "kind": "http",
               "method": "GET",
               "orig": "/repos/{owner}/{identifier}/upstream/ruby/{slug_perm}/",
               "parts": [
@@ -27116,6 +27104,7 @@ class Config {
                   }
                 ]
               },
+              "kind": "http",
               "method": "PATCH",
               "orig": "/repos/{owner}/{identifier}/upstream/ruby/{slug_perm}/",
               "parts": [
@@ -27195,6 +27184,7 @@ class Config {
                   }
                 ]
               },
+              "kind": "http",
               "method": "PUT",
               "orig": "/repos/{owner}/{identifier}/upstream/ruby/{slug_perm}/",
               "parts": [
@@ -27338,7 +27328,7 @@ class Config {
         },
         {
           "active": true,
-          "name": "team",
+          "name": "teams",
           "req": false,
           "type": "`$ARRAY`",
           "index$": 9
@@ -27375,6 +27365,7 @@ class Config {
                   }
                 ]
               },
+              "kind": "http",
               "method": "POST",
               "orig": "/orgs/{org}/services/",
               "parts": [
@@ -27409,7 +27400,8 @@ class Config {
                     "name": "id",
                     "orig": "service",
                     "reqd": true,
-                    "type": "`$STRING`"
+                    "type": "`$STRING`",
+                    "index$": 0
                   },
                   {
                     "active": true,
@@ -27417,10 +27409,12 @@ class Config {
                     "name": "org_id",
                     "orig": "org",
                     "reqd": true,
-                    "type": "`$STRING`"
+                    "type": "`$STRING`",
+                    "index$": 1
                   }
                 ]
               },
+              "kind": "http",
               "method": "POST",
               "orig": "/orgs/{org}/services/{service}/refresh/",
               "parts": [
@@ -27505,6 +27499,7 @@ class Config {
                   }
                 ]
               },
+              "kind": "http",
               "method": "GET",
               "orig": "/orgs/{org}/services/",
               "parts": [
@@ -27563,6 +27558,7 @@ class Config {
                   }
                 ]
               },
+              "kind": "http",
               "method": "GET",
               "orig": "/orgs/{org}/services/{service}/",
               "parts": [
@@ -27630,6 +27626,7 @@ class Config {
                   }
                 ]
               },
+              "kind": "http",
               "method": "PATCH",
               "orig": "/orgs/{org}/services/{service}/",
               "parts": [
@@ -27713,6 +27710,7 @@ class Config {
             {
               "active": true,
               "args": {},
+              "kind": "http",
               "method": "GET",
               "orig": "/status/check/basic/",
               "parts": [
@@ -27761,6 +27759,7 @@ class Config {
             {
               "active": true,
               "args": {},
+              "kind": "http",
               "method": "GET",
               "orig": "/storage-regions/",
               "parts": [
@@ -27795,6 +27794,7 @@ class Config {
                   }
                 ]
               },
+              "kind": "http",
               "method": "GET",
               "orig": "/storage-regions/{slug}/",
               "parts": [
@@ -27994,6 +27994,7 @@ class Config {
                   }
                 ]
               },
+              "kind": "http",
               "method": "POST",
               "orig": "/repos/{owner}/{identifier}/upstream/swift/",
               "parts": [
@@ -28065,6 +28066,7 @@ class Config {
                   }
                 ]
               },
+              "kind": "http",
               "method": "GET",
               "orig": "/repos/{owner}/{identifier}/upstream/swift/",
               "parts": [
@@ -28128,6 +28130,7 @@ class Config {
                   }
                 ]
               },
+              "kind": "http",
               "method": "GET",
               "orig": "/repos/{owner}/{identifier}/upstream/swift/{slug_perm}/",
               "parts": [
@@ -28203,6 +28206,7 @@ class Config {
                   }
                 ]
               },
+              "kind": "http",
               "method": "PATCH",
               "orig": "/repos/{owner}/{identifier}/upstream/swift/{slug_perm}/",
               "parts": [
@@ -28282,6 +28286,7 @@ class Config {
                   }
                 ]
               },
+              "kind": "http",
               "method": "PUT",
               "orig": "/repos/{owner}/{identifier}/upstream/swift/{slug_perm}/",
               "parts": [
@@ -28462,6 +28467,7 @@ class Config {
                   }
                 ]
               },
+              "kind": "http",
               "method": "GET",
               "orig": "/user/tokens/",
               "parts": [
@@ -28477,7 +28483,7 @@ class Config {
               },
               "transform": {
                 "req": "`reqdata`",
-                "res": "`body`"
+                "res": "`body.results`"
               },
               "index$": 0
             }
@@ -28511,6 +28517,7 @@ class Config {
                   }
                 ]
               },
+              "kind": "http",
               "method": "POST",
               "orig": "/user/token/",
               "parts": [
@@ -28569,6 +28576,7 @@ class Config {
             {
               "active": true,
               "args": {},
+              "kind": "http",
               "method": "POST",
               "orig": "/user/tokens/",
               "parts": [
@@ -28604,6 +28612,7 @@ class Config {
                   }
                 ]
               },
+              "kind": "http",
               "method": "PUT",
               "orig": "/user/tokens/{slug_perm}/refresh/",
               "parts": [
@@ -28696,6 +28705,7 @@ class Config {
             {
               "active": true,
               "args": {},
+              "kind": "http",
               "method": "GET",
               "orig": "/user/self/",
               "parts": [
@@ -28811,6 +28821,7 @@ class Config {
                   }
                 ]
               },
+              "kind": "http",
               "method": "GET",
               "orig": "/users/profile/{slug}/",
               "parts": [
@@ -28889,7 +28900,7 @@ class Config {
         },
         {
           "active": true,
-          "name": "has_vulnerability",
+          "name": "has_vulnerabilities",
           "req": false,
           "type": "`$BOOLEAN`",
           "index$": 1
@@ -28910,7 +28921,7 @@ class Config {
         },
         {
           "active": true,
-          "name": "num_vulnerability",
+          "name": "num_vulnerabilities",
           "req": false,
           "type": "`$INTEGER`",
           "index$": 4
@@ -28924,7 +28935,7 @@ class Config {
         },
         {
           "active": true,
-          "name": "result",
+          "name": "results",
           "req": true,
           "type": "`$ARRAY`",
           "index$": 6
@@ -29008,6 +29019,7 @@ class Config {
                   }
                 ]
               },
+              "kind": "http",
               "method": "GET",
               "orig": "/vulnerabilities/{owner}/{repo}/{package}/",
               "parts": [
@@ -29073,6 +29085,7 @@ class Config {
                   }
                 ]
               },
+              "kind": "http",
               "method": "GET",
               "orig": "/vulnerabilities/{owner}/{repo}/{package}/{identifier}/",
               "parts": [
@@ -29138,6 +29151,7 @@ class Config {
                   }
                 ]
               },
+              "kind": "http",
               "method": "GET",
               "orig": "/vulnerabilities/{owner}/{repo}/",
               "parts": [
@@ -29199,6 +29213,7 @@ class Config {
                   }
                 ]
               },
+              "kind": "http",
               "method": "GET",
               "orig": "/vulnerabilities/{owner}/",
               "parts": [
@@ -29292,6 +29307,7 @@ class Config {
                   }
                 ]
               },
+              "kind": "http",
               "method": "DELETE",
               "orig": "/webhooks/{owner}/{repo}/{identifier}/",
               "parts": [

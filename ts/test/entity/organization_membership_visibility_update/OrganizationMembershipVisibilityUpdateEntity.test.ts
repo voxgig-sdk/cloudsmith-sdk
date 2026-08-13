@@ -67,7 +67,7 @@ describe('OrganizationMembershipVisibilityUpdateEntity', async () => {
     const organization_membership_visibility_update_ref01_markdef_up0 = { name: 'email', value: 'Mark01-organization_membership_visibility_update_ref01_' + setup.now }
     ;(organization_membership_visibility_update_ref01_data_up0 as any)[organization_membership_visibility_update_ref01_markdef_up0.name] = organization_membership_visibility_update_ref01_markdef_up0.value
 
-    const organization_membership_visibility_update_ref01_resdata_up0 = await organization_membership_visibility_update_ref01_ent.update(organization_membership_visibility_update_ref01_data_up0)
+    const organization_membership_visibility_update_ref01_resdata_up0 = (await organization_membership_visibility_update_ref01_ent.update(organization_membership_visibility_update_ref01_data_up0)).data()
     assert(null != organization_membership_visibility_update_ref01_resdata_up0)
 
     assert((organization_membership_visibility_update_ref01_resdata_up0 as any)[organization_membership_visibility_update_ref01_markdef_up0.name] === organization_membership_visibility_update_ref01_markdef_up0.value)

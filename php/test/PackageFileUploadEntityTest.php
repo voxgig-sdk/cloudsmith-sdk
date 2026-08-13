@@ -47,7 +47,7 @@ class PackageFileUploadEntityTest extends TestCase
         $package_file_upload_ref01_data["repo"] = $setup["idmap"]["repo01"];
 
         $package_file_upload_ref01_data_result = $package_file_upload_ref01_ent->create($package_file_upload_ref01_data, null);
-        $package_file_upload_ref01_data = Helpers::to_map($package_file_upload_ref01_data_result);
+        $package_file_upload_ref01_data = Helpers::to_map(is_object($package_file_upload_ref01_data_result) && method_exists($package_file_upload_ref01_data_result, 'data_get') ? $package_file_upload_ref01_data_result->data_get() : $package_file_upload_ref01_data_result);
         $this->assertNotNull($package_file_upload_ref01_data);
 
     }

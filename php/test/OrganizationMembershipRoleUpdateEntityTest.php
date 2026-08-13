@@ -57,7 +57,7 @@ class OrganizationMembershipRoleUpdateEntityTest extends TestCase
         $organization_membership_role_update_ref01_data_up0_up[$organization_membership_role_update_ref01_markdef_up0_name] = $organization_membership_role_update_ref01_markdef_up0_value;
 
         $organization_membership_role_update_ref01_resdata_up0_result = $organization_membership_role_update_ref01_ent->update($organization_membership_role_update_ref01_data_up0_up, null);
-        $organization_membership_role_update_ref01_resdata_up0 = Helpers::to_map($organization_membership_role_update_ref01_resdata_up0_result);
+        $organization_membership_role_update_ref01_resdata_up0 = Helpers::to_map(is_object($organization_membership_role_update_ref01_resdata_up0_result) && method_exists($organization_membership_role_update_ref01_resdata_up0_result, 'data_get') ? $organization_membership_role_update_ref01_resdata_up0_result->data_get() : $organization_membership_role_update_ref01_resdata_up0_result);
         $this->assertNotNull($organization_membership_role_update_ref01_resdata_up0);
         $this->assertEquals($organization_membership_role_update_ref01_resdata_up0[$organization_membership_role_update_ref01_markdef_up0_name], $organization_membership_role_update_ref01_markdef_up0_value);
 

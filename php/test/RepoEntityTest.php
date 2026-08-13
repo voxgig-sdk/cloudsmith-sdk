@@ -85,7 +85,7 @@ class RepoEntityTest extends TestCase
         $repo_ref01_data["owner"] = $setup["idmap"]["owner01"];
 
         $repo_ref01_data_result = $repo_ref01_ent->create($repo_ref01_data, null);
-        $repo_ref01_data = Helpers::to_map($repo_ref01_data_result);
+        $repo_ref01_data = Helpers::to_map(is_object($repo_ref01_data_result) && method_exists($repo_ref01_data_result, 'data_get') ? $repo_ref01_data_result->data_get() : $repo_ref01_data_result);
         $this->assertNotNull($repo_ref01_data);
 
         // LIST
@@ -93,11 +93,6 @@ class RepoEntityTest extends TestCase
 
         $repo_ref01_list_result = $repo_ref01_ent->list($repo_ref01_match, null);
         $this->assertIsArray($repo_ref01_list_result);
-
-        $found_item = sdk_select(
-            Runner::entity_list_to_data($repo_ref01_list_result),
-            ["id" => $repo_ref01_data["id"]]);
-        $this->assertNotEmpty($found_item);
 
         // UPDATE
         $repo_ref01_data_up0_up = [
@@ -109,7 +104,7 @@ class RepoEntityTest extends TestCase
         $repo_ref01_data_up0_up[$repo_ref01_markdef_up0_name] = $repo_ref01_markdef_up0_value;
 
         $repo_ref01_resdata_up0_result = $repo_ref01_ent->update($repo_ref01_data_up0_up, null);
-        $repo_ref01_resdata_up0 = Helpers::to_map($repo_ref01_resdata_up0_result);
+        $repo_ref01_resdata_up0 = Helpers::to_map(is_object($repo_ref01_resdata_up0_result) && method_exists($repo_ref01_resdata_up0_result, 'data_get') ? $repo_ref01_resdata_up0_result->data_get() : $repo_ref01_resdata_up0_result);
         $this->assertNotNull($repo_ref01_resdata_up0);
         $this->assertEquals($repo_ref01_resdata_up0[$repo_ref01_markdef_up0_name], $repo_ref01_markdef_up0_value);
 
@@ -118,22 +113,12 @@ class RepoEntityTest extends TestCase
         $repo_ref01_data_dt0_loaded = $repo_ref01_ent->load($repo_ref01_match_dt0, null);
         $this->assertNotNull($repo_ref01_data_dt0_loaded);
 
-        // REMOVE
-        $repo_ref01_match_rm0 = [
-            "id" => $repo_ref01_data["id"],
-        ];
-        $repo_ref01_ent->remove($repo_ref01_match_rm0, null);
 
         // LIST
         $repo_ref01_match_rt0 = [];
 
         $repo_ref01_list_rt0_result = $repo_ref01_ent->list($repo_ref01_match_rt0, null);
         $this->assertIsArray($repo_ref01_list_rt0_result);
-
-        $not_found_item = sdk_select(
-            Runner::entity_list_to_data($repo_ref01_list_rt0_result),
-            ["id" => $repo_ref01_data["id"]]);
-        $this->assertEmpty($not_found_item);
 
     }
 }

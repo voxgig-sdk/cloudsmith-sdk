@@ -6,9 +6,9 @@ import time
 
 import pytest
 
-from utility.voxgig_struct import voxgig_struct as vs
+from cloudsmith_sdk.utility.voxgig_struct import voxgig_struct as vs
 from cloudsmith_sdk import CloudsmithSDK
-from core import helpers
+from cloudsmith_sdk.core import helpers
 
 _TEST_DIR = os.path.dirname(os.path.abspath(__file__))
 from test import runner
@@ -56,7 +56,7 @@ class TestOrganizationMembershipVisibilityUpdateEntity:
         organization_membership_visibility_update_ref01_markdef_up0_value = "Mark01-organization_membership_visibility_update_ref01_" + str(setup["now"])
         organization_membership_visibility_update_ref01_data_up0_up[organization_membership_visibility_update_ref01_markdef_up0_name] = organization_membership_visibility_update_ref01_markdef_up0_value
 
-        organization_membership_visibility_update_ref01_resdata_up0 = helpers.to_map(organization_membership_visibility_update_ref01_ent.update(organization_membership_visibility_update_ref01_data_up0_up, None))
+        organization_membership_visibility_update_ref01_resdata_up0 = helpers.to_map(runner.entity_data(organization_membership_visibility_update_ref01_ent.update(organization_membership_visibility_update_ref01_data_up0_up, None)))
         assert organization_membership_visibility_update_ref01_resdata_up0 is not None
         assert organization_membership_visibility_update_ref01_resdata_up0[organization_membership_visibility_update_ref01_markdef_up0_name] == organization_membership_visibility_update_ref01_markdef_up0_value
 

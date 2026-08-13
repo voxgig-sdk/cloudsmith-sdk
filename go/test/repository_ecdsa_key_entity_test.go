@@ -60,7 +60,7 @@ func TestRepositoryEcdsaKeyEntity(t *testing.T) {
 		if err != nil {
 			t.Fatalf("create failed: %v", err)
 		}
-		repositoryEcdsaKeyRef01Data = core.ToMapAny(repositoryEcdsaKeyRef01DataResult)
+		repositoryEcdsaKeyRef01Data = core.ToMapAny(entityData(repositoryEcdsaKeyRef01DataResult))
 		if repositoryEcdsaKeyRef01Data == nil {
 			t.Fatal("expected create result to be a map")
 		}

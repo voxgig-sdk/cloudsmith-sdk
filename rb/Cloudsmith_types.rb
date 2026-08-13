@@ -138,9 +138,81 @@ CargoListMatch = Struct.new(
 #
 # @!attribute [rw] owner
 #   @return [Object]
+#
+# @!attribute [rw] auth_mode
+#   @return [String, nil]
+#
+# @!attribute [rw] auth_secret
+#   @return [String, nil]
+#
+# @!attribute [rw] auth_username
+#   @return [String, nil]
+#
+# @!attribute [rw] created_at
+#   @return [String, nil]
+#
+# @!attribute [rw] disable_reason
+#   @return [String, nil]
+#
+# @!attribute [rw] extra_header_1
+#   @return [String, nil]
+#
+# @!attribute [rw] extra_header_2
+#   @return [String, nil]
+#
+# @!attribute [rw] extra_value_1
+#   @return [String, nil]
+#
+# @!attribute [rw] extra_value_2
+#   @return [String, nil]
+#
+# @!attribute [rw] is_active
+#   @return [Boolean, nil]
+#
+# @!attribute [rw] mode
+#   @return [String, nil]
+#
+# @!attribute [rw] name
+#   @return [String]
+#
+# @!attribute [rw] pending_validation
+#   @return [Boolean, nil]
+#
+# @!attribute [rw] priority
+#   @return [Integer, nil]
+#
+# @!attribute [rw] slug_perm
+#   @return [String, nil]
+#
+# @!attribute [rw] updated_at
+#   @return [String, nil]
+#
+# @!attribute [rw] upstream_url
+#   @return [String]
+#
+# @!attribute [rw] verify_ssl
+#   @return [Boolean, nil]
 CargoCreateData = Struct.new(
   :identifier,
   :owner,
+  :auth_mode,
+  :auth_secret,
+  :auth_username,
+  :created_at,
+  :disable_reason,
+  :extra_header_1,
+  :extra_header_2,
+  :extra_value_1,
+  :extra_value_2,
+  :is_active,
+  :mode,
+  :name,
+  :pending_validation,
+  :priority,
+  :slug_perm,
+  :updated_at,
+  :upstream_url,
+  :verify_ssl,
   keyword_init: true
 )
 
@@ -154,10 +226,82 @@ CargoCreateData = Struct.new(
 #
 # @!attribute [rw] owner
 #   @return [Object]
+#
+# @!attribute [rw] auth_mode
+#   @return [String, nil]
+#
+# @!attribute [rw] auth_secret
+#   @return [String, nil]
+#
+# @!attribute [rw] auth_username
+#   @return [String, nil]
+#
+# @!attribute [rw] created_at
+#   @return [String, nil]
+#
+# @!attribute [rw] disable_reason
+#   @return [String, nil]
+#
+# @!attribute [rw] extra_header_1
+#   @return [String, nil]
+#
+# @!attribute [rw] extra_header_2
+#   @return [String, nil]
+#
+# @!attribute [rw] extra_value_1
+#   @return [String, nil]
+#
+# @!attribute [rw] extra_value_2
+#   @return [String, nil]
+#
+# @!attribute [rw] is_active
+#   @return [Boolean, nil]
+#
+# @!attribute [rw] mode
+#   @return [String, nil]
+#
+# @!attribute [rw] name
+#   @return [String, nil]
+#
+# @!attribute [rw] pending_validation
+#   @return [Boolean, nil]
+#
+# @!attribute [rw] priority
+#   @return [Integer, nil]
+#
+# @!attribute [rw] slug_perm
+#   @return [String, nil]
+#
+# @!attribute [rw] updated_at
+#   @return [String, nil]
+#
+# @!attribute [rw] upstream_url
+#   @return [String, nil]
+#
+# @!attribute [rw] verify_ssl
+#   @return [Boolean, nil]
 CargoUpdateData = Struct.new(
   :id,
   :identifier,
   :owner,
+  :auth_mode,
+  :auth_secret,
+  :auth_username,
+  :created_at,
+  :disable_reason,
+  :extra_header_1,
+  :extra_header_2,
+  :extra_value_1,
+  :extra_value_2,
+  :is_active,
+  :mode,
+  :name,
+  :pending_validation,
+  :priority,
+  :slug_perm,
+  :updated_at,
+  :upstream_url,
+  :verify_ssl,
   keyword_init: true
 )
 
@@ -283,9 +427,81 @@ ComposerListMatch = Struct.new(
 #
 # @!attribute [rw] owner
 #   @return [Object]
+#
+# @!attribute [rw] auth_mode
+#   @return [String, nil]
+#
+# @!attribute [rw] auth_secret
+#   @return [String, nil]
+#
+# @!attribute [rw] auth_username
+#   @return [String, nil]
+#
+# @!attribute [rw] created_at
+#   @return [String, nil]
+#
+# @!attribute [rw] disable_reason
+#   @return [String, nil]
+#
+# @!attribute [rw] extra_header_1
+#   @return [String, nil]
+#
+# @!attribute [rw] extra_header_2
+#   @return [String, nil]
+#
+# @!attribute [rw] extra_value_1
+#   @return [String, nil]
+#
+# @!attribute [rw] extra_value_2
+#   @return [String, nil]
+#
+# @!attribute [rw] is_active
+#   @return [Boolean, nil]
+#
+# @!attribute [rw] mode
+#   @return [String, nil]
+#
+# @!attribute [rw] name
+#   @return [String]
+#
+# @!attribute [rw] pending_validation
+#   @return [Boolean, nil]
+#
+# @!attribute [rw] priority
+#   @return [Integer, nil]
+#
+# @!attribute [rw] slug_perm
+#   @return [String, nil]
+#
+# @!attribute [rw] updated_at
+#   @return [String, nil]
+#
+# @!attribute [rw] upstream_url
+#   @return [String]
+#
+# @!attribute [rw] verify_ssl
+#   @return [Boolean, nil]
 ComposerCreateData = Struct.new(
   :identifier,
   :owner,
+  :auth_mode,
+  :auth_secret,
+  :auth_username,
+  :created_at,
+  :disable_reason,
+  :extra_header_1,
+  :extra_header_2,
+  :extra_value_1,
+  :extra_value_2,
+  :is_active,
+  :mode,
+  :name,
+  :pending_validation,
+  :priority,
+  :slug_perm,
+  :updated_at,
+  :upstream_url,
+  :verify_ssl,
   keyword_init: true
 )
 
@@ -299,10 +515,82 @@ ComposerCreateData = Struct.new(
 #
 # @!attribute [rw] owner
 #   @return [Object]
+#
+# @!attribute [rw] auth_mode
+#   @return [String, nil]
+#
+# @!attribute [rw] auth_secret
+#   @return [String, nil]
+#
+# @!attribute [rw] auth_username
+#   @return [String, nil]
+#
+# @!attribute [rw] created_at
+#   @return [String, nil]
+#
+# @!attribute [rw] disable_reason
+#   @return [String, nil]
+#
+# @!attribute [rw] extra_header_1
+#   @return [String, nil]
+#
+# @!attribute [rw] extra_header_2
+#   @return [String, nil]
+#
+# @!attribute [rw] extra_value_1
+#   @return [String, nil]
+#
+# @!attribute [rw] extra_value_2
+#   @return [String, nil]
+#
+# @!attribute [rw] is_active
+#   @return [Boolean, nil]
+#
+# @!attribute [rw] mode
+#   @return [String, nil]
+#
+# @!attribute [rw] name
+#   @return [String, nil]
+#
+# @!attribute [rw] pending_validation
+#   @return [Boolean, nil]
+#
+# @!attribute [rw] priority
+#   @return [Integer, nil]
+#
+# @!attribute [rw] slug_perm
+#   @return [String, nil]
+#
+# @!attribute [rw] updated_at
+#   @return [String, nil]
+#
+# @!attribute [rw] upstream_url
+#   @return [String, nil]
+#
+# @!attribute [rw] verify_ssl
+#   @return [Boolean, nil]
 ComposerUpdateData = Struct.new(
   :id,
   :identifier,
   :owner,
+  :auth_mode,
+  :auth_secret,
+  :auth_username,
+  :created_at,
+  :disable_reason,
+  :extra_header_1,
+  :extra_header_2,
+  :extra_value_1,
+  :extra_value_2,
+  :is_active,
+  :mode,
+  :name,
+  :pending_validation,
+  :priority,
+  :slug_perm,
+  :updated_at,
+  :upstream_url,
+  :verify_ssl,
   keyword_init: true
 )
 
@@ -424,9 +712,81 @@ CondaListMatch = Struct.new(
 #
 # @!attribute [rw] owner
 #   @return [Object]
+#
+# @!attribute [rw] auth_mode
+#   @return [String, nil]
+#
+# @!attribute [rw] auth_secret
+#   @return [String, nil]
+#
+# @!attribute [rw] auth_username
+#   @return [String, nil]
+#
+# @!attribute [rw] created_at
+#   @return [String, nil]
+#
+# @!attribute [rw] disable_reason
+#   @return [String, nil]
+#
+# @!attribute [rw] extra_header_1
+#   @return [String, nil]
+#
+# @!attribute [rw] extra_header_2
+#   @return [String, nil]
+#
+# @!attribute [rw] extra_value_1
+#   @return [String, nil]
+#
+# @!attribute [rw] extra_value_2
+#   @return [String, nil]
+#
+# @!attribute [rw] is_active
+#   @return [Boolean, nil]
+#
+# @!attribute [rw] mode
+#   @return [String, nil]
+#
+# @!attribute [rw] name
+#   @return [String]
+#
+# @!attribute [rw] pending_validation
+#   @return [Boolean, nil]
+#
+# @!attribute [rw] priority
+#   @return [Integer, nil]
+#
+# @!attribute [rw] slug_perm
+#   @return [String, nil]
+#
+# @!attribute [rw] updated_at
+#   @return [String, nil]
+#
+# @!attribute [rw] upstream_url
+#   @return [String]
+#
+# @!attribute [rw] verify_ssl
+#   @return [Boolean, nil]
 CondaCreateData = Struct.new(
   :identifier,
   :owner,
+  :auth_mode,
+  :auth_secret,
+  :auth_username,
+  :created_at,
+  :disable_reason,
+  :extra_header_1,
+  :extra_header_2,
+  :extra_value_1,
+  :extra_value_2,
+  :is_active,
+  :mode,
+  :name,
+  :pending_validation,
+  :priority,
+  :slug_perm,
+  :updated_at,
+  :upstream_url,
+  :verify_ssl,
   keyword_init: true
 )
 
@@ -440,10 +800,82 @@ CondaCreateData = Struct.new(
 #
 # @!attribute [rw] owner
 #   @return [Object]
+#
+# @!attribute [rw] auth_mode
+#   @return [String, nil]
+#
+# @!attribute [rw] auth_secret
+#   @return [String, nil]
+#
+# @!attribute [rw] auth_username
+#   @return [String, nil]
+#
+# @!attribute [rw] created_at
+#   @return [String, nil]
+#
+# @!attribute [rw] disable_reason
+#   @return [String, nil]
+#
+# @!attribute [rw] extra_header_1
+#   @return [String, nil]
+#
+# @!attribute [rw] extra_header_2
+#   @return [String, nil]
+#
+# @!attribute [rw] extra_value_1
+#   @return [String, nil]
+#
+# @!attribute [rw] extra_value_2
+#   @return [String, nil]
+#
+# @!attribute [rw] is_active
+#   @return [Boolean, nil]
+#
+# @!attribute [rw] mode
+#   @return [String, nil]
+#
+# @!attribute [rw] name
+#   @return [String, nil]
+#
+# @!attribute [rw] pending_validation
+#   @return [Boolean, nil]
+#
+# @!attribute [rw] priority
+#   @return [Integer, nil]
+#
+# @!attribute [rw] slug_perm
+#   @return [String, nil]
+#
+# @!attribute [rw] updated_at
+#   @return [String, nil]
+#
+# @!attribute [rw] upstream_url
+#   @return [String, nil]
+#
+# @!attribute [rw] verify_ssl
+#   @return [Boolean, nil]
 CondaUpdateData = Struct.new(
   :id,
   :identifier,
   :owner,
+  :auth_mode,
+  :auth_secret,
+  :auth_username,
+  :created_at,
+  :disable_reason,
+  :extra_header_1,
+  :extra_header_2,
+  :extra_value_1,
+  :extra_value_2,
+  :is_active,
+  :mode,
+  :name,
+  :pending_validation,
+  :priority,
+  :slug_perm,
+  :updated_at,
+  :upstream_url,
+  :verify_ssl,
   keyword_init: true
 )
 
@@ -565,9 +997,81 @@ CranListMatch = Struct.new(
 #
 # @!attribute [rw] owner
 #   @return [Object]
+#
+# @!attribute [rw] auth_mode
+#   @return [String, nil]
+#
+# @!attribute [rw] auth_secret
+#   @return [String, nil]
+#
+# @!attribute [rw] auth_username
+#   @return [String, nil]
+#
+# @!attribute [rw] created_at
+#   @return [String, nil]
+#
+# @!attribute [rw] disable_reason
+#   @return [String, nil]
+#
+# @!attribute [rw] extra_header_1
+#   @return [String, nil]
+#
+# @!attribute [rw] extra_header_2
+#   @return [String, nil]
+#
+# @!attribute [rw] extra_value_1
+#   @return [String, nil]
+#
+# @!attribute [rw] extra_value_2
+#   @return [String, nil]
+#
+# @!attribute [rw] is_active
+#   @return [Boolean, nil]
+#
+# @!attribute [rw] mode
+#   @return [String, nil]
+#
+# @!attribute [rw] name
+#   @return [String]
+#
+# @!attribute [rw] pending_validation
+#   @return [Boolean, nil]
+#
+# @!attribute [rw] priority
+#   @return [Integer, nil]
+#
+# @!attribute [rw] slug_perm
+#   @return [String, nil]
+#
+# @!attribute [rw] updated_at
+#   @return [String, nil]
+#
+# @!attribute [rw] upstream_url
+#   @return [String]
+#
+# @!attribute [rw] verify_ssl
+#   @return [Boolean, nil]
 CranCreateData = Struct.new(
   :identifier,
   :owner,
+  :auth_mode,
+  :auth_secret,
+  :auth_username,
+  :created_at,
+  :disable_reason,
+  :extra_header_1,
+  :extra_header_2,
+  :extra_value_1,
+  :extra_value_2,
+  :is_active,
+  :mode,
+  :name,
+  :pending_validation,
+  :priority,
+  :slug_perm,
+  :updated_at,
+  :upstream_url,
+  :verify_ssl,
   keyword_init: true
 )
 
@@ -581,10 +1085,82 @@ CranCreateData = Struct.new(
 #
 # @!attribute [rw] owner
 #   @return [Object]
+#
+# @!attribute [rw] auth_mode
+#   @return [String, nil]
+#
+# @!attribute [rw] auth_secret
+#   @return [String, nil]
+#
+# @!attribute [rw] auth_username
+#   @return [String, nil]
+#
+# @!attribute [rw] created_at
+#   @return [String, nil]
+#
+# @!attribute [rw] disable_reason
+#   @return [String, nil]
+#
+# @!attribute [rw] extra_header_1
+#   @return [String, nil]
+#
+# @!attribute [rw] extra_header_2
+#   @return [String, nil]
+#
+# @!attribute [rw] extra_value_1
+#   @return [String, nil]
+#
+# @!attribute [rw] extra_value_2
+#   @return [String, nil]
+#
+# @!attribute [rw] is_active
+#   @return [Boolean, nil]
+#
+# @!attribute [rw] mode
+#   @return [String, nil]
+#
+# @!attribute [rw] name
+#   @return [String, nil]
+#
+# @!attribute [rw] pending_validation
+#   @return [Boolean, nil]
+#
+# @!attribute [rw] priority
+#   @return [Integer, nil]
+#
+# @!attribute [rw] slug_perm
+#   @return [String, nil]
+#
+# @!attribute [rw] updated_at
+#   @return [String, nil]
+#
+# @!attribute [rw] upstream_url
+#   @return [String, nil]
+#
+# @!attribute [rw] verify_ssl
+#   @return [Boolean, nil]
 CranUpdateData = Struct.new(
   :id,
   :identifier,
   :owner,
+  :auth_mode,
+  :auth_secret,
+  :auth_username,
+  :created_at,
+  :disable_reason,
+  :extra_header_1,
+  :extra_header_2,
+  :extra_value_1,
+  :extra_value_2,
+  :is_active,
+  :mode,
+  :name,
+  :pending_validation,
+  :priority,
+  :slug_perm,
+  :updated_at,
+  :upstream_url,
+  :verify_ssl,
   keyword_init: true
 )
 
@@ -702,9 +1278,81 @@ DartListMatch = Struct.new(
 #
 # @!attribute [rw] owner
 #   @return [Object]
+#
+# @!attribute [rw] auth_mode
+#   @return [String, nil]
+#
+# @!attribute [rw] auth_secret
+#   @return [String, nil]
+#
+# @!attribute [rw] auth_username
+#   @return [String, nil]
+#
+# @!attribute [rw] created_at
+#   @return [String, nil]
+#
+# @!attribute [rw] disable_reason
+#   @return [String, nil]
+#
+# @!attribute [rw] extra_header_1
+#   @return [String, nil]
+#
+# @!attribute [rw] extra_header_2
+#   @return [String, nil]
+#
+# @!attribute [rw] extra_value_1
+#   @return [String, nil]
+#
+# @!attribute [rw] extra_value_2
+#   @return [String, nil]
+#
+# @!attribute [rw] is_active
+#   @return [Boolean, nil]
+#
+# @!attribute [rw] mode
+#   @return [String, nil]
+#
+# @!attribute [rw] name
+#   @return [String]
+#
+# @!attribute [rw] pending_validation
+#   @return [Boolean, nil]
+#
+# @!attribute [rw] priority
+#   @return [Integer, nil]
+#
+# @!attribute [rw] slug_perm
+#   @return [String, nil]
+#
+# @!attribute [rw] updated_at
+#   @return [String, nil]
+#
+# @!attribute [rw] upstream_url
+#   @return [String]
+#
+# @!attribute [rw] verify_ssl
+#   @return [Boolean, nil]
 DartCreateData = Struct.new(
   :identifier,
   :owner,
+  :auth_mode,
+  :auth_secret,
+  :auth_username,
+  :created_at,
+  :disable_reason,
+  :extra_header_1,
+  :extra_header_2,
+  :extra_value_1,
+  :extra_value_2,
+  :is_active,
+  :mode,
+  :name,
+  :pending_validation,
+  :priority,
+  :slug_perm,
+  :updated_at,
+  :upstream_url,
+  :verify_ssl,
   keyword_init: true
 )
 
@@ -718,10 +1366,82 @@ DartCreateData = Struct.new(
 #
 # @!attribute [rw] owner
 #   @return [Object]
+#
+# @!attribute [rw] auth_mode
+#   @return [String, nil]
+#
+# @!attribute [rw] auth_secret
+#   @return [String, nil]
+#
+# @!attribute [rw] auth_username
+#   @return [String, nil]
+#
+# @!attribute [rw] created_at
+#   @return [String, nil]
+#
+# @!attribute [rw] disable_reason
+#   @return [String, nil]
+#
+# @!attribute [rw] extra_header_1
+#   @return [String, nil]
+#
+# @!attribute [rw] extra_header_2
+#   @return [String, nil]
+#
+# @!attribute [rw] extra_value_1
+#   @return [String, nil]
+#
+# @!attribute [rw] extra_value_2
+#   @return [String, nil]
+#
+# @!attribute [rw] is_active
+#   @return [Boolean, nil]
+#
+# @!attribute [rw] mode
+#   @return [String, nil]
+#
+# @!attribute [rw] name
+#   @return [String, nil]
+#
+# @!attribute [rw] pending_validation
+#   @return [Boolean, nil]
+#
+# @!attribute [rw] priority
+#   @return [Integer, nil]
+#
+# @!attribute [rw] slug_perm
+#   @return [String, nil]
+#
+# @!attribute [rw] updated_at
+#   @return [String, nil]
+#
+# @!attribute [rw] upstream_url
+#   @return [String, nil]
+#
+# @!attribute [rw] verify_ssl
+#   @return [Boolean, nil]
 DartUpdateData = Struct.new(
   :id,
   :identifier,
   :owner,
+  :auth_mode,
+  :auth_secret,
+  :auth_username,
+  :created_at,
+  :disable_reason,
+  :extra_header_1,
+  :extra_header_2,
+  :extra_value_1,
+  :extra_value_2,
+  :is_active,
+  :mode,
+  :name,
+  :pending_validation,
+  :priority,
+  :slug_perm,
+  :updated_at,
+  :upstream_url,
+  :verify_ssl,
   keyword_init: true
 )
 
@@ -745,7 +1465,7 @@ DartUpdateData = Struct.new(
 # @!attribute [rw] disable_reason
 #   @return [String, nil]
 #
-# @!attribute [rw] distro_version
+# @!attribute [rw] distro_versions
 #   @return [Array]
 #
 # @!attribute [rw] extra_header_1
@@ -769,7 +1489,7 @@ DartUpdateData = Struct.new(
 # @!attribute [rw] gpg_verification
 #   @return [String, nil]
 #
-# @!attribute [rw] include_source
+# @!attribute [rw] include_sources
 #   @return [Boolean, nil]
 #
 # @!attribute [rw] is_active
@@ -811,7 +1531,7 @@ Deb = Struct.new(
   :component,
   :created_at,
   :disable_reason,
-  :distro_version,
+  :distro_versions,
   :extra_header_1,
   :extra_header_2,
   :extra_value_1,
@@ -819,7 +1539,7 @@ Deb = Struct.new(
   :gpg_key_inline,
   :gpg_key_url,
   :gpg_verification,
-  :include_source,
+  :include_sources,
   :is_active,
   :mode,
   :name,
@@ -871,9 +1591,113 @@ DebListMatch = Struct.new(
 #
 # @!attribute [rw] owner
 #   @return [Object]
+#
+# @!attribute [rw] auth_mode
+#   @return [String, nil]
+#
+# @!attribute [rw] auth_secret
+#   @return [String, nil]
+#
+# @!attribute [rw] auth_username
+#   @return [String, nil]
+#
+# @!attribute [rw] component
+#   @return [String, nil]
+#
+# @!attribute [rw] created_at
+#   @return [String, nil]
+#
+# @!attribute [rw] disable_reason
+#   @return [String, nil]
+#
+# @!attribute [rw] distro_versions
+#   @return [Array]
+#
+# @!attribute [rw] extra_header_1
+#   @return [String, nil]
+#
+# @!attribute [rw] extra_header_2
+#   @return [String, nil]
+#
+# @!attribute [rw] extra_value_1
+#   @return [String, nil]
+#
+# @!attribute [rw] extra_value_2
+#   @return [String, nil]
+#
+# @!attribute [rw] gpg_key_inline
+#   @return [String, nil]
+#
+# @!attribute [rw] gpg_key_url
+#   @return [String, nil]
+#
+# @!attribute [rw] gpg_verification
+#   @return [String, nil]
+#
+# @!attribute [rw] include_sources
+#   @return [Boolean, nil]
+#
+# @!attribute [rw] is_active
+#   @return [Boolean, nil]
+#
+# @!attribute [rw] mode
+#   @return [String, nil]
+#
+# @!attribute [rw] name
+#   @return [String]
+#
+# @!attribute [rw] pending_validation
+#   @return [Boolean, nil]
+#
+# @!attribute [rw] priority
+#   @return [Integer, nil]
+#
+# @!attribute [rw] slug_perm
+#   @return [String, nil]
+#
+# @!attribute [rw] updated_at
+#   @return [String, nil]
+#
+# @!attribute [rw] upstream_distribution
+#   @return [String, nil]
+#
+# @!attribute [rw] upstream_url
+#   @return [String]
+#
+# @!attribute [rw] verification_status
+#   @return [String, nil]
+#
+# @!attribute [rw] verify_ssl
+#   @return [Boolean, nil]
 DebCreateData = Struct.new(
   :identifier,
   :owner,
+  :auth_mode,
+  :auth_secret,
+  :auth_username,
+  :component,
+  :created_at,
+  :disable_reason,
+  :distro_versions,
+  :extra_header_1,
+  :extra_header_2,
+  :extra_value_1,
+  :extra_value_2,
+  :gpg_key_inline,
+  :gpg_key_url,
+  :gpg_verification,
+  :include_sources,
+  :is_active,
+  :mode,
+  :name,
+  :pending_validation,
+  :priority,
+  :slug_perm,
+  :updated_at,
+  :upstream_distribution,
+  :upstream_url,
+  :verification_status,
+  :verify_ssl,
   keyword_init: true
 )
 
@@ -887,10 +1711,114 @@ DebCreateData = Struct.new(
 #
 # @!attribute [rw] owner
 #   @return [Object]
+#
+# @!attribute [rw] auth_mode
+#   @return [String, nil]
+#
+# @!attribute [rw] auth_secret
+#   @return [String, nil]
+#
+# @!attribute [rw] auth_username
+#   @return [String, nil]
+#
+# @!attribute [rw] component
+#   @return [String, nil]
+#
+# @!attribute [rw] created_at
+#   @return [String, nil]
+#
+# @!attribute [rw] disable_reason
+#   @return [String, nil]
+#
+# @!attribute [rw] distro_versions
+#   @return [Array, nil]
+#
+# @!attribute [rw] extra_header_1
+#   @return [String, nil]
+#
+# @!attribute [rw] extra_header_2
+#   @return [String, nil]
+#
+# @!attribute [rw] extra_value_1
+#   @return [String, nil]
+#
+# @!attribute [rw] extra_value_2
+#   @return [String, nil]
+#
+# @!attribute [rw] gpg_key_inline
+#   @return [String, nil]
+#
+# @!attribute [rw] gpg_key_url
+#   @return [String, nil]
+#
+# @!attribute [rw] gpg_verification
+#   @return [String, nil]
+#
+# @!attribute [rw] include_sources
+#   @return [Boolean, nil]
+#
+# @!attribute [rw] is_active
+#   @return [Boolean, nil]
+#
+# @!attribute [rw] mode
+#   @return [String, nil]
+#
+# @!attribute [rw] name
+#   @return [String, nil]
+#
+# @!attribute [rw] pending_validation
+#   @return [Boolean, nil]
+#
+# @!attribute [rw] priority
+#   @return [Integer, nil]
+#
+# @!attribute [rw] slug_perm
+#   @return [String, nil]
+#
+# @!attribute [rw] updated_at
+#   @return [String, nil]
+#
+# @!attribute [rw] upstream_distribution
+#   @return [String, nil]
+#
+# @!attribute [rw] upstream_url
+#   @return [String, nil]
+#
+# @!attribute [rw] verification_status
+#   @return [String, nil]
+#
+# @!attribute [rw] verify_ssl
+#   @return [Boolean, nil]
 DebUpdateData = Struct.new(
   :id,
   :identifier,
   :owner,
+  :auth_mode,
+  :auth_secret,
+  :auth_username,
+  :component,
+  :created_at,
+  :disable_reason,
+  :distro_versions,
+  :extra_header_1,
+  :extra_header_2,
+  :extra_value_1,
+  :extra_value_2,
+  :gpg_key_inline,
+  :gpg_key_url,
+  :gpg_verification,
+  :include_sources,
+  :is_active,
+  :mode,
+  :name,
+  :pending_validation,
+  :priority,
+  :slug_perm,
+  :updated_at,
+  :upstream_distribution,
+  :upstream_url,
+  :verification_status,
+  :verify_ssl,
   keyword_init: true
 )
 
@@ -923,10 +1851,10 @@ end
 # @!attribute [rw] slug
 #   @return [String, nil]
 #
-# @!attribute [rw] variant
+# @!attribute [rw] variants
 #   @return [String, nil]
 #
-# @!attribute [rw] version
+# @!attribute [rw] versions
 #   @return [Array, nil]
 DistributionFull = Struct.new(
   :format,
@@ -934,8 +1862,8 @@ DistributionFull = Struct.new(
   :name,
   :self_url,
   :slug,
-  :variant,
-  :version,
+  :variants,
+  :versions,
   keyword_init: true
 )
 
@@ -965,10 +1893,10 @@ DistributionFullLoadMatch = Struct.new(
 # @!attribute [rw] slug
 #   @return [String, nil]
 #
-# @!attribute [rw] variant
+# @!attribute [rw] variants
 #   @return [String, nil]
 #
-# @!attribute [rw] version
+# @!attribute [rw] versions
 #   @return [Array, nil]
 DistributionFullListMatch = Struct.new(
   :format,
@@ -976,8 +1904,8 @@ DistributionFullListMatch = Struct.new(
   :name,
   :self_url,
   :slug,
-  :variant,
-  :version,
+  :variants,
+  :versions,
   keyword_init: true
 )
 
@@ -1099,9 +2027,81 @@ DockerListMatch = Struct.new(
 #
 # @!attribute [rw] owner
 #   @return [Object]
+#
+# @!attribute [rw] auth_mode
+#   @return [String, nil]
+#
+# @!attribute [rw] auth_secret
+#   @return [String, nil]
+#
+# @!attribute [rw] auth_username
+#   @return [String, nil]
+#
+# @!attribute [rw] created_at
+#   @return [String, nil]
+#
+# @!attribute [rw] disable_reason
+#   @return [String, nil]
+#
+# @!attribute [rw] extra_header_1
+#   @return [String, nil]
+#
+# @!attribute [rw] extra_header_2
+#   @return [String, nil]
+#
+# @!attribute [rw] extra_value_1
+#   @return [String, nil]
+#
+# @!attribute [rw] extra_value_2
+#   @return [String, nil]
+#
+# @!attribute [rw] is_active
+#   @return [Boolean, nil]
+#
+# @!attribute [rw] mode
+#   @return [String, nil]
+#
+# @!attribute [rw] name
+#   @return [String]
+#
+# @!attribute [rw] pending_validation
+#   @return [Boolean, nil]
+#
+# @!attribute [rw] priority
+#   @return [Integer, nil]
+#
+# @!attribute [rw] slug_perm
+#   @return [String, nil]
+#
+# @!attribute [rw] updated_at
+#   @return [String, nil]
+#
+# @!attribute [rw] upstream_url
+#   @return [String]
+#
+# @!attribute [rw] verify_ssl
+#   @return [Boolean, nil]
 DockerCreateData = Struct.new(
   :identifier,
   :owner,
+  :auth_mode,
+  :auth_secret,
+  :auth_username,
+  :created_at,
+  :disable_reason,
+  :extra_header_1,
+  :extra_header_2,
+  :extra_value_1,
+  :extra_value_2,
+  :is_active,
+  :mode,
+  :name,
+  :pending_validation,
+  :priority,
+  :slug_perm,
+  :updated_at,
+  :upstream_url,
+  :verify_ssl,
   keyword_init: true
 )
 
@@ -1115,10 +2115,82 @@ DockerCreateData = Struct.new(
 #
 # @!attribute [rw] owner
 #   @return [Object]
+#
+# @!attribute [rw] auth_mode
+#   @return [String, nil]
+#
+# @!attribute [rw] auth_secret
+#   @return [String, nil]
+#
+# @!attribute [rw] auth_username
+#   @return [String, nil]
+#
+# @!attribute [rw] created_at
+#   @return [String, nil]
+#
+# @!attribute [rw] disable_reason
+#   @return [String, nil]
+#
+# @!attribute [rw] extra_header_1
+#   @return [String, nil]
+#
+# @!attribute [rw] extra_header_2
+#   @return [String, nil]
+#
+# @!attribute [rw] extra_value_1
+#   @return [String, nil]
+#
+# @!attribute [rw] extra_value_2
+#   @return [String, nil]
+#
+# @!attribute [rw] is_active
+#   @return [Boolean, nil]
+#
+# @!attribute [rw] mode
+#   @return [String, nil]
+#
+# @!attribute [rw] name
+#   @return [String, nil]
+#
+# @!attribute [rw] pending_validation
+#   @return [Boolean, nil]
+#
+# @!attribute [rw] priority
+#   @return [Integer, nil]
+#
+# @!attribute [rw] slug_perm
+#   @return [String, nil]
+#
+# @!attribute [rw] updated_at
+#   @return [String, nil]
+#
+# @!attribute [rw] upstream_url
+#   @return [String, nil]
+#
+# @!attribute [rw] verify_ssl
+#   @return [Boolean, nil]
 DockerUpdateData = Struct.new(
   :id,
   :identifier,
   :owner,
+  :auth_mode,
+  :auth_secret,
+  :auth_username,
+  :created_at,
+  :disable_reason,
+  :extra_header_1,
+  :extra_header_2,
+  :extra_value_1,
+  :extra_value_2,
+  :is_active,
+  :mode,
+  :name,
+  :pending_validation,
+  :priority,
+  :slug_perm,
+  :updated_at,
+  :upstream_url,
+  :verify_ssl,
   keyword_init: true
 )
 
@@ -1175,10 +2247,26 @@ end
 
 # Entitlement entity data model.
 #
-# @!attribute [rw] token
+# @!attribute [rw] active
+#   @return [Integer, nil]
+#
+# @!attribute [rw] bandwidth
 #   @return [Hash]
+#
+# @!attribute [rw] downloads
+#   @return [Hash]
+#
+# @!attribute [rw] inactive
+#   @return [Integer, nil]
+#
+# @!attribute [rw] total
+#   @return [Integer, nil]
 Entitlement = Struct.new(
-  :token,
+  :active,
+  :bandwidth,
+  :downloads,
+  :inactive,
+  :total,
   keyword_init: true
 )
 
@@ -1209,10 +2297,30 @@ EntitlementLoadMatch = Struct.new(
 #
 # @!attribute [rw] repo
 #   @return [Object]
+#
+# @!attribute [rw] active
+#   @return [Integer, nil]
+#
+# @!attribute [rw] bandwidth
+#   @return [Hash]
+#
+# @!attribute [rw] downloads
+#   @return [Hash]
+#
+# @!attribute [rw] inactive
+#   @return [Integer, nil]
+#
+# @!attribute [rw] total
+#   @return [Integer, nil]
 EntitlementCreateData = Struct.new(
   :identifier,
   :owner,
   :repo,
+  :active,
+  :bandwidth,
+  :downloads,
+  :inactive,
+  :total,
   keyword_init: true
 )
 
@@ -1238,7 +2346,7 @@ class Evaluation
 end
 
 # File entity data model.
-class File
+class FileType
 end
 
 # Request payload for File#create.
@@ -1263,10 +2371,10 @@ FileCreateData = Struct.new(
 # @!attribute [rw] description
 #   @return [String]
 #
-# @!attribute [rw] distribution
+# @!attribute [rw] distributions
 #   @return [Array, nil]
 #
-# @!attribute [rw] extension
+# @!attribute [rw] extensions
 #   @return [Array]
 #
 # @!attribute [rw] name
@@ -1284,18 +2392,18 @@ FileCreateData = Struct.new(
 # @!attribute [rw] slug
 #   @return [String]
 #
-# @!attribute [rw] support
+# @!attribute [rw] supports
 #   @return [Hash]
 Format = Struct.new(
   :description,
-  :distribution,
-  :extension,
+  :distributions,
+  :extensions,
   :name,
   :premium,
   :premium_plan_id,
   :premium_plan_name,
   :slug,
-  :support,
+  :supports,
   keyword_init: true
 )
 
@@ -1313,10 +2421,10 @@ FormatLoadMatch = Struct.new(
 # @!attribute [rw] description
 #   @return [String, nil]
 #
-# @!attribute [rw] distribution
+# @!attribute [rw] distributions
 #   @return [Array, nil]
 #
-# @!attribute [rw] extension
+# @!attribute [rw] extensions
 #   @return [Array, nil]
 #
 # @!attribute [rw] name
@@ -1334,18 +2442,18 @@ FormatLoadMatch = Struct.new(
 # @!attribute [rw] slug
 #   @return [String, nil]
 #
-# @!attribute [rw] support
+# @!attribute [rw] supports
 #   @return [Hash, nil]
 FormatListMatch = Struct.new(
   :description,
-  :distribution,
-  :extension,
+  :distributions,
+  :extensions,
   :name,
   :premium,
   :premium_plan_id,
   :premium_plan_name,
   :slug,
-  :support,
+  :supports,
   keyword_init: true
 )
 
@@ -1354,14 +2462,6 @@ class Geoip
 end
 
 # Gon entity data model.
-class Gon
-end
-
-# Gon2 entity data model.
-class Gon2
-end
-
-# Gon3 entity data model.
 #
 # @!attribute [rw] auth_mode
 #   @return [String, nil]
@@ -1416,7 +2516,7 @@ end
 #
 # @!attribute [rw] verify_ssl
 #   @return [Boolean, nil]
-Gon3 = Struct.new(
+Gon = Struct.new(
   :auth_mode,
   :auth_secret,
   :auth_username,
@@ -1438,41 +2538,43 @@ Gon3 = Struct.new(
   keyword_init: true
 )
 
-# Request payload for Gon3#list.
+# Request payload for Gon#load.
 #
 # @!attribute [rw] identifier
 #   @return [Object]
 #
 # @!attribute [rw] owner
 #   @return [Object]
-Gon3ListMatch = Struct.new(
+#
+# @!attribute [rw] slug_perm
+#   @return [Object]
+GonLoadMatch = Struct.new(
   :identifier,
   :owner,
+  :slug_perm,
   keyword_init: true
 )
 
-# Gon4 entity data model.
-class Gon4
-end
-
-# Gon5 entity data model.
-class Gon5
-end
-
-# Request payload for Gon5#create.
+# Request payload for Gon#list.
 #
 # @!attribute [rw] identifier
 #   @return [Object]
 #
 # @!attribute [rw] owner
 #   @return [Object]
-Gon5CreateData = Struct.new(
+GonListMatch = Struct.new(
   :identifier,
   :owner,
   keyword_init: true
 )
 
-# Gon6 entity data model.
+# Request payload for Gon#create.
+#
+# @!attribute [rw] identifier
+#   @return [Object]
+#
+# @!attribute [rw] owner
+#   @return [Object]
 #
 # @!attribute [rw] auth_mode
 #   @return [String, nil]
@@ -1527,7 +2629,9 @@ Gon5CreateData = Struct.new(
 #
 # @!attribute [rw] verify_ssl
 #   @return [Boolean, nil]
-Gon6 = Struct.new(
+GonCreateData = Struct.new(
+  :identifier,
+  :owner,
   :auth_mode,
   :auth_secret,
   :auth_username,
@@ -1549,7 +2653,7 @@ Gon6 = Struct.new(
   keyword_init: true
 )
 
-# Request payload for Gon6#load.
+# Request payload for Gon#update.
 #
 # @!attribute [rw] identifier
 #   @return [Object]
@@ -1559,18 +2663,6 @@ Gon6 = Struct.new(
 #
 # @!attribute [rw] slug_perm
 #   @return [Object]
-Gon6LoadMatch = Struct.new(
-  :identifier,
-  :owner,
-  :slug_perm,
-  keyword_init: true
-)
-
-# Gon7 entity data model.
-class Gon7
-end
-
-# Gon8 entity data model.
 #
 # @!attribute [rw] auth_mode
 #   @return [String, nil]
@@ -1606,7 +2698,7 @@ end
 #   @return [String, nil]
 #
 # @!attribute [rw] name
-#   @return [String]
+#   @return [String, nil]
 #
 # @!attribute [rw] pending_validation
 #   @return [Boolean, nil]
@@ -1614,18 +2706,18 @@ end
 # @!attribute [rw] priority
 #   @return [Integer, nil]
 #
-# @!attribute [rw] slug_perm
-#   @return [String, nil]
-#
 # @!attribute [rw] updated_at
 #   @return [String, nil]
 #
 # @!attribute [rw] upstream_url
-#   @return [String]
+#   @return [String, nil]
 #
 # @!attribute [rw] verify_ssl
 #   @return [Boolean, nil]
-Gon8 = Struct.new(
+GonUpdateData = Struct.new(
+  :identifier,
+  :owner,
+  :slug_perm,
   :auth_mode,
   :auth_secret,
   :auth_username,
@@ -1640,121 +2732,9 @@ Gon8 = Struct.new(
   :name,
   :pending_validation,
   :priority,
-  :slug_perm,
   :updated_at,
   :upstream_url,
   :verify_ssl,
-  keyword_init: true
-)
-
-# Request payload for Gon8#update.
-#
-# @!attribute [rw] identifier
-#   @return [Object]
-#
-# @!attribute [rw] owner
-#   @return [Object]
-#
-# @!attribute [rw] slug_perm
-#   @return [Object]
-Gon8UpdateData = Struct.new(
-  :identifier,
-  :owner,
-  :slug_perm,
-  keyword_init: true
-)
-
-# Gon9 entity data model.
-#
-# @!attribute [rw] auth_mode
-#   @return [String, nil]
-#
-# @!attribute [rw] auth_secret
-#   @return [String, nil]
-#
-# @!attribute [rw] auth_username
-#   @return [String, nil]
-#
-# @!attribute [rw] created_at
-#   @return [String, nil]
-#
-# @!attribute [rw] disable_reason
-#   @return [String, nil]
-#
-# @!attribute [rw] extra_header_1
-#   @return [String, nil]
-#
-# @!attribute [rw] extra_header_2
-#   @return [String, nil]
-#
-# @!attribute [rw] extra_value_1
-#   @return [String, nil]
-#
-# @!attribute [rw] extra_value_2
-#   @return [String, nil]
-#
-# @!attribute [rw] is_active
-#   @return [Boolean, nil]
-#
-# @!attribute [rw] mode
-#   @return [String, nil]
-#
-# @!attribute [rw] name
-#   @return [String]
-#
-# @!attribute [rw] pending_validation
-#   @return [Boolean, nil]
-#
-# @!attribute [rw] priority
-#   @return [Integer, nil]
-#
-# @!attribute [rw] slug_perm
-#   @return [String, nil]
-#
-# @!attribute [rw] updated_at
-#   @return [String, nil]
-#
-# @!attribute [rw] upstream_url
-#   @return [String]
-#
-# @!attribute [rw] verify_ssl
-#   @return [Boolean, nil]
-Gon9 = Struct.new(
-  :auth_mode,
-  :auth_secret,
-  :auth_username,
-  :created_at,
-  :disable_reason,
-  :extra_header_1,
-  :extra_header_2,
-  :extra_value_1,
-  :extra_value_2,
-  :is_active,
-  :mode,
-  :name,
-  :pending_validation,
-  :priority,
-  :slug_perm,
-  :updated_at,
-  :upstream_url,
-  :verify_ssl,
-  keyword_init: true
-)
-
-# Request payload for Gon9#update.
-#
-# @!attribute [rw] identifier
-#   @return [Object]
-#
-# @!attribute [rw] owner
-#   @return [Object]
-#
-# @!attribute [rw] slug_perm
-#   @return [Object]
-Gon9UpdateData = Struct.new(
-  :identifier,
-  :owner,
-  :slug_perm,
   keyword_init: true
 )
 
@@ -1880,9 +2860,81 @@ HelmListMatch = Struct.new(
 #
 # @!attribute [rw] owner
 #   @return [Object]
+#
+# @!attribute [rw] auth_mode
+#   @return [String, nil]
+#
+# @!attribute [rw] auth_secret
+#   @return [String, nil]
+#
+# @!attribute [rw] auth_username
+#   @return [String, nil]
+#
+# @!attribute [rw] created_at
+#   @return [String, nil]
+#
+# @!attribute [rw] disable_reason
+#   @return [String, nil]
+#
+# @!attribute [rw] extra_header_1
+#   @return [String, nil]
+#
+# @!attribute [rw] extra_header_2
+#   @return [String, nil]
+#
+# @!attribute [rw] extra_value_1
+#   @return [String, nil]
+#
+# @!attribute [rw] extra_value_2
+#   @return [String, nil]
+#
+# @!attribute [rw] is_active
+#   @return [Boolean, nil]
+#
+# @!attribute [rw] mode
+#   @return [String, nil]
+#
+# @!attribute [rw] name
+#   @return [String]
+#
+# @!attribute [rw] pending_validation
+#   @return [Boolean, nil]
+#
+# @!attribute [rw] priority
+#   @return [Integer, nil]
+#
+# @!attribute [rw] slug_perm
+#   @return [String, nil]
+#
+# @!attribute [rw] updated_at
+#   @return [String, nil]
+#
+# @!attribute [rw] upstream_url
+#   @return [String]
+#
+# @!attribute [rw] verify_ssl
+#   @return [Boolean, nil]
 HelmCreateData = Struct.new(
   :identifier,
   :owner,
+  :auth_mode,
+  :auth_secret,
+  :auth_username,
+  :created_at,
+  :disable_reason,
+  :extra_header_1,
+  :extra_header_2,
+  :extra_value_1,
+  :extra_value_2,
+  :is_active,
+  :mode,
+  :name,
+  :pending_validation,
+  :priority,
+  :slug_perm,
+  :updated_at,
+  :upstream_url,
+  :verify_ssl,
   keyword_init: true
 )
 
@@ -1896,10 +2948,82 @@ HelmCreateData = Struct.new(
 #
 # @!attribute [rw] owner
 #   @return [Object]
+#
+# @!attribute [rw] auth_mode
+#   @return [String, nil]
+#
+# @!attribute [rw] auth_secret
+#   @return [String, nil]
+#
+# @!attribute [rw] auth_username
+#   @return [String, nil]
+#
+# @!attribute [rw] created_at
+#   @return [String, nil]
+#
+# @!attribute [rw] disable_reason
+#   @return [String, nil]
+#
+# @!attribute [rw] extra_header_1
+#   @return [String, nil]
+#
+# @!attribute [rw] extra_header_2
+#   @return [String, nil]
+#
+# @!attribute [rw] extra_value_1
+#   @return [String, nil]
+#
+# @!attribute [rw] extra_value_2
+#   @return [String, nil]
+#
+# @!attribute [rw] is_active
+#   @return [Boolean, nil]
+#
+# @!attribute [rw] mode
+#   @return [String, nil]
+#
+# @!attribute [rw] name
+#   @return [String, nil]
+#
+# @!attribute [rw] pending_validation
+#   @return [Boolean, nil]
+#
+# @!attribute [rw] priority
+#   @return [Integer, nil]
+#
+# @!attribute [rw] slug_perm
+#   @return [String, nil]
+#
+# @!attribute [rw] updated_at
+#   @return [String, nil]
+#
+# @!attribute [rw] upstream_url
+#   @return [String, nil]
+#
+# @!attribute [rw] verify_ssl
+#   @return [Boolean, nil]
 HelmUpdateData = Struct.new(
   :id,
   :identifier,
   :owner,
+  :auth_mode,
+  :auth_secret,
+  :auth_username,
+  :created_at,
+  :disable_reason,
+  :extra_header_1,
+  :extra_header_2,
+  :extra_value_1,
+  :extra_value_2,
+  :is_active,
+  :mode,
+  :name,
+  :pending_validation,
+  :priority,
+  :slug_perm,
+  :updated_at,
+  :upstream_url,
+  :verify_ssl,
   keyword_init: true
 )
 
@@ -2017,9 +3141,81 @@ HexListMatch = Struct.new(
 #
 # @!attribute [rw] owner
 #   @return [Object]
+#
+# @!attribute [rw] auth_mode
+#   @return [String, nil]
+#
+# @!attribute [rw] auth_secret
+#   @return [String, nil]
+#
+# @!attribute [rw] auth_username
+#   @return [String, nil]
+#
+# @!attribute [rw] created_at
+#   @return [String, nil]
+#
+# @!attribute [rw] disable_reason
+#   @return [String, nil]
+#
+# @!attribute [rw] extra_header_1
+#   @return [String, nil]
+#
+# @!attribute [rw] extra_header_2
+#   @return [String, nil]
+#
+# @!attribute [rw] extra_value_1
+#   @return [String, nil]
+#
+# @!attribute [rw] extra_value_2
+#   @return [String, nil]
+#
+# @!attribute [rw] is_active
+#   @return [Boolean, nil]
+#
+# @!attribute [rw] mode
+#   @return [String, nil]
+#
+# @!attribute [rw] name
+#   @return [String]
+#
+# @!attribute [rw] pending_validation
+#   @return [Boolean, nil]
+#
+# @!attribute [rw] priority
+#   @return [Integer, nil]
+#
+# @!attribute [rw] slug_perm
+#   @return [String, nil]
+#
+# @!attribute [rw] updated_at
+#   @return [String, nil]
+#
+# @!attribute [rw] upstream_url
+#   @return [String]
+#
+# @!attribute [rw] verify_ssl
+#   @return [Boolean, nil]
 HexCreateData = Struct.new(
   :identifier,
   :owner,
+  :auth_mode,
+  :auth_secret,
+  :auth_username,
+  :created_at,
+  :disable_reason,
+  :extra_header_1,
+  :extra_header_2,
+  :extra_value_1,
+  :extra_value_2,
+  :is_active,
+  :mode,
+  :name,
+  :pending_validation,
+  :priority,
+  :slug_perm,
+  :updated_at,
+  :upstream_url,
+  :verify_ssl,
   keyword_init: true
 )
 
@@ -2033,10 +3229,82 @@ HexCreateData = Struct.new(
 #
 # @!attribute [rw] owner
 #   @return [Object]
+#
+# @!attribute [rw] auth_mode
+#   @return [String, nil]
+#
+# @!attribute [rw] auth_secret
+#   @return [String, nil]
+#
+# @!attribute [rw] auth_username
+#   @return [String, nil]
+#
+# @!attribute [rw] created_at
+#   @return [String, nil]
+#
+# @!attribute [rw] disable_reason
+#   @return [String, nil]
+#
+# @!attribute [rw] extra_header_1
+#   @return [String, nil]
+#
+# @!attribute [rw] extra_header_2
+#   @return [String, nil]
+#
+# @!attribute [rw] extra_value_1
+#   @return [String, nil]
+#
+# @!attribute [rw] extra_value_2
+#   @return [String, nil]
+#
+# @!attribute [rw] is_active
+#   @return [Boolean, nil]
+#
+# @!attribute [rw] mode
+#   @return [String, nil]
+#
+# @!attribute [rw] name
+#   @return [String, nil]
+#
+# @!attribute [rw] pending_validation
+#   @return [Boolean, nil]
+#
+# @!attribute [rw] priority
+#   @return [Integer, nil]
+#
+# @!attribute [rw] slug_perm
+#   @return [String, nil]
+#
+# @!attribute [rw] updated_at
+#   @return [String, nil]
+#
+# @!attribute [rw] upstream_url
+#   @return [String, nil]
+#
+# @!attribute [rw] verify_ssl
+#   @return [Boolean, nil]
 HexUpdateData = Struct.new(
   :id,
   :identifier,
   :owner,
+  :auth_mode,
+  :auth_secret,
+  :auth_username,
+  :created_at,
+  :disable_reason,
+  :extra_header_1,
+  :extra_header_2,
+  :extra_value_1,
+  :extra_value_2,
+  :is_active,
+  :mode,
+  :name,
+  :pending_validation,
+  :priority,
+  :slug_perm,
+  :updated_at,
+  :upstream_url,
+  :verify_ssl,
   keyword_init: true
 )
 
@@ -2158,9 +3426,81 @@ HuggingfaceListMatch = Struct.new(
 #
 # @!attribute [rw] owner
 #   @return [Object]
+#
+# @!attribute [rw] auth_mode
+#   @return [String, nil]
+#
+# @!attribute [rw] auth_secret
+#   @return [String, nil]
+#
+# @!attribute [rw] auth_username
+#   @return [String, nil]
+#
+# @!attribute [rw] created_at
+#   @return [String, nil]
+#
+# @!attribute [rw] disable_reason
+#   @return [String, nil]
+#
+# @!attribute [rw] extra_header_1
+#   @return [String, nil]
+#
+# @!attribute [rw] extra_header_2
+#   @return [String, nil]
+#
+# @!attribute [rw] extra_value_1
+#   @return [String, nil]
+#
+# @!attribute [rw] extra_value_2
+#   @return [String, nil]
+#
+# @!attribute [rw] is_active
+#   @return [Boolean, nil]
+#
+# @!attribute [rw] mode
+#   @return [String, nil]
+#
+# @!attribute [rw] name
+#   @return [String]
+#
+# @!attribute [rw] pending_validation
+#   @return [Boolean, nil]
+#
+# @!attribute [rw] priority
+#   @return [Integer, nil]
+#
+# @!attribute [rw] slug_perm
+#   @return [String, nil]
+#
+# @!attribute [rw] updated_at
+#   @return [String, nil]
+#
+# @!attribute [rw] upstream_url
+#   @return [String]
+#
+# @!attribute [rw] verify_ssl
+#   @return [Boolean, nil]
 HuggingfaceCreateData = Struct.new(
   :identifier,
   :owner,
+  :auth_mode,
+  :auth_secret,
+  :auth_username,
+  :created_at,
+  :disable_reason,
+  :extra_header_1,
+  :extra_header_2,
+  :extra_value_1,
+  :extra_value_2,
+  :is_active,
+  :mode,
+  :name,
+  :pending_validation,
+  :priority,
+  :slug_perm,
+  :updated_at,
+  :upstream_url,
+  :verify_ssl,
   keyword_init: true
 )
 
@@ -2174,10 +3514,82 @@ HuggingfaceCreateData = Struct.new(
 #
 # @!attribute [rw] owner
 #   @return [Object]
+#
+# @!attribute [rw] auth_mode
+#   @return [String, nil]
+#
+# @!attribute [rw] auth_secret
+#   @return [String, nil]
+#
+# @!attribute [rw] auth_username
+#   @return [String, nil]
+#
+# @!attribute [rw] created_at
+#   @return [String, nil]
+#
+# @!attribute [rw] disable_reason
+#   @return [String, nil]
+#
+# @!attribute [rw] extra_header_1
+#   @return [String, nil]
+#
+# @!attribute [rw] extra_header_2
+#   @return [String, nil]
+#
+# @!attribute [rw] extra_value_1
+#   @return [String, nil]
+#
+# @!attribute [rw] extra_value_2
+#   @return [String, nil]
+#
+# @!attribute [rw] is_active
+#   @return [Boolean, nil]
+#
+# @!attribute [rw] mode
+#   @return [String, nil]
+#
+# @!attribute [rw] name
+#   @return [String, nil]
+#
+# @!attribute [rw] pending_validation
+#   @return [Boolean, nil]
+#
+# @!attribute [rw] priority
+#   @return [Integer, nil]
+#
+# @!attribute [rw] slug_perm
+#   @return [String, nil]
+#
+# @!attribute [rw] updated_at
+#   @return [String, nil]
+#
+# @!attribute [rw] upstream_url
+#   @return [String, nil]
+#
+# @!attribute [rw] verify_ssl
+#   @return [Boolean, nil]
 HuggingfaceUpdateData = Struct.new(
   :id,
   :identifier,
   :owner,
+  :auth_mode,
+  :auth_secret,
+  :auth_username,
+  :created_at,
+  :disable_reason,
+  :extra_header_1,
+  :extra_header_2,
+  :extra_value_1,
+  :extra_value_2,
+  :is_active,
+  :mode,
+  :name,
+  :pending_validation,
+  :priority,
+  :slug_perm,
+  :updated_at,
+  :upstream_url,
+  :verify_ssl,
   keyword_init: true
 )
 
@@ -2331,9 +3743,97 @@ MavenListMatch = Struct.new(
 #
 # @!attribute [rw] owner
 #   @return [Object]
+#
+# @!attribute [rw] auth_mode
+#   @return [String, nil]
+#
+# @!attribute [rw] auth_secret
+#   @return [String, nil]
+#
+# @!attribute [rw] auth_username
+#   @return [String, nil]
+#
+# @!attribute [rw] created_at
+#   @return [String, nil]
+#
+# @!attribute [rw] disable_reason
+#   @return [String, nil]
+#
+# @!attribute [rw] extra_header_1
+#   @return [String, nil]
+#
+# @!attribute [rw] extra_header_2
+#   @return [String, nil]
+#
+# @!attribute [rw] extra_value_1
+#   @return [String, nil]
+#
+# @!attribute [rw] extra_value_2
+#   @return [String, nil]
+#
+# @!attribute [rw] gpg_key_inline
+#   @return [String, nil]
+#
+# @!attribute [rw] gpg_key_url
+#   @return [String, nil]
+#
+# @!attribute [rw] gpg_verification
+#   @return [String, nil]
+#
+# @!attribute [rw] is_active
+#   @return [Boolean, nil]
+#
+# @!attribute [rw] mode
+#   @return [String, nil]
+#
+# @!attribute [rw] name
+#   @return [String]
+#
+# @!attribute [rw] pending_validation
+#   @return [Boolean, nil]
+#
+# @!attribute [rw] priority
+#   @return [Integer, nil]
+#
+# @!attribute [rw] slug_perm
+#   @return [String, nil]
+#
+# @!attribute [rw] updated_at
+#   @return [String, nil]
+#
+# @!attribute [rw] upstream_url
+#   @return [String]
+#
+# @!attribute [rw] verification_status
+#   @return [String, nil]
+#
+# @!attribute [rw] verify_ssl
+#   @return [Boolean, nil]
 MavenCreateData = Struct.new(
   :identifier,
   :owner,
+  :auth_mode,
+  :auth_secret,
+  :auth_username,
+  :created_at,
+  :disable_reason,
+  :extra_header_1,
+  :extra_header_2,
+  :extra_value_1,
+  :extra_value_2,
+  :gpg_key_inline,
+  :gpg_key_url,
+  :gpg_verification,
+  :is_active,
+  :mode,
+  :name,
+  :pending_validation,
+  :priority,
+  :slug_perm,
+  :updated_at,
+  :upstream_url,
+  :verification_status,
+  :verify_ssl,
   keyword_init: true
 )
 
@@ -2347,10 +3847,98 @@ MavenCreateData = Struct.new(
 #
 # @!attribute [rw] owner
 #   @return [Object]
+#
+# @!attribute [rw] auth_mode
+#   @return [String, nil]
+#
+# @!attribute [rw] auth_secret
+#   @return [String, nil]
+#
+# @!attribute [rw] auth_username
+#   @return [String, nil]
+#
+# @!attribute [rw] created_at
+#   @return [String, nil]
+#
+# @!attribute [rw] disable_reason
+#   @return [String, nil]
+#
+# @!attribute [rw] extra_header_1
+#   @return [String, nil]
+#
+# @!attribute [rw] extra_header_2
+#   @return [String, nil]
+#
+# @!attribute [rw] extra_value_1
+#   @return [String, nil]
+#
+# @!attribute [rw] extra_value_2
+#   @return [String, nil]
+#
+# @!attribute [rw] gpg_key_inline
+#   @return [String, nil]
+#
+# @!attribute [rw] gpg_key_url
+#   @return [String, nil]
+#
+# @!attribute [rw] gpg_verification
+#   @return [String, nil]
+#
+# @!attribute [rw] is_active
+#   @return [Boolean, nil]
+#
+# @!attribute [rw] mode
+#   @return [String, nil]
+#
+# @!attribute [rw] name
+#   @return [String, nil]
+#
+# @!attribute [rw] pending_validation
+#   @return [Boolean, nil]
+#
+# @!attribute [rw] priority
+#   @return [Integer, nil]
+#
+# @!attribute [rw] slug_perm
+#   @return [String, nil]
+#
+# @!attribute [rw] updated_at
+#   @return [String, nil]
+#
+# @!attribute [rw] upstream_url
+#   @return [String, nil]
+#
+# @!attribute [rw] verification_status
+#   @return [String, nil]
+#
+# @!attribute [rw] verify_ssl
+#   @return [Boolean, nil]
 MavenUpdateData = Struct.new(
   :id,
   :identifier,
   :owner,
+  :auth_mode,
+  :auth_secret,
+  :auth_username,
+  :created_at,
+  :disable_reason,
+  :extra_header_1,
+  :extra_header_2,
+  :extra_value_1,
+  :extra_value_2,
+  :gpg_key_inline,
+  :gpg_key_url,
+  :gpg_verification,
+  :is_active,
+  :mode,
+  :name,
+  :pending_validation,
+  :priority,
+  :slug_perm,
+  :updated_at,
+  :upstream_url,
+  :verification_status,
+  :verify_ssl,
   keyword_init: true
 )
 
@@ -2605,9 +4193,81 @@ NpmListMatch = Struct.new(
 #
 # @!attribute [rw] owner
 #   @return [Object]
+#
+# @!attribute [rw] auth_mode
+#   @return [String, nil]
+#
+# @!attribute [rw] auth_secret
+#   @return [String, nil]
+#
+# @!attribute [rw] auth_username
+#   @return [String, nil]
+#
+# @!attribute [rw] created_at
+#   @return [String, nil]
+#
+# @!attribute [rw] disable_reason
+#   @return [String, nil]
+#
+# @!attribute [rw] extra_header_1
+#   @return [String, nil]
+#
+# @!attribute [rw] extra_header_2
+#   @return [String, nil]
+#
+# @!attribute [rw] extra_value_1
+#   @return [String, nil]
+#
+# @!attribute [rw] extra_value_2
+#   @return [String, nil]
+#
+# @!attribute [rw] is_active
+#   @return [Boolean, nil]
+#
+# @!attribute [rw] mode
+#   @return [String, nil]
+#
+# @!attribute [rw] name
+#   @return [String]
+#
+# @!attribute [rw] pending_validation
+#   @return [Boolean, nil]
+#
+# @!attribute [rw] priority
+#   @return [Integer, nil]
+#
+# @!attribute [rw] slug_perm
+#   @return [String, nil]
+#
+# @!attribute [rw] updated_at
+#   @return [String, nil]
+#
+# @!attribute [rw] upstream_url
+#   @return [String]
+#
+# @!attribute [rw] verify_ssl
+#   @return [Boolean, nil]
 NpmCreateData = Struct.new(
   :identifier,
   :owner,
+  :auth_mode,
+  :auth_secret,
+  :auth_username,
+  :created_at,
+  :disable_reason,
+  :extra_header_1,
+  :extra_header_2,
+  :extra_value_1,
+  :extra_value_2,
+  :is_active,
+  :mode,
+  :name,
+  :pending_validation,
+  :priority,
+  :slug_perm,
+  :updated_at,
+  :upstream_url,
+  :verify_ssl,
   keyword_init: true
 )
 
@@ -2621,10 +4281,82 @@ NpmCreateData = Struct.new(
 #
 # @!attribute [rw] owner
 #   @return [Object]
+#
+# @!attribute [rw] auth_mode
+#   @return [String, nil]
+#
+# @!attribute [rw] auth_secret
+#   @return [String, nil]
+#
+# @!attribute [rw] auth_username
+#   @return [String, nil]
+#
+# @!attribute [rw] created_at
+#   @return [String, nil]
+#
+# @!attribute [rw] disable_reason
+#   @return [String, nil]
+#
+# @!attribute [rw] extra_header_1
+#   @return [String, nil]
+#
+# @!attribute [rw] extra_header_2
+#   @return [String, nil]
+#
+# @!attribute [rw] extra_value_1
+#   @return [String, nil]
+#
+# @!attribute [rw] extra_value_2
+#   @return [String, nil]
+#
+# @!attribute [rw] is_active
+#   @return [Boolean, nil]
+#
+# @!attribute [rw] mode
+#   @return [String, nil]
+#
+# @!attribute [rw] name
+#   @return [String, nil]
+#
+# @!attribute [rw] pending_validation
+#   @return [Boolean, nil]
+#
+# @!attribute [rw] priority
+#   @return [Integer, nil]
+#
+# @!attribute [rw] slug_perm
+#   @return [String, nil]
+#
+# @!attribute [rw] updated_at
+#   @return [String, nil]
+#
+# @!attribute [rw] upstream_url
+#   @return [String, nil]
+#
+# @!attribute [rw] verify_ssl
+#   @return [Boolean, nil]
 NpmUpdateData = Struct.new(
   :id,
   :identifier,
   :owner,
+  :auth_mode,
+  :auth_secret,
+  :auth_username,
+  :created_at,
+  :disable_reason,
+  :extra_header_1,
+  :extra_header_2,
+  :extra_value_1,
+  :extra_value_2,
+  :is_active,
+  :mode,
+  :name,
+  :pending_validation,
+  :priority,
+  :slug_perm,
+  :updated_at,
+  :upstream_url,
+  :verify_ssl,
   keyword_init: true
 )
 
@@ -2742,9 +4474,81 @@ NugetListMatch = Struct.new(
 #
 # @!attribute [rw] owner
 #   @return [Object]
+#
+# @!attribute [rw] auth_mode
+#   @return [String, nil]
+#
+# @!attribute [rw] auth_secret
+#   @return [String, nil]
+#
+# @!attribute [rw] auth_username
+#   @return [String, nil]
+#
+# @!attribute [rw] created_at
+#   @return [String, nil]
+#
+# @!attribute [rw] disable_reason
+#   @return [String, nil]
+#
+# @!attribute [rw] extra_header_1
+#   @return [String, nil]
+#
+# @!attribute [rw] extra_header_2
+#   @return [String, nil]
+#
+# @!attribute [rw] extra_value_1
+#   @return [String, nil]
+#
+# @!attribute [rw] extra_value_2
+#   @return [String, nil]
+#
+# @!attribute [rw] is_active
+#   @return [Boolean, nil]
+#
+# @!attribute [rw] mode
+#   @return [String, nil]
+#
+# @!attribute [rw] name
+#   @return [String]
+#
+# @!attribute [rw] pending_validation
+#   @return [Boolean, nil]
+#
+# @!attribute [rw] priority
+#   @return [Integer, nil]
+#
+# @!attribute [rw] slug_perm
+#   @return [String, nil]
+#
+# @!attribute [rw] updated_at
+#   @return [String, nil]
+#
+# @!attribute [rw] upstream_url
+#   @return [String]
+#
+# @!attribute [rw] verify_ssl
+#   @return [Boolean, nil]
 NugetCreateData = Struct.new(
   :identifier,
   :owner,
+  :auth_mode,
+  :auth_secret,
+  :auth_username,
+  :created_at,
+  :disable_reason,
+  :extra_header_1,
+  :extra_header_2,
+  :extra_value_1,
+  :extra_value_2,
+  :is_active,
+  :mode,
+  :name,
+  :pending_validation,
+  :priority,
+  :slug_perm,
+  :updated_at,
+  :upstream_url,
+  :verify_ssl,
   keyword_init: true
 )
 
@@ -2758,10 +4562,82 @@ NugetCreateData = Struct.new(
 #
 # @!attribute [rw] owner
 #   @return [Object]
+#
+# @!attribute [rw] auth_mode
+#   @return [String, nil]
+#
+# @!attribute [rw] auth_secret
+#   @return [String, nil]
+#
+# @!attribute [rw] auth_username
+#   @return [String, nil]
+#
+# @!attribute [rw] created_at
+#   @return [String, nil]
+#
+# @!attribute [rw] disable_reason
+#   @return [String, nil]
+#
+# @!attribute [rw] extra_header_1
+#   @return [String, nil]
+#
+# @!attribute [rw] extra_header_2
+#   @return [String, nil]
+#
+# @!attribute [rw] extra_value_1
+#   @return [String, nil]
+#
+# @!attribute [rw] extra_value_2
+#   @return [String, nil]
+#
+# @!attribute [rw] is_active
+#   @return [Boolean, nil]
+#
+# @!attribute [rw] mode
+#   @return [String, nil]
+#
+# @!attribute [rw] name
+#   @return [String, nil]
+#
+# @!attribute [rw] pending_validation
+#   @return [Boolean, nil]
+#
+# @!attribute [rw] priority
+#   @return [Integer, nil]
+#
+# @!attribute [rw] slug_perm
+#   @return [String, nil]
+#
+# @!attribute [rw] updated_at
+#   @return [String, nil]
+#
+# @!attribute [rw] upstream_url
+#   @return [String, nil]
+#
+# @!attribute [rw] verify_ssl
+#   @return [Boolean, nil]
 NugetUpdateData = Struct.new(
   :id,
   :identifier,
   :owner,
+  :auth_mode,
+  :auth_secret,
+  :auth_username,
+  :created_at,
+  :disable_reason,
+  :extra_header_1,
+  :extra_header_2,
+  :extra_value_1,
+  :extra_value_2,
+  :is_active,
+  :mode,
+  :name,
+  :pending_validation,
+  :priority,
+  :slug_perm,
+  :updated_at,
+  :upstream_url,
+  :verify_ssl,
   keyword_init: true
 )
 
@@ -2792,7 +4668,7 @@ end
 # @!attribute [rw] policy
 #   @return [Hash]
 #
-# @!attribute [rw] reason
+# @!attribute [rw] reasons
 #   @return [Array]
 #
 # @!attribute [rw] slug
@@ -2804,7 +4680,7 @@ end
 # @!attribute [rw] tagline
 #   @return [String, nil]
 #
-# @!attribute [rw] vulnerability_scan_result
+# @!attribute [rw] vulnerability_scan_results
 #   @return [Hash]
 Org = Struct.new(
   :country,
@@ -2814,11 +4690,11 @@ Org = Struct.new(
   :name,
   :package,
   :policy,
-  :reason,
+  :reasons,
   :slug,
   :slug_perm,
   :tagline,
-  :vulnerability_scan_result,
+  :vulnerability_scan_results,
   keyword_init: true
 )
 
@@ -2858,7 +4734,7 @@ OrgLoadMatch = Struct.new(
 # @!attribute [rw] policy
 #   @return [Hash, nil]
 #
-# @!attribute [rw] reason
+# @!attribute [rw] reasons
 #   @return [Array, nil]
 #
 # @!attribute [rw] slug
@@ -2870,7 +4746,7 @@ OrgLoadMatch = Struct.new(
 # @!attribute [rw] tagline
 #   @return [String, nil]
 #
-# @!attribute [rw] vulnerability_scan_result
+# @!attribute [rw] vulnerability_scan_results
 #   @return [Hash, nil]
 OrgListMatch = Struct.new(
   :country,
@@ -2880,11 +4756,11 @@ OrgListMatch = Struct.new(
   :name,
   :package,
   :policy,
-  :reason,
+  :reasons,
   :slug,
   :slug_perm,
   :tagline,
-  :vulnerability_scan_result,
+  :vulnerability_scan_results,
   keyword_init: true
 )
 
@@ -2895,9 +4771,57 @@ OrgListMatch = Struct.new(
 #
 # @!attribute [rw] member_id
 #   @return [String, nil]
+#
+# @!attribute [rw] country
+#   @return [String, nil]
+#
+# @!attribute [rw] created_at
+#   @return [String, nil]
+#
+# @!attribute [rw] event_at
+#   @return [String, nil]
+#
+# @!attribute [rw] location
+#   @return [String, nil]
+#
+# @!attribute [rw] name
+#   @return [String]
+#
+# @!attribute [rw] package
+#   @return [Hash]
+#
+# @!attribute [rw] policy
+#   @return [Hash]
+#
+# @!attribute [rw] reasons
+#   @return [Array]
+#
+# @!attribute [rw] slug
+#   @return [String, nil]
+#
+# @!attribute [rw] slug_perm
+#   @return [String, nil]
+#
+# @!attribute [rw] tagline
+#   @return [String, nil]
+#
+# @!attribute [rw] vulnerability_scan_results
+#   @return [Hash]
 OrgCreateData = Struct.new(
   :id,
   :member_id,
+  :country,
+  :created_at,
+  :event_at,
+  :location,
+  :name,
+  :package,
+  :policy,
+  :reasons,
+  :slug,
+  :slug_perm,
+  :tagline,
+  :vulnerability_scan_results,
   keyword_init: true
 )
 
@@ -2908,9 +4832,57 @@ OrgCreateData = Struct.new(
 #
 # @!attribute [rw] team_id
 #   @return [String]
+#
+# @!attribute [rw] country
+#   @return [String, nil]
+#
+# @!attribute [rw] created_at
+#   @return [String, nil]
+#
+# @!attribute [rw] event_at
+#   @return [String, nil]
+#
+# @!attribute [rw] location
+#   @return [String, nil]
+#
+# @!attribute [rw] name
+#   @return [String, nil]
+#
+# @!attribute [rw] package
+#   @return [Hash, nil]
+#
+# @!attribute [rw] policy
+#   @return [Hash, nil]
+#
+# @!attribute [rw] reasons
+#   @return [Array, nil]
+#
+# @!attribute [rw] slug
+#   @return [String, nil]
+#
+# @!attribute [rw] slug_perm
+#   @return [String, nil]
+#
+# @!attribute [rw] tagline
+#   @return [String, nil]
+#
+# @!attribute [rw] vulnerability_scan_results
+#   @return [Hash, nil]
 OrgUpdateData = Struct.new(
   :id,
   :team_id,
+  :country,
+  :created_at,
+  :event_at,
+  :location,
+  :name,
+  :package,
+  :policy,
+  :reasons,
+  :slug,
+  :slug_perm,
+  :tagline,
+  :vulnerability_scan_results,
   keyword_init: true
 )
 
@@ -2977,8 +4949,28 @@ OrganizationGroupSyncListMatch = Struct.new(
 #
 # @!attribute [rw] org_id
 #   @return [String]
+#
+# @!attribute [rw] idp_key
+#   @return [String]
+#
+# @!attribute [rw] idp_value
+#   @return [String]
+#
+# @!attribute [rw] role
+#   @return [String, nil]
+#
+# @!attribute [rw] slug_perm
+#   @return [String, nil]
+#
+# @!attribute [rw] team
+#   @return [String]
 OrganizationGroupSyncCreateData = Struct.new(
   :org_id,
+  :idp_key,
+  :idp_value,
+  :role,
+  :slug_perm,
+  :team,
   keyword_init: true
 )
 
@@ -3023,7 +5015,7 @@ OrganizationGroupSyncStatusLoadMatch = Struct.new(
 # @!attribute [rw] slug_perm
 #   @return [String, nil]
 #
-# @!attribute [rw] team
+# @!attribute [rw] teams
 #   @return [Array, nil]
 #
 # @!attribute [rw] user
@@ -3039,7 +5031,7 @@ OrganizationInvite = Struct.new(
   :org,
   :role,
   :slug_perm,
-  :team,
+  :teams,
   :user,
   :user_url,
   keyword_init: true
@@ -3058,8 +5050,48 @@ OrganizationInviteListMatch = Struct.new(
 #
 # @!attribute [rw] org_id
 #   @return [String]
+#
+# @!attribute [rw] email
+#   @return [String, nil]
+#
+# @!attribute [rw] expires_at
+#   @return [String, nil]
+#
+# @!attribute [rw] inviter
+#   @return [String, nil]
+#
+# @!attribute [rw] inviter_url
+#   @return [String, nil]
+#
+# @!attribute [rw] org
+#   @return [String, nil]
+#
+# @!attribute [rw] role
+#   @return [String, nil]
+#
+# @!attribute [rw] slug_perm
+#   @return [String, nil]
+#
+# @!attribute [rw] teams
+#   @return [Array, nil]
+#
+# @!attribute [rw] user
+#   @return [String, nil]
+#
+# @!attribute [rw] user_url
+#   @return [String, nil]
 OrganizationInviteCreateData = Struct.new(
   :org_id,
+  :email,
+  :expires_at,
+  :inviter,
+  :inviter_url,
+  :org,
+  :role,
+  :slug_perm,
+  :teams,
+  :user,
+  :user_url,
   keyword_init: true
 )
 
@@ -3070,9 +5102,49 @@ OrganizationInviteCreateData = Struct.new(
 #
 # @!attribute [rw] org_id
 #   @return [String]
+#
+# @!attribute [rw] email
+#   @return [String, nil]
+#
+# @!attribute [rw] expires_at
+#   @return [String, nil]
+#
+# @!attribute [rw] inviter
+#   @return [String, nil]
+#
+# @!attribute [rw] inviter_url
+#   @return [String, nil]
+#
+# @!attribute [rw] org
+#   @return [String, nil]
+#
+# @!attribute [rw] role
+#   @return [String, nil]
+#
+# @!attribute [rw] slug_perm
+#   @return [String, nil]
+#
+# @!attribute [rw] teams
+#   @return [Array, nil]
+#
+# @!attribute [rw] user
+#   @return [String, nil]
+#
+# @!attribute [rw] user_url
+#   @return [String, nil]
 OrganizationInviteUpdateData = Struct.new(
   :id,
   :org_id,
+  :email,
+  :expires_at,
+  :inviter,
+  :inviter_url,
+  :org,
+  :role,
+  :slug_perm,
+  :teams,
+  :user,
+  :user_url,
   keyword_init: true
 )
 
@@ -3099,7 +5171,7 @@ OrganizationInviteUpdateData = Struct.new(
 # @!attribute [rw] slug_perm
 #   @return [String, nil]
 #
-# @!attribute [rw] team
+# @!attribute [rw] teams
 #   @return [Array, nil]
 #
 # @!attribute [rw] user
@@ -3115,7 +5187,7 @@ OrganizationInviteExtend = Struct.new(
   :org,
   :role,
   :slug_perm,
-  :team,
+  :teams,
   :user,
   :user_url,
   keyword_init: true
@@ -3128,9 +5200,45 @@ OrganizationInviteExtend = Struct.new(
 #
 # @!attribute [rw] slug_perm
 #   @return [Object]
+#
+# @!attribute [rw] email
+#   @return [String, nil]
+#
+# @!attribute [rw] expires_at
+#   @return [String, nil]
+#
+# @!attribute [rw] inviter
+#   @return [String, nil]
+#
+# @!attribute [rw] inviter_url
+#   @return [String, nil]
+#
+# @!attribute [rw] org
+#   @return [String, nil]
+#
+# @!attribute [rw] role
+#   @return [String, nil]
+#
+# @!attribute [rw] teams
+#   @return [Array, nil]
+#
+# @!attribute [rw] user
+#   @return [String, nil]
+#
+# @!attribute [rw] user_url
+#   @return [String, nil]
 OrganizationInviteExtendCreateData = Struct.new(
   :org_id,
   :slug_perm,
+  :email,
+  :expires_at,
+  :inviter,
+  :inviter_url,
+  :org,
+  :role,
+  :teams,
+  :user,
+  :user_url,
   keyword_init: true
 )
 
@@ -3216,9 +5324,57 @@ OrganizationMembershipListMatch = Struct.new(
 #
 # @!attribute [rw] org_id
 #   @return [String]
+#
+# @!attribute [rw] email
+#   @return [String, nil]
+#
+# @!attribute [rw] has_two_factor
+#   @return [Boolean, nil]
+#
+# @!attribute [rw] is_active
+#   @return [Boolean, nil]
+#
+# @!attribute [rw] joined_at
+#   @return [String, nil]
+#
+# @!attribute [rw] last_login_at
+#   @return [String, nil]
+#
+# @!attribute [rw] last_login_method
+#   @return [String, nil]
+#
+# @!attribute [rw] role
+#   @return [String, nil]
+#
+# @!attribute [rw] user
+#   @return [String, nil]
+#
+# @!attribute [rw] user_id
+#   @return [String, nil]
+#
+# @!attribute [rw] user_name
+#   @return [String, nil]
+#
+# @!attribute [rw] user_url
+#   @return [String, nil]
+#
+# @!attribute [rw] visibility
+#   @return [String, nil]
 OrganizationMembershipUpdateData = Struct.new(
   :member,
   :org_id,
+  :email,
+  :has_two_factor,
+  :is_active,
+  :joined_at,
+  :last_login_at,
+  :last_login_method,
+  :role,
+  :user,
+  :user_id,
+  :user_name,
+  :user_url,
+  :visibility,
   keyword_init: true
 )
 
@@ -3278,9 +5434,53 @@ OrganizationMembershipRoleUpdate = Struct.new(
 #
 # @!attribute [rw] org_id
 #   @return [String]
+#
+# @!attribute [rw] email
+#   @return [String, nil]
+#
+# @!attribute [rw] has_two_factor
+#   @return [Boolean, nil]
+#
+# @!attribute [rw] joined_at
+#   @return [String, nil]
+#
+# @!attribute [rw] last_login_at
+#   @return [String, nil]
+#
+# @!attribute [rw] last_login_method
+#   @return [String, nil]
+#
+# @!attribute [rw] role
+#   @return [String, nil]
+#
+# @!attribute [rw] user
+#   @return [String, nil]
+#
+# @!attribute [rw] user_id
+#   @return [String, nil]
+#
+# @!attribute [rw] user_name
+#   @return [String, nil]
+#
+# @!attribute [rw] user_url
+#   @return [String, nil]
+#
+# @!attribute [rw] visibility
+#   @return [String, nil]
 OrganizationMembershipRoleUpdateUpdateData = Struct.new(
   :member_id,
   :org_id,
+  :email,
+  :has_two_factor,
+  :joined_at,
+  :last_login_at,
+  :last_login_method,
+  :role,
+  :user,
+  :user_id,
+  :user_name,
+  :user_url,
+  :visibility,
   keyword_init: true
 )
 
@@ -3340,15 +5540,59 @@ OrganizationMembershipVisibilityUpdate = Struct.new(
 #
 # @!attribute [rw] org_id
 #   @return [String]
+#
+# @!attribute [rw] email
+#   @return [String, nil]
+#
+# @!attribute [rw] has_two_factor
+#   @return [Boolean, nil]
+#
+# @!attribute [rw] joined_at
+#   @return [String, nil]
+#
+# @!attribute [rw] last_login_at
+#   @return [String, nil]
+#
+# @!attribute [rw] last_login_method
+#   @return [String, nil]
+#
+# @!attribute [rw] role
+#   @return [String, nil]
+#
+# @!attribute [rw] user
+#   @return [String, nil]
+#
+# @!attribute [rw] user_id
+#   @return [String, nil]
+#
+# @!attribute [rw] user_name
+#   @return [String, nil]
+#
+# @!attribute [rw] user_url
+#   @return [String, nil]
+#
+# @!attribute [rw] visibility
+#   @return [String, nil]
 OrganizationMembershipVisibilityUpdateUpdateData = Struct.new(
   :member_id,
   :org_id,
+  :email,
+  :has_two_factor,
+  :joined_at,
+  :last_login_at,
+  :last_login_method,
+  :role,
+  :user,
+  :user_id,
+  :user_name,
+  :user_url,
+  :visibility,
   keyword_init: true
 )
 
 # OrganizationPackageLicensePolicy entity data model.
 #
-# @!attribute [rw] allow_unknown_license
+# @!attribute [rw] allow_unknown_licenses
 #   @return [Boolean, nil]
 #
 # @!attribute [rw] created_at
@@ -3369,20 +5613,20 @@ OrganizationMembershipVisibilityUpdateUpdateData = Struct.new(
 # @!attribute [rw] slug_perm
 #   @return [String, nil]
 #
-# @!attribute [rw] spdx_identifier
+# @!attribute [rw] spdx_identifiers
 #   @return [Array]
 #
 # @!attribute [rw] updated_at
 #   @return [String, nil]
 OrganizationPackageLicensePolicy = Struct.new(
-  :allow_unknown_license,
+  :allow_unknown_licenses,
   :created_at,
   :description,
   :name,
   :on_violation_quarantine,
   :package_query_string,
   :slug_perm,
-  :spdx_identifier,
+  :spdx_identifiers,
   :updated_at,
   keyword_init: true
 )
@@ -3413,8 +5657,44 @@ OrganizationPackageLicensePolicyListMatch = Struct.new(
 #
 # @!attribute [rw] org_id
 #   @return [String]
+#
+# @!attribute [rw] allow_unknown_licenses
+#   @return [Boolean, nil]
+#
+# @!attribute [rw] created_at
+#   @return [String, nil]
+#
+# @!attribute [rw] description
+#   @return [String, nil]
+#
+# @!attribute [rw] name
+#   @return [String]
+#
+# @!attribute [rw] on_violation_quarantine
+#   @return [Boolean, nil]
+#
+# @!attribute [rw] package_query_string
+#   @return [String, nil]
+#
+# @!attribute [rw] slug_perm
+#   @return [String, nil]
+#
+# @!attribute [rw] spdx_identifiers
+#   @return [Array]
+#
+# @!attribute [rw] updated_at
+#   @return [String, nil]
 OrganizationPackageLicensePolicyCreateData = Struct.new(
   :org_id,
+  :allow_unknown_licenses,
+  :created_at,
+  :description,
+  :name,
+  :on_violation_quarantine,
+  :package_query_string,
+  :slug_perm,
+  :spdx_identifiers,
+  :updated_at,
   keyword_init: true
 )
 
@@ -3425,9 +5705,45 @@ OrganizationPackageLicensePolicyCreateData = Struct.new(
 #
 # @!attribute [rw] org_id
 #   @return [String]
+#
+# @!attribute [rw] allow_unknown_licenses
+#   @return [Boolean, nil]
+#
+# @!attribute [rw] created_at
+#   @return [String, nil]
+#
+# @!attribute [rw] description
+#   @return [String, nil]
+#
+# @!attribute [rw] name
+#   @return [String, nil]
+#
+# @!attribute [rw] on_violation_quarantine
+#   @return [Boolean, nil]
+#
+# @!attribute [rw] package_query_string
+#   @return [String, nil]
+#
+# @!attribute [rw] slug_perm
+#   @return [String, nil]
+#
+# @!attribute [rw] spdx_identifiers
+#   @return [Array, nil]
+#
+# @!attribute [rw] updated_at
+#   @return [String, nil]
 OrganizationPackageLicensePolicyUpdateData = Struct.new(
   :id,
   :org_id,
+  :allow_unknown_licenses,
+  :created_at,
+  :description,
+  :name,
+  :on_violation_quarantine,
+  :package_query_string,
+  :slug_perm,
+  :spdx_identifiers,
+  :updated_at,
   keyword_init: true
 )
 
@@ -3498,8 +5814,44 @@ OrganizationPackageVulnerabilityPolicyListMatch = Struct.new(
 #
 # @!attribute [rw] org_id
 #   @return [String]
+#
+# @!attribute [rw] allow_unknown_severity
+#   @return [Boolean, nil]
+#
+# @!attribute [rw] created_at
+#   @return [String, nil]
+#
+# @!attribute [rw] description
+#   @return [String, nil]
+#
+# @!attribute [rw] min_severity
+#   @return [String, nil]
+#
+# @!attribute [rw] name
+#   @return [String]
+#
+# @!attribute [rw] on_violation_quarantine
+#   @return [Boolean, nil]
+#
+# @!attribute [rw] package_query_string
+#   @return [String, nil]
+#
+# @!attribute [rw] slug_perm
+#   @return [String, nil]
+#
+# @!attribute [rw] updated_at
+#   @return [String, nil]
 OrganizationPackageVulnerabilityPolicyCreateData = Struct.new(
   :org_id,
+  :allow_unknown_severity,
+  :created_at,
+  :description,
+  :min_severity,
+  :name,
+  :on_violation_quarantine,
+  :package_query_string,
+  :slug_perm,
+  :updated_at,
   keyword_init: true
 )
 
@@ -3510,9 +5862,45 @@ OrganizationPackageVulnerabilityPolicyCreateData = Struct.new(
 #
 # @!attribute [rw] org_id
 #   @return [String]
+#
+# @!attribute [rw] allow_unknown_severity
+#   @return [Boolean, nil]
+#
+# @!attribute [rw] created_at
+#   @return [String, nil]
+#
+# @!attribute [rw] description
+#   @return [String, nil]
+#
+# @!attribute [rw] min_severity
+#   @return [String, nil]
+#
+# @!attribute [rw] name
+#   @return [String, nil]
+#
+# @!attribute [rw] on_violation_quarantine
+#   @return [Boolean, nil]
+#
+# @!attribute [rw] package_query_string
+#   @return [String, nil]
+#
+# @!attribute [rw] slug_perm
+#   @return [String, nil]
+#
+# @!attribute [rw] updated_at
+#   @return [String, nil]
 OrganizationPackageVulnerabilityPolicyUpdateData = Struct.new(
   :id,
   :org_id,
+  :allow_unknown_severity,
+  :created_at,
+  :description,
+  :min_severity,
+  :name,
+  :on_violation_quarantine,
+  :package_query_string,
+  :slug_perm,
+  :updated_at,
   keyword_init: true
 )
 
@@ -3550,8 +5938,24 @@ OrganizationSamlAuthLoadMatch = Struct.new(
 #
 # @!attribute [rw] org_id
 #   @return [String]
+#
+# @!attribute [rw] saml_auth_enabled
+#   @return [Boolean, nil]
+#
+# @!attribute [rw] saml_auth_enforced
+#   @return [Boolean, nil]
+#
+# @!attribute [rw] saml_metadata_inline
+#   @return [String, nil]
+#
+# @!attribute [rw] saml_metadata_url
+#   @return [String, nil]
 OrganizationSamlAuthUpdateData = Struct.new(
   :org_id,
+  :saml_auth_enabled,
+  :saml_auth_enforced,
+  :saml_metadata_inline,
+  :saml_metadata_url,
   keyword_init: true
 )
 
@@ -3606,8 +6010,28 @@ OrganizationTeamListMatch = Struct.new(
 #
 # @!attribute [rw] org_id
 #   @return [String]
+#
+# @!attribute [rw] description
+#   @return [String, nil]
+#
+# @!attribute [rw] name
+#   @return [String]
+#
+# @!attribute [rw] slug
+#   @return [String, nil]
+#
+# @!attribute [rw] slug_perm
+#   @return [String, nil]
+#
+# @!attribute [rw] visibility
+#   @return [String, nil]
 OrganizationTeamCreateData = Struct.new(
   :org_id,
+  :description,
+  :name,
+  :slug,
+  :slug_perm,
+  :visibility,
   keyword_init: true
 )
 
@@ -3618,9 +6042,29 @@ OrganizationTeamCreateData = Struct.new(
 #
 # @!attribute [rw] org_id
 #   @return [String]
+#
+# @!attribute [rw] description
+#   @return [String, nil]
+#
+# @!attribute [rw] name
+#   @return [String, nil]
+#
+# @!attribute [rw] slug
+#   @return [String, nil]
+#
+# @!attribute [rw] slug_perm
+#   @return [String, nil]
+#
+# @!attribute [rw] visibility
+#   @return [String, nil]
 OrganizationTeamUpdateData = Struct.new(
   :id,
   :org_id,
+  :description,
+  :name,
+  :slug,
+  :slug_perm,
+  :visibility,
   keyword_init: true
 )
 
@@ -3657,9 +6101,17 @@ OrganizationTeamMemberListMatch = Struct.new(
 #
 # @!attribute [rw] team_id
 #   @return [String]
+#
+# @!attribute [rw] role
+#   @return [String]
+#
+# @!attribute [rw] user
+#   @return [String]
 OrganizationTeamMemberCreateData = Struct.new(
   :org_id,
   :team_id,
+  :role,
+  :user,
   keyword_init: true
 )
 
@@ -3671,17 +6123,19 @@ end
 class P2n
 end
 
-# P2n2 entity data model.
-class P2n2
-end
-
 # Package entity data model.
 #
-# @!attribute [rw] architecture
+# @!attribute [rw] active
+#   @return [Integer, nil]
+#
+# @!attribute [rw] architectures
 #   @return [Array, nil]
 #
 # @!attribute [rw] backend_kind
 #   @return [Integer, nil]
+#
+# @!attribute [rw] bandwidth
+#   @return [Hash]
 #
 # @!attribute [rw] cdn_url
 #   @return [String, nil]
@@ -3722,8 +6176,8 @@ end
 # @!attribute [rw] distro_version
 #   @return [Hash, nil]
 #
-# @!attribute [rw] download
-#   @return [Integer, nil]
+# @!attribute [rw] downloads
+#   @return [Hash]
 #
 # @!attribute [rw] epoch
 #   @return [Integer, nil]
@@ -3731,11 +6185,11 @@ end
 # @!attribute [rw] extension
 #   @return [String, nil]
 #
-# @!attribute [rw] file
-#   @return [Array, nil]
-#
 # @!attribute [rw] filename
 #   @return [String, nil]
+#
+# @!attribute [rw] files
+#   @return [Array, nil]
 #
 # @!attribute [rw] format
 #   @return [String, nil]
@@ -3749,11 +6203,14 @@ end
 # @!attribute [rw] fully_qualified_name
 #   @return [String, nil]
 #
-# @!attribute [rw] identifier
-#   @return [Hash, nil]
-#
 # @!attribute [rw] identifier_perm
 #   @return [String, nil]
+#
+# @!attribute [rw] identifiers
+#   @return [Hash, nil]
+#
+# @!attribute [rw] inactive
+#   @return [Integer, nil]
 #
 # @!attribute [rw] indexed
 #   @return [Boolean, nil]
@@ -3815,10 +6272,10 @@ end
 # @!attribute [rw] namespace_url
 #   @return [String, nil]
 #
-# @!attribute [rw] num_download
+# @!attribute [rw] num_downloads
 #   @return [Integer]
 #
-# @!attribute [rw] num_file
+# @!attribute [rw] num_files
 #   @return [Integer, nil]
 #
 # @!attribute [rw] operator
@@ -3829,9 +6286,6 @@ end
 #
 # @!attribute [rw] origin_repository_url
 #   @return [String, nil]
-#
-# @!attribute [rw] package
-#   @return [Hash]
 #
 # @!attribute [rw] package_type
 #   @return [Integer, nil]
@@ -3914,11 +6368,14 @@ end
 # @!attribute [rw] sync_progress
 #   @return [Integer, nil]
 #
-# @!attribute [rw] tag
+# @!attribute [rw] tags
 #   @return [Hash, nil]
 #
 # @!attribute [rw] tags_immutable
 #   @return [Hash, nil]
+#
+# @!attribute [rw] total
+#   @return [Integer, nil]
 #
 # @!attribute [rw] type_display
 #   @return [String, nil]
@@ -3941,8 +6398,10 @@ end
 # @!attribute [rw] vulnerability_scan_results_url
 #   @return [String, nil]
 Package = Struct.new(
-  :architecture,
+  :active,
+  :architectures,
   :backend_kind,
+  :bandwidth,
   :cdn_url,
   :checksum_md5,
   :checksum_sha1,
@@ -3956,17 +6415,18 @@ Package = Struct.new(
   :display_name,
   :distro,
   :distro_version,
-  :download,
+  :downloads,
   :epoch,
   :extension,
-  :file,
   :filename,
+  :files,
   :format,
   :format_url,
   :freeable_storage,
   :fully_qualified_name,
-  :identifier,
   :identifier_perm,
+  :identifiers,
+  :inactive,
   :indexed,
   :is_cancellable,
   :is_copyable,
@@ -3987,12 +6447,11 @@ Package = Struct.new(
   :name,
   :namespace,
   :namespace_url,
-  :num_download,
-  :num_file,
+  :num_downloads,
+  :num_files,
   :operator,
   :origin_repository,
   :origin_repository_url,
-  :package,
   :package_type,
   :policy_violated,
   :release,
@@ -4020,8 +6479,9 @@ Package = Struct.new(
   :summary,
   :sync_finished_at,
   :sync_progress,
-  :tag,
+  :tags,
   :tags_immutable,
+  :total,
   :type_display,
   :uploaded_at,
   :uploader,
@@ -4076,10 +6536,374 @@ PackageListMatch = Struct.new(
 #
 # @!attribute [rw] repo
 #   @return [Object]
+#
+# @!attribute [rw] active
+#   @return [Integer, nil]
+#
+# @!attribute [rw] architectures
+#   @return [Array, nil]
+#
+# @!attribute [rw] backend_kind
+#   @return [Integer, nil]
+#
+# @!attribute [rw] bandwidth
+#   @return [Hash]
+#
+# @!attribute [rw] cdn_url
+#   @return [String, nil]
+#
+# @!attribute [rw] checksum_md5
+#   @return [String, nil]
+#
+# @!attribute [rw] checksum_sha1
+#   @return [String, nil]
+#
+# @!attribute [rw] checksum_sha256
+#   @return [String, nil]
+#
+# @!attribute [rw] checksum_sha512
+#   @return [String, nil]
+#
+# @!attribute [rw] count
+#   @return [Integer]
+#
+# @!attribute [rw] dep_type
+#   @return [String, nil]
+#
+# @!attribute [rw] dependencies_checksum_md5
+#   @return [String, nil]
+#
+# @!attribute [rw] dependencies_url
+#   @return [String, nil]
+#
+# @!attribute [rw] description
+#   @return [String, nil]
+#
+# @!attribute [rw] display_name
+#   @return [String, nil]
+#
+# @!attribute [rw] distro
+#   @return [Hash]
+#
+# @!attribute [rw] distro_version
+#   @return [Hash, nil]
+#
+# @!attribute [rw] downloads
+#   @return [Hash]
+#
+# @!attribute [rw] epoch
+#   @return [Integer, nil]
+#
+# @!attribute [rw] extension
+#   @return [String, nil]
+#
+# @!attribute [rw] filename
+#   @return [String, nil]
+#
+# @!attribute [rw] files
+#   @return [Array, nil]
+#
+# @!attribute [rw] format
+#   @return [String, nil]
+#
+# @!attribute [rw] format_url
+#   @return [String, nil]
+#
+# @!attribute [rw] freeable_storage
+#   @return [Integer, nil]
+#
+# @!attribute [rw] fully_qualified_name
+#   @return [String, nil]
+#
+# @!attribute [rw] identifier_perm
+#   @return [String, nil]
+#
+# @!attribute [rw] identifiers
+#   @return [Hash, nil]
+#
+# @!attribute [rw] inactive
+#   @return [Integer, nil]
+#
+# @!attribute [rw] indexed
+#   @return [Boolean, nil]
+#
+# @!attribute [rw] is_cancellable
+#   @return [Boolean, nil]
+#
+# @!attribute [rw] is_copyable
+#   @return [Boolean, nil]
+#
+# @!attribute [rw] is_deleteable
+#   @return [Boolean, nil]
+#
+# @!attribute [rw] is_downloadable
+#   @return [Boolean, nil]
+#
+# @!attribute [rw] is_moveable
+#   @return [Boolean, nil]
+#
+# @!attribute [rw] is_quarantinable
+#   @return [Boolean, nil]
+#
+# @!attribute [rw] is_quarantined
+#   @return [Boolean, nil]
+#
+# @!attribute [rw] is_resyncable
+#   @return [Boolean, nil]
+#
+# @!attribute [rw] is_security_scannable
+#   @return [Boolean, nil]
+#
+# @!attribute [rw] is_sync_awaiting
+#   @return [Boolean, nil]
+#
+# @!attribute [rw] is_sync_completed
+#   @return [Boolean, nil]
+#
+# @!attribute [rw] is_sync_failed
+#   @return [Boolean, nil]
+#
+# @!attribute [rw] is_sync_in_flight
+#   @return [Boolean, nil]
+#
+# @!attribute [rw] is_sync_in_progress
+#   @return [Boolean, nil]
+#
+# @!attribute [rw] last_push
+#   @return [String]
+#
+# @!attribute [rw] license
+#   @return [String, nil]
+#
+# @!attribute [rw] name
+#   @return [String, nil]
+#
+# @!attribute [rw] namespace
+#   @return [String, nil]
+#
+# @!attribute [rw] namespace_url
+#   @return [String, nil]
+#
+# @!attribute [rw] num_downloads
+#   @return [Integer]
+#
+# @!attribute [rw] num_files
+#   @return [Integer, nil]
+#
+# @!attribute [rw] operator
+#   @return [String, nil]
+#
+# @!attribute [rw] origin_repository
+#   @return [String, nil]
+#
+# @!attribute [rw] origin_repository_url
+#   @return [String, nil]
+#
+# @!attribute [rw] package_type
+#   @return [Integer, nil]
+#
+# @!attribute [rw] policy_violated
+#   @return [Boolean, nil]
+#
+# @!attribute [rw] release
+#   @return [String, nil]
+#
+# @!attribute [rw] repository
+#   @return [String, nil]
+#
+# @!attribute [rw] repository_url
+#   @return [String, nil]
+#
+# @!attribute [rw] security_scan_completed_at
+#   @return [String, nil]
+#
+# @!attribute [rw] security_scan_started_at
+#   @return [String, nil]
+#
+# @!attribute [rw] security_scan_status
+#   @return [String, nil]
+#
+# @!attribute [rw] security_scan_status_updated_at
+#   @return [String, nil]
+#
+# @!attribute [rw] self_html_url
+#   @return [String, nil]
+#
+# @!attribute [rw] self_url
+#   @return [String, nil]
+#
+# @!attribute [rw] signature_url
+#   @return [String, nil]
+#
+# @!attribute [rw] size
+#   @return [Integer, nil]
+#
+# @!attribute [rw] slug
+#   @return [String, nil]
+#
+# @!attribute [rw] slug_perm
+#   @return [String, nil]
+#
+# @!attribute [rw] stage
+#   @return [Integer, nil]
+#
+# @!attribute [rw] stage_str
+#   @return [String, nil]
+#
+# @!attribute [rw] stage_updated_at
+#   @return [String, nil]
+#
+# @!attribute [rw] status
+#   @return [Integer, nil]
+#
+# @!attribute [rw] status_reason
+#   @return [String, nil]
+#
+# @!attribute [rw] status_str
+#   @return [String, nil]
+#
+# @!attribute [rw] status_updated_at
+#   @return [String, nil]
+#
+# @!attribute [rw] status_url
+#   @return [String, nil]
+#
+# @!attribute [rw] subtype
+#   @return [String, nil]
+#
+# @!attribute [rw] summary
+#   @return [String, nil]
+#
+# @!attribute [rw] sync_finished_at
+#   @return [String, nil]
+#
+# @!attribute [rw] sync_progress
+#   @return [Integer, nil]
+#
+# @!attribute [rw] tags
+#   @return [Hash, nil]
+#
+# @!attribute [rw] tags_immutable
+#   @return [Hash, nil]
+#
+# @!attribute [rw] total
+#   @return [Integer, nil]
+#
+# @!attribute [rw] type_display
+#   @return [String, nil]
+#
+# @!attribute [rw] uploaded_at
+#   @return [String, nil]
+#
+# @!attribute [rw] uploader
+#   @return [String, nil]
+#
+# @!attribute [rw] uploader_url
+#   @return [String, nil]
+#
+# @!attribute [rw] version
+#   @return [String, nil]
+#
+# @!attribute [rw] version_orig
+#   @return [String, nil]
+#
+# @!attribute [rw] vulnerability_scan_results_url
+#   @return [String, nil]
 PackageCreateData = Struct.new(
   :identifier,
   :owner,
   :repo,
+  :active,
+  :architectures,
+  :backend_kind,
+  :bandwidth,
+  :cdn_url,
+  :checksum_md5,
+  :checksum_sha1,
+  :checksum_sha256,
+  :checksum_sha512,
+  :count,
+  :dep_type,
+  :dependencies_checksum_md5,
+  :dependencies_url,
+  :description,
+  :display_name,
+  :distro,
+  :distro_version,
+  :downloads,
+  :epoch,
+  :extension,
+  :filename,
+  :files,
+  :format,
+  :format_url,
+  :freeable_storage,
+  :fully_qualified_name,
+  :identifier_perm,
+  :identifiers,
+  :inactive,
+  :indexed,
+  :is_cancellable,
+  :is_copyable,
+  :is_deleteable,
+  :is_downloadable,
+  :is_moveable,
+  :is_quarantinable,
+  :is_quarantined,
+  :is_resyncable,
+  :is_security_scannable,
+  :is_sync_awaiting,
+  :is_sync_completed,
+  :is_sync_failed,
+  :is_sync_in_flight,
+  :is_sync_in_progress,
+  :last_push,
+  :license,
+  :name,
+  :namespace,
+  :namespace_url,
+  :num_downloads,
+  :num_files,
+  :operator,
+  :origin_repository,
+  :origin_repository_url,
+  :package_type,
+  :policy_violated,
+  :release,
+  :repository,
+  :repository_url,
+  :security_scan_completed_at,
+  :security_scan_started_at,
+  :security_scan_status,
+  :security_scan_status_updated_at,
+  :self_html_url,
+  :self_url,
+  :signature_url,
+  :size,
+  :slug,
+  :slug_perm,
+  :stage,
+  :stage_str,
+  :stage_updated_at,
+  :status,
+  :status_reason,
+  :status_str,
+  :status_updated_at,
+  :status_url,
+  :subtype,
+  :summary,
+  :sync_finished_at,
+  :sync_progress,
+  :tags,
+  :tags_immutable,
+  :total,
+  :type_display,
+  :uploaded_at,
+  :uploader,
+  :uploader_url,
+  :version,
+  :version_orig,
+  :vulnerability_scan_results_url,
   keyword_init: true
 )
 
@@ -4167,8 +6991,44 @@ PackageDenyPolicyListMatch = Struct.new(
 #
 # @!attribute [rw] org_id
 #   @return [String]
+#
+# @!attribute [rw] action
+#   @return [String, nil]
+#
+# @!attribute [rw] created_at
+#   @return [String, nil]
+#
+# @!attribute [rw] description
+#   @return [String, nil]
+#
+# @!attribute [rw] enabled
+#   @return [Boolean, nil]
+#
+# @!attribute [rw] name
+#   @return [String, nil]
+#
+# @!attribute [rw] package_query_string
+#   @return [String]
+#
+# @!attribute [rw] slug_perm
+#   @return [String, nil]
+#
+# @!attribute [rw] status
+#   @return [String, nil]
+#
+# @!attribute [rw] updated_at
+#   @return [String, nil]
 PackageDenyPolicyCreateData = Struct.new(
   :org_id,
+  :action,
+  :created_at,
+  :description,
+  :enabled,
+  :name,
+  :package_query_string,
+  :slug_perm,
+  :status,
+  :updated_at,
   keyword_init: true
 )
 
@@ -4179,9 +7039,45 @@ PackageDenyPolicyCreateData = Struct.new(
 #
 # @!attribute [rw] org_id
 #   @return [String]
+#
+# @!attribute [rw] action
+#   @return [String, nil]
+#
+# @!attribute [rw] created_at
+#   @return [String, nil]
+#
+# @!attribute [rw] description
+#   @return [String, nil]
+#
+# @!attribute [rw] enabled
+#   @return [Boolean, nil]
+#
+# @!attribute [rw] name
+#   @return [String, nil]
+#
+# @!attribute [rw] package_query_string
+#   @return [String, nil]
+#
+# @!attribute [rw] slug_perm
+#   @return [String, nil]
+#
+# @!attribute [rw] status
+#   @return [String, nil]
+#
+# @!attribute [rw] updated_at
+#   @return [String, nil]
 PackageDenyPolicyUpdateData = Struct.new(
   :id,
   :org_id,
+  :action,
+  :created_at,
+  :description,
+  :enabled,
+  :name,
+  :package_query_string,
+  :slug_perm,
+  :status,
+  :updated_at,
   keyword_init: true
 )
 
@@ -4242,11 +7138,26 @@ PackageFileUploadCreateData = Struct.new(
 
 # PackageLicensePolicyEvaluation entity data model.
 #
+# @!attribute [rw] allow_unknown_licenses
+#   @return [Boolean, nil]
+#
 # @!attribute [rw] created_at
+#   @return [String, nil]
+#
+# @!attribute [rw] description
 #   @return [String, nil]
 #
 # @!attribute [rw] evaluation_count
 #   @return [Integer, nil]
+#
+# @!attribute [rw] name
+#   @return [String, nil]
+#
+# @!attribute [rw] on_violation_quarantine
+#   @return [Boolean, nil]
+#
+# @!attribute [rw] package_query_string
+#   @return [String, nil]
 #
 # @!attribute [rw] policy
 #   @return [Hash]
@@ -4254,21 +7165,34 @@ PackageFileUploadCreateData = Struct.new(
 # @!attribute [rw] slug_perm
 #   @return [String, nil]
 #
+# @!attribute [rw] spdx_identifiers
+#   @return [Array]
+#
 # @!attribute [rw] status
 #   @return [String, nil]
 #
 # @!attribute [rw] updated_at
 #   @return [String, nil]
 #
+# @!attribute [rw] url
+#   @return [String, nil]
+#
 # @!attribute [rw] violation_count
 #   @return [Integer, nil]
 PackageLicensePolicyEvaluation = Struct.new(
+  :allow_unknown_licenses,
   :created_at,
+  :description,
   :evaluation_count,
+  :name,
+  :on_violation_quarantine,
+  :package_query_string,
   :policy,
   :slug_perm,
+  :spdx_identifiers,
   :status,
   :updated_at,
+  :url,
   :violation_count,
   keyword_init: true
 )
@@ -4310,9 +7234,65 @@ PackageLicensePolicyEvaluationListMatch = Struct.new(
 #
 # @!attribute [rw] policy_slug_perm
 #   @return [Object]
+#
+# @!attribute [rw] allow_unknown_licenses
+#   @return [Boolean, nil]
+#
+# @!attribute [rw] created_at
+#   @return [String, nil]
+#
+# @!attribute [rw] description
+#   @return [String, nil]
+#
+# @!attribute [rw] evaluation_count
+#   @return [Integer, nil]
+#
+# @!attribute [rw] name
+#   @return [String, nil]
+#
+# @!attribute [rw] on_violation_quarantine
+#   @return [Boolean, nil]
+#
+# @!attribute [rw] package_query_string
+#   @return [String, nil]
+#
+# @!attribute [rw] policy
+#   @return [Hash]
+#
+# @!attribute [rw] slug_perm
+#   @return [String, nil]
+#
+# @!attribute [rw] spdx_identifiers
+#   @return [Array]
+#
+# @!attribute [rw] status
+#   @return [String, nil]
+#
+# @!attribute [rw] updated_at
+#   @return [String, nil]
+#
+# @!attribute [rw] url
+#   @return [String, nil]
+#
+# @!attribute [rw] violation_count
+#   @return [Integer, nil]
 PackageLicensePolicyEvaluationCreateData = Struct.new(
   :org_id,
   :policy_slug_perm,
+  :allow_unknown_licenses,
+  :created_at,
+  :description,
+  :evaluation_count,
+  :name,
+  :on_violation_quarantine,
+  :package_query_string,
+  :policy,
+  :slug_perm,
+  :spdx_identifiers,
+  :status,
+  :updated_at,
+  :url,
+  :violation_count,
   keyword_init: true
 )
 
@@ -4351,11 +7331,29 @@ PackageVersionBadgeLoadMatch = Struct.new(
 
 # PackageVulnerabilityPolicyEvaluation entity data model.
 #
+# @!attribute [rw] allow_unknown_severity
+#   @return [Boolean, nil]
+#
 # @!attribute [rw] created_at
+#   @return [String, nil]
+#
+# @!attribute [rw] description
 #   @return [String, nil]
 #
 # @!attribute [rw] evaluation_count
 #   @return [Integer, nil]
+#
+# @!attribute [rw] min_severity
+#   @return [String, nil]
+#
+# @!attribute [rw] name
+#   @return [String, nil]
+#
+# @!attribute [rw] on_violation_quarantine
+#   @return [Boolean, nil]
+#
+# @!attribute [rw] package_query_string
+#   @return [String, nil]
 #
 # @!attribute [rw] policy
 #   @return [Hash, nil]
@@ -4369,15 +7367,25 @@ PackageVersionBadgeLoadMatch = Struct.new(
 # @!attribute [rw] updated_at
 #   @return [String, nil]
 #
+# @!attribute [rw] url
+#   @return [String, nil]
+#
 # @!attribute [rw] violation_count
 #   @return [Integer, nil]
 PackageVulnerabilityPolicyEvaluation = Struct.new(
+  :allow_unknown_severity,
   :created_at,
+  :description,
   :evaluation_count,
+  :min_severity,
+  :name,
+  :on_violation_quarantine,
+  :package_query_string,
   :policy,
   :slug_perm,
   :status,
   :updated_at,
+  :url,
   :violation_count,
   keyword_init: true
 )
@@ -4419,9 +7427,65 @@ PackageVulnerabilityPolicyEvaluationListMatch = Struct.new(
 #
 # @!attribute [rw] policy_slug_perm
 #   @return [Object]
+#
+# @!attribute [rw] allow_unknown_severity
+#   @return [Boolean, nil]
+#
+# @!attribute [rw] created_at
+#   @return [String, nil]
+#
+# @!attribute [rw] description
+#   @return [String, nil]
+#
+# @!attribute [rw] evaluation_count
+#   @return [Integer, nil]
+#
+# @!attribute [rw] min_severity
+#   @return [String, nil]
+#
+# @!attribute [rw] name
+#   @return [String, nil]
+#
+# @!attribute [rw] on_violation_quarantine
+#   @return [Boolean, nil]
+#
+# @!attribute [rw] package_query_string
+#   @return [String, nil]
+#
+# @!attribute [rw] policy
+#   @return [Hash, nil]
+#
+# @!attribute [rw] slug_perm
+#   @return [String, nil]
+#
+# @!attribute [rw] status
+#   @return [String, nil]
+#
+# @!attribute [rw] updated_at
+#   @return [String, nil]
+#
+# @!attribute [rw] url
+#   @return [String, nil]
+#
+# @!attribute [rw] violation_count
+#   @return [Integer, nil]
 PackageVulnerabilityPolicyEvaluationCreateData = Struct.new(
   :org_id,
   :policy_slug_perm,
+  :allow_unknown_severity,
+  :created_at,
+  :description,
+  :evaluation_count,
+  :min_severity,
+  :name,
+  :on_violation_quarantine,
+  :package_query_string,
+  :policy,
+  :slug_perm,
+  :status,
+  :updated_at,
+  :url,
+  :violation_count,
   keyword_init: true
 )
 
@@ -4435,7 +7499,7 @@ end
 
 # ProviderSetting entity data model.
 #
-# @!attribute [rw] claim
+# @!attribute [rw] claims
 #   @return [Hash]
 #
 # @!attribute [rw] enabled
@@ -4450,7 +7514,7 @@ end
 # @!attribute [rw] provider_url
 #   @return [String]
 #
-# @!attribute [rw] service_account
+# @!attribute [rw] service_accounts
 #   @return [Array, nil]
 #
 # @!attribute [rw] slug
@@ -4459,12 +7523,12 @@ end
 # @!attribute [rw] slug_perm
 #   @return [String, nil]
 ProviderSetting = Struct.new(
-  :claim,
+  :claims,
   :enabled,
   :mapping_claim,
   :name,
   :provider_url,
-  :service_account,
+  :service_accounts,
   :slug,
   :slug_perm,
   keyword_init: true
@@ -4494,10 +7558,10 @@ ProviderSettingListMatch = Struct.new(
 
 # ProviderSettingsWrite entity data model.
 #
-# @!attribute [rw] claim
+# @!attribute [rw] claims
 #   @return [Hash]
 #
-# @!attribute [rw] dynamic_mapping
+# @!attribute [rw] dynamic_mappings
 #   @return [Array, nil]
 #
 # @!attribute [rw] enabled
@@ -4512,7 +7576,7 @@ ProviderSettingListMatch = Struct.new(
 # @!attribute [rw] provider_url
 #   @return [String]
 #
-# @!attribute [rw] service_account
+# @!attribute [rw] service_accounts
 #   @return [Array, nil]
 #
 # @!attribute [rw] slug
@@ -4521,13 +7585,13 @@ ProviderSettingListMatch = Struct.new(
 # @!attribute [rw] slug_perm
 #   @return [String, nil]
 ProviderSettingsWrite = Struct.new(
-  :claim,
-  :dynamic_mapping,
+  :claims,
+  :dynamic_mappings,
   :enabled,
   :mapping_claim,
   :name,
   :provider_url,
-  :service_account,
+  :service_accounts,
   :slug,
   :slug_perm,
   keyword_init: true
@@ -4537,8 +7601,44 @@ ProviderSettingsWrite = Struct.new(
 #
 # @!attribute [rw] org_id
 #   @return [String]
+#
+# @!attribute [rw] claims
+#   @return [Hash]
+#
+# @!attribute [rw] dynamic_mappings
+#   @return [Array, nil]
+#
+# @!attribute [rw] enabled
+#   @return [Boolean]
+#
+# @!attribute [rw] mapping_claim
+#   @return [String, nil]
+#
+# @!attribute [rw] name
+#   @return [String]
+#
+# @!attribute [rw] provider_url
+#   @return [String]
+#
+# @!attribute [rw] service_accounts
+#   @return [Array, nil]
+#
+# @!attribute [rw] slug
+#   @return [String, nil]
+#
+# @!attribute [rw] slug_perm
+#   @return [String, nil]
 ProviderSettingsWriteCreateData = Struct.new(
   :org_id,
+  :claims,
+  :dynamic_mappings,
+  :enabled,
+  :mapping_claim,
+  :name,
+  :provider_url,
+  :service_accounts,
+  :slug,
+  :slug_perm,
   keyword_init: true
 )
 
@@ -4549,9 +7649,41 @@ ProviderSettingsWriteCreateData = Struct.new(
 #
 # @!attribute [rw] slug_perm
 #   @return [Object]
+#
+# @!attribute [rw] claims
+#   @return [Hash, nil]
+#
+# @!attribute [rw] dynamic_mappings
+#   @return [Array, nil]
+#
+# @!attribute [rw] enabled
+#   @return [Boolean, nil]
+#
+# @!attribute [rw] mapping_claim
+#   @return [String, nil]
+#
+# @!attribute [rw] name
+#   @return [String, nil]
+#
+# @!attribute [rw] provider_url
+#   @return [String, nil]
+#
+# @!attribute [rw] service_accounts
+#   @return [Array, nil]
+#
+# @!attribute [rw] slug
+#   @return [String, nil]
 ProviderSettingsWriteUpdateData = Struct.new(
   :org_id,
   :slug_perm,
+  :claims,
+  :dynamic_mappings,
+  :enabled,
+  :mapping_claim,
+  :name,
+  :provider_url,
+  :service_accounts,
+  :slug,
   keyword_init: true
 )
 
@@ -4669,9 +7801,81 @@ PythonListMatch = Struct.new(
 #
 # @!attribute [rw] owner
 #   @return [Object]
+#
+# @!attribute [rw] auth_mode
+#   @return [String, nil]
+#
+# @!attribute [rw] auth_secret
+#   @return [String, nil]
+#
+# @!attribute [rw] auth_username
+#   @return [String, nil]
+#
+# @!attribute [rw] created_at
+#   @return [String, nil]
+#
+# @!attribute [rw] disable_reason
+#   @return [String, nil]
+#
+# @!attribute [rw] extra_header_1
+#   @return [String, nil]
+#
+# @!attribute [rw] extra_header_2
+#   @return [String, nil]
+#
+# @!attribute [rw] extra_value_1
+#   @return [String, nil]
+#
+# @!attribute [rw] extra_value_2
+#   @return [String, nil]
+#
+# @!attribute [rw] is_active
+#   @return [Boolean, nil]
+#
+# @!attribute [rw] mode
+#   @return [String, nil]
+#
+# @!attribute [rw] name
+#   @return [String]
+#
+# @!attribute [rw] pending_validation
+#   @return [Boolean, nil]
+#
+# @!attribute [rw] priority
+#   @return [Integer, nil]
+#
+# @!attribute [rw] slug_perm
+#   @return [String, nil]
+#
+# @!attribute [rw] updated_at
+#   @return [String, nil]
+#
+# @!attribute [rw] upstream_url
+#   @return [String]
+#
+# @!attribute [rw] verify_ssl
+#   @return [Boolean, nil]
 PythonCreateData = Struct.new(
   :identifier,
   :owner,
+  :auth_mode,
+  :auth_secret,
+  :auth_username,
+  :created_at,
+  :disable_reason,
+  :extra_header_1,
+  :extra_header_2,
+  :extra_value_1,
+  :extra_value_2,
+  :is_active,
+  :mode,
+  :name,
+  :pending_validation,
+  :priority,
+  :slug_perm,
+  :updated_at,
+  :upstream_url,
+  :verify_ssl,
   keyword_init: true
 )
 
@@ -4685,10 +7889,82 @@ PythonCreateData = Struct.new(
 #
 # @!attribute [rw] owner
 #   @return [Object]
+#
+# @!attribute [rw] auth_mode
+#   @return [String, nil]
+#
+# @!attribute [rw] auth_secret
+#   @return [String, nil]
+#
+# @!attribute [rw] auth_username
+#   @return [String, nil]
+#
+# @!attribute [rw] created_at
+#   @return [String, nil]
+#
+# @!attribute [rw] disable_reason
+#   @return [String, nil]
+#
+# @!attribute [rw] extra_header_1
+#   @return [String, nil]
+#
+# @!attribute [rw] extra_header_2
+#   @return [String, nil]
+#
+# @!attribute [rw] extra_value_1
+#   @return [String, nil]
+#
+# @!attribute [rw] extra_value_2
+#   @return [String, nil]
+#
+# @!attribute [rw] is_active
+#   @return [Boolean, nil]
+#
+# @!attribute [rw] mode
+#   @return [String, nil]
+#
+# @!attribute [rw] name
+#   @return [String, nil]
+#
+# @!attribute [rw] pending_validation
+#   @return [Boolean, nil]
+#
+# @!attribute [rw] priority
+#   @return [Integer, nil]
+#
+# @!attribute [rw] slug_perm
+#   @return [String, nil]
+#
+# @!attribute [rw] updated_at
+#   @return [String, nil]
+#
+# @!attribute [rw] upstream_url
+#   @return [String, nil]
+#
+# @!attribute [rw] verify_ssl
+#   @return [Boolean, nil]
 PythonUpdateData = Struct.new(
   :id,
   :identifier,
   :owner,
+  :auth_mode,
+  :auth_secret,
+  :auth_username,
+  :created_at,
+  :disable_reason,
+  :extra_header_1,
+  :extra_header_2,
+  :extra_value_1,
+  :extra_value_2,
+  :is_active,
+  :mode,
+  :name,
+  :pending_validation,
+  :priority,
+  :slug_perm,
+  :updated_at,
+  :upstream_url,
+  :verify_ssl,
   keyword_init: true
 )
 
@@ -4698,14 +7974,18 @@ end
 
 # Quota entity data model.
 #
+# @!attribute [rw] display
+#   @return [Hash]
+#
 # @!attribute [rw] history
 #   @return [Array]
 #
-# @!attribute [rw] usage
+# @!attribute [rw] raw
 #   @return [Hash]
 Quota = Struct.new(
+  :display,
   :history,
-  :usage,
+  :raw,
   keyword_init: true
 )
 
@@ -4748,7 +8028,7 @@ end
 # @!attribute [rw] copy_own
 #   @return [Boolean, nil]
 #
-# @!attribute [rw] copy_package
+# @!attribute [rw] copy_packages
 #   @return [String, nil]
 #
 # @!attribute [rw] cosign_signing_enabled
@@ -4763,7 +8043,7 @@ end
 # @!attribute [rw] delete_own
 #   @return [Boolean, nil]
 #
-# @!attribute [rw] delete_package
+# @!attribute [rw] delete_packages
 #   @return [String, nil]
 #
 # @!attribute [rw] deleted_at
@@ -4772,22 +8052,22 @@ end
 # @!attribute [rw] description
 #   @return [String, nil]
 #
-# @!attribute [rw] distribute
+# @!attribute [rw] distributes
 #   @return [Array, nil]
 #
 # @!attribute [rw] docker_refresh_tokens_enabled
 #   @return [Boolean, nil]
 #
-# @!attribute [rw] ecdsa_key
+# @!attribute [rw] ecdsa_keys
 #   @return [Array, nil]
 #
 # @!attribute [rw] enforce_eula
 #   @return [Boolean, nil]
 #
-# @!attribute [rw] gpg_key
+# @!attribute [rw] gpg_keys
 #   @return [Array, nil]
 #
-# @!attribute [rw] index_file
+# @!attribute [rw] index_files
 #   @return [Boolean, nil]
 #
 # @!attribute [rw] is_open_source
@@ -4805,7 +8085,7 @@ end
 # @!attribute [rw] move_own
 #   @return [Boolean, nil]
 #
-# @!attribute [rw] move_package
+# @!attribute [rw] move_packages
 #   @return [String, nil]
 #
 # @!attribute [rw] name
@@ -4820,13 +8100,13 @@ end
 # @!attribute [rw] nuget_native_signing_enabled
 #   @return [Boolean, nil]
 #
-# @!attribute [rw] num_download
+# @!attribute [rw] num_downloads
 #   @return [Integer, nil]
 #
-# @!attribute [rw] num_policy_violated_package
+# @!attribute [rw] num_policy_violated_packages
 #   @return [Integer, nil]
 #
-# @!attribute [rw] num_quarantined_package
+# @!attribute [rw] num_quarantined_packages
 #   @return [Integer, nil]
 #
 # @!attribute [rw] open_source_license
@@ -4841,7 +8121,7 @@ end
 # @!attribute [rw] package_group_count
 #   @return [Integer, nil]
 #
-# @!attribute [rw] proxy_npmj
+# @!attribute [rw] proxy_npmjs
 #   @return [Boolean, nil]
 #
 # @!attribute [rw] proxy_pypi
@@ -4853,7 +8133,7 @@ end
 # @!attribute [rw] raw_package_index_signatures_enabled
 #   @return [Boolean, nil]
 #
-# @!attribute [rw] replace_package
+# @!attribute [rw] replace_packages
 #   @return [String, nil]
 #
 # @!attribute [rw] replace_packages_by_default
@@ -4868,13 +8148,13 @@ end
 # @!attribute [rw] resync_own
 #   @return [Boolean, nil]
 #
-# @!attribute [rw] resync_package
+# @!attribute [rw] resync_packages
 #   @return [String, nil]
 #
 # @!attribute [rw] scan_own
 #   @return [Boolean, nil]
 #
-# @!attribute [rw] scan_package
+# @!attribute [rw] scan_packages
 #   @return [String, nil]
 #
 # @!attribute [rw] self_html_url
@@ -4907,7 +8187,7 @@ end
 # @!attribute [rw] tag_pre_releases_as_latest
 #   @return [Boolean, nil]
 #
-# @!attribute [rw] use_debian_label
+# @!attribute [rw] use_debian_labels
 #   @return [Boolean, nil]
 #
 # @!attribute [rw] use_default_cargo_upstream
@@ -4916,10 +8196,10 @@ end
 # @!attribute [rw] use_entitlements_privilege
 #   @return [String, nil]
 #
-# @!attribute [rw] use_noarch_package
+# @!attribute [rw] use_noarch_packages
 #   @return [Boolean, nil]
 #
-# @!attribute [rw] use_source_package
+# @!attribute [rw] use_source_packages
 #   @return [Boolean, nil]
 #
 # @!attribute [rw] use_vulnerability_scanning
@@ -4928,56 +8208,56 @@ end
 # @!attribute [rw] user_entitlements_enabled
 #   @return [Boolean, nil]
 #
-# @!attribute [rw] view_statistic
+# @!attribute [rw] view_statistics
 #   @return [String, nil]
 Repo = Struct.new(
   :cdn_url,
   :content_kind,
   :contextual_auth_realm,
   :copy_own,
-  :copy_package,
+  :copy_packages,
   :cosign_signing_enabled,
   :created_at,
   :default_privilege,
   :delete_own,
-  :delete_package,
+  :delete_packages,
   :deleted_at,
   :description,
-  :distribute,
+  :distributes,
   :docker_refresh_tokens_enabled,
-  :ecdsa_key,
+  :ecdsa_keys,
   :enforce_eula,
-  :gpg_key,
-  :index_file,
+  :gpg_keys,
+  :index_files,
   :is_open_source,
   :is_private,
   :is_public,
   :manage_entitlements_privilege,
   :move_own,
-  :move_package,
+  :move_packages,
   :name,
   :namespace,
   :namespace_url,
   :nuget_native_signing_enabled,
-  :num_download,
-  :num_policy_violated_package,
-  :num_quarantined_package,
+  :num_downloads,
+  :num_policy_violated_packages,
+  :num_quarantined_packages,
   :open_source_license,
   :open_source_project_url,
   :package_count,
   :package_group_count,
-  :proxy_npmj,
+  :proxy_npmjs,
   :proxy_pypi,
   :raw_package_index_enabled,
   :raw_package_index_signatures_enabled,
-  :replace_package,
+  :replace_packages,
   :replace_packages_by_default,
   :repository_type,
   :repository_type_str,
   :resync_own,
-  :resync_package,
+  :resync_packages,
   :scan_own,
-  :scan_package,
+  :scan_packages,
   :self_html_url,
   :self_url,
   :show_setup_all,
@@ -4988,14 +8268,14 @@ Repo = Struct.new(
   :storage_region,
   :strict_npm_validation,
   :tag_pre_releases_as_latest,
-  :use_debian_label,
+  :use_debian_labels,
   :use_default_cargo_upstream,
   :use_entitlements_privilege,
-  :use_noarch_package,
-  :use_source_package,
+  :use_noarch_packages,
+  :use_source_packages,
   :use_vulnerability_scanning,
   :user_entitlements_enabled,
-  :view_statistic,
+  :view_statistics,
   keyword_init: true
 )
 
@@ -5031,10 +8311,270 @@ RepoListMatch = Struct.new(
 #
 # @!attribute [rw] id
 #   @return [String, nil]
+#
+# @!attribute [rw] cdn_url
+#   @return [String, nil]
+#
+# @!attribute [rw] content_kind
+#   @return [String, nil]
+#
+# @!attribute [rw] contextual_auth_realm
+#   @return [Boolean, nil]
+#
+# @!attribute [rw] copy_own
+#   @return [Boolean, nil]
+#
+# @!attribute [rw] copy_packages
+#   @return [String, nil]
+#
+# @!attribute [rw] cosign_signing_enabled
+#   @return [Boolean, nil]
+#
+# @!attribute [rw] created_at
+#   @return [String, nil]
+#
+# @!attribute [rw] default_privilege
+#   @return [String, nil]
+#
+# @!attribute [rw] delete_own
+#   @return [Boolean, nil]
+#
+# @!attribute [rw] delete_packages
+#   @return [String, nil]
+#
+# @!attribute [rw] deleted_at
+#   @return [String, nil]
+#
+# @!attribute [rw] description
+#   @return [String, nil]
+#
+# @!attribute [rw] distributes
+#   @return [Array, nil]
+#
+# @!attribute [rw] docker_refresh_tokens_enabled
+#   @return [Boolean, nil]
+#
+# @!attribute [rw] ecdsa_keys
+#   @return [Array, nil]
+#
+# @!attribute [rw] enforce_eula
+#   @return [Boolean, nil]
+#
+# @!attribute [rw] gpg_keys
+#   @return [Array, nil]
+#
+# @!attribute [rw] index_files
+#   @return [Boolean, nil]
+#
+# @!attribute [rw] is_open_source
+#   @return [Boolean, nil]
+#
+# @!attribute [rw] is_private
+#   @return [Boolean, nil]
+#
+# @!attribute [rw] is_public
+#   @return [Boolean, nil]
+#
+# @!attribute [rw] manage_entitlements_privilege
+#   @return [String, nil]
+#
+# @!attribute [rw] move_own
+#   @return [Boolean, nil]
+#
+# @!attribute [rw] move_packages
+#   @return [String, nil]
+#
+# @!attribute [rw] name
+#   @return [String]
+#
+# @!attribute [rw] namespace
+#   @return [String, nil]
+#
+# @!attribute [rw] namespace_url
+#   @return [String, nil]
+#
+# @!attribute [rw] nuget_native_signing_enabled
+#   @return [Boolean, nil]
+#
+# @!attribute [rw] num_downloads
+#   @return [Integer, nil]
+#
+# @!attribute [rw] num_policy_violated_packages
+#   @return [Integer, nil]
+#
+# @!attribute [rw] num_quarantined_packages
+#   @return [Integer, nil]
+#
+# @!attribute [rw] open_source_license
+#   @return [String, nil]
+#
+# @!attribute [rw] open_source_project_url
+#   @return [String, nil]
+#
+# @!attribute [rw] package_count
+#   @return [Integer, nil]
+#
+# @!attribute [rw] package_group_count
+#   @return [Integer, nil]
+#
+# @!attribute [rw] proxy_npmjs
+#   @return [Boolean, nil]
+#
+# @!attribute [rw] proxy_pypi
+#   @return [Boolean, nil]
+#
+# @!attribute [rw] raw_package_index_enabled
+#   @return [Boolean, nil]
+#
+# @!attribute [rw] raw_package_index_signatures_enabled
+#   @return [Boolean, nil]
+#
+# @!attribute [rw] replace_packages
+#   @return [String, nil]
+#
+# @!attribute [rw] replace_packages_by_default
+#   @return [Boolean, nil]
+#
+# @!attribute [rw] repository_type
+#   @return [Integer, nil]
+#
+# @!attribute [rw] repository_type_str
+#   @return [String, nil]
+#
+# @!attribute [rw] resync_own
+#   @return [Boolean, nil]
+#
+# @!attribute [rw] resync_packages
+#   @return [String, nil]
+#
+# @!attribute [rw] scan_own
+#   @return [Boolean, nil]
+#
+# @!attribute [rw] scan_packages
+#   @return [String, nil]
+#
+# @!attribute [rw] self_html_url
+#   @return [String, nil]
+#
+# @!attribute [rw] self_url
+#   @return [String, nil]
+#
+# @!attribute [rw] show_setup_all
+#   @return [Boolean, nil]
+#
+# @!attribute [rw] size
+#   @return [Integer, nil]
+#
+# @!attribute [rw] size_str
+#   @return [String, nil]
+#
+# @!attribute [rw] slug
+#   @return [String, nil]
+#
+# @!attribute [rw] slug_perm
+#   @return [String, nil]
+#
+# @!attribute [rw] storage_region
+#   @return [String, nil]
+#
+# @!attribute [rw] strict_npm_validation
+#   @return [Boolean, nil]
+#
+# @!attribute [rw] tag_pre_releases_as_latest
+#   @return [Boolean, nil]
+#
+# @!attribute [rw] use_debian_labels
+#   @return [Boolean, nil]
+#
+# @!attribute [rw] use_default_cargo_upstream
+#   @return [Boolean, nil]
+#
+# @!attribute [rw] use_entitlements_privilege
+#   @return [String, nil]
+#
+# @!attribute [rw] use_noarch_packages
+#   @return [Boolean, nil]
+#
+# @!attribute [rw] use_source_packages
+#   @return [Boolean, nil]
+#
+# @!attribute [rw] use_vulnerability_scanning
+#   @return [Boolean, nil]
+#
+# @!attribute [rw] user_entitlements_enabled
+#   @return [Boolean, nil]
+#
+# @!attribute [rw] view_statistics
+#   @return [String, nil]
 RepoCreateData = Struct.new(
   :identifier,
   :owner,
   :id,
+  :cdn_url,
+  :content_kind,
+  :contextual_auth_realm,
+  :copy_own,
+  :copy_packages,
+  :cosign_signing_enabled,
+  :created_at,
+  :default_privilege,
+  :delete_own,
+  :delete_packages,
+  :deleted_at,
+  :description,
+  :distributes,
+  :docker_refresh_tokens_enabled,
+  :ecdsa_keys,
+  :enforce_eula,
+  :gpg_keys,
+  :index_files,
+  :is_open_source,
+  :is_private,
+  :is_public,
+  :manage_entitlements_privilege,
+  :move_own,
+  :move_packages,
+  :name,
+  :namespace,
+  :namespace_url,
+  :nuget_native_signing_enabled,
+  :num_downloads,
+  :num_policy_violated_packages,
+  :num_quarantined_packages,
+  :open_source_license,
+  :open_source_project_url,
+  :package_count,
+  :package_group_count,
+  :proxy_npmjs,
+  :proxy_pypi,
+  :raw_package_index_enabled,
+  :raw_package_index_signatures_enabled,
+  :replace_packages,
+  :replace_packages_by_default,
+  :repository_type,
+  :repository_type_str,
+  :resync_own,
+  :resync_packages,
+  :scan_own,
+  :scan_packages,
+  :self_html_url,
+  :self_url,
+  :show_setup_all,
+  :size,
+  :size_str,
+  :slug,
+  :slug_perm,
+  :storage_region,
+  :strict_npm_validation,
+  :tag_pre_releases_as_latest,
+  :use_debian_labels,
+  :use_default_cargo_upstream,
+  :use_entitlements_privilege,
+  :use_noarch_packages,
+  :use_source_packages,
+  :use_vulnerability_scanning,
+  :user_entitlements_enabled,
+  :view_statistics,
   keyword_init: true
 )
 
@@ -5045,9 +8585,269 @@ RepoCreateData = Struct.new(
 #
 # @!attribute [rw] owner
 #   @return [Object]
+#
+# @!attribute [rw] cdn_url
+#   @return [String, nil]
+#
+# @!attribute [rw] content_kind
+#   @return [String, nil]
+#
+# @!attribute [rw] contextual_auth_realm
+#   @return [Boolean, nil]
+#
+# @!attribute [rw] copy_own
+#   @return [Boolean, nil]
+#
+# @!attribute [rw] copy_packages
+#   @return [String, nil]
+#
+# @!attribute [rw] cosign_signing_enabled
+#   @return [Boolean, nil]
+#
+# @!attribute [rw] created_at
+#   @return [String, nil]
+#
+# @!attribute [rw] default_privilege
+#   @return [String, nil]
+#
+# @!attribute [rw] delete_own
+#   @return [Boolean, nil]
+#
+# @!attribute [rw] delete_packages
+#   @return [String, nil]
+#
+# @!attribute [rw] deleted_at
+#   @return [String, nil]
+#
+# @!attribute [rw] description
+#   @return [String, nil]
+#
+# @!attribute [rw] distributes
+#   @return [Array, nil]
+#
+# @!attribute [rw] docker_refresh_tokens_enabled
+#   @return [Boolean, nil]
+#
+# @!attribute [rw] ecdsa_keys
+#   @return [Array, nil]
+#
+# @!attribute [rw] enforce_eula
+#   @return [Boolean, nil]
+#
+# @!attribute [rw] gpg_keys
+#   @return [Array, nil]
+#
+# @!attribute [rw] index_files
+#   @return [Boolean, nil]
+#
+# @!attribute [rw] is_open_source
+#   @return [Boolean, nil]
+#
+# @!attribute [rw] is_private
+#   @return [Boolean, nil]
+#
+# @!attribute [rw] is_public
+#   @return [Boolean, nil]
+#
+# @!attribute [rw] manage_entitlements_privilege
+#   @return [String, nil]
+#
+# @!attribute [rw] move_own
+#   @return [Boolean, nil]
+#
+# @!attribute [rw] move_packages
+#   @return [String, nil]
+#
+# @!attribute [rw] name
+#   @return [String, nil]
+#
+# @!attribute [rw] namespace
+#   @return [String, nil]
+#
+# @!attribute [rw] namespace_url
+#   @return [String, nil]
+#
+# @!attribute [rw] nuget_native_signing_enabled
+#   @return [Boolean, nil]
+#
+# @!attribute [rw] num_downloads
+#   @return [Integer, nil]
+#
+# @!attribute [rw] num_policy_violated_packages
+#   @return [Integer, nil]
+#
+# @!attribute [rw] num_quarantined_packages
+#   @return [Integer, nil]
+#
+# @!attribute [rw] open_source_license
+#   @return [String, nil]
+#
+# @!attribute [rw] open_source_project_url
+#   @return [String, nil]
+#
+# @!attribute [rw] package_count
+#   @return [Integer, nil]
+#
+# @!attribute [rw] package_group_count
+#   @return [Integer, nil]
+#
+# @!attribute [rw] proxy_npmjs
+#   @return [Boolean, nil]
+#
+# @!attribute [rw] proxy_pypi
+#   @return [Boolean, nil]
+#
+# @!attribute [rw] raw_package_index_enabled
+#   @return [Boolean, nil]
+#
+# @!attribute [rw] raw_package_index_signatures_enabled
+#   @return [Boolean, nil]
+#
+# @!attribute [rw] replace_packages
+#   @return [String, nil]
+#
+# @!attribute [rw] replace_packages_by_default
+#   @return [Boolean, nil]
+#
+# @!attribute [rw] repository_type
+#   @return [Integer, nil]
+#
+# @!attribute [rw] repository_type_str
+#   @return [String, nil]
+#
+# @!attribute [rw] resync_own
+#   @return [Boolean, nil]
+#
+# @!attribute [rw] resync_packages
+#   @return [String, nil]
+#
+# @!attribute [rw] scan_own
+#   @return [Boolean, nil]
+#
+# @!attribute [rw] scan_packages
+#   @return [String, nil]
+#
+# @!attribute [rw] self_html_url
+#   @return [String, nil]
+#
+# @!attribute [rw] self_url
+#   @return [String, nil]
+#
+# @!attribute [rw] show_setup_all
+#   @return [Boolean, nil]
+#
+# @!attribute [rw] size
+#   @return [Integer, nil]
+#
+# @!attribute [rw] size_str
+#   @return [String, nil]
+#
+# @!attribute [rw] slug
+#   @return [String, nil]
+#
+# @!attribute [rw] slug_perm
+#   @return [String, nil]
+#
+# @!attribute [rw] storage_region
+#   @return [String, nil]
+#
+# @!attribute [rw] strict_npm_validation
+#   @return [Boolean, nil]
+#
+# @!attribute [rw] tag_pre_releases_as_latest
+#   @return [Boolean, nil]
+#
+# @!attribute [rw] use_debian_labels
+#   @return [Boolean, nil]
+#
+# @!attribute [rw] use_default_cargo_upstream
+#   @return [Boolean, nil]
+#
+# @!attribute [rw] use_entitlements_privilege
+#   @return [String, nil]
+#
+# @!attribute [rw] use_noarch_packages
+#   @return [Boolean, nil]
+#
+# @!attribute [rw] use_source_packages
+#   @return [Boolean, nil]
+#
+# @!attribute [rw] use_vulnerability_scanning
+#   @return [Boolean, nil]
+#
+# @!attribute [rw] user_entitlements_enabled
+#   @return [Boolean, nil]
+#
+# @!attribute [rw] view_statistics
+#   @return [String, nil]
 RepoUpdateData = Struct.new(
   :identifier,
   :owner,
+  :cdn_url,
+  :content_kind,
+  :contextual_auth_realm,
+  :copy_own,
+  :copy_packages,
+  :cosign_signing_enabled,
+  :created_at,
+  :default_privilege,
+  :delete_own,
+  :delete_packages,
+  :deleted_at,
+  :description,
+  :distributes,
+  :docker_refresh_tokens_enabled,
+  :ecdsa_keys,
+  :enforce_eula,
+  :gpg_keys,
+  :index_files,
+  :is_open_source,
+  :is_private,
+  :is_public,
+  :manage_entitlements_privilege,
+  :move_own,
+  :move_packages,
+  :name,
+  :namespace,
+  :namespace_url,
+  :nuget_native_signing_enabled,
+  :num_downloads,
+  :num_policy_violated_packages,
+  :num_quarantined_packages,
+  :open_source_license,
+  :open_source_project_url,
+  :package_count,
+  :package_group_count,
+  :proxy_npmjs,
+  :proxy_pypi,
+  :raw_package_index_enabled,
+  :raw_package_index_signatures_enabled,
+  :replace_packages,
+  :replace_packages_by_default,
+  :repository_type,
+  :repository_type_str,
+  :resync_own,
+  :resync_packages,
+  :scan_own,
+  :scan_packages,
+  :self_html_url,
+  :self_url,
+  :show_setup_all,
+  :size,
+  :size_str,
+  :slug,
+  :slug_perm,
+  :storage_region,
+  :strict_npm_validation,
+  :tag_pre_releases_as_latest,
+  :use_debian_labels,
+  :use_default_cargo_upstream,
+  :use_entitlements_privilege,
+  :use_noarch_packages,
+  :use_source_packages,
+  :use_vulnerability_scanning,
+  :user_entitlements_enabled,
+  :view_statistics,
   keyword_init: true
 )
 
@@ -5191,9 +8991,37 @@ RepositoryEcdsaKeyLoadMatch = Struct.new(
 #
 # @!attribute [rw] owner
 #   @return [Object]
+#
+# @!attribute [rw] active
+#   @return [Boolean, nil]
+#
+# @!attribute [rw] created_at
+#   @return [String, nil]
+#
+# @!attribute [rw] default
+#   @return [Boolean, nil]
+#
+# @!attribute [rw] fingerprint
+#   @return [String, nil]
+#
+# @!attribute [rw] fingerprint_short
+#   @return [String, nil]
+#
+# @!attribute [rw] public_key
+#   @return [String, nil]
+#
+# @!attribute [rw] ssh_fingerprint
+#   @return [String, nil]
 RepositoryEcdsaKeyCreateData = Struct.new(
   :identifier,
   :owner,
+  :active,
+  :created_at,
+  :default,
+  :fingerprint,
+  :fingerprint_short,
+  :public_key,
+  :ssh_fingerprint,
   keyword_init: true
 )
 
@@ -5230,9 +9058,17 @@ RepositoryGeoIpRuleLoadMatch = Struct.new(
 #
 # @!attribute [rw] owner
 #   @return [Object]
+#
+# @!attribute [rw] cidr
+#   @return [Hash, nil]
+#
+# @!attribute [rw] country_code
+#   @return [Hash, nil]
 RepositoryGeoIpRuleUpdateData = Struct.new(
   :identifier,
   :owner,
+  :cidr,
+  :country_code,
   keyword_init: true
 )
 
@@ -5328,9 +9164,37 @@ RepositoryGpgKeyLoadMatch = Struct.new(
 #
 # @!attribute [rw] owner
 #   @return [Object]
+#
+# @!attribute [rw] active
+#   @return [Boolean, nil]
+#
+# @!attribute [rw] comment
+#   @return [String]
+#
+# @!attribute [rw] created_at
+#   @return [String, nil]
+#
+# @!attribute [rw] default
+#   @return [Boolean, nil]
+#
+# @!attribute [rw] fingerprint
+#   @return [String, nil]
+#
+# @!attribute [rw] fingerprint_short
+#   @return [String, nil]
+#
+# @!attribute [rw] public_key
+#   @return [String, nil]
 RepositoryGpgKeyCreateData = Struct.new(
   :identifier,
   :owner,
+  :active,
+  :comment,
+  :created_at,
+  :default,
+  :fingerprint,
+  :fingerprint_short,
+  :public_key,
   keyword_init: true
 )
 
@@ -5425,9 +9289,41 @@ RepositoryRetentionRuleLoadMatch = Struct.new(
 #
 # @!attribute [rw] repo
 #   @return [Object]
+#
+# @!attribute [rw] retention_count_limit
+#   @return [Integer, nil]
+#
+# @!attribute [rw] retention_days_limit
+#   @return [Integer, nil]
+#
+# @!attribute [rw] retention_enabled
+#   @return [Boolean, nil]
+#
+# @!attribute [rw] retention_group_by_format
+#   @return [Boolean, nil]
+#
+# @!attribute [rw] retention_group_by_name
+#   @return [Boolean, nil]
+#
+# @!attribute [rw] retention_group_by_package_type
+#   @return [Boolean, nil]
+#
+# @!attribute [rw] retention_package_query_string
+#   @return [String, nil]
+#
+# @!attribute [rw] retention_size_limit
+#   @return [Integer, nil]
 RepositoryRetentionRuleUpdateData = Struct.new(
   :owner,
   :repo,
+  :retention_count_limit,
+  :retention_days_limit,
+  :retention_enabled,
+  :retention_group_by_format,
+  :retention_group_by_name,
+  :retention_group_by_package_type,
+  :retention_package_query_string,
+  :retention_size_limit,
   keyword_init: true
 )
 
@@ -5484,15 +9380,43 @@ RepositoryRsaKeyLoadMatch = Struct.new(
 #
 # @!attribute [rw] owner
 #   @return [Object]
+#
+# @!attribute [rw] active
+#   @return [Boolean, nil]
+#
+# @!attribute [rw] created_at
+#   @return [String, nil]
+#
+# @!attribute [rw] default
+#   @return [Boolean, nil]
+#
+# @!attribute [rw] fingerprint
+#   @return [String, nil]
+#
+# @!attribute [rw] fingerprint_short
+#   @return [String, nil]
+#
+# @!attribute [rw] public_key
+#   @return [String, nil]
+#
+# @!attribute [rw] ssh_fingerprint
+#   @return [String, nil]
 RepositoryRsaKeyCreateData = Struct.new(
   :identifier,
   :owner,
+  :active,
+  :created_at,
+  :default,
+  :fingerprint,
+  :fingerprint_short,
+  :public_key,
+  :ssh_fingerprint,
   keyword_init: true
 )
 
 # RepositoryToken entity data model.
 #
-# @!attribute [rw] client
+# @!attribute [rw] clients
 #   @return [Integer, nil]
 #
 # @!attribute [rw] created_at
@@ -5510,7 +9434,7 @@ RepositoryRsaKeyCreateData = Struct.new(
 # @!attribute [rw] disable_url
 #   @return [String, nil]
 #
-# @!attribute [rw] download
+# @!attribute [rw] downloads
 #   @return [Integer, nil]
 #
 # @!attribute [rw] enable_url
@@ -5528,7 +9452,7 @@ RepositoryRsaKeyCreateData = Struct.new(
 # @!attribute [rw] eula_required
 #   @return [Boolean, nil]
 #
-# @!attribute [rw] has_limit
+# @!attribute [rw] has_limits
 #   @return [Boolean, nil]
 #
 # @!attribute [rw] identifier
@@ -5552,10 +9476,10 @@ RepositoryRsaKeyCreateData = Struct.new(
 # @!attribute [rw] limit_date_range_to
 #   @return [String, nil]
 #
-# @!attribute [rw] limit_num_client
+# @!attribute [rw] limit_num_clients
 #   @return [Integer, nil]
 #
-# @!attribute [rw] limit_num_download
+# @!attribute [rw] limit_num_downloads
 #   @return [Integer, nil]
 #
 # @!attribute [rw] limit_package_query
@@ -5609,19 +9533,19 @@ RepositoryRsaKeyCreateData = Struct.new(
 # @!attribute [rw] user_url
 #   @return [String, nil]
 RepositoryToken = Struct.new(
-  :client,
+  :clients,
   :created_at,
   :created_by,
   :created_by_url,
   :default,
   :disable_url,
-  :download,
+  :downloads,
   :enable_url,
   :eula_accepted,
   :eula_accepted_at,
   :eula_accepted_from,
   :eula_required,
-  :has_limit,
+  :has_limits,
   :identifier,
   :is_active,
   :is_limited,
@@ -5629,8 +9553,8 @@ RepositoryToken = Struct.new(
   :limit_bandwidth_unit,
   :limit_date_range_from,
   :limit_date_range_to,
-  :limit_num_client,
-  :limit_num_download,
+  :limit_num_clients,
+  :limit_num_downloads,
   :limit_package_query,
   :limit_path_query,
   :metadata,
@@ -5688,32 +9612,8 @@ RepositoryTokenListMatch = Struct.new(
 #
 # @!attribute [rw] repo
 #   @return [Object]
-RepositoryTokenCreateData = Struct.new(
-  :owner,
-  :repo,
-  keyword_init: true
-)
-
-# Request payload for RepositoryToken#update.
 #
-# @!attribute [rw] identifier
-#   @return [Object]
-#
-# @!attribute [rw] owner
-#   @return [Object]
-#
-# @!attribute [rw] repo
-#   @return [Object]
-RepositoryTokenUpdateData = Struct.new(
-  :identifier,
-  :owner,
-  :repo,
-  keyword_init: true
-)
-
-# RepositoryTokenRefresh entity data model.
-#
-# @!attribute [rw] client
+# @!attribute [rw] clients
 #   @return [Integer, nil]
 #
 # @!attribute [rw] created_at
@@ -5731,7 +9631,7 @@ RepositoryTokenUpdateData = Struct.new(
 # @!attribute [rw] disable_url
 #   @return [String, nil]
 #
-# @!attribute [rw] download
+# @!attribute [rw] downloads
 #   @return [Integer, nil]
 #
 # @!attribute [rw] enable_url
@@ -5749,7 +9649,7 @@ RepositoryTokenUpdateData = Struct.new(
 # @!attribute [rw] eula_required
 #   @return [Boolean, nil]
 #
-# @!attribute [rw] has_limit
+# @!attribute [rw] has_limits
 #   @return [Boolean, nil]
 #
 # @!attribute [rw] identifier
@@ -5773,10 +9673,342 @@ RepositoryTokenUpdateData = Struct.new(
 # @!attribute [rw] limit_date_range_to
 #   @return [String, nil]
 #
-# @!attribute [rw] limit_num_client
+# @!attribute [rw] limit_num_clients
 #   @return [Integer, nil]
 #
-# @!attribute [rw] limit_num_download
+# @!attribute [rw] limit_num_downloads
+#   @return [Integer, nil]
+#
+# @!attribute [rw] limit_package_query
+#   @return [String, nil]
+#
+# @!attribute [rw] limit_path_query
+#   @return [String, nil]
+#
+# @!attribute [rw] metadata
+#   @return [Hash, nil]
+#
+# @!attribute [rw] name
+#   @return [String]
+#
+# @!attribute [rw] refresh_url
+#   @return [String, nil]
+#
+# @!attribute [rw] reset_url
+#   @return [String, nil]
+#
+# @!attribute [rw] scheduled_reset_at
+#   @return [String, nil]
+#
+# @!attribute [rw] scheduled_reset_period
+#   @return [String, nil]
+#
+# @!attribute [rw] self_url
+#   @return [String, nil]
+#
+# @!attribute [rw] slug_perm
+#   @return [String, nil]
+#
+# @!attribute [rw] token
+#   @return [String, nil]
+#
+# @!attribute [rw] updated_at
+#   @return [String, nil]
+#
+# @!attribute [rw] updated_by
+#   @return [String, nil]
+#
+# @!attribute [rw] updated_by_url
+#   @return [String, nil]
+#
+# @!attribute [rw] usage
+#   @return [String, nil]
+#
+# @!attribute [rw] user
+#   @return [String, nil]
+#
+# @!attribute [rw] user_url
+#   @return [String, nil]
+RepositoryTokenCreateData = Struct.new(
+  :owner,
+  :repo,
+  :clients,
+  :created_at,
+  :created_by,
+  :created_by_url,
+  :default,
+  :disable_url,
+  :downloads,
+  :enable_url,
+  :eula_accepted,
+  :eula_accepted_at,
+  :eula_accepted_from,
+  :eula_required,
+  :has_limits,
+  :identifier,
+  :is_active,
+  :is_limited,
+  :limit_bandwidth,
+  :limit_bandwidth_unit,
+  :limit_date_range_from,
+  :limit_date_range_to,
+  :limit_num_clients,
+  :limit_num_downloads,
+  :limit_package_query,
+  :limit_path_query,
+  :metadata,
+  :name,
+  :refresh_url,
+  :reset_url,
+  :scheduled_reset_at,
+  :scheduled_reset_period,
+  :self_url,
+  :slug_perm,
+  :token,
+  :updated_at,
+  :updated_by,
+  :updated_by_url,
+  :usage,
+  :user,
+  :user_url,
+  keyword_init: true
+)
+
+# Request payload for RepositoryToken#update.
+#
+# @!attribute [rw] identifier
+#   @return [Object]
+#
+# @!attribute [rw] owner
+#   @return [Object]
+#
+# @!attribute [rw] repo
+#   @return [Object]
+#
+# @!attribute [rw] clients
+#   @return [Integer, nil]
+#
+# @!attribute [rw] created_at
+#   @return [String, nil]
+#
+# @!attribute [rw] created_by
+#   @return [String, nil]
+#
+# @!attribute [rw] created_by_url
+#   @return [String, nil]
+#
+# @!attribute [rw] default
+#   @return [Boolean, nil]
+#
+# @!attribute [rw] disable_url
+#   @return [String, nil]
+#
+# @!attribute [rw] downloads
+#   @return [Integer, nil]
+#
+# @!attribute [rw] enable_url
+#   @return [String, nil]
+#
+# @!attribute [rw] eula_accepted
+#   @return [Hash, nil]
+#
+# @!attribute [rw] eula_accepted_at
+#   @return [String, nil]
+#
+# @!attribute [rw] eula_accepted_from
+#   @return [String, nil]
+#
+# @!attribute [rw] eula_required
+#   @return [Boolean, nil]
+#
+# @!attribute [rw] has_limits
+#   @return [Boolean, nil]
+#
+# @!attribute [rw] is_active
+#   @return [Boolean, nil]
+#
+# @!attribute [rw] is_limited
+#   @return [Boolean, nil]
+#
+# @!attribute [rw] limit_bandwidth
+#   @return [Integer, nil]
+#
+# @!attribute [rw] limit_bandwidth_unit
+#   @return [String, nil]
+#
+# @!attribute [rw] limit_date_range_from
+#   @return [String, nil]
+#
+# @!attribute [rw] limit_date_range_to
+#   @return [String, nil]
+#
+# @!attribute [rw] limit_num_clients
+#   @return [Integer, nil]
+#
+# @!attribute [rw] limit_num_downloads
+#   @return [Integer, nil]
+#
+# @!attribute [rw] limit_package_query
+#   @return [String, nil]
+#
+# @!attribute [rw] limit_path_query
+#   @return [String, nil]
+#
+# @!attribute [rw] metadata
+#   @return [Hash, nil]
+#
+# @!attribute [rw] name
+#   @return [String, nil]
+#
+# @!attribute [rw] refresh_url
+#   @return [String, nil]
+#
+# @!attribute [rw] reset_url
+#   @return [String, nil]
+#
+# @!attribute [rw] scheduled_reset_at
+#   @return [String, nil]
+#
+# @!attribute [rw] scheduled_reset_period
+#   @return [String, nil]
+#
+# @!attribute [rw] self_url
+#   @return [String, nil]
+#
+# @!attribute [rw] slug_perm
+#   @return [String, nil]
+#
+# @!attribute [rw] token
+#   @return [String, nil]
+#
+# @!attribute [rw] updated_at
+#   @return [String, nil]
+#
+# @!attribute [rw] updated_by
+#   @return [String, nil]
+#
+# @!attribute [rw] updated_by_url
+#   @return [String, nil]
+#
+# @!attribute [rw] usage
+#   @return [String, nil]
+#
+# @!attribute [rw] user
+#   @return [String, nil]
+#
+# @!attribute [rw] user_url
+#   @return [String, nil]
+RepositoryTokenUpdateData = Struct.new(
+  :identifier,
+  :owner,
+  :repo,
+  :clients,
+  :created_at,
+  :created_by,
+  :created_by_url,
+  :default,
+  :disable_url,
+  :downloads,
+  :enable_url,
+  :eula_accepted,
+  :eula_accepted_at,
+  :eula_accepted_from,
+  :eula_required,
+  :has_limits,
+  :is_active,
+  :is_limited,
+  :limit_bandwidth,
+  :limit_bandwidth_unit,
+  :limit_date_range_from,
+  :limit_date_range_to,
+  :limit_num_clients,
+  :limit_num_downloads,
+  :limit_package_query,
+  :limit_path_query,
+  :metadata,
+  :name,
+  :refresh_url,
+  :reset_url,
+  :scheduled_reset_at,
+  :scheduled_reset_period,
+  :self_url,
+  :slug_perm,
+  :token,
+  :updated_at,
+  :updated_by,
+  :updated_by_url,
+  :usage,
+  :user,
+  :user_url,
+  keyword_init: true
+)
+
+# RepositoryTokenRefresh entity data model.
+#
+# @!attribute [rw] clients
+#   @return [Integer, nil]
+#
+# @!attribute [rw] created_at
+#   @return [String, nil]
+#
+# @!attribute [rw] created_by
+#   @return [String, nil]
+#
+# @!attribute [rw] created_by_url
+#   @return [String, nil]
+#
+# @!attribute [rw] default
+#   @return [Boolean, nil]
+#
+# @!attribute [rw] disable_url
+#   @return [String, nil]
+#
+# @!attribute [rw] downloads
+#   @return [Integer, nil]
+#
+# @!attribute [rw] enable_url
+#   @return [String, nil]
+#
+# @!attribute [rw] eula_accepted
+#   @return [Hash, nil]
+#
+# @!attribute [rw] eula_accepted_at
+#   @return [String, nil]
+#
+# @!attribute [rw] eula_accepted_from
+#   @return [String, nil]
+#
+# @!attribute [rw] eula_required
+#   @return [Boolean, nil]
+#
+# @!attribute [rw] has_limits
+#   @return [Boolean, nil]
+#
+# @!attribute [rw] identifier
+#   @return [Integer, nil]
+#
+# @!attribute [rw] is_active
+#   @return [Boolean, nil]
+#
+# @!attribute [rw] is_limited
+#   @return [Boolean, nil]
+#
+# @!attribute [rw] limit_bandwidth
+#   @return [Integer, nil]
+#
+# @!attribute [rw] limit_bandwidth_unit
+#   @return [String, nil]
+#
+# @!attribute [rw] limit_date_range_from
+#   @return [String, nil]
+#
+# @!attribute [rw] limit_date_range_to
+#   @return [String, nil]
+#
+# @!attribute [rw] limit_num_clients
+#   @return [Integer, nil]
+#
+# @!attribute [rw] limit_num_downloads
 #   @return [Integer, nil]
 #
 # @!attribute [rw] limit_package_query
@@ -5830,19 +10062,19 @@ RepositoryTokenUpdateData = Struct.new(
 # @!attribute [rw] user_url
 #   @return [String, nil]
 RepositoryTokenRefresh = Struct.new(
-  :client,
+  :clients,
   :created_at,
   :created_by,
   :created_by_url,
   :default,
   :disable_url,
-  :download,
+  :downloads,
   :enable_url,
   :eula_accepted,
   :eula_accepted_at,
   :eula_accepted_from,
   :eula_required,
-  :has_limit,
+  :has_limits,
   :identifier,
   :is_active,
   :is_limited,
@@ -5850,8 +10082,8 @@ RepositoryTokenRefresh = Struct.new(
   :limit_bandwidth_unit,
   :limit_date_range_from,
   :limit_date_range_to,
-  :limit_num_client,
-  :limit_num_download,
+  :limit_num_clients,
+  :limit_num_downloads,
   :limit_package_query,
   :limit_path_query,
   :metadata,
@@ -5882,19 +10114,171 @@ RepositoryTokenRefresh = Struct.new(
 #
 # @!attribute [rw] repo
 #   @return [Object]
+#
+# @!attribute [rw] clients
+#   @return [Integer, nil]
+#
+# @!attribute [rw] created_at
+#   @return [String, nil]
+#
+# @!attribute [rw] created_by
+#   @return [String, nil]
+#
+# @!attribute [rw] created_by_url
+#   @return [String, nil]
+#
+# @!attribute [rw] default
+#   @return [Boolean, nil]
+#
+# @!attribute [rw] disable_url
+#   @return [String, nil]
+#
+# @!attribute [rw] downloads
+#   @return [Integer, nil]
+#
+# @!attribute [rw] enable_url
+#   @return [String, nil]
+#
+# @!attribute [rw] eula_accepted
+#   @return [Hash, nil]
+#
+# @!attribute [rw] eula_accepted_at
+#   @return [String, nil]
+#
+# @!attribute [rw] eula_accepted_from
+#   @return [String, nil]
+#
+# @!attribute [rw] eula_required
+#   @return [Boolean, nil]
+#
+# @!attribute [rw] has_limits
+#   @return [Boolean, nil]
+#
+# @!attribute [rw] is_active
+#   @return [Boolean, nil]
+#
+# @!attribute [rw] is_limited
+#   @return [Boolean, nil]
+#
+# @!attribute [rw] limit_bandwidth
+#   @return [Integer, nil]
+#
+# @!attribute [rw] limit_bandwidth_unit
+#   @return [String, nil]
+#
+# @!attribute [rw] limit_date_range_from
+#   @return [String, nil]
+#
+# @!attribute [rw] limit_date_range_to
+#   @return [String, nil]
+#
+# @!attribute [rw] limit_num_clients
+#   @return [Integer, nil]
+#
+# @!attribute [rw] limit_num_downloads
+#   @return [Integer, nil]
+#
+# @!attribute [rw] limit_package_query
+#   @return [String, nil]
+#
+# @!attribute [rw] limit_path_query
+#   @return [String, nil]
+#
+# @!attribute [rw] metadata
+#   @return [Hash, nil]
+#
+# @!attribute [rw] name
+#   @return [String, nil]
+#
+# @!attribute [rw] refresh_url
+#   @return [String, nil]
+#
+# @!attribute [rw] reset_url
+#   @return [String, nil]
+#
+# @!attribute [rw] scheduled_reset_at
+#   @return [String, nil]
+#
+# @!attribute [rw] scheduled_reset_period
+#   @return [String, nil]
+#
+# @!attribute [rw] self_url
+#   @return [String, nil]
+#
+# @!attribute [rw] slug_perm
+#   @return [String, nil]
+#
+# @!attribute [rw] token
+#   @return [String, nil]
+#
+# @!attribute [rw] updated_at
+#   @return [String, nil]
+#
+# @!attribute [rw] updated_by
+#   @return [String, nil]
+#
+# @!attribute [rw] updated_by_url
+#   @return [String, nil]
+#
+# @!attribute [rw] usage
+#   @return [String, nil]
+#
+# @!attribute [rw] user
+#   @return [String, nil]
+#
+# @!attribute [rw] user_url
+#   @return [String, nil]
 RepositoryTokenRefreshCreateData = Struct.new(
   :identifier,
   :owner,
   :repo,
+  :clients,
+  :created_at,
+  :created_by,
+  :created_by_url,
+  :default,
+  :disable_url,
+  :downloads,
+  :enable_url,
+  :eula_accepted,
+  :eula_accepted_at,
+  :eula_accepted_from,
+  :eula_required,
+  :has_limits,
+  :is_active,
+  :is_limited,
+  :limit_bandwidth,
+  :limit_bandwidth_unit,
+  :limit_date_range_from,
+  :limit_date_range_to,
+  :limit_num_clients,
+  :limit_num_downloads,
+  :limit_package_query,
+  :limit_path_query,
+  :metadata,
+  :name,
+  :refresh_url,
+  :reset_url,
+  :scheduled_reset_at,
+  :scheduled_reset_period,
+  :self_url,
+  :slug_perm,
+  :token,
+  :updated_at,
+  :updated_by,
+  :updated_by_url,
+  :usage,
+  :user,
+  :user_url,
   keyword_init: true
 )
 
 # RepositoryTokenSync entity data model.
 #
-# @!attribute [rw] token
+# @!attribute [rw] tokens
 #   @return [Array, nil]
 RepositoryTokenSync = Struct.new(
-  :token,
+  :tokens,
   keyword_init: true
 )
 
@@ -5905,9 +10289,13 @@ RepositoryTokenSync = Struct.new(
 #
 # @!attribute [rw] repo
 #   @return [Object]
+#
+# @!attribute [rw] tokens
+#   @return [Array, nil]
 RepositoryTokenSyncCreateData = Struct.new(
   :owner,
   :repo,
+  :tokens,
   keyword_init: true
 )
 
@@ -5929,6 +10317,9 @@ RepositoryTokenSyncCreateData = Struct.new(
 #   @return [String, nil]
 #
 # @!attribute [rw] event
+#   @return [String]
+#
+# @!attribute [rw] events
 #   @return [Array]
 #
 # @!attribute [rw] identifier
@@ -5980,6 +10371,9 @@ RepositoryTokenSyncCreateData = Struct.new(
 #   @return [String]
 #
 # @!attribute [rw] template
+#   @return [String, nil]
+#
+# @!attribute [rw] templates
 #   @return [Array]
 #
 # @!attribute [rw] updated_at
@@ -6000,6 +10394,7 @@ RepositoryWebhook = Struct.new(
   :disable_reason,
   :disable_reason_str,
   :event,
+  :events,
   :identifier,
   :is_active,
   :is_last_response_bad,
@@ -6017,6 +10412,7 @@ RepositoryWebhook = Struct.new(
   :slug_perm,
   :target_url,
   :template,
+  :templates,
   :updated_at,
   :updated_by,
   :updated_by_url,
@@ -6048,9 +10444,125 @@ RepositoryWebhookListMatch = Struct.new(
 #
 # @!attribute [rw] repo
 #   @return [Object]
+#
+# @!attribute [rw] created_at
+#   @return [String, nil]
+#
+# @!attribute [rw] created_by
+#   @return [String, nil]
+#
+# @!attribute [rw] created_by_url
+#   @return [String, nil]
+#
+# @!attribute [rw] disable_reason
+#   @return [Integer, nil]
+#
+# @!attribute [rw] disable_reason_str
+#   @return [String, nil]
+#
+# @!attribute [rw] event
+#   @return [String]
+#
+# @!attribute [rw] events
+#   @return [Array]
+#
+# @!attribute [rw] identifier
+#   @return [Integer, nil]
+#
+# @!attribute [rw] is_active
+#   @return [Boolean, nil]
+#
+# @!attribute [rw] is_last_response_bad
+#   @return [Boolean, nil]
+#
+# @!attribute [rw] last_response_status
+#   @return [Integer, nil]
+#
+# @!attribute [rw] last_response_status_str
+#   @return [String, nil]
+#
+# @!attribute [rw] num_sent
+#   @return [Integer, nil]
+#
+# @!attribute [rw] package_query
+#   @return [String, nil]
+#
+# @!attribute [rw] request_body_format
+#   @return [Integer, nil]
+#
+# @!attribute [rw] request_body_format_str
+#   @return [String, nil]
+#
+# @!attribute [rw] request_body_template_format
+#   @return [Integer, nil]
+#
+# @!attribute [rw] request_body_template_format_str
+#   @return [String, nil]
+#
+# @!attribute [rw] request_content_type
+#   @return [String, nil]
+#
+# @!attribute [rw] secret_header
+#   @return [String, nil]
+#
+# @!attribute [rw] self_url
+#   @return [String, nil]
+#
+# @!attribute [rw] slug_perm
+#   @return [String, nil]
+#
+# @!attribute [rw] target_url
+#   @return [String]
+#
+# @!attribute [rw] template
+#   @return [String, nil]
+#
+# @!attribute [rw] templates
+#   @return [Array]
+#
+# @!attribute [rw] updated_at
+#   @return [String, nil]
+#
+# @!attribute [rw] updated_by
+#   @return [String, nil]
+#
+# @!attribute [rw] updated_by_url
+#   @return [String, nil]
+#
+# @!attribute [rw] verify_ssl
+#   @return [Boolean, nil]
 RepositoryWebhookCreateData = Struct.new(
   :owner,
   :repo,
+  :created_at,
+  :created_by,
+  :created_by_url,
+  :disable_reason,
+  :disable_reason_str,
+  :event,
+  :events,
+  :identifier,
+  :is_active,
+  :is_last_response_bad,
+  :last_response_status,
+  :last_response_status_str,
+  :num_sent,
+  :package_query,
+  :request_body_format,
+  :request_body_format_str,
+  :request_body_template_format,
+  :request_body_template_format_str,
+  :request_content_type,
+  :secret_header,
+  :self_url,
+  :slug_perm,
+  :target_url,
+  :template,
+  :templates,
+  :updated_at,
+  :updated_by,
+  :updated_by_url,
+  :verify_ssl,
   keyword_init: true
 )
 
@@ -6064,10 +10576,122 @@ RepositoryWebhookCreateData = Struct.new(
 #
 # @!attribute [rw] repo
 #   @return [Object]
+#
+# @!attribute [rw] created_at
+#   @return [String, nil]
+#
+# @!attribute [rw] created_by
+#   @return [String, nil]
+#
+# @!attribute [rw] created_by_url
+#   @return [String, nil]
+#
+# @!attribute [rw] disable_reason
+#   @return [Integer, nil]
+#
+# @!attribute [rw] disable_reason_str
+#   @return [String, nil]
+#
+# @!attribute [rw] event
+#   @return [String, nil]
+#
+# @!attribute [rw] events
+#   @return [Array, nil]
+#
+# @!attribute [rw] is_active
+#   @return [Boolean, nil]
+#
+# @!attribute [rw] is_last_response_bad
+#   @return [Boolean, nil]
+#
+# @!attribute [rw] last_response_status
+#   @return [Integer, nil]
+#
+# @!attribute [rw] last_response_status_str
+#   @return [String, nil]
+#
+# @!attribute [rw] num_sent
+#   @return [Integer, nil]
+#
+# @!attribute [rw] package_query
+#   @return [String, nil]
+#
+# @!attribute [rw] request_body_format
+#   @return [Integer, nil]
+#
+# @!attribute [rw] request_body_format_str
+#   @return [String, nil]
+#
+# @!attribute [rw] request_body_template_format
+#   @return [Integer, nil]
+#
+# @!attribute [rw] request_body_template_format_str
+#   @return [String, nil]
+#
+# @!attribute [rw] request_content_type
+#   @return [String, nil]
+#
+# @!attribute [rw] secret_header
+#   @return [String, nil]
+#
+# @!attribute [rw] self_url
+#   @return [String, nil]
+#
+# @!attribute [rw] slug_perm
+#   @return [String, nil]
+#
+# @!attribute [rw] target_url
+#   @return [String, nil]
+#
+# @!attribute [rw] template
+#   @return [String, nil]
+#
+# @!attribute [rw] templates
+#   @return [Array, nil]
+#
+# @!attribute [rw] updated_at
+#   @return [String, nil]
+#
+# @!attribute [rw] updated_by
+#   @return [String, nil]
+#
+# @!attribute [rw] updated_by_url
+#   @return [String, nil]
+#
+# @!attribute [rw] verify_ssl
+#   @return [Boolean, nil]
 RepositoryWebhookUpdateData = Struct.new(
   :identifier,
   :owner,
   :repo,
+  :created_at,
+  :created_by,
+  :created_by_url,
+  :disable_reason,
+  :disable_reason_str,
+  :event,
+  :events,
+  :is_active,
+  :is_last_response_bad,
+  :last_response_status,
+  :last_response_status_str,
+  :num_sent,
+  :package_query,
+  :request_body_format,
+  :request_body_format_str,
+  :request_body_template_format,
+  :request_body_template_format_str,
+  :request_content_type,
+  :secret_header,
+  :self_url,
+  :slug_perm,
+  :target_url,
+  :template,
+  :templates,
+  :updated_at,
+  :updated_by,
+  :updated_by_url,
+  :verify_ssl,
   keyword_init: true
 )
 
@@ -6193,19 +10817,59 @@ end
 
 # ResourcesRateCheck entity data model.
 #
-# @!attribute [rw] resource
-#   @return [Hash, nil]
+# @!attribute [rw] interval
+#   @return [Float, nil]
+#
+# @!attribute [rw] limit
+#   @return [Integer, nil]
+#
+# @!attribute [rw] remaining
+#   @return [Integer, nil]
+#
+# @!attribute [rw] reset
+#   @return [Integer, nil]
+#
+# @!attribute [rw] reset_iso_8601
+#   @return [String, nil]
+#
+# @!attribute [rw] throttled
+#   @return [Boolean, nil]
 ResourcesRateCheck = Struct.new(
-  :resource,
+  :interval,
+  :limit,
+  :remaining,
+  :reset,
+  :reset_iso_8601,
+  :throttled,
   keyword_init: true
 )
 
 # Request payload for ResourcesRateCheck#load.
 #
-# @!attribute [rw] resource
-#   @return [Hash, nil]
+# @!attribute [rw] interval
+#   @return [Float, nil]
+#
+# @!attribute [rw] limit
+#   @return [Integer, nil]
+#
+# @!attribute [rw] remaining
+#   @return [Integer, nil]
+#
+# @!attribute [rw] reset
+#   @return [Integer, nil]
+#
+# @!attribute [rw] reset_iso_8601
+#   @return [String, nil]
+#
+# @!attribute [rw] throttled
+#   @return [Boolean, nil]
 ResourcesRateCheckLoadMatch = Struct.new(
-  :resource,
+  :interval,
+  :limit,
+  :remaining,
+  :reset,
+  :reset_iso_8601,
+  :throttled,
   keyword_init: true
 )
 
@@ -6258,7 +10922,7 @@ end
 # @!attribute [rw] gpg_verification
 #   @return [String, nil]
 #
-# @!attribute [rw] include_source
+# @!attribute [rw] include_sources
 #   @return [Boolean, nil]
 #
 # @!attribute [rw] is_active
@@ -6304,7 +10968,7 @@ Rpm = Struct.new(
   :gpg_key_inline,
   :gpg_key_url,
   :gpg_verification,
-  :include_source,
+  :include_sources,
   :is_active,
   :mode,
   :name,
@@ -6355,9 +11019,105 @@ RpmListMatch = Struct.new(
 #
 # @!attribute [rw] owner
 #   @return [Object]
+#
+# @!attribute [rw] auth_mode
+#   @return [String, nil]
+#
+# @!attribute [rw] auth_secret
+#   @return [String, nil]
+#
+# @!attribute [rw] auth_username
+#   @return [String, nil]
+#
+# @!attribute [rw] created_at
+#   @return [String, nil]
+#
+# @!attribute [rw] disable_reason
+#   @return [String, nil]
+#
+# @!attribute [rw] distro_version
+#   @return [String]
+#
+# @!attribute [rw] extra_header_1
+#   @return [String, nil]
+#
+# @!attribute [rw] extra_header_2
+#   @return [String, nil]
+#
+# @!attribute [rw] extra_value_1
+#   @return [String, nil]
+#
+# @!attribute [rw] extra_value_2
+#   @return [String, nil]
+#
+# @!attribute [rw] gpg_key_inline
+#   @return [String, nil]
+#
+# @!attribute [rw] gpg_key_url
+#   @return [String, nil]
+#
+# @!attribute [rw] gpg_verification
+#   @return [String, nil]
+#
+# @!attribute [rw] include_sources
+#   @return [Boolean, nil]
+#
+# @!attribute [rw] is_active
+#   @return [Boolean, nil]
+#
+# @!attribute [rw] mode
+#   @return [String, nil]
+#
+# @!attribute [rw] name
+#   @return [String]
+#
+# @!attribute [rw] pending_validation
+#   @return [Boolean, nil]
+#
+# @!attribute [rw] priority
+#   @return [Integer, nil]
+#
+# @!attribute [rw] slug_perm
+#   @return [String, nil]
+#
+# @!attribute [rw] updated_at
+#   @return [String, nil]
+#
+# @!attribute [rw] upstream_url
+#   @return [String]
+#
+# @!attribute [rw] verification_status
+#   @return [String, nil]
+#
+# @!attribute [rw] verify_ssl
+#   @return [Boolean, nil]
 RpmCreateData = Struct.new(
   :identifier,
   :owner,
+  :auth_mode,
+  :auth_secret,
+  :auth_username,
+  :created_at,
+  :disable_reason,
+  :distro_version,
+  :extra_header_1,
+  :extra_header_2,
+  :extra_value_1,
+  :extra_value_2,
+  :gpg_key_inline,
+  :gpg_key_url,
+  :gpg_verification,
+  :include_sources,
+  :is_active,
+  :mode,
+  :name,
+  :pending_validation,
+  :priority,
+  :slug_perm,
+  :updated_at,
+  :upstream_url,
+  :verification_status,
+  :verify_ssl,
   keyword_init: true
 )
 
@@ -6371,10 +11131,106 @@ RpmCreateData = Struct.new(
 #
 # @!attribute [rw] owner
 #   @return [Object]
+#
+# @!attribute [rw] auth_mode
+#   @return [String, nil]
+#
+# @!attribute [rw] auth_secret
+#   @return [String, nil]
+#
+# @!attribute [rw] auth_username
+#   @return [String, nil]
+#
+# @!attribute [rw] created_at
+#   @return [String, nil]
+#
+# @!attribute [rw] disable_reason
+#   @return [String, nil]
+#
+# @!attribute [rw] distro_version
+#   @return [String, nil]
+#
+# @!attribute [rw] extra_header_1
+#   @return [String, nil]
+#
+# @!attribute [rw] extra_header_2
+#   @return [String, nil]
+#
+# @!attribute [rw] extra_value_1
+#   @return [String, nil]
+#
+# @!attribute [rw] extra_value_2
+#   @return [String, nil]
+#
+# @!attribute [rw] gpg_key_inline
+#   @return [String, nil]
+#
+# @!attribute [rw] gpg_key_url
+#   @return [String, nil]
+#
+# @!attribute [rw] gpg_verification
+#   @return [String, nil]
+#
+# @!attribute [rw] include_sources
+#   @return [Boolean, nil]
+#
+# @!attribute [rw] is_active
+#   @return [Boolean, nil]
+#
+# @!attribute [rw] mode
+#   @return [String, nil]
+#
+# @!attribute [rw] name
+#   @return [String, nil]
+#
+# @!attribute [rw] pending_validation
+#   @return [Boolean, nil]
+#
+# @!attribute [rw] priority
+#   @return [Integer, nil]
+#
+# @!attribute [rw] slug_perm
+#   @return [String, nil]
+#
+# @!attribute [rw] updated_at
+#   @return [String, nil]
+#
+# @!attribute [rw] upstream_url
+#   @return [String, nil]
+#
+# @!attribute [rw] verification_status
+#   @return [String, nil]
+#
+# @!attribute [rw] verify_ssl
+#   @return [Boolean, nil]
 RpmUpdateData = Struct.new(
   :id,
   :identifier,
   :owner,
+  :auth_mode,
+  :auth_secret,
+  :auth_username,
+  :created_at,
+  :disable_reason,
+  :distro_version,
+  :extra_header_1,
+  :extra_header_2,
+  :extra_value_1,
+  :extra_value_2,
+  :gpg_key_inline,
+  :gpg_key_url,
+  :gpg_verification,
+  :include_sources,
+  :is_active,
+  :mode,
+  :name,
+  :pending_validation,
+  :priority,
+  :slug_perm,
+  :updated_at,
+  :upstream_url,
+  :verification_status,
+  :verify_ssl,
   keyword_init: true
 )
 
@@ -6496,9 +11352,81 @@ RubyListMatch = Struct.new(
 #
 # @!attribute [rw] owner
 #   @return [Object]
+#
+# @!attribute [rw] auth_mode
+#   @return [String, nil]
+#
+# @!attribute [rw] auth_secret
+#   @return [String, nil]
+#
+# @!attribute [rw] auth_username
+#   @return [String, nil]
+#
+# @!attribute [rw] created_at
+#   @return [String, nil]
+#
+# @!attribute [rw] disable_reason
+#   @return [String, nil]
+#
+# @!attribute [rw] extra_header_1
+#   @return [String, nil]
+#
+# @!attribute [rw] extra_header_2
+#   @return [String, nil]
+#
+# @!attribute [rw] extra_value_1
+#   @return [String, nil]
+#
+# @!attribute [rw] extra_value_2
+#   @return [String, nil]
+#
+# @!attribute [rw] is_active
+#   @return [Boolean, nil]
+#
+# @!attribute [rw] mode
+#   @return [String, nil]
+#
+# @!attribute [rw] name
+#   @return [String]
+#
+# @!attribute [rw] pending_validation
+#   @return [Boolean, nil]
+#
+# @!attribute [rw] priority
+#   @return [Integer, nil]
+#
+# @!attribute [rw] slug_perm
+#   @return [String, nil]
+#
+# @!attribute [rw] updated_at
+#   @return [String, nil]
+#
+# @!attribute [rw] upstream_url
+#   @return [String]
+#
+# @!attribute [rw] verify_ssl
+#   @return [Boolean, nil]
 RubyCreateData = Struct.new(
   :identifier,
   :owner,
+  :auth_mode,
+  :auth_secret,
+  :auth_username,
+  :created_at,
+  :disable_reason,
+  :extra_header_1,
+  :extra_header_2,
+  :extra_value_1,
+  :extra_value_2,
+  :is_active,
+  :mode,
+  :name,
+  :pending_validation,
+  :priority,
+  :slug_perm,
+  :updated_at,
+  :upstream_url,
+  :verify_ssl,
   keyword_init: true
 )
 
@@ -6512,10 +11440,82 @@ RubyCreateData = Struct.new(
 #
 # @!attribute [rw] owner
 #   @return [Object]
+#
+# @!attribute [rw] auth_mode
+#   @return [String, nil]
+#
+# @!attribute [rw] auth_secret
+#   @return [String, nil]
+#
+# @!attribute [rw] auth_username
+#   @return [String, nil]
+#
+# @!attribute [rw] created_at
+#   @return [String, nil]
+#
+# @!attribute [rw] disable_reason
+#   @return [String, nil]
+#
+# @!attribute [rw] extra_header_1
+#   @return [String, nil]
+#
+# @!attribute [rw] extra_header_2
+#   @return [String, nil]
+#
+# @!attribute [rw] extra_value_1
+#   @return [String, nil]
+#
+# @!attribute [rw] extra_value_2
+#   @return [String, nil]
+#
+# @!attribute [rw] is_active
+#   @return [Boolean, nil]
+#
+# @!attribute [rw] mode
+#   @return [String, nil]
+#
+# @!attribute [rw] name
+#   @return [String, nil]
+#
+# @!attribute [rw] pending_validation
+#   @return [Boolean, nil]
+#
+# @!attribute [rw] priority
+#   @return [Integer, nil]
+#
+# @!attribute [rw] slug_perm
+#   @return [String, nil]
+#
+# @!attribute [rw] updated_at
+#   @return [String, nil]
+#
+# @!attribute [rw] upstream_url
+#   @return [String, nil]
+#
+# @!attribute [rw] verify_ssl
+#   @return [Boolean, nil]
 RubyUpdateData = Struct.new(
   :id,
   :identifier,
   :owner,
+  :auth_mode,
+  :auth_secret,
+  :auth_username,
+  :created_at,
+  :disable_reason,
+  :extra_header_1,
+  :extra_header_2,
+  :extra_value_1,
+  :extra_value_2,
+  :is_active,
+  :mode,
+  :name,
+  :pending_validation,
+  :priority,
+  :slug_perm,
+  :updated_at,
+  :upstream_url,
+  :verify_ssl,
   keyword_init: true
 )
 
@@ -6560,7 +11560,7 @@ end
 # @!attribute [rw] slug
 #   @return [String, nil]
 #
-# @!attribute [rw] team
+# @!attribute [rw] teams
 #   @return [Array, nil]
 Service = Struct.new(
   :created_at,
@@ -6572,7 +11572,7 @@ Service = Struct.new(
   :name,
   :role,
   :slug,
-  :team,
+  :teams,
   keyword_init: true
 )
 
@@ -6602,8 +11602,48 @@ ServiceListMatch = Struct.new(
 #
 # @!attribute [rw] org_id
 #   @return [String]
+#
+# @!attribute [rw] created_at
+#   @return [String, nil]
+#
+# @!attribute [rw] created_by
+#   @return [String, nil]
+#
+# @!attribute [rw] created_by_url
+#   @return [String, nil]
+#
+# @!attribute [rw] description
+#   @return [String, nil]
+#
+# @!attribute [rw] key
+#   @return [String, nil]
+#
+# @!attribute [rw] key_expires_at
+#   @return [String, nil]
+#
+# @!attribute [rw] name
+#   @return [String]
+#
+# @!attribute [rw] role
+#   @return [String, nil]
+#
+# @!attribute [rw] slug
+#   @return [String, nil]
+#
+# @!attribute [rw] teams
+#   @return [Array, nil]
 ServiceCreateData = Struct.new(
   :org_id,
+  :created_at,
+  :created_by,
+  :created_by_url,
+  :description,
+  :key,
+  :key_expires_at,
+  :name,
+  :role,
+  :slug,
+  :teams,
   keyword_init: true
 )
 
@@ -6614,9 +11654,49 @@ ServiceCreateData = Struct.new(
 #
 # @!attribute [rw] org_id
 #   @return [String]
+#
+# @!attribute [rw] created_at
+#   @return [String, nil]
+#
+# @!attribute [rw] created_by
+#   @return [String, nil]
+#
+# @!attribute [rw] created_by_url
+#   @return [String, nil]
+#
+# @!attribute [rw] description
+#   @return [String, nil]
+#
+# @!attribute [rw] key
+#   @return [String, nil]
+#
+# @!attribute [rw] key_expires_at
+#   @return [String, nil]
+#
+# @!attribute [rw] name
+#   @return [String, nil]
+#
+# @!attribute [rw] role
+#   @return [String, nil]
+#
+# @!attribute [rw] slug
+#   @return [String, nil]
+#
+# @!attribute [rw] teams
+#   @return [Array, nil]
 ServiceUpdateData = Struct.new(
   :id,
   :org_id,
+  :created_at,
+  :created_by,
+  :created_by_url,
+  :description,
+  :key,
+  :key_expires_at,
+  :name,
+  :role,
+  :slug,
+  :teams,
   keyword_init: true
 )
 
@@ -6799,9 +11879,81 @@ SwiftListMatch = Struct.new(
 #
 # @!attribute [rw] owner
 #   @return [Object]
+#
+# @!attribute [rw] auth_mode
+#   @return [String, nil]
+#
+# @!attribute [rw] auth_secret
+#   @return [String, nil]
+#
+# @!attribute [rw] auth_username
+#   @return [String, nil]
+#
+# @!attribute [rw] created_at
+#   @return [String, nil]
+#
+# @!attribute [rw] disable_reason
+#   @return [String, nil]
+#
+# @!attribute [rw] extra_header_1
+#   @return [String, nil]
+#
+# @!attribute [rw] extra_header_2
+#   @return [String, nil]
+#
+# @!attribute [rw] extra_value_1
+#   @return [String, nil]
+#
+# @!attribute [rw] extra_value_2
+#   @return [String, nil]
+#
+# @!attribute [rw] is_active
+#   @return [Boolean, nil]
+#
+# @!attribute [rw] mode
+#   @return [String, nil]
+#
+# @!attribute [rw] name
+#   @return [String]
+#
+# @!attribute [rw] pending_validation
+#   @return [Boolean, nil]
+#
+# @!attribute [rw] priority
+#   @return [Integer, nil]
+#
+# @!attribute [rw] slug_perm
+#   @return [String, nil]
+#
+# @!attribute [rw] updated_at
+#   @return [String, nil]
+#
+# @!attribute [rw] upstream_url
+#   @return [String]
+#
+# @!attribute [rw] verify_ssl
+#   @return [Boolean, nil]
 SwiftCreateData = Struct.new(
   :identifier,
   :owner,
+  :auth_mode,
+  :auth_secret,
+  :auth_username,
+  :created_at,
+  :disable_reason,
+  :extra_header_1,
+  :extra_header_2,
+  :extra_value_1,
+  :extra_value_2,
+  :is_active,
+  :mode,
+  :name,
+  :pending_validation,
+  :priority,
+  :slug_perm,
+  :updated_at,
+  :upstream_url,
+  :verify_ssl,
   keyword_init: true
 )
 
@@ -6815,10 +11967,82 @@ SwiftCreateData = Struct.new(
 #
 # @!attribute [rw] owner
 #   @return [Object]
+#
+# @!attribute [rw] auth_mode
+#   @return [String, nil]
+#
+# @!attribute [rw] auth_secret
+#   @return [String, nil]
+#
+# @!attribute [rw] auth_username
+#   @return [String, nil]
+#
+# @!attribute [rw] created_at
+#   @return [String, nil]
+#
+# @!attribute [rw] disable_reason
+#   @return [String, nil]
+#
+# @!attribute [rw] extra_header_1
+#   @return [String, nil]
+#
+# @!attribute [rw] extra_header_2
+#   @return [String, nil]
+#
+# @!attribute [rw] extra_value_1
+#   @return [String, nil]
+#
+# @!attribute [rw] extra_value_2
+#   @return [String, nil]
+#
+# @!attribute [rw] is_active
+#   @return [Boolean, nil]
+#
+# @!attribute [rw] mode
+#   @return [String, nil]
+#
+# @!attribute [rw] name
+#   @return [String, nil]
+#
+# @!attribute [rw] pending_validation
+#   @return [Boolean, nil]
+#
+# @!attribute [rw] priority
+#   @return [Integer, nil]
+#
+# @!attribute [rw] slug_perm
+#   @return [String, nil]
+#
+# @!attribute [rw] updated_at
+#   @return [String, nil]
+#
+# @!attribute [rw] upstream_url
+#   @return [String, nil]
+#
+# @!attribute [rw] verify_ssl
+#   @return [Boolean, nil]
 SwiftUpdateData = Struct.new(
   :id,
   :identifier,
   :owner,
+  :auth_mode,
+  :auth_secret,
+  :auth_username,
+  :created_at,
+  :disable_reason,
+  :extra_header_1,
+  :extra_header_2,
+  :extra_value_1,
+  :extra_value_2,
+  :is_active,
+  :mode,
+  :name,
+  :pending_validation,
+  :priority,
+  :slug_perm,
+  :updated_at,
+  :upstream_url,
+  :verify_ssl,
   keyword_init: true
 )
 
@@ -6930,8 +12154,16 @@ UserAuthenticationTokenCreateData = Struct.new(
 #
 # @!attribute [rw] slug_perm
 #   @return [Object]
+#
+# @!attribute [rw] created
+#   @return [String, nil]
+#
+# @!attribute [rw] key
+#   @return [String, nil]
 UserAuthenticationTokenUpdateData = Struct.new(
   :slug_perm,
+  :created,
+  :key,
   keyword_init: true
 )
 
@@ -7072,7 +12304,7 @@ end
 # @!attribute [rw] created_at
 #   @return [String, nil]
 #
-# @!attribute [rw] has_vulnerability
+# @!attribute [rw] has_vulnerabilities
 #   @return [Boolean, nil]
 #
 # @!attribute [rw] identifier
@@ -7081,13 +12313,13 @@ end
 # @!attribute [rw] max_severity
 #   @return [String, nil]
 #
-# @!attribute [rw] num_vulnerability
+# @!attribute [rw] num_vulnerabilities
 #   @return [Integer, nil]
 #
 # @!attribute [rw] package
 #   @return [Hash]
 #
-# @!attribute [rw] result
+# @!attribute [rw] results
 #   @return [Array]
 #
 # @!attribute [rw] scan_id
@@ -7100,12 +12332,12 @@ end
 #   @return [String]
 Vulnerability = Struct.new(
   :created_at,
-  :has_vulnerability,
+  :has_vulnerabilities,
   :identifier,
   :max_severity,
-  :num_vulnerability,
+  :num_vulnerabilities,
   :package,
-  :result,
+  :results,
   :scan_id,
   :target,
   :type,

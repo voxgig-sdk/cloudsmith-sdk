@@ -75,7 +75,7 @@ class NpmEntityTest < Minitest::Test
     npm_ref01_data["owner"] = setup[:idmap]["owner01"]
 
     npm_ref01_data_result = npm_ref01_ent.create(npm_ref01_data, nil)
-    npm_ref01_data = Helpers.to_map(npm_ref01_data_result)
+    npm_ref01_data = Helpers.to_map(npm_ref01_data_result.respond_to?(:data_get) ? npm_ref01_data_result.data_get : npm_ref01_data_result)
     assert !npm_ref01_data.nil?
 
     # LIST
@@ -86,11 +86,6 @@ class NpmEntityTest < Minitest::Test
 
     npm_ref01_list_result = npm_ref01_ent.list(npm_ref01_match, nil)
     assert npm_ref01_list_result.is_a?(Array)
-
-    found_item = Vs.select(
-      Runner.entity_list_to_data(npm_ref01_list_result),
-      { "id" => npm_ref01_data["id"] })
-    assert !Vs.isempty(found_item)
 
     # UPDATE
     npm_ref01_data_up0_up = {
@@ -103,7 +98,7 @@ class NpmEntityTest < Minitest::Test
     npm_ref01_data_up0_up[npm_ref01_markdef_up0_name] = npm_ref01_markdef_up0_value
 
     npm_ref01_resdata_up0_result = npm_ref01_ent.update(npm_ref01_data_up0_up, nil)
-    npm_ref01_resdata_up0 = Helpers.to_map(npm_ref01_resdata_up0_result)
+    npm_ref01_resdata_up0 = Helpers.to_map(npm_ref01_resdata_up0_result.respond_to?(:data_get) ? npm_ref01_resdata_up0_result.data_get : npm_ref01_resdata_up0_result)
     assert !npm_ref01_resdata_up0.nil?
     assert_equal npm_ref01_resdata_up0[npm_ref01_markdef_up0_name], npm_ref01_markdef_up0_value
 

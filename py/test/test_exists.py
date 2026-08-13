@@ -1,4 +1,4 @@
-# ProjectName SDK exists test
+# Cloudsmith SDK exists test
 
 import pytest
 from cloudsmith_sdk import CloudsmithSDK

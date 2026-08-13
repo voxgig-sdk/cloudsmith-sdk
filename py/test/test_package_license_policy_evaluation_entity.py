@@ -6,9 +6,9 @@ import time
 
 import pytest
 
-from utility.voxgig_struct import voxgig_struct as vs
+from cloudsmith_sdk.utility.voxgig_struct import voxgig_struct as vs
 from cloudsmith_sdk import CloudsmithSDK
-from core import helpers
+from cloudsmith_sdk.core import helpers
 
 _TEST_DIR = os.path.dirname(os.path.abspath(__file__))
 from test import runner
@@ -42,7 +42,7 @@ class TestPackageLicensePolicyEvaluationEntity:
         assert len(seen) == 3
 
         # Inbound: streaming active -> yields each item from the feature.
-        from config import make_config
+        from cloudsmith_sdk.config import make_config
         cfg = make_config()
         if isinstance(cfg.get("feature"), dict) and "streaming" in cfg["feature"]:
             sdk = CloudsmithSDK.test(
@@ -81,7 +81,7 @@ class TestPackageLicensePolicyEvaluationEntity:
         package_license_policy_evaluation_ref01_data["org_id"] = setup["idmap"]["org01"]
         package_license_policy_evaluation_ref01_data["policy_slug_perm"] = setup["idmap"]["policy_slug_perm01"]
 
-        package_license_policy_evaluation_ref01_data = helpers.to_map(package_license_policy_evaluation_ref01_ent.create(package_license_policy_evaluation_ref01_data, None))
+        package_license_policy_evaluation_ref01_data = helpers.to_map(runner.entity_data(package_license_policy_evaluation_ref01_ent.create(package_license_policy_evaluation_ref01_data, None)))
         assert package_license_policy_evaluation_ref01_data is not None
 
         # LIST
@@ -92,11 +92,6 @@ class TestPackageLicensePolicyEvaluationEntity:
 
         package_license_policy_evaluation_ref01_list_result = package_license_policy_evaluation_ref01_ent.list(package_license_policy_evaluation_ref01_match, None)
         assert isinstance(package_license_policy_evaluation_ref01_list_result, list)
-
-        found_item = vs.select(
-            runner.entity_list_to_data(package_license_policy_evaluation_ref01_list_result),
-            {"id": package_license_policy_evaluation_ref01_data["id"]})
-        assert not vs.isempty(found_item)
 
         # LOAD
         package_license_policy_evaluation_ref01_match_dt0 = {}

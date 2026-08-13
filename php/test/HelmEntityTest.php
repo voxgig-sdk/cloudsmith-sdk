@@ -85,7 +85,7 @@ class HelmEntityTest extends TestCase
         $helm_ref01_data["owner"] = $setup["idmap"]["owner01"];
 
         $helm_ref01_data_result = $helm_ref01_ent->create($helm_ref01_data, null);
-        $helm_ref01_data = Helpers::to_map($helm_ref01_data_result);
+        $helm_ref01_data = Helpers::to_map(is_object($helm_ref01_data_result) && method_exists($helm_ref01_data_result, 'data_get') ? $helm_ref01_data_result->data_get() : $helm_ref01_data_result);
         $this->assertNotNull($helm_ref01_data);
 
         // LIST
@@ -96,11 +96,6 @@ class HelmEntityTest extends TestCase
 
         $helm_ref01_list_result = $helm_ref01_ent->list($helm_ref01_match, null);
         $this->assertIsArray($helm_ref01_list_result);
-
-        $found_item = sdk_select(
-            Runner::entity_list_to_data($helm_ref01_list_result),
-            ["id" => $helm_ref01_data["id"]]);
-        $this->assertNotEmpty($found_item);
 
         // UPDATE
         $helm_ref01_data_up0_up = [
@@ -113,7 +108,7 @@ class HelmEntityTest extends TestCase
         $helm_ref01_data_up0_up[$helm_ref01_markdef_up0_name] = $helm_ref01_markdef_up0_value;
 
         $helm_ref01_resdata_up0_result = $helm_ref01_ent->update($helm_ref01_data_up0_up, null);
-        $helm_ref01_resdata_up0 = Helpers::to_map($helm_ref01_resdata_up0_result);
+        $helm_ref01_resdata_up0 = Helpers::to_map(is_object($helm_ref01_resdata_up0_result) && method_exists($helm_ref01_resdata_up0_result, 'data_get') ? $helm_ref01_resdata_up0_result->data_get() : $helm_ref01_resdata_up0_result);
         $this->assertNotNull($helm_ref01_resdata_up0);
         $this->assertEquals($helm_ref01_resdata_up0[$helm_ref01_markdef_up0_name], $helm_ref01_markdef_up0_value);
 

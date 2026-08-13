@@ -39,7 +39,7 @@ class RepositoryEcdsaKeyEntityTest < Minitest::Test
     repository_ecdsa_key_ref01_data["owner"] = setup[:idmap]["owner01"]
 
     repository_ecdsa_key_ref01_data_result = repository_ecdsa_key_ref01_ent.create(repository_ecdsa_key_ref01_data, nil)
-    repository_ecdsa_key_ref01_data = Helpers.to_map(repository_ecdsa_key_ref01_data_result)
+    repository_ecdsa_key_ref01_data = Helpers.to_map(repository_ecdsa_key_ref01_data_result.respond_to?(:data_get) ? repository_ecdsa_key_ref01_data_result.data_get : repository_ecdsa_key_ref01_data_result)
     assert !repository_ecdsa_key_ref01_data.nil?
 
     # LOAD

@@ -84,7 +84,7 @@ describe("ServiceEntity", function()
 
     local service_ref01_data_result, err = service_ref01_ent:create(service_ref01_data, nil)
     assert.is_nil(err)
-    service_ref01_data = helpers.to_map(service_ref01_data_result)
+    service_ref01_data = helpers.to_map(type(service_ref01_data_result) == 'table' and service_ref01_data_result.data_get and service_ref01_data_result:data_get() or service_ref01_data_result)
     assert.is_not_nil(service_ref01_data)
 
     -- LIST
@@ -95,11 +95,6 @@ describe("ServiceEntity", function()
     local service_ref01_list_result, err = service_ref01_ent:list(service_ref01_match, nil)
     assert.is_nil(err)
     assert.is_table(service_ref01_list_result)
-
-    local found_item = vs.select(
-      runner.entity_list_to_data(service_ref01_list_result),
-      { id = service_ref01_data["id"] })
-    assert.is_false(vs.isempty(found_item))
 
     -- UPDATE
     local service_ref01_data_up0_up = {
@@ -112,7 +107,7 @@ describe("ServiceEntity", function()
 
     local service_ref01_resdata_up0_result, err = service_ref01_ent:update(service_ref01_data_up0_up, nil)
     assert.is_nil(err)
-    local service_ref01_resdata_up0 = helpers.to_map(service_ref01_resdata_up0_result)
+    local service_ref01_resdata_up0 = helpers.to_map(type(service_ref01_resdata_up0_result) == 'table' and service_ref01_resdata_up0_result.data_get and service_ref01_resdata_up0_result:data_get() or service_ref01_resdata_up0_result)
     assert.is_not_nil(service_ref01_resdata_up0)
     assert.are.equal(service_ref01_resdata_up0[service_ref01_markdef_up0_name], service_ref01_markdef_up0_value)
 

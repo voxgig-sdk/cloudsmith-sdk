@@ -39,7 +39,7 @@ class RepositoryTokenSyncEntityTest < Minitest::Test
     repository_token_sync_ref01_data["repo"] = setup[:idmap]["repo01"]
 
     repository_token_sync_ref01_data_result = repository_token_sync_ref01_ent.create(repository_token_sync_ref01_data, nil)
-    repository_token_sync_ref01_data = Helpers.to_map(repository_token_sync_ref01_data_result)
+    repository_token_sync_ref01_data = Helpers.to_map(repository_token_sync_ref01_data_result.respond_to?(:data_get) ? repository_token_sync_ref01_data_result.data_get : repository_token_sync_ref01_data_result)
     assert !repository_token_sync_ref01_data.nil?
 
   end

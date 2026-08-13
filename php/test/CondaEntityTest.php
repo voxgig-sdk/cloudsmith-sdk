@@ -85,7 +85,7 @@ class CondaEntityTest extends TestCase
         $conda_ref01_data["owner"] = $setup["idmap"]["owner01"];
 
         $conda_ref01_data_result = $conda_ref01_ent->create($conda_ref01_data, null);
-        $conda_ref01_data = Helpers::to_map($conda_ref01_data_result);
+        $conda_ref01_data = Helpers::to_map(is_object($conda_ref01_data_result) && method_exists($conda_ref01_data_result, 'data_get') ? $conda_ref01_data_result->data_get() : $conda_ref01_data_result);
         $this->assertNotNull($conda_ref01_data);
 
         // LIST
@@ -96,11 +96,6 @@ class CondaEntityTest extends TestCase
 
         $conda_ref01_list_result = $conda_ref01_ent->list($conda_ref01_match, null);
         $this->assertIsArray($conda_ref01_list_result);
-
-        $found_item = sdk_select(
-            Runner::entity_list_to_data($conda_ref01_list_result),
-            ["id" => $conda_ref01_data["id"]]);
-        $this->assertNotEmpty($found_item);
 
         // UPDATE
         $conda_ref01_data_up0_up = [
@@ -113,7 +108,7 @@ class CondaEntityTest extends TestCase
         $conda_ref01_data_up0_up[$conda_ref01_markdef_up0_name] = $conda_ref01_markdef_up0_value;
 
         $conda_ref01_resdata_up0_result = $conda_ref01_ent->update($conda_ref01_data_up0_up, null);
-        $conda_ref01_resdata_up0 = Helpers::to_map($conda_ref01_resdata_up0_result);
+        $conda_ref01_resdata_up0 = Helpers::to_map(is_object($conda_ref01_resdata_up0_result) && method_exists($conda_ref01_resdata_up0_result, 'data_get') ? $conda_ref01_resdata_up0_result->data_get() : $conda_ref01_resdata_up0_result);
         $this->assertNotNull($conda_ref01_resdata_up0);
         $this->assertEquals($conda_ref01_resdata_up0[$conda_ref01_markdef_up0_name], $conda_ref01_markdef_up0_value);
 

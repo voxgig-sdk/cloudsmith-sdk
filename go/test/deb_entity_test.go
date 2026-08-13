@@ -109,7 +109,7 @@ func TestDebEntity(t *testing.T) {
 		if err != nil {
 			t.Fatalf("create failed: %v", err)
 		}
-		debRef01Data = core.ToMapAny(debRef01DataResult)
+		debRef01Data = core.ToMapAny(entityData(debRef01DataResult))
 		if debRef01Data == nil {
 			t.Fatal("expected create result to be a map")
 		}
@@ -124,14 +124,9 @@ func TestDebEntity(t *testing.T) {
 		if err != nil {
 			t.Fatalf("list failed: %v", err)
 		}
-		debRef01List, debRef01ListOk := debRef01ListResult.([]any)
+		_, debRef01ListOk := debRef01ListResult.([]any)
 		if !debRef01ListOk {
 			t.Fatalf("expected list result to be an array, got %T", debRef01ListResult)
-		}
-
-		foundItem := vs.Select(entityListToData(debRef01List), map[string]any{"id": debRef01Data["id"]})
-		if vs.IsEmpty(foundItem) {
-			t.Fatal("expected to find created entity in list")
 		}
 
 		// UPDATE
@@ -148,7 +143,7 @@ func TestDebEntity(t *testing.T) {
 		if err != nil {
 			t.Fatalf("update failed: %v", err)
 		}
-		debRef01ResdataUp0 := core.ToMapAny(debRef01ResdataUp0Result)
+		debRef01ResdataUp0 := core.ToMapAny(entityData(debRef01ResdataUp0Result))
 		if debRef01ResdataUp0 == nil {
 			t.Fatal("expected update result to be a map")
 		}

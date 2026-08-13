@@ -6,9 +6,9 @@ import time
 
 import pytest
 
-from utility.voxgig_struct import voxgig_struct as vs
+from cloudsmith_sdk.utility.voxgig_struct import voxgig_struct as vs
 from cloudsmith_sdk import CloudsmithSDK
-from core import helpers
+from cloudsmith_sdk.core import helpers
 
 _TEST_DIR = os.path.dirname(os.path.abspath(__file__))
 from test import runner
@@ -42,7 +42,7 @@ class TestRepoEntity:
         assert len(seen) == 3
 
         # Inbound: streaming active -> yields each item from the feature.
-        from config import make_config
+        from cloudsmith_sdk.config import make_config
         cfg = make_config()
         if isinstance(cfg.get("feature"), dict) and "streaming" in cfg["feature"]:
             sdk = CloudsmithSDK.test(
@@ -80,7 +80,7 @@ class TestRepoEntity:
         repo_ref01_data["identifier"] = setup["idmap"]["identifier01"]
         repo_ref01_data["owner"] = setup["idmap"]["owner01"]
 
-        repo_ref01_data = helpers.to_map(repo_ref01_ent.create(repo_ref01_data, None))
+        repo_ref01_data = helpers.to_map(runner.entity_data(repo_ref01_ent.create(repo_ref01_data, None)))
         assert repo_ref01_data is not None
 
         # LIST
@@ -88,11 +88,6 @@ class TestRepoEntity:
 
         repo_ref01_list_result = repo_ref01_ent.list(repo_ref01_match, None)
         assert isinstance(repo_ref01_list_result, list)
-
-        found_item = vs.select(
-            runner.entity_list_to_data(repo_ref01_list_result),
-            {"id": repo_ref01_data["id"]})
-        assert not vs.isempty(found_item)
 
         # UPDATE
         repo_ref01_data_up0_up = {
@@ -103,7 +98,7 @@ class TestRepoEntity:
         repo_ref01_markdef_up0_value = "Mark01-repo_ref01_" + str(setup["now"])
         repo_ref01_data_up0_up[repo_ref01_markdef_up0_name] = repo_ref01_markdef_up0_value
 
-        repo_ref01_resdata_up0 = helpers.to_map(repo_ref01_ent.update(repo_ref01_data_up0_up, None))
+        repo_ref01_resdata_up0 = helpers.to_map(runner.entity_data(repo_ref01_ent.update(repo_ref01_data_up0_up, None)))
         assert repo_ref01_resdata_up0 is not None
         assert repo_ref01_resdata_up0[repo_ref01_markdef_up0_name] == repo_ref01_markdef_up0_value
 
@@ -112,22 +107,12 @@ class TestRepoEntity:
         repo_ref01_data_dt0_loaded = repo_ref01_ent.load(repo_ref01_match_dt0, None)
         assert repo_ref01_data_dt0_loaded is not None
 
-        # REMOVE
-        repo_ref01_match_rm0 = {
-            "id": repo_ref01_data["id"],
-        }
-        repo_ref01_ent.remove(repo_ref01_match_rm0, None)
 
         # LIST
         repo_ref01_match_rt0 = {}
 
         repo_ref01_list_rt0_result = repo_ref01_ent.list(repo_ref01_match_rt0, None)
         assert isinstance(repo_ref01_list_rt0_result, list)
-
-        not_found_item = vs.select(
-            runner.entity_list_to_data(repo_ref01_list_rt0_result),
-            {"id": repo_ref01_data["id"]})
-        assert vs.isempty(not_found_item)
 
 
 

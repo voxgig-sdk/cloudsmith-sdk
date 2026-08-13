@@ -43,7 +43,7 @@ describe("RepositoryGeoIpTestAddressEntity", function()
 
     local repository_geo_ip_test_address_ref01_data_result, err = repository_geo_ip_test_address_ref01_ent:create(repository_geo_ip_test_address_ref01_data, nil)
     assert.is_nil(err)
-    repository_geo_ip_test_address_ref01_data = helpers.to_map(repository_geo_ip_test_address_ref01_data_result)
+    repository_geo_ip_test_address_ref01_data = helpers.to_map(type(repository_geo_ip_test_address_ref01_data_result) == 'table' and repository_geo_ip_test_address_ref01_data_result.data_get and repository_geo_ip_test_address_ref01_data_result:data_get() or repository_geo_ip_test_address_ref01_data_result)
     assert.is_not_nil(repository_geo_ip_test_address_ref01_data)
 
   end)

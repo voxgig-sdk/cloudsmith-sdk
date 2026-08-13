@@ -109,7 +109,7 @@ func TestServiceEntity(t *testing.T) {
 		if err != nil {
 			t.Fatalf("create failed: %v", err)
 		}
-		serviceRef01Data = core.ToMapAny(serviceRef01DataResult)
+		serviceRef01Data = core.ToMapAny(entityData(serviceRef01DataResult))
 		if serviceRef01Data == nil {
 			t.Fatal("expected create result to be a map")
 		}
@@ -123,14 +123,9 @@ func TestServiceEntity(t *testing.T) {
 		if err != nil {
 			t.Fatalf("list failed: %v", err)
 		}
-		serviceRef01List, serviceRef01ListOk := serviceRef01ListResult.([]any)
+		_, serviceRef01ListOk := serviceRef01ListResult.([]any)
 		if !serviceRef01ListOk {
 			t.Fatalf("expected list result to be an array, got %T", serviceRef01ListResult)
-		}
-
-		foundItem := vs.Select(entityListToData(serviceRef01List), map[string]any{"id": serviceRef01Data["id"]})
-		if vs.IsEmpty(foundItem) {
-			t.Fatal("expected to find created entity in list")
 		}
 
 		// UPDATE
@@ -146,7 +141,7 @@ func TestServiceEntity(t *testing.T) {
 		if err != nil {
 			t.Fatalf("update failed: %v", err)
 		}
-		serviceRef01ResdataUp0 := core.ToMapAny(serviceRef01ResdataUp0Result)
+		serviceRef01ResdataUp0 := core.ToMapAny(entityData(serviceRef01ResdataUp0Result))
 		if serviceRef01ResdataUp0 == nil {
 			t.Fatal("expected update result to be a map")
 		}

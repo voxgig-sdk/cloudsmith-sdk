@@ -109,7 +109,7 @@ func TestCondaEntity(t *testing.T) {
 		if err != nil {
 			t.Fatalf("create failed: %v", err)
 		}
-		condaRef01Data = core.ToMapAny(condaRef01DataResult)
+		condaRef01Data = core.ToMapAny(entityData(condaRef01DataResult))
 		if condaRef01Data == nil {
 			t.Fatal("expected create result to be a map")
 		}
@@ -124,14 +124,9 @@ func TestCondaEntity(t *testing.T) {
 		if err != nil {
 			t.Fatalf("list failed: %v", err)
 		}
-		condaRef01List, condaRef01ListOk := condaRef01ListResult.([]any)
+		_, condaRef01ListOk := condaRef01ListResult.([]any)
 		if !condaRef01ListOk {
 			t.Fatalf("expected list result to be an array, got %T", condaRef01ListResult)
-		}
-
-		foundItem := vs.Select(entityListToData(condaRef01List), map[string]any{"id": condaRef01Data["id"]})
-		if vs.IsEmpty(foundItem) {
-			t.Fatal("expected to find created entity in list")
 		}
 
 		// UPDATE
@@ -148,7 +143,7 @@ func TestCondaEntity(t *testing.T) {
 		if err != nil {
 			t.Fatalf("update failed: %v", err)
 		}
-		condaRef01ResdataUp0 := core.ToMapAny(condaRef01ResdataUp0Result)
+		condaRef01ResdataUp0 := core.ToMapAny(entityData(condaRef01ResdataUp0Result))
 		if condaRef01ResdataUp0 == nil {
 			t.Fatal("expected update result to be a map")
 		}

@@ -64,7 +64,7 @@ describe('RepositoryGeoIpTestAddressEntity', async () => {
     repository_geo_ip_test_address_ref01_data['identifier'] = setup.idmap['identifier01']
     repository_geo_ip_test_address_ref01_data['owner'] = setup.idmap['owner01']
 
-    repository_geo_ip_test_address_ref01_data = await repository_geo_ip_test_address_ref01_ent.create(repository_geo_ip_test_address_ref01_data)
+    repository_geo_ip_test_address_ref01_data = (await repository_geo_ip_test_address_ref01_ent.create(repository_geo_ip_test_address_ref01_data)).data()
     assert(null != repository_geo_ip_test_address_ref01_data)
 
 

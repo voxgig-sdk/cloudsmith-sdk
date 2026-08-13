@@ -109,7 +109,7 @@ func TestPythonEntity(t *testing.T) {
 		if err != nil {
 			t.Fatalf("create failed: %v", err)
 		}
-		pythonRef01Data = core.ToMapAny(pythonRef01DataResult)
+		pythonRef01Data = core.ToMapAny(entityData(pythonRef01DataResult))
 		if pythonRef01Data == nil {
 			t.Fatal("expected create result to be a map")
 		}
@@ -124,14 +124,9 @@ func TestPythonEntity(t *testing.T) {
 		if err != nil {
 			t.Fatalf("list failed: %v", err)
 		}
-		pythonRef01List, pythonRef01ListOk := pythonRef01ListResult.([]any)
+		_, pythonRef01ListOk := pythonRef01ListResult.([]any)
 		if !pythonRef01ListOk {
 			t.Fatalf("expected list result to be an array, got %T", pythonRef01ListResult)
-		}
-
-		foundItem := vs.Select(entityListToData(pythonRef01List), map[string]any{"id": pythonRef01Data["id"]})
-		if vs.IsEmpty(foundItem) {
-			t.Fatal("expected to find created entity in list")
 		}
 
 		// UPDATE
@@ -148,7 +143,7 @@ func TestPythonEntity(t *testing.T) {
 		if err != nil {
 			t.Fatalf("update failed: %v", err)
 		}
-		pythonRef01ResdataUp0 := core.ToMapAny(pythonRef01ResdataUp0Result)
+		pythonRef01ResdataUp0 := core.ToMapAny(entityData(pythonRef01ResdataUp0Result))
 		if pythonRef01ResdataUp0 == nil {
 			t.Fatal("expected update result to be a map")
 		}

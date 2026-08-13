@@ -76,7 +76,7 @@ function repository_x509_ecdsa_certificate_direct_setup($mockres)
     $calls = new \ArrayObject();
 
     $env = Runner::env_override([
-        "CLOUDSMITH_TEST_REPOSITORY_X____ECDSA_CERTIFICATE_ENTID" => [],
+        "CLOUDSMITH_TEST_REPOSITORY_X509_ECDSA_CERTIFICATE_ENTID" => [],
         "CLOUDSMITH_TEST_LIVE" => "FALSE",
         "CLOUDSMITH_APIKEY" => "NONE",
     ]);

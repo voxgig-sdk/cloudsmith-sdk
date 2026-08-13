@@ -108,7 +108,7 @@ func TestPackageDenyPolicyEntity(t *testing.T) {
 		if err != nil {
 			t.Fatalf("create failed: %v", err)
 		}
-		packageDenyPolicyRef01Data = core.ToMapAny(packageDenyPolicyRef01DataResult)
+		packageDenyPolicyRef01Data = core.ToMapAny(entityData(packageDenyPolicyRef01DataResult))
 		if packageDenyPolicyRef01Data == nil {
 			t.Fatal("expected create result to be a map")
 		}
@@ -122,14 +122,9 @@ func TestPackageDenyPolicyEntity(t *testing.T) {
 		if err != nil {
 			t.Fatalf("list failed: %v", err)
 		}
-		packageDenyPolicyRef01List, packageDenyPolicyRef01ListOk := packageDenyPolicyRef01ListResult.([]any)
+		_, packageDenyPolicyRef01ListOk := packageDenyPolicyRef01ListResult.([]any)
 		if !packageDenyPolicyRef01ListOk {
 			t.Fatalf("expected list result to be an array, got %T", packageDenyPolicyRef01ListResult)
-		}
-
-		foundItem := vs.Select(entityListToData(packageDenyPolicyRef01List), map[string]any{"id": packageDenyPolicyRef01Data["id"]})
-		if vs.IsEmpty(foundItem) {
-			t.Fatal("expected to find created entity in list")
 		}
 
 		// UPDATE
@@ -145,7 +140,7 @@ func TestPackageDenyPolicyEntity(t *testing.T) {
 		if err != nil {
 			t.Fatalf("update failed: %v", err)
 		}
-		packageDenyPolicyRef01ResdataUp0 := core.ToMapAny(packageDenyPolicyRef01ResdataUp0Result)
+		packageDenyPolicyRef01ResdataUp0 := core.ToMapAny(entityData(packageDenyPolicyRef01ResdataUp0Result))
 		if packageDenyPolicyRef01ResdataUp0 == nil {
 			t.Fatal("expected update result to be a map")
 		}

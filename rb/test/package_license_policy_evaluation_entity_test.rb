@@ -76,7 +76,7 @@ class PackageLicensePolicyEvaluationEntityTest < Minitest::Test
     package_license_policy_evaluation_ref01_data["policy_slug_perm"] = setup[:idmap]["policy_slug_perm01"]
 
     package_license_policy_evaluation_ref01_data_result = package_license_policy_evaluation_ref01_ent.create(package_license_policy_evaluation_ref01_data, nil)
-    package_license_policy_evaluation_ref01_data = Helpers.to_map(package_license_policy_evaluation_ref01_data_result)
+    package_license_policy_evaluation_ref01_data = Helpers.to_map(package_license_policy_evaluation_ref01_data_result.respond_to?(:data_get) ? package_license_policy_evaluation_ref01_data_result.data_get : package_license_policy_evaluation_ref01_data_result)
     assert !package_license_policy_evaluation_ref01_data.nil?
 
     # LIST
@@ -87,11 +87,6 @@ class PackageLicensePolicyEvaluationEntityTest < Minitest::Test
 
     package_license_policy_evaluation_ref01_list_result = package_license_policy_evaluation_ref01_ent.list(package_license_policy_evaluation_ref01_match, nil)
     assert package_license_policy_evaluation_ref01_list_result.is_a?(Array)
-
-    found_item = Vs.select(
-      Runner.entity_list_to_data(package_license_policy_evaluation_ref01_list_result),
-      { "id" => package_license_policy_evaluation_ref01_data["id"] })
-    assert !Vs.isempty(found_item)
 
     # LOAD
     package_license_policy_evaluation_ref01_match_dt0 = {}

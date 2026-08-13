@@ -3,9 +3,9 @@
 import json
 import pytest
 
-from utility.voxgig_struct import voxgig_struct as vs
+from cloudsmith_sdk.utility.voxgig_struct import voxgig_struct as vs
 from cloudsmith_sdk import CloudsmithSDK
-from core import helpers
+from cloudsmith_sdk.core import helpers
 from test import runner
 
 
@@ -67,7 +67,7 @@ def _repository_x509_ecdsa_certificate_direct_setup(mockres):
     calls = []
 
     env = runner.env_override({
-        "CLOUDSMITH_TEST_REPOSITORY_X____ECDSA_CERTIFICATE_ENTID": {},
+        "CLOUDSMITH_TEST_REPOSITORY_X509_ECDSA_CERTIFICATE_ENTID": {},
         "CLOUDSMITH_TEST_LIVE": "FALSE",
         "CLOUDSMITH_APIKEY": "NONE",
     })

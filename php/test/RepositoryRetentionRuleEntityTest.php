@@ -57,7 +57,7 @@ class RepositoryRetentionRuleEntityTest extends TestCase
         $repository_retention_rule_ref01_data_up0_up[$repository_retention_rule_ref01_markdef_up0_name] = $repository_retention_rule_ref01_markdef_up0_value;
 
         $repository_retention_rule_ref01_resdata_up0_result = $repository_retention_rule_ref01_ent->update($repository_retention_rule_ref01_data_up0_up, null);
-        $repository_retention_rule_ref01_resdata_up0 = Helpers::to_map($repository_retention_rule_ref01_resdata_up0_result);
+        $repository_retention_rule_ref01_resdata_up0 = Helpers::to_map(is_object($repository_retention_rule_ref01_resdata_up0_result) && method_exists($repository_retention_rule_ref01_resdata_up0_result, 'data_get') ? $repository_retention_rule_ref01_resdata_up0_result->data_get() : $repository_retention_rule_ref01_resdata_up0_result);
         $this->assertNotNull($repository_retention_rule_ref01_resdata_up0);
         $this->assertEquals($repository_retention_rule_ref01_resdata_up0[$repository_retention_rule_ref01_markdef_up0_name], $repository_retention_rule_ref01_markdef_up0_value);
 

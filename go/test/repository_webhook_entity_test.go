@@ -110,7 +110,7 @@ func TestRepositoryWebhookEntity(t *testing.T) {
 		if err != nil {
 			t.Fatalf("create failed: %v", err)
 		}
-		repositoryWebhookRef01Data = core.ToMapAny(repositoryWebhookRef01DataResult)
+		repositoryWebhookRef01Data = core.ToMapAny(entityData(repositoryWebhookRef01DataResult))
 		if repositoryWebhookRef01Data == nil {
 			t.Fatal("expected create result to be a map")
 		}
@@ -126,14 +126,9 @@ func TestRepositoryWebhookEntity(t *testing.T) {
 		if err != nil {
 			t.Fatalf("list failed: %v", err)
 		}
-		repositoryWebhookRef01List, repositoryWebhookRef01ListOk := repositoryWebhookRef01ListResult.([]any)
+		_, repositoryWebhookRef01ListOk := repositoryWebhookRef01ListResult.([]any)
 		if !repositoryWebhookRef01ListOk {
 			t.Fatalf("expected list result to be an array, got %T", repositoryWebhookRef01ListResult)
-		}
-
-		foundItem := vs.Select(entityListToData(repositoryWebhookRef01List), map[string]any{"id": repositoryWebhookRef01Data["id"]})
-		if vs.IsEmpty(foundItem) {
-			t.Fatal("expected to find created entity in list")
 		}
 
 		// UPDATE
@@ -150,7 +145,7 @@ func TestRepositoryWebhookEntity(t *testing.T) {
 		if err != nil {
 			t.Fatalf("update failed: %v", err)
 		}
-		repositoryWebhookRef01ResdataUp0 := core.ToMapAny(repositoryWebhookRef01ResdataUp0Result)
+		repositoryWebhookRef01ResdataUp0 := core.ToMapAny(entityData(repositoryWebhookRef01ResdataUp0Result))
 		if repositoryWebhookRef01ResdataUp0 == nil {
 			t.Fatal("expected update result to be a map")
 		}

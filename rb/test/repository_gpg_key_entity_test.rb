@@ -39,7 +39,7 @@ class RepositoryGpgKeyEntityTest < Minitest::Test
     repository_gpg_key_ref01_data["owner"] = setup[:idmap]["owner01"]
 
     repository_gpg_key_ref01_data_result = repository_gpg_key_ref01_ent.create(repository_gpg_key_ref01_data, nil)
-    repository_gpg_key_ref01_data = Helpers.to_map(repository_gpg_key_ref01_data_result)
+    repository_gpg_key_ref01_data = Helpers.to_map(repository_gpg_key_ref01_data_result.respond_to?(:data_get) ? repository_gpg_key_ref01_data_result.data_get : repository_gpg_key_ref01_data_result)
     assert !repository_gpg_key_ref01_data.nil?
 
     # LOAD

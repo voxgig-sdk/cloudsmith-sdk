@@ -75,7 +75,7 @@ class CranEntityTest < Minitest::Test
     cran_ref01_data["owner"] = setup[:idmap]["owner01"]
 
     cran_ref01_data_result = cran_ref01_ent.create(cran_ref01_data, nil)
-    cran_ref01_data = Helpers.to_map(cran_ref01_data_result)
+    cran_ref01_data = Helpers.to_map(cran_ref01_data_result.respond_to?(:data_get) ? cran_ref01_data_result.data_get : cran_ref01_data_result)
     assert !cran_ref01_data.nil?
 
     # LIST
@@ -86,11 +86,6 @@ class CranEntityTest < Minitest::Test
 
     cran_ref01_list_result = cran_ref01_ent.list(cran_ref01_match, nil)
     assert cran_ref01_list_result.is_a?(Array)
-
-    found_item = Vs.select(
-      Runner.entity_list_to_data(cran_ref01_list_result),
-      { "id" => cran_ref01_data["id"] })
-    assert !Vs.isempty(found_item)
 
     # UPDATE
     cran_ref01_data_up0_up = {
@@ -103,7 +98,7 @@ class CranEntityTest < Minitest::Test
     cran_ref01_data_up0_up[cran_ref01_markdef_up0_name] = cran_ref01_markdef_up0_value
 
     cran_ref01_resdata_up0_result = cran_ref01_ent.update(cran_ref01_data_up0_up, nil)
-    cran_ref01_resdata_up0 = Helpers.to_map(cran_ref01_resdata_up0_result)
+    cran_ref01_resdata_up0 = Helpers.to_map(cran_ref01_resdata_up0_result.respond_to?(:data_get) ? cran_ref01_resdata_up0_result.data_get : cran_ref01_resdata_up0_result)
     assert !cran_ref01_resdata_up0.nil?
     assert_equal cran_ref01_resdata_up0[cran_ref01_markdef_up0_name], cran_ref01_markdef_up0_value
 

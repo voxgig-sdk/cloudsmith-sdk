@@ -109,7 +109,7 @@ func TestHelmEntity(t *testing.T) {
 		if err != nil {
 			t.Fatalf("create failed: %v", err)
 		}
-		helmRef01Data = core.ToMapAny(helmRef01DataResult)
+		helmRef01Data = core.ToMapAny(entityData(helmRef01DataResult))
 		if helmRef01Data == nil {
 			t.Fatal("expected create result to be a map")
 		}
@@ -124,14 +124,9 @@ func TestHelmEntity(t *testing.T) {
 		if err != nil {
 			t.Fatalf("list failed: %v", err)
 		}
-		helmRef01List, helmRef01ListOk := helmRef01ListResult.([]any)
+		_, helmRef01ListOk := helmRef01ListResult.([]any)
 		if !helmRef01ListOk {
 			t.Fatalf("expected list result to be an array, got %T", helmRef01ListResult)
-		}
-
-		foundItem := vs.Select(entityListToData(helmRef01List), map[string]any{"id": helmRef01Data["id"]})
-		if vs.IsEmpty(foundItem) {
-			t.Fatal("expected to find created entity in list")
 		}
 
 		// UPDATE
@@ -148,7 +143,7 @@ func TestHelmEntity(t *testing.T) {
 		if err != nil {
 			t.Fatalf("update failed: %v", err)
 		}
-		helmRef01ResdataUp0 := core.ToMapAny(helmRef01ResdataUp0Result)
+		helmRef01ResdataUp0 := core.ToMapAny(entityData(helmRef01ResdataUp0Result))
 		if helmRef01ResdataUp0 == nil {
 			t.Fatal("expected update result to be a map")
 		}

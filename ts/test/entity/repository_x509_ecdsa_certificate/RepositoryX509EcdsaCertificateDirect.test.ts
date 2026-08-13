@@ -24,6 +24,10 @@ describe('RepositoryX509EcdsaCertificateDirect', async () => {
 
   test('direct-exists', async () => {
     const sdk = new CloudsmithSDK({
+      // Concrete base: a live construction must satisfy any server
+      // variables a templated base URL declares; overriding base with a
+      // literal (as the direct flow tests do) sidesteps the requirement.
+      base: 'http://localhost:8080',
       system: { fetch: async () => ({}) }
     })
     assert('function' === typeof sdk.direct)
@@ -80,7 +84,7 @@ function directSetup(mockres?: any) {
   const calls: any[] = []
 
   const env = envOverride({
-    'CLOUDSMITH_TEST_REPOSITORY_X____ECDSA_CERTIFICATE_ENTID': {},
+    'CLOUDSMITH_TEST_REPOSITORY_X509_ECDSA_CERTIFICATE_ENTID': {},
     'CLOUDSMITH_TEST_LIVE': 'FALSE',
     'CLOUDSMITH_APIKEY': 'NONE',
   })
@@ -92,7 +96,7 @@ function directSetup(mockres?: any) {
       apikey: env.CLOUDSMITH_APIKEY,
     })
 
-    let idmap: any = env['CLOUDSMITH_TEST_REPOSITORY_X____ECDSA_CERTIFICATE_ENTID']
+    let idmap: any = env['CLOUDSMITH_TEST_REPOSITORY_X509_ECDSA_CERTIFICATE_ENTID']
     if ('string' === typeof idmap && idmap.startsWith('{')) {
       idmap = JSON.parse(idmap)
     }

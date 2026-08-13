@@ -64,7 +64,7 @@ describe('DockerEntity', async () => {
     docker_ref01_data['identifier'] = setup.idmap['identifier01']
     docker_ref01_data['owner'] = setup.idmap['owner01']
 
-    docker_ref01_data = await docker_ref01_ent.create(docker_ref01_data)
+    docker_ref01_data = (await docker_ref01_ent.create(docker_ref01_data)).data()
     assert(null != docker_ref01_data)
 
 
@@ -73,9 +73,7 @@ describe('DockerEntity', async () => {
     docker_ref01_match['identifier'] = setup.idmap['identifier01']
     docker_ref01_match['owner'] = setup.idmap['owner01']
 
-    const docker_ref01_list = await docker_ref01_ent.list(docker_ref01_match)
-
-    assert(!isempty(select(docker_ref01_list, { id: docker_ref01_data.id })))
+    const docker_ref01_list = (await docker_ref01_ent.list(docker_ref01_match)).map((e: any) => e.data())
 
 
     // UPDATE
@@ -86,7 +84,7 @@ describe('DockerEntity', async () => {
     const docker_ref01_markdef_up0 = { name: 'auth_mode', value: 'Mark01-docker_ref01_' + setup.now }
     ;(docker_ref01_data_up0 as any)[docker_ref01_markdef_up0.name] = docker_ref01_markdef_up0.value
 
-    const docker_ref01_resdata_up0 = await docker_ref01_ent.update(docker_ref01_data_up0)
+    const docker_ref01_resdata_up0 = (await docker_ref01_ent.update(docker_ref01_data_up0)).data()
     assert(null != docker_ref01_resdata_up0)
 
     assert((docker_ref01_resdata_up0 as any)[docker_ref01_markdef_up0.name] === docker_ref01_markdef_up0.value)

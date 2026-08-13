@@ -39,7 +39,7 @@ class RepositoryRsaKeyEntityTest < Minitest::Test
     repository_rsa_key_ref01_data["owner"] = setup[:idmap]["owner01"]
 
     repository_rsa_key_ref01_data_result = repository_rsa_key_ref01_ent.create(repository_rsa_key_ref01_data, nil)
-    repository_rsa_key_ref01_data = Helpers.to_map(repository_rsa_key_ref01_data_result)
+    repository_rsa_key_ref01_data = Helpers.to_map(repository_rsa_key_ref01_data_result.respond_to?(:data_get) ? repository_rsa_key_ref01_data_result.data_get : repository_rsa_key_ref01_data_result)
     assert !repository_rsa_key_ref01_data.nil?
 
     # LOAD

@@ -43,7 +43,7 @@ describe("OrganizationInviteExtendEntity", function()
 
     local organization_invite_extend_ref01_data_result, err = organization_invite_extend_ref01_ent:create(organization_invite_extend_ref01_data, nil)
     assert.is_nil(err)
-    organization_invite_extend_ref01_data = helpers.to_map(organization_invite_extend_ref01_data_result)
+    organization_invite_extend_ref01_data = helpers.to_map(type(organization_invite_extend_ref01_data_result) == 'table' and organization_invite_extend_ref01_data_result.data_get and organization_invite_extend_ref01_data_result:data_get() or organization_invite_extend_ref01_data_result)
     assert.is_not_nil(organization_invite_extend_ref01_data)
 
   end)

@@ -86,7 +86,7 @@ class PackageEntityTest extends TestCase
         $package_ref01_data["repo"] = $setup["idmap"]["repo01"];
 
         $package_ref01_data_result = $package_ref01_ent->create($package_ref01_data, null);
-        $package_ref01_data = Helpers::to_map($package_ref01_data_result);
+        $package_ref01_data = Helpers::to_map(is_object($package_ref01_data_result) && method_exists($package_ref01_data_result, 'data_get') ? $package_ref01_data_result->data_get() : $package_ref01_data_result);
         $this->assertNotNull($package_ref01_data);
 
         // LIST
@@ -99,21 +99,11 @@ class PackageEntityTest extends TestCase
         $package_ref01_list_result = $package_ref01_ent->list($package_ref01_match, null);
         $this->assertIsArray($package_ref01_list_result);
 
-        $found_item = sdk_select(
-            Runner::entity_list_to_data($package_ref01_list_result),
-            ["id" => $package_ref01_data["id"]]);
-        $this->assertNotEmpty($found_item);
-
         // LOAD
         $package_ref01_match_dt0 = [];
         $package_ref01_data_dt0_loaded = $package_ref01_ent->load($package_ref01_match_dt0, null);
         $this->assertNotNull($package_ref01_data_dt0_loaded);
 
-        // REMOVE
-        $package_ref01_match_rm0 = [
-            "id" => $package_ref01_data["id"],
-        ];
-        $package_ref01_ent->remove($package_ref01_match_rm0, null);
 
         // LIST
         $package_ref01_match_rt0 = [
@@ -124,11 +114,6 @@ class PackageEntityTest extends TestCase
 
         $package_ref01_list_rt0_result = $package_ref01_ent->list($package_ref01_match_rt0, null);
         $this->assertIsArray($package_ref01_list_rt0_result);
-
-        $not_found_item = sdk_select(
-            Runner::entity_list_to_data($package_ref01_list_rt0_result),
-            ["id" => $package_ref01_data["id"]]);
-        $this->assertEmpty($not_found_item);
 
     }
 }

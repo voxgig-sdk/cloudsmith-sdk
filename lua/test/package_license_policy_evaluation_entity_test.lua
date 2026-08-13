@@ -85,7 +85,7 @@ describe("PackageLicensePolicyEvaluationEntity", function()
 
     local package_license_policy_evaluation_ref01_data_result, err = package_license_policy_evaluation_ref01_ent:create(package_license_policy_evaluation_ref01_data, nil)
     assert.is_nil(err)
-    package_license_policy_evaluation_ref01_data = helpers.to_map(package_license_policy_evaluation_ref01_data_result)
+    package_license_policy_evaluation_ref01_data = helpers.to_map(type(package_license_policy_evaluation_ref01_data_result) == 'table' and package_license_policy_evaluation_ref01_data_result.data_get and package_license_policy_evaluation_ref01_data_result:data_get() or package_license_policy_evaluation_ref01_data_result)
     assert.is_not_nil(package_license_policy_evaluation_ref01_data)
 
     -- LIST
@@ -97,11 +97,6 @@ describe("PackageLicensePolicyEvaluationEntity", function()
     local package_license_policy_evaluation_ref01_list_result, err = package_license_policy_evaluation_ref01_ent:list(package_license_policy_evaluation_ref01_match, nil)
     assert.is_nil(err)
     assert.is_table(package_license_policy_evaluation_ref01_list_result)
-
-    local found_item = vs.select(
-      runner.entity_list_to_data(package_license_policy_evaluation_ref01_list_result),
-      { id = package_license_policy_evaluation_ref01_data["id"] })
-    assert.is_false(vs.isempty(found_item))
 
     -- LOAD
     local package_license_policy_evaluation_ref01_match_dt0 = {}

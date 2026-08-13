@@ -6,9 +6,9 @@ import time
 
 import pytest
 
-from utility.voxgig_struct import voxgig_struct as vs
+from cloudsmith_sdk.utility.voxgig_struct import voxgig_struct as vs
 from cloudsmith_sdk import CloudsmithSDK
-from core import helpers
+from cloudsmith_sdk.core import helpers
 
 _TEST_DIR = os.path.dirname(os.path.abspath(__file__))
 from test import runner
@@ -44,7 +44,7 @@ class TestUserAuthTokenEntity:
         user_auth_token_ref01_data = helpers.to_map(vs.getprop(
             vs.getpath(setup["data"], "new.user_auth_token"), "user_auth_token_ref01"))
 
-        user_auth_token_ref01_data = helpers.to_map(user_auth_token_ref01_ent.create(user_auth_token_ref01_data, None))
+        user_auth_token_ref01_data = helpers.to_map(runner.entity_data(user_auth_token_ref01_ent.create(user_auth_token_ref01_data, None)))
         assert user_auth_token_ref01_data is not None
 
 

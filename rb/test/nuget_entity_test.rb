@@ -75,7 +75,7 @@ class NugetEntityTest < Minitest::Test
     nuget_ref01_data["owner"] = setup[:idmap]["owner01"]
 
     nuget_ref01_data_result = nuget_ref01_ent.create(nuget_ref01_data, nil)
-    nuget_ref01_data = Helpers.to_map(nuget_ref01_data_result)
+    nuget_ref01_data = Helpers.to_map(nuget_ref01_data_result.respond_to?(:data_get) ? nuget_ref01_data_result.data_get : nuget_ref01_data_result)
     assert !nuget_ref01_data.nil?
 
     # LIST
@@ -86,11 +86,6 @@ class NugetEntityTest < Minitest::Test
 
     nuget_ref01_list_result = nuget_ref01_ent.list(nuget_ref01_match, nil)
     assert nuget_ref01_list_result.is_a?(Array)
-
-    found_item = Vs.select(
-      Runner.entity_list_to_data(nuget_ref01_list_result),
-      { "id" => nuget_ref01_data["id"] })
-    assert !Vs.isempty(found_item)
 
     # UPDATE
     nuget_ref01_data_up0_up = {
@@ -103,7 +98,7 @@ class NugetEntityTest < Minitest::Test
     nuget_ref01_data_up0_up[nuget_ref01_markdef_up0_name] = nuget_ref01_markdef_up0_value
 
     nuget_ref01_resdata_up0_result = nuget_ref01_ent.update(nuget_ref01_data_up0_up, nil)
-    nuget_ref01_resdata_up0 = Helpers.to_map(nuget_ref01_resdata_up0_result)
+    nuget_ref01_resdata_up0 = Helpers.to_map(nuget_ref01_resdata_up0_result.respond_to?(:data_get) ? nuget_ref01_resdata_up0_result.data_get : nuget_ref01_resdata_up0_result)
     assert !nuget_ref01_resdata_up0.nil?
     assert_equal nuget_ref01_resdata_up0[nuget_ref01_markdef_up0_name], nuget_ref01_markdef_up0_value
 

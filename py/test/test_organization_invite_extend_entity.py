@@ -6,9 +6,9 @@ import time
 
 import pytest
 
-from utility.voxgig_struct import voxgig_struct as vs
+from cloudsmith_sdk.utility.voxgig_struct import voxgig_struct as vs
 from cloudsmith_sdk import CloudsmithSDK
-from core import helpers
+from cloudsmith_sdk.core import helpers
 
 _TEST_DIR = os.path.dirname(os.path.abspath(__file__))
 from test import runner
@@ -46,7 +46,7 @@ class TestOrganizationInviteExtendEntity:
         organization_invite_extend_ref01_data["org_id"] = setup["idmap"]["org01"]
         organization_invite_extend_ref01_data["slug_perm"] = setup["idmap"]["slug_perm01"]
 
-        organization_invite_extend_ref01_data = helpers.to_map(organization_invite_extend_ref01_ent.create(organization_invite_extend_ref01_data, None))
+        organization_invite_extend_ref01_data = helpers.to_map(runner.entity_data(organization_invite_extend_ref01_ent.create(organization_invite_extend_ref01_data, None)))
         assert organization_invite_extend_ref01_data is not None
 
 

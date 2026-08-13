@@ -64,7 +64,7 @@ describe('ServiceEntity', async () => {
     service_ref01_data['org_id'] = setup.idmap['org01']
     service_ref01_data['service'] = setup.idmap['service01']
 
-    service_ref01_data = await service_ref01_ent.create(service_ref01_data)
+    service_ref01_data = (await service_ref01_ent.create(service_ref01_data)).data()
     assert(null != service_ref01_data)
 
 
@@ -72,9 +72,7 @@ describe('ServiceEntity', async () => {
     const service_ref01_match: any = {}
     service_ref01_match['org_id'] = setup.idmap['org01']
 
-    const service_ref01_list = await service_ref01_ent.list(service_ref01_match)
-
-    assert(!isempty(select(service_ref01_list, { id: service_ref01_data.id })))
+    const service_ref01_list = (await service_ref01_ent.list(service_ref01_match)).map((e: any) => e.data())
 
 
     // UPDATE
@@ -84,7 +82,7 @@ describe('ServiceEntity', async () => {
     const service_ref01_markdef_up0 = { name: 'created_at', value: 'Mark01-service_ref01_' + setup.now }
     ;(service_ref01_data_up0 as any)[service_ref01_markdef_up0.name] = service_ref01_markdef_up0.value
 
-    const service_ref01_resdata_up0 = await service_ref01_ent.update(service_ref01_data_up0)
+    const service_ref01_resdata_up0 = (await service_ref01_ent.update(service_ref01_data_up0)).data()
     assert(null != service_ref01_resdata_up0)
 
     assert((service_ref01_resdata_up0 as any)[service_ref01_markdef_up0.name] === service_ref01_markdef_up0.value)

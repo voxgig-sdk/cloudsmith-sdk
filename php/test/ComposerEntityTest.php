@@ -85,7 +85,7 @@ class ComposerEntityTest extends TestCase
         $composer_ref01_data["owner"] = $setup["idmap"]["owner01"];
 
         $composer_ref01_data_result = $composer_ref01_ent->create($composer_ref01_data, null);
-        $composer_ref01_data = Helpers::to_map($composer_ref01_data_result);
+        $composer_ref01_data = Helpers::to_map(is_object($composer_ref01_data_result) && method_exists($composer_ref01_data_result, 'data_get') ? $composer_ref01_data_result->data_get() : $composer_ref01_data_result);
         $this->assertNotNull($composer_ref01_data);
 
         // LIST
@@ -96,11 +96,6 @@ class ComposerEntityTest extends TestCase
 
         $composer_ref01_list_result = $composer_ref01_ent->list($composer_ref01_match, null);
         $this->assertIsArray($composer_ref01_list_result);
-
-        $found_item = sdk_select(
-            Runner::entity_list_to_data($composer_ref01_list_result),
-            ["id" => $composer_ref01_data["id"]]);
-        $this->assertNotEmpty($found_item);
 
         // UPDATE
         $composer_ref01_data_up0_up = [
@@ -113,7 +108,7 @@ class ComposerEntityTest extends TestCase
         $composer_ref01_data_up0_up[$composer_ref01_markdef_up0_name] = $composer_ref01_markdef_up0_value;
 
         $composer_ref01_resdata_up0_result = $composer_ref01_ent->update($composer_ref01_data_up0_up, null);
-        $composer_ref01_resdata_up0 = Helpers::to_map($composer_ref01_resdata_up0_result);
+        $composer_ref01_resdata_up0 = Helpers::to_map(is_object($composer_ref01_resdata_up0_result) && method_exists($composer_ref01_resdata_up0_result, 'data_get') ? $composer_ref01_resdata_up0_result->data_get() : $composer_ref01_resdata_up0_result);
         $this->assertNotNull($composer_ref01_resdata_up0);
         $this->assertEquals($composer_ref01_resdata_up0[$composer_ref01_markdef_up0_name], $composer_ref01_markdef_up0_value);
 

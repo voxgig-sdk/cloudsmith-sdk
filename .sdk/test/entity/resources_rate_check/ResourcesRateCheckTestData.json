@@ -2,15 +2,30 @@
   "existing": {
     "resources_rate_check": {
       "RESOURCES_RATE_CHECK00": {
-        "resource": {},
+        "interval": 60,
+        "limit": "s3d",
+        "remaining": "s3e",
+        "reset": "s3f",
+        "reset_iso_8601": "s40",
+        "throttled": false,
         "id": "RESOURCES_RATE_CHECK00"
       },
       "RESOURCES_RATE_CHECK01": {
-        "resource": {},
+        "interval": 120,
+        "limit": "s79",
+        "remaining": "s7a",
+        "reset": "s7b",
+        "reset_iso_8601": "s7c",
+        "throttled": false,
         "id": "RESOURCES_RATE_CHECK01"
       },
       "RESOURCES_RATE_CHECK02": {
-        "resource": {},
+        "interval": 180,
+        "limit": "sb5",
+        "remaining": "sb6",
+        "reset": "sb7",
+        "reset_iso_8601": "sb8",
+        "throttled": false,
         "id": "RESOURCES_RATE_CHECK02"
       }
     }
@@ -18,7 +33,12 @@
   "new": {
     "resources_rate_check": {
       "resources_rate_check_ref01": {
-        "resource": {}
+        "interval": 240,
+        "limit": "sf1",
+        "remaining": "sf2",
+        "reset": "sf3",
+        "reset_iso_8601": "sf4",
+        "throttled": false
       }
     }
   }

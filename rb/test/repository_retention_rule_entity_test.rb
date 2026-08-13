@@ -50,7 +50,7 @@ class RepositoryRetentionRuleEntityTest < Minitest::Test
     repository_retention_rule_ref01_data_up0_up[repository_retention_rule_ref01_markdef_up0_name] = repository_retention_rule_ref01_markdef_up0_value
 
     repository_retention_rule_ref01_resdata_up0_result = repository_retention_rule_ref01_ent.update(repository_retention_rule_ref01_data_up0_up, nil)
-    repository_retention_rule_ref01_resdata_up0 = Helpers.to_map(repository_retention_rule_ref01_resdata_up0_result)
+    repository_retention_rule_ref01_resdata_up0 = Helpers.to_map(repository_retention_rule_ref01_resdata_up0_result.respond_to?(:data_get) ? repository_retention_rule_ref01_resdata_up0_result.data_get : repository_retention_rule_ref01_resdata_up0_result)
     assert !repository_retention_rule_ref01_resdata_up0.nil?
     assert_equal repository_retention_rule_ref01_resdata_up0[repository_retention_rule_ref01_markdef_up0_name], repository_retention_rule_ref01_markdef_up0_value
 

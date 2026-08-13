@@ -16,11 +16,11 @@
 import pytest
 
 from cloudsmith_sdk import CloudsmithSDK
-from core.error import CloudsmithError
-from core.result import CloudsmithResult
-from core.response import CloudsmithResponse
-from core.spec import CloudsmithSpec
-from feature.base_feature import CloudsmithBaseFeature
+from cloudsmith_sdk.core.error import CloudsmithError
+from cloudsmith_sdk.core.result import CloudsmithResult
+from cloudsmith_sdk.core.response import CloudsmithResponse
+from cloudsmith_sdk.core.spec import CloudsmithSpec
+from cloudsmith_sdk.feature.base_feature import CloudsmithBaseFeature
 
 
 def _client():

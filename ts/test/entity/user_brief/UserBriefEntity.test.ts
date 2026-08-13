@@ -62,7 +62,7 @@ describe('UserBriefEntity', async () => {
     // LOAD
     const user_brief_ref01_ent = client.UserBrief()
     const user_brief_ref01_match_dt0: any = {}
-    const user_brief_ref01_data_dt0 = await user_brief_ref01_ent.load(user_brief_ref01_match_dt0)
+    const user_brief_ref01_data_dt0 = (await user_brief_ref01_ent.load(user_brief_ref01_match_dt0)).data()
     assert(null != user_brief_ref01_data_dt0)
 
 

@@ -63,7 +63,7 @@ describe('StorageRegionEntity', async () => {
     const storage_region_ref01_ent = client.StorageRegion()
     const storage_region_ref01_match: any = {}
 
-    const storage_region_ref01_list = await storage_region_ref01_ent.list(storage_region_ref01_match)
+    const storage_region_ref01_list = (await storage_region_ref01_ent.list(storage_region_ref01_match)).map((e: any) => e.data())
 
 
 

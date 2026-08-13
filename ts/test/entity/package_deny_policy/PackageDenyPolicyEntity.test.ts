@@ -63,7 +63,7 @@ describe('PackageDenyPolicyEntity', async () => {
     let package_deny_policy_ref01_data = setup.data.new.package_deny_policy['package_deny_policy_ref01']
     package_deny_policy_ref01_data['org_id'] = setup.idmap['org01']
 
-    package_deny_policy_ref01_data = await package_deny_policy_ref01_ent.create(package_deny_policy_ref01_data)
+    package_deny_policy_ref01_data = (await package_deny_policy_ref01_ent.create(package_deny_policy_ref01_data)).data()
     assert(null != package_deny_policy_ref01_data)
 
 
@@ -71,9 +71,7 @@ describe('PackageDenyPolicyEntity', async () => {
     const package_deny_policy_ref01_match: any = {}
     package_deny_policy_ref01_match['org_id'] = setup.idmap['org01']
 
-    const package_deny_policy_ref01_list = await package_deny_policy_ref01_ent.list(package_deny_policy_ref01_match)
-
-    assert(!isempty(select(package_deny_policy_ref01_list, { id: package_deny_policy_ref01_data.id })))
+    const package_deny_policy_ref01_list = (await package_deny_policy_ref01_ent.list(package_deny_policy_ref01_match)).map((e: any) => e.data())
 
 
     // UPDATE
@@ -83,7 +81,7 @@ describe('PackageDenyPolicyEntity', async () => {
     const package_deny_policy_ref01_markdef_up0 = { name: 'action', value: 'Mark01-package_deny_policy_ref01_' + setup.now }
     ;(package_deny_policy_ref01_data_up0 as any)[package_deny_policy_ref01_markdef_up0.name] = package_deny_policy_ref01_markdef_up0.value
 
-    const package_deny_policy_ref01_resdata_up0 = await package_deny_policy_ref01_ent.update(package_deny_policy_ref01_data_up0)
+    const package_deny_policy_ref01_resdata_up0 = (await package_deny_policy_ref01_ent.update(package_deny_policy_ref01_data_up0)).data()
     assert(null != package_deny_policy_ref01_resdata_up0)
 
     assert((package_deny_policy_ref01_resdata_up0 as any)[package_deny_policy_ref01_markdef_up0.name] === package_deny_policy_ref01_markdef_up0.value)

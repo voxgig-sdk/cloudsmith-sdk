@@ -60,7 +60,7 @@ func TestProviderSettingsWriteEntity(t *testing.T) {
 		if err != nil {
 			t.Fatalf("create failed: %v", err)
 		}
-		providerSettingsWriteRef01Data = core.ToMapAny(providerSettingsWriteRef01DataResult)
+		providerSettingsWriteRef01Data = core.ToMapAny(entityData(providerSettingsWriteRef01DataResult))
 		if providerSettingsWriteRef01Data == nil {
 			t.Fatal("expected create result to be a map")
 		}
@@ -78,7 +78,7 @@ func TestProviderSettingsWriteEntity(t *testing.T) {
 		if err != nil {
 			t.Fatalf("update failed: %v", err)
 		}
-		providerSettingsWriteRef01ResdataUp0 := core.ToMapAny(providerSettingsWriteRef01ResdataUp0Result)
+		providerSettingsWriteRef01ResdataUp0 := core.ToMapAny(entityData(providerSettingsWriteRef01ResdataUp0Result))
 		if providerSettingsWriteRef01ResdataUp0 == nil {
 			t.Fatal("expected update result to be a map")
 		}

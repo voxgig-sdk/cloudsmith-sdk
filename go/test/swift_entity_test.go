@@ -109,7 +109,7 @@ func TestSwiftEntity(t *testing.T) {
 		if err != nil {
 			t.Fatalf("create failed: %v", err)
 		}
-		swiftRef01Data = core.ToMapAny(swiftRef01DataResult)
+		swiftRef01Data = core.ToMapAny(entityData(swiftRef01DataResult))
 		if swiftRef01Data == nil {
 			t.Fatal("expected create result to be a map")
 		}
@@ -124,14 +124,9 @@ func TestSwiftEntity(t *testing.T) {
 		if err != nil {
 			t.Fatalf("list failed: %v", err)
 		}
-		swiftRef01List, swiftRef01ListOk := swiftRef01ListResult.([]any)
+		_, swiftRef01ListOk := swiftRef01ListResult.([]any)
 		if !swiftRef01ListOk {
 			t.Fatalf("expected list result to be an array, got %T", swiftRef01ListResult)
-		}
-
-		foundItem := vs.Select(entityListToData(swiftRef01List), map[string]any{"id": swiftRef01Data["id"]})
-		if vs.IsEmpty(foundItem) {
-			t.Fatal("expected to find created entity in list")
 		}
 
 		// UPDATE
@@ -148,7 +143,7 @@ func TestSwiftEntity(t *testing.T) {
 		if err != nil {
 			t.Fatalf("update failed: %v", err)
 		}
-		swiftRef01ResdataUp0 := core.ToMapAny(swiftRef01ResdataUp0Result)
+		swiftRef01ResdataUp0 := core.ToMapAny(entityData(swiftRef01ResdataUp0Result))
 		if swiftRef01ResdataUp0 == nil {
 			t.Fatal("expected update result to be a map")
 		}

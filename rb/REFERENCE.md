@@ -158,38 +158,6 @@ Create a new `Geoip` entity instance. Pass `nil` for no initial data.
 
 Create a new `Gon` entity instance. Pass `nil` for no initial data.
 
-#### `Gon2(data = nil)`
-
-Create a new `Gon2` entity instance. Pass `nil` for no initial data.
-
-#### `Gon3(data = nil)`
-
-Create a new `Gon3` entity instance. Pass `nil` for no initial data.
-
-#### `Gon4(data = nil)`
-
-Create a new `Gon4` entity instance. Pass `nil` for no initial data.
-
-#### `Gon5(data = nil)`
-
-Create a new `Gon5` entity instance. Pass `nil` for no initial data.
-
-#### `Gon6(data = nil)`
-
-Create a new `Gon6` entity instance. Pass `nil` for no initial data.
-
-#### `Gon7(data = nil)`
-
-Create a new `Gon7` entity instance. Pass `nil` for no initial data.
-
-#### `Gon8(data = nil)`
-
-Create a new `Gon8` entity instance. Pass `nil` for no initial data.
-
-#### `Gon9(data = nil)`
-
-Create a new `Gon9` entity instance. Pass `nil` for no initial data.
-
 #### `Gpg(data = nil)`
 
 Create a new `Gpg` entity instance. Pass `nil` for no initial data.
@@ -325,10 +293,6 @@ Create a new `Oss` entity instance. Pass `nil` for no initial data.
 #### `P2n(data = nil)`
 
 Create a new `P2n` entity instance. Pass `nil` for no initial data.
-
-#### `P2n2(data = nil)`
-
-Create a new `P2n2` entity instance. Pass `nil` for no initial data.
 
 #### `Package(data = nil)`
 
@@ -823,6 +787,8 @@ Create a new entity with the given data. Raises on error.
 result = client.Cargo.create({
   "identifier" => "example_identifier", # Object
   "owner" => "example_owner", # Object
+  "name" => "example_name", # String
+  "upstream_url" => "example_upstream_url", # String
 })
 ```
 
@@ -996,6 +962,8 @@ Create a new entity with the given data. Raises on error.
 result = client.Composer.create({
   "identifier" => "example_identifier", # Object
   "owner" => "example_owner", # Object
+  "name" => "example_name", # String
+  "upstream_url" => "example_upstream_url", # String
 })
 ```
 
@@ -1133,6 +1101,8 @@ Create a new entity with the given data. Raises on error.
 result = client.Conda.create({
   "identifier" => "example_identifier", # Object
   "owner" => "example_owner", # Object
+  "name" => "example_name", # String
+  "upstream_url" => "example_upstream_url", # String
 })
 ```
 
@@ -1270,6 +1240,8 @@ Create a new entity with the given data. Raises on error.
 result = client.Cran.create({
   "identifier" => "example_identifier", # Object
   "owner" => "example_owner", # Object
+  "name" => "example_name", # String
+  "upstream_url" => "example_upstream_url", # String
 })
 ```
 
@@ -1371,6 +1343,8 @@ Create a new entity with the given data. Raises on error.
 result = client.Dart.create({
   "identifier" => "example_identifier", # Object
   "owner" => "example_owner", # Object
+  "name" => "example_name", # String
+  "upstream_url" => "example_upstream_url", # String
 })
 ```
 
@@ -1449,7 +1423,7 @@ deb = client.Deb
 | `component` | `String` | No |  |
 | `created_at` | `String` | No |  |
 | `disable_reason` | `String` | No |  |
-| `distro_version` | `Array` | Yes |  |
+| `distro_versions` | `Array` | Yes |  |
 | `extra_header_1` | `String` | No |  |
 | `extra_header_2` | `String` | No |  |
 | `extra_value_1` | `String` | No |  |
@@ -1457,7 +1431,7 @@ deb = client.Deb
 | `gpg_key_inline` | `String` | No |  |
 | `gpg_key_url` | `String` | No |  |
 | `gpg_verification` | `String` | No |  |
-| `include_source` | `Boolean` | No |  |
+| `include_sources` | `Boolean` | No |  |
 | `is_active` | `Boolean` | No |  |
 | `mode` | `String` | No |  |
 | `name` | `String` | Yes |  |
@@ -1480,6 +1454,9 @@ Create a new entity with the given data. Raises on error.
 result = client.Deb.create({
   "identifier" => "example_identifier", # Object
   "owner" => "example_owner", # Object
+  "distro_versions" => [], # Array
+  "name" => "example_name", # String
+  "upstream_url" => "example_upstream_url", # String
 })
 ```
 
@@ -1665,8 +1642,8 @@ distribution_full = client.DistributionFull
 | `name` | `String` | Yes |  |
 | `self_url` | `String` | No |  |
 | `slug` | `String` | No |  |
-| `variant` | `String` | No |  |
-| `version` | `Array` | No |  |
+| `variants` | `String` | No |  |
+| `versions` | `Array` | No |  |
 
 ### Operations
 
@@ -1791,6 +1768,8 @@ Create a new entity with the given data. Raises on error.
 result = client.Docker.create({
   "identifier" => "example_identifier", # Object
   "owner" => "example_owner", # Object
+  "name" => "example_name", # String
+  "upstream_url" => "example_upstream_url", # String
 })
 ```
 
@@ -1996,7 +1975,11 @@ entitlement = client.Entitlement
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `token` | `Hash` | Yes |  |
+| `active` | `Integer` | No |  |
+| `bandwidth` | `Hash` | Yes |  |
+| `downloads` | `Hash` | Yes |  |
+| `inactive` | `Integer` | No |  |
+| `total` | `Integer` | No |  |
 
 ### Operations
 
@@ -2009,6 +1992,8 @@ result = client.Entitlement.create({
   "identifier" => "example_identifier", # Object
   "owner" => "example_owner", # Object
   "repo" => "example_repo", # Object
+  "bandwidth" => {}, # Hash
+  "downloads" => {}, # Hash
 })
 ```
 
@@ -2154,14 +2139,14 @@ format = client.Format
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
 | `description` | `String` | Yes |  |
-| `distribution` | `Array` | No |  |
-| `extension` | `Array` | Yes |  |
+| `distributions` | `Array` | No |  |
+| `extensions` | `Array` | Yes |  |
 | `name` | `String` | Yes |  |
 | `premium` | `Boolean` | Yes |  |
 | `premium_plan_id` | `String` | No |  |
 | `premium_plan_name` | `String` | No |  |
 | `slug` | `String` | Yes |  |
-| `support` | `Hash` | Yes |  |
+| `supports` | `Hash` | Yes |  |
 
 ### Operations
 
@@ -2253,6 +2238,73 @@ Return the entity name.
 gon = client.Gon
 ```
 
+### Fields
+
+| Field | Type | Required | Description |
+| --- | --- | --- | --- |
+| `auth_mode` | `String` | No |  |
+| `auth_secret` | `String` | No |  |
+| `auth_username` | `String` | No |  |
+| `created_at` | `String` | No |  |
+| `disable_reason` | `String` | No |  |
+| `extra_header_1` | `String` | No |  |
+| `extra_header_2` | `String` | No |  |
+| `extra_value_1` | `String` | No |  |
+| `extra_value_2` | `String` | No |  |
+| `is_active` | `Boolean` | No |  |
+| `mode` | `String` | No |  |
+| `name` | `String` | Yes |  |
+| `pending_validation` | `Boolean` | No |  |
+| `priority` | `Integer` | No |  |
+| `slug_perm` | `String` | No |  |
+| `updated_at` | `String` | No |  |
+| `upstream_url` | `String` | Yes |  |
+| `verify_ssl` | `Boolean` | No |  |
+
+### Operations
+
+#### `create(reqdata, ctrl = nil) -> result`
+
+Create a new entity with the given data. Raises on error.
+
+```ruby
+result = client.Gon.create({
+  "identifier" => "example_identifier", # Object
+  "owner" => "example_owner", # Object
+  "name" => "example_name", # String
+  "upstream_url" => "example_upstream_url", # String
+})
+```
+
+#### `list(reqmatch = nil, ctrl = nil) -> Array`
+
+List entities matching the given criteria (call with no argument to list all). Returns an array. Raises on error.
+
+```ruby
+results = client.Gon.list
+```
+
+#### `load(reqmatch, ctrl = nil) -> result`
+
+Load a single entity matching the given criteria. Raises on error.
+
+```ruby
+result = client.Gon.load({ "identifier" => "identifier", "owner" => "owner", "slug_perm" => "slug_perm" })
+```
+
+#### `update(reqdata, ctrl = nil) -> result`
+
+Update an existing entity. The data must include the entity `id`. Raises on error.
+
+```ruby
+result = client.Gon.update({
+  "identifier" => "identifier",
+  "owner" => "owner",
+  "slug_perm" => "slug_perm",
+  # Fields to update
+})
+```
+
 ### Common Methods
 
 #### `data_get -> Hash`
@@ -2274,449 +2326,6 @@ Set the entity match criteria.
 #### `make -> Entity`
 
 Create a new `GonEntity` instance with the same client and
-options.
-
-#### `get_name -> String`
-
-Return the entity name.
-
-
----
-
-## Gon2Entity
-
-```ruby
-gon2 = client.Gon2
-```
-
-### Common Methods
-
-#### `data_get -> Hash`
-
-Get the entity data. Returns a copy of the current data.
-
-#### `data_set(data)`
-
-Set the entity data.
-
-#### `match_get -> Hash`
-
-Get the entity match criteria.
-
-#### `match_set(match)`
-
-Set the entity match criteria.
-
-#### `make -> Entity`
-
-Create a new `Gon2Entity` instance with the same client and
-options.
-
-#### `get_name -> String`
-
-Return the entity name.
-
-
----
-
-## Gon3Entity
-
-```ruby
-gon3 = client.Gon3
-```
-
-### Fields
-
-| Field | Type | Required | Description |
-| --- | --- | --- | --- |
-| `auth_mode` | `String` | No |  |
-| `auth_secret` | `String` | No |  |
-| `auth_username` | `String` | No |  |
-| `created_at` | `String` | No |  |
-| `disable_reason` | `String` | No |  |
-| `extra_header_1` | `String` | No |  |
-| `extra_header_2` | `String` | No |  |
-| `extra_value_1` | `String` | No |  |
-| `extra_value_2` | `String` | No |  |
-| `is_active` | `Boolean` | No |  |
-| `mode` | `String` | No |  |
-| `name` | `String` | Yes |  |
-| `pending_validation` | `Boolean` | No |  |
-| `priority` | `Integer` | No |  |
-| `slug_perm` | `String` | No |  |
-| `updated_at` | `String` | No |  |
-| `upstream_url` | `String` | Yes |  |
-| `verify_ssl` | `Boolean` | No |  |
-
-### Operations
-
-#### `list(reqmatch = nil, ctrl = nil) -> Array`
-
-List entities matching the given criteria (call with no argument to list all). Returns an array. Raises on error.
-
-```ruby
-results = client.Gon3.list
-```
-
-### Common Methods
-
-#### `data_get -> Hash`
-
-Get the entity data. Returns a copy of the current data.
-
-#### `data_set(data)`
-
-Set the entity data.
-
-#### `match_get -> Hash`
-
-Get the entity match criteria.
-
-#### `match_set(match)`
-
-Set the entity match criteria.
-
-#### `make -> Entity`
-
-Create a new `Gon3Entity` instance with the same client and
-options.
-
-#### `get_name -> String`
-
-Return the entity name.
-
-
----
-
-## Gon4Entity
-
-```ruby
-gon4 = client.Gon4
-```
-
-### Common Methods
-
-#### `data_get -> Hash`
-
-Get the entity data. Returns a copy of the current data.
-
-#### `data_set(data)`
-
-Set the entity data.
-
-#### `match_get -> Hash`
-
-Get the entity match criteria.
-
-#### `match_set(match)`
-
-Set the entity match criteria.
-
-#### `make -> Entity`
-
-Create a new `Gon4Entity` instance with the same client and
-options.
-
-#### `get_name -> String`
-
-Return the entity name.
-
-
----
-
-## Gon5Entity
-
-```ruby
-gon5 = client.Gon5
-```
-
-### Operations
-
-#### `create(reqdata, ctrl = nil) -> result`
-
-Create a new entity with the given data. Raises on error.
-
-```ruby
-result = client.Gon5.create({
-  "identifier" => "example_identifier", # Object
-  "owner" => "example_owner", # Object
-})
-```
-
-### Common Methods
-
-#### `data_get -> Hash`
-
-Get the entity data. Returns a copy of the current data.
-
-#### `data_set(data)`
-
-Set the entity data.
-
-#### `match_get -> Hash`
-
-Get the entity match criteria.
-
-#### `match_set(match)`
-
-Set the entity match criteria.
-
-#### `make -> Entity`
-
-Create a new `Gon5Entity` instance with the same client and
-options.
-
-#### `get_name -> String`
-
-Return the entity name.
-
-
----
-
-## Gon6Entity
-
-```ruby
-gon6 = client.Gon6
-```
-
-### Fields
-
-| Field | Type | Required | Description |
-| --- | --- | --- | --- |
-| `auth_mode` | `String` | No |  |
-| `auth_secret` | `String` | No |  |
-| `auth_username` | `String` | No |  |
-| `created_at` | `String` | No |  |
-| `disable_reason` | `String` | No |  |
-| `extra_header_1` | `String` | No |  |
-| `extra_header_2` | `String` | No |  |
-| `extra_value_1` | `String` | No |  |
-| `extra_value_2` | `String` | No |  |
-| `is_active` | `Boolean` | No |  |
-| `mode` | `String` | No |  |
-| `name` | `String` | Yes |  |
-| `pending_validation` | `Boolean` | No |  |
-| `priority` | `Integer` | No |  |
-| `slug_perm` | `String` | No |  |
-| `updated_at` | `String` | No |  |
-| `upstream_url` | `String` | Yes |  |
-| `verify_ssl` | `Boolean` | No |  |
-
-### Operations
-
-#### `load(reqmatch, ctrl = nil) -> result`
-
-Load a single entity matching the given criteria. Raises on error.
-
-```ruby
-result = client.Gon6.load({ "identifier" => "identifier", "owner" => "owner", "slug_perm" => "slug_perm" })
-```
-
-### Common Methods
-
-#### `data_get -> Hash`
-
-Get the entity data. Returns a copy of the current data.
-
-#### `data_set(data)`
-
-Set the entity data.
-
-#### `match_get -> Hash`
-
-Get the entity match criteria.
-
-#### `match_set(match)`
-
-Set the entity match criteria.
-
-#### `make -> Entity`
-
-Create a new `Gon6Entity` instance with the same client and
-options.
-
-#### `get_name -> String`
-
-Return the entity name.
-
-
----
-
-## Gon7Entity
-
-```ruby
-gon7 = client.Gon7
-```
-
-### Common Methods
-
-#### `data_get -> Hash`
-
-Get the entity data. Returns a copy of the current data.
-
-#### `data_set(data)`
-
-Set the entity data.
-
-#### `match_get -> Hash`
-
-Get the entity match criteria.
-
-#### `match_set(match)`
-
-Set the entity match criteria.
-
-#### `make -> Entity`
-
-Create a new `Gon7Entity` instance with the same client and
-options.
-
-#### `get_name -> String`
-
-Return the entity name.
-
-
----
-
-## Gon8Entity
-
-```ruby
-gon8 = client.Gon8
-```
-
-### Fields
-
-| Field | Type | Required | Description |
-| --- | --- | --- | --- |
-| `auth_mode` | `String` | No |  |
-| `auth_secret` | `String` | No |  |
-| `auth_username` | `String` | No |  |
-| `created_at` | `String` | No |  |
-| `disable_reason` | `String` | No |  |
-| `extra_header_1` | `String` | No |  |
-| `extra_header_2` | `String` | No |  |
-| `extra_value_1` | `String` | No |  |
-| `extra_value_2` | `String` | No |  |
-| `is_active` | `Boolean` | No |  |
-| `mode` | `String` | No |  |
-| `name` | `String` | Yes |  |
-| `pending_validation` | `Boolean` | No |  |
-| `priority` | `Integer` | No |  |
-| `slug_perm` | `String` | No |  |
-| `updated_at` | `String` | No |  |
-| `upstream_url` | `String` | Yes |  |
-| `verify_ssl` | `Boolean` | No |  |
-
-### Operations
-
-#### `update(reqdata, ctrl = nil) -> result`
-
-Update an existing entity. The data must include the entity `id`. Raises on error.
-
-```ruby
-result = client.Gon8.update({
-  "identifier" => "identifier",
-  "owner" => "owner",
-  "slug_perm" => "slug_perm",
-  # Fields to update
-})
-```
-
-### Common Methods
-
-#### `data_get -> Hash`
-
-Get the entity data. Returns a copy of the current data.
-
-#### `data_set(data)`
-
-Set the entity data.
-
-#### `match_get -> Hash`
-
-Get the entity match criteria.
-
-#### `match_set(match)`
-
-Set the entity match criteria.
-
-#### `make -> Entity`
-
-Create a new `Gon8Entity` instance with the same client and
-options.
-
-#### `get_name -> String`
-
-Return the entity name.
-
-
----
-
-## Gon9Entity
-
-```ruby
-gon9 = client.Gon9
-```
-
-### Fields
-
-| Field | Type | Required | Description |
-| --- | --- | --- | --- |
-| `auth_mode` | `String` | No |  |
-| `auth_secret` | `String` | No |  |
-| `auth_username` | `String` | No |  |
-| `created_at` | `String` | No |  |
-| `disable_reason` | `String` | No |  |
-| `extra_header_1` | `String` | No |  |
-| `extra_header_2` | `String` | No |  |
-| `extra_value_1` | `String` | No |  |
-| `extra_value_2` | `String` | No |  |
-| `is_active` | `Boolean` | No |  |
-| `mode` | `String` | No |  |
-| `name` | `String` | Yes |  |
-| `pending_validation` | `Boolean` | No |  |
-| `priority` | `Integer` | No |  |
-| `slug_perm` | `String` | No |  |
-| `updated_at` | `String` | No |  |
-| `upstream_url` | `String` | Yes |  |
-| `verify_ssl` | `Boolean` | No |  |
-
-### Operations
-
-#### `update(reqdata, ctrl = nil) -> result`
-
-Update an existing entity. The data must include the entity `id`. Raises on error.
-
-```ruby
-result = client.Gon9.update({
-  "identifier" => "identifier",
-  "owner" => "owner",
-  "slug_perm" => "slug_perm",
-  # Fields to update
-})
-```
-
-### Common Methods
-
-#### `data_get -> Hash`
-
-Get the entity data. Returns a copy of the current data.
-
-#### `data_set(data)`
-
-Set the entity data.
-
-#### `match_get -> Hash`
-
-Get the entity match criteria.
-
-#### `match_set(match)`
-
-Set the entity match criteria.
-
-#### `make -> Entity`
-
-Create a new `Gon9Entity` instance with the same client and
 options.
 
 #### `get_name -> String`
@@ -2837,6 +2446,8 @@ Create a new entity with the given data. Raises on error.
 result = client.Helm.create({
   "identifier" => "example_identifier", # Object
   "owner" => "example_owner", # Object
+  "name" => "example_name", # String
+  "upstream_url" => "example_upstream_url", # String
 })
 ```
 
@@ -2938,6 +2549,8 @@ Create a new entity with the given data. Raises on error.
 result = client.Hex.create({
   "identifier" => "example_identifier", # Object
   "owner" => "example_owner", # Object
+  "name" => "example_name", # String
+  "upstream_url" => "example_upstream_url", # String
 })
 ```
 
@@ -3075,6 +2688,8 @@ Create a new entity with the given data. Raises on error.
 result = client.Huggingface.create({
   "identifier" => "example_identifier", # Object
   "owner" => "example_owner", # Object
+  "name" => "example_name", # String
+  "upstream_url" => "example_upstream_url", # String
 })
 ```
 
@@ -3360,6 +2975,8 @@ Create a new entity with the given data. Raises on error.
 result = client.Maven.create({
   "identifier" => "example_identifier", # Object
   "owner" => "example_owner", # Object
+  "name" => "example_name", # String
+  "upstream_url" => "example_upstream_url", # String
 })
 ```
 
@@ -3663,6 +3280,8 @@ Create a new entity with the given data. Raises on error.
 result = client.Npm.create({
   "identifier" => "example_identifier", # Object
   "owner" => "example_owner", # Object
+  "name" => "example_name", # String
+  "upstream_url" => "example_upstream_url", # String
 })
 ```
 
@@ -3764,6 +3383,8 @@ Create a new entity with the given data. Raises on error.
 result = client.Nuget.create({
   "identifier" => "example_identifier", # Object
   "owner" => "example_owner", # Object
+  "name" => "example_name", # String
+  "upstream_url" => "example_upstream_url", # String
 })
 ```
 
@@ -3879,11 +3500,11 @@ org = client.Org
 | `name` | `String` | Yes |  |
 | `package` | `Hash` | Yes |  |
 | `policy` | `Hash` | Yes |  |
-| `reason` | `Array` | Yes |  |
+| `reasons` | `Array` | Yes |  |
 | `slug` | `String` | No |  |
 | `slug_perm` | `String` | No |  |
 | `tagline` | `String` | No |  |
-| `vulnerability_scan_result` | `Hash` | Yes |  |
+| `vulnerability_scan_results` | `Hash` | Yes |  |
 
 ### Operations
 
@@ -3894,6 +3515,11 @@ Create a new entity with the given data. Raises on error.
 ```ruby
 result = client.Org.create({
   "id" => "example_id", # String
+  "name" => "example_name", # String
+  "package" => {}, # Hash
+  "policy" => {}, # Hash
+  "reasons" => [], # Array
+  "vulnerability_scan_results" => {}, # Hash
 })
 ```
 
@@ -3988,6 +3614,9 @@ Create a new entity with the given data. Raises on error.
 ```ruby
 result = client.OrganizationGroupSync.create({
   "org_id" => "example_org_id", # String
+  "idp_key" => "example_idp_key", # String
+  "idp_value" => "example_idp_value", # String
+  "team" => "example_team", # String
 })
 ```
 
@@ -4098,7 +3727,7 @@ organization_invite = client.OrganizationInvite
 | `org` | `String` | No |  |
 | `role` | `String` | No |  |
 | `slug_perm` | `String` | No |  |
-| `team` | `Array` | No |  |
+| `teams` | `Array` | No |  |
 | `user` | `String` | No |  |
 | `user_url` | `String` | No |  |
 
@@ -4181,7 +3810,7 @@ organization_invite_extend = client.OrganizationInviteExtend
 | `org` | `String` | No |  |
 | `role` | `String` | No |  |
 | `slug_perm` | `String` | No |  |
-| `team` | `Array` | No |  |
+| `teams` | `Array` | No |  |
 | `user` | `String` | No |  |
 | `user_url` | `String` | No |  |
 
@@ -4453,14 +4082,14 @@ organization_package_license_policy = client.OrganizationPackageLicensePolicy
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `allow_unknown_license` | `Boolean` | No |  |
+| `allow_unknown_licenses` | `Boolean` | No |  |
 | `created_at` | `String` | No |  |
 | `description` | `String` | No |  |
 | `name` | `String` | Yes |  |
 | `on_violation_quarantine` | `Boolean` | No |  |
 | `package_query_string` | `String` | No |  |
 | `slug_perm` | `String` | No |  |
-| `spdx_identifier` | `Array` | Yes |  |
+| `spdx_identifiers` | `Array` | Yes |  |
 | `updated_at` | `String` | No |  |
 
 ### Operations
@@ -4472,6 +4101,8 @@ Create a new entity with the given data. Raises on error.
 ```ruby
 result = client.OrganizationPackageLicensePolicy.create({
   "org_id" => "example_org_id", # String
+  "name" => "example_name", # String
+  "spdx_identifiers" => [], # Array
 })
 ```
 
@@ -4562,6 +4193,7 @@ Create a new entity with the given data. Raises on error.
 ```ruby
 result = client.OrganizationPackageVulnerabilityPolicy.create({
   "org_id" => "example_org_id", # String
+  "name" => "example_name", # String
 })
 ```
 
@@ -4714,6 +4346,7 @@ Create a new entity with the given data. Raises on error.
 ```ruby
 result = client.OrganizationTeam.create({
   "org_id" => "example_org_id", # String
+  "name" => "example_name", # String
 })
 ```
 
@@ -4798,6 +4431,8 @@ Create a new entity with the given data. Raises on error.
 result = client.OrganizationTeamMember.create({
   "org_id" => "example_org_id", # String
   "team_id" => "example_team_id", # String
+  "role" => "example_role", # String
+  "user" => "example_user", # String
 })
 ```
 
@@ -4911,42 +4546,6 @@ Return the entity name.
 
 ---
 
-## P2n2Entity
-
-```ruby
-p2n2 = client.P2n2
-```
-
-### Common Methods
-
-#### `data_get -> Hash`
-
-Get the entity data. Returns a copy of the current data.
-
-#### `data_set(data)`
-
-Set the entity data.
-
-#### `match_get -> Hash`
-
-Get the entity match criteria.
-
-#### `match_set(match)`
-
-Set the entity match criteria.
-
-#### `make -> Entity`
-
-Create a new `P2n2Entity` instance with the same client and
-options.
-
-#### `get_name -> String`
-
-Return the entity name.
-
-
----
-
 ## PackageEntity
 
 ```ruby
@@ -4957,8 +4556,10 @@ package = client.Package
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `architecture` | `Array` | No |  |
+| `active` | `Integer` | No |  |
+| `architectures` | `Array` | No |  |
 | `backend_kind` | `Integer` | No |  |
+| `bandwidth` | `Hash` | Yes |  |
 | `cdn_url` | `String` | No |  |
 | `checksum_md5` | `String` | No |  |
 | `checksum_sha1` | `String` | No |  |
@@ -4972,17 +4573,18 @@ package = client.Package
 | `display_name` | `String` | No |  |
 | `distro` | `Hash` | Yes |  |
 | `distro_version` | `Hash` | No |  |
-| `download` | `Integer` | No |  |
+| `downloads` | `Hash` | Yes |  |
 | `epoch` | `Integer` | No |  |
 | `extension` | `String` | No |  |
-| `file` | `Array` | No |  |
 | `filename` | `String` | No |  |
+| `files` | `Array` | No |  |
 | `format` | `String` | No |  |
 | `format_url` | `String` | No |  |
 | `freeable_storage` | `Integer` | No |  |
 | `fully_qualified_name` | `String` | No |  |
-| `identifier` | `Hash` | No |  |
 | `identifier_perm` | `String` | No |  |
+| `identifiers` | `Hash` | No |  |
+| `inactive` | `Integer` | No |  |
 | `indexed` | `Boolean` | No |  |
 | `is_cancellable` | `Boolean` | No |  |
 | `is_copyable` | `Boolean` | No |  |
@@ -5003,12 +4605,11 @@ package = client.Package
 | `name` | `String` | No |  |
 | `namespace` | `String` | No |  |
 | `namespace_url` | `String` | No |  |
-| `num_download` | `Integer` | Yes |  |
-| `num_file` | `Integer` | No |  |
+| `num_downloads` | `Integer` | Yes |  |
+| `num_files` | `Integer` | No |  |
 | `operator` | `String` | No |  |
 | `origin_repository` | `String` | No |  |
 | `origin_repository_url` | `String` | No |  |
-| `package` | `Hash` | Yes |  |
 | `package_type` | `Integer` | No |  |
 | `policy_violated` | `Boolean` | No |  |
 | `release` | `String` | No |  |
@@ -5036,8 +4637,9 @@ package = client.Package
 | `summary` | `String` | No |  |
 | `sync_finished_at` | `String` | No |  |
 | `sync_progress` | `Integer` | No |  |
-| `tag` | `Hash` | No |  |
+| `tags` | `Hash` | No |  |
 | `tags_immutable` | `Hash` | No |  |
+| `total` | `Integer` | No |  |
 | `type_display` | `String` | No |  |
 | `uploaded_at` | `String` | No |  |
 | `uploader` | `String` | No |  |
@@ -5050,8 +4652,10 @@ package = client.Package
 
 | Field | load | list | create | remove |
 | --- | --- | --- | --- | --- |
-| `architecture` | - | - | - | - |
+| `active` | - | - | - | - |
+| `architectures` | - | - | - | - |
 | `backend_kind` | - | - | - | - |
+| `bandwidth` | - | - | - | - |
 | `cdn_url` | - | - | - | - |
 | `checksum_md5` | - | - | - | - |
 | `checksum_sha1` | - | - | - | - |
@@ -5065,17 +4669,18 @@ package = client.Package
 | `display_name` | - | - | - | - |
 | `distro` | - | - | - | - |
 | `distro_version` | - | - | - | - |
-| `download` | - | - | - | - |
+| `downloads` | - | Yes | Yes | - |
 | `epoch` | - | - | - | - |
 | `extension` | - | - | - | - |
-| `file` | - | - | - | - |
 | `filename` | - | - | - | - |
+| `files` | - | - | - | - |
 | `format` | - | - | - | - |
 | `format_url` | - | - | - | - |
 | `freeable_storage` | - | - | - | - |
 | `fully_qualified_name` | - | - | - | - |
-| `identifier` | - | - | - | - |
 | `identifier_perm` | - | - | - | - |
+| `identifiers` | - | - | - | - |
+| `inactive` | - | - | - | - |
 | `indexed` | - | - | - | - |
 | `is_cancellable` | - | - | - | - |
 | `is_copyable` | - | - | - | - |
@@ -5096,12 +4701,11 @@ package = client.Package
 | `name` | - | - | - | - |
 | `namespace` | - | - | - | - |
 | `namespace_url` | - | - | - | - |
-| `num_download` | - | - | - | - |
-| `num_file` | - | - | - | - |
+| `num_downloads` | - | - | - | - |
+| `num_files` | - | - | - | - |
 | `operator` | - | - | - | - |
 | `origin_repository` | - | - | - | - |
 | `origin_repository_url` | - | - | - | - |
-| `package` | - | - | - | - |
 | `package_type` | - | - | - | - |
 | `policy_violated` | - | - | - | - |
 | `release` | - | - | - | - |
@@ -5129,8 +4733,9 @@ package = client.Package
 | `summary` | - | - | - | - |
 | `sync_finished_at` | - | - | - | - |
 | `sync_progress` | - | - | - | - |
-| `tag` | - | - | - | - |
+| `tags` | - | - | - | - |
 | `tags_immutable` | - | - | - | - |
+| `total` | - | - | - | - |
 | `type_display` | - | - | - | - |
 | `uploaded_at` | - | - | - | - |
 | `uploader` | - | - | - | - |
@@ -5149,6 +4754,12 @@ Create a new entity with the given data. Raises on error.
 result = client.Package.create({
   "owner" => "example_owner", # Object
   "repo" => "example_repo", # Object
+  "bandwidth" => {}, # Hash
+  "count" => 1, # Integer
+  "distro" => {}, # Hash
+  "downloads" => {}, # Hash
+  "last_push" => "example_last_push", # String
+  "num_downloads" => 1, # Integer
 })
 ```
 
@@ -5235,6 +4846,7 @@ Create a new entity with the given data. Raises on error.
 ```ruby
 result = client.PackageDenyPolicy.create({
   "org_id" => "example_org_id", # String
+  "package_query_string" => "example_package_query_string", # String
 })
 ```
 
@@ -5410,12 +5022,19 @@ package_license_policy_evaluation = client.PackageLicensePolicyEvaluation
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
+| `allow_unknown_licenses` | `Boolean` | No |  |
 | `created_at` | `String` | No |  |
+| `description` | `String` | No |  |
 | `evaluation_count` | `Integer` | No |  |
+| `name` | `String` | No |  |
+| `on_violation_quarantine` | `Boolean` | No |  |
+| `package_query_string` | `String` | No |  |
 | `policy` | `Hash` | Yes |  |
 | `slug_perm` | `String` | No |  |
+| `spdx_identifiers` | `Array` | Yes |  |
 | `status` | `String` | No |  |
 | `updated_at` | `String` | No |  |
+| `url` | `String` | No |  |
 | `violation_count` | `Integer` | No |  |
 
 ### Operations
@@ -5428,6 +5047,8 @@ Create a new entity with the given data. Raises on error.
 result = client.PackageLicensePolicyEvaluation.create({
   "org_id" => "example_org_id", # String
   "policy_slug_perm" => "example_policy_slug_perm", # Object
+  "policy" => {}, # Hash
+  "spdx_identifiers" => [], # Array
 })
 ```
 
@@ -5533,12 +5154,19 @@ package_vulnerability_policy_evaluation = client.PackageVulnerabilityPolicyEvalu
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
+| `allow_unknown_severity` | `Boolean` | No |  |
 | `created_at` | `String` | No |  |
+| `description` | `String` | No |  |
 | `evaluation_count` | `Integer` | No |  |
+| `min_severity` | `String` | No |  |
+| `name` | `String` | No |  |
+| `on_violation_quarantine` | `Boolean` | No |  |
+| `package_query_string` | `String` | No |  |
 | `policy` | `Hash` | No |  |
 | `slug_perm` | `String` | No |  |
 | `status` | `String` | No |  |
 | `updated_at` | `String` | No |  |
+| `url` | `String` | No |  |
 | `violation_count` | `Integer` | No |  |
 
 ### Operations
@@ -5682,12 +5310,12 @@ provider_setting = client.ProviderSetting
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `claim` | `Hash` | Yes |  |
+| `claims` | `Hash` | Yes |  |
 | `enabled` | `Boolean` | Yes |  |
 | `mapping_claim` | `String` | No |  |
 | `name` | `String` | Yes |  |
 | `provider_url` | `String` | Yes |  |
-| `service_account` | `Array` | No |  |
+| `service_accounts` | `Array` | No |  |
 | `slug` | `String` | No |  |
 | `slug_perm` | `String` | No |  |
 
@@ -5749,13 +5377,13 @@ provider_settings_write = client.ProviderSettingsWrite
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `claim` | `Hash` | Yes |  |
-| `dynamic_mapping` | `Array` | No |  |
+| `claims` | `Hash` | Yes |  |
+| `dynamic_mappings` | `Array` | No |  |
 | `enabled` | `Boolean` | Yes |  |
 | `mapping_claim` | `String` | No |  |
 | `name` | `String` | Yes |  |
 | `provider_url` | `String` | Yes |  |
-| `service_account` | `Array` | No |  |
+| `service_accounts` | `Array` | No |  |
 | `slug` | `String` | No |  |
 | `slug_perm` | `String` | No |  |
 
@@ -5768,6 +5396,10 @@ Create a new entity with the given data. Raises on error.
 ```ruby
 result = client.ProviderSettingsWrite.create({
   "org_id" => "example_org_id", # String
+  "claims" => {}, # Hash
+  "enabled" => true, # Boolean
+  "name" => "example_name", # String
+  "provider_url" => "example_provider_url", # String
 })
 ```
 
@@ -5852,6 +5484,8 @@ Create a new entity with the given data. Raises on error.
 result = client.Python.create({
   "identifier" => "example_identifier", # Object
   "owner" => "example_owner", # Object
+  "name" => "example_name", # String
+  "upstream_url" => "example_upstream_url", # String
 })
 ```
 
@@ -5960,8 +5594,9 @@ quota = client.Quota
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
+| `display` | `Hash` | Yes |  |
 | `history` | `Array` | Yes |  |
-| `usage` | `Hash` | Yes |  |
+| `raw` | `Hash` | Yes |  |
 
 ### Operations
 
@@ -6125,49 +5760,49 @@ repo = client.Repo
 | `content_kind` | `String` | No |  |
 | `contextual_auth_realm` | `Boolean` | No |  |
 | `copy_own` | `Boolean` | No |  |
-| `copy_package` | `String` | No |  |
+| `copy_packages` | `String` | No |  |
 | `cosign_signing_enabled` | `Boolean` | No |  |
 | `created_at` | `String` | No |  |
 | `default_privilege` | `String` | No |  |
 | `delete_own` | `Boolean` | No |  |
-| `delete_package` | `String` | No |  |
+| `delete_packages` | `String` | No |  |
 | `deleted_at` | `String` | No |  |
 | `description` | `String` | No |  |
-| `distribute` | `Array` | No |  |
+| `distributes` | `Array` | No |  |
 | `docker_refresh_tokens_enabled` | `Boolean` | No |  |
-| `ecdsa_key` | `Array` | No |  |
+| `ecdsa_keys` | `Array` | No |  |
 | `enforce_eula` | `Boolean` | No |  |
-| `gpg_key` | `Array` | No |  |
-| `index_file` | `Boolean` | No |  |
+| `gpg_keys` | `Array` | No |  |
+| `index_files` | `Boolean` | No |  |
 | `is_open_source` | `Boolean` | No |  |
 | `is_private` | `Boolean` | No |  |
 | `is_public` | `Boolean` | No |  |
 | `manage_entitlements_privilege` | `String` | No |  |
 | `move_own` | `Boolean` | No |  |
-| `move_package` | `String` | No |  |
+| `move_packages` | `String` | No |  |
 | `name` | `String` | Yes |  |
 | `namespace` | `String` | No |  |
 | `namespace_url` | `String` | No |  |
 | `nuget_native_signing_enabled` | `Boolean` | No |  |
-| `num_download` | `Integer` | No |  |
-| `num_policy_violated_package` | `Integer` | No |  |
-| `num_quarantined_package` | `Integer` | No |  |
+| `num_downloads` | `Integer` | No |  |
+| `num_policy_violated_packages` | `Integer` | No |  |
+| `num_quarantined_packages` | `Integer` | No |  |
 | `open_source_license` | `String` | No |  |
 | `open_source_project_url` | `String` | No |  |
 | `package_count` | `Integer` | No |  |
 | `package_group_count` | `Integer` | No |  |
-| `proxy_npmj` | `Boolean` | No |  |
+| `proxy_npmjs` | `Boolean` | No |  |
 | `proxy_pypi` | `Boolean` | No |  |
 | `raw_package_index_enabled` | `Boolean` | No |  |
 | `raw_package_index_signatures_enabled` | `Boolean` | No |  |
-| `replace_package` | `String` | No |  |
+| `replace_packages` | `String` | No |  |
 | `replace_packages_by_default` | `Boolean` | No |  |
 | `repository_type` | `Integer` | No |  |
 | `repository_type_str` | `String` | No |  |
 | `resync_own` | `Boolean` | No |  |
-| `resync_package` | `String` | No |  |
+| `resync_packages` | `String` | No |  |
 | `scan_own` | `Boolean` | No |  |
-| `scan_package` | `String` | No |  |
+| `scan_packages` | `String` | No |  |
 | `self_html_url` | `String` | No |  |
 | `self_url` | `String` | No |  |
 | `show_setup_all` | `Boolean` | No |  |
@@ -6178,14 +5813,14 @@ repo = client.Repo
 | `storage_region` | `String` | No |  |
 | `strict_npm_validation` | `Boolean` | No |  |
 | `tag_pre_releases_as_latest` | `Boolean` | No |  |
-| `use_debian_label` | `Boolean` | No |  |
+| `use_debian_labels` | `Boolean` | No |  |
 | `use_default_cargo_upstream` | `Boolean` | No |  |
 | `use_entitlements_privilege` | `String` | No |  |
-| `use_noarch_package` | `Boolean` | No |  |
-| `use_source_package` | `Boolean` | No |  |
+| `use_noarch_packages` | `Boolean` | No |  |
+| `use_source_packages` | `Boolean` | No |  |
 | `use_vulnerability_scanning` | `Boolean` | No |  |
 | `user_entitlements_enabled` | `Boolean` | No |  |
-| `view_statistic` | `String` | No |  |
+| `view_statistics` | `String` | No |  |
 
 ### Operations
 
@@ -6195,6 +5830,7 @@ Create a new entity with the given data. Raises on error.
 
 ```ruby
 result = client.Repo.create({
+  "name" => "example_name", # String
 })
 ```
 
@@ -6591,6 +6227,7 @@ Create a new entity with the given data. Raises on error.
 result = client.RepositoryGpgKey.create({
   "identifier" => "example_identifier", # Object
   "owner" => "example_owner", # Object
+  "comment" => "example_comment", # String
 })
 ```
 
@@ -6837,19 +6474,19 @@ repository_token = client.RepositoryToken
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `client` | `Integer` | No |  |
+| `clients` | `Integer` | No |  |
 | `created_at` | `String` | No |  |
 | `created_by` | `String` | No |  |
 | `created_by_url` | `String` | No |  |
 | `default` | `Boolean` | No |  |
 | `disable_url` | `String` | No |  |
-| `download` | `Integer` | No |  |
+| `downloads` | `Integer` | No |  |
 | `enable_url` | `String` | No |  |
 | `eula_accepted` | `Hash` | No |  |
 | `eula_accepted_at` | `String` | No |  |
 | `eula_accepted_from` | `String` | No |  |
 | `eula_required` | `Boolean` | No |  |
-| `has_limit` | `Boolean` | No |  |
+| `has_limits` | `Boolean` | No |  |
 | `identifier` | `Integer` | No |  |
 | `is_active` | `Boolean` | No |  |
 | `is_limited` | `Boolean` | No |  |
@@ -6857,8 +6494,8 @@ repository_token = client.RepositoryToken
 | `limit_bandwidth_unit` | `String` | No |  |
 | `limit_date_range_from` | `String` | No |  |
 | `limit_date_range_to` | `String` | No |  |
-| `limit_num_client` | `Integer` | No |  |
-| `limit_num_download` | `Integer` | No |  |
+| `limit_num_clients` | `Integer` | No |  |
+| `limit_num_downloads` | `Integer` | No |  |
 | `limit_package_query` | `String` | No |  |
 | `limit_path_query` | `String` | No |  |
 | `metadata` | `Hash` | No |  |
@@ -6887,6 +6524,7 @@ Create a new entity with the given data. Raises on error.
 result = client.RepositoryToken.create({
   "owner" => "example_owner", # Object
   "repo" => "example_repo", # Object
+  "name" => "example_name", # String
 })
 ```
 
@@ -6959,19 +6597,19 @@ repository_token_refresh = client.RepositoryTokenRefresh
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `client` | `Integer` | No |  |
+| `clients` | `Integer` | No |  |
 | `created_at` | `String` | No |  |
 | `created_by` | `String` | No |  |
 | `created_by_url` | `String` | No |  |
 | `default` | `Boolean` | No |  |
 | `disable_url` | `String` | No |  |
-| `download` | `Integer` | No |  |
+| `downloads` | `Integer` | No |  |
 | `enable_url` | `String` | No |  |
 | `eula_accepted` | `Hash` | No |  |
 | `eula_accepted_at` | `String` | No |  |
 | `eula_accepted_from` | `String` | No |  |
 | `eula_required` | `Boolean` | No |  |
-| `has_limit` | `Boolean` | No |  |
+| `has_limits` | `Boolean` | No |  |
 | `identifier` | `Integer` | No |  |
 | `is_active` | `Boolean` | No |  |
 | `is_limited` | `Boolean` | No |  |
@@ -6979,8 +6617,8 @@ repository_token_refresh = client.RepositoryTokenRefresh
 | `limit_bandwidth_unit` | `String` | No |  |
 | `limit_date_range_from` | `String` | No |  |
 | `limit_date_range_to` | `String` | No |  |
-| `limit_num_client` | `Integer` | No |  |
-| `limit_num_download` | `Integer` | No |  |
+| `limit_num_clients` | `Integer` | No |  |
+| `limit_num_downloads` | `Integer` | No |  |
 | `limit_package_query` | `String` | No |  |
 | `limit_path_query` | `String` | No |  |
 | `metadata` | `Hash` | No |  |
@@ -7053,7 +6691,7 @@ repository_token_sync = client.RepositoryTokenSync
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `token` | `Array` | No |  |
+| `tokens` | `Array` | No |  |
 
 ### Operations
 
@@ -7113,7 +6751,8 @@ repository_webhook = client.RepositoryWebhook
 | `created_by_url` | `String` | No |  |
 | `disable_reason` | `Integer` | No |  |
 | `disable_reason_str` | `String` | No |  |
-| `event` | `Array` | Yes |  |
+| `event` | `String` | Yes |  |
+| `events` | `Array` | Yes |  |
 | `identifier` | `Integer` | No |  |
 | `is_active` | `Boolean` | No |  |
 | `is_last_response_bad` | `Boolean` | No |  |
@@ -7130,43 +6769,12 @@ repository_webhook = client.RepositoryWebhook
 | `self_url` | `String` | No |  |
 | `slug_perm` | `String` | No |  |
 | `target_url` | `String` | Yes |  |
-| `template` | `Array` | Yes |  |
+| `template` | `String` | No |  |
+| `templates` | `Array` | Yes |  |
 | `updated_at` | `String` | No |  |
 | `updated_by` | `String` | No |  |
 | `updated_by_url` | `String` | No |  |
 | `verify_ssl` | `Boolean` | No |  |
-
-### Field Usage by Operation
-
-| Field | list | create | update |
-| --- | --- | --- | --- |
-| `created_at` | - | - | - |
-| `created_by` | - | - | - |
-| `created_by_url` | - | - | - |
-| `disable_reason` | - | - | - |
-| `disable_reason_str` | - | - | - |
-| `event` | - | - | - |
-| `identifier` | - | - | - |
-| `is_active` | - | - | - |
-| `is_last_response_bad` | - | - | - |
-| `last_response_status` | - | - | - |
-| `last_response_status_str` | - | - | - |
-| `num_sent` | - | - | - |
-| `package_query` | - | - | - |
-| `request_body_format` | - | - | - |
-| `request_body_format_str` | - | - | - |
-| `request_body_template_format` | - | - | - |
-| `request_body_template_format_str` | - | - | - |
-| `request_content_type` | - | - | - |
-| `secret_header` | - | - | - |
-| `self_url` | - | - | - |
-| `slug_perm` | - | - | - |
-| `target_url` | - | - | - |
-| `template` | Yes | - | - |
-| `updated_at` | - | - | - |
-| `updated_by` | - | - | - |
-| `updated_by_url` | - | - | - |
-| `verify_ssl` | - | - | - |
 
 ### Operations
 
@@ -7178,6 +6786,10 @@ Create a new entity with the given data. Raises on error.
 result = client.RepositoryWebhook.create({
   "owner" => "example_owner", # Object
   "repo" => "example_repo", # Object
+  "event" => "example_event", # String
+  "events" => [], # Array
+  "target_url" => "example_target_url", # String
+  "templates" => [], # Array
 })
 ```
 
@@ -7400,7 +7012,12 @@ resources_rate_check = client.ResourcesRateCheck
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `resource` | `Hash` | No |  |
+| `interval` | `Float` | No |  |
+| `limit` | `Integer` | No |  |
+| `remaining` | `Integer` | No |  |
+| `reset` | `Integer` | No |  |
+| `reset_iso_8601` | `String` | No |  |
+| `throttled` | `Boolean` | No |  |
 
 ### Operations
 
@@ -7537,7 +7154,7 @@ rpm = client.Rpm
 | `gpg_key_inline` | `String` | No |  |
 | `gpg_key_url` | `String` | No |  |
 | `gpg_verification` | `String` | No |  |
-| `include_source` | `Boolean` | No |  |
+| `include_sources` | `Boolean` | No |  |
 | `is_active` | `Boolean` | No |  |
 | `mode` | `String` | No |  |
 | `name` | `String` | Yes |  |
@@ -7559,6 +7176,9 @@ Create a new entity with the given data. Raises on error.
 result = client.Rpm.create({
   "identifier" => "example_identifier", # Object
   "owner" => "example_owner", # Object
+  "distro_version" => "example_distro_version", # String
+  "name" => "example_name", # String
+  "upstream_url" => "example_upstream_url", # String
 })
 ```
 
@@ -7696,6 +7316,8 @@ Create a new entity with the given data. Raises on error.
 result = client.Ruby.create({
   "identifier" => "example_identifier", # Object
   "owner" => "example_owner", # Object
+  "name" => "example_name", # String
+  "upstream_url" => "example_upstream_url", # String
 })
 ```
 
@@ -7885,7 +7507,7 @@ service = client.Service
 | `name` | `String` | Yes |  |
 | `role` | `String` | No |  |
 | `slug` | `String` | No |  |
-| `team` | `Array` | No |  |
+| `teams` | `Array` | No |  |
 
 ### Operations
 
@@ -7896,6 +7518,7 @@ Create a new entity with the given data. Raises on error.
 ```ruby
 result = client.Service.create({
   "org_id" => "example_org_id", # String
+  "name" => "example_name", # String
 })
 ```
 
@@ -8146,6 +7769,8 @@ Create a new entity with the given data. Raises on error.
 result = client.Swift.create({
   "identifier" => "example_identifier", # Object
   "owner" => "example_owner", # Object
+  "name" => "example_name", # String
+  "upstream_url" => "example_upstream_url", # String
 })
 ```
 
@@ -8865,12 +8490,12 @@ vulnerability = client.Vulnerability
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
 | `created_at` | `String` | No |  |
-| `has_vulnerability` | `Boolean` | No |  |
+| `has_vulnerabilities` | `Boolean` | No |  |
 | `identifier` | `String` | Yes |  |
 | `max_severity` | `String` | No |  |
-| `num_vulnerability` | `Integer` | No |  |
+| `num_vulnerabilities` | `Integer` | No |  |
 | `package` | `Hash` | Yes |  |
-| `result` | `Array` | Yes |  |
+| `results` | `Array` | Yes |  |
 | `scan_id` | `Integer` | Yes |  |
 | `target` | `String` | Yes |  |
 | `type` | `String` | Yes |  |

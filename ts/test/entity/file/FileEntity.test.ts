@@ -64,7 +64,7 @@ describe('FileEntity', async () => {
     file_ref01_data['owner'] = setup.idmap['owner01']
     file_ref01_data['repo'] = setup.idmap['repo01']
 
-    file_ref01_data = await file_ref01_ent.create(file_ref01_data)
+    file_ref01_data = (await file_ref01_ent.create(file_ref01_data)).data()
     assert(null != file_ref01_data)
 
 

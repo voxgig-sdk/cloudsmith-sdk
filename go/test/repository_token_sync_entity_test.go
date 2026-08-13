@@ -60,7 +60,7 @@ func TestRepositoryTokenSyncEntity(t *testing.T) {
 		if err != nil {
 			t.Fatalf("create failed: %v", err)
 		}
-		repositoryTokenSyncRef01Data = core.ToMapAny(repositoryTokenSyncRef01DataResult)
+		repositoryTokenSyncRef01Data = core.ToMapAny(entityData(repositoryTokenSyncRef01DataResult))
 		if repositoryTokenSyncRef01Data == nil {
 			t.Fatal("expected create result to be a map")
 		}

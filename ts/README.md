@@ -60,8 +60,8 @@ Entity operations reject on failure, so wrap them in `try` / `catch`:
 
 ```ts
 try {
-  const cargos = await client.Cargo().list()
-  console.log(cargos)
+  const vulnerabilitys = await client.Vulnerability().list()
+  console.log(vulnerabilitys)
 } catch (err) {
   console.error('list failed:', err)
 }
@@ -127,9 +127,10 @@ Create a mock client for unit testing — no server required:
 ```ts
 const client = CloudsmithSDK.test()
 
-const cargo = await client.Cargo().list()
-// cargo is a bare entity populated with mock response data
-console.log(cargo)
+const vulnerability = await client.Vulnerability().list()
+// vulnerability is the entity, populated with mock response data
+// — call vulnerability.data() for the record itself
+console.log(vulnerability)
 ```
 
 You can also use the instance method:
@@ -144,7 +145,7 @@ const testClient = client.tester()
 Entity instances remember their last match and data:
 
 ```ts
-const entity = client.Cargo()
+const entity = client.Vulnerability()
 
 // First call runs the operation and stores its result
 await entity.list()
@@ -255,14 +256,6 @@ new CloudsmithSDK(options?: {
 | `Format(data?)` | `FormatEntity` | Create a Format entity instance. |
 | `Geoip(data?)` | `GeoipEntity` | Create a Geoip entity instance. |
 | `Gon(data?)` | `GonEntity` | Create a Gon entity instance. |
-| `Gon2(data?)` | `Gon2Entity` | Create a Gon2 entity instance. |
-| `Gon3(data?)` | `Gon3Entity` | Create a Gon3 entity instance. |
-| `Gon4(data?)` | `Gon4Entity` | Create a Gon4 entity instance. |
-| `Gon5(data?)` | `Gon5Entity` | Create a Gon5 entity instance. |
-| `Gon6(data?)` | `Gon6Entity` | Create a Gon6 entity instance. |
-| `Gon7(data?)` | `Gon7Entity` | Create a Gon7 entity instance. |
-| `Gon8(data?)` | `Gon8Entity` | Create a Gon8 entity instance. |
-| `Gon9(data?)` | `Gon9Entity` | Create a Gon9 entity instance. |
 | `Gpg(data?)` | `GpgEntity` | Create a Gpg entity instance. |
 | `Group(data?)` | `GroupEntity` | Create a Group entity instance. |
 | `Helm(data?)` | `HelmEntity` | Create a Helm entity instance. |
@@ -297,7 +290,6 @@ new CloudsmithSDK(options?: {
 | `OrganizationTeamMember(data?)` | `OrganizationTeamMemberEntity` | Create an OrganizationTeamMember entity instance. |
 | `Oss(data?)` | `OssEntity` | Create an Oss entity instance. |
 | `P2n(data?)` | `P2nEntity` | Create a P2n entity instance. |
-| `P2n2(data?)` | `P2n2Entity` | Create a P2n2 entity instance. |
 | `Package(data?)` | `PackageEntity` | Create a Package entity instance. |
 | `PackageDenyPolicy(data?)` | `PackageDenyPolicyEntity` | Create a PackageDenyPolicy entity instance. |
 | `PackageFilePartsUpload(data?)` | `PackageFilePartsUploadEntity` | Create a PackageFilePartsUpload entity instance. |
@@ -654,7 +646,7 @@ API path: `/repos/{owner}/{identifier}/upstream/dart/`
 | `component` |  |
 | `created_at` |  |
 | `disable_reason` |  |
-| `distro_version` |  |
+| `distro_versions` |  |
 | `extra_header_1` |  |
 | `extra_header_2` |  |
 | `extra_value_1` |  |
@@ -662,7 +654,7 @@ API path: `/repos/{owner}/{identifier}/upstream/dart/`
 | `gpg_key_inline` |  |
 | `gpg_key_url` |  |
 | `gpg_verification` |  |
-| `include_source` |  |
+| `include_sources` |  |
 | `is_active` |  |
 | `mode` |  |
 | `name` |  |
@@ -715,8 +707,8 @@ API path: ``
 | `name` |  |
 | `self_url` |  |
 | `slug` |  |
-| `variant` |  |
-| `version` |  |
+| `variants` |  |
+| `versions` |  |
 
 Operations: list, load.
 
@@ -791,7 +783,11 @@ API path: ``
 
 | Field | Description |
 | --- | --- |
-| `token` |  |
+| `active` |  |
+| `bandwidth` |  |
+| `downloads` |  |
+| `inactive` |  |
+| `total` |  |
 
 Operations: create, load, remove.
 
@@ -820,14 +816,14 @@ API path: `/files/{owner}/{repo}/{identifier}/abort/`
 | Field | Description |
 | --- | --- |
 | `description` |  |
-| `distribution` |  |
-| `extension` |  |
+| `distributions` |  |
+| `extensions` |  |
 | `name` |  |
 | `premium` |  |
 | `premium_plan_id` |  |
 | `premium_plan_name` |  |
 | `slug` |  |
-| `support` |  |
+| `supports` |  |
 
 Operations: list, load.
 
@@ -846,24 +842,6 @@ API path: ``
 
 | Field | Description |
 | --- | --- |
-
-Operations: .
-
-API path: ``
-
-#### Gon2
-
-| Field | Description |
-| --- | --- |
-
-Operations: .
-
-API path: ``
-
-#### Gon3
-
-| Field | Description |
-| --- | --- |
 | `auth_mode` |  |
 | `auth_secret` |  |
 | `auth_username` |  |
@@ -883,117 +861,9 @@ API path: ``
 | `upstream_url` |  |
 | `verify_ssl` |  |
 
-Operations: list.
+Operations: create, list, load, patch, update.
 
 API path: `/repos/{owner}/{identifier}/upstream/go/`
-
-#### Gon4
-
-| Field | Description |
-| --- | --- |
-
-Operations: .
-
-API path: ``
-
-#### Gon5
-
-| Field | Description |
-| --- | --- |
-
-Operations: create.
-
-API path: `/repos/{owner}/{identifier}/upstream/go/`
-
-#### Gon6
-
-| Field | Description |
-| --- | --- |
-| `auth_mode` |  |
-| `auth_secret` |  |
-| `auth_username` |  |
-| `created_at` |  |
-| `disable_reason` |  |
-| `extra_header_1` |  |
-| `extra_header_2` |  |
-| `extra_value_1` |  |
-| `extra_value_2` |  |
-| `is_active` |  |
-| `mode` |  |
-| `name` |  |
-| `pending_validation` |  |
-| `priority` |  |
-| `slug_perm` |  |
-| `updated_at` |  |
-| `upstream_url` |  |
-| `verify_ssl` |  |
-
-Operations: load.
-
-API path: `/repos/{owner}/{identifier}/upstream/go/{slug_perm}/`
-
-#### Gon7
-
-| Field | Description |
-| --- | --- |
-
-Operations: .
-
-API path: ``
-
-#### Gon8
-
-| Field | Description |
-| --- | --- |
-| `auth_mode` |  |
-| `auth_secret` |  |
-| `auth_username` |  |
-| `created_at` |  |
-| `disable_reason` |  |
-| `extra_header_1` |  |
-| `extra_header_2` |  |
-| `extra_value_1` |  |
-| `extra_value_2` |  |
-| `is_active` |  |
-| `mode` |  |
-| `name` |  |
-| `pending_validation` |  |
-| `priority` |  |
-| `slug_perm` |  |
-| `updated_at` |  |
-| `upstream_url` |  |
-| `verify_ssl` |  |
-
-Operations: update.
-
-API path: `/repos/{owner}/{identifier}/upstream/go/{slug_perm}/`
-
-#### Gon9
-
-| Field | Description |
-| --- | --- |
-| `auth_mode` |  |
-| `auth_secret` |  |
-| `auth_username` |  |
-| `created_at` |  |
-| `disable_reason` |  |
-| `extra_header_1` |  |
-| `extra_header_2` |  |
-| `extra_value_1` |  |
-| `extra_value_2` |  |
-| `is_active` |  |
-| `mode` |  |
-| `name` |  |
-| `pending_validation` |  |
-| `priority` |  |
-| `slug_perm` |  |
-| `updated_at` |  |
-| `upstream_url` |  |
-| `verify_ssl` |  |
-
-Operations: update.
-
-API path: `/repos/{owner}/{identifier}/upstream/go/{slug_perm}/`
 
 #### Gpg
 
@@ -1309,11 +1179,11 @@ API path: ``
 | `name` |  |
 | `package` |  |
 | `policy` |  |
-| `reason` |  |
+| `reasons` |  |
 | `slug` |  |
 | `slug_perm` |  |
 | `tagline` |  |
-| `vulnerability_scan_result` |  |
+| `vulnerability_scan_results` |  |
 
 Operations: create, list, load, remove, update.
 
@@ -1354,7 +1224,7 @@ API path: `/orgs/{org}/saml-group-sync/status/`
 | `org` |  |
 | `role` |  |
 | `slug_perm` |  |
-| `team` |  |
+| `teams` |  |
 | `user` |  |
 | `user_url` |  |
 
@@ -1373,7 +1243,7 @@ API path: `/orgs/{org}/invites/`
 | `org` |  |
 | `role` |  |
 | `slug_perm` |  |
-| `team` |  |
+| `teams` |  |
 | `user` |  |
 | `user_url` |  |
 
@@ -1446,14 +1316,14 @@ API path: `/orgs/{org}/members/{member}/update-visibility/`
 
 | Field | Description |
 | --- | --- |
-| `allow_unknown_license` |  |
+| `allow_unknown_licenses` |  |
 | `created_at` |  |
 | `description` |  |
 | `name` |  |
 | `on_violation_quarantine` |  |
 | `package_query_string` |  |
 | `slug_perm` |  |
-| `spdx_identifier` |  |
+| `spdx_identifiers` |  |
 | `updated_at` |  |
 
 Operations: create, list, load, patch, update.
@@ -1534,21 +1404,14 @@ Operations: .
 
 API path: ``
 
-#### P2n2
-
-| Field | Description |
-| --- | --- |
-
-Operations: .
-
-API path: ``
-
 #### Package
 
 | Field | Description |
 | --- | --- |
-| `architecture` |  |
+| `active` |  |
+| `architectures` |  |
 | `backend_kind` |  |
+| `bandwidth` |  |
 | `cdn_url` |  |
 | `checksum_md5` |  |
 | `checksum_sha1` |  |
@@ -1562,17 +1425,18 @@ API path: ``
 | `display_name` |  |
 | `distro` |  |
 | `distro_version` |  |
-| `download` |  |
+| `downloads` |  |
 | `epoch` |  |
 | `extension` |  |
-| `file` |  |
 | `filename` |  |
+| `files` |  |
 | `format` |  |
 | `format_url` |  |
 | `freeable_storage` |  |
 | `fully_qualified_name` |  |
-| `identifier` |  |
 | `identifier_perm` |  |
+| `identifiers` |  |
+| `inactive` |  |
 | `indexed` |  |
 | `is_cancellable` |  |
 | `is_copyable` |  |
@@ -1593,12 +1457,11 @@ API path: ``
 | `name` |  |
 | `namespace` |  |
 | `namespace_url` |  |
-| `num_download` |  |
-| `num_file` |  |
+| `num_downloads` |  |
+| `num_files` |  |
 | `operator` |  |
 | `origin_repository` |  |
 | `origin_repository_url` |  |
-| `package` |  |
 | `package_type` |  |
 | `policy_violated` |  |
 | `release` |  |
@@ -1626,8 +1489,9 @@ API path: ``
 | `summary` |  |
 | `sync_finished_at` |  |
 | `sync_progress` |  |
-| `tag` |  |
+| `tags` |  |
 | `tags_immutable` |  |
+| `total` |  |
 | `type_display` |  |
 | `uploaded_at` |  |
 | `uploader` |  |
@@ -1683,12 +1547,19 @@ API path: `/files/{owner}/{repo}/{identifier}/complete/`
 
 | Field | Description |
 | --- | --- |
+| `allow_unknown_licenses` |  |
 | `created_at` |  |
+| `description` |  |
 | `evaluation_count` |  |
+| `name` |  |
+| `on_violation_quarantine` |  |
+| `package_query_string` |  |
 | `policy` |  |
 | `slug_perm` |  |
+| `spdx_identifiers` |  |
 | `status` |  |
 | `updated_at` |  |
+| `url` |  |
 | `violation_count` |  |
 
 Operations: create, list, load.
@@ -1708,12 +1579,19 @@ API path: `/badges/version/{owner}/{repo}/{package_format}/{package_name}/{packa
 
 | Field | Description |
 | --- | --- |
+| `allow_unknown_severity` |  |
 | `created_at` |  |
+| `description` |  |
 | `evaluation_count` |  |
+| `min_severity` |  |
+| `name` |  |
+| `on_violation_quarantine` |  |
+| `package_query_string` |  |
 | `policy` |  |
 | `slug_perm` |  |
 | `status` |  |
 | `updated_at` |  |
+| `url` |  |
 | `violation_count` |  |
 
 Operations: create, list, load.
@@ -1742,12 +1620,12 @@ API path: ``
 
 | Field | Description |
 | --- | --- |
-| `claim` |  |
+| `claims` |  |
 | `enabled` |  |
 | `mapping_claim` |  |
 | `name` |  |
 | `provider_url` |  |
-| `service_account` |  |
+| `service_accounts` |  |
 | `slug` |  |
 | `slug_perm` |  |
 
@@ -1759,13 +1637,13 @@ API path: `/orgs/{org}/openid-connect/`
 
 | Field | Description |
 | --- | --- |
-| `claim` |  |
-| `dynamic_mapping` |  |
+| `claims` |  |
+| `dynamic_mappings` |  |
 | `enabled` |  |
 | `mapping_claim` |  |
 | `name` |  |
 | `provider_url` |  |
-| `service_account` |  |
+| `service_accounts` |  |
 | `slug` |  |
 | `slug_perm` |  |
 
@@ -1813,8 +1691,9 @@ API path: ``
 
 | Field | Description |
 | --- | --- |
+| `display` |  |
 | `history` |  |
-| `usage` |  |
+| `raw` |  |
 
 Operations: load.
 
@@ -1855,49 +1734,49 @@ API path: ``
 | `content_kind` |  |
 | `contextual_auth_realm` |  |
 | `copy_own` |  |
-| `copy_package` |  |
+| `copy_packages` |  |
 | `cosign_signing_enabled` |  |
 | `created_at` |  |
 | `default_privilege` |  |
 | `delete_own` |  |
-| `delete_package` |  |
+| `delete_packages` |  |
 | `deleted_at` |  |
 | `description` |  |
-| `distribute` |  |
+| `distributes` |  |
 | `docker_refresh_tokens_enabled` |  |
-| `ecdsa_key` |  |
+| `ecdsa_keys` |  |
 | `enforce_eula` |  |
-| `gpg_key` |  |
-| `index_file` |  |
+| `gpg_keys` |  |
+| `index_files` |  |
 | `is_open_source` |  |
 | `is_private` |  |
 | `is_public` |  |
 | `manage_entitlements_privilege` |  |
 | `move_own` |  |
-| `move_package` |  |
+| `move_packages` |  |
 | `name` |  |
 | `namespace` |  |
 | `namespace_url` |  |
 | `nuget_native_signing_enabled` |  |
-| `num_download` |  |
-| `num_policy_violated_package` |  |
-| `num_quarantined_package` |  |
+| `num_downloads` |  |
+| `num_policy_violated_packages` |  |
+| `num_quarantined_packages` |  |
 | `open_source_license` |  |
 | `open_source_project_url` |  |
 | `package_count` |  |
 | `package_group_count` |  |
-| `proxy_npmj` |  |
+| `proxy_npmjs` |  |
 | `proxy_pypi` |  |
 | `raw_package_index_enabled` |  |
 | `raw_package_index_signatures_enabled` |  |
-| `replace_package` |  |
+| `replace_packages` |  |
 | `replace_packages_by_default` |  |
 | `repository_type` |  |
 | `repository_type_str` |  |
 | `resync_own` |  |
-| `resync_package` |  |
+| `resync_packages` |  |
 | `scan_own` |  |
-| `scan_package` |  |
+| `scan_packages` |  |
 | `self_html_url` |  |
 | `self_url` |  |
 | `show_setup_all` |  |
@@ -1908,14 +1787,14 @@ API path: ``
 | `storage_region` |  |
 | `strict_npm_validation` |  |
 | `tag_pre_releases_as_latest` |  |
-| `use_debian_label` |  |
+| `use_debian_labels` |  |
 | `use_default_cargo_upstream` |  |
 | `use_entitlements_privilege` |  |
-| `use_noarch_package` |  |
-| `use_source_package` |  |
+| `use_noarch_packages` |  |
+| `use_source_packages` |  |
 | `use_vulnerability_scanning` |  |
 | `user_entitlements_enabled` |  |
-| `view_statistic` |  |
+| `view_statistics` |  |
 
 Operations: create, list, load, patch, remove, update.
 
@@ -2055,19 +1934,19 @@ API path: `/repos/{owner}/{identifier}/rsa/`
 
 | Field | Description |
 | --- | --- |
-| `client` |  |
+| `clients` |  |
 | `created_at` |  |
 | `created_by` |  |
 | `created_by_url` |  |
 | `default` |  |
 | `disable_url` |  |
-| `download` |  |
+| `downloads` |  |
 | `enable_url` |  |
 | `eula_accepted` |  |
 | `eula_accepted_at` |  |
 | `eula_accepted_from` |  |
 | `eula_required` |  |
-| `has_limit` |  |
+| `has_limits` |  |
 | `identifier` |  |
 | `is_active` |  |
 | `is_limited` |  |
@@ -2075,8 +1954,8 @@ API path: `/repos/{owner}/{identifier}/rsa/`
 | `limit_bandwidth_unit` |  |
 | `limit_date_range_from` |  |
 | `limit_date_range_to` |  |
-| `limit_num_client` |  |
-| `limit_num_download` |  |
+| `limit_num_clients` |  |
+| `limit_num_downloads` |  |
 | `limit_package_query` |  |
 | `limit_path_query` |  |
 | `metadata` |  |
@@ -2103,19 +1982,19 @@ API path: `/entitlements/{owner}/{repo}/`
 
 | Field | Description |
 | --- | --- |
-| `client` |  |
+| `clients` |  |
 | `created_at` |  |
 | `created_by` |  |
 | `created_by_url` |  |
 | `default` |  |
 | `disable_url` |  |
-| `download` |  |
+| `downloads` |  |
 | `enable_url` |  |
 | `eula_accepted` |  |
 | `eula_accepted_at` |  |
 | `eula_accepted_from` |  |
 | `eula_required` |  |
-| `has_limit` |  |
+| `has_limits` |  |
 | `identifier` |  |
 | `is_active` |  |
 | `is_limited` |  |
@@ -2123,8 +2002,8 @@ API path: `/entitlements/{owner}/{repo}/`
 | `limit_bandwidth_unit` |  |
 | `limit_date_range_from` |  |
 | `limit_date_range_to` |  |
-| `limit_num_client` |  |
-| `limit_num_download` |  |
+| `limit_num_clients` |  |
+| `limit_num_downloads` |  |
 | `limit_package_query` |  |
 | `limit_path_query` |  |
 | `metadata` |  |
@@ -2151,7 +2030,7 @@ API path: `/entitlements/{owner}/{repo}/{identifier}/refresh/`
 
 | Field | Description |
 | --- | --- |
-| `token` |  |
+| `tokens` |  |
 
 Operations: create.
 
@@ -2167,6 +2046,7 @@ API path: `/entitlements/{owner}/{repo}/sync/`
 | `disable_reason` |  |
 | `disable_reason_str` |  |
 | `event` |  |
+| `events` |  |
 | `identifier` |  |
 | `is_active` |  |
 | `is_last_response_bad` |  |
@@ -2184,6 +2064,7 @@ API path: `/entitlements/{owner}/{repo}/sync/`
 | `slug_perm` |  |
 | `target_url` |  |
 | `template` |  |
+| `templates` |  |
 | `updated_at` |  |
 | `updated_by` |  |
 | `updated_by_url` |  |
@@ -2244,7 +2125,12 @@ API path: ``
 
 | Field | Description |
 | --- | --- |
-| `resource` |  |
+| `interval` |  |
+| `limit` |  |
+| `remaining` |  |
+| `reset` |  |
+| `reset_iso_8601` |  |
+| `throttled` |  |
 
 Operations: load.
 
@@ -2285,7 +2171,7 @@ API path: ``
 | `gpg_key_inline` |  |
 | `gpg_key_url` |  |
 | `gpg_verification` |  |
-| `include_source` |  |
+| `include_sources` |  |
 | `is_active` |  |
 | `mode` |  |
 | `name` |  |
@@ -2377,7 +2263,7 @@ API path: ``
 | `name` |  |
 | `role` |  |
 | `slug` |  |
-| `team` |  |
+| `teams` |  |
 
 Operations: create, list, load, update.
 
@@ -2604,12 +2490,12 @@ API path: ``
 | Field | Description |
 | --- | --- |
 | `created_at` |  |
-| `has_vulnerability` |  |
+| `has_vulnerabilities` |  |
 | `identifier` |  |
 | `max_severity` |  |
-| `num_vulnerability` |  |
+| `num_vulnerabilities` |  |
 | `package` |  |
-| `result` |  |
+| `results` |  |
 | `scan_id` |  |
 | `target` |  |
 | `type` |  |
@@ -2724,7 +2610,7 @@ const cargo = await client.Cargo().load({ id: 'cargo_id', identifier: 'identifie
 #### Example: List
 
 ```ts
-const cargos = await client.Cargo().list()
+const cargos = await client.Cargo().list({ identifier: "example", owner: "example" })
 ```
 
 #### Example: Create
@@ -2733,6 +2619,8 @@ const cargos = await client.Cargo().list()
 const cargo = await client.Cargo().create({
   identifier: 'example_identifier',
   owner: 'example_owner',
+  name: 'example_name',
+  upstream_url: 'example_upstream_url',
 })
 ```
 
@@ -2792,7 +2680,7 @@ const composer = await client.Composer().load({ id: 'composer_id', identifier: '
 #### Example: List
 
 ```ts
-const composers = await client.Composer().list()
+const composers = await client.Composer().list({ identifier: "example", owner: "example" })
 ```
 
 #### Example: Create
@@ -2801,6 +2689,8 @@ const composers = await client.Composer().list()
 const composer = await client.Composer().create({
   identifier: 'example_identifier',
   owner: 'example_owner',
+  name: 'example_name',
+  upstream_url: 'example_upstream_url',
 })
 ```
 
@@ -2855,7 +2745,7 @@ const conda = await client.Conda().load({ id: 'conda_id', identifier: 'identifie
 #### Example: List
 
 ```ts
-const condas = await client.Conda().list()
+const condas = await client.Conda().list({ identifier: "example", owner: "example" })
 ```
 
 #### Example: Create
@@ -2864,6 +2754,8 @@ const condas = await client.Conda().list()
 const conda = await client.Conda().create({
   identifier: 'example_identifier',
   owner: 'example_owner',
+  name: 'example_name',
+  upstream_url: 'example_upstream_url',
 })
 ```
 
@@ -2918,7 +2810,7 @@ const cran = await client.Cran().load({ id: 'cran_id', identifier: 'identifier',
 #### Example: List
 
 ```ts
-const crans = await client.Cran().list()
+const crans = await client.Cran().list({ identifier: "example", owner: "example" })
 ```
 
 #### Example: Create
@@ -2927,6 +2819,8 @@ const crans = await client.Cran().list()
 const cran = await client.Cran().create({
   identifier: 'example_identifier',
   owner: 'example_owner',
+  name: 'example_name',
+  upstream_url: 'example_upstream_url',
 })
 ```
 
@@ -2976,7 +2870,7 @@ const dart = await client.Dart().load({ id: 'dart_id', identifier: 'identifier',
 #### Example: List
 
 ```ts
-const darts = await client.Dart().list()
+const darts = await client.Dart().list({ identifier: "example", owner: "example" })
 ```
 
 #### Example: Create
@@ -2985,6 +2879,8 @@ const darts = await client.Dart().list()
 const dart = await client.Dart().create({
   identifier: 'example_identifier',
   owner: 'example_owner',
+  name: 'example_name',
+  upstream_url: 'example_upstream_url',
 })
 ```
 
@@ -3012,7 +2908,7 @@ Create an instance: `const deb = client.Deb()`
 | `component` | `string` |  |
 | `created_at` | `string` |  |
 | `disable_reason` | `string` |  |
-| `distro_version` | `any[]` |  |
+| `distro_versions` | `any[]` |  |
 | `extra_header_1` | `string` |  |
 | `extra_header_2` | `string` |  |
 | `extra_value_1` | `string` |  |
@@ -3020,7 +2916,7 @@ Create an instance: `const deb = client.Deb()`
 | `gpg_key_inline` | `string` |  |
 | `gpg_key_url` | `string` |  |
 | `gpg_verification` | `string` |  |
-| `include_source` | `boolean` |  |
+| `include_sources` | `boolean` |  |
 | `is_active` | `boolean` |  |
 | `mode` | `string` |  |
 | `name` | `string` |  |
@@ -3042,7 +2938,7 @@ const deb = await client.Deb().load({ id: 'deb_id', identifier: 'identifier', ow
 #### Example: List
 
 ```ts
-const debs = await client.Deb().list()
+const debs = await client.Deb().list({ identifier: "example", owner: "example" })
 ```
 
 #### Example: Create
@@ -3051,6 +2947,9 @@ const debs = await client.Deb().list()
 const deb = await client.Deb().create({
   identifier: 'example_identifier',
   owner: 'example_owner',
+  distro_versions: [],
+  name: 'example_name',
+  upstream_url: 'example_upstream_url',
 })
 ```
 
@@ -3090,8 +2989,8 @@ Create an instance: `const distribution_full = client.DistributionFull()`
 | `name` | `string` |  |
 | `self_url` | `string` |  |
 | `slug` | `string` |  |
-| `variant` | `string` |  |
-| `version` | `any[]` |  |
+| `variants` | `string` |  |
+| `versions` | `any[]` |  |
 
 #### Example: Load
 
@@ -3156,7 +3055,7 @@ const docker = await client.Docker().load({ id: 'docker_id', identifier: 'identi
 #### Example: List
 
 ```ts
-const dockers = await client.Docker().list()
+const dockers = await client.Docker().list({ identifier: "example", owner: "example" })
 ```
 
 #### Example: Create
@@ -3165,6 +3064,8 @@ const dockers = await client.Docker().list()
 const docker = await client.Docker().create({
   identifier: 'example_identifier',
   owner: 'example_owner',
+  name: 'example_name',
+  upstream_url: 'example_upstream_url',
 })
 ```
 
@@ -3196,7 +3097,7 @@ const dynamic_mapping = await client.DynamicMapping().load({ id: 'dynamic_mappin
 #### Example: List
 
 ```ts
-const dynamic_mappings = await client.DynamicMapping().list()
+const dynamic_mappings = await client.DynamicMapping().list({ org_id: "example", provider_setting: "example" })
 ```
 
 
@@ -3226,7 +3127,11 @@ Create an instance: `const entitlement = client.Entitlement()`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `token` | `Record<string, any>` |  |
+| `active` | `number` |  |
+| `bandwidth` | `Record<string, any>` |  |
+| `downloads` | `Record<string, any>` |  |
+| `inactive` | `number` |  |
+| `total` | `number` |  |
 
 #### Example: Load
 
@@ -3241,6 +3146,8 @@ const entitlement = await client.Entitlement().create({
   identifier: 'example_identifier',
   owner: 'example_owner',
   repo: 'example_repo',
+  bandwidth: {},
+  downloads: {},
 })
 ```
 
@@ -3286,14 +3193,14 @@ Create an instance: `const format = client.Format()`
 | Field | Type | Description |
 | --- | --- | --- |
 | `description` | `string` |  |
-| `distribution` | `any[]` |  |
-| `extension` | `any[]` |  |
+| `distributions` | `any[]` |  |
+| `extensions` | `any[]` |  |
 | `name` | `string` |  |
 | `premium` | `boolean` |  |
 | `premium_plan_id` | `string` |  |
 | `premium_plan_name` | `string` |  |
 | `slug` | `string` |  |
-| `support` | `Record<string, any>` |  |
+| `supports` | `Record<string, any>` |  |
 
 #### Example: Load
 
@@ -3317,86 +3224,14 @@ Create an instance: `const geoip = client.Geoip()`
 
 Create an instance: `const gon = client.Gon()`
 
-
-### Gon2
-
-Create an instance: `const gon2 = client.Gon2()`
-
-
-### Gon3
-
-Create an instance: `const gon3 = client.Gon3()`
-
-#### Operations
-
-| Method | Description |
-| --- | --- |
-| `list(match)` | List entities matching the criteria. |
-
-#### Fields
-
-| Field | Type | Description |
-| --- | --- | --- |
-| `auth_mode` | `string` |  |
-| `auth_secret` | `string` |  |
-| `auth_username` | `string` |  |
-| `created_at` | `string` |  |
-| `disable_reason` | `string` |  |
-| `extra_header_1` | `string` |  |
-| `extra_header_2` | `string` |  |
-| `extra_value_1` | `string` |  |
-| `extra_value_2` | `string` |  |
-| `is_active` | `boolean` |  |
-| `mode` | `string` |  |
-| `name` | `string` |  |
-| `pending_validation` | `boolean` |  |
-| `priority` | `number` |  |
-| `slug_perm` | `string` |  |
-| `updated_at` | `string` |  |
-| `upstream_url` | `string` |  |
-| `verify_ssl` | `boolean` |  |
-
-#### Example: List
-
-```ts
-const gon3s = await client.Gon3().list()
-```
-
-
-### Gon4
-
-Create an instance: `const gon4 = client.Gon4()`
-
-
-### Gon5
-
-Create an instance: `const gon5 = client.Gon5()`
-
 #### Operations
 
 | Method | Description |
 | --- | --- |
 | `create(data)` | Create a new entity with the given data. |
-
-#### Example: Create
-
-```ts
-const gon5 = await client.Gon5().create({
-  identifier: 'example_identifier',
-  owner: 'example_owner',
-})
-```
-
-
-### Gon6
-
-Create an instance: `const gon6 = client.Gon6()`
-
-#### Operations
-
-| Method | Description |
-| --- | --- |
+| `list(match)` | List entities matching the criteria. |
 | `load(match)` | Load a single entity by match criteria. |
+| `update(data)` | Update an existing entity. |
 
 #### Fields
 
@@ -3424,81 +3259,25 @@ Create an instance: `const gon6 = client.Gon6()`
 #### Example: Load
 
 ```ts
-const gon6 = await client.Gon6().load({ identifier: 'identifier', owner: 'owner', slug_perm: 'slug_perm' })
+const gon = await client.Gon().load({ identifier: 'identifier', owner: 'owner', slug_perm: 'slug_perm' })
 ```
 
+#### Example: List
 
-### Gon7
+```ts
+const gons = await client.Gon().list({ identifier: "example", owner: "example" })
+```
 
-Create an instance: `const gon7 = client.Gon7()`
+#### Example: Create
 
-
-### Gon8
-
-Create an instance: `const gon8 = client.Gon8()`
-
-#### Operations
-
-| Method | Description |
-| --- | --- |
-| `update(data)` | Update an existing entity. |
-
-#### Fields
-
-| Field | Type | Description |
-| --- | --- | --- |
-| `auth_mode` | `string` |  |
-| `auth_secret` | `string` |  |
-| `auth_username` | `string` |  |
-| `created_at` | `string` |  |
-| `disable_reason` | `string` |  |
-| `extra_header_1` | `string` |  |
-| `extra_header_2` | `string` |  |
-| `extra_value_1` | `string` |  |
-| `extra_value_2` | `string` |  |
-| `is_active` | `boolean` |  |
-| `mode` | `string` |  |
-| `name` | `string` |  |
-| `pending_validation` | `boolean` |  |
-| `priority` | `number` |  |
-| `slug_perm` | `string` |  |
-| `updated_at` | `string` |  |
-| `upstream_url` | `string` |  |
-| `verify_ssl` | `boolean` |  |
-
-
-### Gon9
-
-Create an instance: `const gon9 = client.Gon9()`
-
-#### Operations
-
-| Method | Description |
-| --- | --- |
-| `update(data)` | Update an existing entity. |
-
-#### Fields
-
-| Field | Type | Description |
-| --- | --- | --- |
-| `auth_mode` | `string` |  |
-| `auth_secret` | `string` |  |
-| `auth_username` | `string` |  |
-| `created_at` | `string` |  |
-| `disable_reason` | `string` |  |
-| `extra_header_1` | `string` |  |
-| `extra_header_2` | `string` |  |
-| `extra_value_1` | `string` |  |
-| `extra_value_2` | `string` |  |
-| `is_active` | `boolean` |  |
-| `mode` | `string` |  |
-| `name` | `string` |  |
-| `pending_validation` | `boolean` |  |
-| `priority` | `number` |  |
-| `slug_perm` | `string` |  |
-| `updated_at` | `string` |  |
-| `upstream_url` | `string` |  |
-| `verify_ssl` | `boolean` |  |
+```ts
+const gon = await client.Gon().create({
+  identifier: 'example_identifier',
+  owner: 'example_owner',
+  name: 'example_name',
+  upstream_url: 'example_upstream_url',
+})
+```
 
 
 ### Gpg
@@ -3556,7 +3335,7 @@ const helm = await client.Helm().load({ id: 'helm_id', identifier: 'identifier',
 #### Example: List
 
 ```ts
-const helms = await client.Helm().list()
+const helms = await client.Helm().list({ identifier: "example", owner: "example" })
 ```
 
 #### Example: Create
@@ -3565,6 +3344,8 @@ const helms = await client.Helm().list()
 const helm = await client.Helm().create({
   identifier: 'example_identifier',
   owner: 'example_owner',
+  name: 'example_name',
+  upstream_url: 'example_upstream_url',
 })
 ```
 
@@ -3614,7 +3395,7 @@ const hex = await client.Hex().load({ id: 'hex_id', identifier: 'identifier', ow
 #### Example: List
 
 ```ts
-const hexs = await client.Hex().list()
+const hexs = await client.Hex().list({ identifier: "example", owner: "example" })
 ```
 
 #### Example: Create
@@ -3623,6 +3404,8 @@ const hexs = await client.Hex().list()
 const hex = await client.Hex().create({
   identifier: 'example_identifier',
   owner: 'example_owner',
+  name: 'example_name',
+  upstream_url: 'example_upstream_url',
 })
 ```
 
@@ -3677,7 +3460,7 @@ const huggingface = await client.Huggingface().load({ id: 'huggingface_id', iden
 #### Example: List
 
 ```ts
-const huggingfaces = await client.Huggingface().list()
+const huggingfaces = await client.Huggingface().list({ identifier: "example", owner: "example" })
 ```
 
 #### Example: Create
@@ -3686,6 +3469,8 @@ const huggingfaces = await client.Huggingface().list()
 const huggingface = await client.Huggingface().create({
   identifier: 'example_identifier',
   owner: 'example_owner',
+  name: 'example_name',
+  upstream_url: 'example_upstream_url',
 })
 ```
 
@@ -3764,7 +3549,7 @@ const maven = await client.Maven().load({ id: 'maven_id', identifier: 'identifie
 #### Example: List
 
 ```ts
-const mavens = await client.Maven().list()
+const mavens = await client.Maven().list({ identifier: "example", owner: "example" })
 ```
 
 #### Example: Create
@@ -3773,6 +3558,8 @@ const mavens = await client.Maven().list()
 const maven = await client.Maven().create({
   identifier: 'example_identifier',
   owner: 'example_owner',
+  name: 'example_name',
+  upstream_url: 'example_upstream_url',
 })
 ```
 
@@ -3903,7 +3690,7 @@ const npm = await client.Npm().load({ id: 'npm_id', identifier: 'identifier', ow
 #### Example: List
 
 ```ts
-const npms = await client.Npm().list()
+const npms = await client.Npm().list({ identifier: "example", owner: "example" })
 ```
 
 #### Example: Create
@@ -3912,6 +3699,8 @@ const npms = await client.Npm().list()
 const npm = await client.Npm().create({
   identifier: 'example_identifier',
   owner: 'example_owner',
+  name: 'example_name',
+  upstream_url: 'example_upstream_url',
 })
 ```
 
@@ -3961,7 +3750,7 @@ const nuget = await client.Nuget().load({ id: 'nuget_id', identifier: 'identifie
 #### Example: List
 
 ```ts
-const nugets = await client.Nuget().list()
+const nugets = await client.Nuget().list({ identifier: "example", owner: "example" })
 ```
 
 #### Example: Create
@@ -3970,6 +3759,8 @@ const nugets = await client.Nuget().list()
 const nuget = await client.Nuget().create({
   identifier: 'example_identifier',
   owner: 'example_owner',
+  name: 'example_name',
+  upstream_url: 'example_upstream_url',
 })
 ```
 
@@ -4004,11 +3795,11 @@ Create an instance: `const org = client.Org()`
 | `name` | `string` |  |
 | `package` | `Record<string, any>` |  |
 | `policy` | `Record<string, any>` |  |
-| `reason` | `any[]` |  |
+| `reasons` | `any[]` |  |
 | `slug` | `string` |  |
 | `slug_perm` | `string` |  |
 | `tagline` | `string` |  |
-| `vulnerability_scan_result` | `Record<string, any>` |  |
+| `vulnerability_scan_results` | `Record<string, any>` |  |
 
 #### Example: Load
 
@@ -4027,6 +3818,11 @@ const orgs = await client.Org().list()
 ```ts
 const org = await client.Org().create({
   id: 'example_id',
+  name: 'example_name',
+  package: {},
+  policy: {},
+  reasons: [],
+  vulnerability_scan_results: {},
 })
 ```
 
@@ -4055,7 +3851,7 @@ Create an instance: `const organization_group_sync = client.OrganizationGroupSyn
 #### Example: List
 
 ```ts
-const organization_group_syncs = await client.OrganizationGroupSync().list()
+const organization_group_syncs = await client.OrganizationGroupSync().list({ org_id: "example" })
 ```
 
 #### Example: Create
@@ -4063,6 +3859,9 @@ const organization_group_syncs = await client.OrganizationGroupSync().list()
 ```ts
 const organization_group_sync = await client.OrganizationGroupSync().create({
   org_id: 'example_org_id',
+  idp_key: 'example_idp_key',
+  idp_value: 'example_idp_value',
+  team: 'example_team',
 })
 ```
 
@@ -4113,14 +3912,14 @@ Create an instance: `const organization_invite = client.OrganizationInvite()`
 | `org` | `string` |  |
 | `role` | `string` |  |
 | `slug_perm` | `string` |  |
-| `team` | `any[]` |  |
+| `teams` | `any[]` |  |
 | `user` | `string` |  |
 | `user_url` | `string` |  |
 
 #### Example: List
 
 ```ts
-const organization_invites = await client.OrganizationInvite().list()
+const organization_invites = await client.OrganizationInvite().list({ org_id: "example" })
 ```
 
 #### Example: Create
@@ -4153,7 +3952,7 @@ Create an instance: `const organization_invite_extend = client.OrganizationInvit
 | `org` | `string` |  |
 | `role` | `string` |  |
 | `slug_perm` | `string` |  |
-| `team` | `any[]` |  |
+| `teams` | `any[]` |  |
 | `user` | `string` |  |
 | `user_url` | `string` |  |
 
@@ -4205,7 +4004,7 @@ const organization_membership = await client.OrganizationMembership().load({ mem
 #### Example: List
 
 ```ts
-const organization_memberships = await client.OrganizationMembership().list()
+const organization_memberships = await client.OrganizationMembership().list({ org_id: "example" })
 ```
 
 
@@ -4280,14 +4079,14 @@ Create an instance: `const organization_package_license_policy = client.Organiza
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `allow_unknown_license` | `boolean` |  |
+| `allow_unknown_licenses` | `boolean` |  |
 | `created_at` | `string` |  |
 | `description` | `string` |  |
 | `name` | `string` |  |
 | `on_violation_quarantine` | `boolean` |  |
 | `package_query_string` | `string` |  |
 | `slug_perm` | `string` |  |
-| `spdx_identifier` | `any[]` |  |
+| `spdx_identifiers` | `any[]` |  |
 | `updated_at` | `string` |  |
 
 #### Example: Load
@@ -4299,7 +4098,7 @@ const organization_package_license_policy = await client.OrganizationPackageLice
 #### Example: List
 
 ```ts
-const organization_package_license_policys = await client.OrganizationPackageLicensePolicy().list()
+const organization_package_license_policys = await client.OrganizationPackageLicensePolicy().list({ org_id: "example" })
 ```
 
 #### Example: Create
@@ -4307,6 +4106,8 @@ const organization_package_license_policys = await client.OrganizationPackageLic
 ```ts
 const organization_package_license_policy = await client.OrganizationPackageLicensePolicy().create({
   org_id: 'example_org_id',
+  name: 'example_name',
+  spdx_identifiers: [],
 })
 ```
 
@@ -4347,7 +4148,7 @@ const organization_package_vulnerability_policy = await client.OrganizationPacka
 #### Example: List
 
 ```ts
-const organization_package_vulnerability_policys = await client.OrganizationPackageVulnerabilityPolicy().list()
+const organization_package_vulnerability_policys = await client.OrganizationPackageVulnerabilityPolicy().list({ org_id: "example" })
 ```
 
 #### Example: Create
@@ -4355,6 +4156,7 @@ const organization_package_vulnerability_policys = await client.OrganizationPack
 ```ts
 const organization_package_vulnerability_policy = await client.OrganizationPackageVulnerabilityPolicy().create({
   org_id: 'example_org_id',
+  name: 'example_name',
 })
 ```
 
@@ -4418,7 +4220,7 @@ const organization_team = await client.OrganizationTeam().load({ id: 'organizati
 #### Example: List
 
 ```ts
-const organization_teams = await client.OrganizationTeam().list()
+const organization_teams = await client.OrganizationTeam().list({ org_id: "example" })
 ```
 
 #### Example: Create
@@ -4426,6 +4228,7 @@ const organization_teams = await client.OrganizationTeam().list()
 ```ts
 const organization_team = await client.OrganizationTeam().create({
   org_id: 'example_org_id',
+  name: 'example_name',
 })
 ```
 
@@ -4451,7 +4254,7 @@ Create an instance: `const organization_team_member = client.OrganizationTeamMem
 #### Example: List
 
 ```ts
-const organization_team_members = await client.OrganizationTeamMember().list()
+const organization_team_members = await client.OrganizationTeamMember().list({ org_id: "example", team_id: "example" })
 ```
 
 #### Example: Create
@@ -4460,6 +4263,8 @@ const organization_team_members = await client.OrganizationTeamMember().list()
 const organization_team_member = await client.OrganizationTeamMember().create({
   org_id: 'example_org_id',
   team_id: 'example_team_id',
+  role: 'example_role',
+  user: 'example_user',
 })
 ```
 
@@ -4472,11 +4277,6 @@ Create an instance: `const oss = client.Oss()`
 ### P2n
 
 Create an instance: `const p2n = client.P2n()`
-
-
-### P2n2
-
-Create an instance: `const p2n2 = client.P2n2()`
 
 
 ### Package
@@ -4496,8 +4296,10 @@ Create an instance: `const package_ = client.Package()`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `architecture` | `any[]` |  |
+| `active` | `number` |  |
+| `architectures` | `any[]` |  |
 | `backend_kind` | `number` |  |
+| `bandwidth` | `Record<string, any>` |  |
 | `cdn_url` | `string` |  |
 | `checksum_md5` | `string` |  |
 | `checksum_sha1` | `string` |  |
@@ -4511,17 +4313,18 @@ Create an instance: `const package_ = client.Package()`
 | `display_name` | `string` |  |
 | `distro` | `Record<string, any>` |  |
 | `distro_version` | `Record<string, any>` |  |
-| `download` | `number` |  |
+| `downloads` | `Record<string, any>` |  |
 | `epoch` | `number` |  |
 | `extension` | `string` |  |
-| `file` | `any[]` |  |
 | `filename` | `string` |  |
+| `files` | `any[]` |  |
 | `format` | `string` |  |
 | `format_url` | `string` |  |
 | `freeable_storage` | `number` |  |
 | `fully_qualified_name` | `string` |  |
-| `identifier` | `Record<string, any>` |  |
 | `identifier_perm` | `string` |  |
+| `identifiers` | `Record<string, any>` |  |
+| `inactive` | `number` |  |
 | `indexed` | `boolean` |  |
 | `is_cancellable` | `boolean` |  |
 | `is_copyable` | `boolean` |  |
@@ -4542,12 +4345,11 @@ Create an instance: `const package_ = client.Package()`
 | `name` | `string` |  |
 | `namespace` | `string` |  |
 | `namespace_url` | `string` |  |
-| `num_download` | `number` |  |
-| `num_file` | `number` |  |
+| `num_downloads` | `number` |  |
+| `num_files` | `number` |  |
 | `operator` | `string` |  |
 | `origin_repository` | `string` |  |
 | `origin_repository_url` | `string` |  |
-| `package` | `Record<string, any>` |  |
 | `package_type` | `number` |  |
 | `policy_violated` | `boolean` |  |
 | `release` | `string` |  |
@@ -4575,8 +4377,9 @@ Create an instance: `const package_ = client.Package()`
 | `summary` | `string` |  |
 | `sync_finished_at` | `string` |  |
 | `sync_progress` | `number` |  |
-| `tag` | `Record<string, any>` |  |
+| `tags` | `Record<string, any>` |  |
 | `tags_immutable` | `Record<string, any>` |  |
+| `total` | `number` |  |
 | `type_display` | `string` |  |
 | `uploaded_at` | `string` |  |
 | `uploader` | `string` |  |
@@ -4594,7 +4397,7 @@ const package_ = await client.Package().load({ owner: 'owner', repo: 'repo' })
 #### Example: List
 
 ```ts
-const package_s = await client.Package().list()
+const package_s = await client.Package().list({ owner: "example", repo: "example" })
 ```
 
 #### Example: Create
@@ -4603,6 +4406,12 @@ const package_s = await client.Package().list()
 const package_ = await client.Package().create({
   owner: 'example_owner',
   repo: 'example_repo',
+  bandwidth: {},
+  count: 1,
+  distro: {},
+  downloads: {},
+  last_push: 'example_last_push',
+  num_downloads: 1,
 })
 ```
 
@@ -4643,7 +4452,7 @@ const package_deny_policy = await client.PackageDenyPolicy().load({ id: 'package
 #### Example: List
 
 ```ts
-const package_deny_policys = await client.PackageDenyPolicy().list()
+const package_deny_policys = await client.PackageDenyPolicy().list({ org_id: "example" })
 ```
 
 #### Example: Create
@@ -4651,6 +4460,7 @@ const package_deny_policys = await client.PackageDenyPolicy().list()
 ```ts
 const package_deny_policy = await client.PackageDenyPolicy().create({
   org_id: 'example_org_id',
+  package_query_string: 'example_package_query_string',
 })
 ```
 
@@ -4717,12 +4527,19 @@ Create an instance: `const package_license_policy_evaluation = client.PackageLic
 
 | Field | Type | Description |
 | --- | --- | --- |
+| `allow_unknown_licenses` | `boolean` |  |
 | `created_at` | `string` |  |
+| `description` | `string` |  |
 | `evaluation_count` | `number` |  |
+| `name` | `string` |  |
+| `on_violation_quarantine` | `boolean` |  |
+| `package_query_string` | `string` |  |
 | `policy` | `Record<string, any>` |  |
 | `slug_perm` | `string` |  |
+| `spdx_identifiers` | `any[]` |  |
 | `status` | `string` |  |
 | `updated_at` | `string` |  |
+| `url` | `string` |  |
 | `violation_count` | `number` |  |
 
 #### Example: Load
@@ -4734,7 +4551,7 @@ const package_license_policy_evaluation = await client.PackageLicensePolicyEvalu
 #### Example: List
 
 ```ts
-const package_license_policy_evaluations = await client.PackageLicensePolicyEvaluation().list()
+const package_license_policy_evaluations = await client.PackageLicensePolicyEvaluation().list({ org_id: "example", policy_slug_perm: "example" })
 ```
 
 #### Example: Create
@@ -4743,6 +4560,8 @@ const package_license_policy_evaluations = await client.PackageLicensePolicyEval
 const package_license_policy_evaluation = await client.PackageLicensePolicyEvaluation().create({
   org_id: 'example_org_id',
   policy_slug_perm: 'example_policy_slug_perm',
+  policy: {},
+  spdx_identifiers: [],
 })
 ```
 
@@ -4780,12 +4599,19 @@ Create an instance: `const package_vulnerability_policy_evaluation = client.Pack
 
 | Field | Type | Description |
 | --- | --- | --- |
+| `allow_unknown_severity` | `boolean` |  |
 | `created_at` | `string` |  |
+| `description` | `string` |  |
 | `evaluation_count` | `number` |  |
+| `min_severity` | `string` |  |
+| `name` | `string` |  |
+| `on_violation_quarantine` | `boolean` |  |
+| `package_query_string` | `string` |  |
 | `policy` | `Record<string, any>` |  |
 | `slug_perm` | `string` |  |
 | `status` | `string` |  |
 | `updated_at` | `string` |  |
+| `url` | `string` |  |
 | `violation_count` | `number` |  |
 
 #### Example: Load
@@ -4797,7 +4623,7 @@ const package_vulnerability_policy_evaluation = await client.PackageVulnerabilit
 #### Example: List
 
 ```ts
-const package_vulnerability_policy_evaluations = await client.PackageVulnerabilityPolicyEvaluation().list()
+const package_vulnerability_policy_evaluations = await client.PackageVulnerabilityPolicyEvaluation().list({ org_id: "example", policy_slug_perm: "example" })
 ```
 
 #### Example: Create
@@ -4835,12 +4661,12 @@ Create an instance: `const provider_setting = client.ProviderSetting()`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `claim` | `Record<string, any>` |  |
+| `claims` | `Record<string, any>` |  |
 | `enabled` | `boolean` |  |
 | `mapping_claim` | `string` |  |
 | `name` | `string` |  |
 | `provider_url` | `string` |  |
-| `service_account` | `any[]` |  |
+| `service_accounts` | `any[]` |  |
 | `slug` | `string` |  |
 | `slug_perm` | `string` |  |
 
@@ -4853,7 +4679,7 @@ const provider_setting = await client.ProviderSetting().load({ org_id: 'org_id',
 #### Example: List
 
 ```ts
-const provider_settings = await client.ProviderSetting().list()
+const provider_settings = await client.ProviderSetting().list({ org_id: "example" })
 ```
 
 
@@ -4872,13 +4698,13 @@ Create an instance: `const provider_settings_write = client.ProviderSettingsWrit
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `claim` | `Record<string, any>` |  |
-| `dynamic_mapping` | `any[]` |  |
+| `claims` | `Record<string, any>` |  |
+| `dynamic_mappings` | `any[]` |  |
 | `enabled` | `boolean` |  |
 | `mapping_claim` | `string` |  |
 | `name` | `string` |  |
 | `provider_url` | `string` |  |
-| `service_account` | `any[]` |  |
+| `service_accounts` | `any[]` |  |
 | `slug` | `string` |  |
 | `slug_perm` | `string` |  |
 
@@ -4887,6 +4713,10 @@ Create an instance: `const provider_settings_write = client.ProviderSettingsWrit
 ```ts
 const provider_settings_write = await client.ProviderSettingsWrite().create({
   org_id: 'example_org_id',
+  claims: {},
+  enabled: true,
+  name: 'example_name',
+  provider_url: 'example_provider_url',
 })
 ```
 
@@ -4936,7 +4766,7 @@ const python = await client.Python().load({ id: 'python_id', identifier: 'identi
 #### Example: List
 
 ```ts
-const pythons = await client.Python().list()
+const pythons = await client.Python().list({ identifier: "example", owner: "example" })
 ```
 
 #### Example: Create
@@ -4945,6 +4775,8 @@ const pythons = await client.Python().list()
 const python = await client.Python().create({
   identifier: 'example_identifier',
   owner: 'example_owner',
+  name: 'example_name',
+  upstream_url: 'example_upstream_url',
 })
 ```
 
@@ -4968,8 +4800,9 @@ Create an instance: `const quota = client.Quota()`
 
 | Field | Type | Description |
 | --- | --- | --- |
+| `display` | `Record<string, any>` |  |
 | `history` | `any[]` |  |
-| `usage` | `Record<string, any>` |  |
+| `raw` | `Record<string, any>` |  |
 
 #### Example: Load
 
@@ -5015,49 +4848,49 @@ Create an instance: `const repo = client.Repo()`
 | `content_kind` | `string` |  |
 | `contextual_auth_realm` | `boolean` |  |
 | `copy_own` | `boolean` |  |
-| `copy_package` | `string` |  |
+| `copy_packages` | `string` |  |
 | `cosign_signing_enabled` | `boolean` |  |
 | `created_at` | `string` |  |
 | `default_privilege` | `string` |  |
 | `delete_own` | `boolean` |  |
-| `delete_package` | `string` |  |
+| `delete_packages` | `string` |  |
 | `deleted_at` | `string` |  |
 | `description` | `string` |  |
-| `distribute` | `any[]` |  |
+| `distributes` | `any[]` |  |
 | `docker_refresh_tokens_enabled` | `boolean` |  |
-| `ecdsa_key` | `any[]` |  |
+| `ecdsa_keys` | `any[]` |  |
 | `enforce_eula` | `boolean` |  |
-| `gpg_key` | `any[]` |  |
-| `index_file` | `boolean` |  |
+| `gpg_keys` | `any[]` |  |
+| `index_files` | `boolean` |  |
 | `is_open_source` | `boolean` |  |
 | `is_private` | `boolean` |  |
 | `is_public` | `boolean` |  |
 | `manage_entitlements_privilege` | `string` |  |
 | `move_own` | `boolean` |  |
-| `move_package` | `string` |  |
+| `move_packages` | `string` |  |
 | `name` | `string` |  |
 | `namespace` | `string` |  |
 | `namespace_url` | `string` |  |
 | `nuget_native_signing_enabled` | `boolean` |  |
-| `num_download` | `number` |  |
-| `num_policy_violated_package` | `number` |  |
-| `num_quarantined_package` | `number` |  |
+| `num_downloads` | `number` |  |
+| `num_policy_violated_packages` | `number` |  |
+| `num_quarantined_packages` | `number` |  |
 | `open_source_license` | `string` |  |
 | `open_source_project_url` | `string` |  |
 | `package_count` | `number` |  |
 | `package_group_count` | `number` |  |
-| `proxy_npmj` | `boolean` |  |
+| `proxy_npmjs` | `boolean` |  |
 | `proxy_pypi` | `boolean` |  |
 | `raw_package_index_enabled` | `boolean` |  |
 | `raw_package_index_signatures_enabled` | `boolean` |  |
-| `replace_package` | `string` |  |
+| `replace_packages` | `string` |  |
 | `replace_packages_by_default` | `boolean` |  |
 | `repository_type` | `number` |  |
 | `repository_type_str` | `string` |  |
 | `resync_own` | `boolean` |  |
-| `resync_package` | `string` |  |
+| `resync_packages` | `string` |  |
 | `scan_own` | `boolean` |  |
-| `scan_package` | `string` |  |
+| `scan_packages` | `string` |  |
 | `self_html_url` | `string` |  |
 | `self_url` | `string` |  |
 | `show_setup_all` | `boolean` |  |
@@ -5068,14 +4901,14 @@ Create an instance: `const repo = client.Repo()`
 | `storage_region` | `string` |  |
 | `strict_npm_validation` | `boolean` |  |
 | `tag_pre_releases_as_latest` | `boolean` |  |
-| `use_debian_label` | `boolean` |  |
+| `use_debian_labels` | `boolean` |  |
 | `use_default_cargo_upstream` | `boolean` |  |
 | `use_entitlements_privilege` | `string` |  |
-| `use_noarch_package` | `boolean` |  |
-| `use_source_package` | `boolean` |  |
+| `use_noarch_packages` | `boolean` |  |
+| `use_source_packages` | `boolean` |  |
 | `use_vulnerability_scanning` | `boolean` |  |
 | `user_entitlements_enabled` | `boolean` |  |
-| `view_statistic` | `string` |  |
+| `view_statistics` | `string` |  |
 
 #### Example: Load
 
@@ -5093,6 +4926,7 @@ const repos = await client.Repo().list()
 
 ```ts
 const repo = await client.Repo().create({
+  name: 'example_name',
 })
 ```
 
@@ -5128,7 +4962,7 @@ Create an instance: `const repository_audit_log = client.RepositoryAuditLog()`
 #### Example: List
 
 ```ts
-const repository_audit_logs = await client.RepositoryAuditLog().list()
+const repository_audit_logs = await client.RepositoryAuditLog().list({ owner: "example", repo: "example" })
 ```
 
 
@@ -5274,6 +5108,7 @@ const repository_gpg_key = await client.RepositoryGpgKey().load({ identifier: 'i
 const repository_gpg_key = await client.RepositoryGpgKey().create({
   identifier: 'example_identifier',
   owner: 'example_owner',
+  comment: 'example_comment',
 })
 ```
 
@@ -5300,7 +5135,7 @@ Create an instance: `const repository_privilege_input = client.RepositoryPrivile
 #### Example: List
 
 ```ts
-const repository_privilege_inputs = await client.RepositoryPrivilegeInput().list()
+const repository_privilege_inputs = await client.RepositoryPrivilegeInput().list({ identifier: "example", owner: "example" })
 ```
 
 
@@ -5391,19 +5226,19 @@ Create an instance: `const repository_token = client.RepositoryToken()`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `client` | `number` |  |
+| `clients` | `number` |  |
 | `created_at` | `string` |  |
 | `created_by` | `string` |  |
 | `created_by_url` | `string` |  |
 | `default` | `boolean` |  |
 | `disable_url` | `string` |  |
-| `download` | `number` |  |
+| `downloads` | `number` |  |
 | `enable_url` | `string` |  |
 | `eula_accepted` | `Record<string, any>` |  |
 | `eula_accepted_at` | `string` |  |
 | `eula_accepted_from` | `string` |  |
 | `eula_required` | `boolean` |  |
-| `has_limit` | `boolean` |  |
+| `has_limits` | `boolean` |  |
 | `identifier` | `number` |  |
 | `is_active` | `boolean` |  |
 | `is_limited` | `boolean` |  |
@@ -5411,8 +5246,8 @@ Create an instance: `const repository_token = client.RepositoryToken()`
 | `limit_bandwidth_unit` | `string` |  |
 | `limit_date_range_from` | `string` |  |
 | `limit_date_range_to` | `string` |  |
-| `limit_num_client` | `number` |  |
-| `limit_num_download` | `number` |  |
+| `limit_num_clients` | `number` |  |
+| `limit_num_downloads` | `number` |  |
 | `limit_package_query` | `string` |  |
 | `limit_path_query` | `string` |  |
 | `metadata` | `Record<string, any>` |  |
@@ -5440,7 +5275,7 @@ const repository_token = await client.RepositoryToken().load({ identifier: 'iden
 #### Example: List
 
 ```ts
-const repository_tokens = await client.RepositoryToken().list()
+const repository_tokens = await client.RepositoryToken().list({ owner: "example", repo: "example" })
 ```
 
 #### Example: Create
@@ -5449,6 +5284,7 @@ const repository_tokens = await client.RepositoryToken().list()
 const repository_token = await client.RepositoryToken().create({
   owner: 'example_owner',
   repo: 'example_repo',
+  name: 'example_name',
 })
 ```
 
@@ -5467,19 +5303,19 @@ Create an instance: `const repository_token_refresh = client.RepositoryTokenRefr
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `client` | `number` |  |
+| `clients` | `number` |  |
 | `created_at` | `string` |  |
 | `created_by` | `string` |  |
 | `created_by_url` | `string` |  |
 | `default` | `boolean` |  |
 | `disable_url` | `string` |  |
-| `download` | `number` |  |
+| `downloads` | `number` |  |
 | `enable_url` | `string` |  |
 | `eula_accepted` | `Record<string, any>` |  |
 | `eula_accepted_at` | `string` |  |
 | `eula_accepted_from` | `string` |  |
 | `eula_required` | `boolean` |  |
-| `has_limit` | `boolean` |  |
+| `has_limits` | `boolean` |  |
 | `identifier` | `number` |  |
 | `is_active` | `boolean` |  |
 | `is_limited` | `boolean` |  |
@@ -5487,8 +5323,8 @@ Create an instance: `const repository_token_refresh = client.RepositoryTokenRefr
 | `limit_bandwidth_unit` | `string` |  |
 | `limit_date_range_from` | `string` |  |
 | `limit_date_range_to` | `string` |  |
-| `limit_num_client` | `number` |  |
-| `limit_num_download` | `number` |  |
+| `limit_num_clients` | `number` |  |
+| `limit_num_downloads` | `number` |  |
 | `limit_package_query` | `string` |  |
 | `limit_path_query` | `string` |  |
 | `metadata` | `Record<string, any>` |  |
@@ -5532,7 +5368,7 @@ Create an instance: `const repository_token_sync = client.RepositoryTokenSync()`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `token` | `any[]` |  |
+| `tokens` | `any[]` |  |
 
 #### Example: Create
 
@@ -5565,7 +5401,8 @@ Create an instance: `const repository_webhook = client.RepositoryWebhook()`
 | `created_by_url` | `string` |  |
 | `disable_reason` | `number` |  |
 | `disable_reason_str` | `string` |  |
-| `event` | `any[]` |  |
+| `event` | `string` |  |
+| `events` | `any[]` |  |
 | `identifier` | `number` |  |
 | `is_active` | `boolean` |  |
 | `is_last_response_bad` | `boolean` |  |
@@ -5582,7 +5419,8 @@ Create an instance: `const repository_webhook = client.RepositoryWebhook()`
 | `self_url` | `string` |  |
 | `slug_perm` | `string` |  |
 | `target_url` | `string` |  |
-| `template` | `any[]` |  |
+| `template` | `string` |  |
+| `templates` | `any[]` |  |
 | `updated_at` | `string` |  |
 | `updated_by` | `string` |  |
 | `updated_by_url` | `string` |  |
@@ -5591,7 +5429,7 @@ Create an instance: `const repository_webhook = client.RepositoryWebhook()`
 #### Example: List
 
 ```ts
-const repository_webhooks = await client.RepositoryWebhook().list()
+const repository_webhooks = await client.RepositoryWebhook().list({ owner: "example", repo: "example" })
 ```
 
 #### Example: Create
@@ -5600,6 +5438,10 @@ const repository_webhooks = await client.RepositoryWebhook().list()
 const repository_webhook = await client.RepositoryWebhook().create({
   owner: 'example_owner',
   repo: 'example_repo',
+  event: 'example_event',
+  events: [],
+  target_url: 'example_target_url',
+  templates: [],
 })
 ```
 
@@ -5687,7 +5529,12 @@ Create an instance: `const resources_rate_check = client.ResourcesRateCheck()`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `resource` | `Record<string, any>` |  |
+| `interval` | `number` |  |
+| `limit` | `number` |  |
+| `remaining` | `number` |  |
+| `reset` | `number` |  |
+| `reset_iso_8601` | `string` |  |
+| `throttled` | `boolean` |  |
 
 #### Example: Load
 
@@ -5736,7 +5583,7 @@ Create an instance: `const rpm = client.Rpm()`
 | `gpg_key_inline` | `string` |  |
 | `gpg_key_url` | `string` |  |
 | `gpg_verification` | `string` |  |
-| `include_source` | `boolean` |  |
+| `include_sources` | `boolean` |  |
 | `is_active` | `boolean` |  |
 | `mode` | `string` |  |
 | `name` | `string` |  |
@@ -5757,7 +5604,7 @@ const rpm = await client.Rpm().load({ id: 'rpm_id', identifier: 'identifier', ow
 #### Example: List
 
 ```ts
-const rpms = await client.Rpm().list()
+const rpms = await client.Rpm().list({ identifier: "example", owner: "example" })
 ```
 
 #### Example: Create
@@ -5766,6 +5613,9 @@ const rpms = await client.Rpm().list()
 const rpm = await client.Rpm().create({
   identifier: 'example_identifier',
   owner: 'example_owner',
+  distro_version: 'example_distro_version',
+  name: 'example_name',
+  upstream_url: 'example_upstream_url',
 })
 ```
 
@@ -5820,7 +5670,7 @@ const ruby = await client.Ruby().load({ id: 'ruby_id', identifier: 'identifier',
 #### Example: List
 
 ```ts
-const rubys = await client.Ruby().list()
+const rubys = await client.Ruby().list({ identifier: "example", owner: "example" })
 ```
 
 #### Example: Create
@@ -5829,6 +5679,8 @@ const rubys = await client.Ruby().list()
 const ruby = await client.Ruby().create({
   identifier: 'example_identifier',
   owner: 'example_owner',
+  name: 'example_name',
+  upstream_url: 'example_upstream_url',
 })
 ```
 
@@ -5874,7 +5726,7 @@ Create an instance: `const service = client.Service()`
 | `name` | `string` |  |
 | `role` | `string` |  |
 | `slug` | `string` |  |
-| `team` | `any[]` |  |
+| `teams` | `any[]` |  |
 
 #### Example: Load
 
@@ -5885,7 +5737,7 @@ const service = await client.Service().load({ id: 'service_id', org_id: 'org_id'
 #### Example: List
 
 ```ts
-const services = await client.Service().list()
+const services = await client.Service().list({ org_id: "example" })
 ```
 
 #### Example: Create
@@ -5893,6 +5745,7 @@ const services = await client.Service().list()
 ```ts
 const service = await client.Service().create({
   org_id: 'example_org_id',
+  name: 'example_name',
 })
 ```
 
@@ -6002,7 +5855,7 @@ const swift = await client.Swift().load({ id: 'swift_id', identifier: 'identifie
 #### Example: List
 
 ```ts
-const swifts = await client.Swift().list()
+const swifts = await client.Swift().list({ identifier: "example", owner: "example" })
 ```
 
 #### Example: Create
@@ -6011,6 +5864,8 @@ const swifts = await client.Swift().list()
 const swift = await client.Swift().create({
   identifier: 'example_identifier',
   owner: 'example_owner',
+  name: 'example_name',
+  upstream_url: 'example_upstream_url',
 })
 ```
 
@@ -6212,12 +6067,12 @@ Create an instance: `const vulnerability = client.Vulnerability()`
 | Field | Type | Description |
 | --- | --- | --- |
 | `created_at` | `string` |  |
-| `has_vulnerability` | `boolean` |  |
+| `has_vulnerabilities` | `boolean` |  |
 | `identifier` | `string` |  |
 | `max_severity` | `string` |  |
-| `num_vulnerability` | `number` |  |
+| `num_vulnerabilities` | `number` |  |
 | `package` | `Record<string, any>` |  |
-| `result` | `any[]` |  |
+| `results` | `any[]` |  |
 | `scan_id` | `number` |  |
 | `target` | `string` |  |
 | `type` | `string` |  |
@@ -6231,7 +6086,7 @@ const vulnerability = await client.Vulnerability().load({ id: 'vulnerability_id'
 #### Example: List
 
 ```ts
-const vulnerabilitys = await client.Vulnerability().list()
+const vulnerabilitys = await client.Vulnerability().list({ owner: "example", repo: "example" })
 ```
 
 
@@ -6330,11 +6185,11 @@ stores the returned data and match criteria internally. Subsequent
 calls on the same instance can rely on this state.
 
 ```ts
-const cargo = client.Cargo()
-await cargo.list()
+const vulnerability = client.Vulnerability()
+await vulnerability.list()
 
-// cargo.data() now returns the cargo data from the last `list`
-// cargo.match() returns the last match criteria
+// vulnerability.data() now returns the vulnerability data from the last `list`
+// vulnerability.match() returns the last match criteria
 ```
 
 Call `make()` to create a fresh instance with the same configuration

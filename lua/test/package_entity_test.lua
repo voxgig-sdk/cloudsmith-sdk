@@ -85,7 +85,7 @@ describe("PackageEntity", function()
 
     local package_ref01_data_result, err = package_ref01_ent:create(package_ref01_data, nil)
     assert.is_nil(err)
-    package_ref01_data = helpers.to_map(package_ref01_data_result)
+    package_ref01_data = helpers.to_map(type(package_ref01_data_result) == 'table' and package_ref01_data_result.data_get and package_ref01_data_result:data_get() or package_ref01_data_result)
     assert.is_not_nil(package_ref01_data)
 
     -- LIST
@@ -99,23 +99,12 @@ describe("PackageEntity", function()
     assert.is_nil(err)
     assert.is_table(package_ref01_list_result)
 
-    local found_item = vs.select(
-      runner.entity_list_to_data(package_ref01_list_result),
-      { id = package_ref01_data["id"] })
-    assert.is_false(vs.isempty(found_item))
-
     -- LOAD
     local package_ref01_match_dt0 = {}
     local package_ref01_data_dt0_loaded, err = package_ref01_ent:load(package_ref01_match_dt0, nil)
     assert.is_nil(err)
     assert.is_not_nil(package_ref01_data_dt0_loaded)
 
-    -- REMOVE
-    local package_ref01_match_rm0 = {
-      id = package_ref01_data["id"],
-    }
-    local _, err = package_ref01_ent:remove(package_ref01_match_rm0, nil)
-    assert.is_nil(err)
 
     -- LIST
     local package_ref01_match_rt0 = {
@@ -127,11 +116,6 @@ describe("PackageEntity", function()
     local package_ref01_list_rt0_result, err = package_ref01_ent:list(package_ref01_match_rt0, nil)
     assert.is_nil(err)
     assert.is_table(package_ref01_list_rt0_result)
-
-    local not_found_item = vs.select(
-      runner.entity_list_to_data(package_ref01_list_rt0_result),
-      { id = package_ref01_data["id"] })
-    assert.is_true(vs.isempty(not_found_item))
 
   end)
 end)

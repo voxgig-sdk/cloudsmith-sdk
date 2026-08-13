@@ -44,7 +44,7 @@ describe("PackageFileUploadEntity", function()
 
     local package_file_upload_ref01_data_result, err = package_file_upload_ref01_ent:create(package_file_upload_ref01_data, nil)
     assert.is_nil(err)
-    package_file_upload_ref01_data = helpers.to_map(package_file_upload_ref01_data_result)
+    package_file_upload_ref01_data = helpers.to_map(type(package_file_upload_ref01_data_result) == 'table' and package_file_upload_ref01_data_result.data_get and package_file_upload_ref01_data_result:data_get() or package_file_upload_ref01_data_result)
     assert.is_not_nil(package_file_upload_ref01_data)
 
   end)

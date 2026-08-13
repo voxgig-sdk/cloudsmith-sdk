@@ -74,7 +74,7 @@ func TestOrganizationMembershipVisibilityUpdateEntity(t *testing.T) {
 		if err != nil {
 			t.Fatalf("update failed: %v", err)
 		}
-		organizationMembershipVisibilityUpdateRef01ResdataUp0 := core.ToMapAny(organizationMembershipVisibilityUpdateRef01ResdataUp0Result)
+		organizationMembershipVisibilityUpdateRef01ResdataUp0 := core.ToMapAny(entityData(organizationMembershipVisibilityUpdateRef01ResdataUp0Result))
 		if organizationMembershipVisibilityUpdateRef01ResdataUp0 == nil {
 			t.Fatal("expected update result to be a map")
 		}

@@ -166,7 +166,41 @@ class CloudsmithSDK
         return $fetchdef;
     }
 
+    // Raw endpoint access is operator-controllable, like every entity op.
+    // Blocking it means denying BOTH the 'direct' and 'graphql' tokens,
+    // since either one reaches the same endpoint.
     public function direct(array $fetchargs = []): mixed
+    {
+        if (!$this->op_allowed("direct")) {
+            return $this->op_denied("direct");
+        }
+
+        return $this->raw_request($fetchargs);
+    }
+
+    // Is this raw-access op permitted by the SDK's allow.op option?
+    private function op_allowed(string $op): bool
+    {
+        $allow_op = Struct::getpath($this->options, "allow.op");
+        return is_string($allow_op) && str_contains($allow_op, $op);
+    }
+
+    private function op_denied(string $op): array
+    {
+        $allow_op = Struct::getpath($this->options, "allow.op");
+        return [
+            "ok" => false,
+            "err" => new CloudsmithError($op . "_allow",
+                "CloudsmithSDK: " . $op . ": operation not allowed by" .
+                " SDK option allow.op value: \"" . (string)$allow_op . "\""),
+        ];
+    }
+
+    // Ungated request path shared by direct and graphql, each of which
+    // checks its own allow.op token first. Private, rather than a flag on
+    // fetchargs: a caller-supplied marker would let anyone opt straight back
+    // out of the gate by passing it.
+    private function raw_request(array $fetchargs = []): mixed
     {
         $utility = $this->_utility;
 
@@ -235,6 +269,58 @@ class CloudsmithSDK
             "ok" => false,
             "err" => $ctx->make_error("direct_invalid", "invalid response type"),
         ];
+    }
+
+    // Raw GraphQL access: the pressure valve that makes the generated
+    // surface's deliberate omissions (per-call selection sets, typed filter
+    // builders, batching, subscriptions) livable — the whole schema stays
+    // reachable.
+    //
+    // Thin wrapper over the same prepare/fetch path direct uses, with the
+    // one thing raw direct cannot do for GraphQL: a GraphQL failure rides
+    // HTTP 200 as a top-level `errors` array, so status alone would report
+    // a failed query as ok.
+    //
+    // NOTE: like direct, this bypasses the feature pipeline — no retry,
+    // ratelimit or paging features apply.
+    public function graphql(string $query, ?array $variables = null, ?array $ctrl = null): mixed
+    {
+        if (!$this->op_allowed("graphql")) {
+            return $this->op_denied("graphql");
+        }
+
+        $res = $this->raw_request([
+            "method" => "POST",
+            "headers" => ["content-type" => "application/json"],
+            "body" => ["query" => $query, "variables" => $variables ?? []],
+            "ctrl" => $ctrl ?? [],
+        ]);
+
+        if (!is_array($res)) {
+            return $res;
+        }
+
+        // Errors are read BEFORE any status check: a GraphQL parse or
+        // validation failure comes back as HTTP 400 carrying the standard
+        // { errors: [...] } body, and the raw path represents a non-2xx as
+        // ok:false with no err — so returning early on status would discard
+        // the server's own diagnostics, which are the only useful part of
+        // that response.
+        $errors = Struct::getpath($res, "data.errors");
+
+        if (is_array($errors) && 0 < count($errors)) {
+            $first = is_array($errors[0]) ? $errors[0] : [];
+            $msg = $first["message"] ?? "";
+            if (!is_string($msg) || "" === $msg) {
+                $msg = "graphql error";
+            }
+            $res["ok"] = false;
+            $res["err"] = new CloudsmithError("graphql_error",
+                "CloudsmithSDK: graphql: " . $msg);
+            $res["graphql"] = $errors;
+        }
+
+        return $res;
     }
 
 
@@ -757,150 +843,6 @@ class CloudsmithSDK
             return $this->_gon;
         }
         return new GonEntity($this, $data);
-    }
-
-
-    private $_gon2 = null;
-
-    // Canonical facade: $client->Gon2()->list() / ->load(["id" => ...]).
-    // PHP method names are case-insensitive, so lowercase $client->gon2()
-    // resolves here too.
-    public function Gon2($data = null)
-    {
-        require_once __DIR__ . '/entity/gon2_entity.php';
-        if ($data === null) {
-            if ($this->_gon2 === null) {
-                $this->_gon2 = new Gon2Entity($this, null);
-            }
-            return $this->_gon2;
-        }
-        return new Gon2Entity($this, $data);
-    }
-
-
-    private $_gon3 = null;
-
-    // Canonical facade: $client->Gon3()->list() / ->load(["id" => ...]).
-    // PHP method names are case-insensitive, so lowercase $client->gon3()
-    // resolves here too.
-    public function Gon3($data = null)
-    {
-        require_once __DIR__ . '/entity/gon3_entity.php';
-        if ($data === null) {
-            if ($this->_gon3 === null) {
-                $this->_gon3 = new Gon3Entity($this, null);
-            }
-            return $this->_gon3;
-        }
-        return new Gon3Entity($this, $data);
-    }
-
-
-    private $_gon4 = null;
-
-    // Canonical facade: $client->Gon4()->list() / ->load(["id" => ...]).
-    // PHP method names are case-insensitive, so lowercase $client->gon4()
-    // resolves here too.
-    public function Gon4($data = null)
-    {
-        require_once __DIR__ . '/entity/gon4_entity.php';
-        if ($data === null) {
-            if ($this->_gon4 === null) {
-                $this->_gon4 = new Gon4Entity($this, null);
-            }
-            return $this->_gon4;
-        }
-        return new Gon4Entity($this, $data);
-    }
-
-
-    private $_gon5 = null;
-
-    // Canonical facade: $client->Gon5()->list() / ->load(["id" => ...]).
-    // PHP method names are case-insensitive, so lowercase $client->gon5()
-    // resolves here too.
-    public function Gon5($data = null)
-    {
-        require_once __DIR__ . '/entity/gon5_entity.php';
-        if ($data === null) {
-            if ($this->_gon5 === null) {
-                $this->_gon5 = new Gon5Entity($this, null);
-            }
-            return $this->_gon5;
-        }
-        return new Gon5Entity($this, $data);
-    }
-
-
-    private $_gon6 = null;
-
-    // Canonical facade: $client->Gon6()->list() / ->load(["id" => ...]).
-    // PHP method names are case-insensitive, so lowercase $client->gon6()
-    // resolves here too.
-    public function Gon6($data = null)
-    {
-        require_once __DIR__ . '/entity/gon6_entity.php';
-        if ($data === null) {
-            if ($this->_gon6 === null) {
-                $this->_gon6 = new Gon6Entity($this, null);
-            }
-            return $this->_gon6;
-        }
-        return new Gon6Entity($this, $data);
-    }
-
-
-    private $_gon7 = null;
-
-    // Canonical facade: $client->Gon7()->list() / ->load(["id" => ...]).
-    // PHP method names are case-insensitive, so lowercase $client->gon7()
-    // resolves here too.
-    public function Gon7($data = null)
-    {
-        require_once __DIR__ . '/entity/gon7_entity.php';
-        if ($data === null) {
-            if ($this->_gon7 === null) {
-                $this->_gon7 = new Gon7Entity($this, null);
-            }
-            return $this->_gon7;
-        }
-        return new Gon7Entity($this, $data);
-    }
-
-
-    private $_gon8 = null;
-
-    // Canonical facade: $client->Gon8()->list() / ->load(["id" => ...]).
-    // PHP method names are case-insensitive, so lowercase $client->gon8()
-    // resolves here too.
-    public function Gon8($data = null)
-    {
-        require_once __DIR__ . '/entity/gon8_entity.php';
-        if ($data === null) {
-            if ($this->_gon8 === null) {
-                $this->_gon8 = new Gon8Entity($this, null);
-            }
-            return $this->_gon8;
-        }
-        return new Gon8Entity($this, $data);
-    }
-
-
-    private $_gon9 = null;
-
-    // Canonical facade: $client->Gon9()->list() / ->load(["id" => ...]).
-    // PHP method names are case-insensitive, so lowercase $client->gon9()
-    // resolves here too.
-    public function Gon9($data = null)
-    {
-        require_once __DIR__ . '/entity/gon9_entity.php';
-        if ($data === null) {
-            if ($this->_gon9 === null) {
-                $this->_gon9 = new Gon9Entity($this, null);
-            }
-            return $this->_gon9;
-        }
-        return new Gon9Entity($this, $data);
     }
 
 
@@ -1513,24 +1455,6 @@ class CloudsmithSDK
             return $this->_p2n;
         }
         return new P2nEntity($this, $data);
-    }
-
-
-    private $_p2n2 = null;
-
-    // Canonical facade: $client->P2n2()->list() / ->load(["id" => ...]).
-    // PHP method names are case-insensitive, so lowercase $client->p2n2()
-    // resolves here too.
-    public function P2n2($data = null)
-    {
-        require_once __DIR__ . '/entity/p2n2_entity.php';
-        if ($data === null) {
-            if ($this->_p2n2 === null) {
-                $this->_p2n2 = new P2n2Entity($this, null);
-            }
-            return $this->_p2n2;
-        }
-        return new P2n2Entity($this, $data);
     }
 
 
@@ -2473,8 +2397,8 @@ class CloudsmithSDK
     private $_test = null;
 
     // Canonical facade: $client->Test_()->list() / ->load(["id" => ...]).
-    // PHP method names are case-insensitive, so lowercase $client->test()
-    // resolves here too.
+    // Renamed from Test: that name is already taken by an SDK class
+    // member, and a duplicate declaration is a fatal PHP parse error.
     public function Test_($data = null)
     {
         require_once __DIR__ . '/entity/test_entity.php';

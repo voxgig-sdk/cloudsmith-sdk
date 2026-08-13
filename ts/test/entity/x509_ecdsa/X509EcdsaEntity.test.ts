@@ -48,7 +48,7 @@ describe('X509EcdsaEntity', async () => {
     // fixture (entity TestData.json). Those don't exist on the live API.
     // Skip live runs unless the user provided a real ENTID env override.
     if (setup.syntheticOnly) {
-      t.skip('live entity test uses synthetic IDs from fixture — set CLOUDSMITH_TEST_X____ECDSA_ENTID JSON to run live')
+      t.skip('live entity test uses synthetic IDs from fixture — set CLOUDSMITH_TEST_X509_ECDSA_ENTID JSON to run live')
       return
     }
     const client = setup.client
@@ -99,17 +99,17 @@ function basicSetup(extra?: any) {
   // basic flow consumes synthetic IDs from the fixture file; without an
   // override those synthetic IDs reach the live API and 4xx. Surface this
   // to the test so it can skip rather than fail.
-  const idmapEnvVal = process.env['CLOUDSMITH_TEST_X____ECDSA_ENTID']
+  const idmapEnvVal = process.env['CLOUDSMITH_TEST_X509_ECDSA_ENTID']
   const idmapOverridden = null != idmapEnvVal && idmapEnvVal.trim().startsWith('{')
 
   const env = envOverride({
-    'CLOUDSMITH_TEST_X____ECDSA_ENTID': idmap,
+    'CLOUDSMITH_TEST_X509_ECDSA_ENTID': idmap,
     'CLOUDSMITH_TEST_LIVE': 'FALSE',
     'CLOUDSMITH_TEST_EXPLAIN': 'FALSE',
     'CLOUDSMITH_APIKEY': 'NONE',
   })
 
-  idmap = env['CLOUDSMITH_TEST_X____ECDSA_ENTID']
+  idmap = env['CLOUDSMITH_TEST_X509_ECDSA_ENTID']
 
   const live = 'TRUE' === env.CLOUDSMITH_TEST_LIVE
 

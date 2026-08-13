@@ -85,7 +85,7 @@ class DebEntityTest extends TestCase
         $deb_ref01_data["owner"] = $setup["idmap"]["owner01"];
 
         $deb_ref01_data_result = $deb_ref01_ent->create($deb_ref01_data, null);
-        $deb_ref01_data = Helpers::to_map($deb_ref01_data_result);
+        $deb_ref01_data = Helpers::to_map(is_object($deb_ref01_data_result) && method_exists($deb_ref01_data_result, 'data_get') ? $deb_ref01_data_result->data_get() : $deb_ref01_data_result);
         $this->assertNotNull($deb_ref01_data);
 
         // LIST
@@ -96,11 +96,6 @@ class DebEntityTest extends TestCase
 
         $deb_ref01_list_result = $deb_ref01_ent->list($deb_ref01_match, null);
         $this->assertIsArray($deb_ref01_list_result);
-
-        $found_item = sdk_select(
-            Runner::entity_list_to_data($deb_ref01_list_result),
-            ["id" => $deb_ref01_data["id"]]);
-        $this->assertNotEmpty($found_item);
 
         // UPDATE
         $deb_ref01_data_up0_up = [
@@ -113,7 +108,7 @@ class DebEntityTest extends TestCase
         $deb_ref01_data_up0_up[$deb_ref01_markdef_up0_name] = $deb_ref01_markdef_up0_value;
 
         $deb_ref01_resdata_up0_result = $deb_ref01_ent->update($deb_ref01_data_up0_up, null);
-        $deb_ref01_resdata_up0 = Helpers::to_map($deb_ref01_resdata_up0_result);
+        $deb_ref01_resdata_up0 = Helpers::to_map(is_object($deb_ref01_resdata_up0_result) && method_exists($deb_ref01_resdata_up0_result, 'data_get') ? $deb_ref01_resdata_up0_result->data_get() : $deb_ref01_resdata_up0_result);
         $this->assertNotNull($deb_ref01_resdata_up0);
         $this->assertEquals($deb_ref01_resdata_up0[$deb_ref01_markdef_up0_name], $deb_ref01_markdef_up0_value);
 

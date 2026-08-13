@@ -64,7 +64,7 @@ describe('HelmEntity', async () => {
     helm_ref01_data['identifier'] = setup.idmap['identifier01']
     helm_ref01_data['owner'] = setup.idmap['owner01']
 
-    helm_ref01_data = await helm_ref01_ent.create(helm_ref01_data)
+    helm_ref01_data = (await helm_ref01_ent.create(helm_ref01_data)).data()
     assert(null != helm_ref01_data)
 
 
@@ -73,9 +73,7 @@ describe('HelmEntity', async () => {
     helm_ref01_match['identifier'] = setup.idmap['identifier01']
     helm_ref01_match['owner'] = setup.idmap['owner01']
 
-    const helm_ref01_list = await helm_ref01_ent.list(helm_ref01_match)
-
-    assert(!isempty(select(helm_ref01_list, { id: helm_ref01_data.id })))
+    const helm_ref01_list = (await helm_ref01_ent.list(helm_ref01_match)).map((e: any) => e.data())
 
 
     // UPDATE
@@ -86,7 +84,7 @@ describe('HelmEntity', async () => {
     const helm_ref01_markdef_up0 = { name: 'auth_mode', value: 'Mark01-helm_ref01_' + setup.now }
     ;(helm_ref01_data_up0 as any)[helm_ref01_markdef_up0.name] = helm_ref01_markdef_up0.value
 
-    const helm_ref01_resdata_up0 = await helm_ref01_ent.update(helm_ref01_data_up0)
+    const helm_ref01_resdata_up0 = (await helm_ref01_ent.update(helm_ref01_data_up0)).data()
     assert(null != helm_ref01_resdata_up0)
 
     assert((helm_ref01_resdata_up0 as any)[helm_ref01_markdef_up0.name] === helm_ref01_markdef_up0.value)

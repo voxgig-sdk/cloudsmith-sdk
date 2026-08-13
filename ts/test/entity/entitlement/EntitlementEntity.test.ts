@@ -65,15 +65,11 @@ describe('EntitlementEntity', async () => {
     entitlement_ref01_data['owner'] = setup.idmap['owner01']
     entitlement_ref01_data['repo'] = setup.idmap['repo01']
 
-    entitlement_ref01_data = await entitlement_ref01_ent.create(entitlement_ref01_data)
+    entitlement_ref01_data = (await entitlement_ref01_ent.create(entitlement_ref01_data)).data()
     assert(null != entitlement_ref01_data)
 
 
 
-    // REMOVE
-    const entitlement_ref01_match_rm0: any = { id: entitlement_ref01_data.id }
-    await entitlement_ref01_ent.remove(entitlement_ref01_match_rm0)
-  
 
   })
 })

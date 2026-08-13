@@ -33,7 +33,7 @@ class X509EcdsaEntityTest extends TestCase
         // The basic flow consumes synthetic IDs from the fixture. In live mode
         // without an *_ENTID env override, those IDs hit the live API and 4xx.
         if (!empty($setup["synthetic_only"])) {
-            $this->markTestSkipped("live entity test uses synthetic IDs from fixture — set CLOUDSMITH_TEST_X____ECDSA_ENTID JSON to run live");
+            $this->markTestSkipped("live entity test uses synthetic IDs from fixture — set CLOUDSMITH_TEST_X509_ECDSA_ENTID JSON to run live");
             return;
         }
         $client = $setup["client"];
@@ -71,18 +71,18 @@ function x509_ecdsa_basic_setup($extra)
     // Detect ENTID env override before envOverride consumes it. When live
     // mode is on without a real override, the basic test runs against synthetic
     // IDs from the fixture and 4xx's. Surface this so the test can skip.
-    $entid_env_raw = getenv("CLOUDSMITH_TEST_X____ECDSA_ENTID");
+    $entid_env_raw = getenv("CLOUDSMITH_TEST_X509_ECDSA_ENTID");
     $idmap_overridden = $entid_env_raw !== false && str_starts_with(trim($entid_env_raw), "{");
 
     $env = Runner::env_override([
-        "CLOUDSMITH_TEST_X____ECDSA_ENTID" => $idmap,
+        "CLOUDSMITH_TEST_X509_ECDSA_ENTID" => $idmap,
         "CLOUDSMITH_TEST_LIVE" => "FALSE",
         "CLOUDSMITH_TEST_EXPLAIN" => "FALSE",
         "CLOUDSMITH_APIKEY" => "NONE",
     ]);
 
     $idmap_resolved = Helpers::to_map(
-        $env["CLOUDSMITH_TEST_X____ECDSA_ENTID"]);
+        $env["CLOUDSMITH_TEST_X509_ECDSA_ENTID"]);
     if ($idmap_resolved === null) {
         $idmap_resolved = Helpers::to_map($idmap);
     }

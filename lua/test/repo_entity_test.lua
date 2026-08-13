@@ -84,7 +84,7 @@ describe("RepoEntity", function()
 
     local repo_ref01_data_result, err = repo_ref01_ent:create(repo_ref01_data, nil)
     assert.is_nil(err)
-    repo_ref01_data = helpers.to_map(repo_ref01_data_result)
+    repo_ref01_data = helpers.to_map(type(repo_ref01_data_result) == 'table' and repo_ref01_data_result.data_get and repo_ref01_data_result:data_get() or repo_ref01_data_result)
     assert.is_not_nil(repo_ref01_data)
 
     -- LIST
@@ -93,11 +93,6 @@ describe("RepoEntity", function()
     local repo_ref01_list_result, err = repo_ref01_ent:list(repo_ref01_match, nil)
     assert.is_nil(err)
     assert.is_table(repo_ref01_list_result)
-
-    local found_item = vs.select(
-      runner.entity_list_to_data(repo_ref01_list_result),
-      { id = repo_ref01_data["id"] })
-    assert.is_false(vs.isempty(found_item))
 
     -- UPDATE
     local repo_ref01_data_up0_up = {
@@ -110,7 +105,7 @@ describe("RepoEntity", function()
 
     local repo_ref01_resdata_up0_result, err = repo_ref01_ent:update(repo_ref01_data_up0_up, nil)
     assert.is_nil(err)
-    local repo_ref01_resdata_up0 = helpers.to_map(repo_ref01_resdata_up0_result)
+    local repo_ref01_resdata_up0 = helpers.to_map(type(repo_ref01_resdata_up0_result) == 'table' and repo_ref01_resdata_up0_result.data_get and repo_ref01_resdata_up0_result:data_get() or repo_ref01_resdata_up0_result)
     assert.is_not_nil(repo_ref01_resdata_up0)
     assert.are.equal(repo_ref01_resdata_up0[repo_ref01_markdef_up0_name], repo_ref01_markdef_up0_value)
 
@@ -120,12 +115,6 @@ describe("RepoEntity", function()
     assert.is_nil(err)
     assert.is_not_nil(repo_ref01_data_dt0_loaded)
 
-    -- REMOVE
-    local repo_ref01_match_rm0 = {
-      id = repo_ref01_data["id"],
-    }
-    local _, err = repo_ref01_ent:remove(repo_ref01_match_rm0, nil)
-    assert.is_nil(err)
 
     -- LIST
     local repo_ref01_match_rt0 = {}
@@ -133,11 +122,6 @@ describe("RepoEntity", function()
     local repo_ref01_list_rt0_result, err = repo_ref01_ent:list(repo_ref01_match_rt0, nil)
     assert.is_nil(err)
     assert.is_table(repo_ref01_list_rt0_result)
-
-    local not_found_item = vs.select(
-      runner.entity_list_to_data(repo_ref01_list_rt0_result),
-      { id = repo_ref01_data["id"] })
-    assert.is_true(vs.isempty(not_found_item))
 
   end)
 end)

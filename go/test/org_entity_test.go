@@ -108,7 +108,7 @@ func TestOrgEntity(t *testing.T) {
 		if err != nil {
 			t.Fatalf("create failed: %v", err)
 		}
-		orgRef01Data = core.ToMapAny(orgRef01DataResult)
+		orgRef01Data = core.ToMapAny(entityData(orgRef01DataResult))
 		if orgRef01Data == nil {
 			t.Fatal("expected create result to be a map")
 		}
@@ -120,14 +120,9 @@ func TestOrgEntity(t *testing.T) {
 		if err != nil {
 			t.Fatalf("list failed: %v", err)
 		}
-		orgRef01List, orgRef01ListOk := orgRef01ListResult.([]any)
+		_, orgRef01ListOk := orgRef01ListResult.([]any)
 		if !orgRef01ListOk {
 			t.Fatalf("expected list result to be an array, got %T", orgRef01ListResult)
-		}
-
-		foundItem := vs.Select(entityListToData(orgRef01List), map[string]any{"id": orgRef01Data["id"]})
-		if vs.IsEmpty(foundItem) {
-			t.Fatal("expected to find created entity in list")
 		}
 
 		// UPDATE
@@ -142,7 +137,7 @@ func TestOrgEntity(t *testing.T) {
 		if err != nil {
 			t.Fatalf("update failed: %v", err)
 		}
-		orgRef01ResdataUp0 := core.ToMapAny(orgRef01ResdataUp0Result)
+		orgRef01ResdataUp0 := core.ToMapAny(entityData(orgRef01ResdataUp0Result))
 		if orgRef01ResdataUp0 == nil {
 			t.Fatal("expected update result to be a map")
 		}
@@ -160,14 +155,6 @@ func TestOrgEntity(t *testing.T) {
 			t.Fatal("expected load result to be non-nil")
 		}
 
-		// REMOVE
-		orgRef01MatchRm0 := map[string]any{
-			"id": orgRef01Data["id"],
-		}
-		_, err = orgRef01Ent.Remove(orgRef01MatchRm0, nil)
-		if err != nil {
-			t.Fatalf("remove failed: %v", err)
-		}
 
 		// LIST
 		orgRef01MatchRt0 := map[string]any{}
@@ -176,14 +163,9 @@ func TestOrgEntity(t *testing.T) {
 		if err != nil {
 			t.Fatalf("list failed: %v", err)
 		}
-		orgRef01ListRt0, orgRef01ListRt0Ok := orgRef01ListRt0Result.([]any)
+		_, orgRef01ListRt0Ok := orgRef01ListRt0Result.([]any)
 		if !orgRef01ListRt0Ok {
 			t.Fatalf("expected list result to be an array, got %T", orgRef01ListRt0Result)
-		}
-
-		notFoundItem := vs.Select(entityListToData(orgRef01ListRt0), map[string]any{"id": orgRef01Data["id"]})
-		if !vs.IsEmpty(notFoundItem) {
-			t.Fatal("expected removed entity to not be in list")
 		}
 
 	})

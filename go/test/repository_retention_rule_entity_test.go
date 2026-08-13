@@ -74,7 +74,7 @@ func TestRepositoryRetentionRuleEntity(t *testing.T) {
 		if err != nil {
 			t.Fatalf("update failed: %v", err)
 		}
-		repositoryRetentionRuleRef01ResdataUp0 := core.ToMapAny(repositoryRetentionRuleRef01ResdataUp0Result)
+		repositoryRetentionRuleRef01ResdataUp0 := core.ToMapAny(entityData(repositoryRetentionRuleRef01ResdataUp0Result))
 		if repositoryRetentionRuleRef01ResdataUp0 == nil {
 			t.Fatal("expected update result to be a map")
 		}

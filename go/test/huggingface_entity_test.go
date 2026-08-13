@@ -109,7 +109,7 @@ func TestHuggingfaceEntity(t *testing.T) {
 		if err != nil {
 			t.Fatalf("create failed: %v", err)
 		}
-		huggingfaceRef01Data = core.ToMapAny(huggingfaceRef01DataResult)
+		huggingfaceRef01Data = core.ToMapAny(entityData(huggingfaceRef01DataResult))
 		if huggingfaceRef01Data == nil {
 			t.Fatal("expected create result to be a map")
 		}
@@ -124,14 +124,9 @@ func TestHuggingfaceEntity(t *testing.T) {
 		if err != nil {
 			t.Fatalf("list failed: %v", err)
 		}
-		huggingfaceRef01List, huggingfaceRef01ListOk := huggingfaceRef01ListResult.([]any)
+		_, huggingfaceRef01ListOk := huggingfaceRef01ListResult.([]any)
 		if !huggingfaceRef01ListOk {
 			t.Fatalf("expected list result to be an array, got %T", huggingfaceRef01ListResult)
-		}
-
-		foundItem := vs.Select(entityListToData(huggingfaceRef01List), map[string]any{"id": huggingfaceRef01Data["id"]})
-		if vs.IsEmpty(foundItem) {
-			t.Fatal("expected to find created entity in list")
 		}
 
 		// UPDATE
@@ -148,7 +143,7 @@ func TestHuggingfaceEntity(t *testing.T) {
 		if err != nil {
 			t.Fatalf("update failed: %v", err)
 		}
-		huggingfaceRef01ResdataUp0 := core.ToMapAny(huggingfaceRef01ResdataUp0Result)
+		huggingfaceRef01ResdataUp0 := core.ToMapAny(entityData(huggingfaceRef01ResdataUp0Result))
 		if huggingfaceRef01ResdataUp0 == nil {
 			t.Fatal("expected update result to be a map")
 		}

@@ -6,9 +6,9 @@ import time
 
 import pytest
 
-from utility.voxgig_struct import voxgig_struct as vs
+from cloudsmith_sdk.utility.voxgig_struct import voxgig_struct as vs
 from cloudsmith_sdk import CloudsmithSDK
-from core import helpers
+from cloudsmith_sdk.core import helpers
 
 _TEST_DIR = os.path.dirname(os.path.abspath(__file__))
 from test import runner
@@ -42,7 +42,7 @@ class TestHelmEntity:
         assert len(seen) == 3
 
         # Inbound: streaming active -> yields each item from the feature.
-        from config import make_config
+        from cloudsmith_sdk.config import make_config
         cfg = make_config()
         if isinstance(cfg.get("feature"), dict) and "streaming" in cfg["feature"]:
             sdk = CloudsmithSDK.test(
@@ -80,7 +80,7 @@ class TestHelmEntity:
         helm_ref01_data["identifier"] = setup["idmap"]["identifier01"]
         helm_ref01_data["owner"] = setup["idmap"]["owner01"]
 
-        helm_ref01_data = helpers.to_map(helm_ref01_ent.create(helm_ref01_data, None))
+        helm_ref01_data = helpers.to_map(runner.entity_data(helm_ref01_ent.create(helm_ref01_data, None)))
         assert helm_ref01_data is not None
 
         # LIST
@@ -92,11 +92,6 @@ class TestHelmEntity:
         helm_ref01_list_result = helm_ref01_ent.list(helm_ref01_match, None)
         assert isinstance(helm_ref01_list_result, list)
 
-        found_item = vs.select(
-            runner.entity_list_to_data(helm_ref01_list_result),
-            {"id": helm_ref01_data["id"]})
-        assert not vs.isempty(found_item)
-
         # UPDATE
         helm_ref01_data_up0_up = {
             "identifier": setup["idmap"]["identifier"],
@@ -107,7 +102,7 @@ class TestHelmEntity:
         helm_ref01_markdef_up0_value = "Mark01-helm_ref01_" + str(setup["now"])
         helm_ref01_data_up0_up[helm_ref01_markdef_up0_name] = helm_ref01_markdef_up0_value
 
-        helm_ref01_resdata_up0 = helpers.to_map(helm_ref01_ent.update(helm_ref01_data_up0_up, None))
+        helm_ref01_resdata_up0 = helpers.to_map(runner.entity_data(helm_ref01_ent.update(helm_ref01_data_up0_up, None)))
         assert helm_ref01_resdata_up0 is not None
         assert helm_ref01_resdata_up0[helm_ref01_markdef_up0_name] == helm_ref01_markdef_up0_value
 

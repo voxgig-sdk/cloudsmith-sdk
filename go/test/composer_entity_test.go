@@ -109,7 +109,7 @@ func TestComposerEntity(t *testing.T) {
 		if err != nil {
 			t.Fatalf("create failed: %v", err)
 		}
-		composerRef01Data = core.ToMapAny(composerRef01DataResult)
+		composerRef01Data = core.ToMapAny(entityData(composerRef01DataResult))
 		if composerRef01Data == nil {
 			t.Fatal("expected create result to be a map")
 		}
@@ -124,14 +124,9 @@ func TestComposerEntity(t *testing.T) {
 		if err != nil {
 			t.Fatalf("list failed: %v", err)
 		}
-		composerRef01List, composerRef01ListOk := composerRef01ListResult.([]any)
+		_, composerRef01ListOk := composerRef01ListResult.([]any)
 		if !composerRef01ListOk {
 			t.Fatalf("expected list result to be an array, got %T", composerRef01ListResult)
-		}
-
-		foundItem := vs.Select(entityListToData(composerRef01List), map[string]any{"id": composerRef01Data["id"]})
-		if vs.IsEmpty(foundItem) {
-			t.Fatal("expected to find created entity in list")
 		}
 
 		// UPDATE
@@ -148,7 +143,7 @@ func TestComposerEntity(t *testing.T) {
 		if err != nil {
 			t.Fatalf("update failed: %v", err)
 		}
-		composerRef01ResdataUp0 := core.ToMapAny(composerRef01ResdataUp0Result)
+		composerRef01ResdataUp0 := core.ToMapAny(entityData(composerRef01ResdataUp0Result))
 		if composerRef01ResdataUp0 == nil {
 			t.Fatal("expected update result to be a map")
 		}

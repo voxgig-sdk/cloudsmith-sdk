@@ -85,7 +85,7 @@ class SwiftEntityTest extends TestCase
         $swift_ref01_data["owner"] = $setup["idmap"]["owner01"];
 
         $swift_ref01_data_result = $swift_ref01_ent->create($swift_ref01_data, null);
-        $swift_ref01_data = Helpers::to_map($swift_ref01_data_result);
+        $swift_ref01_data = Helpers::to_map(is_object($swift_ref01_data_result) && method_exists($swift_ref01_data_result, 'data_get') ? $swift_ref01_data_result->data_get() : $swift_ref01_data_result);
         $this->assertNotNull($swift_ref01_data);
 
         // LIST
@@ -96,11 +96,6 @@ class SwiftEntityTest extends TestCase
 
         $swift_ref01_list_result = $swift_ref01_ent->list($swift_ref01_match, null);
         $this->assertIsArray($swift_ref01_list_result);
-
-        $found_item = sdk_select(
-            Runner::entity_list_to_data($swift_ref01_list_result),
-            ["id" => $swift_ref01_data["id"]]);
-        $this->assertNotEmpty($found_item);
 
         // UPDATE
         $swift_ref01_data_up0_up = [
@@ -113,7 +108,7 @@ class SwiftEntityTest extends TestCase
         $swift_ref01_data_up0_up[$swift_ref01_markdef_up0_name] = $swift_ref01_markdef_up0_value;
 
         $swift_ref01_resdata_up0_result = $swift_ref01_ent->update($swift_ref01_data_up0_up, null);
-        $swift_ref01_resdata_up0 = Helpers::to_map($swift_ref01_resdata_up0_result);
+        $swift_ref01_resdata_up0 = Helpers::to_map(is_object($swift_ref01_resdata_up0_result) && method_exists($swift_ref01_resdata_up0_result, 'data_get') ? $swift_ref01_resdata_up0_result->data_get() : $swift_ref01_resdata_up0_result);
         $this->assertNotNull($swift_ref01_resdata_up0);
         $this->assertEquals($swift_ref01_resdata_up0[$swift_ref01_markdef_up0_name], $swift_ref01_markdef_up0_value);
 

@@ -56,7 +56,7 @@ class OrganizationSamlAuthEntityTest extends TestCase
         $organization_saml_auth_ref01_data_up0_up[$organization_saml_auth_ref01_markdef_up0_name] = $organization_saml_auth_ref01_markdef_up0_value;
 
         $organization_saml_auth_ref01_resdata_up0_result = $organization_saml_auth_ref01_ent->update($organization_saml_auth_ref01_data_up0_up, null);
-        $organization_saml_auth_ref01_resdata_up0 = Helpers::to_map($organization_saml_auth_ref01_resdata_up0_result);
+        $organization_saml_auth_ref01_resdata_up0 = Helpers::to_map(is_object($organization_saml_auth_ref01_resdata_up0_result) && method_exists($organization_saml_auth_ref01_resdata_up0_result, 'data_get') ? $organization_saml_auth_ref01_resdata_up0_result->data_get() : $organization_saml_auth_ref01_resdata_up0_result);
         $this->assertNotNull($organization_saml_auth_ref01_resdata_up0);
         $this->assertEquals($organization_saml_auth_ref01_resdata_up0[$organization_saml_auth_ref01_markdef_up0_name], $organization_saml_auth_ref01_markdef_up0_value);
 

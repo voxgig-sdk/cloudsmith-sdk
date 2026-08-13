@@ -41,7 +41,7 @@ describe("UserAuthenticationTokenEntity", function()
 
     local user_authentication_token_ref01_data_result, err = user_authentication_token_ref01_ent:create(user_authentication_token_ref01_data, nil)
     assert.is_nil(err)
-    user_authentication_token_ref01_data = helpers.to_map(user_authentication_token_ref01_data_result)
+    user_authentication_token_ref01_data = helpers.to_map(type(user_authentication_token_ref01_data_result) == 'table' and user_authentication_token_ref01_data_result.data_get and user_authentication_token_ref01_data_result:data_get() or user_authentication_token_ref01_data_result)
     assert.is_not_nil(user_authentication_token_ref01_data)
 
     -- UPDATE
@@ -54,7 +54,7 @@ describe("UserAuthenticationTokenEntity", function()
 
     local user_authentication_token_ref01_resdata_up0_result, err = user_authentication_token_ref01_ent:update(user_authentication_token_ref01_data_up0_up, nil)
     assert.is_nil(err)
-    local user_authentication_token_ref01_resdata_up0 = helpers.to_map(user_authentication_token_ref01_resdata_up0_result)
+    local user_authentication_token_ref01_resdata_up0 = helpers.to_map(type(user_authentication_token_ref01_resdata_up0_result) == 'table' and user_authentication_token_ref01_resdata_up0_result.data_get and user_authentication_token_ref01_resdata_up0_result:data_get() or user_authentication_token_ref01_resdata_up0_result)
     assert.is_not_nil(user_authentication_token_ref01_resdata_up0)
     assert.are.equal(user_authentication_token_ref01_resdata_up0[user_authentication_token_ref01_markdef_up0_name], user_authentication_token_ref01_markdef_up0_value)
 

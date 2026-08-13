@@ -70,7 +70,7 @@ def repository_x509_rsa_certificate_direct_setup(mockres)
   calls = []
 
   env = Runner.env_override({
-    "CLOUDSMITH_TEST_REPOSITORY_X____RSA_CERTIFICATE_ENTID" => {},
+    "CLOUDSMITH_TEST_REPOSITORY_X509_RSA_CERTIFICATE_ENTID" => {},
     "CLOUDSMITH_TEST_LIVE" => "FALSE",
     "CLOUDSMITH_APIKEY" => "NONE",
   })

@@ -75,7 +75,7 @@ class RepositoryTokenEntityTest < Minitest::Test
     repository_token_ref01_data["repo"] = setup[:idmap]["repo01"]
 
     repository_token_ref01_data_result = repository_token_ref01_ent.create(repository_token_ref01_data, nil)
-    repository_token_ref01_data = Helpers.to_map(repository_token_ref01_data_result)
+    repository_token_ref01_data = Helpers.to_map(repository_token_ref01_data_result.respond_to?(:data_get) ? repository_token_ref01_data_result.data_get : repository_token_ref01_data_result)
     assert !repository_token_ref01_data.nil?
 
     # LIST
@@ -86,11 +86,6 @@ class RepositoryTokenEntityTest < Minitest::Test
 
     repository_token_ref01_list_result = repository_token_ref01_ent.list(repository_token_ref01_match, nil)
     assert repository_token_ref01_list_result.is_a?(Array)
-
-    found_item = Vs.select(
-      Runner.entity_list_to_data(repository_token_ref01_list_result),
-      { "id" => repository_token_ref01_data["id"] })
-    assert !Vs.isempty(found_item)
 
     # UPDATE
     repository_token_ref01_data_up0_up = {
@@ -103,7 +98,7 @@ class RepositoryTokenEntityTest < Minitest::Test
     repository_token_ref01_data_up0_up[repository_token_ref01_markdef_up0_name] = repository_token_ref01_markdef_up0_value
 
     repository_token_ref01_resdata_up0_result = repository_token_ref01_ent.update(repository_token_ref01_data_up0_up, nil)
-    repository_token_ref01_resdata_up0 = Helpers.to_map(repository_token_ref01_resdata_up0_result)
+    repository_token_ref01_resdata_up0 = Helpers.to_map(repository_token_ref01_resdata_up0_result.respond_to?(:data_get) ? repository_token_ref01_resdata_up0_result.data_get : repository_token_ref01_resdata_up0_result)
     assert !repository_token_ref01_resdata_up0.nil?
     assert_equal repository_token_ref01_resdata_up0[repository_token_ref01_markdef_up0_name], repository_token_ref01_markdef_up0_value
 

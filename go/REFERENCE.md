@@ -164,38 +164,6 @@ Create a new `Geoip` entity instance. Pass `nil` for no initial data.
 
 Create a new `Gon` entity instance. Pass `nil` for no initial data.
 
-#### `Gon2(data map[string]any) CloudsmithEntity`
-
-Create a new `Gon2` entity instance. Pass `nil` for no initial data.
-
-#### `Gon3(data map[string]any) CloudsmithEntity`
-
-Create a new `Gon3` entity instance. Pass `nil` for no initial data.
-
-#### `Gon4(data map[string]any) CloudsmithEntity`
-
-Create a new `Gon4` entity instance. Pass `nil` for no initial data.
-
-#### `Gon5(data map[string]any) CloudsmithEntity`
-
-Create a new `Gon5` entity instance. Pass `nil` for no initial data.
-
-#### `Gon6(data map[string]any) CloudsmithEntity`
-
-Create a new `Gon6` entity instance. Pass `nil` for no initial data.
-
-#### `Gon7(data map[string]any) CloudsmithEntity`
-
-Create a new `Gon7` entity instance. Pass `nil` for no initial data.
-
-#### `Gon8(data map[string]any) CloudsmithEntity`
-
-Create a new `Gon8` entity instance. Pass `nil` for no initial data.
-
-#### `Gon9(data map[string]any) CloudsmithEntity`
-
-Create a new `Gon9` entity instance. Pass `nil` for no initial data.
-
 #### `Gpg(data map[string]any) CloudsmithEntity`
 
 Create a new `Gpg` entity instance. Pass `nil` for no initial data.
@@ -331,10 +299,6 @@ Create a new `Oss` entity instance. Pass `nil` for no initial data.
 #### `P2n(data map[string]any) CloudsmithEntity`
 
 Create a new `P2n` entity instance. Pass `nil` for no initial data.
-
-#### `P2n2(data map[string]any) CloudsmithEntity`
-
-Create a new `P2n2` entity instance. Pass `nil` for no initial data.
 
 #### `Package(data map[string]any) CloudsmithEntity`
 
@@ -832,6 +796,8 @@ Create a new entity with the given data.
 result, err := client.Cargo(nil).Create(map[string]any{
     "identifier": "example_identifier",
     "owner": "example_owner",
+    "name": "example_name",
+    "upstream_url": "example_upstream_url",
 }, nil)
 if err != nil {
     panic(err)
@@ -1006,6 +972,8 @@ Create a new entity with the given data.
 result, err := client.Composer(nil).Create(map[string]any{
     "identifier": "example_identifier",
     "owner": "example_owner",
+    "name": "example_name",
+    "upstream_url": "example_upstream_url",
 }, nil)
 if err != nil {
     panic(err)
@@ -1149,6 +1117,8 @@ Create a new entity with the given data.
 result, err := client.Conda(nil).Create(map[string]any{
     "identifier": "example_identifier",
     "owner": "example_owner",
+    "name": "example_name",
+    "upstream_url": "example_upstream_url",
 }, nil)
 if err != nil {
     panic(err)
@@ -1292,6 +1262,8 @@ Create a new entity with the given data.
 result, err := client.Cran(nil).Create(map[string]any{
     "identifier": "example_identifier",
     "owner": "example_owner",
+    "name": "example_name",
+    "upstream_url": "example_upstream_url",
 }, nil)
 if err != nil {
     panic(err)
@@ -1404,6 +1376,8 @@ Create a new entity with the given data.
 result, err := client.Dart(nil).Create(map[string]any{
     "identifier": "example_identifier",
     "owner": "example_owner",
+    "name": "example_name",
+    "upstream_url": "example_upstream_url",
 }, nil)
 if err != nil {
     panic(err)
@@ -1469,7 +1443,7 @@ fmt.Println(deb.GetName()) // "deb"
 | `component` | `string` | No |  |
 | `created_at` | `string` | No |  |
 | `disable_reason` | `string` | No |  |
-| `distro_version` | `[]any` | Yes |  |
+| `distro_versions` | `[]any` | Yes |  |
 | `extra_header_1` | `string` | No |  |
 | `extra_header_2` | `string` | No |  |
 | `extra_value_1` | `string` | No |  |
@@ -1477,7 +1451,7 @@ fmt.Println(deb.GetName()) // "deb"
 | `gpg_key_inline` | `string` | No |  |
 | `gpg_key_url` | `string` | No |  |
 | `gpg_verification` | `string` | No |  |
-| `include_source` | `bool` | No |  |
+| `include_sources` | `bool` | No |  |
 | `is_active` | `bool` | No |  |
 | `mode` | `string` | No |  |
 | `name` | `string` | Yes |  |
@@ -1524,6 +1498,9 @@ Create a new entity with the given data.
 result, err := client.Deb(nil).Create(map[string]any{
     "identifier": "example_identifier",
     "owner": "example_owner",
+    "distro_versions": []any{},
+    "name": "example_name",
+    "upstream_url": "example_upstream_url",
 }, nil)
 if err != nil {
     panic(err)
@@ -1681,8 +1658,8 @@ fmt.Println(distributionFull.GetName()) // "distribution_full"
 | `name` | `string` | Yes |  |
 | `self_url` | `string` | No |  |
 | `slug` | `string` | No |  |
-| `variant` | `string` | No |  |
-| `version` | `[]any` | No |  |
+| `variants` | `string` | No |  |
+| `versions` | `[]any` | No |  |
 
 ### Operations
 
@@ -1829,6 +1806,8 @@ Create a new entity with the given data.
 result, err := client.Docker(nil).Create(map[string]any{
     "identifier": "example_identifier",
     "owner": "example_owner",
+    "name": "example_name",
+    "upstream_url": "example_upstream_url",
 }, nil)
 if err != nil {
     panic(err)
@@ -2014,7 +1993,11 @@ fmt.Println(entitlement.GetName()) // "entitlement"
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `token` | `map[string]any` | Yes |  |
+| `active` | `int` | No |  |
+| `bandwidth` | `map[string]any` | Yes |  |
+| `downloads` | `map[string]any` | Yes |  |
+| `inactive` | `int` | No |  |
+| `total` | `int` | No |  |
 
 ### Operations
 
@@ -2039,6 +2022,8 @@ result, err := client.Entitlement(nil).Create(map[string]any{
     "identifier": "example_identifier",
     "owner": "example_owner",
     "repo": "example_repo",
+    "bandwidth": map[string]any{},
+    "downloads": map[string]any{},
 }, nil)
 if err != nil {
     panic(err)
@@ -2173,14 +2158,14 @@ fmt.Println(format.GetName()) // "format"
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
 | `description` | `string` | Yes |  |
-| `distribution` | `[]any` | No |  |
-| `extension` | `[]any` | Yes |  |
+| `distributions` | `[]any` | No |  |
+| `extensions` | `[]any` | Yes |  |
 | `name` | `string` | Yes |  |
 | `premium` | `bool` | Yes |  |
 | `premium_plan_id` | `string` | No |  |
 | `premium_plan_name` | `string` | No |  |
 | `slug` | `string` | Yes |  |
-| `support` | `map[string]any` | Yes |  |
+| `supports` | `map[string]any` | Yes |  |
 
 ### Operations
 
@@ -2270,68 +2255,6 @@ gon := client.Gon(nil)
 fmt.Println(gon.GetName()) // "gon"
 ```
 
-### Common Methods
-
-#### `Data(args ...any) any`
-
-Get or set the entity data. When called with data, sets the entity's
-internal data and returns the current data. When called without
-arguments, returns a copy of the current data.
-
-#### `Match(args ...any) any`
-
-Get or set the entity match criteria. Works the same as `Data()`.
-
-#### `Make() Entity`
-
-Create a new `GonEntity` instance with the same client and
-options.
-
-#### `GetName() string`
-
-Return the entity name.
-
-
----
-
-## Gon2Entity
-
-```go
-gon2 := client.Gon2(nil)
-fmt.Println(gon2.GetName()) // "gon2"
-```
-
-### Common Methods
-
-#### `Data(args ...any) any`
-
-Get or set the entity data. When called with data, sets the entity's
-internal data and returns the current data. When called without
-arguments, returns a copy of the current data.
-
-#### `Match(args ...any) any`
-
-Get or set the entity match criteria. Works the same as `Data()`.
-
-#### `Make() Entity`
-
-Create a new `Gon2Entity` instance with the same client and
-options.
-
-#### `GetName() string`
-
-Return the entity name.
-
-
----
-
-## Gon3Entity
-
-```go
-gon3 := client.Gon3(nil)
-fmt.Println(gon3.GetName()) // "gon3"
-```
-
 ### Fields
 
 | Field | Type | Required | Description |
@@ -2362,85 +2285,35 @@ fmt.Println(gon3.GetName()) // "gon3"
 List entities matching the given criteria. Returns an array.
 
 ```go
-results, err := client.Gon3(nil).List(nil, nil)
+results, err := client.Gon(nil).List(nil, nil)
 if err != nil {
     panic(err)
 }
 fmt.Println(results)
 ```
 
-### Common Methods
+#### `Load(reqmatch, ctrl map[string]any) (any, error)`
 
-#### `Data(args ...any) any`
-
-Get or set the entity data. When called with data, sets the entity's
-internal data and returns the current data. When called without
-arguments, returns a copy of the current data.
-
-#### `Match(args ...any) any`
-
-Get or set the entity match criteria. Works the same as `Data()`.
-
-#### `Make() Entity`
-
-Create a new `Gon3Entity` instance with the same client and
-options.
-
-#### `GetName() string`
-
-Return the entity name.
-
-
----
-
-## Gon4Entity
+Load a single entity matching the given criteria.
 
 ```go
-gon4 := client.Gon4(nil)
-fmt.Println(gon4.GetName()) // "gon4"
+result, err := client.Gon(nil).Load(map[string]any{"identifier": "identifier", "owner": "owner", "slug_perm": "slug_perm"}, nil)
+if err != nil {
+    panic(err)
+}
+fmt.Println(result)
 ```
-
-### Common Methods
-
-#### `Data(args ...any) any`
-
-Get or set the entity data. When called with data, sets the entity's
-internal data and returns the current data. When called without
-arguments, returns a copy of the current data.
-
-#### `Match(args ...any) any`
-
-Get or set the entity match criteria. Works the same as `Data()`.
-
-#### `Make() Entity`
-
-Create a new `Gon4Entity` instance with the same client and
-options.
-
-#### `GetName() string`
-
-Return the entity name.
-
-
----
-
-## Gon5Entity
-
-```go
-gon5 := client.Gon5(nil)
-fmt.Println(gon5.GetName()) // "gon5"
-```
-
-### Operations
 
 #### `Create(reqdata, ctrl map[string]any) (any, error)`
 
 Create a new entity with the given data.
 
 ```go
-result, err := client.Gon5(nil).Create(map[string]any{
+result, err := client.Gon(nil).Create(map[string]any{
     "identifier": "example_identifier",
     "owner": "example_owner",
+    "name": "example_name",
+    "upstream_url": "example_upstream_url",
 }, nil)
 if err != nil {
     panic(err)
@@ -2448,167 +2321,12 @@ if err != nil {
 fmt.Println(result)
 ```
 
-### Common Methods
-
-#### `Data(args ...any) any`
-
-Get or set the entity data. When called with data, sets the entity's
-internal data and returns the current data. When called without
-arguments, returns a copy of the current data.
-
-#### `Match(args ...any) any`
-
-Get or set the entity match criteria. Works the same as `Data()`.
-
-#### `Make() Entity`
-
-Create a new `Gon5Entity` instance with the same client and
-options.
-
-#### `GetName() string`
-
-Return the entity name.
-
-
----
-
-## Gon6Entity
-
-```go
-gon6 := client.Gon6(nil)
-fmt.Println(gon6.GetName()) // "gon6"
-```
-
-### Fields
-
-| Field | Type | Required | Description |
-| --- | --- | --- | --- |
-| `auth_mode` | `string` | No |  |
-| `auth_secret` | `string` | No |  |
-| `auth_username` | `string` | No |  |
-| `created_at` | `string` | No |  |
-| `disable_reason` | `string` | No |  |
-| `extra_header_1` | `string` | No |  |
-| `extra_header_2` | `string` | No |  |
-| `extra_value_1` | `string` | No |  |
-| `extra_value_2` | `string` | No |  |
-| `is_active` | `bool` | No |  |
-| `mode` | `string` | No |  |
-| `name` | `string` | Yes |  |
-| `pending_validation` | `bool` | No |  |
-| `priority` | `int` | No |  |
-| `slug_perm` | `string` | No |  |
-| `updated_at` | `string` | No |  |
-| `upstream_url` | `string` | Yes |  |
-| `verify_ssl` | `bool` | No |  |
-
-### Operations
-
-#### `Load(reqmatch, ctrl map[string]any) (any, error)`
-
-Load a single entity matching the given criteria.
-
-```go
-result, err := client.Gon6(nil).Load(map[string]any{"identifier": "identifier", "owner": "owner", "slug_perm": "slug_perm"}, nil)
-if err != nil {
-    panic(err)
-}
-fmt.Println(result)
-```
-
-### Common Methods
-
-#### `Data(args ...any) any`
-
-Get or set the entity data. When called with data, sets the entity's
-internal data and returns the current data. When called without
-arguments, returns a copy of the current data.
-
-#### `Match(args ...any) any`
-
-Get or set the entity match criteria. Works the same as `Data()`.
-
-#### `Make() Entity`
-
-Create a new `Gon6Entity` instance with the same client and
-options.
-
-#### `GetName() string`
-
-Return the entity name.
-
-
----
-
-## Gon7Entity
-
-```go
-gon7 := client.Gon7(nil)
-fmt.Println(gon7.GetName()) // "gon7"
-```
-
-### Common Methods
-
-#### `Data(args ...any) any`
-
-Get or set the entity data. When called with data, sets the entity's
-internal data and returns the current data. When called without
-arguments, returns a copy of the current data.
-
-#### `Match(args ...any) any`
-
-Get or set the entity match criteria. Works the same as `Data()`.
-
-#### `Make() Entity`
-
-Create a new `Gon7Entity` instance with the same client and
-options.
-
-#### `GetName() string`
-
-Return the entity name.
-
-
----
-
-## Gon8Entity
-
-```go
-gon8 := client.Gon8(nil)
-fmt.Println(gon8.GetName()) // "gon8"
-```
-
-### Fields
-
-| Field | Type | Required | Description |
-| --- | --- | --- | --- |
-| `auth_mode` | `string` | No |  |
-| `auth_secret` | `string` | No |  |
-| `auth_username` | `string` | No |  |
-| `created_at` | `string` | No |  |
-| `disable_reason` | `string` | No |  |
-| `extra_header_1` | `string` | No |  |
-| `extra_header_2` | `string` | No |  |
-| `extra_value_1` | `string` | No |  |
-| `extra_value_2` | `string` | No |  |
-| `is_active` | `bool` | No |  |
-| `mode` | `string` | No |  |
-| `name` | `string` | Yes |  |
-| `pending_validation` | `bool` | No |  |
-| `priority` | `int` | No |  |
-| `slug_perm` | `string` | No |  |
-| `updated_at` | `string` | No |  |
-| `upstream_url` | `string` | Yes |  |
-| `verify_ssl` | `bool` | No |  |
-
-### Operations
-
 #### `Update(reqdata, ctrl map[string]any) (any, error)`
 
 Update an existing entity. The data must include the entity `id`.
 
 ```go
-result, err := client.Gon8(nil).Update(map[string]any{
+result, err := client.Gon(nil).Update(map[string]any{
     "identifier": "identifier",
     "owner": "owner",
     "slug_perm": "slug_perm",
@@ -2634,80 +2352,7 @@ Get or set the entity match criteria. Works the same as `Data()`.
 
 #### `Make() Entity`
 
-Create a new `Gon8Entity` instance with the same client and
-options.
-
-#### `GetName() string`
-
-Return the entity name.
-
-
----
-
-## Gon9Entity
-
-```go
-gon9 := client.Gon9(nil)
-fmt.Println(gon9.GetName()) // "gon9"
-```
-
-### Fields
-
-| Field | Type | Required | Description |
-| --- | --- | --- | --- |
-| `auth_mode` | `string` | No |  |
-| `auth_secret` | `string` | No |  |
-| `auth_username` | `string` | No |  |
-| `created_at` | `string` | No |  |
-| `disable_reason` | `string` | No |  |
-| `extra_header_1` | `string` | No |  |
-| `extra_header_2` | `string` | No |  |
-| `extra_value_1` | `string` | No |  |
-| `extra_value_2` | `string` | No |  |
-| `is_active` | `bool` | No |  |
-| `mode` | `string` | No |  |
-| `name` | `string` | Yes |  |
-| `pending_validation` | `bool` | No |  |
-| `priority` | `int` | No |  |
-| `slug_perm` | `string` | No |  |
-| `updated_at` | `string` | No |  |
-| `upstream_url` | `string` | Yes |  |
-| `verify_ssl` | `bool` | No |  |
-
-### Operations
-
-#### `Update(reqdata, ctrl map[string]any) (any, error)`
-
-Update an existing entity. The data must include the entity `id`.
-
-```go
-result, err := client.Gon9(nil).Update(map[string]any{
-    "identifier": "identifier",
-    "owner": "owner",
-    "slug_perm": "slug_perm",
-    // Fields to update
-}, nil)
-if err != nil {
-    panic(err)
-}
-fmt.Println(result)
-```
-
-### Common Methods
-
-#### `Data(args ...any) any`
-
-Get or set the entity data. When called with data, sets the entity's
-internal data and returns the current data. When called without
-arguments, returns a copy of the current data.
-
-#### `Match(args ...any) any`
-
-Get or set the entity match criteria. Works the same as `Data()`.
-
-#### `Make() Entity`
-
-Create a new `Gon9Entity` instance with the same client and
+Create a new `GonEntity` instance with the same client and
 options.
 
 #### `GetName() string`
@@ -2843,6 +2488,8 @@ Create a new entity with the given data.
 result, err := client.Helm(nil).Create(map[string]any{
     "identifier": "example_identifier",
     "owner": "example_owner",
+    "name": "example_name",
+    "upstream_url": "example_upstream_url",
 }, nil)
 if err != nil {
     panic(err)
@@ -2955,6 +2602,8 @@ Create a new entity with the given data.
 result, err := client.Hex(nil).Create(map[string]any{
     "identifier": "example_identifier",
     "owner": "example_owner",
+    "name": "example_name",
+    "upstream_url": "example_upstream_url",
 }, nil)
 if err != nil {
     panic(err)
@@ -3098,6 +2747,8 @@ Create a new entity with the given data.
 result, err := client.Huggingface(nil).Create(map[string]any{
     "identifier": "example_identifier",
     "owner": "example_owner",
+    "name": "example_name",
+    "upstream_url": "example_upstream_url",
 }, nil)
 if err != nil {
     panic(err)
@@ -3369,6 +3020,8 @@ Create a new entity with the given data.
 result, err := client.Maven(nil).Create(map[string]any{
     "identifier": "example_identifier",
     "owner": "example_owner",
+    "name": "example_name",
+    "upstream_url": "example_upstream_url",
 }, nil)
 if err != nil {
     panic(err)
@@ -3675,6 +3328,8 @@ Create a new entity with the given data.
 result, err := client.Npm(nil).Create(map[string]any{
     "identifier": "example_identifier",
     "owner": "example_owner",
+    "name": "example_name",
+    "upstream_url": "example_upstream_url",
 }, nil)
 if err != nil {
     panic(err)
@@ -3787,6 +3442,8 @@ Create a new entity with the given data.
 result, err := client.Nuget(nil).Create(map[string]any{
     "identifier": "example_identifier",
     "owner": "example_owner",
+    "name": "example_name",
+    "upstream_url": "example_upstream_url",
 }, nil)
 if err != nil {
     panic(err)
@@ -3884,11 +3541,11 @@ fmt.Println(org.GetName()) // "org"
 | `name` | `string` | Yes |  |
 | `package` | `map[string]any` | Yes |  |
 | `policy` | `map[string]any` | Yes |  |
-| `reason` | `[]any` | Yes |  |
+| `reasons` | `[]any` | Yes |  |
 | `slug` | `string` | No |  |
 | `slug_perm` | `string` | No |  |
 | `tagline` | `string` | No |  |
-| `vulnerability_scan_result` | `map[string]any` | Yes |  |
+| `vulnerability_scan_results` | `map[string]any` | Yes |  |
 
 ### Operations
 
@@ -3923,6 +3580,11 @@ Create a new entity with the given data.
 ```go
 result, err := client.Org(nil).Create(map[string]any{
     "id": "example_id",
+    "name": "example_name",
+    "package": map[string]any{},
+    "policy": map[string]any{},
+    "reasons": []any{},
+    "vulnerability_scan_results": map[string]any{},
 }, nil)
 if err != nil {
     panic(err)
@@ -4020,6 +3682,9 @@ Create a new entity with the given data.
 ```go
 result, err := client.OrganizationGroupSync(nil).Create(map[string]any{
     "org_id": "example_org_id",
+    "idp_key": "example_idp_key",
+    "idp_value": "example_idp_value",
+    "team": "example_team",
 }, nil)
 if err != nil {
     panic(err)
@@ -4120,7 +3785,7 @@ fmt.Println(organizationInvite.GetName()) // "organization_invite"
 | `org` | `string` | No |  |
 | `role` | `string` | No |  |
 | `slug_perm` | `string` | No |  |
-| `team` | `[]any` | No |  |
+| `teams` | `[]any` | No |  |
 | `user` | `string` | No |  |
 | `user_url` | `string` | No |  |
 
@@ -4210,7 +3875,7 @@ fmt.Println(organizationInviteExtend.GetName()) // "organization_invite_extend"
 | `org` | `string` | No |  |
 | `role` | `string` | No |  |
 | `slug_perm` | `string` | No |  |
-| `team` | `[]any` | No |  |
+| `teams` | `[]any` | No |  |
 | `user` | `string` | No |  |
 | `user_url` | `string` | No |  |
 
@@ -4486,14 +4151,14 @@ fmt.Println(organizationPackageLicensePolicy.GetName()) // "organization_package
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `allow_unknown_license` | `bool` | No |  |
+| `allow_unknown_licenses` | `bool` | No |  |
 | `created_at` | `string` | No |  |
 | `description` | `string` | No |  |
 | `name` | `string` | Yes |  |
 | `on_violation_quarantine` | `bool` | No |  |
 | `package_query_string` | `string` | No |  |
 | `slug_perm` | `string` | No |  |
-| `spdx_identifier` | `[]any` | Yes |  |
+| `spdx_identifiers` | `[]any` | Yes |  |
 | `updated_at` | `string` | No |  |
 
 ### Operations
@@ -4529,6 +4194,8 @@ Create a new entity with the given data.
 ```go
 result, err := client.OrganizationPackageLicensePolicy(nil).Create(map[string]any{
     "org_id": "example_org_id",
+    "name": "example_name",
+    "spdx_identifiers": []any{},
 }, nil)
 if err != nil {
     panic(err)
@@ -4630,6 +4297,7 @@ Create a new entity with the given data.
 ```go
 result, err := client.OrganizationPackageVulnerabilityPolicy(nil).Create(map[string]any{
     "org_id": "example_org_id",
+    "name": "example_name",
 }, nil)
 if err != nil {
     panic(err)
@@ -4796,6 +4464,7 @@ Create a new entity with the given data.
 ```go
 result, err := client.OrganizationTeam(nil).Create(map[string]any{
     "org_id": "example_org_id",
+    "name": "example_name",
 }, nil)
 if err != nil {
     panic(err)
@@ -4879,6 +4548,8 @@ Create a new entity with the given data.
 result, err := client.OrganizationTeamMember(nil).Create(map[string]any{
     "org_id": "example_org_id",
     "team_id": "example_team_id",
+    "role": "example_role",
+    "user": "example_user",
 }, nil)
 if err != nil {
     panic(err)
@@ -4972,37 +4643,6 @@ Return the entity name.
 
 ---
 
-## P2n2Entity
-
-```go
-p2n2 := client.P2n2(nil)
-fmt.Println(p2n2.GetName()) // "p2n2"
-```
-
-### Common Methods
-
-#### `Data(args ...any) any`
-
-Get or set the entity data. When called with data, sets the entity's
-internal data and returns the current data. When called without
-arguments, returns a copy of the current data.
-
-#### `Match(args ...any) any`
-
-Get or set the entity match criteria. Works the same as `Data()`.
-
-#### `Make() Entity`
-
-Create a new `P2n2Entity` instance with the same client and
-options.
-
-#### `GetName() string`
-
-Return the entity name.
-
-
----
-
 ## PackageEntity
 
 ```go
@@ -5014,8 +4654,10 @@ fmt.Println(package_.GetName()) // "package"
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `architecture` | `[]any` | No |  |
+| `active` | `int` | No |  |
+| `architectures` | `[]any` | No |  |
 | `backend_kind` | `int` | No |  |
+| `bandwidth` | `map[string]any` | Yes |  |
 | `cdn_url` | `string` | No |  |
 | `checksum_md5` | `string` | No |  |
 | `checksum_sha1` | `string` | No |  |
@@ -5029,17 +4671,18 @@ fmt.Println(package_.GetName()) // "package"
 | `display_name` | `string` | No |  |
 | `distro` | `map[string]any` | Yes |  |
 | `distro_version` | `map[string]any` | No |  |
-| `download` | `int` | No |  |
+| `downloads` | `map[string]any` | Yes |  |
 | `epoch` | `int` | No |  |
 | `extension` | `string` | No |  |
-| `file` | `[]any` | No |  |
 | `filename` | `string` | No |  |
+| `files` | `[]any` | No |  |
 | `format` | `string` | No |  |
 | `format_url` | `string` | No |  |
 | `freeable_storage` | `int` | No |  |
 | `fully_qualified_name` | `string` | No |  |
-| `identifier` | `map[string]any` | No |  |
 | `identifier_perm` | `string` | No |  |
+| `identifiers` | `map[string]any` | No |  |
+| `inactive` | `int` | No |  |
 | `indexed` | `bool` | No |  |
 | `is_cancellable` | `bool` | No |  |
 | `is_copyable` | `bool` | No |  |
@@ -5060,12 +4703,11 @@ fmt.Println(package_.GetName()) // "package"
 | `name` | `string` | No |  |
 | `namespace` | `string` | No |  |
 | `namespace_url` | `string` | No |  |
-| `num_download` | `int` | Yes |  |
-| `num_file` | `int` | No |  |
+| `num_downloads` | `int` | Yes |  |
+| `num_files` | `int` | No |  |
 | `operator` | `string` | No |  |
 | `origin_repository` | `string` | No |  |
 | `origin_repository_url` | `string` | No |  |
-| `package` | `map[string]any` | Yes |  |
 | `package_type` | `int` | No |  |
 | `policy_violated` | `bool` | No |  |
 | `release` | `string` | No |  |
@@ -5093,8 +4735,9 @@ fmt.Println(package_.GetName()) // "package"
 | `summary` | `string` | No |  |
 | `sync_finished_at` | `string` | No |  |
 | `sync_progress` | `int` | No |  |
-| `tag` | `map[string]any` | No |  |
+| `tags` | `map[string]any` | No |  |
 | `tags_immutable` | `map[string]any` | No |  |
+| `total` | `int` | No |  |
 | `type_display` | `string` | No |  |
 | `uploaded_at` | `string` | No |  |
 | `uploader` | `string` | No |  |
@@ -5107,8 +4750,10 @@ fmt.Println(package_.GetName()) // "package"
 
 | Field | load | list | create | remove |
 | --- | --- | --- | --- | --- |
-| `architecture` | - | - | - | - |
+| `active` | - | - | - | - |
+| `architectures` | - | - | - | - |
 | `backend_kind` | - | - | - | - |
+| `bandwidth` | - | - | - | - |
 | `cdn_url` | - | - | - | - |
 | `checksum_md5` | - | - | - | - |
 | `checksum_sha1` | - | - | - | - |
@@ -5122,17 +4767,18 @@ fmt.Println(package_.GetName()) // "package"
 | `display_name` | - | - | - | - |
 | `distro` | - | - | - | - |
 | `distro_version` | - | - | - | - |
-| `download` | - | - | - | - |
+| `downloads` | - | Yes | Yes | - |
 | `epoch` | - | - | - | - |
 | `extension` | - | - | - | - |
-| `file` | - | - | - | - |
 | `filename` | - | - | - | - |
+| `files` | - | - | - | - |
 | `format` | - | - | - | - |
 | `format_url` | - | - | - | - |
 | `freeable_storage` | - | - | - | - |
 | `fully_qualified_name` | - | - | - | - |
-| `identifier` | - | - | - | - |
 | `identifier_perm` | - | - | - | - |
+| `identifiers` | - | - | - | - |
+| `inactive` | - | - | - | - |
 | `indexed` | - | - | - | - |
 | `is_cancellable` | - | - | - | - |
 | `is_copyable` | - | - | - | - |
@@ -5153,12 +4799,11 @@ fmt.Println(package_.GetName()) // "package"
 | `name` | - | - | - | - |
 | `namespace` | - | - | - | - |
 | `namespace_url` | - | - | - | - |
-| `num_download` | - | - | - | - |
-| `num_file` | - | - | - | - |
+| `num_downloads` | - | - | - | - |
+| `num_files` | - | - | - | - |
 | `operator` | - | - | - | - |
 | `origin_repository` | - | - | - | - |
 | `origin_repository_url` | - | - | - | - |
-| `package` | - | - | - | - |
 | `package_type` | - | - | - | - |
 | `policy_violated` | - | - | - | - |
 | `release` | - | - | - | - |
@@ -5186,8 +4831,9 @@ fmt.Println(package_.GetName()) // "package"
 | `summary` | - | - | - | - |
 | `sync_finished_at` | - | - | - | - |
 | `sync_progress` | - | - | - | - |
-| `tag` | - | - | - | - |
+| `tags` | - | - | - | - |
 | `tags_immutable` | - | - | - | - |
+| `total` | - | - | - | - |
 | `type_display` | - | - | - | - |
 | `uploaded_at` | - | - | - | - |
 | `uploader` | - | - | - | - |
@@ -5230,6 +4876,12 @@ Create a new entity with the given data.
 result, err := client.Package(nil).Create(map[string]any{
     "owner": "example_owner",
     "repo": "example_repo",
+    "bandwidth": map[string]any{},
+    "count": 1,
+    "distro": map[string]any{},
+    "downloads": map[string]any{},
+    "last_push": "example_last_push",
+    "num_downloads": 1,
 }, nil)
 if err != nil {
     panic(err)
@@ -5327,6 +4979,7 @@ Create a new entity with the given data.
 ```go
 result, err := client.PackageDenyPolicy(nil).Create(map[string]any{
     "org_id": "example_org_id",
+    "package_query_string": "example_package_query_string",
 }, nil)
 if err != nil {
     panic(err)
@@ -5487,12 +5140,19 @@ fmt.Println(packageLicensePolicyEvaluation.GetName()) // "package_license_policy
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
+| `allow_unknown_licenses` | `bool` | No |  |
 | `created_at` | `string` | No |  |
+| `description` | `string` | No |  |
 | `evaluation_count` | `int` | No |  |
+| `name` | `string` | No |  |
+| `on_violation_quarantine` | `bool` | No |  |
+| `package_query_string` | `string` | No |  |
 | `policy` | `map[string]any` | Yes |  |
 | `slug_perm` | `string` | No |  |
+| `spdx_identifiers` | `[]any` | Yes |  |
 | `status` | `string` | No |  |
 | `updated_at` | `string` | No |  |
+| `url` | `string` | No |  |
 | `violation_count` | `int` | No |  |
 
 ### Operations
@@ -5529,6 +5189,8 @@ Create a new entity with the given data.
 result, err := client.PackageLicensePolicyEvaluation(nil).Create(map[string]any{
     "org_id": "example_org_id",
     "policy_slug_perm": "example_policy_slug_perm",
+    "policy": map[string]any{},
+    "spdx_identifiers": []any{},
 }, nil)
 if err != nil {
     panic(err)
@@ -5616,12 +5278,19 @@ fmt.Println(packageVulnerabilityPolicyEvaluation.GetName()) // "package_vulnerab
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
+| `allow_unknown_severity` | `bool` | No |  |
 | `created_at` | `string` | No |  |
+| `description` | `string` | No |  |
 | `evaluation_count` | `int` | No |  |
+| `min_severity` | `string` | No |  |
+| `name` | `string` | No |  |
+| `on_violation_quarantine` | `bool` | No |  |
+| `package_query_string` | `string` | No |  |
 | `policy` | `map[string]any` | No |  |
 | `slug_perm` | `string` | No |  |
 | `status` | `string` | No |  |
 | `updated_at` | `string` | No |  |
+| `url` | `string` | No |  |
 | `violation_count` | `int` | No |  |
 
 ### Operations
@@ -5762,12 +5431,12 @@ fmt.Println(providerSetting.GetName()) // "provider_setting"
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `claim` | `map[string]any` | Yes |  |
+| `claims` | `map[string]any` | Yes |  |
 | `enabled` | `bool` | Yes |  |
 | `mapping_claim` | `string` | No |  |
 | `name` | `string` | Yes |  |
 | `provider_url` | `string` | Yes |  |
-| `service_account` | `[]any` | No |  |
+| `service_accounts` | `[]any` | No |  |
 | `slug` | `string` | No |  |
 | `slug_perm` | `string` | No |  |
 
@@ -5832,13 +5501,13 @@ fmt.Println(providerSettingsWrite.GetName()) // "provider_settings_write"
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `claim` | `map[string]any` | Yes |  |
-| `dynamic_mapping` | `[]any` | No |  |
+| `claims` | `map[string]any` | Yes |  |
+| `dynamic_mappings` | `[]any` | No |  |
 | `enabled` | `bool` | Yes |  |
 | `mapping_claim` | `string` | No |  |
 | `name` | `string` | Yes |  |
 | `provider_url` | `string` | Yes |  |
-| `service_account` | `[]any` | No |  |
+| `service_accounts` | `[]any` | No |  |
 | `slug` | `string` | No |  |
 | `slug_perm` | `string` | No |  |
 
@@ -5851,6 +5520,10 @@ Create a new entity with the given data.
 ```go
 result, err := client.ProviderSettingsWrite(nil).Create(map[string]any{
     "org_id": "example_org_id",
+    "claims": map[string]any{},
+    "enabled": true,
+    "name": "example_name",
+    "provider_url": "example_provider_url",
 }, nil)
 if err != nil {
     panic(err)
@@ -5962,6 +5635,8 @@ Create a new entity with the given data.
 result, err := client.Python(nil).Create(map[string]any{
     "identifier": "example_identifier",
     "owner": "example_owner",
+    "name": "example_name",
+    "upstream_url": "example_upstream_url",
 }, nil)
 if err != nil {
     panic(err)
@@ -6052,8 +5727,9 @@ fmt.Println(quota.GetName()) // "quota"
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
+| `display` | `map[string]any` | Yes |  |
 | `history` | `[]any` | Yes |  |
-| `usage` | `map[string]any` | Yes |  |
+| `raw` | `map[string]any` | Yes |  |
 
 ### Operations
 
@@ -6201,49 +5877,49 @@ fmt.Println(repo.GetName()) // "repo"
 | `content_kind` | `string` | No |  |
 | `contextual_auth_realm` | `bool` | No |  |
 | `copy_own` | `bool` | No |  |
-| `copy_package` | `string` | No |  |
+| `copy_packages` | `string` | No |  |
 | `cosign_signing_enabled` | `bool` | No |  |
 | `created_at` | `string` | No |  |
 | `default_privilege` | `string` | No |  |
 | `delete_own` | `bool` | No |  |
-| `delete_package` | `string` | No |  |
+| `delete_packages` | `string` | No |  |
 | `deleted_at` | `string` | No |  |
 | `description` | `string` | No |  |
-| `distribute` | `[]any` | No |  |
+| `distributes` | `[]any` | No |  |
 | `docker_refresh_tokens_enabled` | `bool` | No |  |
-| `ecdsa_key` | `[]any` | No |  |
+| `ecdsa_keys` | `[]any` | No |  |
 | `enforce_eula` | `bool` | No |  |
-| `gpg_key` | `[]any` | No |  |
-| `index_file` | `bool` | No |  |
+| `gpg_keys` | `[]any` | No |  |
+| `index_files` | `bool` | No |  |
 | `is_open_source` | `bool` | No |  |
 | `is_private` | `bool` | No |  |
 | `is_public` | `bool` | No |  |
 | `manage_entitlements_privilege` | `string` | No |  |
 | `move_own` | `bool` | No |  |
-| `move_package` | `string` | No |  |
+| `move_packages` | `string` | No |  |
 | `name` | `string` | Yes |  |
 | `namespace` | `string` | No |  |
 | `namespace_url` | `string` | No |  |
 | `nuget_native_signing_enabled` | `bool` | No |  |
-| `num_download` | `int` | No |  |
-| `num_policy_violated_package` | `int` | No |  |
-| `num_quarantined_package` | `int` | No |  |
+| `num_downloads` | `int` | No |  |
+| `num_policy_violated_packages` | `int` | No |  |
+| `num_quarantined_packages` | `int` | No |  |
 | `open_source_license` | `string` | No |  |
 | `open_source_project_url` | `string` | No |  |
 | `package_count` | `int` | No |  |
 | `package_group_count` | `int` | No |  |
-| `proxy_npmj` | `bool` | No |  |
+| `proxy_npmjs` | `bool` | No |  |
 | `proxy_pypi` | `bool` | No |  |
 | `raw_package_index_enabled` | `bool` | No |  |
 | `raw_package_index_signatures_enabled` | `bool` | No |  |
-| `replace_package` | `string` | No |  |
+| `replace_packages` | `string` | No |  |
 | `replace_packages_by_default` | `bool` | No |  |
 | `repository_type` | `int` | No |  |
 | `repository_type_str` | `string` | No |  |
 | `resync_own` | `bool` | No |  |
-| `resync_package` | `string` | No |  |
+| `resync_packages` | `string` | No |  |
 | `scan_own` | `bool` | No |  |
-| `scan_package` | `string` | No |  |
+| `scan_packages` | `string` | No |  |
 | `self_html_url` | `string` | No |  |
 | `self_url` | `string` | No |  |
 | `show_setup_all` | `bool` | No |  |
@@ -6254,14 +5930,14 @@ fmt.Println(repo.GetName()) // "repo"
 | `storage_region` | `string` | No |  |
 | `strict_npm_validation` | `bool` | No |  |
 | `tag_pre_releases_as_latest` | `bool` | No |  |
-| `use_debian_label` | `bool` | No |  |
+| `use_debian_labels` | `bool` | No |  |
 | `use_default_cargo_upstream` | `bool` | No |  |
 | `use_entitlements_privilege` | `string` | No |  |
-| `use_noarch_package` | `bool` | No |  |
-| `use_source_package` | `bool` | No |  |
+| `use_noarch_packages` | `bool` | No |  |
+| `use_source_packages` | `bool` | No |  |
 | `use_vulnerability_scanning` | `bool` | No |  |
 | `user_entitlements_enabled` | `bool` | No |  |
-| `view_statistic` | `string` | No |  |
+| `view_statistics` | `string` | No |  |
 
 ### Operations
 
@@ -6295,6 +5971,7 @@ Create a new entity with the given data.
 
 ```go
 result, err := client.Repo(nil).Create(map[string]any{
+    "name": "example_name",
 }, nil)
 if err != nil {
     panic(err)
@@ -6697,6 +6374,7 @@ Create a new entity with the given data.
 result, err := client.RepositoryGpgKey(nil).Create(map[string]any{
     "identifier": "example_identifier",
     "owner": "example_owner",
+    "comment": "example_comment",
 }, nil)
 if err != nil {
     panic(err)
@@ -6939,19 +6617,19 @@ fmt.Println(repositoryToken.GetName()) // "repository_token"
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `client` | `int` | No |  |
+| `clients` | `int` | No |  |
 | `created_at` | `string` | No |  |
 | `created_by` | `string` | No |  |
 | `created_by_url` | `string` | No |  |
 | `default` | `bool` | No |  |
 | `disable_url` | `string` | No |  |
-| `download` | `int` | No |  |
+| `downloads` | `int` | No |  |
 | `enable_url` | `string` | No |  |
 | `eula_accepted` | `map[string]any` | No |  |
 | `eula_accepted_at` | `string` | No |  |
 | `eula_accepted_from` | `string` | No |  |
 | `eula_required` | `bool` | No |  |
-| `has_limit` | `bool` | No |  |
+| `has_limits` | `bool` | No |  |
 | `identifier` | `int` | No |  |
 | `is_active` | `bool` | No |  |
 | `is_limited` | `bool` | No |  |
@@ -6959,8 +6637,8 @@ fmt.Println(repositoryToken.GetName()) // "repository_token"
 | `limit_bandwidth_unit` | `string` | No |  |
 | `limit_date_range_from` | `string` | No |  |
 | `limit_date_range_to` | `string` | No |  |
-| `limit_num_client` | `int` | No |  |
-| `limit_num_download` | `int` | No |  |
+| `limit_num_clients` | `int` | No |  |
+| `limit_num_downloads` | `int` | No |  |
 | `limit_package_query` | `string` | No |  |
 | `limit_path_query` | `string` | No |  |
 | `metadata` | `map[string]any` | No |  |
@@ -7013,6 +6691,7 @@ Create a new entity with the given data.
 result, err := client.RepositoryToken(nil).Create(map[string]any{
     "owner": "example_owner",
     "repo": "example_repo",
+    "name": "example_name",
 }, nil)
 if err != nil {
     panic(err)
@@ -7072,19 +6751,19 @@ fmt.Println(repositoryTokenRefresh.GetName()) // "repository_token_refresh"
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `client` | `int` | No |  |
+| `clients` | `int` | No |  |
 | `created_at` | `string` | No |  |
 | `created_by` | `string` | No |  |
 | `created_by_url` | `string` | No |  |
 | `default` | `bool` | No |  |
 | `disable_url` | `string` | No |  |
-| `download` | `int` | No |  |
+| `downloads` | `int` | No |  |
 | `enable_url` | `string` | No |  |
 | `eula_accepted` | `map[string]any` | No |  |
 | `eula_accepted_at` | `string` | No |  |
 | `eula_accepted_from` | `string` | No |  |
 | `eula_required` | `bool` | No |  |
-| `has_limit` | `bool` | No |  |
+| `has_limits` | `bool` | No |  |
 | `identifier` | `int` | No |  |
 | `is_active` | `bool` | No |  |
 | `is_limited` | `bool` | No |  |
@@ -7092,8 +6771,8 @@ fmt.Println(repositoryTokenRefresh.GetName()) // "repository_token_refresh"
 | `limit_bandwidth_unit` | `string` | No |  |
 | `limit_date_range_from` | `string` | No |  |
 | `limit_date_range_to` | `string` | No |  |
-| `limit_num_client` | `int` | No |  |
-| `limit_num_download` | `int` | No |  |
+| `limit_num_clients` | `int` | No |  |
+| `limit_num_downloads` | `int` | No |  |
 | `limit_package_query` | `string` | No |  |
 | `limit_path_query` | `string` | No |  |
 | `metadata` | `map[string]any` | No |  |
@@ -7165,7 +6844,7 @@ fmt.Println(repositoryTokenSync.GetName()) // "repository_token_sync"
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `token` | `[]any` | No |  |
+| `tokens` | `[]any` | No |  |
 
 ### Operations
 
@@ -7224,7 +6903,8 @@ fmt.Println(repositoryWebhook.GetName()) // "repository_webhook"
 | `created_by_url` | `string` | No |  |
 | `disable_reason` | `int` | No |  |
 | `disable_reason_str` | `string` | No |  |
-| `event` | `[]any` | Yes |  |
+| `event` | `string` | Yes |  |
+| `events` | `[]any` | Yes |  |
 | `identifier` | `int` | No |  |
 | `is_active` | `bool` | No |  |
 | `is_last_response_bad` | `bool` | No |  |
@@ -7241,43 +6921,12 @@ fmt.Println(repositoryWebhook.GetName()) // "repository_webhook"
 | `self_url` | `string` | No |  |
 | `slug_perm` | `string` | No |  |
 | `target_url` | `string` | Yes |  |
-| `template` | `[]any` | Yes |  |
+| `template` | `string` | No |  |
+| `templates` | `[]any` | Yes |  |
 | `updated_at` | `string` | No |  |
 | `updated_by` | `string` | No |  |
 | `updated_by_url` | `string` | No |  |
 | `verify_ssl` | `bool` | No |  |
-
-### Field Usage by Operation
-
-| Field | list | create | update |
-| --- | --- | --- | --- |
-| `created_at` | - | - | - |
-| `created_by` | - | - | - |
-| `created_by_url` | - | - | - |
-| `disable_reason` | - | - | - |
-| `disable_reason_str` | - | - | - |
-| `event` | - | - | - |
-| `identifier` | - | - | - |
-| `is_active` | - | - | - |
-| `is_last_response_bad` | - | - | - |
-| `last_response_status` | - | - | - |
-| `last_response_status_str` | - | - | - |
-| `num_sent` | - | - | - |
-| `package_query` | - | - | - |
-| `request_body_format` | - | - | - |
-| `request_body_format_str` | - | - | - |
-| `request_body_template_format` | - | - | - |
-| `request_body_template_format_str` | - | - | - |
-| `request_content_type` | - | - | - |
-| `secret_header` | - | - | - |
-| `self_url` | - | - | - |
-| `slug_perm` | - | - | - |
-| `target_url` | - | - | - |
-| `template` | Yes | - | - |
-| `updated_at` | - | - | - |
-| `updated_by` | - | - | - |
-| `updated_by_url` | - | - | - |
-| `verify_ssl` | - | - | - |
 
 ### Operations
 
@@ -7301,6 +6950,10 @@ Create a new entity with the given data.
 result, err := client.RepositoryWebhook(nil).Create(map[string]any{
     "owner": "example_owner",
     "repo": "example_repo",
+    "event": "example_event",
+    "events": []any{},
+    "target_url": "example_target_url",
+    "templates": []any{},
 }, nil)
 if err != nil {
     panic(err)
@@ -7511,7 +7164,12 @@ fmt.Println(resourcesRateCheck.GetName()) // "resources_rate_check"
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `resource` | `map[string]any` | No |  |
+| `interval` | `float64` | No |  |
+| `limit` | `int` | No |  |
+| `remaining` | `int` | No |  |
+| `reset` | `int` | No |  |
+| `reset_iso_8601` | `string` | No |  |
+| `throttled` | `bool` | No |  |
 
 ### Operations
 
@@ -7637,7 +7295,7 @@ fmt.Println(rpm.GetName()) // "rpm"
 | `gpg_key_inline` | `string` | No |  |
 | `gpg_key_url` | `string` | No |  |
 | `gpg_verification` | `string` | No |  |
-| `include_source` | `bool` | No |  |
+| `include_sources` | `bool` | No |  |
 | `is_active` | `bool` | No |  |
 | `mode` | `string` | No |  |
 | `name` | `string` | Yes |  |
@@ -7683,6 +7341,9 @@ Create a new entity with the given data.
 result, err := client.Rpm(nil).Create(map[string]any{
     "identifier": "example_identifier",
     "owner": "example_owner",
+    "distro_version": "example_distro_version",
+    "name": "example_name",
+    "upstream_url": "example_upstream_url",
 }, nil)
 if err != nil {
     panic(err)
@@ -7826,6 +7487,8 @@ Create a new entity with the given data.
 result, err := client.Ruby(nil).Create(map[string]any{
     "identifier": "example_identifier",
     "owner": "example_owner",
+    "name": "example_name",
+    "upstream_url": "example_upstream_url",
 }, nil)
 if err != nil {
     panic(err)
@@ -7987,7 +7650,7 @@ fmt.Println(service.GetName()) // "service"
 | `name` | `string` | Yes |  |
 | `role` | `string` | No |  |
 | `slug` | `string` | No |  |
-| `team` | `[]any` | No |  |
+| `teams` | `[]any` | No |  |
 
 ### Operations
 
@@ -8022,6 +7685,7 @@ Create a new entity with the given data.
 ```go
 result, err := client.Service(nil).Create(map[string]any{
     "org_id": "example_org_id",
+    "name": "example_name",
 }, nil)
 if err != nil {
     panic(err)
@@ -8280,6 +7944,8 @@ Create a new entity with the given data.
 result, err := client.Swift(nil).Create(map[string]any{
     "identifier": "example_identifier",
     "owner": "example_owner",
+    "name": "example_name",
+    "upstream_url": "example_upstream_url",
 }, nil)
 if err != nil {
     panic(err)
@@ -8935,12 +8601,12 @@ fmt.Println(vulnerability.GetName()) // "vulnerability"
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
 | `created_at` | `string` | No |  |
-| `has_vulnerability` | `bool` | No |  |
+| `has_vulnerabilities` | `bool` | No |  |
 | `identifier` | `string` | Yes |  |
 | `max_severity` | `string` | No |  |
-| `num_vulnerability` | `int` | No |  |
+| `num_vulnerabilities` | `int` | No |  |
 | `package` | `map[string]any` | Yes |  |
-| `result` | `[]any` | Yes |  |
+| `results` | `[]any` | Yes |  |
 | `scan_id` | `int` | Yes |  |
 | `target` | `string` | Yes |  |
 | `type` | `string` | Yes |  |

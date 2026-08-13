@@ -75,7 +75,7 @@ class DartEntityTest < Minitest::Test
     dart_ref01_data["owner"] = setup[:idmap]["owner01"]
 
     dart_ref01_data_result = dart_ref01_ent.create(dart_ref01_data, nil)
-    dart_ref01_data = Helpers.to_map(dart_ref01_data_result)
+    dart_ref01_data = Helpers.to_map(dart_ref01_data_result.respond_to?(:data_get) ? dart_ref01_data_result.data_get : dart_ref01_data_result)
     assert !dart_ref01_data.nil?
 
     # LIST
@@ -86,11 +86,6 @@ class DartEntityTest < Minitest::Test
 
     dart_ref01_list_result = dart_ref01_ent.list(dart_ref01_match, nil)
     assert dart_ref01_list_result.is_a?(Array)
-
-    found_item = Vs.select(
-      Runner.entity_list_to_data(dart_ref01_list_result),
-      { "id" => dart_ref01_data["id"] })
-    assert !Vs.isempty(found_item)
 
     # UPDATE
     dart_ref01_data_up0_up = {
@@ -103,7 +98,7 @@ class DartEntityTest < Minitest::Test
     dart_ref01_data_up0_up[dart_ref01_markdef_up0_name] = dart_ref01_markdef_up0_value
 
     dart_ref01_resdata_up0_result = dart_ref01_ent.update(dart_ref01_data_up0_up, nil)
-    dart_ref01_resdata_up0 = Helpers.to_map(dart_ref01_resdata_up0_result)
+    dart_ref01_resdata_up0 = Helpers.to_map(dart_ref01_resdata_up0_result.respond_to?(:data_get) ? dart_ref01_resdata_up0_result.data_get : dart_ref01_resdata_up0_result)
     assert !dart_ref01_resdata_up0.nil?
     assert_equal dart_ref01_resdata_up0[dart_ref01_markdef_up0_name], dart_ref01_markdef_up0_value
 

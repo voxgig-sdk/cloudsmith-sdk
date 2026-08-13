@@ -46,7 +46,7 @@ class RepositoryGeoIpRuleEntityTest < Minitest::Test
     }
 
     repository_geo_ip_rule_ref01_resdata_up0_result = repository_geo_ip_rule_ref01_ent.update(repository_geo_ip_rule_ref01_data_up0_up, nil)
-    repository_geo_ip_rule_ref01_resdata_up0 = Helpers.to_map(repository_geo_ip_rule_ref01_resdata_up0_result)
+    repository_geo_ip_rule_ref01_resdata_up0 = Helpers.to_map(repository_geo_ip_rule_ref01_resdata_up0_result.respond_to?(:data_get) ? repository_geo_ip_rule_ref01_resdata_up0_result.data_get : repository_geo_ip_rule_ref01_resdata_up0_result)
     assert !repository_geo_ip_rule_ref01_resdata_up0.nil?
 
     # LOAD

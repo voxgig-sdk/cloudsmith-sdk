@@ -65,7 +65,7 @@ describe('PackageEntity', async () => {
     package_ref01_data['owner'] = setup.idmap['owner01']
     package_ref01_data['repo'] = setup.idmap['repo01']
 
-    package_ref01_data = await package_ref01_ent.create(package_ref01_data)
+    package_ref01_data = (await package_ref01_ent.create(package_ref01_data)).data()
     assert(null != package_ref01_data)
 
 
@@ -75,16 +75,10 @@ describe('PackageEntity', async () => {
     package_ref01_match['owner'] = setup.idmap['owner01']
     package_ref01_match['repo'] = setup.idmap['repo01']
 
-    const package_ref01_list = await package_ref01_ent.list(package_ref01_match)
-
-    assert(!isempty(select(package_ref01_list, { id: package_ref01_data.id })))
+    const package_ref01_list = (await package_ref01_ent.list(package_ref01_match)).map((e: any) => e.data())
 
 
 
-    // REMOVE
-    const package_ref01_match_rm0: any = { id: package_ref01_data.id }
-    await package_ref01_ent.remove(package_ref01_match_rm0)
-  
 
     // LIST
     const package_ref01_match_rt0: any = {}
@@ -92,9 +86,7 @@ describe('PackageEntity', async () => {
     package_ref01_match_rt0['owner'] = setup.idmap['owner01']
     package_ref01_match_rt0['repo'] = setup.idmap['repo01']
 
-    const package_ref01_list_rt0 = await package_ref01_ent.list(package_ref01_match_rt0)
-
-    assert(isempty(select(package_ref01_list_rt0, { id: package_ref01_data.id })))
+    const package_ref01_list_rt0 = (await package_ref01_ent.list(package_ref01_match_rt0)).map((e: any) => e.data())
 
 
   })

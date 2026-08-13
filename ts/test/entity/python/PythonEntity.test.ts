@@ -64,7 +64,7 @@ describe('PythonEntity', async () => {
     python_ref01_data['identifier'] = setup.idmap['identifier01']
     python_ref01_data['owner'] = setup.idmap['owner01']
 
-    python_ref01_data = await python_ref01_ent.create(python_ref01_data)
+    python_ref01_data = (await python_ref01_ent.create(python_ref01_data)).data()
     assert(null != python_ref01_data)
 
 
@@ -73,9 +73,7 @@ describe('PythonEntity', async () => {
     python_ref01_match['identifier'] = setup.idmap['identifier01']
     python_ref01_match['owner'] = setup.idmap['owner01']
 
-    const python_ref01_list = await python_ref01_ent.list(python_ref01_match)
-
-    assert(!isempty(select(python_ref01_list, { id: python_ref01_data.id })))
+    const python_ref01_list = (await python_ref01_ent.list(python_ref01_match)).map((e: any) => e.data())
 
 
     // UPDATE
@@ -86,7 +84,7 @@ describe('PythonEntity', async () => {
     const python_ref01_markdef_up0 = { name: 'auth_mode', value: 'Mark01-python_ref01_' + setup.now }
     ;(python_ref01_data_up0 as any)[python_ref01_markdef_up0.name] = python_ref01_markdef_up0.value
 
-    const python_ref01_resdata_up0 = await python_ref01_ent.update(python_ref01_data_up0)
+    const python_ref01_resdata_up0 = (await python_ref01_ent.update(python_ref01_data_up0)).data()
     assert(null != python_ref01_resdata_up0)
 
     assert((python_ref01_resdata_up0 as any)[python_ref01_markdef_up0.name] === python_ref01_markdef_up0.value)

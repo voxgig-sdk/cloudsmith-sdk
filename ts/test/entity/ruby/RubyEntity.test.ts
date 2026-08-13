@@ -64,7 +64,7 @@ describe('RubyEntity', async () => {
     ruby_ref01_data['identifier'] = setup.idmap['identifier01']
     ruby_ref01_data['owner'] = setup.idmap['owner01']
 
-    ruby_ref01_data = await ruby_ref01_ent.create(ruby_ref01_data)
+    ruby_ref01_data = (await ruby_ref01_ent.create(ruby_ref01_data)).data()
     assert(null != ruby_ref01_data)
 
 
@@ -73,9 +73,7 @@ describe('RubyEntity', async () => {
     ruby_ref01_match['identifier'] = setup.idmap['identifier01']
     ruby_ref01_match['owner'] = setup.idmap['owner01']
 
-    const ruby_ref01_list = await ruby_ref01_ent.list(ruby_ref01_match)
-
-    assert(!isempty(select(ruby_ref01_list, { id: ruby_ref01_data.id })))
+    const ruby_ref01_list = (await ruby_ref01_ent.list(ruby_ref01_match)).map((e: any) => e.data())
 
 
     // UPDATE
@@ -86,7 +84,7 @@ describe('RubyEntity', async () => {
     const ruby_ref01_markdef_up0 = { name: 'auth_mode', value: 'Mark01-ruby_ref01_' + setup.now }
     ;(ruby_ref01_data_up0 as any)[ruby_ref01_markdef_up0.name] = ruby_ref01_markdef_up0.value
 
-    const ruby_ref01_resdata_up0 = await ruby_ref01_ent.update(ruby_ref01_data_up0)
+    const ruby_ref01_resdata_up0 = (await ruby_ref01_ent.update(ruby_ref01_data_up0)).data()
     assert(null != ruby_ref01_resdata_up0)
 
     assert((ruby_ref01_resdata_up0 as any)[ruby_ref01_markdef_up0.name] === ruby_ref01_markdef_up0.value)

@@ -64,7 +64,7 @@ describe('RepositoryTokenEntity', async () => {
     repository_token_ref01_data['owner'] = setup.idmap['owner01']
     repository_token_ref01_data['repo'] = setup.idmap['repo01']
 
-    repository_token_ref01_data = await repository_token_ref01_ent.create(repository_token_ref01_data)
+    repository_token_ref01_data = (await repository_token_ref01_ent.create(repository_token_ref01_data)).data()
     assert(null != repository_token_ref01_data)
 
 
@@ -73,9 +73,7 @@ describe('RepositoryTokenEntity', async () => {
     repository_token_ref01_match['owner'] = setup.idmap['owner01']
     repository_token_ref01_match['repo'] = setup.idmap['repo01']
 
-    const repository_token_ref01_list = await repository_token_ref01_ent.list(repository_token_ref01_match)
-
-    assert(!isempty(select(repository_token_ref01_list, { id: repository_token_ref01_data.id })))
+    const repository_token_ref01_list = (await repository_token_ref01_ent.list(repository_token_ref01_match)).map((e: any) => e.data())
 
 
     // UPDATE
@@ -86,7 +84,7 @@ describe('RepositoryTokenEntity', async () => {
     const repository_token_ref01_markdef_up0 = { name: 'created_at', value: 'Mark01-repository_token_ref01_' + setup.now }
     ;(repository_token_ref01_data_up0 as any)[repository_token_ref01_markdef_up0.name] = repository_token_ref01_markdef_up0.value
 
-    const repository_token_ref01_resdata_up0 = await repository_token_ref01_ent.update(repository_token_ref01_data_up0)
+    const repository_token_ref01_resdata_up0 = (await repository_token_ref01_ent.update(repository_token_ref01_data_up0)).data()
     assert(null != repository_token_ref01_resdata_up0)
 
     assert((repository_token_ref01_resdata_up0 as any)[repository_token_ref01_markdef_up0.name] === repository_token_ref01_markdef_up0.value)

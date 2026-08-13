@@ -6,9 +6,9 @@ import time
 
 import pytest
 
-from utility.voxgig_struct import voxgig_struct as vs
+from cloudsmith_sdk.utility.voxgig_struct import voxgig_struct as vs
 from cloudsmith_sdk import CloudsmithSDK
-from core import helpers
+from cloudsmith_sdk.core import helpers
 
 _TEST_DIR = os.path.dirname(os.path.abspath(__file__))
 from test import runner
@@ -21,13 +21,47 @@ class TestGonEntity:
         ent = testsdk.Gon(None)
         assert ent is not None
 
+    def test_should_stream(self):
+        # Feature #4: the entity stream(action, ...) method runs the op
+        # pipeline and yields result items. With the streaming feature active
+        # it yields the feature's incremental output; otherwise it falls back
+        # to the materialised list so stream always yields.
+        seed = {
+            "entity": {
+                "gon": {
+                    "s1": {"id": "s1"},
+                    "s2": {"id": "s2"},
+                    "s3": {"id": "s3"},
+                }
+            }
+        }
+
+        # Fallback: streaming inactive -> yields the materialised list items.
+        base = CloudsmithSDK.test(seed, None)
+        seen = list(base.Gon(None).stream("list", None, None))
+        assert len(seen) == 3
+
+        # Inbound: streaming active -> yields each item from the feature.
+        from cloudsmith_sdk.config import make_config
+        cfg = make_config()
+        if isinstance(cfg.get("feature"), dict) and "streaming" in cfg["feature"]:
+            sdk = CloudsmithSDK.test(
+                seed, {"feature": {"streaming": {"active": True}}})
+            got = []
+            for item in sdk.Gon(None).stream("list", None, None):
+                if isinstance(item, list):
+                    got.extend(item)
+                else:
+                    got.append(item)
+            assert len(got) == 3
+
     def test_should_run_basic_flow(self):
         setup = _gon_basic_setup(None)
         # Per-op sdk-test-control.json skip — basic test exercises a flow with
         # multiple ops; skipping any one skips the whole flow (steps depend
         # on each other).
         _live = setup.get("live", False)
-        for _op in []:
+        for _op in ["create", "list", "update", "load"]:
             _skip, _reason = runner.is_control_skipped("entityOp", "gon." + _op, "live" if _live else "unit")
             if _skip:
                 pytest.skip(_reason or "skipped via sdk-test-control.json")
@@ -39,12 +73,43 @@ class TestGonEntity:
                         "set CLOUDSMITH_TEST_GON_ENTID JSON to run live")
         client = setup["client"]
 
-        # Bootstrap entity data from existing test data.
-        gon_ref01_data_raw = vs.items(helpers.to_map(
-            vs.getpath(setup["data"], "existing.gon")))
-        gon_ref01_data = None
-        if len(gon_ref01_data_raw) > 0:
-            gon_ref01_data = helpers.to_map(gon_ref01_data_raw[0][1])
+        # CREATE
+        gon_ref01_ent = client.Gon(None)
+        gon_ref01_data = helpers.to_map(vs.getprop(
+            vs.getpath(setup["data"], "new.gon"), "gon_ref01"))
+        gon_ref01_data["identifier"] = setup["idmap"]["identifier01"]
+        gon_ref01_data["owner"] = setup["idmap"]["owner01"]
+
+        gon_ref01_data = helpers.to_map(runner.entity_data(gon_ref01_ent.create(gon_ref01_data, None)))
+        assert gon_ref01_data is not None
+
+        # LIST
+        gon_ref01_match = {
+            "identifier": setup["idmap"]["identifier01"],
+            "owner": setup["idmap"]["owner01"],
+        }
+
+        gon_ref01_list_result = gon_ref01_ent.list(gon_ref01_match, None)
+        assert isinstance(gon_ref01_list_result, list)
+
+        # UPDATE
+        gon_ref01_data_up0_up = {
+            "identifier": setup["idmap"]["identifier"],
+            "owner": setup["idmap"]["owner"],
+        }
+
+        gon_ref01_markdef_up0_name = "auth_mode"
+        gon_ref01_markdef_up0_value = "Mark01-gon_ref01_" + str(setup["now"])
+        gon_ref01_data_up0_up[gon_ref01_markdef_up0_name] = gon_ref01_markdef_up0_value
+
+        gon_ref01_resdata_up0 = helpers.to_map(runner.entity_data(gon_ref01_ent.update(gon_ref01_data_up0_up, None)))
+        assert gon_ref01_resdata_up0 is not None
+        assert gon_ref01_resdata_up0[gon_ref01_markdef_up0_name] == gon_ref01_markdef_up0_value
+
+        # LOAD
+        gon_ref01_match_dt0 = {}
+        gon_ref01_data_dt0_loaded = gon_ref01_ent.load(gon_ref01_match_dt0, None)
+        assert gon_ref01_data_dt0_loaded is not None
 
 
 
@@ -64,7 +129,7 @@ def _gon_basic_setup(extra):
 
     # Generate idmap via transform.
     idmap = vs.transform(
-        ["gon01", "gon02", "gon03", "package01", "package02", "package03"],
+        ["gon01", "gon02", "gon03", "package01", "package02", "package03", "repo01", "repo02", "repo03", "go01", "go02", "go03", "identifier01", "owner01"],
         {
             "`$PACK`": ["", {
                 "`$KEY`": "`$COPY`",
@@ -91,6 +156,10 @@ def _gon_basic_setup(extra):
         env.get("CLOUDSMITH_TEST_GON_ENTID"))
     if idmap_resolved is None:
         idmap_resolved = helpers.to_map(idmap)
+    if idmap_resolved.get("identifier") is None:
+        idmap_resolved["identifier"] = idmap_resolved.get("identifier01")
+    if idmap_resolved.get("owner") is None:
+        idmap_resolved["owner"] = idmap_resolved.get("owner01")
 
     if env.get("CLOUDSMITH_TEST_LIVE") == "TRUE":
         merged_opts = vs.merge([

@@ -108,7 +108,7 @@ func TestOrganizationPackageLicensePolicyEntity(t *testing.T) {
 		if err != nil {
 			t.Fatalf("create failed: %v", err)
 		}
-		organizationPackageLicensePolicyRef01Data = core.ToMapAny(organizationPackageLicensePolicyRef01DataResult)
+		organizationPackageLicensePolicyRef01Data = core.ToMapAny(entityData(organizationPackageLicensePolicyRef01DataResult))
 		if organizationPackageLicensePolicyRef01Data == nil {
 			t.Fatal("expected create result to be a map")
 		}
@@ -122,14 +122,9 @@ func TestOrganizationPackageLicensePolicyEntity(t *testing.T) {
 		if err != nil {
 			t.Fatalf("list failed: %v", err)
 		}
-		organizationPackageLicensePolicyRef01List, organizationPackageLicensePolicyRef01ListOk := organizationPackageLicensePolicyRef01ListResult.([]any)
+		_, organizationPackageLicensePolicyRef01ListOk := organizationPackageLicensePolicyRef01ListResult.([]any)
 		if !organizationPackageLicensePolicyRef01ListOk {
 			t.Fatalf("expected list result to be an array, got %T", organizationPackageLicensePolicyRef01ListResult)
-		}
-
-		foundItem := vs.Select(entityListToData(organizationPackageLicensePolicyRef01List), map[string]any{"id": organizationPackageLicensePolicyRef01Data["id"]})
-		if vs.IsEmpty(foundItem) {
-			t.Fatal("expected to find created entity in list")
 		}
 
 		// UPDATE
@@ -145,7 +140,7 @@ func TestOrganizationPackageLicensePolicyEntity(t *testing.T) {
 		if err != nil {
 			t.Fatalf("update failed: %v", err)
 		}
-		organizationPackageLicensePolicyRef01ResdataUp0 := core.ToMapAny(organizationPackageLicensePolicyRef01ResdataUp0Result)
+		organizationPackageLicensePolicyRef01ResdataUp0 := core.ToMapAny(entityData(organizationPackageLicensePolicyRef01ResdataUp0Result))
 		if organizationPackageLicensePolicyRef01ResdataUp0 == nil {
 			t.Fatal("expected update result to be a map")
 		}

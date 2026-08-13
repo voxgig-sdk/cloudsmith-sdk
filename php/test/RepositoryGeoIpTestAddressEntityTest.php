@@ -46,7 +46,7 @@ class RepositoryGeoIpTestAddressEntityTest extends TestCase
         $repository_geo_ip_test_address_ref01_data["owner"] = $setup["idmap"]["owner01"];
 
         $repository_geo_ip_test_address_ref01_data_result = $repository_geo_ip_test_address_ref01_ent->create($repository_geo_ip_test_address_ref01_data, null);
-        $repository_geo_ip_test_address_ref01_data = Helpers::to_map($repository_geo_ip_test_address_ref01_data_result);
+        $repository_geo_ip_test_address_ref01_data = Helpers::to_map(is_object($repository_geo_ip_test_address_ref01_data_result) && method_exists($repository_geo_ip_test_address_ref01_data_result, 'data_get') ? $repository_geo_ip_test_address_ref01_data_result->data_get() : $repository_geo_ip_test_address_ref01_data_result);
         $this->assertNotNull($repository_geo_ip_test_address_ref01_data);
 
     }

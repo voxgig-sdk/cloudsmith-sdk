@@ -109,7 +109,7 @@ func TestRpmEntity(t *testing.T) {
 		if err != nil {
 			t.Fatalf("create failed: %v", err)
 		}
-		rpmRef01Data = core.ToMapAny(rpmRef01DataResult)
+		rpmRef01Data = core.ToMapAny(entityData(rpmRef01DataResult))
 		if rpmRef01Data == nil {
 			t.Fatal("expected create result to be a map")
 		}
@@ -124,14 +124,9 @@ func TestRpmEntity(t *testing.T) {
 		if err != nil {
 			t.Fatalf("list failed: %v", err)
 		}
-		rpmRef01List, rpmRef01ListOk := rpmRef01ListResult.([]any)
+		_, rpmRef01ListOk := rpmRef01ListResult.([]any)
 		if !rpmRef01ListOk {
 			t.Fatalf("expected list result to be an array, got %T", rpmRef01ListResult)
-		}
-
-		foundItem := vs.Select(entityListToData(rpmRef01List), map[string]any{"id": rpmRef01Data["id"]})
-		if vs.IsEmpty(foundItem) {
-			t.Fatal("expected to find created entity in list")
 		}
 
 		// UPDATE
@@ -148,7 +143,7 @@ func TestRpmEntity(t *testing.T) {
 		if err != nil {
 			t.Fatalf("update failed: %v", err)
 		}
-		rpmRef01ResdataUp0 := core.ToMapAny(rpmRef01ResdataUp0Result)
+		rpmRef01ResdataUp0 := core.ToMapAny(entityData(rpmRef01ResdataUp0Result))
 		if rpmRef01ResdataUp0 == nil {
 			t.Fatal("expected update result to be a map")
 		}

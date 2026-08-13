@@ -50,14 +50,6 @@ func MakeConfig() map[string]any {
 				"format": map[string]any{},
 				"geoip": map[string]any{},
 				"gon": map[string]any{},
-				"gon2": map[string]any{},
-				"gon3": map[string]any{},
-				"gon4": map[string]any{},
-				"gon5": map[string]any{},
-				"gon6": map[string]any{},
-				"gon7": map[string]any{},
-				"gon8": map[string]any{},
-				"gon9": map[string]any{},
 				"gpg": map[string]any{},
 				"group": map[string]any{},
 				"helm": map[string]any{},
@@ -92,7 +84,6 @@ func MakeConfig() map[string]any {
 				"organization_team_member": map[string]any{},
 				"oss": map[string]any{},
 				"p2n": map[string]any{},
-				"p2n2": map[string]any{},
 				"package": map[string]any{},
 				"package_deny_policy": map[string]any{},
 				"package_file_parts_upload": map[string]any{},
@@ -377,6 +368,7 @@ func MakeConfig() map[string]any {
 										},
 									},
 								},
+								"kind": "http",
 								"method": "POST",
 								"orig": "/repos/{owner}/{identifier}/upstream/cargo/",
 								"parts": []any{
@@ -400,7 +392,6 @@ func MakeConfig() map[string]any {
 								"index$": 0,
 							},
 						},
-						"key$": "create",
 					},
 					"list": map[string]any{
 						"input": "data",
@@ -448,6 +439,7 @@ func MakeConfig() map[string]any {
 										},
 									},
 								},
+								"kind": "http",
 								"method": "GET",
 								"orig": "/repos/{owner}/{identifier}/upstream/cargo/",
 								"parts": []any{
@@ -472,7 +464,6 @@ func MakeConfig() map[string]any {
 								"index$": 0,
 							},
 						},
-						"key$": "list",
 					},
 					"load": map[string]any{
 						"input": "data",
@@ -511,6 +502,7 @@ func MakeConfig() map[string]any {
 										},
 									},
 								},
+								"kind": "http",
 								"method": "GET",
 								"orig": "/repos/{owner}/{identifier}/upstream/cargo/{slug_perm}/",
 								"parts": []any{
@@ -540,7 +532,6 @@ func MakeConfig() map[string]any {
 								"index$": 0,
 							},
 						},
-						"key$": "load",
 					},
 					"patch": map[string]any{
 						"input": "data",
@@ -586,6 +577,7 @@ func MakeConfig() map[string]any {
 										},
 									},
 								},
+								"kind": "http",
 								"method": "PATCH",
 								"orig": "/repos/{owner}/{identifier}/upstream/cargo/{slug_perm}/",
 								"parts": []any{
@@ -613,10 +605,8 @@ func MakeConfig() map[string]any {
 									"req": "`reqdata`",
 									"res": "`body`",
 								},
-								"index$": 0,
 							},
 						},
-						"key$": "patch",
 					},
 					"update": map[string]any{
 						"input": "data",
@@ -665,6 +655,7 @@ func MakeConfig() map[string]any {
 										},
 									},
 								},
+								"kind": "http",
 								"method": "PUT",
 								"orig": "/repos/{owner}/{identifier}/upstream/cargo/{slug_perm}/",
 								"parts": []any{
@@ -695,7 +686,6 @@ func MakeConfig() map[string]any {
 								"index$": 0,
 							},
 						},
-						"key$": "update",
 					},
 				},
 				"relations": map[string]any{
@@ -902,6 +892,7 @@ func MakeConfig() map[string]any {
 										},
 									},
 								},
+								"kind": "http",
 								"method": "POST",
 								"orig": "/repos/{owner}/{identifier}/upstream/composer/",
 								"parts": []any{
@@ -925,7 +916,6 @@ func MakeConfig() map[string]any {
 								"index$": 0,
 							},
 						},
-						"key$": "create",
 					},
 					"list": map[string]any{
 						"input": "data",
@@ -973,6 +963,7 @@ func MakeConfig() map[string]any {
 										},
 									},
 								},
+								"kind": "http",
 								"method": "GET",
 								"orig": "/repos/{owner}/{identifier}/upstream/composer/",
 								"parts": []any{
@@ -997,7 +988,6 @@ func MakeConfig() map[string]any {
 								"index$": 0,
 							},
 						},
-						"key$": "list",
 					},
 					"load": map[string]any{
 						"input": "data",
@@ -1036,6 +1026,7 @@ func MakeConfig() map[string]any {
 										},
 									},
 								},
+								"kind": "http",
 								"method": "GET",
 								"orig": "/repos/{owner}/{identifier}/upstream/composer/{slug_perm}/",
 								"parts": []any{
@@ -1065,7 +1056,6 @@ func MakeConfig() map[string]any {
 								"index$": 0,
 							},
 						},
-						"key$": "load",
 					},
 					"patch": map[string]any{
 						"input": "data",
@@ -1111,6 +1101,7 @@ func MakeConfig() map[string]any {
 										},
 									},
 								},
+								"kind": "http",
 								"method": "PATCH",
 								"orig": "/repos/{owner}/{identifier}/upstream/composer/{slug_perm}/",
 								"parts": []any{
@@ -1138,10 +1129,8 @@ func MakeConfig() map[string]any {
 									"req": "`reqdata`",
 									"res": "`body`",
 								},
-								"index$": 0,
 							},
 						},
-						"key$": "patch",
 					},
 					"update": map[string]any{
 						"input": "data",
@@ -1190,6 +1179,7 @@ func MakeConfig() map[string]any {
 										},
 									},
 								},
+								"kind": "http",
 								"method": "PUT",
 								"orig": "/repos/{owner}/{identifier}/upstream/composer/{slug_perm}/",
 								"parts": []any{
@@ -1220,7 +1210,6 @@ func MakeConfig() map[string]any {
 								"index$": 0,
 							},
 						},
-						"key$": "update",
 					},
 				},
 				"relations": map[string]any{
@@ -1415,6 +1404,7 @@ func MakeConfig() map[string]any {
 										},
 									},
 								},
+								"kind": "http",
 								"method": "POST",
 								"orig": "/repos/{owner}/{identifier}/upstream/conda/",
 								"parts": []any{
@@ -1438,7 +1428,6 @@ func MakeConfig() map[string]any {
 								"index$": 0,
 							},
 						},
-						"key$": "create",
 					},
 					"list": map[string]any{
 						"input": "data",
@@ -1486,6 +1475,7 @@ func MakeConfig() map[string]any {
 										},
 									},
 								},
+								"kind": "http",
 								"method": "GET",
 								"orig": "/repos/{owner}/{identifier}/upstream/conda/",
 								"parts": []any{
@@ -1510,7 +1500,6 @@ func MakeConfig() map[string]any {
 								"index$": 0,
 							},
 						},
-						"key$": "list",
 					},
 					"load": map[string]any{
 						"input": "data",
@@ -1549,6 +1538,7 @@ func MakeConfig() map[string]any {
 										},
 									},
 								},
+								"kind": "http",
 								"method": "GET",
 								"orig": "/repos/{owner}/{identifier}/upstream/conda/{slug_perm}/",
 								"parts": []any{
@@ -1578,7 +1568,6 @@ func MakeConfig() map[string]any {
 								"index$": 0,
 							},
 						},
-						"key$": "load",
 					},
 					"patch": map[string]any{
 						"input": "data",
@@ -1624,6 +1613,7 @@ func MakeConfig() map[string]any {
 										},
 									},
 								},
+								"kind": "http",
 								"method": "PATCH",
 								"orig": "/repos/{owner}/{identifier}/upstream/conda/{slug_perm}/",
 								"parts": []any{
@@ -1651,10 +1641,8 @@ func MakeConfig() map[string]any {
 									"req": "`reqdata`",
 									"res": "`body`",
 								},
-								"index$": 0,
 							},
 						},
-						"key$": "patch",
 					},
 					"update": map[string]any{
 						"input": "data",
@@ -1703,6 +1691,7 @@ func MakeConfig() map[string]any {
 										},
 									},
 								},
+								"kind": "http",
 								"method": "PUT",
 								"orig": "/repos/{owner}/{identifier}/upstream/conda/{slug_perm}/",
 								"parts": []any{
@@ -1733,7 +1722,6 @@ func MakeConfig() map[string]any {
 								"index$": 0,
 							},
 						},
-						"key$": "update",
 					},
 				},
 				"relations": map[string]any{
@@ -1928,6 +1916,7 @@ func MakeConfig() map[string]any {
 										},
 									},
 								},
+								"kind": "http",
 								"method": "POST",
 								"orig": "/repos/{owner}/{identifier}/upstream/cran/",
 								"parts": []any{
@@ -1951,7 +1940,6 @@ func MakeConfig() map[string]any {
 								"index$": 0,
 							},
 						},
-						"key$": "create",
 					},
 					"list": map[string]any{
 						"input": "data",
@@ -1999,6 +1987,7 @@ func MakeConfig() map[string]any {
 										},
 									},
 								},
+								"kind": "http",
 								"method": "GET",
 								"orig": "/repos/{owner}/{identifier}/upstream/cran/",
 								"parts": []any{
@@ -2023,7 +2012,6 @@ func MakeConfig() map[string]any {
 								"index$": 0,
 							},
 						},
-						"key$": "list",
 					},
 					"load": map[string]any{
 						"input": "data",
@@ -2062,6 +2050,7 @@ func MakeConfig() map[string]any {
 										},
 									},
 								},
+								"kind": "http",
 								"method": "GET",
 								"orig": "/repos/{owner}/{identifier}/upstream/cran/{slug_perm}/",
 								"parts": []any{
@@ -2091,7 +2080,6 @@ func MakeConfig() map[string]any {
 								"index$": 0,
 							},
 						},
-						"key$": "load",
 					},
 					"patch": map[string]any{
 						"input": "data",
@@ -2137,6 +2125,7 @@ func MakeConfig() map[string]any {
 										},
 									},
 								},
+								"kind": "http",
 								"method": "PATCH",
 								"orig": "/repos/{owner}/{identifier}/upstream/cran/{slug_perm}/",
 								"parts": []any{
@@ -2164,10 +2153,8 @@ func MakeConfig() map[string]any {
 									"req": "`reqdata`",
 									"res": "`body`",
 								},
-								"index$": 0,
 							},
 						},
-						"key$": "patch",
 					},
 					"update": map[string]any{
 						"input": "data",
@@ -2216,6 +2203,7 @@ func MakeConfig() map[string]any {
 										},
 									},
 								},
+								"kind": "http",
 								"method": "PUT",
 								"orig": "/repos/{owner}/{identifier}/upstream/cran/{slug_perm}/",
 								"parts": []any{
@@ -2246,7 +2234,6 @@ func MakeConfig() map[string]any {
 								"index$": 0,
 							},
 						},
-						"key$": "update",
 					},
 				},
 				"relations": map[string]any{
@@ -2429,6 +2416,7 @@ func MakeConfig() map[string]any {
 										},
 									},
 								},
+								"kind": "http",
 								"method": "POST",
 								"orig": "/repos/{owner}/{identifier}/upstream/dart/",
 								"parts": []any{
@@ -2452,7 +2440,6 @@ func MakeConfig() map[string]any {
 								"index$": 0,
 							},
 						},
-						"key$": "create",
 					},
 					"list": map[string]any{
 						"input": "data",
@@ -2500,6 +2487,7 @@ func MakeConfig() map[string]any {
 										},
 									},
 								},
+								"kind": "http",
 								"method": "GET",
 								"orig": "/repos/{owner}/{identifier}/upstream/dart/",
 								"parts": []any{
@@ -2524,7 +2512,6 @@ func MakeConfig() map[string]any {
 								"index$": 0,
 							},
 						},
-						"key$": "list",
 					},
 					"load": map[string]any{
 						"input": "data",
@@ -2563,6 +2550,7 @@ func MakeConfig() map[string]any {
 										},
 									},
 								},
+								"kind": "http",
 								"method": "GET",
 								"orig": "/repos/{owner}/{identifier}/upstream/dart/{slug_perm}/",
 								"parts": []any{
@@ -2592,7 +2580,6 @@ func MakeConfig() map[string]any {
 								"index$": 0,
 							},
 						},
-						"key$": "load",
 					},
 					"patch": map[string]any{
 						"input": "data",
@@ -2638,6 +2625,7 @@ func MakeConfig() map[string]any {
 										},
 									},
 								},
+								"kind": "http",
 								"method": "PATCH",
 								"orig": "/repos/{owner}/{identifier}/upstream/dart/{slug_perm}/",
 								"parts": []any{
@@ -2665,10 +2653,8 @@ func MakeConfig() map[string]any {
 									"req": "`reqdata`",
 									"res": "`body`",
 								},
-								"index$": 0,
 							},
 						},
-						"key$": "patch",
 					},
 					"update": map[string]any{
 						"input": "data",
@@ -2717,6 +2703,7 @@ func MakeConfig() map[string]any {
 										},
 									},
 								},
+								"kind": "http",
 								"method": "PUT",
 								"orig": "/repos/{owner}/{identifier}/upstream/dart/{slug_perm}/",
 								"parts": []any{
@@ -2747,7 +2734,6 @@ func MakeConfig() map[string]any {
 								"index$": 0,
 							},
 						},
-						"key$": "update",
 					},
 				},
 				"relations": map[string]any{
@@ -2807,7 +2793,7 @@ func MakeConfig() map[string]any {
 					},
 					map[string]any{
 						"active": true,
-						"name": "distro_version",
+						"name": "distro_versions",
 						"req": true,
 						"type": "`$ARRAY`",
 						"index$": 6,
@@ -2863,7 +2849,7 @@ func MakeConfig() map[string]any {
 					},
 					map[string]any{
 						"active": true,
-						"name": "include_source",
+						"name": "include_sources",
 						"req": false,
 						"type": "`$BOOLEAN`",
 						"index$": 14,
@@ -2986,6 +2972,7 @@ func MakeConfig() map[string]any {
 										},
 									},
 								},
+								"kind": "http",
 								"method": "POST",
 								"orig": "/repos/{owner}/{identifier}/upstream/deb/",
 								"parts": []any{
@@ -3009,7 +2996,6 @@ func MakeConfig() map[string]any {
 								"index$": 0,
 							},
 						},
-						"key$": "create",
 					},
 					"list": map[string]any{
 						"input": "data",
@@ -3057,6 +3043,7 @@ func MakeConfig() map[string]any {
 										},
 									},
 								},
+								"kind": "http",
 								"method": "GET",
 								"orig": "/repos/{owner}/{identifier}/upstream/deb/",
 								"parts": []any{
@@ -3081,7 +3068,6 @@ func MakeConfig() map[string]any {
 								"index$": 0,
 							},
 						},
-						"key$": "list",
 					},
 					"load": map[string]any{
 						"input": "data",
@@ -3120,6 +3106,7 @@ func MakeConfig() map[string]any {
 										},
 									},
 								},
+								"kind": "http",
 								"method": "GET",
 								"orig": "/repos/{owner}/{identifier}/upstream/deb/{slug_perm}/",
 								"parts": []any{
@@ -3149,7 +3136,6 @@ func MakeConfig() map[string]any {
 								"index$": 0,
 							},
 						},
-						"key$": "load",
 					},
 					"patch": map[string]any{
 						"input": "data",
@@ -3195,6 +3181,7 @@ func MakeConfig() map[string]any {
 										},
 									},
 								},
+								"kind": "http",
 								"method": "PATCH",
 								"orig": "/repos/{owner}/{identifier}/upstream/deb/{slug_perm}/",
 								"parts": []any{
@@ -3222,10 +3209,8 @@ func MakeConfig() map[string]any {
 									"req": "`reqdata`",
 									"res": "`body`",
 								},
-								"index$": 0,
 							},
 						},
-						"key$": "patch",
 					},
 					"update": map[string]any{
 						"input": "data",
@@ -3274,6 +3259,7 @@ func MakeConfig() map[string]any {
 										},
 									},
 								},
+								"kind": "http",
 								"method": "PUT",
 								"orig": "/repos/{owner}/{identifier}/upstream/deb/{slug_perm}/",
 								"parts": []any{
@@ -3304,7 +3290,6 @@ func MakeConfig() map[string]any {
 								"index$": 0,
 							},
 						},
-						"key$": "update",
 					},
 				},
 				"relations": map[string]any{
@@ -3399,14 +3384,14 @@ func MakeConfig() map[string]any {
 					},
 					map[string]any{
 						"active": true,
-						"name": "variant",
+						"name": "variants",
 						"req": false,
 						"type": "`$STRING`",
 						"index$": 5,
 					},
 					map[string]any{
 						"active": true,
-						"name": "version",
+						"name": "versions",
 						"req": false,
 						"type": "`$ARRAY`",
 						"index$": 6,
@@ -3421,6 +3406,7 @@ func MakeConfig() map[string]any {
 							map[string]any{
 								"active": true,
 								"args": map[string]any{},
+								"kind": "http",
 								"method": "GET",
 								"orig": "/distros/",
 								"parts": []any{
@@ -3434,7 +3420,6 @@ func MakeConfig() map[string]any {
 								"index$": 0,
 							},
 						},
-						"key$": "list",
 					},
 					"load": map[string]any{
 						"input": "data",
@@ -3455,6 +3440,7 @@ func MakeConfig() map[string]any {
 										},
 									},
 								},
+								"kind": "http",
 								"method": "GET",
 								"orig": "/distros/{slug}/",
 								"parts": []any{
@@ -3473,7 +3459,6 @@ func MakeConfig() map[string]any {
 								"index$": 0,
 							},
 						},
-						"key$": "load",
 					},
 				},
 				"relations": map[string]any{
@@ -3661,6 +3646,7 @@ func MakeConfig() map[string]any {
 										},
 									},
 								},
+								"kind": "http",
 								"method": "POST",
 								"orig": "/repos/{owner}/{identifier}/upstream/docker/",
 								"parts": []any{
@@ -3684,7 +3670,6 @@ func MakeConfig() map[string]any {
 								"index$": 0,
 							},
 						},
-						"key$": "create",
 					},
 					"list": map[string]any{
 						"input": "data",
@@ -3732,6 +3717,7 @@ func MakeConfig() map[string]any {
 										},
 									},
 								},
+								"kind": "http",
 								"method": "GET",
 								"orig": "/repos/{owner}/{identifier}/upstream/docker/",
 								"parts": []any{
@@ -3756,7 +3742,6 @@ func MakeConfig() map[string]any {
 								"index$": 0,
 							},
 						},
-						"key$": "list",
 					},
 					"load": map[string]any{
 						"input": "data",
@@ -3795,6 +3780,7 @@ func MakeConfig() map[string]any {
 										},
 									},
 								},
+								"kind": "http",
 								"method": "GET",
 								"orig": "/repos/{owner}/{identifier}/upstream/docker/{slug_perm}/",
 								"parts": []any{
@@ -3824,7 +3810,6 @@ func MakeConfig() map[string]any {
 								"index$": 0,
 							},
 						},
-						"key$": "load",
 					},
 					"patch": map[string]any{
 						"input": "data",
@@ -3870,6 +3855,7 @@ func MakeConfig() map[string]any {
 										},
 									},
 								},
+								"kind": "http",
 								"method": "PATCH",
 								"orig": "/repos/{owner}/{identifier}/upstream/docker/{slug_perm}/",
 								"parts": []any{
@@ -3897,10 +3883,8 @@ func MakeConfig() map[string]any {
 									"req": "`reqdata`",
 									"res": "`body`",
 								},
-								"index$": 0,
 							},
 						},
-						"key$": "patch",
 					},
 					"update": map[string]any{
 						"input": "data",
@@ -3949,6 +3933,7 @@ func MakeConfig() map[string]any {
 										},
 									},
 								},
+								"kind": "http",
 								"method": "PUT",
 								"orig": "/repos/{owner}/{identifier}/upstream/docker/{slug_perm}/",
 								"parts": []any{
@@ -3979,7 +3964,6 @@ func MakeConfig() map[string]any {
 								"index$": 0,
 							},
 						},
-						"key$": "update",
 					},
 				},
 				"relations": map[string]any{
@@ -4058,6 +4042,7 @@ func MakeConfig() map[string]any {
 										},
 									},
 								},
+								"kind": "http",
 								"method": "GET",
 								"orig": "/orgs/{org}/openid-connect/{provider_setting}/dynamic-mappings/",
 								"parts": []any{
@@ -4087,7 +4072,6 @@ func MakeConfig() map[string]any {
 								"index$": 0,
 							},
 						},
-						"key$": "list",
 					},
 					"load": map[string]any{
 						"input": "data",
@@ -4126,6 +4110,7 @@ func MakeConfig() map[string]any {
 										},
 									},
 								},
+								"kind": "http",
 								"method": "GET",
 								"orig": "/orgs/{org}/openid-connect/{provider_setting}/dynamic-mappings/{claim_value}/",
 								"parts": []any{
@@ -4157,7 +4142,6 @@ func MakeConfig() map[string]any {
 								"index$": 0,
 							},
 						},
-						"key$": "load",
 					},
 				},
 				"relations": map[string]any{
@@ -4203,10 +4187,38 @@ func MakeConfig() map[string]any {
 				"fields": []any{
 					map[string]any{
 						"active": true,
-						"name": "token",
+						"name": "active",
+						"req": false,
+						"type": "`$INTEGER`",
+						"index$": 0,
+					},
+					map[string]any{
+						"active": true,
+						"name": "bandwidth",
 						"req": true,
 						"type": "`$OBJECT`",
-						"index$": 0,
+						"index$": 1,
+					},
+					map[string]any{
+						"active": true,
+						"name": "downloads",
+						"req": true,
+						"type": "`$OBJECT`",
+						"index$": 2,
+					},
+					map[string]any{
+						"active": true,
+						"name": "inactive",
+						"req": false,
+						"type": "`$INTEGER`",
+						"index$": 3,
+					},
+					map[string]any{
+						"active": true,
+						"name": "total",
+						"req": false,
+						"type": "`$INTEGER`",
+						"index$": 4,
 					},
 				},
 				"name": "entitlement",
@@ -4258,6 +4270,7 @@ func MakeConfig() map[string]any {
 										},
 									},
 								},
+								"kind": "http",
 								"method": "POST",
 								"orig": "/entitlements/{owner}/{repo}/{identifier}/reset/",
 								"parts": []any{
@@ -4314,6 +4327,7 @@ func MakeConfig() map[string]any {
 										},
 									},
 								},
+								"kind": "http",
 								"method": "POST",
 								"orig": "/entitlements/{owner}/{repo}/{identifier}/disable/",
 								"parts": []any{
@@ -4369,6 +4383,7 @@ func MakeConfig() map[string]any {
 										},
 									},
 								},
+								"kind": "http",
 								"method": "POST",
 								"orig": "/entitlements/{owner}/{repo}/{identifier}/enable/",
 								"parts": []any{
@@ -4392,7 +4407,6 @@ func MakeConfig() map[string]any {
 								"index$": 2,
 							},
 						},
-						"key$": "create",
 					},
 					"load": map[string]any{
 						"input": "data",
@@ -4464,6 +4478,7 @@ func MakeConfig() map[string]any {
 										},
 									},
 								},
+								"kind": "http",
 								"method": "GET",
 								"orig": "/metrics/entitlements/{owner}/{repo}/",
 								"parts": []any{
@@ -4485,7 +4500,7 @@ func MakeConfig() map[string]any {
 								},
 								"transform": map[string]any{
 									"req": "`reqdata`",
-									"res": "`body`",
+									"res": "`body.tokens`",
 								},
 								"index$": 0,
 							},
@@ -4546,6 +4561,7 @@ func MakeConfig() map[string]any {
 										},
 									},
 								},
+								"kind": "http",
 								"method": "GET",
 								"orig": "/metrics/entitlements/{owner}/",
 								"parts": []any{
@@ -4570,12 +4586,11 @@ func MakeConfig() map[string]any {
 								},
 								"transform": map[string]any{
 									"req": "`reqdata`",
-									"res": "`body`",
+									"res": "`body.tokens`",
 								},
 								"index$": 1,
 							},
 						},
-						"key$": "load",
 					},
 					"remove": map[string]any{
 						"input": "data",
@@ -4614,6 +4629,7 @@ func MakeConfig() map[string]any {
 										},
 									},
 								},
+								"kind": "http",
 								"method": "DELETE",
 								"orig": "/entitlements/{owner}/{repo}/{identifier}/",
 								"parts": []any{
@@ -4636,7 +4652,6 @@ func MakeConfig() map[string]any {
 								"index$": 0,
 							},
 						},
-						"key$": "remove",
 					},
 				},
 				"relations": map[string]any{
@@ -4715,6 +4730,7 @@ func MakeConfig() map[string]any {
 										},
 									},
 								},
+								"kind": "http",
 								"method": "POST",
 								"orig": "/files/{owner}/{repo}/{identifier}/abort/",
 								"parts": []any{
@@ -4772,6 +4788,7 @@ func MakeConfig() map[string]any {
 										},
 									},
 								},
+								"kind": "http",
 								"method": "POST",
 								"orig": "/files/{owner}/{repo}/",
 								"parts": []any{
@@ -4826,6 +4843,7 @@ func MakeConfig() map[string]any {
 										},
 									},
 								},
+								"kind": "http",
 								"method": "POST",
 								"orig": "/files/{owner}/{repo}/validate/",
 								"parts": []any{
@@ -4848,7 +4866,6 @@ func MakeConfig() map[string]any {
 								"index$": 2,
 							},
 						},
-						"key$": "create",
 					},
 				},
 				"relations": map[string]any{
@@ -4870,14 +4887,14 @@ func MakeConfig() map[string]any {
 					},
 					map[string]any{
 						"active": true,
-						"name": "distribution",
+						"name": "distributions",
 						"req": false,
 						"type": "`$ARRAY`",
 						"index$": 1,
 					},
 					map[string]any{
 						"active": true,
-						"name": "extension",
+						"name": "extensions",
 						"req": true,
 						"type": "`$ARRAY`",
 						"index$": 2,
@@ -4919,7 +4936,7 @@ func MakeConfig() map[string]any {
 					},
 					map[string]any{
 						"active": true,
-						"name": "support",
+						"name": "supports",
 						"req": true,
 						"type": "`$OBJECT`",
 						"index$": 8,
@@ -4934,6 +4951,7 @@ func MakeConfig() map[string]any {
 							map[string]any{
 								"active": true,
 								"args": map[string]any{},
+								"kind": "http",
 								"method": "GET",
 								"orig": "/formats/",
 								"parts": []any{
@@ -4947,7 +4965,6 @@ func MakeConfig() map[string]any {
 								"index$": 0,
 							},
 						},
-						"key$": "list",
 					},
 					"load": map[string]any{
 						"input": "data",
@@ -4968,6 +4985,7 @@ func MakeConfig() map[string]any {
 										},
 									},
 								},
+								"kind": "http",
 								"method": "GET",
 								"orig": "/formats/{slug}/",
 								"parts": []any{
@@ -4991,7 +5009,6 @@ func MakeConfig() map[string]any {
 								"index$": 0,
 							},
 						},
-						"key$": "load",
 					},
 				},
 				"relations": map[string]any{
@@ -5011,30 +5028,6 @@ func MakeConfig() map[string]any {
 				},
 			},
 			"gon": map[string]any{
-				"fields": []any{},
-				"name": "gon",
-				"op": map[string]any{},
-				"relations": map[string]any{
-					"ancestors": []any{
-						[]any{
-							"package",
-						},
-					},
-				},
-			},
-			"gon2": map[string]any{
-				"fields": []any{},
-				"name": "gon2",
-				"op": map[string]any{},
-				"relations": map[string]any{
-					"ancestors": []any{
-						[]any{
-							"package",
-						},
-					},
-				},
-			},
-			"gon3": map[string]any{
 				"fields": []any{
 					map[string]any{
 						"active": true,
@@ -5163,8 +5156,71 @@ func MakeConfig() map[string]any {
 						"index$": 17,
 					},
 				},
-				"name": "gon3",
+				"name": "gon",
 				"op": map[string]any{
+					"create": map[string]any{
+						"input": "data",
+						"name": "create",
+						"points": []any{
+							map[string]any{
+								"active": true,
+								"args": map[string]any{
+									"params": []any{
+										map[string]any{
+											"active": true,
+											"kind": "param",
+											"name": "identifier",
+											"orig": "identifier",
+											"reqd": true,
+											"type": "`$ANY`",
+											"index$": 0,
+										},
+										map[string]any{
+											"active": true,
+											"kind": "param",
+											"name": "owner",
+											"orig": "owner",
+											"reqd": true,
+											"type": "`$ANY`",
+											"index$": 1,
+										},
+									},
+									"query": []any{
+										map[string]any{
+											"active": true,
+											"kind": "query",
+											"name": "data",
+											"orig": "data",
+											"reqd": false,
+											"type": "`$OBJECT`",
+										},
+									},
+								},
+								"kind": "http",
+								"method": "POST",
+								"orig": "/repos/{owner}/{identifier}/upstream/go/",
+								"parts": []any{
+									"repos",
+									"{owner}",
+									"{identifier}",
+									"upstream",
+									"go",
+								},
+								"select": map[string]any{
+									"exist": []any{
+										"data",
+										"identifier",
+										"owner",
+									},
+								},
+								"transform": map[string]any{
+									"req": "`reqdata`",
+									"res": "`body`",
+								},
+								"index$": 0,
+							},
+						},
+					},
 					"list": map[string]any{
 						"input": "data",
 						"name": "list",
@@ -5211,6 +5267,7 @@ func MakeConfig() map[string]any {
 										},
 									},
 								},
+								"kind": "http",
 								"method": "GET",
 								"orig": "/repos/{owner}/{identifier}/upstream/go/",
 								"parts": []any{
@@ -5235,236 +5292,7 @@ func MakeConfig() map[string]any {
 								"index$": 0,
 							},
 						},
-						"key$": "list",
 					},
-				},
-				"relations": map[string]any{
-					"ancestors": []any{
-						[]any{
-							"repo",
-						},
-					},
-				},
-			},
-			"gon4": map[string]any{
-				"fields": []any{},
-				"name": "gon4",
-				"op": map[string]any{},
-				"relations": map[string]any{
-					"ancestors": []any{
-						[]any{
-							"repo",
-						},
-					},
-				},
-			},
-			"gon5": map[string]any{
-				"fields": []any{},
-				"name": "gon5",
-				"op": map[string]any{
-					"create": map[string]any{
-						"input": "data",
-						"name": "create",
-						"points": []any{
-							map[string]any{
-								"active": true,
-								"args": map[string]any{
-									"params": []any{
-										map[string]any{
-											"active": true,
-											"kind": "param",
-											"name": "identifier",
-											"orig": "identifier",
-											"reqd": true,
-											"type": "`$ANY`",
-											"index$": 0,
-										},
-										map[string]any{
-											"active": true,
-											"kind": "param",
-											"name": "owner",
-											"orig": "owner",
-											"reqd": true,
-											"type": "`$ANY`",
-											"index$": 1,
-										},
-									},
-									"query": []any{
-										map[string]any{
-											"active": true,
-											"kind": "query",
-											"name": "data",
-											"orig": "data",
-											"reqd": false,
-											"type": "`$OBJECT`",
-										},
-									},
-								},
-								"method": "POST",
-								"orig": "/repos/{owner}/{identifier}/upstream/go/",
-								"parts": []any{
-									"repos",
-									"{owner}",
-									"{identifier}",
-									"upstream",
-									"go",
-								},
-								"select": map[string]any{
-									"exist": []any{
-										"data",
-										"identifier",
-										"owner",
-									},
-								},
-								"transform": map[string]any{
-									"req": "`reqdata`",
-									"res": "`body`",
-								},
-								"index$": 0,
-							},
-						},
-						"key$": "create",
-					},
-				},
-				"relations": map[string]any{
-					"ancestors": []any{
-						[]any{
-							"repo",
-						},
-					},
-				},
-			},
-			"gon6": map[string]any{
-				"fields": []any{
-					map[string]any{
-						"active": true,
-						"name": "auth_mode",
-						"req": false,
-						"type": "`$STRING`",
-						"index$": 0,
-					},
-					map[string]any{
-						"active": true,
-						"name": "auth_secret",
-						"req": false,
-						"type": "`$STRING`",
-						"index$": 1,
-					},
-					map[string]any{
-						"active": true,
-						"name": "auth_username",
-						"req": false,
-						"type": "`$STRING`",
-						"index$": 2,
-					},
-					map[string]any{
-						"active": true,
-						"name": "created_at",
-						"req": false,
-						"type": "`$STRING`",
-						"index$": 3,
-					},
-					map[string]any{
-						"active": true,
-						"name": "disable_reason",
-						"req": false,
-						"type": "`$STRING`",
-						"index$": 4,
-					},
-					map[string]any{
-						"active": true,
-						"name": "extra_header_1",
-						"req": false,
-						"type": "`$STRING`",
-						"index$": 5,
-					},
-					map[string]any{
-						"active": true,
-						"name": "extra_header_2",
-						"req": false,
-						"type": "`$STRING`",
-						"index$": 6,
-					},
-					map[string]any{
-						"active": true,
-						"name": "extra_value_1",
-						"req": false,
-						"type": "`$STRING`",
-						"index$": 7,
-					},
-					map[string]any{
-						"active": true,
-						"name": "extra_value_2",
-						"req": false,
-						"type": "`$STRING`",
-						"index$": 8,
-					},
-					map[string]any{
-						"active": true,
-						"name": "is_active",
-						"req": false,
-						"type": "`$BOOLEAN`",
-						"index$": 9,
-					},
-					map[string]any{
-						"active": true,
-						"name": "mode",
-						"req": false,
-						"type": "`$STRING`",
-						"index$": 10,
-					},
-					map[string]any{
-						"active": true,
-						"name": "name",
-						"req": true,
-						"type": "`$STRING`",
-						"index$": 11,
-					},
-					map[string]any{
-						"active": true,
-						"name": "pending_validation",
-						"req": false,
-						"type": "`$BOOLEAN`",
-						"index$": 12,
-					},
-					map[string]any{
-						"active": true,
-						"name": "priority",
-						"req": false,
-						"type": "`$INTEGER`",
-						"index$": 13,
-					},
-					map[string]any{
-						"active": true,
-						"name": "slug_perm",
-						"req": false,
-						"type": "`$STRING`",
-						"index$": 14,
-					},
-					map[string]any{
-						"active": true,
-						"name": "updated_at",
-						"req": false,
-						"type": "`$STRING`",
-						"index$": 15,
-					},
-					map[string]any{
-						"active": true,
-						"name": "upstream_url",
-						"req": true,
-						"type": "`$STRING`",
-						"index$": 16,
-					},
-					map[string]any{
-						"active": true,
-						"name": "verify_ssl",
-						"req": false,
-						"type": "`$BOOLEAN`",
-						"index$": 17,
-					},
-				},
-				"name": "gon6",
-				"op": map[string]any{
 					"load": map[string]any{
 						"input": "data",
 						"name": "load",
@@ -5502,6 +5330,7 @@ func MakeConfig() map[string]any {
 										},
 									},
 								},
+								"kind": "http",
 								"method": "GET",
 								"orig": "/repos/{owner}/{identifier}/upstream/go/{slug_perm}/",
 								"parts": []any{
@@ -5526,162 +5355,77 @@ func MakeConfig() map[string]any {
 								"index$": 0,
 							},
 						},
-						"key$": "load",
 					},
-				},
-				"relations": map[string]any{
-					"ancestors": []any{
-						[]any{
-							"repo",
-							"go",
+					"patch": map[string]any{
+						"input": "data",
+						"name": "patch",
+						"points": []any{
+							map[string]any{
+								"active": true,
+								"args": map[string]any{
+									"params": []any{
+										map[string]any{
+											"active": true,
+											"kind": "param",
+											"name": "identifier",
+											"orig": "identifier",
+											"reqd": true,
+											"type": "`$ANY`",
+										},
+										map[string]any{
+											"active": true,
+											"kind": "param",
+											"name": "owner",
+											"orig": "owner",
+											"reqd": true,
+											"type": "`$ANY`",
+										},
+										map[string]any{
+											"active": true,
+											"kind": "param",
+											"name": "slug_perm",
+											"orig": "slug_perm",
+											"reqd": true,
+											"type": "`$ANY`",
+										},
+									},
+									"query": []any{
+										map[string]any{
+											"active": true,
+											"kind": "query",
+											"name": "data",
+											"orig": "data",
+											"reqd": false,
+											"type": "`$OBJECT`",
+										},
+									},
+								},
+								"kind": "http",
+								"method": "PATCH",
+								"orig": "/repos/{owner}/{identifier}/upstream/go/{slug_perm}/",
+								"parts": []any{
+									"repos",
+									"{owner}",
+									"{identifier}",
+									"upstream",
+									"go",
+									"{slug_perm}",
+								},
+								"select": map[string]any{
+									"exist": []any{
+										"data",
+										"identifier",
+										"owner",
+										"slug_perm",
+									},
+								},
+								"transform": map[string]any{
+									"req": "`reqdata`",
+									"res": "`body`",
+								},
+							},
 						},
 					},
-				},
-			},
-			"gon7": map[string]any{
-				"fields": []any{},
-				"name": "gon7",
-				"op": map[string]any{},
-				"relations": map[string]any{
-					"ancestors": []any{
-						[]any{
-							"repo",
-							"go",
-						},
-					},
-				},
-			},
-			"gon8": map[string]any{
-				"fields": []any{
-					map[string]any{
-						"active": true,
-						"name": "auth_mode",
-						"req": false,
-						"type": "`$STRING`",
-						"index$": 0,
-					},
-					map[string]any{
-						"active": true,
-						"name": "auth_secret",
-						"req": false,
-						"type": "`$STRING`",
-						"index$": 1,
-					},
-					map[string]any{
-						"active": true,
-						"name": "auth_username",
-						"req": false,
-						"type": "`$STRING`",
-						"index$": 2,
-					},
-					map[string]any{
-						"active": true,
-						"name": "created_at",
-						"req": false,
-						"type": "`$STRING`",
-						"index$": 3,
-					},
-					map[string]any{
-						"active": true,
-						"name": "disable_reason",
-						"req": false,
-						"type": "`$STRING`",
-						"index$": 4,
-					},
-					map[string]any{
-						"active": true,
-						"name": "extra_header_1",
-						"req": false,
-						"type": "`$STRING`",
-						"index$": 5,
-					},
-					map[string]any{
-						"active": true,
-						"name": "extra_header_2",
-						"req": false,
-						"type": "`$STRING`",
-						"index$": 6,
-					},
-					map[string]any{
-						"active": true,
-						"name": "extra_value_1",
-						"req": false,
-						"type": "`$STRING`",
-						"index$": 7,
-					},
-					map[string]any{
-						"active": true,
-						"name": "extra_value_2",
-						"req": false,
-						"type": "`$STRING`",
-						"index$": 8,
-					},
-					map[string]any{
-						"active": true,
-						"name": "is_active",
-						"req": false,
-						"type": "`$BOOLEAN`",
-						"index$": 9,
-					},
-					map[string]any{
-						"active": true,
-						"name": "mode",
-						"req": false,
-						"type": "`$STRING`",
-						"index$": 10,
-					},
-					map[string]any{
-						"active": true,
-						"name": "name",
-						"req": true,
-						"type": "`$STRING`",
-						"index$": 11,
-					},
-					map[string]any{
-						"active": true,
-						"name": "pending_validation",
-						"req": false,
-						"type": "`$BOOLEAN`",
-						"index$": 12,
-					},
-					map[string]any{
-						"active": true,
-						"name": "priority",
-						"req": false,
-						"type": "`$INTEGER`",
-						"index$": 13,
-					},
-					map[string]any{
-						"active": true,
-						"name": "slug_perm",
-						"req": false,
-						"type": "`$STRING`",
-						"index$": 14,
-					},
-					map[string]any{
-						"active": true,
-						"name": "updated_at",
-						"req": false,
-						"type": "`$STRING`",
-						"index$": 15,
-					},
-					map[string]any{
-						"active": true,
-						"name": "upstream_url",
-						"req": true,
-						"type": "`$STRING`",
-						"index$": 16,
-					},
-					map[string]any{
-						"active": true,
-						"name": "verify_ssl",
-						"req": false,
-						"type": "`$BOOLEAN`",
-						"index$": 17,
-					},
-				},
-				"name": "gon8",
-				"op": map[string]any{
 					"update": map[string]any{
 						"input": "data",
 						"name": "update",
@@ -5729,6 +5473,7 @@ func MakeConfig() map[string]any {
 										},
 									},
 								},
+								"kind": "http",
 								"method": "PUT",
 								"orig": "/repos/{owner}/{identifier}/upstream/go/{slug_perm}/",
 								"parts": []any{
@@ -5754,226 +5499,16 @@ func MakeConfig() map[string]any {
 								"index$": 0,
 							},
 						},
-						"key$": "update",
 					},
 				},
 				"relations": map[string]any{
 					"ancestors": []any{
 						[]any{
+							"package",
+						},
+						[]any{
 							"repo",
-							"go",
 						},
-					},
-				},
-			},
-			"gon9": map[string]any{
-				"fields": []any{
-					map[string]any{
-						"active": true,
-						"name": "auth_mode",
-						"req": false,
-						"type": "`$STRING`",
-						"index$": 0,
-					},
-					map[string]any{
-						"active": true,
-						"name": "auth_secret",
-						"req": false,
-						"type": "`$STRING`",
-						"index$": 1,
-					},
-					map[string]any{
-						"active": true,
-						"name": "auth_username",
-						"req": false,
-						"type": "`$STRING`",
-						"index$": 2,
-					},
-					map[string]any{
-						"active": true,
-						"name": "created_at",
-						"req": false,
-						"type": "`$STRING`",
-						"index$": 3,
-					},
-					map[string]any{
-						"active": true,
-						"name": "disable_reason",
-						"req": false,
-						"type": "`$STRING`",
-						"index$": 4,
-					},
-					map[string]any{
-						"active": true,
-						"name": "extra_header_1",
-						"req": false,
-						"type": "`$STRING`",
-						"index$": 5,
-					},
-					map[string]any{
-						"active": true,
-						"name": "extra_header_2",
-						"req": false,
-						"type": "`$STRING`",
-						"index$": 6,
-					},
-					map[string]any{
-						"active": true,
-						"name": "extra_value_1",
-						"req": false,
-						"type": "`$STRING`",
-						"index$": 7,
-					},
-					map[string]any{
-						"active": true,
-						"name": "extra_value_2",
-						"req": false,
-						"type": "`$STRING`",
-						"index$": 8,
-					},
-					map[string]any{
-						"active": true,
-						"name": "is_active",
-						"req": false,
-						"type": "`$BOOLEAN`",
-						"index$": 9,
-					},
-					map[string]any{
-						"active": true,
-						"name": "mode",
-						"req": false,
-						"type": "`$STRING`",
-						"index$": 10,
-					},
-					map[string]any{
-						"active": true,
-						"name": "name",
-						"req": true,
-						"type": "`$STRING`",
-						"index$": 11,
-					},
-					map[string]any{
-						"active": true,
-						"name": "pending_validation",
-						"req": false,
-						"type": "`$BOOLEAN`",
-						"index$": 12,
-					},
-					map[string]any{
-						"active": true,
-						"name": "priority",
-						"req": false,
-						"type": "`$INTEGER`",
-						"index$": 13,
-					},
-					map[string]any{
-						"active": true,
-						"name": "slug_perm",
-						"req": false,
-						"type": "`$STRING`",
-						"index$": 14,
-					},
-					map[string]any{
-						"active": true,
-						"name": "updated_at",
-						"req": false,
-						"type": "`$STRING`",
-						"index$": 15,
-					},
-					map[string]any{
-						"active": true,
-						"name": "upstream_url",
-						"req": true,
-						"type": "`$STRING`",
-						"index$": 16,
-					},
-					map[string]any{
-						"active": true,
-						"name": "verify_ssl",
-						"req": false,
-						"type": "`$BOOLEAN`",
-						"index$": 17,
-					},
-				},
-				"name": "gon9",
-				"op": map[string]any{
-					"update": map[string]any{
-						"input": "data",
-						"name": "update",
-						"points": []any{
-							map[string]any{
-								"active": true,
-								"args": map[string]any{
-									"params": []any{
-										map[string]any{
-											"active": true,
-											"kind": "param",
-											"name": "identifier",
-											"orig": "identifier",
-											"reqd": true,
-											"type": "`$ANY`",
-											"index$": 0,
-										},
-										map[string]any{
-											"active": true,
-											"kind": "param",
-											"name": "owner",
-											"orig": "owner",
-											"reqd": true,
-											"type": "`$ANY`",
-											"index$": 1,
-										},
-										map[string]any{
-											"active": true,
-											"kind": "param",
-											"name": "slug_perm",
-											"orig": "slug_perm",
-											"reqd": true,
-											"type": "`$ANY`",
-											"index$": 2,
-										},
-									},
-									"query": []any{
-										map[string]any{
-											"active": true,
-											"kind": "query",
-											"name": "data",
-											"orig": "data",
-											"reqd": false,
-											"type": "`$OBJECT`",
-										},
-									},
-								},
-								"method": "PATCH",
-								"orig": "/repos/{owner}/{identifier}/upstream/go/{slug_perm}/",
-								"parts": []any{
-									"repos",
-									"{owner}",
-									"{identifier}",
-									"upstream",
-									"go",
-									"{slug_perm}",
-								},
-								"select": map[string]any{
-									"exist": []any{
-										"data",
-										"identifier",
-										"owner",
-										"slug_perm",
-									},
-								},
-								"transform": map[string]any{
-									"req": "`reqdata`",
-									"res": "`body`",
-								},
-								"index$": 0,
-							},
-						},
-						"key$": "update",
-					},
-				},
-				"relations": map[string]any{
-					"ancestors": []any{
 						[]any{
 							"repo",
 							"go",
@@ -6174,6 +5709,7 @@ func MakeConfig() map[string]any {
 										},
 									},
 								},
+								"kind": "http",
 								"method": "POST",
 								"orig": "/repos/{owner}/{identifier}/upstream/helm/",
 								"parts": []any{
@@ -6197,7 +5733,6 @@ func MakeConfig() map[string]any {
 								"index$": 0,
 							},
 						},
-						"key$": "create",
 					},
 					"list": map[string]any{
 						"input": "data",
@@ -6245,6 +5780,7 @@ func MakeConfig() map[string]any {
 										},
 									},
 								},
+								"kind": "http",
 								"method": "GET",
 								"orig": "/repos/{owner}/{identifier}/upstream/helm/",
 								"parts": []any{
@@ -6269,7 +5805,6 @@ func MakeConfig() map[string]any {
 								"index$": 0,
 							},
 						},
-						"key$": "list",
 					},
 					"load": map[string]any{
 						"input": "data",
@@ -6308,6 +5843,7 @@ func MakeConfig() map[string]any {
 										},
 									},
 								},
+								"kind": "http",
 								"method": "GET",
 								"orig": "/repos/{owner}/{identifier}/upstream/helm/{slug_perm}/",
 								"parts": []any{
@@ -6337,7 +5873,6 @@ func MakeConfig() map[string]any {
 								"index$": 0,
 							},
 						},
-						"key$": "load",
 					},
 					"patch": map[string]any{
 						"input": "data",
@@ -6383,6 +5918,7 @@ func MakeConfig() map[string]any {
 										},
 									},
 								},
+								"kind": "http",
 								"method": "PATCH",
 								"orig": "/repos/{owner}/{identifier}/upstream/helm/{slug_perm}/",
 								"parts": []any{
@@ -6410,10 +5946,8 @@ func MakeConfig() map[string]any {
 									"req": "`reqdata`",
 									"res": "`body`",
 								},
-								"index$": 0,
 							},
 						},
-						"key$": "patch",
 					},
 					"update": map[string]any{
 						"input": "data",
@@ -6462,6 +5996,7 @@ func MakeConfig() map[string]any {
 										},
 									},
 								},
+								"kind": "http",
 								"method": "PUT",
 								"orig": "/repos/{owner}/{identifier}/upstream/helm/{slug_perm}/",
 								"parts": []any{
@@ -6492,7 +6027,6 @@ func MakeConfig() map[string]any {
 								"index$": 0,
 							},
 						},
-						"key$": "update",
 					},
 				},
 				"relations": map[string]any{
@@ -6675,6 +6209,7 @@ func MakeConfig() map[string]any {
 										},
 									},
 								},
+								"kind": "http",
 								"method": "POST",
 								"orig": "/repos/{owner}/{identifier}/upstream/hex/",
 								"parts": []any{
@@ -6698,7 +6233,6 @@ func MakeConfig() map[string]any {
 								"index$": 0,
 							},
 						},
-						"key$": "create",
 					},
 					"list": map[string]any{
 						"input": "data",
@@ -6746,6 +6280,7 @@ func MakeConfig() map[string]any {
 										},
 									},
 								},
+								"kind": "http",
 								"method": "GET",
 								"orig": "/repos/{owner}/{identifier}/upstream/hex/",
 								"parts": []any{
@@ -6770,7 +6305,6 @@ func MakeConfig() map[string]any {
 								"index$": 0,
 							},
 						},
-						"key$": "list",
 					},
 					"load": map[string]any{
 						"input": "data",
@@ -6809,6 +6343,7 @@ func MakeConfig() map[string]any {
 										},
 									},
 								},
+								"kind": "http",
 								"method": "GET",
 								"orig": "/repos/{owner}/{identifier}/upstream/hex/{slug_perm}/",
 								"parts": []any{
@@ -6838,7 +6373,6 @@ func MakeConfig() map[string]any {
 								"index$": 0,
 							},
 						},
-						"key$": "load",
 					},
 					"patch": map[string]any{
 						"input": "data",
@@ -6884,6 +6418,7 @@ func MakeConfig() map[string]any {
 										},
 									},
 								},
+								"kind": "http",
 								"method": "PATCH",
 								"orig": "/repos/{owner}/{identifier}/upstream/hex/{slug_perm}/",
 								"parts": []any{
@@ -6911,10 +6446,8 @@ func MakeConfig() map[string]any {
 									"req": "`reqdata`",
 									"res": "`body`",
 								},
-								"index$": 0,
 							},
 						},
-						"key$": "patch",
 					},
 					"update": map[string]any{
 						"input": "data",
@@ -6963,6 +6496,7 @@ func MakeConfig() map[string]any {
 										},
 									},
 								},
+								"kind": "http",
 								"method": "PUT",
 								"orig": "/repos/{owner}/{identifier}/upstream/hex/{slug_perm}/",
 								"parts": []any{
@@ -6993,7 +6527,6 @@ func MakeConfig() map[string]any {
 								"index$": 0,
 							},
 						},
-						"key$": "update",
 					},
 				},
 				"relations": map[string]any{
@@ -7184,6 +6717,7 @@ func MakeConfig() map[string]any {
 										},
 									},
 								},
+								"kind": "http",
 								"method": "POST",
 								"orig": "/repos/{owner}/{identifier}/upstream/huggingface/",
 								"parts": []any{
@@ -7207,7 +6741,6 @@ func MakeConfig() map[string]any {
 								"index$": 0,
 							},
 						},
-						"key$": "create",
 					},
 					"list": map[string]any{
 						"input": "data",
@@ -7255,6 +6788,7 @@ func MakeConfig() map[string]any {
 										},
 									},
 								},
+								"kind": "http",
 								"method": "GET",
 								"orig": "/repos/{owner}/{identifier}/upstream/huggingface/",
 								"parts": []any{
@@ -7279,7 +6813,6 @@ func MakeConfig() map[string]any {
 								"index$": 0,
 							},
 						},
-						"key$": "list",
 					},
 					"load": map[string]any{
 						"input": "data",
@@ -7318,6 +6851,7 @@ func MakeConfig() map[string]any {
 										},
 									},
 								},
+								"kind": "http",
 								"method": "GET",
 								"orig": "/repos/{owner}/{identifier}/upstream/huggingface/{slug_perm}/",
 								"parts": []any{
@@ -7347,7 +6881,6 @@ func MakeConfig() map[string]any {
 								"index$": 0,
 							},
 						},
-						"key$": "load",
 					},
 					"patch": map[string]any{
 						"input": "data",
@@ -7393,6 +6926,7 @@ func MakeConfig() map[string]any {
 										},
 									},
 								},
+								"kind": "http",
 								"method": "PATCH",
 								"orig": "/repos/{owner}/{identifier}/upstream/huggingface/{slug_perm}/",
 								"parts": []any{
@@ -7420,10 +6954,8 @@ func MakeConfig() map[string]any {
 									"req": "`reqdata`",
 									"res": "`body`",
 								},
-								"index$": 0,
 							},
 						},
-						"key$": "patch",
 					},
 					"update": map[string]any{
 						"input": "data",
@@ -7472,6 +7004,7 @@ func MakeConfig() map[string]any {
 										},
 									},
 								},
+								"kind": "http",
 								"method": "PUT",
 								"orig": "/repos/{owner}/{identifier}/upstream/huggingface/{slug_perm}/",
 								"parts": []any{
@@ -7502,7 +7035,6 @@ func MakeConfig() map[string]any {
 								"index$": 0,
 							},
 						},
-						"key$": "update",
 					},
 				},
 				"relations": map[string]any{
@@ -7777,6 +7309,7 @@ func MakeConfig() map[string]any {
 										},
 									},
 								},
+								"kind": "http",
 								"method": "POST",
 								"orig": "/repos/{owner}/{identifier}/upstream/maven/",
 								"parts": []any{
@@ -7800,7 +7333,6 @@ func MakeConfig() map[string]any {
 								"index$": 0,
 							},
 						},
-						"key$": "create",
 					},
 					"list": map[string]any{
 						"input": "data",
@@ -7848,6 +7380,7 @@ func MakeConfig() map[string]any {
 										},
 									},
 								},
+								"kind": "http",
 								"method": "GET",
 								"orig": "/repos/{owner}/{identifier}/upstream/maven/",
 								"parts": []any{
@@ -7872,7 +7405,6 @@ func MakeConfig() map[string]any {
 								"index$": 0,
 							},
 						},
-						"key$": "list",
 					},
 					"load": map[string]any{
 						"input": "data",
@@ -7911,6 +7443,7 @@ func MakeConfig() map[string]any {
 										},
 									},
 								},
+								"kind": "http",
 								"method": "GET",
 								"orig": "/repos/{owner}/{identifier}/upstream/maven/{slug_perm}/",
 								"parts": []any{
@@ -7940,7 +7473,6 @@ func MakeConfig() map[string]any {
 								"index$": 0,
 							},
 						},
-						"key$": "load",
 					},
 					"patch": map[string]any{
 						"input": "data",
@@ -7986,6 +7518,7 @@ func MakeConfig() map[string]any {
 										},
 									},
 								},
+								"kind": "http",
 								"method": "PATCH",
 								"orig": "/repos/{owner}/{identifier}/upstream/maven/{slug_perm}/",
 								"parts": []any{
@@ -8013,10 +7546,8 @@ func MakeConfig() map[string]any {
 									"req": "`reqdata`",
 									"res": "`body`",
 								},
-								"index$": 0,
 							},
 						},
-						"key$": "patch",
 					},
 					"update": map[string]any{
 						"input": "data",
@@ -8065,6 +7596,7 @@ func MakeConfig() map[string]any {
 										},
 									},
 								},
+								"kind": "http",
 								"method": "PUT",
 								"orig": "/repos/{owner}/{identifier}/upstream/maven/{slug_perm}/",
 								"parts": []any{
@@ -8095,7 +7627,6 @@ func MakeConfig() map[string]any {
 								"index$": 0,
 							},
 						},
-						"key$": "update",
 					},
 				},
 				"relations": map[string]any{
@@ -8192,6 +7723,7 @@ func MakeConfig() map[string]any {
 										},
 									},
 								},
+								"kind": "http",
 								"method": "GET",
 								"orig": "/namespaces/",
 								"parts": []any{
@@ -8210,7 +7742,6 @@ func MakeConfig() map[string]any {
 								"index$": 0,
 							},
 						},
-						"key$": "list",
 					},
 					"load": map[string]any{
 						"input": "data",
@@ -8231,6 +7762,7 @@ func MakeConfig() map[string]any {
 										},
 									},
 								},
+								"kind": "http",
 								"method": "GET",
 								"orig": "/namespaces/{slug}/",
 								"parts": []any{
@@ -8254,7 +7786,6 @@ func MakeConfig() map[string]any {
 								"index$": 0,
 							},
 						},
-						"key$": "load",
 					},
 				},
 				"relations": map[string]any{
@@ -8423,6 +7954,7 @@ func MakeConfig() map[string]any {
 										},
 									},
 								},
+								"kind": "http",
 								"method": "GET",
 								"orig": "/audit-log/{owner}/",
 								"parts": []any{
@@ -8449,7 +7981,6 @@ func MakeConfig() map[string]any {
 								"index$": 0,
 							},
 						},
-						"key$": "load",
 					},
 				},
 				"relations": map[string]any{
@@ -8625,6 +8156,7 @@ func MakeConfig() map[string]any {
 										},
 									},
 								},
+								"kind": "http",
 								"method": "POST",
 								"orig": "/repos/{owner}/{identifier}/upstream/npm/",
 								"parts": []any{
@@ -8648,7 +8180,6 @@ func MakeConfig() map[string]any {
 								"index$": 0,
 							},
 						},
-						"key$": "create",
 					},
 					"list": map[string]any{
 						"input": "data",
@@ -8696,6 +8227,7 @@ func MakeConfig() map[string]any {
 										},
 									},
 								},
+								"kind": "http",
 								"method": "GET",
 								"orig": "/repos/{owner}/{identifier}/upstream/npm/",
 								"parts": []any{
@@ -8720,7 +8252,6 @@ func MakeConfig() map[string]any {
 								"index$": 0,
 							},
 						},
-						"key$": "list",
 					},
 					"load": map[string]any{
 						"input": "data",
@@ -8759,6 +8290,7 @@ func MakeConfig() map[string]any {
 										},
 									},
 								},
+								"kind": "http",
 								"method": "GET",
 								"orig": "/repos/{owner}/{identifier}/upstream/npm/{slug_perm}/",
 								"parts": []any{
@@ -8788,7 +8320,6 @@ func MakeConfig() map[string]any {
 								"index$": 0,
 							},
 						},
-						"key$": "load",
 					},
 					"patch": map[string]any{
 						"input": "data",
@@ -8834,6 +8365,7 @@ func MakeConfig() map[string]any {
 										},
 									},
 								},
+								"kind": "http",
 								"method": "PATCH",
 								"orig": "/repos/{owner}/{identifier}/upstream/npm/{slug_perm}/",
 								"parts": []any{
@@ -8861,10 +8393,8 @@ func MakeConfig() map[string]any {
 									"req": "`reqdata`",
 									"res": "`body`",
 								},
-								"index$": 0,
 							},
 						},
-						"key$": "patch",
 					},
 					"update": map[string]any{
 						"input": "data",
@@ -8913,6 +8443,7 @@ func MakeConfig() map[string]any {
 										},
 									},
 								},
+								"kind": "http",
 								"method": "PUT",
 								"orig": "/repos/{owner}/{identifier}/upstream/npm/{slug_perm}/",
 								"parts": []any{
@@ -8943,7 +8474,6 @@ func MakeConfig() map[string]any {
 								"index$": 0,
 							},
 						},
-						"key$": "update",
 					},
 				},
 				"relations": map[string]any{
@@ -9126,6 +8656,7 @@ func MakeConfig() map[string]any {
 										},
 									},
 								},
+								"kind": "http",
 								"method": "POST",
 								"orig": "/repos/{owner}/{identifier}/upstream/nuget/",
 								"parts": []any{
@@ -9149,7 +8680,6 @@ func MakeConfig() map[string]any {
 								"index$": 0,
 							},
 						},
-						"key$": "create",
 					},
 					"list": map[string]any{
 						"input": "data",
@@ -9197,6 +8727,7 @@ func MakeConfig() map[string]any {
 										},
 									},
 								},
+								"kind": "http",
 								"method": "GET",
 								"orig": "/repos/{owner}/{identifier}/upstream/nuget/",
 								"parts": []any{
@@ -9221,7 +8752,6 @@ func MakeConfig() map[string]any {
 								"index$": 0,
 							},
 						},
-						"key$": "list",
 					},
 					"load": map[string]any{
 						"input": "data",
@@ -9260,6 +8790,7 @@ func MakeConfig() map[string]any {
 										},
 									},
 								},
+								"kind": "http",
 								"method": "GET",
 								"orig": "/repos/{owner}/{identifier}/upstream/nuget/{slug_perm}/",
 								"parts": []any{
@@ -9289,7 +8820,6 @@ func MakeConfig() map[string]any {
 								"index$": 0,
 							},
 						},
-						"key$": "load",
 					},
 					"patch": map[string]any{
 						"input": "data",
@@ -9335,6 +8865,7 @@ func MakeConfig() map[string]any {
 										},
 									},
 								},
+								"kind": "http",
 								"method": "PATCH",
 								"orig": "/repos/{owner}/{identifier}/upstream/nuget/{slug_perm}/",
 								"parts": []any{
@@ -9362,10 +8893,8 @@ func MakeConfig() map[string]any {
 									"req": "`reqdata`",
 									"res": "`body`",
 								},
-								"index$": 0,
 							},
 						},
-						"key$": "patch",
 					},
 					"update": map[string]any{
 						"input": "data",
@@ -9414,6 +8943,7 @@ func MakeConfig() map[string]any {
 										},
 									},
 								},
+								"kind": "http",
 								"method": "PUT",
 								"orig": "/repos/{owner}/{identifier}/upstream/nuget/{slug_perm}/",
 								"parts": []any{
@@ -9444,7 +8974,6 @@ func MakeConfig() map[string]any {
 								"index$": 0,
 							},
 						},
-						"key$": "update",
 					},
 				},
 				"relations": map[string]any{
@@ -9527,7 +9056,7 @@ func MakeConfig() map[string]any {
 					},
 					map[string]any{
 						"active": true,
-						"name": "reason",
+						"name": "reasons",
 						"req": true,
 						"type": "`$ARRAY`",
 						"index$": 7,
@@ -9555,7 +9084,7 @@ func MakeConfig() map[string]any {
 					},
 					map[string]any{
 						"active": true,
-						"name": "vulnerability_scan_result",
+						"name": "vulnerability_scan_results",
 						"req": true,
 						"type": "`$OBJECT`",
 						"index$": 11,
@@ -9591,6 +9120,7 @@ func MakeConfig() map[string]any {
 										},
 									},
 								},
+								"kind": "http",
 								"method": "POST",
 								"orig": "/orgs/{org}/members/{member}/refresh/",
 								"parts": []any{
@@ -9633,6 +9163,7 @@ func MakeConfig() map[string]any {
 										},
 									},
 								},
+								"kind": "http",
 								"method": "POST",
 								"orig": "/orgs/{org}/saml-group-sync/disable/",
 								"parts": []any{
@@ -9672,6 +9203,7 @@ func MakeConfig() map[string]any {
 										},
 									},
 								},
+								"kind": "http",
 								"method": "POST",
 								"orig": "/orgs/{org}/saml-group-sync/enable/",
 								"parts": []any{
@@ -9697,7 +9229,6 @@ func MakeConfig() map[string]any {
 								"index$": 2,
 							},
 						},
-						"key$": "create",
 					},
 					"list": map[string]any{
 						"input": "data",
@@ -9735,6 +9266,7 @@ func MakeConfig() map[string]any {
 										},
 									},
 								},
+								"kind": "http",
 								"method": "GET",
 								"orig": "/orgs/{org}/license-policy-violation/",
 								"parts": []any{
@@ -9757,7 +9289,7 @@ func MakeConfig() map[string]any {
 								},
 								"transform": map[string]any{
 									"req": "`reqdata`",
-									"res": "`body`",
+									"res": "`body.results`",
 								},
 								"index$": 0,
 							},
@@ -9793,6 +9325,7 @@ func MakeConfig() map[string]any {
 										},
 									},
 								},
+								"kind": "http",
 								"method": "GET",
 								"orig": "/orgs/{org}/vulnerability-policy-violation/",
 								"parts": []any{
@@ -9815,7 +9348,7 @@ func MakeConfig() map[string]any {
 								},
 								"transform": map[string]any{
 									"req": "`reqdata`",
-									"res": "`body`",
+									"res": "`body.results`",
 								},
 								"index$": 1,
 							},
@@ -9841,6 +9374,7 @@ func MakeConfig() map[string]any {
 										},
 									},
 								},
+								"kind": "http",
 								"method": "GET",
 								"orig": "/orgs/",
 								"parts": []any{
@@ -9859,7 +9393,6 @@ func MakeConfig() map[string]any {
 								"index$": 2,
 							},
 						},
-						"key$": "list",
 					},
 					"load": map[string]any{
 						"input": "data",
@@ -9889,6 +9422,7 @@ func MakeConfig() map[string]any {
 										},
 									},
 								},
+								"kind": "http",
 								"method": "GET",
 								"orig": "/orgs/{org}/members/{member}/remove/",
 								"parts": []any{
@@ -9931,6 +9465,7 @@ func MakeConfig() map[string]any {
 										},
 									},
 								},
+								"kind": "http",
 								"method": "GET",
 								"orig": "/orgs/{org}/",
 								"parts": []any{
@@ -9954,7 +9489,6 @@ func MakeConfig() map[string]any {
 								"index$": 1,
 							},
 						},
-						"key$": "load",
 					},
 					"remove": map[string]any{
 						"input": "data",
@@ -9984,6 +9518,7 @@ func MakeConfig() map[string]any {
 										},
 									},
 								},
+								"kind": "http",
 								"method": "DELETE",
 								"orig": "/orgs/{org}/members/{member}/",
 								"parts": []any{
@@ -10033,6 +9568,7 @@ func MakeConfig() map[string]any {
 										},
 									},
 								},
+								"kind": "http",
 								"method": "DELETE",
 								"orig": "/orgs/{org}/services/{service}/",
 								"parts": []any{
@@ -10082,6 +9618,7 @@ func MakeConfig() map[string]any {
 										},
 									},
 								},
+								"kind": "http",
 								"method": "DELETE",
 								"orig": "/orgs/{org}/deny-policy/{slug_perm}/",
 								"parts": []any{
@@ -10131,6 +9668,7 @@ func MakeConfig() map[string]any {
 										},
 									},
 								},
+								"kind": "http",
 								"method": "DELETE",
 								"orig": "/orgs/{org}/invites/{slug_perm}/",
 								"parts": []any{
@@ -10180,6 +9718,7 @@ func MakeConfig() map[string]any {
 										},
 									},
 								},
+								"kind": "http",
 								"method": "DELETE",
 								"orig": "/orgs/{org}/license-policy/{slug_perm}/",
 								"parts": []any{
@@ -10229,6 +9768,7 @@ func MakeConfig() map[string]any {
 										},
 									},
 								},
+								"kind": "http",
 								"method": "DELETE",
 								"orig": "/orgs/{org}/openid-connect/{slug_perm}/",
 								"parts": []any{
@@ -10278,6 +9818,7 @@ func MakeConfig() map[string]any {
 										},
 									},
 								},
+								"kind": "http",
 								"method": "DELETE",
 								"orig": "/orgs/{org}/saml-group-sync/{slug_perm}/",
 								"parts": []any{
@@ -10327,6 +9868,7 @@ func MakeConfig() map[string]any {
 										},
 									},
 								},
+								"kind": "http",
 								"method": "DELETE",
 								"orig": "/orgs/{org}/vulnerability-policy/{slug_perm}/",
 								"parts": []any{
@@ -10376,6 +9918,7 @@ func MakeConfig() map[string]any {
 										},
 									},
 								},
+								"kind": "http",
 								"method": "DELETE",
 								"orig": "/orgs/{org}/teams/{team}/",
 								"parts": []any{
@@ -10416,6 +9959,7 @@ func MakeConfig() map[string]any {
 										},
 									},
 								},
+								"kind": "http",
 								"method": "DELETE",
 								"orig": "/orgs/{org}/",
 								"parts": []any{
@@ -10439,7 +9983,6 @@ func MakeConfig() map[string]any {
 								"index$": 9,
 							},
 						},
-						"key$": "remove",
 					},
 					"update": map[string]any{
 						"input": "data",
@@ -10479,6 +10022,7 @@ func MakeConfig() map[string]any {
 										},
 									},
 								},
+								"kind": "http",
 								"method": "PUT",
 								"orig": "/orgs/{org}/teams/{team}/members",
 								"parts": []any{
@@ -10508,7 +10052,6 @@ func MakeConfig() map[string]any {
 								"index$": 0,
 							},
 						},
-						"key$": "update",
 					},
 				},
 				"relations": map[string]any{
@@ -10612,6 +10155,7 @@ func MakeConfig() map[string]any {
 										},
 									},
 								},
+								"kind": "http",
 								"method": "POST",
 								"orig": "/orgs/{org}/saml-group-sync/",
 								"parts": []any{
@@ -10637,7 +10181,6 @@ func MakeConfig() map[string]any {
 								"index$": 0,
 							},
 						},
-						"key$": "create",
 					},
 					"list": map[string]any{
 						"input": "data",
@@ -10676,6 +10219,7 @@ func MakeConfig() map[string]any {
 										},
 									},
 								},
+								"kind": "http",
 								"method": "GET",
 								"orig": "/orgs/{org}/saml-group-sync/",
 								"parts": []any{
@@ -10702,7 +10246,6 @@ func MakeConfig() map[string]any {
 								"index$": 0,
 							},
 						},
-						"key$": "list",
 					},
 				},
 				"relations": map[string]any{
@@ -10744,6 +10287,7 @@ func MakeConfig() map[string]any {
 										},
 									},
 								},
+								"kind": "http",
 								"method": "GET",
 								"orig": "/orgs/{org}/saml-group-sync/status/",
 								"parts": []any{
@@ -10769,7 +10313,6 @@ func MakeConfig() map[string]any {
 								"index$": 0,
 							},
 						},
-						"key$": "load",
 					},
 				},
 				"relations": map[string]any{
@@ -10833,7 +10376,7 @@ func MakeConfig() map[string]any {
 					},
 					map[string]any{
 						"active": true,
-						"name": "team",
+						"name": "teams",
 						"req": false,
 						"type": "`$ARRAY`",
 						"index$": 7,
@@ -10884,6 +10427,7 @@ func MakeConfig() map[string]any {
 										},
 									},
 								},
+								"kind": "http",
 								"method": "POST",
 								"orig": "/orgs/{org}/invites/",
 								"parts": []any{
@@ -10909,7 +10453,6 @@ func MakeConfig() map[string]any {
 								"index$": 0,
 							},
 						},
-						"key$": "create",
 					},
 					"list": map[string]any{
 						"input": "data",
@@ -10948,6 +10491,7 @@ func MakeConfig() map[string]any {
 										},
 									},
 								},
+								"kind": "http",
 								"method": "GET",
 								"orig": "/orgs/{org}/invites/",
 								"parts": []any{
@@ -10974,7 +10518,6 @@ func MakeConfig() map[string]any {
 								"index$": 0,
 							},
 						},
-						"key$": "list",
 					},
 					"update": map[string]any{
 						"input": "data",
@@ -11014,6 +10557,7 @@ func MakeConfig() map[string]any {
 										},
 									},
 								},
+								"kind": "http",
 								"method": "PATCH",
 								"orig": "/orgs/{org}/invites/{slug_perm}/",
 								"parts": []any{
@@ -11042,7 +10586,6 @@ func MakeConfig() map[string]any {
 								"index$": 0,
 							},
 						},
-						"key$": "update",
 					},
 				},
 				"relations": map[string]any{
@@ -11106,7 +10649,7 @@ func MakeConfig() map[string]any {
 					},
 					map[string]any{
 						"active": true,
-						"name": "team",
+						"name": "teams",
 						"req": false,
 						"type": "`$ARRAY`",
 						"index$": 7,
@@ -11156,6 +10699,7 @@ func MakeConfig() map[string]any {
 										},
 									},
 								},
+								"kind": "http",
 								"method": "POST",
 								"orig": "/orgs/{org}/invites/{slug_perm}/extend/",
 								"parts": []any{
@@ -11206,6 +10750,7 @@ func MakeConfig() map[string]any {
 										},
 									},
 								},
+								"kind": "http",
 								"method": "POST",
 								"orig": "/orgs/{org}/invites/{slug_perm}/resend/",
 								"parts": []any{
@@ -11233,7 +10778,6 @@ func MakeConfig() map[string]any {
 								"index$": 1,
 							},
 						},
-						"key$": "create",
 					},
 				},
 				"relations": map[string]any{
@@ -11395,6 +10939,7 @@ func MakeConfig() map[string]any {
 										},
 									},
 								},
+								"kind": "http",
 								"method": "GET",
 								"orig": "/orgs/{org}/members/",
 								"parts": []any{
@@ -11424,7 +10969,6 @@ func MakeConfig() map[string]any {
 								"index$": 0,
 							},
 						},
-						"key$": "list",
 					},
 					"load": map[string]any{
 						"input": "data",
@@ -11454,6 +10998,7 @@ func MakeConfig() map[string]any {
 										},
 									},
 								},
+								"kind": "http",
 								"method": "GET",
 								"orig": "/orgs/{org}/members/{member}/",
 								"parts": []any{
@@ -11480,7 +11025,6 @@ func MakeConfig() map[string]any {
 								"index$": 0,
 							},
 						},
-						"key$": "load",
 					},
 					"update": map[string]any{
 						"input": "data",
@@ -11520,6 +11064,7 @@ func MakeConfig() map[string]any {
 										},
 									},
 								},
+								"kind": "http",
 								"method": "PATCH",
 								"orig": "/orgs/{org}/members/{member}/",
 								"parts": []any{
@@ -11547,7 +11092,6 @@ func MakeConfig() map[string]any {
 								"index$": 0,
 							},
 						},
-						"key$": "update",
 					},
 				},
 				"relations": map[string]any{
@@ -11682,6 +11226,7 @@ func MakeConfig() map[string]any {
 										},
 									},
 								},
+								"kind": "http",
 								"method": "PATCH",
 								"orig": "/orgs/{org}/members/{member}/update-role/",
 								"parts": []any{
@@ -11711,7 +11256,6 @@ func MakeConfig() map[string]any {
 								"index$": 0,
 							},
 						},
-						"key$": "update",
 					},
 				},
 				"relations": map[string]any{
@@ -11843,6 +11387,7 @@ func MakeConfig() map[string]any {
 										},
 									},
 								},
+								"kind": "http",
 								"method": "PATCH",
 								"orig": "/orgs/{org}/members/{member}/update-visibility/",
 								"parts": []any{
@@ -11872,7 +11417,6 @@ func MakeConfig() map[string]any {
 								"index$": 0,
 							},
 						},
-						"key$": "update",
 					},
 				},
 				"relations": map[string]any{
@@ -11888,7 +11432,7 @@ func MakeConfig() map[string]any {
 				"fields": []any{
 					map[string]any{
 						"active": true,
-						"name": "allow_unknown_license",
+						"name": "allow_unknown_licenses",
 						"req": false,
 						"type": "`$BOOLEAN`",
 						"index$": 0,
@@ -11937,7 +11481,7 @@ func MakeConfig() map[string]any {
 					},
 					map[string]any{
 						"active": true,
-						"name": "spdx_identifier",
+						"name": "spdx_identifiers",
 						"req": true,
 						"type": "`$ARRAY`",
 						"index$": 7,
@@ -11981,6 +11525,7 @@ func MakeConfig() map[string]any {
 										},
 									},
 								},
+								"kind": "http",
 								"method": "POST",
 								"orig": "/orgs/{org}/license-policy/",
 								"parts": []any{
@@ -12006,7 +11551,6 @@ func MakeConfig() map[string]any {
 								"index$": 0,
 							},
 						},
-						"key$": "create",
 					},
 					"list": map[string]any{
 						"input": "data",
@@ -12045,6 +11589,7 @@ func MakeConfig() map[string]any {
 										},
 									},
 								},
+								"kind": "http",
 								"method": "GET",
 								"orig": "/orgs/{org}/license-policy/",
 								"parts": []any{
@@ -12071,7 +11616,6 @@ func MakeConfig() map[string]any {
 								"index$": 0,
 							},
 						},
-						"key$": "list",
 					},
 					"load": map[string]any{
 						"input": "data",
@@ -12101,6 +11645,7 @@ func MakeConfig() map[string]any {
 										},
 									},
 								},
+								"kind": "http",
 								"method": "GET",
 								"orig": "/orgs/{org}/license-policy/{slug_perm}/",
 								"parts": []any{
@@ -12128,7 +11673,6 @@ func MakeConfig() map[string]any {
 								"index$": 0,
 							},
 						},
-						"key$": "load",
 					},
 					"patch": map[string]any{
 						"input": "data",
@@ -12166,6 +11710,7 @@ func MakeConfig() map[string]any {
 										},
 									},
 								},
+								"kind": "http",
 								"method": "PATCH",
 								"orig": "/orgs/{org}/license-policy/{slug_perm}/",
 								"parts": []any{
@@ -12191,10 +11736,8 @@ func MakeConfig() map[string]any {
 									"req": "`reqdata`",
 									"res": "`body`",
 								},
-								"index$": 0,
 							},
 						},
-						"key$": "patch",
 					},
 					"update": map[string]any{
 						"input": "data",
@@ -12234,6 +11777,7 @@ func MakeConfig() map[string]any {
 										},
 									},
 								},
+								"kind": "http",
 								"method": "PUT",
 								"orig": "/orgs/{org}/license-policy/{slug_perm}/",
 								"parts": []any{
@@ -12262,7 +11806,6 @@ func MakeConfig() map[string]any {
 								"index$": 0,
 							},
 						},
-						"key$": "update",
 					},
 				},
 				"relations": map[string]any{
@@ -12370,6 +11913,7 @@ func MakeConfig() map[string]any {
 										},
 									},
 								},
+								"kind": "http",
 								"method": "POST",
 								"orig": "/orgs/{org}/vulnerability-policy/",
 								"parts": []any{
@@ -12395,7 +11939,6 @@ func MakeConfig() map[string]any {
 								"index$": 0,
 							},
 						},
-						"key$": "create",
 					},
 					"list": map[string]any{
 						"input": "data",
@@ -12434,6 +11977,7 @@ func MakeConfig() map[string]any {
 										},
 									},
 								},
+								"kind": "http",
 								"method": "GET",
 								"orig": "/orgs/{org}/vulnerability-policy/",
 								"parts": []any{
@@ -12460,7 +12004,6 @@ func MakeConfig() map[string]any {
 								"index$": 0,
 							},
 						},
-						"key$": "list",
 					},
 					"load": map[string]any{
 						"input": "data",
@@ -12490,6 +12033,7 @@ func MakeConfig() map[string]any {
 										},
 									},
 								},
+								"kind": "http",
 								"method": "GET",
 								"orig": "/orgs/{org}/vulnerability-policy/{slug_perm}/",
 								"parts": []any{
@@ -12517,7 +12061,6 @@ func MakeConfig() map[string]any {
 								"index$": 0,
 							},
 						},
-						"key$": "load",
 					},
 					"patch": map[string]any{
 						"input": "data",
@@ -12555,6 +12098,7 @@ func MakeConfig() map[string]any {
 										},
 									},
 								},
+								"kind": "http",
 								"method": "PATCH",
 								"orig": "/orgs/{org}/vulnerability-policy/{slug_perm}/",
 								"parts": []any{
@@ -12580,10 +12124,8 @@ func MakeConfig() map[string]any {
 									"req": "`reqdata`",
 									"res": "`body`",
 								},
-								"index$": 0,
 							},
 						},
-						"key$": "patch",
 					},
 					"update": map[string]any{
 						"input": "data",
@@ -12623,6 +12165,7 @@ func MakeConfig() map[string]any {
 										},
 									},
 								},
+								"kind": "http",
 								"method": "PUT",
 								"orig": "/orgs/{org}/vulnerability-policy/{slug_perm}/",
 								"parts": []any{
@@ -12651,7 +12194,6 @@ func MakeConfig() map[string]any {
 								"index$": 0,
 							},
 						},
-						"key$": "update",
 					},
 				},
 				"relations": map[string]any{
@@ -12714,6 +12256,7 @@ func MakeConfig() map[string]any {
 										},
 									},
 								},
+								"kind": "http",
 								"method": "GET",
 								"orig": "/orgs/{org}/saml-authentication",
 								"parts": []any{
@@ -12738,7 +12281,6 @@ func MakeConfig() map[string]any {
 								"index$": 0,
 							},
 						},
-						"key$": "load",
 					},
 					"update": map[string]any{
 						"input": "data",
@@ -12769,6 +12311,7 @@ func MakeConfig() map[string]any {
 										},
 									},
 								},
+								"kind": "http",
 								"method": "PATCH",
 								"orig": "/orgs/{org}/saml-authentication",
 								"parts": []any{
@@ -12794,7 +12337,6 @@ func MakeConfig() map[string]any {
 								"index$": 0,
 							},
 						},
-						"key$": "update",
 					},
 				},
 				"relations": map[string]any{
@@ -12874,6 +12416,7 @@ func MakeConfig() map[string]any {
 										},
 									},
 								},
+								"kind": "http",
 								"method": "POST",
 								"orig": "/orgs/{org}/teams/",
 								"parts": []any{
@@ -12899,7 +12442,6 @@ func MakeConfig() map[string]any {
 								"index$": 0,
 							},
 						},
-						"key$": "create",
 					},
 					"list": map[string]any{
 						"input": "data",
@@ -12962,6 +12504,7 @@ func MakeConfig() map[string]any {
 										},
 									},
 								},
+								"kind": "http",
 								"method": "GET",
 								"orig": "/orgs/{org}/teams/",
 								"parts": []any{
@@ -12991,7 +12534,6 @@ func MakeConfig() map[string]any {
 								"index$": 0,
 							},
 						},
-						"key$": "list",
 					},
 					"load": map[string]any{
 						"input": "data",
@@ -13021,6 +12563,7 @@ func MakeConfig() map[string]any {
 										},
 									},
 								},
+								"kind": "http",
 								"method": "GET",
 								"orig": "/orgs/{org}/teams/{team}/",
 								"parts": []any{
@@ -13048,7 +12591,6 @@ func MakeConfig() map[string]any {
 								"index$": 0,
 							},
 						},
-						"key$": "load",
 					},
 					"update": map[string]any{
 						"input": "data",
@@ -13088,6 +12630,7 @@ func MakeConfig() map[string]any {
 										},
 									},
 								},
+								"kind": "http",
 								"method": "PATCH",
 								"orig": "/orgs/{org}/teams/{team}/",
 								"parts": []any{
@@ -13116,7 +12659,6 @@ func MakeConfig() map[string]any {
 								"index$": 0,
 							},
 						},
-						"key$": "update",
 					},
 				},
 				"relations": map[string]any{
@@ -13184,6 +12726,7 @@ func MakeConfig() map[string]any {
 										},
 									},
 								},
+								"kind": "http",
 								"method": "POST",
 								"orig": "/orgs/{org}/teams/{team}/members",
 								"parts": []any{
@@ -13213,7 +12756,6 @@ func MakeConfig() map[string]any {
 								"index$": 0,
 							},
 						},
-						"key$": "create",
 					},
 					"list": map[string]any{
 						"input": "data",
@@ -13243,6 +12785,7 @@ func MakeConfig() map[string]any {
 										},
 									},
 								},
+								"kind": "http",
 								"method": "GET",
 								"orig": "/orgs/{org}/teams/{team}/members",
 								"parts": []any{
@@ -13266,12 +12809,11 @@ func MakeConfig() map[string]any {
 								},
 								"transform": map[string]any{
 									"req": "`reqdata`",
-									"res": "`body`",
+									"res": "`body.members`",
 								},
 								"index$": 0,
 							},
 						},
-						"key$": "list",
 					},
 				},
 				"relations": map[string]any{
@@ -13303,467 +12845,479 @@ func MakeConfig() map[string]any {
 					},
 				},
 			},
-			"p2n2": map[string]any{
-				"fields": []any{},
-				"name": "p2n2",
-				"op": map[string]any{},
-				"relations": map[string]any{
-					"ancestors": []any{
-						[]any{
-							"package",
-						},
-					},
-				},
-			},
 			"package": map[string]any{
 				"fields": []any{
 					map[string]any{
 						"active": true,
-						"name": "architecture",
+						"name": "active",
+						"req": false,
+						"type": "`$INTEGER`",
+						"index$": 0,
+					},
+					map[string]any{
+						"active": true,
+						"name": "architectures",
 						"req": false,
 						"type": "`$ARRAY`",
-						"index$": 0,
+						"index$": 1,
 					},
 					map[string]any{
 						"active": true,
 						"name": "backend_kind",
 						"req": false,
 						"type": "`$INTEGER`",
-						"index$": 1,
+						"index$": 2,
+					},
+					map[string]any{
+						"active": true,
+						"name": "bandwidth",
+						"req": true,
+						"type": "`$OBJECT`",
+						"index$": 3,
 					},
 					map[string]any{
 						"active": true,
 						"name": "cdn_url",
 						"req": false,
 						"type": "`$STRING`",
-						"index$": 2,
+						"index$": 4,
 					},
 					map[string]any{
 						"active": true,
 						"name": "checksum_md5",
 						"req": false,
 						"type": "`$STRING`",
-						"index$": 3,
+						"index$": 5,
 					},
 					map[string]any{
 						"active": true,
 						"name": "checksum_sha1",
 						"req": false,
 						"type": "`$STRING`",
-						"index$": 4,
+						"index$": 6,
 					},
 					map[string]any{
 						"active": true,
 						"name": "checksum_sha256",
 						"req": false,
 						"type": "`$STRING`",
-						"index$": 5,
+						"index$": 7,
 					},
 					map[string]any{
 						"active": true,
 						"name": "checksum_sha512",
 						"req": false,
 						"type": "`$STRING`",
-						"index$": 6,
+						"index$": 8,
 					},
 					map[string]any{
 						"active": true,
 						"name": "count",
 						"req": true,
 						"type": "`$INTEGER`",
-						"index$": 7,
+						"index$": 9,
 					},
 					map[string]any{
 						"active": true,
 						"name": "dep_type",
 						"req": false,
 						"type": "`$STRING`",
-						"index$": 8,
+						"index$": 10,
 					},
 					map[string]any{
 						"active": true,
 						"name": "dependencies_checksum_md5",
 						"req": false,
 						"type": "`$STRING`",
-						"index$": 9,
+						"index$": 11,
 					},
 					map[string]any{
 						"active": true,
 						"name": "dependencies_url",
 						"req": false,
 						"type": "`$STRING`",
-						"index$": 10,
+						"index$": 12,
 					},
 					map[string]any{
 						"active": true,
 						"name": "description",
 						"req": false,
 						"type": "`$STRING`",
-						"index$": 11,
+						"index$": 13,
 					},
 					map[string]any{
 						"active": true,
 						"name": "display_name",
 						"req": false,
 						"type": "`$STRING`",
-						"index$": 12,
+						"index$": 14,
 					},
 					map[string]any{
 						"active": true,
 						"name": "distro",
 						"req": true,
 						"type": "`$OBJECT`",
-						"index$": 13,
+						"index$": 15,
 					},
 					map[string]any{
 						"active": true,
 						"name": "distro_version",
 						"req": false,
 						"type": "`$OBJECT`",
-						"index$": 14,
+						"index$": 16,
 					},
 					map[string]any{
 						"active": true,
-						"name": "download",
-						"req": false,
-						"type": "`$INTEGER`",
-						"index$": 15,
+						"name": "downloads",
+						"op": map[string]any{
+							"create": map[string]any{
+								"req": false,
+								"type": "`$INTEGER`",
+							},
+							"list": map[string]any{
+								"req": false,
+								"type": "`$INTEGER`",
+							},
+						},
+						"req": true,
+						"type": "`$OBJECT`",
+						"index$": 17,
 					},
 					map[string]any{
 						"active": true,
 						"name": "epoch",
 						"req": false,
 						"type": "`$INTEGER`",
-						"index$": 16,
+						"index$": 18,
 					},
 					map[string]any{
 						"active": true,
 						"name": "extension",
 						"req": false,
 						"type": "`$STRING`",
-						"index$": 17,
-					},
-					map[string]any{
-						"active": true,
-						"name": "file",
-						"req": false,
-						"type": "`$ARRAY`",
-						"index$": 18,
+						"index$": 19,
 					},
 					map[string]any{
 						"active": true,
 						"name": "filename",
 						"req": false,
 						"type": "`$STRING`",
-						"index$": 19,
+						"index$": 20,
+					},
+					map[string]any{
+						"active": true,
+						"name": "files",
+						"req": false,
+						"type": "`$ARRAY`",
+						"index$": 21,
 					},
 					map[string]any{
 						"active": true,
 						"name": "format",
 						"req": false,
 						"type": "`$STRING`",
-						"index$": 20,
+						"index$": 22,
 					},
 					map[string]any{
 						"active": true,
 						"name": "format_url",
 						"req": false,
 						"type": "`$STRING`",
-						"index$": 21,
+						"index$": 23,
 					},
 					map[string]any{
 						"active": true,
 						"name": "freeable_storage",
 						"req": false,
 						"type": "`$INTEGER`",
-						"index$": 22,
+						"index$": 24,
 					},
 					map[string]any{
 						"active": true,
 						"name": "fully_qualified_name",
 						"req": false,
 						"type": "`$STRING`",
-						"index$": 23,
-					},
-					map[string]any{
-						"active": true,
-						"name": "identifier",
-						"req": false,
-						"type": "`$OBJECT`",
-						"index$": 24,
+						"index$": 25,
 					},
 					map[string]any{
 						"active": true,
 						"name": "identifier_perm",
 						"req": false,
 						"type": "`$STRING`",
-						"index$": 25,
+						"index$": 26,
+					},
+					map[string]any{
+						"active": true,
+						"name": "identifiers",
+						"req": false,
+						"type": "`$OBJECT`",
+						"index$": 27,
+					},
+					map[string]any{
+						"active": true,
+						"name": "inactive",
+						"req": false,
+						"type": "`$INTEGER`",
+						"index$": 28,
 					},
 					map[string]any{
 						"active": true,
 						"name": "indexed",
 						"req": false,
 						"type": "`$BOOLEAN`",
-						"index$": 26,
+						"index$": 29,
 					},
 					map[string]any{
 						"active": true,
 						"name": "is_cancellable",
 						"req": false,
 						"type": "`$BOOLEAN`",
-						"index$": 27,
+						"index$": 30,
 					},
 					map[string]any{
 						"active": true,
 						"name": "is_copyable",
 						"req": false,
 						"type": "`$BOOLEAN`",
-						"index$": 28,
+						"index$": 31,
 					},
 					map[string]any{
 						"active": true,
 						"name": "is_deleteable",
 						"req": false,
 						"type": "`$BOOLEAN`",
-						"index$": 29,
+						"index$": 32,
 					},
 					map[string]any{
 						"active": true,
 						"name": "is_downloadable",
 						"req": false,
 						"type": "`$BOOLEAN`",
-						"index$": 30,
+						"index$": 33,
 					},
 					map[string]any{
 						"active": true,
 						"name": "is_moveable",
 						"req": false,
 						"type": "`$BOOLEAN`",
-						"index$": 31,
+						"index$": 34,
 					},
 					map[string]any{
 						"active": true,
 						"name": "is_quarantinable",
 						"req": false,
 						"type": "`$BOOLEAN`",
-						"index$": 32,
+						"index$": 35,
 					},
 					map[string]any{
 						"active": true,
 						"name": "is_quarantined",
 						"req": false,
 						"type": "`$BOOLEAN`",
-						"index$": 33,
+						"index$": 36,
 					},
 					map[string]any{
 						"active": true,
 						"name": "is_resyncable",
 						"req": false,
 						"type": "`$BOOLEAN`",
-						"index$": 34,
+						"index$": 37,
 					},
 					map[string]any{
 						"active": true,
 						"name": "is_security_scannable",
 						"req": false,
 						"type": "`$BOOLEAN`",
-						"index$": 35,
+						"index$": 38,
 					},
 					map[string]any{
 						"active": true,
 						"name": "is_sync_awaiting",
 						"req": false,
 						"type": "`$BOOLEAN`",
-						"index$": 36,
+						"index$": 39,
 					},
 					map[string]any{
 						"active": true,
 						"name": "is_sync_completed",
 						"req": false,
 						"type": "`$BOOLEAN`",
-						"index$": 37,
+						"index$": 40,
 					},
 					map[string]any{
 						"active": true,
 						"name": "is_sync_failed",
 						"req": false,
 						"type": "`$BOOLEAN`",
-						"index$": 38,
+						"index$": 41,
 					},
 					map[string]any{
 						"active": true,
 						"name": "is_sync_in_flight",
 						"req": false,
 						"type": "`$BOOLEAN`",
-						"index$": 39,
+						"index$": 42,
 					},
 					map[string]any{
 						"active": true,
 						"name": "is_sync_in_progress",
 						"req": false,
 						"type": "`$BOOLEAN`",
-						"index$": 40,
+						"index$": 43,
 					},
 					map[string]any{
 						"active": true,
 						"name": "last_push",
 						"req": true,
 						"type": "`$STRING`",
-						"index$": 41,
+						"index$": 44,
 					},
 					map[string]any{
 						"active": true,
 						"name": "license",
 						"req": false,
 						"type": "`$STRING`",
-						"index$": 42,
+						"index$": 45,
 					},
 					map[string]any{
 						"active": true,
 						"name": "name",
 						"req": false,
 						"type": "`$STRING`",
-						"index$": 43,
+						"index$": 46,
 					},
 					map[string]any{
 						"active": true,
 						"name": "namespace",
 						"req": false,
 						"type": "`$STRING`",
-						"index$": 44,
+						"index$": 47,
 					},
 					map[string]any{
 						"active": true,
 						"name": "namespace_url",
 						"req": false,
 						"type": "`$STRING`",
-						"index$": 45,
+						"index$": 48,
 					},
 					map[string]any{
 						"active": true,
-						"name": "num_download",
+						"name": "num_downloads",
 						"req": true,
 						"type": "`$INTEGER`",
-						"index$": 46,
+						"index$": 49,
 					},
 					map[string]any{
 						"active": true,
-						"name": "num_file",
+						"name": "num_files",
 						"req": false,
 						"type": "`$INTEGER`",
-						"index$": 47,
+						"index$": 50,
 					},
 					map[string]any{
 						"active": true,
 						"name": "operator",
 						"req": false,
 						"type": "`$STRING`",
-						"index$": 48,
+						"index$": 51,
 					},
 					map[string]any{
 						"active": true,
 						"name": "origin_repository",
 						"req": false,
 						"type": "`$STRING`",
-						"index$": 49,
+						"index$": 52,
 					},
 					map[string]any{
 						"active": true,
 						"name": "origin_repository_url",
 						"req": false,
 						"type": "`$STRING`",
-						"index$": 50,
-					},
-					map[string]any{
-						"active": true,
-						"name": "package",
-						"req": true,
-						"type": "`$OBJECT`",
-						"index$": 51,
+						"index$": 53,
 					},
 					map[string]any{
 						"active": true,
 						"name": "package_type",
 						"req": false,
 						"type": "`$INTEGER`",
-						"index$": 52,
+						"index$": 54,
 					},
 					map[string]any{
 						"active": true,
 						"name": "policy_violated",
 						"req": false,
 						"type": "`$BOOLEAN`",
-						"index$": 53,
+						"index$": 55,
 					},
 					map[string]any{
 						"active": true,
 						"name": "release",
 						"req": false,
 						"type": "`$STRING`",
-						"index$": 54,
+						"index$": 56,
 					},
 					map[string]any{
 						"active": true,
 						"name": "repository",
 						"req": false,
 						"type": "`$STRING`",
-						"index$": 55,
+						"index$": 57,
 					},
 					map[string]any{
 						"active": true,
 						"name": "repository_url",
 						"req": false,
 						"type": "`$STRING`",
-						"index$": 56,
+						"index$": 58,
 					},
 					map[string]any{
 						"active": true,
 						"name": "security_scan_completed_at",
 						"req": false,
 						"type": "`$STRING`",
-						"index$": 57,
+						"index$": 59,
 					},
 					map[string]any{
 						"active": true,
 						"name": "security_scan_started_at",
 						"req": false,
 						"type": "`$STRING`",
-						"index$": 58,
+						"index$": 60,
 					},
 					map[string]any{
 						"active": true,
 						"name": "security_scan_status",
 						"req": false,
 						"type": "`$STRING`",
-						"index$": 59,
+						"index$": 61,
 					},
 					map[string]any{
 						"active": true,
 						"name": "security_scan_status_updated_at",
 						"req": false,
 						"type": "`$STRING`",
-						"index$": 60,
+						"index$": 62,
 					},
 					map[string]any{
 						"active": true,
 						"name": "self_html_url",
 						"req": false,
 						"type": "`$STRING`",
-						"index$": 61,
+						"index$": 63,
 					},
 					map[string]any{
 						"active": true,
 						"name": "self_url",
 						"req": false,
 						"type": "`$STRING`",
-						"index$": 62,
+						"index$": 64,
 					},
 					map[string]any{
 						"active": true,
 						"name": "signature_url",
 						"req": false,
 						"type": "`$STRING`",
-						"index$": 63,
+						"index$": 65,
 					},
 					map[string]any{
 						"active": true,
@@ -13776,168 +13330,175 @@ func MakeConfig() map[string]any {
 						},
 						"req": false,
 						"type": "`$INTEGER`",
-						"index$": 64,
+						"index$": 66,
 					},
 					map[string]any{
 						"active": true,
 						"name": "slug",
 						"req": false,
 						"type": "`$STRING`",
-						"index$": 65,
+						"index$": 67,
 					},
 					map[string]any{
 						"active": true,
 						"name": "slug_perm",
 						"req": false,
 						"type": "`$STRING`",
-						"index$": 66,
+						"index$": 68,
 					},
 					map[string]any{
 						"active": true,
 						"name": "stage",
 						"req": false,
 						"type": "`$INTEGER`",
-						"index$": 67,
+						"index$": 69,
 					},
 					map[string]any{
 						"active": true,
 						"name": "stage_str",
 						"req": false,
 						"type": "`$STRING`",
-						"index$": 68,
+						"index$": 70,
 					},
 					map[string]any{
 						"active": true,
 						"name": "stage_updated_at",
 						"req": false,
 						"type": "`$STRING`",
-						"index$": 69,
+						"index$": 71,
 					},
 					map[string]any{
 						"active": true,
 						"name": "status",
 						"req": false,
 						"type": "`$INTEGER`",
-						"index$": 70,
+						"index$": 72,
 					},
 					map[string]any{
 						"active": true,
 						"name": "status_reason",
 						"req": false,
 						"type": "`$STRING`",
-						"index$": 71,
+						"index$": 73,
 					},
 					map[string]any{
 						"active": true,
 						"name": "status_str",
 						"req": false,
 						"type": "`$STRING`",
-						"index$": 72,
+						"index$": 74,
 					},
 					map[string]any{
 						"active": true,
 						"name": "status_updated_at",
 						"req": false,
 						"type": "`$STRING`",
-						"index$": 73,
+						"index$": 75,
 					},
 					map[string]any{
 						"active": true,
 						"name": "status_url",
 						"req": false,
 						"type": "`$STRING`",
-						"index$": 74,
+						"index$": 76,
 					},
 					map[string]any{
 						"active": true,
 						"name": "subtype",
 						"req": false,
 						"type": "`$STRING`",
-						"index$": 75,
+						"index$": 77,
 					},
 					map[string]any{
 						"active": true,
 						"name": "summary",
 						"req": false,
 						"type": "`$STRING`",
-						"index$": 76,
+						"index$": 78,
 					},
 					map[string]any{
 						"active": true,
 						"name": "sync_finished_at",
 						"req": false,
 						"type": "`$STRING`",
-						"index$": 77,
+						"index$": 79,
 					},
 					map[string]any{
 						"active": true,
 						"name": "sync_progress",
 						"req": false,
 						"type": "`$INTEGER`",
-						"index$": 78,
+						"index$": 80,
 					},
 					map[string]any{
 						"active": true,
-						"name": "tag",
+						"name": "tags",
 						"req": false,
 						"type": "`$OBJECT`",
-						"index$": 79,
+						"index$": 81,
 					},
 					map[string]any{
 						"active": true,
 						"name": "tags_immutable",
 						"req": false,
 						"type": "`$OBJECT`",
-						"index$": 80,
+						"index$": 82,
+					},
+					map[string]any{
+						"active": true,
+						"name": "total",
+						"req": false,
+						"type": "`$INTEGER`",
+						"index$": 83,
 					},
 					map[string]any{
 						"active": true,
 						"name": "type_display",
 						"req": false,
 						"type": "`$STRING`",
-						"index$": 81,
+						"index$": 84,
 					},
 					map[string]any{
 						"active": true,
 						"name": "uploaded_at",
 						"req": false,
 						"type": "`$STRING`",
-						"index$": 82,
+						"index$": 85,
 					},
 					map[string]any{
 						"active": true,
 						"name": "uploader",
 						"req": false,
 						"type": "`$STRING`",
-						"index$": 83,
+						"index$": 86,
 					},
 					map[string]any{
 						"active": true,
 						"name": "uploader_url",
 						"req": false,
 						"type": "`$STRING`",
-						"index$": 84,
+						"index$": 87,
 					},
 					map[string]any{
 						"active": true,
 						"name": "version",
 						"req": false,
 						"type": "`$STRING`",
-						"index$": 85,
+						"index$": 88,
 					},
 					map[string]any{
 						"active": true,
 						"name": "version_orig",
 						"req": false,
 						"type": "`$STRING`",
-						"index$": 86,
+						"index$": 89,
 					},
 					map[string]any{
 						"active": true,
 						"name": "vulnerability_scan_results_url",
 						"req": false,
 						"type": "`$STRING`",
-						"index$": 87,
+						"index$": 90,
 					},
 				},
 				"name": "package",
@@ -13989,6 +13550,7 @@ func MakeConfig() map[string]any {
 										},
 									},
 								},
+								"kind": "http",
 								"method": "POST",
 								"orig": "/packages/{owner}/{repo}/{identifier}/copy/",
 								"parts": []any{
@@ -14055,6 +13617,7 @@ func MakeConfig() map[string]any {
 										},
 									},
 								},
+								"kind": "http",
 								"method": "POST",
 								"orig": "/packages/{owner}/{repo}/{identifier}/move/",
 								"parts": []any{
@@ -14121,6 +13684,7 @@ func MakeConfig() map[string]any {
 										},
 									},
 								},
+								"kind": "http",
 								"method": "POST",
 								"orig": "/packages/{owner}/{repo}/{identifier}/quarantine/",
 								"parts": []any{
@@ -14187,6 +13751,7 @@ func MakeConfig() map[string]any {
 										},
 									},
 								},
+								"kind": "http",
 								"method": "POST",
 								"orig": "/packages/{owner}/{repo}/{identifier}/tag/",
 								"parts": []any{
@@ -14244,6 +13809,7 @@ func MakeConfig() map[string]any {
 										},
 									},
 								},
+								"kind": "http",
 								"method": "POST",
 								"orig": "/packages/{owner}/{repo}/upload/alpine/",
 								"parts": []any{
@@ -14300,6 +13866,7 @@ func MakeConfig() map[string]any {
 										},
 									},
 								},
+								"kind": "http",
 								"method": "POST",
 								"orig": "/packages/{owner}/{repo}/upload/cargo/",
 								"parts": []any{
@@ -14356,6 +13923,7 @@ func MakeConfig() map[string]any {
 										},
 									},
 								},
+								"kind": "http",
 								"method": "POST",
 								"orig": "/packages/{owner}/{repo}/upload/cocoapods/",
 								"parts": []any{
@@ -14412,6 +13980,7 @@ func MakeConfig() map[string]any {
 										},
 									},
 								},
+								"kind": "http",
 								"method": "POST",
 								"orig": "/packages/{owner}/{repo}/upload/composer/",
 								"parts": []any{
@@ -14468,6 +14037,7 @@ func MakeConfig() map[string]any {
 										},
 									},
 								},
+								"kind": "http",
 								"method": "POST",
 								"orig": "/packages/{owner}/{repo}/upload/conan/",
 								"parts": []any{
@@ -14524,6 +14094,7 @@ func MakeConfig() map[string]any {
 										},
 									},
 								},
+								"kind": "http",
 								"method": "POST",
 								"orig": "/packages/{owner}/{repo}/upload/conda/",
 								"parts": []any{
@@ -14580,6 +14151,7 @@ func MakeConfig() map[string]any {
 										},
 									},
 								},
+								"kind": "http",
 								"method": "POST",
 								"orig": "/packages/{owner}/{repo}/upload/cran/",
 								"parts": []any{
@@ -14636,6 +14208,7 @@ func MakeConfig() map[string]any {
 										},
 									},
 								},
+								"kind": "http",
 								"method": "POST",
 								"orig": "/packages/{owner}/{repo}/upload/dart/",
 								"parts": []any{
@@ -14692,6 +14265,7 @@ func MakeConfig() map[string]any {
 										},
 									},
 								},
+								"kind": "http",
 								"method": "POST",
 								"orig": "/packages/{owner}/{repo}/upload/deb/",
 								"parts": []any{
@@ -14748,6 +14322,7 @@ func MakeConfig() map[string]any {
 										},
 									},
 								},
+								"kind": "http",
 								"method": "POST",
 								"orig": "/packages/{owner}/{repo}/upload/docker/",
 								"parts": []any{
@@ -14804,6 +14379,7 @@ func MakeConfig() map[string]any {
 										},
 									},
 								},
+								"kind": "http",
 								"method": "POST",
 								"orig": "/packages/{owner}/{repo}/upload/go/",
 								"parts": []any{
@@ -14860,6 +14436,7 @@ func MakeConfig() map[string]any {
 										},
 									},
 								},
+								"kind": "http",
 								"method": "POST",
 								"orig": "/packages/{owner}/{repo}/upload/helm/",
 								"parts": []any{
@@ -14916,6 +14493,7 @@ func MakeConfig() map[string]any {
 										},
 									},
 								},
+								"kind": "http",
 								"method": "POST",
 								"orig": "/packages/{owner}/{repo}/upload/hex/",
 								"parts": []any{
@@ -14972,6 +14550,7 @@ func MakeConfig() map[string]any {
 										},
 									},
 								},
+								"kind": "http",
 								"method": "POST",
 								"orig": "/packages/{owner}/{repo}/upload/huggingface/",
 								"parts": []any{
@@ -15028,6 +14607,7 @@ func MakeConfig() map[string]any {
 										},
 									},
 								},
+								"kind": "http",
 								"method": "POST",
 								"orig": "/packages/{owner}/{repo}/upload/luarocks/",
 								"parts": []any{
@@ -15084,6 +14664,7 @@ func MakeConfig() map[string]any {
 										},
 									},
 								},
+								"kind": "http",
 								"method": "POST",
 								"orig": "/packages/{owner}/{repo}/upload/maven/",
 								"parts": []any{
@@ -15140,6 +14721,7 @@ func MakeConfig() map[string]any {
 										},
 									},
 								},
+								"kind": "http",
 								"method": "POST",
 								"orig": "/packages/{owner}/{repo}/upload/npm/",
 								"parts": []any{
@@ -15196,6 +14778,7 @@ func MakeConfig() map[string]any {
 										},
 									},
 								},
+								"kind": "http",
 								"method": "POST",
 								"orig": "/packages/{owner}/{repo}/upload/nuget/",
 								"parts": []any{
@@ -15252,6 +14835,7 @@ func MakeConfig() map[string]any {
 										},
 									},
 								},
+								"kind": "http",
 								"method": "POST",
 								"orig": "/packages/{owner}/{repo}/upload/p2/",
 								"parts": []any{
@@ -15308,6 +14892,7 @@ func MakeConfig() map[string]any {
 										},
 									},
 								},
+								"kind": "http",
 								"method": "POST",
 								"orig": "/packages/{owner}/{repo}/upload/python/",
 								"parts": []any{
@@ -15364,6 +14949,7 @@ func MakeConfig() map[string]any {
 										},
 									},
 								},
+								"kind": "http",
 								"method": "POST",
 								"orig": "/packages/{owner}/{repo}/upload/raw/",
 								"parts": []any{
@@ -15420,6 +15006,7 @@ func MakeConfig() map[string]any {
 										},
 									},
 								},
+								"kind": "http",
 								"method": "POST",
 								"orig": "/packages/{owner}/{repo}/upload/rpm/",
 								"parts": []any{
@@ -15476,6 +15063,7 @@ func MakeConfig() map[string]any {
 										},
 									},
 								},
+								"kind": "http",
 								"method": "POST",
 								"orig": "/packages/{owner}/{repo}/upload/ruby/",
 								"parts": []any{
@@ -15532,6 +15120,7 @@ func MakeConfig() map[string]any {
 										},
 									},
 								},
+								"kind": "http",
 								"method": "POST",
 								"orig": "/packages/{owner}/{repo}/upload/swift/",
 								"parts": []any{
@@ -15588,6 +15177,7 @@ func MakeConfig() map[string]any {
 										},
 									},
 								},
+								"kind": "http",
 								"method": "POST",
 								"orig": "/packages/{owner}/{repo}/upload/terraform/",
 								"parts": []any{
@@ -15644,6 +15234,7 @@ func MakeConfig() map[string]any {
 										},
 									},
 								},
+								"kind": "http",
 								"method": "POST",
 								"orig": "/packages/{owner}/{repo}/upload/vagrant/",
 								"parts": []any{
@@ -15700,6 +15291,7 @@ func MakeConfig() map[string]any {
 										},
 									},
 								},
+								"kind": "http",
 								"method": "POST",
 								"orig": "/packages/{owner}/{repo}/validate-upload/alpine/",
 								"parts": []any{
@@ -15756,6 +15348,7 @@ func MakeConfig() map[string]any {
 										},
 									},
 								},
+								"kind": "http",
 								"method": "POST",
 								"orig": "/packages/{owner}/{repo}/validate-upload/cargo/",
 								"parts": []any{
@@ -15812,6 +15405,7 @@ func MakeConfig() map[string]any {
 										},
 									},
 								},
+								"kind": "http",
 								"method": "POST",
 								"orig": "/packages/{owner}/{repo}/validate-upload/cocoapods/",
 								"parts": []any{
@@ -15868,6 +15462,7 @@ func MakeConfig() map[string]any {
 										},
 									},
 								},
+								"kind": "http",
 								"method": "POST",
 								"orig": "/packages/{owner}/{repo}/validate-upload/composer/",
 								"parts": []any{
@@ -15924,6 +15519,7 @@ func MakeConfig() map[string]any {
 										},
 									},
 								},
+								"kind": "http",
 								"method": "POST",
 								"orig": "/packages/{owner}/{repo}/validate-upload/conan/",
 								"parts": []any{
@@ -15980,6 +15576,7 @@ func MakeConfig() map[string]any {
 										},
 									},
 								},
+								"kind": "http",
 								"method": "POST",
 								"orig": "/packages/{owner}/{repo}/validate-upload/conda/",
 								"parts": []any{
@@ -16036,6 +15633,7 @@ func MakeConfig() map[string]any {
 										},
 									},
 								},
+								"kind": "http",
 								"method": "POST",
 								"orig": "/packages/{owner}/{repo}/validate-upload/cran/",
 								"parts": []any{
@@ -16092,6 +15690,7 @@ func MakeConfig() map[string]any {
 										},
 									},
 								},
+								"kind": "http",
 								"method": "POST",
 								"orig": "/packages/{owner}/{repo}/validate-upload/dart/",
 								"parts": []any{
@@ -16148,6 +15747,7 @@ func MakeConfig() map[string]any {
 										},
 									},
 								},
+								"kind": "http",
 								"method": "POST",
 								"orig": "/packages/{owner}/{repo}/validate-upload/deb/",
 								"parts": []any{
@@ -16204,6 +15804,7 @@ func MakeConfig() map[string]any {
 										},
 									},
 								},
+								"kind": "http",
 								"method": "POST",
 								"orig": "/packages/{owner}/{repo}/validate-upload/docker/",
 								"parts": []any{
@@ -16260,6 +15861,7 @@ func MakeConfig() map[string]any {
 										},
 									},
 								},
+								"kind": "http",
 								"method": "POST",
 								"orig": "/packages/{owner}/{repo}/validate-upload/go/",
 								"parts": []any{
@@ -16316,6 +15918,7 @@ func MakeConfig() map[string]any {
 										},
 									},
 								},
+								"kind": "http",
 								"method": "POST",
 								"orig": "/packages/{owner}/{repo}/validate-upload/helm/",
 								"parts": []any{
@@ -16372,6 +15975,7 @@ func MakeConfig() map[string]any {
 										},
 									},
 								},
+								"kind": "http",
 								"method": "POST",
 								"orig": "/packages/{owner}/{repo}/validate-upload/hex/",
 								"parts": []any{
@@ -16428,6 +16032,7 @@ func MakeConfig() map[string]any {
 										},
 									},
 								},
+								"kind": "http",
 								"method": "POST",
 								"orig": "/packages/{owner}/{repo}/validate-upload/huggingface/",
 								"parts": []any{
@@ -16484,6 +16089,7 @@ func MakeConfig() map[string]any {
 										},
 									},
 								},
+								"kind": "http",
 								"method": "POST",
 								"orig": "/packages/{owner}/{repo}/validate-upload/luarocks/",
 								"parts": []any{
@@ -16540,6 +16146,7 @@ func MakeConfig() map[string]any {
 										},
 									},
 								},
+								"kind": "http",
 								"method": "POST",
 								"orig": "/packages/{owner}/{repo}/validate-upload/maven/",
 								"parts": []any{
@@ -16596,6 +16203,7 @@ func MakeConfig() map[string]any {
 										},
 									},
 								},
+								"kind": "http",
 								"method": "POST",
 								"orig": "/packages/{owner}/{repo}/validate-upload/npm/",
 								"parts": []any{
@@ -16652,6 +16260,7 @@ func MakeConfig() map[string]any {
 										},
 									},
 								},
+								"kind": "http",
 								"method": "POST",
 								"orig": "/packages/{owner}/{repo}/validate-upload/nuget/",
 								"parts": []any{
@@ -16708,6 +16317,7 @@ func MakeConfig() map[string]any {
 										},
 									},
 								},
+								"kind": "http",
 								"method": "POST",
 								"orig": "/packages/{owner}/{repo}/validate-upload/p2/",
 								"parts": []any{
@@ -16764,6 +16374,7 @@ func MakeConfig() map[string]any {
 										},
 									},
 								},
+								"kind": "http",
 								"method": "POST",
 								"orig": "/packages/{owner}/{repo}/validate-upload/python/",
 								"parts": []any{
@@ -16820,6 +16431,7 @@ func MakeConfig() map[string]any {
 										},
 									},
 								},
+								"kind": "http",
 								"method": "POST",
 								"orig": "/packages/{owner}/{repo}/validate-upload/raw/",
 								"parts": []any{
@@ -16876,6 +16488,7 @@ func MakeConfig() map[string]any {
 										},
 									},
 								},
+								"kind": "http",
 								"method": "POST",
 								"orig": "/packages/{owner}/{repo}/validate-upload/rpm/",
 								"parts": []any{
@@ -16932,6 +16545,7 @@ func MakeConfig() map[string]any {
 										},
 									},
 								},
+								"kind": "http",
 								"method": "POST",
 								"orig": "/packages/{owner}/{repo}/validate-upload/ruby/",
 								"parts": []any{
@@ -16988,6 +16602,7 @@ func MakeConfig() map[string]any {
 										},
 									},
 								},
+								"kind": "http",
 								"method": "POST",
 								"orig": "/packages/{owner}/{repo}/validate-upload/swift/",
 								"parts": []any{
@@ -17044,6 +16659,7 @@ func MakeConfig() map[string]any {
 										},
 									},
 								},
+								"kind": "http",
 								"method": "POST",
 								"orig": "/packages/{owner}/{repo}/validate-upload/terraform/",
 								"parts": []any{
@@ -17100,6 +16716,7 @@ func MakeConfig() map[string]any {
 										},
 									},
 								},
+								"kind": "http",
 								"method": "POST",
 								"orig": "/packages/{owner}/{repo}/validate-upload/vagrant/",
 								"parts": []any{
@@ -17155,6 +16772,7 @@ func MakeConfig() map[string]any {
 										},
 									},
 								},
+								"kind": "http",
 								"method": "POST",
 								"orig": "/packages/{owner}/{repo}/{identifier}/resync/",
 								"parts": []any{
@@ -17210,6 +16828,7 @@ func MakeConfig() map[string]any {
 										},
 									},
 								},
+								"kind": "http",
 								"method": "POST",
 								"orig": "/packages/{owner}/{repo}/{identifier}/scan/",
 								"parts": []any{
@@ -17233,7 +16852,6 @@ func MakeConfig() map[string]any {
 								"index$": 57,
 							},
 						},
-						"key$": "create",
 					},
 					"list": map[string]any{
 						"input": "data",
@@ -17305,6 +16923,7 @@ func MakeConfig() map[string]any {
 										},
 									},
 								},
+								"kind": "http",
 								"method": "GET",
 								"orig": "/packages/{owner}/{repo}/groups/",
 								"parts": []any{
@@ -17326,7 +16945,7 @@ func MakeConfig() map[string]any {
 								},
 								"transform": map[string]any{
 									"req": "`reqdata`",
-									"res": "`body`",
+									"res": "`body.results`",
 								},
 								"index$": 0,
 							},
@@ -17388,6 +17007,7 @@ func MakeConfig() map[string]any {
 										},
 									},
 								},
+								"kind": "http",
 								"method": "GET",
 								"orig": "/packages/{owner}/{repo}/",
 								"parts": []any{
@@ -17444,6 +17064,7 @@ func MakeConfig() map[string]any {
 										},
 									},
 								},
+								"kind": "http",
 								"method": "GET",
 								"orig": "/packages/{owner}/{repo}/{identifier}/",
 								"parts": []any{
@@ -17498,6 +17119,7 @@ func MakeConfig() map[string]any {
 										},
 									},
 								},
+								"kind": "http",
 								"method": "GET",
 								"orig": "/packages/{owner}/{repo}/{identifier}/dependencies/",
 								"parts": []any{
@@ -17516,12 +17138,11 @@ func MakeConfig() map[string]any {
 								},
 								"transform": map[string]any{
 									"req": "`reqdata`",
-									"res": "`body`",
+									"res": "`body.dependencies`",
 								},
 								"index$": 3,
 							},
 						},
-						"key$": "list",
 					},
 					"load": map[string]any{
 						"input": "data",
@@ -17593,6 +17214,7 @@ func MakeConfig() map[string]any {
 										},
 									},
 								},
+								"kind": "http",
 								"method": "GET",
 								"orig": "/metrics/packages/{owner}/{repo}/",
 								"parts": []any{
@@ -17614,7 +17236,7 @@ func MakeConfig() map[string]any {
 								},
 								"transform": map[string]any{
 									"req": "`reqdata`",
-									"res": "`body`",
+									"res": "`body.packages`",
 								},
 								"index$": 0,
 							},
@@ -17651,6 +17273,7 @@ func MakeConfig() map[string]any {
 										},
 									},
 								},
+								"kind": "http",
 								"method": "GET",
 								"orig": "/packages/{owner}/{repo}/{identifier}/status/",
 								"parts": []any{
@@ -17674,7 +17297,6 @@ func MakeConfig() map[string]any {
 								"index$": 1,
 							},
 						},
-						"key$": "load",
 					},
 					"remove": map[string]any{
 						"input": "data",
@@ -17713,6 +17335,7 @@ func MakeConfig() map[string]any {
 										},
 									},
 								},
+								"kind": "http",
 								"method": "DELETE",
 								"orig": "/packages/{owner}/{repo}/{identifier}/",
 								"parts": []any{
@@ -17735,7 +17358,6 @@ func MakeConfig() map[string]any {
 								"index$": 0,
 							},
 						},
-						"key$": "remove",
 					},
 				},
 				"relations": map[string]any{
@@ -17843,6 +17465,7 @@ func MakeConfig() map[string]any {
 										},
 									},
 								},
+								"kind": "http",
 								"method": "POST",
 								"orig": "/orgs/{org}/deny-policy/",
 								"parts": []any{
@@ -17868,7 +17491,6 @@ func MakeConfig() map[string]any {
 								"index$": 0,
 							},
 						},
-						"key$": "create",
 					},
 					"list": map[string]any{
 						"input": "data",
@@ -17907,6 +17529,7 @@ func MakeConfig() map[string]any {
 										},
 									},
 								},
+								"kind": "http",
 								"method": "GET",
 								"orig": "/orgs/{org}/deny-policy/",
 								"parts": []any{
@@ -17933,7 +17556,6 @@ func MakeConfig() map[string]any {
 								"index$": 0,
 							},
 						},
-						"key$": "list",
 					},
 					"load": map[string]any{
 						"input": "data",
@@ -17963,6 +17585,7 @@ func MakeConfig() map[string]any {
 										},
 									},
 								},
+								"kind": "http",
 								"method": "GET",
 								"orig": "/orgs/{org}/deny-policy/{slug_perm}/",
 								"parts": []any{
@@ -17990,7 +17613,6 @@ func MakeConfig() map[string]any {
 								"index$": 0,
 							},
 						},
-						"key$": "load",
 					},
 					"patch": map[string]any{
 						"input": "data",
@@ -18028,6 +17650,7 @@ func MakeConfig() map[string]any {
 										},
 									},
 								},
+								"kind": "http",
 								"method": "PATCH",
 								"orig": "/orgs/{org}/deny-policy/{slug_perm}/",
 								"parts": []any{
@@ -18053,10 +17676,8 @@ func MakeConfig() map[string]any {
 									"req": "`reqdata`",
 									"res": "`body`",
 								},
-								"index$": 0,
 							},
 						},
-						"key$": "patch",
 					},
 					"update": map[string]any{
 						"input": "data",
@@ -18096,6 +17717,7 @@ func MakeConfig() map[string]any {
 										},
 									},
 								},
+								"kind": "http",
 								"method": "PUT",
 								"orig": "/orgs/{org}/deny-policy/{slug_perm}/",
 								"parts": []any{
@@ -18124,7 +17746,6 @@ func MakeConfig() map[string]any {
 								"index$": 0,
 							},
 						},
-						"key$": "update",
 					},
 				},
 				"relations": map[string]any{
@@ -18216,6 +17837,7 @@ func MakeConfig() map[string]any {
 										},
 									},
 								},
+								"kind": "http",
 								"method": "GET",
 								"orig": "/files/{owner}/{repo}/{identifier}/info/",
 								"parts": []any{
@@ -18241,7 +17863,6 @@ func MakeConfig() map[string]any {
 								"index$": 0,
 							},
 						},
-						"key$": "load",
 					},
 				},
 				"relations": map[string]any{
@@ -18303,6 +17924,7 @@ func MakeConfig() map[string]any {
 										},
 									},
 								},
+								"kind": "http",
 								"method": "POST",
 								"orig": "/files/{owner}/{repo}/{identifier}/complete/",
 								"parts": []any{
@@ -18327,7 +17949,6 @@ func MakeConfig() map[string]any {
 								"index$": 0,
 							},
 						},
-						"key$": "create",
 					},
 				},
 				"relations": map[string]any{
@@ -18342,52 +17963,101 @@ func MakeConfig() map[string]any {
 				"fields": []any{
 					map[string]any{
 						"active": true,
+						"name": "allow_unknown_licenses",
+						"req": false,
+						"type": "`$BOOLEAN`",
+						"index$": 0,
+					},
+					map[string]any{
+						"active": true,
 						"name": "created_at",
 						"req": false,
 						"type": "`$STRING`",
-						"index$": 0,
+						"index$": 1,
+					},
+					map[string]any{
+						"active": true,
+						"name": "description",
+						"req": false,
+						"type": "`$STRING`",
+						"index$": 2,
 					},
 					map[string]any{
 						"active": true,
 						"name": "evaluation_count",
 						"req": false,
 						"type": "`$INTEGER`",
-						"index$": 1,
-					},
-					map[string]any{
-						"active": true,
-						"name": "policy",
-						"req": true,
-						"type": "`$OBJECT`",
-						"index$": 2,
-					},
-					map[string]any{
-						"active": true,
-						"name": "slug_perm",
-						"req": false,
-						"type": "`$STRING`",
 						"index$": 3,
 					},
 					map[string]any{
 						"active": true,
-						"name": "status",
+						"name": "name",
 						"req": false,
 						"type": "`$STRING`",
 						"index$": 4,
 					},
 					map[string]any{
 						"active": true,
+						"name": "on_violation_quarantine",
+						"req": false,
+						"type": "`$BOOLEAN`",
+						"index$": 5,
+					},
+					map[string]any{
+						"active": true,
+						"name": "package_query_string",
+						"req": false,
+						"type": "`$STRING`",
+						"index$": 6,
+					},
+					map[string]any{
+						"active": true,
+						"name": "policy",
+						"req": true,
+						"type": "`$OBJECT`",
+						"index$": 7,
+					},
+					map[string]any{
+						"active": true,
+						"name": "slug_perm",
+						"req": false,
+						"type": "`$STRING`",
+						"index$": 8,
+					},
+					map[string]any{
+						"active": true,
+						"name": "spdx_identifiers",
+						"req": true,
+						"type": "`$ARRAY`",
+						"index$": 9,
+					},
+					map[string]any{
+						"active": true,
+						"name": "status",
+						"req": false,
+						"type": "`$STRING`",
+						"index$": 10,
+					},
+					map[string]any{
+						"active": true,
 						"name": "updated_at",
 						"req": false,
 						"type": "`$STRING`",
-						"index$": 5,
+						"index$": 11,
+					},
+					map[string]any{
+						"active": true,
+						"name": "url",
+						"req": false,
+						"type": "`$STRING`",
+						"index$": 12,
 					},
 					map[string]any{
 						"active": true,
 						"name": "violation_count",
 						"req": false,
 						"type": "`$INTEGER`",
-						"index$": 6,
+						"index$": 13,
 					},
 				},
 				"name": "package_license_policy_evaluation",
@@ -18430,6 +18100,7 @@ func MakeConfig() map[string]any {
 										},
 									},
 								},
+								"kind": "http",
 								"method": "POST",
 								"orig": "/orgs/{org}/license-policy/{policy_slug_perm}/evaluation/",
 								"parts": []any{
@@ -18453,12 +18124,11 @@ func MakeConfig() map[string]any {
 								},
 								"transform": map[string]any{
 									"req": "`reqdata`",
-									"res": "`body`",
+									"res": "`body.policy`",
 								},
 								"index$": 0,
 							},
 						},
-						"key$": "create",
 					},
 					"list": map[string]any{
 						"input": "data",
@@ -18506,6 +18176,7 @@ func MakeConfig() map[string]any {
 										},
 									},
 								},
+								"kind": "http",
 								"method": "GET",
 								"orig": "/orgs/{org}/license-policy/{policy_slug_perm}/evaluation/",
 								"parts": []any{
@@ -18535,7 +18206,6 @@ func MakeConfig() map[string]any {
 								"index$": 0,
 							},
 						},
-						"key$": "list",
 					},
 					"load": map[string]any{
 						"input": "data",
@@ -18574,6 +18244,7 @@ func MakeConfig() map[string]any {
 										},
 									},
 								},
+								"kind": "http",
 								"method": "GET",
 								"orig": "/orgs/{org}/license-policy/{policy_slug_perm}/evaluation/{slug_perm}/",
 								"parts": []any{
@@ -18600,12 +18271,11 @@ func MakeConfig() map[string]any {
 								},
 								"transform": map[string]any{
 									"req": "`reqdata`",
-									"res": "`body`",
+									"res": "`body.policy`",
 								},
 								"index$": 0,
 							},
 						},
-						"key$": "load",
 					},
 				},
 				"relations": map[string]any{
@@ -18775,6 +18445,7 @@ func MakeConfig() map[string]any {
 										},
 									},
 								},
+								"kind": "http",
 								"method": "GET",
 								"orig": "/badges/version/{owner}/{repo}/{package_format}/{package_name}/{package_version}/{package_identifiers}/",
 								"parts": []any{
@@ -18820,7 +18491,6 @@ func MakeConfig() map[string]any {
 								"index$": 0,
 							},
 						},
-						"key$": "load",
 					},
 				},
 				"relations": map[string]any{
@@ -18835,52 +18505,101 @@ func MakeConfig() map[string]any {
 				"fields": []any{
 					map[string]any{
 						"active": true,
+						"name": "allow_unknown_severity",
+						"req": false,
+						"type": "`$BOOLEAN`",
+						"index$": 0,
+					},
+					map[string]any{
+						"active": true,
 						"name": "created_at",
 						"req": false,
 						"type": "`$STRING`",
-						"index$": 0,
+						"index$": 1,
+					},
+					map[string]any{
+						"active": true,
+						"name": "description",
+						"req": false,
+						"type": "`$STRING`",
+						"index$": 2,
 					},
 					map[string]any{
 						"active": true,
 						"name": "evaluation_count",
 						"req": false,
 						"type": "`$INTEGER`",
-						"index$": 1,
-					},
-					map[string]any{
-						"active": true,
-						"name": "policy",
-						"req": false,
-						"type": "`$OBJECT`",
-						"index$": 2,
-					},
-					map[string]any{
-						"active": true,
-						"name": "slug_perm",
-						"req": false,
-						"type": "`$STRING`",
 						"index$": 3,
 					},
 					map[string]any{
 						"active": true,
-						"name": "status",
+						"name": "min_severity",
 						"req": false,
 						"type": "`$STRING`",
 						"index$": 4,
 					},
 					map[string]any{
 						"active": true,
-						"name": "updated_at",
+						"name": "name",
 						"req": false,
 						"type": "`$STRING`",
 						"index$": 5,
 					},
 					map[string]any{
 						"active": true,
+						"name": "on_violation_quarantine",
+						"req": false,
+						"type": "`$BOOLEAN`",
+						"index$": 6,
+					},
+					map[string]any{
+						"active": true,
+						"name": "package_query_string",
+						"req": false,
+						"type": "`$STRING`",
+						"index$": 7,
+					},
+					map[string]any{
+						"active": true,
+						"name": "policy",
+						"req": false,
+						"type": "`$OBJECT`",
+						"index$": 8,
+					},
+					map[string]any{
+						"active": true,
+						"name": "slug_perm",
+						"req": false,
+						"type": "`$STRING`",
+						"index$": 9,
+					},
+					map[string]any{
+						"active": true,
+						"name": "status",
+						"req": false,
+						"type": "`$STRING`",
+						"index$": 10,
+					},
+					map[string]any{
+						"active": true,
+						"name": "updated_at",
+						"req": false,
+						"type": "`$STRING`",
+						"index$": 11,
+					},
+					map[string]any{
+						"active": true,
+						"name": "url",
+						"req": false,
+						"type": "`$STRING`",
+						"index$": 12,
+					},
+					map[string]any{
+						"active": true,
 						"name": "violation_count",
 						"req": false,
 						"type": "`$INTEGER`",
-						"index$": 6,
+						"index$": 13,
 					},
 				},
 				"name": "package_vulnerability_policy_evaluation",
@@ -18923,6 +18642,7 @@ func MakeConfig() map[string]any {
 										},
 									},
 								},
+								"kind": "http",
 								"method": "POST",
 								"orig": "/orgs/{org}/vulnerability-policy/{policy_slug_perm}/evaluation/",
 								"parts": []any{
@@ -18946,12 +18666,11 @@ func MakeConfig() map[string]any {
 								},
 								"transform": map[string]any{
 									"req": "`reqdata`",
-									"res": "`body`",
+									"res": "`body.policy`",
 								},
 								"index$": 0,
 							},
 						},
-						"key$": "create",
 					},
 					"list": map[string]any{
 						"input": "data",
@@ -18999,6 +18718,7 @@ func MakeConfig() map[string]any {
 										},
 									},
 								},
+								"kind": "http",
 								"method": "GET",
 								"orig": "/orgs/{org}/vulnerability-policy/{policy_slug_perm}/evaluation/",
 								"parts": []any{
@@ -19028,7 +18748,6 @@ func MakeConfig() map[string]any {
 								"index$": 0,
 							},
 						},
-						"key$": "list",
 					},
 					"load": map[string]any{
 						"input": "data",
@@ -19067,6 +18786,7 @@ func MakeConfig() map[string]any {
 										},
 									},
 								},
+								"kind": "http",
 								"method": "GET",
 								"orig": "/orgs/{org}/vulnerability-policy/{policy_slug_perm}/evaluation/{slug_perm}/",
 								"parts": []any{
@@ -19093,12 +18813,11 @@ func MakeConfig() map[string]any {
 								},
 								"transform": map[string]any{
 									"req": "`reqdata`",
-									"res": "`body`",
+									"res": "`body.policy`",
 								},
 								"index$": 0,
 							},
 						},
-						"key$": "load",
 					},
 				},
 				"relations": map[string]any{
@@ -19134,7 +18853,7 @@ func MakeConfig() map[string]any {
 				"fields": []any{
 					map[string]any{
 						"active": true,
-						"name": "claim",
+						"name": "claims",
 						"req": true,
 						"type": "`$OBJECT`",
 						"index$": 0,
@@ -19169,7 +18888,7 @@ func MakeConfig() map[string]any {
 					},
 					map[string]any{
 						"active": true,
-						"name": "service_account",
+						"name": "service_accounts",
 						"req": false,
 						"type": "`$ARRAY`",
 						"index$": 5,
@@ -19244,6 +18963,7 @@ func MakeConfig() map[string]any {
 										},
 									},
 								},
+								"kind": "http",
 								"method": "GET",
 								"orig": "/orgs/{org}/openid-connect/",
 								"parts": []any{
@@ -19272,7 +18992,6 @@ func MakeConfig() map[string]any {
 								"index$": 0,
 							},
 						},
-						"key$": "list",
 					},
 					"load": map[string]any{
 						"input": "data",
@@ -19302,6 +19021,7 @@ func MakeConfig() map[string]any {
 										},
 									},
 								},
+								"kind": "http",
 								"method": "GET",
 								"orig": "/orgs/{org}/openid-connect/{slug_perm}/",
 								"parts": []any{
@@ -19328,7 +19048,6 @@ func MakeConfig() map[string]any {
 								"index$": 0,
 							},
 						},
-						"key$": "load",
 					},
 				},
 				"relations": map[string]any{
@@ -19347,14 +19066,14 @@ func MakeConfig() map[string]any {
 				"fields": []any{
 					map[string]any{
 						"active": true,
-						"name": "claim",
+						"name": "claims",
 						"req": true,
 						"type": "`$OBJECT`",
 						"index$": 0,
 					},
 					map[string]any{
 						"active": true,
-						"name": "dynamic_mapping",
+						"name": "dynamic_mappings",
 						"req": false,
 						"type": "`$ARRAY`",
 						"index$": 1,
@@ -19389,7 +19108,7 @@ func MakeConfig() map[string]any {
 					},
 					map[string]any{
 						"active": true,
-						"name": "service_account",
+						"name": "service_accounts",
 						"req": false,
 						"type": "`$ARRAY`",
 						"index$": 6,
@@ -19440,6 +19159,7 @@ func MakeConfig() map[string]any {
 										},
 									},
 								},
+								"kind": "http",
 								"method": "POST",
 								"orig": "/orgs/{org}/openid-connect/",
 								"parts": []any{
@@ -19465,7 +19185,6 @@ func MakeConfig() map[string]any {
 								"index$": 0,
 							},
 						},
-						"key$": "create",
 					},
 					"patch": map[string]any{
 						"input": "data",
@@ -19503,6 +19222,7 @@ func MakeConfig() map[string]any {
 										},
 									},
 								},
+								"kind": "http",
 								"method": "PATCH",
 								"orig": "/orgs/{org}/openid-connect/{slug_perm}/",
 								"parts": []any{
@@ -19527,10 +19247,8 @@ func MakeConfig() map[string]any {
 									"req": "`reqdata`",
 									"res": "`body`",
 								},
-								"index$": 0,
 							},
 						},
-						"key$": "patch",
 					},
 					"update": map[string]any{
 						"input": "data",
@@ -19570,6 +19288,7 @@ func MakeConfig() map[string]any {
 										},
 									},
 								},
+								"kind": "http",
 								"method": "PUT",
 								"orig": "/orgs/{org}/openid-connect/{slug_perm}/",
 								"parts": []any{
@@ -19597,7 +19316,6 @@ func MakeConfig() map[string]any {
 								"index$": 0,
 							},
 						},
-						"key$": "update",
 					},
 				},
 				"relations": map[string]any{
@@ -19781,6 +19499,7 @@ func MakeConfig() map[string]any {
 										},
 									},
 								},
+								"kind": "http",
 								"method": "POST",
 								"orig": "/repos/{owner}/{identifier}/upstream/python/",
 								"parts": []any{
@@ -19804,7 +19523,6 @@ func MakeConfig() map[string]any {
 								"index$": 0,
 							},
 						},
-						"key$": "create",
 					},
 					"list": map[string]any{
 						"input": "data",
@@ -19852,6 +19570,7 @@ func MakeConfig() map[string]any {
 										},
 									},
 								},
+								"kind": "http",
 								"method": "GET",
 								"orig": "/repos/{owner}/{identifier}/upstream/python/",
 								"parts": []any{
@@ -19876,7 +19595,6 @@ func MakeConfig() map[string]any {
 								"index$": 0,
 							},
 						},
-						"key$": "list",
 					},
 					"load": map[string]any{
 						"input": "data",
@@ -19915,6 +19633,7 @@ func MakeConfig() map[string]any {
 										},
 									},
 								},
+								"kind": "http",
 								"method": "GET",
 								"orig": "/repos/{owner}/{identifier}/upstream/python/{slug_perm}/",
 								"parts": []any{
@@ -19944,7 +19663,6 @@ func MakeConfig() map[string]any {
 								"index$": 0,
 							},
 						},
-						"key$": "load",
 					},
 					"patch": map[string]any{
 						"input": "data",
@@ -19990,6 +19708,7 @@ func MakeConfig() map[string]any {
 										},
 									},
 								},
+								"kind": "http",
 								"method": "PATCH",
 								"orig": "/repos/{owner}/{identifier}/upstream/python/{slug_perm}/",
 								"parts": []any{
@@ -20017,10 +19736,8 @@ func MakeConfig() map[string]any {
 									"req": "`reqdata`",
 									"res": "`body`",
 								},
-								"index$": 0,
 							},
 						},
-						"key$": "patch",
 					},
 					"update": map[string]any{
 						"input": "data",
@@ -20069,6 +19786,7 @@ func MakeConfig() map[string]any {
 										},
 									},
 								},
+								"kind": "http",
 								"method": "PUT",
 								"orig": "/repos/{owner}/{identifier}/upstream/python/{slug_perm}/",
 								"parts": []any{
@@ -20099,7 +19817,6 @@ func MakeConfig() map[string]any {
 								"index$": 0,
 							},
 						},
-						"key$": "update",
 					},
 				},
 				"relations": map[string]any{
@@ -20129,17 +19846,24 @@ func MakeConfig() map[string]any {
 				"fields": []any{
 					map[string]any{
 						"active": true,
-						"name": "history",
+						"name": "display",
 						"req": true,
-						"type": "`$ARRAY`",
+						"type": "`$OBJECT`",
 						"index$": 0,
 					},
 					map[string]any{
 						"active": true,
-						"name": "usage",
+						"name": "history",
+						"req": true,
+						"type": "`$ARRAY`",
+						"index$": 1,
+					},
+					map[string]any{
+						"active": true,
+						"name": "raw",
 						"req": true,
 						"type": "`$OBJECT`",
-						"index$": 1,
+						"index$": 2,
 					},
 				},
 				"name": "quota",
@@ -20163,6 +19887,7 @@ func MakeConfig() map[string]any {
 										},
 									},
 								},
+								"kind": "http",
 								"method": "GET",
 								"orig": "/quota/{owner}/",
 								"parts": []any{
@@ -20181,7 +19906,7 @@ func MakeConfig() map[string]any {
 								},
 								"transform": map[string]any{
 									"req": "`reqdata`",
-									"res": "`body`",
+									"res": "`body.usage`",
 								},
 								"index$": 0,
 							},
@@ -20200,6 +19925,7 @@ func MakeConfig() map[string]any {
 										},
 									},
 								},
+								"kind": "http",
 								"method": "GET",
 								"orig": "/quota/history/{owner}/",
 								"parts": []any{
@@ -20233,6 +19959,7 @@ func MakeConfig() map[string]any {
 										},
 									},
 								},
+								"kind": "http",
 								"method": "GET",
 								"orig": "/quota/oss/history/{owner}/",
 								"parts": []any{
@@ -20267,6 +19994,7 @@ func MakeConfig() map[string]any {
 										},
 									},
 								},
+								"kind": "http",
 								"method": "GET",
 								"orig": "/quota/oss/{owner}/",
 								"parts": []any{
@@ -20281,12 +20009,11 @@ func MakeConfig() map[string]any {
 								},
 								"transform": map[string]any{
 									"req": "`reqdata`",
-									"res": "`body`",
+									"res": "`body.usage`",
 								},
 								"index$": 3,
 							},
 						},
-						"key$": "load",
 					},
 				},
 				"relations": map[string]any{
@@ -20368,7 +20095,7 @@ func MakeConfig() map[string]any {
 					},
 					map[string]any{
 						"active": true,
-						"name": "copy_package",
+						"name": "copy_packages",
 						"req": false,
 						"type": "`$STRING`",
 						"index$": 4,
@@ -20403,7 +20130,7 @@ func MakeConfig() map[string]any {
 					},
 					map[string]any{
 						"active": true,
-						"name": "delete_package",
+						"name": "delete_packages",
 						"req": false,
 						"type": "`$STRING`",
 						"index$": 9,
@@ -20424,7 +20151,7 @@ func MakeConfig() map[string]any {
 					},
 					map[string]any{
 						"active": true,
-						"name": "distribute",
+						"name": "distributes",
 						"req": false,
 						"type": "`$ARRAY`",
 						"index$": 12,
@@ -20438,7 +20165,7 @@ func MakeConfig() map[string]any {
 					},
 					map[string]any{
 						"active": true,
-						"name": "ecdsa_key",
+						"name": "ecdsa_keys",
 						"req": false,
 						"type": "`$ARRAY`",
 						"index$": 14,
@@ -20452,14 +20179,14 @@ func MakeConfig() map[string]any {
 					},
 					map[string]any{
 						"active": true,
-						"name": "gpg_key",
+						"name": "gpg_keys",
 						"req": false,
 						"type": "`$ARRAY`",
 						"index$": 16,
 					},
 					map[string]any{
 						"active": true,
-						"name": "index_file",
+						"name": "index_files",
 						"req": false,
 						"type": "`$BOOLEAN`",
 						"index$": 17,
@@ -20501,7 +20228,7 @@ func MakeConfig() map[string]any {
 					},
 					map[string]any{
 						"active": true,
-						"name": "move_package",
+						"name": "move_packages",
 						"req": false,
 						"type": "`$STRING`",
 						"index$": 23,
@@ -20536,21 +20263,21 @@ func MakeConfig() map[string]any {
 					},
 					map[string]any{
 						"active": true,
-						"name": "num_download",
+						"name": "num_downloads",
 						"req": false,
 						"type": "`$INTEGER`",
 						"index$": 28,
 					},
 					map[string]any{
 						"active": true,
-						"name": "num_policy_violated_package",
+						"name": "num_policy_violated_packages",
 						"req": false,
 						"type": "`$INTEGER`",
 						"index$": 29,
 					},
 					map[string]any{
 						"active": true,
-						"name": "num_quarantined_package",
+						"name": "num_quarantined_packages",
 						"req": false,
 						"type": "`$INTEGER`",
 						"index$": 30,
@@ -20585,7 +20312,7 @@ func MakeConfig() map[string]any {
 					},
 					map[string]any{
 						"active": true,
-						"name": "proxy_npmj",
+						"name": "proxy_npmjs",
 						"req": false,
 						"type": "`$BOOLEAN`",
 						"index$": 35,
@@ -20613,7 +20340,7 @@ func MakeConfig() map[string]any {
 					},
 					map[string]any{
 						"active": true,
-						"name": "replace_package",
+						"name": "replace_packages",
 						"req": false,
 						"type": "`$STRING`",
 						"index$": 39,
@@ -20648,7 +20375,7 @@ func MakeConfig() map[string]any {
 					},
 					map[string]any{
 						"active": true,
-						"name": "resync_package",
+						"name": "resync_packages",
 						"req": false,
 						"type": "`$STRING`",
 						"index$": 44,
@@ -20662,7 +20389,7 @@ func MakeConfig() map[string]any {
 					},
 					map[string]any{
 						"active": true,
-						"name": "scan_package",
+						"name": "scan_packages",
 						"req": false,
 						"type": "`$STRING`",
 						"index$": 46,
@@ -20739,7 +20466,7 @@ func MakeConfig() map[string]any {
 					},
 					map[string]any{
 						"active": true,
-						"name": "use_debian_label",
+						"name": "use_debian_labels",
 						"req": false,
 						"type": "`$BOOLEAN`",
 						"index$": 57,
@@ -20760,14 +20487,14 @@ func MakeConfig() map[string]any {
 					},
 					map[string]any{
 						"active": true,
-						"name": "use_noarch_package",
+						"name": "use_noarch_packages",
 						"req": false,
 						"type": "`$BOOLEAN`",
 						"index$": 60,
 					},
 					map[string]any{
 						"active": true,
-						"name": "use_source_package",
+						"name": "use_source_packages",
 						"req": false,
 						"type": "`$BOOLEAN`",
 						"index$": 61,
@@ -20788,7 +20515,7 @@ func MakeConfig() map[string]any {
 					},
 					map[string]any{
 						"active": true,
-						"name": "view_statistic",
+						"name": "view_statistics",
 						"req": false,
 						"type": "`$STRING`",
 						"index$": 64,
@@ -20834,6 +20561,7 @@ func MakeConfig() map[string]any {
 										},
 									},
 								},
+								"kind": "http",
 								"method": "POST",
 								"orig": "/repos/{owner}/{identifier}/geoip/disable/",
 								"parts": []any{
@@ -20890,6 +20618,7 @@ func MakeConfig() map[string]any {
 										},
 									},
 								},
+								"kind": "http",
 								"method": "POST",
 								"orig": "/repos/{owner}/{identifier}/geoip/enable/",
 								"parts": []any{
@@ -20944,6 +20673,7 @@ func MakeConfig() map[string]any {
 										},
 									},
 								},
+								"kind": "http",
 								"method": "POST",
 								"orig": "/repos/{owner}/{repo}/transfer-region/",
 								"parts": []any{
@@ -20991,6 +20721,7 @@ func MakeConfig() map[string]any {
 										},
 									},
 								},
+								"kind": "http",
 								"method": "POST",
 								"orig": "/repos/{owner}/",
 								"parts": []any{
@@ -21015,7 +20746,6 @@ func MakeConfig() map[string]any {
 								"index$": 3,
 							},
 						},
-						"key$": "create",
 					},
 					"list": map[string]any{
 						"input": "data",
@@ -21045,6 +20775,7 @@ func MakeConfig() map[string]any {
 										},
 									},
 								},
+								"kind": "http",
 								"method": "GET",
 								"orig": "/repos/{owner}/{identifier}/",
 								"parts": []any{
@@ -21086,6 +20817,7 @@ func MakeConfig() map[string]any {
 										},
 									},
 								},
+								"kind": "http",
 								"method": "GET",
 								"orig": "/repos/",
 								"parts": []any{
@@ -21104,7 +20836,6 @@ func MakeConfig() map[string]any {
 								"index$": 1,
 							},
 						},
-						"key$": "list",
 					},
 					"load": map[string]any{
 						"input": "data",
@@ -21143,6 +20874,7 @@ func MakeConfig() map[string]any {
 										},
 									},
 								},
+								"kind": "http",
 								"method": "GET",
 								"orig": "/repos/{owner}/",
 								"parts": []any{
@@ -21168,7 +20900,6 @@ func MakeConfig() map[string]any {
 								"index$": 0,
 							},
 						},
-						"key$": "load",
 					},
 					"patch": map[string]any{
 						"input": "data",
@@ -21206,6 +20937,7 @@ func MakeConfig() map[string]any {
 										},
 									},
 								},
+								"kind": "http",
 								"method": "PATCH",
 								"orig": "/repos/{owner}/{identifier}/",
 								"parts": []any{
@@ -21224,7 +20956,6 @@ func MakeConfig() map[string]any {
 									"req": "`reqdata`",
 									"res": "`body`",
 								},
-								"index$": 0,
 							},
 							map[string]any{
 								"active": true,
@@ -21258,6 +20989,7 @@ func MakeConfig() map[string]any {
 										},
 									},
 								},
+								"kind": "http",
 								"method": "PATCH",
 								"orig": "/repos/{owner}/{identifier}/privileges",
 								"parts": []any{
@@ -21277,10 +21009,8 @@ func MakeConfig() map[string]any {
 									"req": "`reqdata`",
 									"res": "`body`",
 								},
-								"index$": 1,
 							},
 						},
-						"key$": "patch",
 					},
 					"remove": map[string]any{
 						"input": "data",
@@ -21319,6 +21049,7 @@ func MakeConfig() map[string]any {
 										},
 									},
 								},
+								"kind": "http",
 								"method": "DELETE",
 								"orig": "/repos/{owner}/{identifier}/upstream/cargo/{slug_perm}/",
 								"parts": []any{
@@ -21375,6 +21106,7 @@ func MakeConfig() map[string]any {
 										},
 									},
 								},
+								"kind": "http",
 								"method": "DELETE",
 								"orig": "/repos/{owner}/{identifier}/upstream/composer/{slug_perm}/",
 								"parts": []any{
@@ -21431,6 +21163,7 @@ func MakeConfig() map[string]any {
 										},
 									},
 								},
+								"kind": "http",
 								"method": "DELETE",
 								"orig": "/repos/{owner}/{identifier}/upstream/conda/{slug_perm}/",
 								"parts": []any{
@@ -21487,6 +21220,7 @@ func MakeConfig() map[string]any {
 										},
 									},
 								},
+								"kind": "http",
 								"method": "DELETE",
 								"orig": "/repos/{owner}/{identifier}/upstream/cran/{slug_perm}/",
 								"parts": []any{
@@ -21543,6 +21277,7 @@ func MakeConfig() map[string]any {
 										},
 									},
 								},
+								"kind": "http",
 								"method": "DELETE",
 								"orig": "/repos/{owner}/{identifier}/upstream/dart/{slug_perm}/",
 								"parts": []any{
@@ -21599,6 +21334,7 @@ func MakeConfig() map[string]any {
 										},
 									},
 								},
+								"kind": "http",
 								"method": "DELETE",
 								"orig": "/repos/{owner}/{identifier}/upstream/deb/{slug_perm}/",
 								"parts": []any{
@@ -21655,6 +21391,7 @@ func MakeConfig() map[string]any {
 										},
 									},
 								},
+								"kind": "http",
 								"method": "DELETE",
 								"orig": "/repos/{owner}/{identifier}/upstream/docker/{slug_perm}/",
 								"parts": []any{
@@ -21711,6 +21448,7 @@ func MakeConfig() map[string]any {
 										},
 									},
 								},
+								"kind": "http",
 								"method": "DELETE",
 								"orig": "/repos/{owner}/{identifier}/upstream/go/{slug_perm}/",
 								"parts": []any{
@@ -21767,6 +21505,7 @@ func MakeConfig() map[string]any {
 										},
 									},
 								},
+								"kind": "http",
 								"method": "DELETE",
 								"orig": "/repos/{owner}/{identifier}/upstream/helm/{slug_perm}/",
 								"parts": []any{
@@ -21823,6 +21562,7 @@ func MakeConfig() map[string]any {
 										},
 									},
 								},
+								"kind": "http",
 								"method": "DELETE",
 								"orig": "/repos/{owner}/{identifier}/upstream/hex/{slug_perm}/",
 								"parts": []any{
@@ -21879,6 +21619,7 @@ func MakeConfig() map[string]any {
 										},
 									},
 								},
+								"kind": "http",
 								"method": "DELETE",
 								"orig": "/repos/{owner}/{identifier}/upstream/huggingface/{slug_perm}/",
 								"parts": []any{
@@ -21935,6 +21676,7 @@ func MakeConfig() map[string]any {
 										},
 									},
 								},
+								"kind": "http",
 								"method": "DELETE",
 								"orig": "/repos/{owner}/{identifier}/upstream/maven/{slug_perm}/",
 								"parts": []any{
@@ -21991,6 +21733,7 @@ func MakeConfig() map[string]any {
 										},
 									},
 								},
+								"kind": "http",
 								"method": "DELETE",
 								"orig": "/repos/{owner}/{identifier}/upstream/npm/{slug_perm}/",
 								"parts": []any{
@@ -22047,6 +21790,7 @@ func MakeConfig() map[string]any {
 										},
 									},
 								},
+								"kind": "http",
 								"method": "DELETE",
 								"orig": "/repos/{owner}/{identifier}/upstream/nuget/{slug_perm}/",
 								"parts": []any{
@@ -22103,6 +21847,7 @@ func MakeConfig() map[string]any {
 										},
 									},
 								},
+								"kind": "http",
 								"method": "DELETE",
 								"orig": "/repos/{owner}/{identifier}/upstream/python/{slug_perm}/",
 								"parts": []any{
@@ -22159,6 +21904,7 @@ func MakeConfig() map[string]any {
 										},
 									},
 								},
+								"kind": "http",
 								"method": "DELETE",
 								"orig": "/repos/{owner}/{identifier}/upstream/rpm/{slug_perm}/",
 								"parts": []any{
@@ -22215,6 +21961,7 @@ func MakeConfig() map[string]any {
 										},
 									},
 								},
+								"kind": "http",
 								"method": "DELETE",
 								"orig": "/repos/{owner}/{identifier}/upstream/ruby/{slug_perm}/",
 								"parts": []any{
@@ -22271,6 +22018,7 @@ func MakeConfig() map[string]any {
 										},
 									},
 								},
+								"kind": "http",
 								"method": "DELETE",
 								"orig": "/repos/{owner}/{identifier}/upstream/swift/{slug_perm}/",
 								"parts": []any{
@@ -22318,6 +22066,7 @@ func MakeConfig() map[string]any {
 										},
 									},
 								},
+								"kind": "http",
 								"method": "DELETE",
 								"orig": "/repos/{owner}/{identifier}/",
 								"parts": []any{
@@ -22338,7 +22087,6 @@ func MakeConfig() map[string]any {
 								"index$": 18,
 							},
 						},
-						"key$": "remove",
 					},
 					"update": map[string]any{
 						"input": "data",
@@ -22378,6 +22126,7 @@ func MakeConfig() map[string]any {
 										},
 									},
 								},
+								"kind": "http",
 								"method": "PUT",
 								"orig": "/repos/{owner}/{identifier}/privileges",
 								"parts": []any{
@@ -22400,7 +22149,6 @@ func MakeConfig() map[string]any {
 								"index$": 0,
 							},
 						},
-						"key$": "update",
 					},
 				},
 				"relations": map[string]any{
@@ -22633,6 +22381,7 @@ func MakeConfig() map[string]any {
 										},
 									},
 								},
+								"kind": "http",
 								"method": "GET",
 								"orig": "/audit-log/{owner}/{repo}/",
 								"parts": []any{
@@ -22656,7 +22405,6 @@ func MakeConfig() map[string]any {
 								"index$": 0,
 							},
 						},
-						"key$": "list",
 					},
 				},
 				"relations": map[string]any{
@@ -22759,6 +22507,7 @@ func MakeConfig() map[string]any {
 										},
 									},
 								},
+								"kind": "http",
 								"method": "POST",
 								"orig": "/repos/{owner}/{identifier}/ecdsa/",
 								"parts": []any{
@@ -22804,6 +22553,7 @@ func MakeConfig() map[string]any {
 										},
 									},
 								},
+								"kind": "http",
 								"method": "POST",
 								"orig": "/repos/{owner}/{identifier}/ecdsa/regenerate/",
 								"parts": []any{
@@ -22826,7 +22576,6 @@ func MakeConfig() map[string]any {
 								"index$": 1,
 							},
 						},
-						"key$": "create",
 					},
 					"load": map[string]any{
 						"input": "data",
@@ -22856,6 +22605,7 @@ func MakeConfig() map[string]any {
 										},
 									},
 								},
+								"kind": "http",
 								"method": "GET",
 								"orig": "/repos/{owner}/{identifier}/ecdsa/",
 								"parts": []any{
@@ -22877,7 +22627,6 @@ func MakeConfig() map[string]any {
 								"index$": 0,
 							},
 						},
-						"key$": "load",
 					},
 				},
 				"relations": map[string]any{
@@ -22935,6 +22684,7 @@ func MakeConfig() map[string]any {
 										},
 									},
 								},
+								"kind": "http",
 								"method": "GET",
 								"orig": "/repos/{owner}/{identifier}/geoip",
 								"parts": []any{
@@ -22956,7 +22706,6 @@ func MakeConfig() map[string]any {
 								"index$": 0,
 							},
 						},
-						"key$": "load",
 					},
 					"patch": map[string]any{
 						"input": "data",
@@ -22994,6 +22743,7 @@ func MakeConfig() map[string]any {
 										},
 									},
 								},
+								"kind": "http",
 								"method": "PATCH",
 								"orig": "/repos/{owner}/{identifier}/geoip",
 								"parts": []any{
@@ -23013,10 +22763,8 @@ func MakeConfig() map[string]any {
 									"req": "`reqdata`",
 									"res": "`body`",
 								},
-								"index$": 0,
 							},
 						},
-						"key$": "patch",
 					},
 					"update": map[string]any{
 						"input": "data",
@@ -23056,6 +22804,7 @@ func MakeConfig() map[string]any {
 										},
 									},
 								},
+								"kind": "http",
 								"method": "PUT",
 								"orig": "/repos/{owner}/{identifier}/geoip",
 								"parts": []any{
@@ -23078,7 +22827,6 @@ func MakeConfig() map[string]any {
 								"index$": 0,
 							},
 						},
-						"key$": "update",
 					},
 				},
 				"relations": map[string]any{
@@ -23129,6 +22877,7 @@ func MakeConfig() map[string]any {
 										},
 									},
 								},
+								"kind": "http",
 								"method": "GET",
 								"orig": "/repos/{owner}/{identifier}/geoip/status/",
 								"parts": []any{
@@ -23151,7 +22900,6 @@ func MakeConfig() map[string]any {
 								"index$": 0,
 							},
 						},
-						"key$": "load",
 					},
 				},
 				"relations": map[string]any{
@@ -23204,6 +22952,7 @@ func MakeConfig() map[string]any {
 										},
 									},
 								},
+								"kind": "http",
 								"method": "POST",
 								"orig": "/repos/{owner}/{identifier}/geoip/test/",
 								"parts": []any{
@@ -23227,7 +22976,6 @@ func MakeConfig() map[string]any {
 								"index$": 0,
 							},
 						},
-						"key$": "create",
 					},
 				},
 				"relations": map[string]any{
@@ -23330,6 +23078,7 @@ func MakeConfig() map[string]any {
 										},
 									},
 								},
+								"kind": "http",
 								"method": "POST",
 								"orig": "/repos/{owner}/{identifier}/gpg/",
 								"parts": []any{
@@ -23375,6 +23124,7 @@ func MakeConfig() map[string]any {
 										},
 									},
 								},
+								"kind": "http",
 								"method": "POST",
 								"orig": "/repos/{owner}/{identifier}/gpg/regenerate/",
 								"parts": []any{
@@ -23397,7 +23147,6 @@ func MakeConfig() map[string]any {
 								"index$": 1,
 							},
 						},
-						"key$": "create",
 					},
 					"load": map[string]any{
 						"input": "data",
@@ -23427,6 +23176,7 @@ func MakeConfig() map[string]any {
 										},
 									},
 								},
+								"kind": "http",
 								"method": "GET",
 								"orig": "/repos/{owner}/{identifier}/gpg/",
 								"parts": []any{
@@ -23448,7 +23198,6 @@ func MakeConfig() map[string]any {
 								"index$": 0,
 							},
 						},
-						"key$": "load",
 					},
 				},
 				"relations": map[string]any{
@@ -23538,6 +23287,7 @@ func MakeConfig() map[string]any {
 										},
 									},
 								},
+								"kind": "http",
 								"method": "GET",
 								"orig": "/repos/{owner}/{identifier}/privileges",
 								"parts": []any{
@@ -23556,12 +23306,11 @@ func MakeConfig() map[string]any {
 								},
 								"transform": map[string]any{
 									"req": "`reqdata`",
-									"res": "`body`",
+									"res": "`body.privileges`",
 								},
 								"index$": 0,
 							},
 						},
-						"key$": "list",
 					},
 				},
 				"relations": map[string]any{
@@ -23661,6 +23410,7 @@ func MakeConfig() map[string]any {
 										},
 									},
 								},
+								"kind": "http",
 								"method": "GET",
 								"orig": "/repos/{owner}/{repo}/retention/",
 								"parts": []any{
@@ -23682,7 +23432,6 @@ func MakeConfig() map[string]any {
 								"index$": 0,
 							},
 						},
-						"key$": "load",
 					},
 					"update": map[string]any{
 						"input": "data",
@@ -23722,6 +23471,7 @@ func MakeConfig() map[string]any {
 										},
 									},
 								},
+								"kind": "http",
 								"method": "PATCH",
 								"orig": "/repos/{owner}/{repo}/retention/",
 								"parts": []any{
@@ -23744,7 +23494,6 @@ func MakeConfig() map[string]any {
 								"index$": 0,
 							},
 						},
-						"key$": "update",
 					},
 				},
 				"relations": map[string]any{
@@ -23847,6 +23596,7 @@ func MakeConfig() map[string]any {
 										},
 									},
 								},
+								"kind": "http",
 								"method": "POST",
 								"orig": "/repos/{owner}/{identifier}/rsa/",
 								"parts": []any{
@@ -23892,6 +23642,7 @@ func MakeConfig() map[string]any {
 										},
 									},
 								},
+								"kind": "http",
 								"method": "POST",
 								"orig": "/repos/{owner}/{identifier}/rsa/regenerate/",
 								"parts": []any{
@@ -23914,7 +23665,6 @@ func MakeConfig() map[string]any {
 								"index$": 1,
 							},
 						},
-						"key$": "create",
 					},
 					"load": map[string]any{
 						"input": "data",
@@ -23944,6 +23694,7 @@ func MakeConfig() map[string]any {
 										},
 									},
 								},
+								"kind": "http",
 								"method": "GET",
 								"orig": "/repos/{owner}/{identifier}/rsa/",
 								"parts": []any{
@@ -23965,7 +23716,6 @@ func MakeConfig() map[string]any {
 								"index$": 0,
 							},
 						},
-						"key$": "load",
 					},
 				},
 				"relations": map[string]any{
@@ -23980,7 +23730,7 @@ func MakeConfig() map[string]any {
 				"fields": []any{
 					map[string]any{
 						"active": true,
-						"name": "client",
+						"name": "clients",
 						"req": false,
 						"type": "`$INTEGER`",
 						"index$": 0,
@@ -24022,7 +23772,7 @@ func MakeConfig() map[string]any {
 					},
 					map[string]any{
 						"active": true,
-						"name": "download",
+						"name": "downloads",
 						"req": false,
 						"type": "`$INTEGER`",
 						"index$": 6,
@@ -24064,7 +23814,7 @@ func MakeConfig() map[string]any {
 					},
 					map[string]any{
 						"active": true,
-						"name": "has_limit",
+						"name": "has_limits",
 						"req": false,
 						"type": "`$BOOLEAN`",
 						"index$": 12,
@@ -24120,14 +23870,14 @@ func MakeConfig() map[string]any {
 					},
 					map[string]any{
 						"active": true,
-						"name": "limit_num_client",
+						"name": "limit_num_clients",
 						"req": false,
 						"type": "`$INTEGER`",
 						"index$": 20,
 					},
 					map[string]any{
 						"active": true,
-						"name": "limit_num_download",
+						"name": "limit_num_downloads",
 						"req": false,
 						"type": "`$INTEGER`",
 						"index$": 21,
@@ -24300,6 +24050,7 @@ func MakeConfig() map[string]any {
 										},
 									},
 								},
+								"kind": "http",
 								"method": "POST",
 								"orig": "/entitlements/{owner}/{repo}/",
 								"parts": []any{
@@ -24322,7 +24073,6 @@ func MakeConfig() map[string]any {
 								"index$": 0,
 							},
 						},
-						"key$": "create",
 					},
 					"list": map[string]any{
 						"input": "data",
@@ -24402,6 +24152,7 @@ func MakeConfig() map[string]any {
 										},
 									},
 								},
+								"kind": "http",
 								"method": "GET",
 								"orig": "/entitlements/{owner}/{repo}/",
 								"parts": []any{
@@ -24428,7 +24179,6 @@ func MakeConfig() map[string]any {
 								"index$": 0,
 							},
 						},
-						"key$": "list",
 					},
 					"load": map[string]any{
 						"input": "data",
@@ -24485,6 +24235,7 @@ func MakeConfig() map[string]any {
 										},
 									},
 								},
+								"kind": "http",
 								"method": "GET",
 								"orig": "/entitlements/{owner}/{repo}/{identifier}/",
 								"parts": []any{
@@ -24509,7 +24260,6 @@ func MakeConfig() map[string]any {
 								"index$": 0,
 							},
 						},
-						"key$": "load",
 					},
 					"update": map[string]any{
 						"input": "data",
@@ -24566,6 +24316,7 @@ func MakeConfig() map[string]any {
 										},
 									},
 								},
+								"kind": "http",
 								"method": "PATCH",
 								"orig": "/entitlements/{owner}/{repo}/{identifier}/",
 								"parts": []any{
@@ -24590,7 +24341,6 @@ func MakeConfig() map[string]any {
 								"index$": 0,
 							},
 						},
-						"key$": "update",
 					},
 				},
 				"relations": map[string]any{
@@ -24605,7 +24355,7 @@ func MakeConfig() map[string]any {
 				"fields": []any{
 					map[string]any{
 						"active": true,
-						"name": "client",
+						"name": "clients",
 						"req": false,
 						"type": "`$INTEGER`",
 						"index$": 0,
@@ -24647,7 +24397,7 @@ func MakeConfig() map[string]any {
 					},
 					map[string]any{
 						"active": true,
-						"name": "download",
+						"name": "downloads",
 						"req": false,
 						"type": "`$INTEGER`",
 						"index$": 6,
@@ -24689,7 +24439,7 @@ func MakeConfig() map[string]any {
 					},
 					map[string]any{
 						"active": true,
-						"name": "has_limit",
+						"name": "has_limits",
 						"req": false,
 						"type": "`$BOOLEAN`",
 						"index$": 12,
@@ -24745,14 +24495,14 @@ func MakeConfig() map[string]any {
 					},
 					map[string]any{
 						"active": true,
-						"name": "limit_num_client",
+						"name": "limit_num_clients",
 						"req": false,
 						"type": "`$INTEGER`",
 						"index$": 20,
 					},
 					map[string]any{
 						"active": true,
-						"name": "limit_num_download",
+						"name": "limit_num_downloads",
 						"req": false,
 						"type": "`$INTEGER`",
 						"index$": 21,
@@ -24934,6 +24684,7 @@ func MakeConfig() map[string]any {
 										},
 									},
 								},
+								"kind": "http",
 								"method": "POST",
 								"orig": "/entitlements/{owner}/{repo}/{identifier}/refresh/",
 								"parts": []any{
@@ -24959,7 +24710,6 @@ func MakeConfig() map[string]any {
 								"index$": 0,
 							},
 						},
-						"key$": "create",
 					},
 				},
 				"relations": map[string]any{
@@ -24974,7 +24724,7 @@ func MakeConfig() map[string]any {
 				"fields": []any{
 					map[string]any{
 						"active": true,
-						"name": "token",
+						"name": "tokens",
 						"req": false,
 						"type": "`$ARRAY`",
 						"index$": 0,
@@ -25028,6 +24778,7 @@ func MakeConfig() map[string]any {
 										},
 									},
 								},
+								"kind": "http",
 								"method": "POST",
 								"orig": "/entitlements/{owner}/{repo}/sync/",
 								"parts": []any{
@@ -25051,7 +24802,6 @@ func MakeConfig() map[string]any {
 								"index$": 0,
 							},
 						},
-						"key$": "create",
 					},
 				},
 				"relations": map[string]any{
@@ -25103,161 +24853,169 @@ func MakeConfig() map[string]any {
 						"active": true,
 						"name": "event",
 						"req": true,
-						"type": "`$ARRAY`",
+						"type": "`$STRING`",
 						"index$": 5,
+					},
+					map[string]any{
+						"active": true,
+						"name": "events",
+						"req": true,
+						"type": "`$ARRAY`",
+						"index$": 6,
 					},
 					map[string]any{
 						"active": true,
 						"name": "identifier",
 						"req": false,
 						"type": "`$INTEGER`",
-						"index$": 6,
+						"index$": 7,
 					},
 					map[string]any{
 						"active": true,
 						"name": "is_active",
 						"req": false,
 						"type": "`$BOOLEAN`",
-						"index$": 7,
+						"index$": 8,
 					},
 					map[string]any{
 						"active": true,
 						"name": "is_last_response_bad",
 						"req": false,
 						"type": "`$BOOLEAN`",
-						"index$": 8,
+						"index$": 9,
 					},
 					map[string]any{
 						"active": true,
 						"name": "last_response_status",
 						"req": false,
 						"type": "`$INTEGER`",
-						"index$": 9,
+						"index$": 10,
 					},
 					map[string]any{
 						"active": true,
 						"name": "last_response_status_str",
 						"req": false,
 						"type": "`$STRING`",
-						"index$": 10,
+						"index$": 11,
 					},
 					map[string]any{
 						"active": true,
 						"name": "num_sent",
 						"req": false,
 						"type": "`$INTEGER`",
-						"index$": 11,
+						"index$": 12,
 					},
 					map[string]any{
 						"active": true,
 						"name": "package_query",
 						"req": false,
 						"type": "`$STRING`",
-						"index$": 12,
+						"index$": 13,
 					},
 					map[string]any{
 						"active": true,
 						"name": "request_body_format",
 						"req": false,
 						"type": "`$INTEGER`",
-						"index$": 13,
+						"index$": 14,
 					},
 					map[string]any{
 						"active": true,
 						"name": "request_body_format_str",
 						"req": false,
 						"type": "`$STRING`",
-						"index$": 14,
+						"index$": 15,
 					},
 					map[string]any{
 						"active": true,
 						"name": "request_body_template_format",
 						"req": false,
 						"type": "`$INTEGER`",
-						"index$": 15,
+						"index$": 16,
 					},
 					map[string]any{
 						"active": true,
 						"name": "request_body_template_format_str",
 						"req": false,
 						"type": "`$STRING`",
-						"index$": 16,
+						"index$": 17,
 					},
 					map[string]any{
 						"active": true,
 						"name": "request_content_type",
 						"req": false,
 						"type": "`$STRING`",
-						"index$": 17,
+						"index$": 18,
 					},
 					map[string]any{
 						"active": true,
 						"name": "secret_header",
 						"req": false,
 						"type": "`$STRING`",
-						"index$": 18,
+						"index$": 19,
 					},
 					map[string]any{
 						"active": true,
 						"name": "self_url",
 						"req": false,
 						"type": "`$STRING`",
-						"index$": 19,
+						"index$": 20,
 					},
 					map[string]any{
 						"active": true,
 						"name": "slug_perm",
 						"req": false,
 						"type": "`$STRING`",
-						"index$": 20,
+						"index$": 21,
 					},
 					map[string]any{
 						"active": true,
 						"name": "target_url",
 						"req": true,
 						"type": "`$STRING`",
-						"index$": 21,
-					},
-					map[string]any{
-						"active": true,
-						"name": "template",
-						"op": map[string]any{
-							"list": map[string]any{
-								"req": false,
-								"type": "`$STRING`",
-							},
-						},
-						"req": true,
-						"type": "`$ARRAY`",
 						"index$": 22,
 					},
 					map[string]any{
 						"active": true,
-						"name": "updated_at",
+						"name": "template",
 						"req": false,
 						"type": "`$STRING`",
 						"index$": 23,
 					},
 					map[string]any{
 						"active": true,
-						"name": "updated_by",
-						"req": false,
-						"type": "`$STRING`",
+						"name": "templates",
+						"req": true,
+						"type": "`$ARRAY`",
 						"index$": 24,
 					},
 					map[string]any{
 						"active": true,
-						"name": "updated_by_url",
+						"name": "updated_at",
 						"req": false,
 						"type": "`$STRING`",
 						"index$": 25,
 					},
 					map[string]any{
 						"active": true,
+						"name": "updated_by",
+						"req": false,
+						"type": "`$STRING`",
+						"index$": 26,
+					},
+					map[string]any{
+						"active": true,
+						"name": "updated_by_url",
+						"req": false,
+						"type": "`$STRING`",
+						"index$": 27,
+					},
+					map[string]any{
+						"active": true,
 						"name": "verify_ssl",
 						"req": false,
 						"type": "`$BOOLEAN`",
-						"index$": 26,
+						"index$": 28,
 					},
 				},
 				"name": "repository_webhook",
@@ -25300,6 +25058,7 @@ func MakeConfig() map[string]any {
 										},
 									},
 								},
+								"kind": "http",
 								"method": "POST",
 								"orig": "/webhooks/{owner}/{repo}/",
 								"parts": []any{
@@ -25321,7 +25080,6 @@ func MakeConfig() map[string]any {
 								"index$": 0,
 							},
 						},
-						"key$": "create",
 					},
 					"list": map[string]any{
 						"input": "data",
@@ -25369,6 +25127,7 @@ func MakeConfig() map[string]any {
 										},
 									},
 								},
+								"kind": "http",
 								"method": "GET",
 								"orig": "/webhooks/{owner}/{repo}/",
 								"parts": []any{
@@ -25423,6 +25182,7 @@ func MakeConfig() map[string]any {
 										},
 									},
 								},
+								"kind": "http",
 								"method": "GET",
 								"orig": "/webhooks/{owner}/{repo}/{identifier}/",
 								"parts": []any{
@@ -25445,7 +25205,6 @@ func MakeConfig() map[string]any {
 								"index$": 1,
 							},
 						},
-						"key$": "list",
 					},
 					"update": map[string]any{
 						"input": "data",
@@ -25494,6 +25253,7 @@ func MakeConfig() map[string]any {
 										},
 									},
 								},
+								"kind": "http",
 								"method": "PATCH",
 								"orig": "/webhooks/{owner}/{repo}/{identifier}/",
 								"parts": []any{
@@ -25517,7 +25277,6 @@ func MakeConfig() map[string]any {
 								"index$": 0,
 							},
 						},
-						"key$": "update",
 					},
 				},
 				"relations": map[string]any{
@@ -25631,6 +25390,7 @@ func MakeConfig() map[string]any {
 										},
 									},
 								},
+								"kind": "http",
 								"method": "GET",
 								"orig": "/repos/{owner}/{identifier}/x509-ecdsa/",
 								"parts": []any{
@@ -25652,7 +25412,6 @@ func MakeConfig() map[string]any {
 								"index$": 0,
 							},
 						},
-						"key$": "load",
 					},
 				},
 				"relations": map[string]any{
@@ -25766,6 +25525,7 @@ func MakeConfig() map[string]any {
 										},
 									},
 								},
+								"kind": "http",
 								"method": "GET",
 								"orig": "/repos/{owner}/{identifier}/x509-rsa/",
 								"parts": []any{
@@ -25787,7 +25547,6 @@ func MakeConfig() map[string]any {
 								"index$": 0,
 							},
 						},
-						"key$": "load",
 					},
 				},
 				"relations": map[string]any{
@@ -25814,10 +25573,45 @@ func MakeConfig() map[string]any {
 				"fields": []any{
 					map[string]any{
 						"active": true,
-						"name": "resource",
+						"name": "interval",
 						"req": false,
-						"type": "`$OBJECT`",
+						"type": "`$NUMBER`",
 						"index$": 0,
+					},
+					map[string]any{
+						"active": true,
+						"name": "limit",
+						"req": false,
+						"type": "`$INTEGER`",
+						"index$": 1,
+					},
+					map[string]any{
+						"active": true,
+						"name": "remaining",
+						"req": false,
+						"type": "`$INTEGER`",
+						"index$": 2,
+					},
+					map[string]any{
+						"active": true,
+						"name": "reset",
+						"req": false,
+						"type": "`$INTEGER`",
+						"index$": 3,
+					},
+					map[string]any{
+						"active": true,
+						"name": "reset_iso_8601",
+						"req": false,
+						"type": "`$STRING`",
+						"index$": 4,
+					},
+					map[string]any{
+						"active": true,
+						"name": "throttled",
+						"req": false,
+						"type": "`$BOOLEAN`",
+						"index$": 5,
 					},
 				},
 				"name": "resources_rate_check",
@@ -25829,6 +25623,7 @@ func MakeConfig() map[string]any {
 							map[string]any{
 								"active": true,
 								"args": map[string]any{},
+								"kind": "http",
 								"method": "GET",
 								"orig": "/rates/limits/",
 								"parts": []any{
@@ -25838,12 +25633,11 @@ func MakeConfig() map[string]any {
 								"select": map[string]any{},
 								"transform": map[string]any{
 									"req": "`reqdata`",
-									"res": "`body`",
+									"res": "`body.resources`",
 								},
 								"index$": 0,
 							},
 						},
-						"key$": "load",
 					},
 				},
 				"relations": map[string]any{
@@ -25969,7 +25763,7 @@ func MakeConfig() map[string]any {
 					},
 					map[string]any{
 						"active": true,
-						"name": "include_source",
+						"name": "include_sources",
 						"req": false,
 						"type": "`$BOOLEAN`",
 						"index$": 13,
@@ -26085,6 +25879,7 @@ func MakeConfig() map[string]any {
 										},
 									},
 								},
+								"kind": "http",
 								"method": "POST",
 								"orig": "/repos/{owner}/{identifier}/upstream/rpm/",
 								"parts": []any{
@@ -26108,7 +25903,6 @@ func MakeConfig() map[string]any {
 								"index$": 0,
 							},
 						},
-						"key$": "create",
 					},
 					"list": map[string]any{
 						"input": "data",
@@ -26156,6 +25950,7 @@ func MakeConfig() map[string]any {
 										},
 									},
 								},
+								"kind": "http",
 								"method": "GET",
 								"orig": "/repos/{owner}/{identifier}/upstream/rpm/",
 								"parts": []any{
@@ -26180,7 +25975,6 @@ func MakeConfig() map[string]any {
 								"index$": 0,
 							},
 						},
-						"key$": "list",
 					},
 					"load": map[string]any{
 						"input": "data",
@@ -26219,6 +26013,7 @@ func MakeConfig() map[string]any {
 										},
 									},
 								},
+								"kind": "http",
 								"method": "GET",
 								"orig": "/repos/{owner}/{identifier}/upstream/rpm/{slug_perm}/",
 								"parts": []any{
@@ -26248,7 +26043,6 @@ func MakeConfig() map[string]any {
 								"index$": 0,
 							},
 						},
-						"key$": "load",
 					},
 					"patch": map[string]any{
 						"input": "data",
@@ -26294,6 +26088,7 @@ func MakeConfig() map[string]any {
 										},
 									},
 								},
+								"kind": "http",
 								"method": "PATCH",
 								"orig": "/repos/{owner}/{identifier}/upstream/rpm/{slug_perm}/",
 								"parts": []any{
@@ -26321,10 +26116,8 @@ func MakeConfig() map[string]any {
 									"req": "`reqdata`",
 									"res": "`body`",
 								},
-								"index$": 0,
 							},
 						},
-						"key$": "patch",
 					},
 					"update": map[string]any{
 						"input": "data",
@@ -26373,6 +26166,7 @@ func MakeConfig() map[string]any {
 										},
 									},
 								},
+								"kind": "http",
 								"method": "PUT",
 								"orig": "/repos/{owner}/{identifier}/upstream/rpm/{slug_perm}/",
 								"parts": []any{
@@ -26403,7 +26197,6 @@ func MakeConfig() map[string]any {
 								"index$": 0,
 							},
 						},
-						"key$": "update",
 					},
 				},
 				"relations": map[string]any{
@@ -26598,6 +26391,7 @@ func MakeConfig() map[string]any {
 										},
 									},
 								},
+								"kind": "http",
 								"method": "POST",
 								"orig": "/repos/{owner}/{identifier}/upstream/ruby/",
 								"parts": []any{
@@ -26621,7 +26415,6 @@ func MakeConfig() map[string]any {
 								"index$": 0,
 							},
 						},
-						"key$": "create",
 					},
 					"list": map[string]any{
 						"input": "data",
@@ -26669,6 +26462,7 @@ func MakeConfig() map[string]any {
 										},
 									},
 								},
+								"kind": "http",
 								"method": "GET",
 								"orig": "/repos/{owner}/{identifier}/upstream/ruby/",
 								"parts": []any{
@@ -26693,7 +26487,6 @@ func MakeConfig() map[string]any {
 								"index$": 0,
 							},
 						},
-						"key$": "list",
 					},
 					"load": map[string]any{
 						"input": "data",
@@ -26732,6 +26525,7 @@ func MakeConfig() map[string]any {
 										},
 									},
 								},
+								"kind": "http",
 								"method": "GET",
 								"orig": "/repos/{owner}/{identifier}/upstream/ruby/{slug_perm}/",
 								"parts": []any{
@@ -26761,7 +26555,6 @@ func MakeConfig() map[string]any {
 								"index$": 0,
 							},
 						},
-						"key$": "load",
 					},
 					"patch": map[string]any{
 						"input": "data",
@@ -26807,6 +26600,7 @@ func MakeConfig() map[string]any {
 										},
 									},
 								},
+								"kind": "http",
 								"method": "PATCH",
 								"orig": "/repos/{owner}/{identifier}/upstream/ruby/{slug_perm}/",
 								"parts": []any{
@@ -26834,10 +26628,8 @@ func MakeConfig() map[string]any {
 									"req": "`reqdata`",
 									"res": "`body`",
 								},
-								"index$": 0,
 							},
 						},
-						"key$": "patch",
 					},
 					"update": map[string]any{
 						"input": "data",
@@ -26886,6 +26678,7 @@ func MakeConfig() map[string]any {
 										},
 									},
 								},
+								"kind": "http",
 								"method": "PUT",
 								"orig": "/repos/{owner}/{identifier}/upstream/ruby/{slug_perm}/",
 								"parts": []any{
@@ -26916,7 +26709,6 @@ func MakeConfig() map[string]any {
 								"index$": 0,
 							},
 						},
-						"key$": "update",
 					},
 				},
 				"relations": map[string]any{
@@ -27029,7 +26821,7 @@ func MakeConfig() map[string]any {
 					},
 					map[string]any{
 						"active": true,
-						"name": "team",
+						"name": "teams",
 						"req": false,
 						"type": "`$ARRAY`",
 						"index$": 9,
@@ -27066,6 +26858,7 @@ func MakeConfig() map[string]any {
 										},
 									},
 								},
+								"kind": "http",
 								"method": "POST",
 								"orig": "/orgs/{org}/services/",
 								"parts": []any{
@@ -27112,6 +26905,7 @@ func MakeConfig() map[string]any {
 										},
 									},
 								},
+								"kind": "http",
 								"method": "POST",
 								"orig": "/orgs/{org}/services/{service}/refresh/",
 								"parts": []any{
@@ -27141,7 +26935,6 @@ func MakeConfig() map[string]any {
 								"index$": 1,
 							},
 						},
-						"key$": "create",
 					},
 					"list": map[string]any{
 						"input": "data",
@@ -27196,6 +26989,7 @@ func MakeConfig() map[string]any {
 										},
 									},
 								},
+								"kind": "http",
 								"method": "GET",
 								"orig": "/orgs/{org}/services/",
 								"parts": []any{
@@ -27224,7 +27018,6 @@ func MakeConfig() map[string]any {
 								"index$": 0,
 							},
 						},
-						"key$": "list",
 					},
 					"load": map[string]any{
 						"input": "data",
@@ -27254,6 +27047,7 @@ func MakeConfig() map[string]any {
 										},
 									},
 								},
+								"kind": "http",
 								"method": "GET",
 								"orig": "/orgs/{org}/services/{service}/",
 								"parts": []any{
@@ -27281,7 +27075,6 @@ func MakeConfig() map[string]any {
 								"index$": 0,
 							},
 						},
-						"key$": "load",
 					},
 					"update": map[string]any{
 						"input": "data",
@@ -27321,6 +27114,7 @@ func MakeConfig() map[string]any {
 										},
 									},
 								},
+								"kind": "http",
 								"method": "PATCH",
 								"orig": "/orgs/{org}/services/{service}/",
 								"parts": []any{
@@ -27349,7 +27143,6 @@ func MakeConfig() map[string]any {
 								"index$": 0,
 							},
 						},
-						"key$": "update",
 					},
 				},
 				"relations": map[string]any{
@@ -27404,6 +27197,7 @@ func MakeConfig() map[string]any {
 							map[string]any{
 								"active": true,
 								"args": map[string]any{},
+								"kind": "http",
 								"method": "GET",
 								"orig": "/status/check/basic/",
 								"parts": []any{
@@ -27419,7 +27213,6 @@ func MakeConfig() map[string]any {
 								"index$": 0,
 							},
 						},
-						"key$": "load",
 					},
 				},
 				"relations": map[string]any{
@@ -27452,6 +27245,7 @@ func MakeConfig() map[string]any {
 							map[string]any{
 								"active": true,
 								"args": map[string]any{},
+								"kind": "http",
 								"method": "GET",
 								"orig": "/storage-regions/",
 								"parts": []any{
@@ -27465,7 +27259,6 @@ func MakeConfig() map[string]any {
 								"index$": 0,
 							},
 						},
-						"key$": "list",
 					},
 					"load": map[string]any{
 						"input": "data",
@@ -27486,6 +27279,7 @@ func MakeConfig() map[string]any {
 										},
 									},
 								},
+								"kind": "http",
 								"method": "GET",
 								"orig": "/storage-regions/{slug}/",
 								"parts": []any{
@@ -27509,7 +27303,6 @@ func MakeConfig() map[string]any {
 								"index$": 0,
 							},
 						},
-						"key$": "load",
 					},
 				},
 				"relations": map[string]any{
@@ -27685,6 +27478,7 @@ func MakeConfig() map[string]any {
 										},
 									},
 								},
+								"kind": "http",
 								"method": "POST",
 								"orig": "/repos/{owner}/{identifier}/upstream/swift/",
 								"parts": []any{
@@ -27708,7 +27502,6 @@ func MakeConfig() map[string]any {
 								"index$": 0,
 							},
 						},
-						"key$": "create",
 					},
 					"list": map[string]any{
 						"input": "data",
@@ -27756,6 +27549,7 @@ func MakeConfig() map[string]any {
 										},
 									},
 								},
+								"kind": "http",
 								"method": "GET",
 								"orig": "/repos/{owner}/{identifier}/upstream/swift/",
 								"parts": []any{
@@ -27780,7 +27574,6 @@ func MakeConfig() map[string]any {
 								"index$": 0,
 							},
 						},
-						"key$": "list",
 					},
 					"load": map[string]any{
 						"input": "data",
@@ -27819,6 +27612,7 @@ func MakeConfig() map[string]any {
 										},
 									},
 								},
+								"kind": "http",
 								"method": "GET",
 								"orig": "/repos/{owner}/{identifier}/upstream/swift/{slug_perm}/",
 								"parts": []any{
@@ -27848,7 +27642,6 @@ func MakeConfig() map[string]any {
 								"index$": 0,
 							},
 						},
-						"key$": "load",
 					},
 					"patch": map[string]any{
 						"input": "data",
@@ -27894,6 +27687,7 @@ func MakeConfig() map[string]any {
 										},
 									},
 								},
+								"kind": "http",
 								"method": "PATCH",
 								"orig": "/repos/{owner}/{identifier}/upstream/swift/{slug_perm}/",
 								"parts": []any{
@@ -27921,10 +27715,8 @@ func MakeConfig() map[string]any {
 									"req": "`reqdata`",
 									"res": "`body`",
 								},
-								"index$": 0,
 							},
 						},
-						"key$": "patch",
 					},
 					"update": map[string]any{
 						"input": "data",
@@ -27973,6 +27765,7 @@ func MakeConfig() map[string]any {
 										},
 									},
 								},
+								"kind": "http",
 								"method": "PUT",
 								"orig": "/repos/{owner}/{identifier}/upstream/swift/{slug_perm}/",
 								"parts": []any{
@@ -28003,7 +27796,6 @@ func MakeConfig() map[string]any {
 								"index$": 0,
 							},
 						},
-						"key$": "update",
 					},
 				},
 				"relations": map[string]any{
@@ -28153,6 +27945,7 @@ func MakeConfig() map[string]any {
 										},
 									},
 								},
+								"kind": "http",
 								"method": "GET",
 								"orig": "/user/tokens/",
 								"parts": []any{
@@ -28168,12 +27961,11 @@ func MakeConfig() map[string]any {
 								},
 								"transform": map[string]any{
 									"req": "`reqdata`",
-									"res": "`body`",
+									"res": "`body.results`",
 								},
 								"index$": 0,
 							},
 						},
-						"key$": "list",
 					},
 				},
 				"relations": map[string]any{
@@ -28202,6 +27994,7 @@ func MakeConfig() map[string]any {
 										},
 									},
 								},
+								"kind": "http",
 								"method": "POST",
 								"orig": "/user/token/",
 								"parts": []any{
@@ -28220,7 +28013,6 @@ func MakeConfig() map[string]any {
 								"index$": 0,
 							},
 						},
-						"key$": "create",
 					},
 				},
 				"relations": map[string]any{
@@ -28260,6 +28052,7 @@ func MakeConfig() map[string]any {
 							map[string]any{
 								"active": true,
 								"args": map[string]any{},
+								"kind": "http",
 								"method": "POST",
 								"orig": "/user/tokens/",
 								"parts": []any{
@@ -28274,7 +28067,6 @@ func MakeConfig() map[string]any {
 								"index$": 0,
 							},
 						},
-						"key$": "create",
 					},
 					"update": map[string]any{
 						"input": "data",
@@ -28295,6 +28087,7 @@ func MakeConfig() map[string]any {
 										},
 									},
 								},
+								"kind": "http",
 								"method": "PUT",
 								"orig": "/user/tokens/{slug_perm}/refresh/",
 								"parts": []any{
@@ -28315,7 +28108,6 @@ func MakeConfig() map[string]any {
 								"index$": 0,
 							},
 						},
-						"key$": "update",
 					},
 				},
 				"relations": map[string]any{
@@ -28387,6 +28179,7 @@ func MakeConfig() map[string]any {
 							map[string]any{
 								"active": true,
 								"args": map[string]any{},
+								"kind": "http",
 								"method": "GET",
 								"orig": "/user/self/",
 								"parts": []any{
@@ -28401,7 +28194,6 @@ func MakeConfig() map[string]any {
 								"index$": 0,
 							},
 						},
-						"key$": "load",
 					},
 				},
 				"relations": map[string]any{
@@ -28502,6 +28294,7 @@ func MakeConfig() map[string]any {
 										},
 									},
 								},
+								"kind": "http",
 								"method": "GET",
 								"orig": "/users/profile/{slug}/",
 								"parts": []any{
@@ -28526,7 +28319,6 @@ func MakeConfig() map[string]any {
 								"index$": 0,
 							},
 						},
-						"key$": "load",
 					},
 				},
 				"relations": map[string]any{
@@ -28580,7 +28372,7 @@ func MakeConfig() map[string]any {
 					},
 					map[string]any{
 						"active": true,
-						"name": "has_vulnerability",
+						"name": "has_vulnerabilities",
 						"req": false,
 						"type": "`$BOOLEAN`",
 						"index$": 1,
@@ -28601,7 +28393,7 @@ func MakeConfig() map[string]any {
 					},
 					map[string]any{
 						"active": true,
-						"name": "num_vulnerability",
+						"name": "num_vulnerabilities",
 						"req": false,
 						"type": "`$INTEGER`",
 						"index$": 4,
@@ -28615,7 +28407,7 @@ func MakeConfig() map[string]any {
 					},
 					map[string]any{
 						"active": true,
-						"name": "result",
+						"name": "results",
 						"req": true,
 						"type": "`$ARRAY`",
 						"index$": 6,
@@ -28699,6 +28491,7 @@ func MakeConfig() map[string]any {
 										},
 									},
 								},
+								"kind": "http",
 								"method": "GET",
 								"orig": "/vulnerabilities/{owner}/{repo}/{package}/",
 								"parts": []any{
@@ -28764,6 +28557,7 @@ func MakeConfig() map[string]any {
 										},
 									},
 								},
+								"kind": "http",
 								"method": "GET",
 								"orig": "/vulnerabilities/{owner}/{repo}/{package}/{identifier}/",
 								"parts": []any{
@@ -28829,6 +28623,7 @@ func MakeConfig() map[string]any {
 										},
 									},
 								},
+								"kind": "http",
 								"method": "GET",
 								"orig": "/vulnerabilities/{owner}/{repo}/",
 								"parts": []any{
@@ -28851,7 +28646,6 @@ func MakeConfig() map[string]any {
 								"index$": 2,
 							},
 						},
-						"key$": "list",
 					},
 					"load": map[string]any{
 						"input": "data",
@@ -28890,6 +28684,7 @@ func MakeConfig() map[string]any {
 										},
 									},
 								},
+								"kind": "http",
 								"method": "GET",
 								"orig": "/vulnerabilities/{owner}/",
 								"parts": []any{
@@ -28915,7 +28710,6 @@ func MakeConfig() map[string]any {
 								"index$": 0,
 							},
 						},
-						"key$": "load",
 					},
 				},
 				"relations": map[string]any{
@@ -28983,6 +28777,7 @@ func MakeConfig() map[string]any {
 										},
 									},
 								},
+								"kind": "http",
 								"method": "DELETE",
 								"orig": "/webhooks/{owner}/{repo}/{identifier}/",
 								"parts": []any{
@@ -29005,7 +28800,6 @@ func MakeConfig() map[string]any {
 								"index$": 0,
 							},
 						},
-						"key$": "remove",
 					},
 				},
 				"relations": map[string]any{

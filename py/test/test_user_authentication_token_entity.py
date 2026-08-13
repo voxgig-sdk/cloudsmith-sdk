@@ -6,9 +6,9 @@ import time
 
 import pytest
 
-from utility.voxgig_struct import voxgig_struct as vs
+from cloudsmith_sdk.utility.voxgig_struct import voxgig_struct as vs
 from cloudsmith_sdk import CloudsmithSDK
-from core import helpers
+from cloudsmith_sdk.core import helpers
 
 _TEST_DIR = os.path.dirname(os.path.abspath(__file__))
 from test import runner
@@ -44,7 +44,7 @@ class TestUserAuthenticationTokenEntity:
         user_authentication_token_ref01_data = helpers.to_map(vs.getprop(
             vs.getpath(setup["data"], "new.user_authentication_token"), "user_authentication_token_ref01"))
 
-        user_authentication_token_ref01_data = helpers.to_map(user_authentication_token_ref01_ent.create(user_authentication_token_ref01_data, None))
+        user_authentication_token_ref01_data = helpers.to_map(runner.entity_data(user_authentication_token_ref01_ent.create(user_authentication_token_ref01_data, None)))
         assert user_authentication_token_ref01_data is not None
 
         # UPDATE
@@ -55,7 +55,7 @@ class TestUserAuthenticationTokenEntity:
         user_authentication_token_ref01_markdef_up0_value = "Mark01-user_authentication_token_ref01_" + str(setup["now"])
         user_authentication_token_ref01_data_up0_up[user_authentication_token_ref01_markdef_up0_name] = user_authentication_token_ref01_markdef_up0_value
 
-        user_authentication_token_ref01_resdata_up0 = helpers.to_map(user_authentication_token_ref01_ent.update(user_authentication_token_ref01_data_up0_up, None))
+        user_authentication_token_ref01_resdata_up0 = helpers.to_map(runner.entity_data(user_authentication_token_ref01_ent.update(user_authentication_token_ref01_data_up0_up, None)))
         assert user_authentication_token_ref01_resdata_up0 is not None
         assert user_authentication_token_ref01_resdata_up0[user_authentication_token_ref01_markdef_up0_name] == user_authentication_token_ref01_markdef_up0_value
 

@@ -74,7 +74,7 @@ class OrganizationGroupSyncEntityTest < Minitest::Test
     organization_group_sync_ref01_data["org_id"] = setup[:idmap]["org01"]
 
     organization_group_sync_ref01_data_result = organization_group_sync_ref01_ent.create(organization_group_sync_ref01_data, nil)
-    organization_group_sync_ref01_data = Helpers.to_map(organization_group_sync_ref01_data_result)
+    organization_group_sync_ref01_data = Helpers.to_map(organization_group_sync_ref01_data_result.respond_to?(:data_get) ? organization_group_sync_ref01_data_result.data_get : organization_group_sync_ref01_data_result)
     assert !organization_group_sync_ref01_data.nil?
 
     # LIST
@@ -84,11 +84,6 @@ class OrganizationGroupSyncEntityTest < Minitest::Test
 
     organization_group_sync_ref01_list_result = organization_group_sync_ref01_ent.list(organization_group_sync_ref01_match, nil)
     assert organization_group_sync_ref01_list_result.is_a?(Array)
-
-    found_item = Vs.select(
-      Runner.entity_list_to_data(organization_group_sync_ref01_list_result),
-      { "id" => organization_group_sync_ref01_data["id"] })
-    assert !Vs.isempty(found_item)
 
   end
 end

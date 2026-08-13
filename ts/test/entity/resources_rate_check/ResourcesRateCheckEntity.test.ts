@@ -62,7 +62,7 @@ describe('ResourcesRateCheckEntity', async () => {
     // LOAD
     const resources_rate_check_ref01_ent = client.ResourcesRateCheck()
     const resources_rate_check_ref01_match_dt0: any = {}
-    const resources_rate_check_ref01_data_dt0 = await resources_rate_check_ref01_ent.load(resources_rate_check_ref01_match_dt0)
+    const resources_rate_check_ref01_data_dt0 = (await resources_rate_check_ref01_ent.load(resources_rate_check_ref01_match_dt0)).data()
     assert(null != resources_rate_check_ref01_data_dt0)
 
 

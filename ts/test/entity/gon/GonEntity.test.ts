@@ -39,7 +39,7 @@ describe('GonEntity', async () => {
   test('basic', async (t) => {
 
     const live = 'TRUE' === process.env.CLOUDSMITH_TEST_LIVE
-    for (const op of []) {
+    for (const op of ['create', 'list', 'update', 'load']) {
       if (maybeSkipControl(t, 'entityOp', 'gon.' + op, live)) return
     }
 
@@ -57,7 +57,39 @@ describe('GonEntity', async () => {
     const isempty = struct.isempty
     const select = struct.select
 
-    let gon_ref01_data = Object.values(setup.data.existing.gon)[0] as any
+
+    // CREATE
+    const gon_ref01_ent = client.Gon()
+    let gon_ref01_data = setup.data.new.gon['gon_ref01']
+    gon_ref01_data['identifier'] = setup.idmap['identifier01']
+    gon_ref01_data['owner'] = setup.idmap['owner01']
+
+    gon_ref01_data = (await gon_ref01_ent.create(gon_ref01_data)).data()
+    assert(null != gon_ref01_data)
+
+
+    // LIST
+    const gon_ref01_match: any = {}
+    gon_ref01_match['identifier'] = setup.idmap['identifier01']
+    gon_ref01_match['owner'] = setup.idmap['owner01']
+
+    const gon_ref01_list = (await gon_ref01_ent.list(gon_ref01_match)).map((e: any) => e.data())
+
+
+    // UPDATE
+    const gon_ref01_data_up0: any = {}
+    gon_ref01_data_up0 ['identifier'] = setup.idmap['identifier']
+    gon_ref01_data_up0 ['owner'] = setup.idmap['owner']
+
+    const gon_ref01_markdef_up0 = { name: 'auth_mode', value: 'Mark01-gon_ref01_' + setup.now }
+    ;(gon_ref01_data_up0 as any)[gon_ref01_markdef_up0.name] = gon_ref01_markdef_up0.value
+
+    const gon_ref01_resdata_up0 = (await gon_ref01_ent.update(gon_ref01_data_up0)).data()
+    assert(null != gon_ref01_resdata_up0)
+
+    assert((gon_ref01_resdata_up0 as any)[gon_ref01_markdef_up0.name] === gon_ref01_markdef_up0.value)
+
+
 
   })
 })
@@ -87,7 +119,7 @@ function basicSetup(extra?: any) {
   const transform = struct.transform
 
   let idmap = transform(
-    ['gon01','gon02','gon03','package01','package02','package03'],
+    ['gon01','gon02','gon03','package01','package02','package03','repo01','repo02','repo03','repo01','repo02','repo03','go01','go02','go03'],
     {
       '`$PACK`': ['', {
         '`$KEY`': '`$COPY`',

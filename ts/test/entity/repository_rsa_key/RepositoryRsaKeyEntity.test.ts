@@ -64,7 +64,7 @@ describe('RepositoryRsaKeyEntity', async () => {
     repository_rsa_key_ref01_data['identifier'] = setup.idmap['identifier01']
     repository_rsa_key_ref01_data['owner'] = setup.idmap['owner01']
 
-    repository_rsa_key_ref01_data = await repository_rsa_key_ref01_ent.create(repository_rsa_key_ref01_data)
+    repository_rsa_key_ref01_data = (await repository_rsa_key_ref01_ent.create(repository_rsa_key_ref01_data)).data()
     assert(null != repository_rsa_key_ref01_data)
 
 

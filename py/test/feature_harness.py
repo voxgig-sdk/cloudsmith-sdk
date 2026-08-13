@@ -14,12 +14,12 @@ from __future__ import annotations
 
 from urllib.parse import quote
 
-from config import make_config
-from features import _make_feature
-from core.control import CloudsmithControl
-from core.error import CloudsmithError
-from core.result import CloudsmithResult
-from core.spec import CloudsmithSpec
+from cloudsmith_sdk.config import make_config
+from cloudsmith_sdk.features import _make_feature
+from cloudsmith_sdk.core.control import CloudsmithControl
+from cloudsmith_sdk.core.error import CloudsmithError
+from cloudsmith_sdk.core.result import CloudsmithResult
+from cloudsmith_sdk.core.spec import CloudsmithSpec
 
 
 # True when this SDK was generated with the named feature.

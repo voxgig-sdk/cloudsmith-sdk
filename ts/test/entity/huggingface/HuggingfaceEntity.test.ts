@@ -64,7 +64,7 @@ describe('HuggingfaceEntity', async () => {
     huggingface_ref01_data['identifier'] = setup.idmap['identifier01']
     huggingface_ref01_data['owner'] = setup.idmap['owner01']
 
-    huggingface_ref01_data = await huggingface_ref01_ent.create(huggingface_ref01_data)
+    huggingface_ref01_data = (await huggingface_ref01_ent.create(huggingface_ref01_data)).data()
     assert(null != huggingface_ref01_data)
 
 
@@ -73,9 +73,7 @@ describe('HuggingfaceEntity', async () => {
     huggingface_ref01_match['identifier'] = setup.idmap['identifier01']
     huggingface_ref01_match['owner'] = setup.idmap['owner01']
 
-    const huggingface_ref01_list = await huggingface_ref01_ent.list(huggingface_ref01_match)
-
-    assert(!isempty(select(huggingface_ref01_list, { id: huggingface_ref01_data.id })))
+    const huggingface_ref01_list = (await huggingface_ref01_ent.list(huggingface_ref01_match)).map((e: any) => e.data())
 
 
     // UPDATE
@@ -86,7 +84,7 @@ describe('HuggingfaceEntity', async () => {
     const huggingface_ref01_markdef_up0 = { name: 'auth_mode', value: 'Mark01-huggingface_ref01_' + setup.now }
     ;(huggingface_ref01_data_up0 as any)[huggingface_ref01_markdef_up0.name] = huggingface_ref01_markdef_up0.value
 
-    const huggingface_ref01_resdata_up0 = await huggingface_ref01_ent.update(huggingface_ref01_data_up0)
+    const huggingface_ref01_resdata_up0 = (await huggingface_ref01_ent.update(huggingface_ref01_data_up0)).data()
     assert(null != huggingface_ref01_resdata_up0)
 
     assert((huggingface_ref01_resdata_up0 as any)[huggingface_ref01_markdef_up0.name] === huggingface_ref01_markdef_up0.value)

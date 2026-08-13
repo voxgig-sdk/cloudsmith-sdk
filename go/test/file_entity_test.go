@@ -60,7 +60,7 @@ func TestFileEntity(t *testing.T) {
 		if err != nil {
 			t.Fatalf("create failed: %v", err)
 		}
-		fileRef01Data = core.ToMapAny(fileRef01DataResult)
+		fileRef01Data = core.ToMapAny(entityData(fileRef01DataResult))
 		if fileRef01Data == nil {
 			t.Fatal("expected create result to be a map")
 		}

@@ -59,7 +59,7 @@ func TestUserAuthenticationTokenEntity(t *testing.T) {
 		if err != nil {
 			t.Fatalf("create failed: %v", err)
 		}
-		userAuthenticationTokenRef01Data = core.ToMapAny(userAuthenticationTokenRef01DataResult)
+		userAuthenticationTokenRef01Data = core.ToMapAny(entityData(userAuthenticationTokenRef01DataResult))
 		if userAuthenticationTokenRef01Data == nil {
 			t.Fatal("expected create result to be a map")
 		}
@@ -76,7 +76,7 @@ func TestUserAuthenticationTokenEntity(t *testing.T) {
 		if err != nil {
 			t.Fatalf("update failed: %v", err)
 		}
-		userAuthenticationTokenRef01ResdataUp0 := core.ToMapAny(userAuthenticationTokenRef01ResdataUp0Result)
+		userAuthenticationTokenRef01ResdataUp0 := core.ToMapAny(entityData(userAuthenticationTokenRef01ResdataUp0Result))
 		if userAuthenticationTokenRef01ResdataUp0 == nil {
 			t.Fatal("expected update result to be a map")
 		}

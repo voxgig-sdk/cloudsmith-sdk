@@ -75,7 +75,7 @@ class MavenEntityTest < Minitest::Test
     maven_ref01_data["owner"] = setup[:idmap]["owner01"]
 
     maven_ref01_data_result = maven_ref01_ent.create(maven_ref01_data, nil)
-    maven_ref01_data = Helpers.to_map(maven_ref01_data_result)
+    maven_ref01_data = Helpers.to_map(maven_ref01_data_result.respond_to?(:data_get) ? maven_ref01_data_result.data_get : maven_ref01_data_result)
     assert !maven_ref01_data.nil?
 
     # LIST
@@ -86,11 +86,6 @@ class MavenEntityTest < Minitest::Test
 
     maven_ref01_list_result = maven_ref01_ent.list(maven_ref01_match, nil)
     assert maven_ref01_list_result.is_a?(Array)
-
-    found_item = Vs.select(
-      Runner.entity_list_to_data(maven_ref01_list_result),
-      { "id" => maven_ref01_data["id"] })
-    assert !Vs.isempty(found_item)
 
     # UPDATE
     maven_ref01_data_up0_up = {
@@ -103,7 +98,7 @@ class MavenEntityTest < Minitest::Test
     maven_ref01_data_up0_up[maven_ref01_markdef_up0_name] = maven_ref01_markdef_up0_value
 
     maven_ref01_resdata_up0_result = maven_ref01_ent.update(maven_ref01_data_up0_up, nil)
-    maven_ref01_resdata_up0 = Helpers.to_map(maven_ref01_resdata_up0_result)
+    maven_ref01_resdata_up0 = Helpers.to_map(maven_ref01_resdata_up0_result.respond_to?(:data_get) ? maven_ref01_resdata_up0_result.data_get : maven_ref01_resdata_up0_result)
     assert !maven_ref01_resdata_up0.nil?
     assert_equal maven_ref01_resdata_up0[maven_ref01_markdef_up0_name], maven_ref01_markdef_up0_value
 

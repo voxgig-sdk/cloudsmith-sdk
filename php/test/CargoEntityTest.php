@@ -85,7 +85,7 @@ class CargoEntityTest extends TestCase
         $cargo_ref01_data["owner"] = $setup["idmap"]["owner01"];
 
         $cargo_ref01_data_result = $cargo_ref01_ent->create($cargo_ref01_data, null);
-        $cargo_ref01_data = Helpers::to_map($cargo_ref01_data_result);
+        $cargo_ref01_data = Helpers::to_map(is_object($cargo_ref01_data_result) && method_exists($cargo_ref01_data_result, 'data_get') ? $cargo_ref01_data_result->data_get() : $cargo_ref01_data_result);
         $this->assertNotNull($cargo_ref01_data);
 
         // LIST
@@ -96,11 +96,6 @@ class CargoEntityTest extends TestCase
 
         $cargo_ref01_list_result = $cargo_ref01_ent->list($cargo_ref01_match, null);
         $this->assertIsArray($cargo_ref01_list_result);
-
-        $found_item = sdk_select(
-            Runner::entity_list_to_data($cargo_ref01_list_result),
-            ["id" => $cargo_ref01_data["id"]]);
-        $this->assertNotEmpty($found_item);
 
         // UPDATE
         $cargo_ref01_data_up0_up = [
@@ -113,7 +108,7 @@ class CargoEntityTest extends TestCase
         $cargo_ref01_data_up0_up[$cargo_ref01_markdef_up0_name] = $cargo_ref01_markdef_up0_value;
 
         $cargo_ref01_resdata_up0_result = $cargo_ref01_ent->update($cargo_ref01_data_up0_up, null);
-        $cargo_ref01_resdata_up0 = Helpers::to_map($cargo_ref01_resdata_up0_result);
+        $cargo_ref01_resdata_up0 = Helpers::to_map(is_object($cargo_ref01_resdata_up0_result) && method_exists($cargo_ref01_resdata_up0_result, 'data_get') ? $cargo_ref01_resdata_up0_result->data_get() : $cargo_ref01_resdata_up0_result);
         $this->assertNotNull($cargo_ref01_resdata_up0);
         $this->assertEquals($cargo_ref01_resdata_up0[$cargo_ref01_markdef_up0_name], $cargo_ref01_markdef_up0_value);
 

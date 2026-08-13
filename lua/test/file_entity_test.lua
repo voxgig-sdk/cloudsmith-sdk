@@ -43,7 +43,7 @@ describe("FileEntity", function()
 
     local file_ref01_data_result, err = file_ref01_ent:create(file_ref01_data, nil)
     assert.is_nil(err)
-    file_ref01_data = helpers.to_map(file_ref01_data_result)
+    file_ref01_data = helpers.to_map(type(file_ref01_data_result) == 'table' and file_ref01_data_result.data_get and file_ref01_data_result:data_get() or file_ref01_data_result)
     assert.is_not_nil(file_ref01_data)
 
   end)

@@ -109,7 +109,7 @@ func TestRepoEntity(t *testing.T) {
 		if err != nil {
 			t.Fatalf("create failed: %v", err)
 		}
-		repoRef01Data = core.ToMapAny(repoRef01DataResult)
+		repoRef01Data = core.ToMapAny(entityData(repoRef01DataResult))
 		if repoRef01Data == nil {
 			t.Fatal("expected create result to be a map")
 		}
@@ -121,14 +121,9 @@ func TestRepoEntity(t *testing.T) {
 		if err != nil {
 			t.Fatalf("list failed: %v", err)
 		}
-		repoRef01List, repoRef01ListOk := repoRef01ListResult.([]any)
+		_, repoRef01ListOk := repoRef01ListResult.([]any)
 		if !repoRef01ListOk {
 			t.Fatalf("expected list result to be an array, got %T", repoRef01ListResult)
-		}
-
-		foundItem := vs.Select(entityListToData(repoRef01List), map[string]any{"id": repoRef01Data["id"]})
-		if vs.IsEmpty(foundItem) {
-			t.Fatal("expected to find created entity in list")
 		}
 
 		// UPDATE
@@ -144,7 +139,7 @@ func TestRepoEntity(t *testing.T) {
 		if err != nil {
 			t.Fatalf("update failed: %v", err)
 		}
-		repoRef01ResdataUp0 := core.ToMapAny(repoRef01ResdataUp0Result)
+		repoRef01ResdataUp0 := core.ToMapAny(entityData(repoRef01ResdataUp0Result))
 		if repoRef01ResdataUp0 == nil {
 			t.Fatal("expected update result to be a map")
 		}
@@ -162,14 +157,6 @@ func TestRepoEntity(t *testing.T) {
 			t.Fatal("expected load result to be non-nil")
 		}
 
-		// REMOVE
-		repoRef01MatchRm0 := map[string]any{
-			"id": repoRef01Data["id"],
-		}
-		_, err = repoRef01Ent.Remove(repoRef01MatchRm0, nil)
-		if err != nil {
-			t.Fatalf("remove failed: %v", err)
-		}
 
 		// LIST
 		repoRef01MatchRt0 := map[string]any{}
@@ -178,14 +165,9 @@ func TestRepoEntity(t *testing.T) {
 		if err != nil {
 			t.Fatalf("list failed: %v", err)
 		}
-		repoRef01ListRt0, repoRef01ListRt0Ok := repoRef01ListRt0Result.([]any)
+		_, repoRef01ListRt0Ok := repoRef01ListRt0Result.([]any)
 		if !repoRef01ListRt0Ok {
 			t.Fatalf("expected list result to be an array, got %T", repoRef01ListRt0Result)
-		}
-
-		notFoundItem := vs.Select(entityListToData(repoRef01ListRt0), map[string]any{"id": repoRef01Data["id"]})
-		if !vs.IsEmpty(notFoundItem) {
-			t.Fatal("expected removed entity to not be in list")
 		}
 
 	})

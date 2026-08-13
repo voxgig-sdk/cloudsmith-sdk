@@ -42,7 +42,7 @@ client = CloudsmithSDK({
 ### 3. Load a cargo
 
 Cargo is nested under identifier, so provide the `identifier`.
-`load()` returns the bare record (a `dict`) and raises on error.
+`load()` returns the ENTITY — call data_get() for the record — and raises on error.
 
 ```python
 try:
@@ -59,8 +59,8 @@ Entity operations raise on failure, so wrap them in `try` / `except`:
 
 ```python
 try:
-    cargos = client.Cargo().list()
-    print(cargos)
+    vulnerabilitys = client.Vulnerability().list()
+    print(vulnerabilitys)
 except Exception as err:
     print(f"list failed: {err}")
 ```
@@ -126,9 +126,10 @@ Create a mock client for unit testing — no server required:
 ```python
 client = CloudsmithSDK.test()
 
-# Entity ops return the bare record and raise on error.
-cargo = client.Cargo().list()
-# cargo contains the mock response record
+# Entity ops return the ENTITY and raises on error;
+# call data_get() for the record.
+vulnerability = client.Vulnerability().list()
+# vulnerability contains the mock response record
 ```
 
 ### Use a custom fetch function
@@ -235,14 +236,6 @@ Creates a test-mode client with mock transport. Both arguments may be `None`.
 | `Format` | `(data) -> FormatEntity` | Create a Format entity instance. |
 | `Geoip` | `(data) -> GeoipEntity` | Create a Geoip entity instance. |
 | `Gon` | `(data) -> GonEntity` | Create a Gon entity instance. |
-| `Gon2` | `(data) -> Gon2Entity` | Create a Gon2 entity instance. |
-| `Gon3` | `(data) -> Gon3Entity` | Create a Gon3 entity instance. |
-| `Gon4` | `(data) -> Gon4Entity` | Create a Gon4 entity instance. |
-| `Gon5` | `(data) -> Gon5Entity` | Create a Gon5 entity instance. |
-| `Gon6` | `(data) -> Gon6Entity` | Create a Gon6 entity instance. |
-| `Gon7` | `(data) -> Gon7Entity` | Create a Gon7 entity instance. |
-| `Gon8` | `(data) -> Gon8Entity` | Create a Gon8 entity instance. |
-| `Gon9` | `(data) -> Gon9Entity` | Create a Gon9 entity instance. |
 | `Gpg` | `(data) -> GpgEntity` | Create a Gpg entity instance. |
 | `Group` | `(data) -> GroupEntity` | Create a Group entity instance. |
 | `Helm` | `(data) -> HelmEntity` | Create a Helm entity instance. |
@@ -277,7 +270,6 @@ Creates a test-mode client with mock transport. Both arguments may be `None`.
 | `OrganizationTeamMember` | `(data) -> OrganizationTeamMemberEntity` | Create an OrganizationTeamMember entity instance. |
 | `Oss` | `(data) -> OssEntity` | Create an Oss entity instance. |
 | `P2n` | `(data) -> P2nEntity` | Create a P2n entity instance. |
-| `P2n2` | `(data) -> P2n2Entity` | Create a P2n2 entity instance. |
 | `Package` | `(data) -> PackageEntity` | Create a Package entity instance. |
 | `PackageDenyPolicy` | `(data) -> PackageDenyPolicyEntity` | Create a PackageDenyPolicy entity instance. |
 | `PackageFilePartsUpload` | `(data) -> PackageFilePartsUploadEntity` | Create a PackageFilePartsUpload entity instance. |
@@ -367,7 +359,7 @@ All entities share the same interface.
 
 ### Result shape
 
-Entity operations return the bare result data (a `dict` for single-entity
+Entity operations return the ENTITY (call data_get() for the record) (a `dict` for single-entity
 ops, a `list` for `list`) and raise on error. Wrap calls in
 `try`/`except` to handle failures.
 
@@ -602,7 +594,7 @@ API path: `/repos/{owner}/{identifier}/upstream/dart/`
 | `component` |  |
 | `created_at` |  |
 | `disable_reason` |  |
-| `distro_version` |  |
+| `distro_versions` |  |
 | `extra_header_1` |  |
 | `extra_header_2` |  |
 | `extra_value_1` |  |
@@ -610,7 +602,7 @@ API path: `/repos/{owner}/{identifier}/upstream/dart/`
 | `gpg_key_inline` |  |
 | `gpg_key_url` |  |
 | `gpg_verification` |  |
-| `include_source` |  |
+| `include_sources` |  |
 | `is_active` |  |
 | `mode` |  |
 | `name` |  |
@@ -663,8 +655,8 @@ API path: ``
 | `name` |  |
 | `self_url` |  |
 | `slug` |  |
-| `variant` |  |
-| `version` |  |
+| `variants` |  |
+| `versions` |  |
 
 Operations: List, Load.
 
@@ -739,7 +731,11 @@ API path: ``
 
 | Field | Description |
 | --- | --- |
-| `token` |  |
+| `active` |  |
+| `bandwidth` |  |
+| `downloads` |  |
+| `inactive` |  |
+| `total` |  |
 
 Operations: Create, Load, Remove.
 
@@ -768,14 +764,14 @@ API path: `/files/{owner}/{repo}/{identifier}/abort/`
 | Field | Description |
 | --- | --- |
 | `description` |  |
-| `distribution` |  |
-| `extension` |  |
+| `distributions` |  |
+| `extensions` |  |
 | `name` |  |
 | `premium` |  |
 | `premium_plan_id` |  |
 | `premium_plan_name` |  |
 | `slug` |  |
-| `support` |  |
+| `supports` |  |
 
 Operations: List, Load.
 
@@ -794,24 +790,6 @@ API path: ``
 
 | Field | Description |
 | --- | --- |
-
-Operations: .
-
-API path: ``
-
-#### Gon2
-
-| Field | Description |
-| --- | --- |
-
-Operations: .
-
-API path: ``
-
-#### Gon3
-
-| Field | Description |
-| --- | --- |
 | `auth_mode` |  |
 | `auth_secret` |  |
 | `auth_username` |  |
@@ -831,117 +809,9 @@ API path: ``
 | `upstream_url` |  |
 | `verify_ssl` |  |
 
-Operations: List.
+Operations: Create, List, Load, Patch, Update.
 
 API path: `/repos/{owner}/{identifier}/upstream/go/`
-
-#### Gon4
-
-| Field | Description |
-| --- | --- |
-
-Operations: .
-
-API path: ``
-
-#### Gon5
-
-| Field | Description |
-| --- | --- |
-
-Operations: Create.
-
-API path: `/repos/{owner}/{identifier}/upstream/go/`
-
-#### Gon6
-
-| Field | Description |
-| --- | --- |
-| `auth_mode` |  |
-| `auth_secret` |  |
-| `auth_username` |  |
-| `created_at` |  |
-| `disable_reason` |  |
-| `extra_header_1` |  |
-| `extra_header_2` |  |
-| `extra_value_1` |  |
-| `extra_value_2` |  |
-| `is_active` |  |
-| `mode` |  |
-| `name` |  |
-| `pending_validation` |  |
-| `priority` |  |
-| `slug_perm` |  |
-| `updated_at` |  |
-| `upstream_url` |  |
-| `verify_ssl` |  |
-
-Operations: Load.
-
-API path: `/repos/{owner}/{identifier}/upstream/go/{slug_perm}/`
-
-#### Gon7
-
-| Field | Description |
-| --- | --- |
-
-Operations: .
-
-API path: ``
-
-#### Gon8
-
-| Field | Description |
-| --- | --- |
-| `auth_mode` |  |
-| `auth_secret` |  |
-| `auth_username` |  |
-| `created_at` |  |
-| `disable_reason` |  |
-| `extra_header_1` |  |
-| `extra_header_2` |  |
-| `extra_value_1` |  |
-| `extra_value_2` |  |
-| `is_active` |  |
-| `mode` |  |
-| `name` |  |
-| `pending_validation` |  |
-| `priority` |  |
-| `slug_perm` |  |
-| `updated_at` |  |
-| `upstream_url` |  |
-| `verify_ssl` |  |
-
-Operations: Update.
-
-API path: `/repos/{owner}/{identifier}/upstream/go/{slug_perm}/`
-
-#### Gon9
-
-| Field | Description |
-| --- | --- |
-| `auth_mode` |  |
-| `auth_secret` |  |
-| `auth_username` |  |
-| `created_at` |  |
-| `disable_reason` |  |
-| `extra_header_1` |  |
-| `extra_header_2` |  |
-| `extra_value_1` |  |
-| `extra_value_2` |  |
-| `is_active` |  |
-| `mode` |  |
-| `name` |  |
-| `pending_validation` |  |
-| `priority` |  |
-| `slug_perm` |  |
-| `updated_at` |  |
-| `upstream_url` |  |
-| `verify_ssl` |  |
-
-Operations: Update.
-
-API path: `/repos/{owner}/{identifier}/upstream/go/{slug_perm}/`
 
 #### Gpg
 
@@ -1257,11 +1127,11 @@ API path: ``
 | `name` |  |
 | `package` |  |
 | `policy` |  |
-| `reason` |  |
+| `reasons` |  |
 | `slug` |  |
 | `slug_perm` |  |
 | `tagline` |  |
-| `vulnerability_scan_result` |  |
+| `vulnerability_scan_results` |  |
 
 Operations: Create, List, Load, Remove, Update.
 
@@ -1302,7 +1172,7 @@ API path: `/orgs/{org}/saml-group-sync/status/`
 | `org` |  |
 | `role` |  |
 | `slug_perm` |  |
-| `team` |  |
+| `teams` |  |
 | `user` |  |
 | `user_url` |  |
 
@@ -1321,7 +1191,7 @@ API path: `/orgs/{org}/invites/`
 | `org` |  |
 | `role` |  |
 | `slug_perm` |  |
-| `team` |  |
+| `teams` |  |
 | `user` |  |
 | `user_url` |  |
 
@@ -1394,14 +1264,14 @@ API path: `/orgs/{org}/members/{member}/update-visibility/`
 
 | Field | Description |
 | --- | --- |
-| `allow_unknown_license` |  |
+| `allow_unknown_licenses` |  |
 | `created_at` |  |
 | `description` |  |
 | `name` |  |
 | `on_violation_quarantine` |  |
 | `package_query_string` |  |
 | `slug_perm` |  |
-| `spdx_identifier` |  |
+| `spdx_identifiers` |  |
 | `updated_at` |  |
 
 Operations: Create, List, Load, Patch, Update.
@@ -1482,21 +1352,14 @@ Operations: .
 
 API path: ``
 
-#### P2n2
-
-| Field | Description |
-| --- | --- |
-
-Operations: .
-
-API path: ``
-
 #### Package
 
 | Field | Description |
 | --- | --- |
-| `architecture` |  |
+| `active` |  |
+| `architectures` |  |
 | `backend_kind` |  |
+| `bandwidth` |  |
 | `cdn_url` |  |
 | `checksum_md5` |  |
 | `checksum_sha1` |  |
@@ -1510,17 +1373,18 @@ API path: ``
 | `display_name` |  |
 | `distro` |  |
 | `distro_version` |  |
-| `download` |  |
+| `downloads` |  |
 | `epoch` |  |
 | `extension` |  |
-| `file` |  |
 | `filename` |  |
+| `files` |  |
 | `format` |  |
 | `format_url` |  |
 | `freeable_storage` |  |
 | `fully_qualified_name` |  |
-| `identifier` |  |
 | `identifier_perm` |  |
+| `identifiers` |  |
+| `inactive` |  |
 | `indexed` |  |
 | `is_cancellable` |  |
 | `is_copyable` |  |
@@ -1541,12 +1405,11 @@ API path: ``
 | `name` |  |
 | `namespace` |  |
 | `namespace_url` |  |
-| `num_download` |  |
-| `num_file` |  |
+| `num_downloads` |  |
+| `num_files` |  |
 | `operator` |  |
 | `origin_repository` |  |
 | `origin_repository_url` |  |
-| `package` |  |
 | `package_type` |  |
 | `policy_violated` |  |
 | `release` |  |
@@ -1574,8 +1437,9 @@ API path: ``
 | `summary` |  |
 | `sync_finished_at` |  |
 | `sync_progress` |  |
-| `tag` |  |
+| `tags` |  |
 | `tags_immutable` |  |
+| `total` |  |
 | `type_display` |  |
 | `uploaded_at` |  |
 | `uploader` |  |
@@ -1631,12 +1495,19 @@ API path: `/files/{owner}/{repo}/{identifier}/complete/`
 
 | Field | Description |
 | --- | --- |
+| `allow_unknown_licenses` |  |
 | `created_at` |  |
+| `description` |  |
 | `evaluation_count` |  |
+| `name` |  |
+| `on_violation_quarantine` |  |
+| `package_query_string` |  |
 | `policy` |  |
 | `slug_perm` |  |
+| `spdx_identifiers` |  |
 | `status` |  |
 | `updated_at` |  |
+| `url` |  |
 | `violation_count` |  |
 
 Operations: Create, List, Load.
@@ -1656,12 +1527,19 @@ API path: `/badges/version/{owner}/{repo}/{package_format}/{package_name}/{packa
 
 | Field | Description |
 | --- | --- |
+| `allow_unknown_severity` |  |
 | `created_at` |  |
+| `description` |  |
 | `evaluation_count` |  |
+| `min_severity` |  |
+| `name` |  |
+| `on_violation_quarantine` |  |
+| `package_query_string` |  |
 | `policy` |  |
 | `slug_perm` |  |
 | `status` |  |
 | `updated_at` |  |
+| `url` |  |
 | `violation_count` |  |
 
 Operations: Create, List, Load.
@@ -1690,12 +1568,12 @@ API path: ``
 
 | Field | Description |
 | --- | --- |
-| `claim` |  |
+| `claims` |  |
 | `enabled` |  |
 | `mapping_claim` |  |
 | `name` |  |
 | `provider_url` |  |
-| `service_account` |  |
+| `service_accounts` |  |
 | `slug` |  |
 | `slug_perm` |  |
 
@@ -1707,13 +1585,13 @@ API path: `/orgs/{org}/openid-connect/`
 
 | Field | Description |
 | --- | --- |
-| `claim` |  |
-| `dynamic_mapping` |  |
+| `claims` |  |
+| `dynamic_mappings` |  |
 | `enabled` |  |
 | `mapping_claim` |  |
 | `name` |  |
 | `provider_url` |  |
-| `service_account` |  |
+| `service_accounts` |  |
 | `slug` |  |
 | `slug_perm` |  |
 
@@ -1761,8 +1639,9 @@ API path: ``
 
 | Field | Description |
 | --- | --- |
+| `display` |  |
 | `history` |  |
-| `usage` |  |
+| `raw` |  |
 
 Operations: Load.
 
@@ -1803,49 +1682,49 @@ API path: ``
 | `content_kind` |  |
 | `contextual_auth_realm` |  |
 | `copy_own` |  |
-| `copy_package` |  |
+| `copy_packages` |  |
 | `cosign_signing_enabled` |  |
 | `created_at` |  |
 | `default_privilege` |  |
 | `delete_own` |  |
-| `delete_package` |  |
+| `delete_packages` |  |
 | `deleted_at` |  |
 | `description` |  |
-| `distribute` |  |
+| `distributes` |  |
 | `docker_refresh_tokens_enabled` |  |
-| `ecdsa_key` |  |
+| `ecdsa_keys` |  |
 | `enforce_eula` |  |
-| `gpg_key` |  |
-| `index_file` |  |
+| `gpg_keys` |  |
+| `index_files` |  |
 | `is_open_source` |  |
 | `is_private` |  |
 | `is_public` |  |
 | `manage_entitlements_privilege` |  |
 | `move_own` |  |
-| `move_package` |  |
+| `move_packages` |  |
 | `name` |  |
 | `namespace` |  |
 | `namespace_url` |  |
 | `nuget_native_signing_enabled` |  |
-| `num_download` |  |
-| `num_policy_violated_package` |  |
-| `num_quarantined_package` |  |
+| `num_downloads` |  |
+| `num_policy_violated_packages` |  |
+| `num_quarantined_packages` |  |
 | `open_source_license` |  |
 | `open_source_project_url` |  |
 | `package_count` |  |
 | `package_group_count` |  |
-| `proxy_npmj` |  |
+| `proxy_npmjs` |  |
 | `proxy_pypi` |  |
 | `raw_package_index_enabled` |  |
 | `raw_package_index_signatures_enabled` |  |
-| `replace_package` |  |
+| `replace_packages` |  |
 | `replace_packages_by_default` |  |
 | `repository_type` |  |
 | `repository_type_str` |  |
 | `resync_own` |  |
-| `resync_package` |  |
+| `resync_packages` |  |
 | `scan_own` |  |
-| `scan_package` |  |
+| `scan_packages` |  |
 | `self_html_url` |  |
 | `self_url` |  |
 | `show_setup_all` |  |
@@ -1856,14 +1735,14 @@ API path: ``
 | `storage_region` |  |
 | `strict_npm_validation` |  |
 | `tag_pre_releases_as_latest` |  |
-| `use_debian_label` |  |
+| `use_debian_labels` |  |
 | `use_default_cargo_upstream` |  |
 | `use_entitlements_privilege` |  |
-| `use_noarch_package` |  |
-| `use_source_package` |  |
+| `use_noarch_packages` |  |
+| `use_source_packages` |  |
 | `use_vulnerability_scanning` |  |
 | `user_entitlements_enabled` |  |
-| `view_statistic` |  |
+| `view_statistics` |  |
 
 Operations: Create, List, Load, Patch, Remove, Update.
 
@@ -2003,19 +1882,19 @@ API path: `/repos/{owner}/{identifier}/rsa/`
 
 | Field | Description |
 | --- | --- |
-| `client` |  |
+| `clients` |  |
 | `created_at` |  |
 | `created_by` |  |
 | `created_by_url` |  |
 | `default` |  |
 | `disable_url` |  |
-| `download` |  |
+| `downloads` |  |
 | `enable_url` |  |
 | `eula_accepted` |  |
 | `eula_accepted_at` |  |
 | `eula_accepted_from` |  |
 | `eula_required` |  |
-| `has_limit` |  |
+| `has_limits` |  |
 | `identifier` |  |
 | `is_active` |  |
 | `is_limited` |  |
@@ -2023,8 +1902,8 @@ API path: `/repos/{owner}/{identifier}/rsa/`
 | `limit_bandwidth_unit` |  |
 | `limit_date_range_from` |  |
 | `limit_date_range_to` |  |
-| `limit_num_client` |  |
-| `limit_num_download` |  |
+| `limit_num_clients` |  |
+| `limit_num_downloads` |  |
 | `limit_package_query` |  |
 | `limit_path_query` |  |
 | `metadata` |  |
@@ -2051,19 +1930,19 @@ API path: `/entitlements/{owner}/{repo}/`
 
 | Field | Description |
 | --- | --- |
-| `client` |  |
+| `clients` |  |
 | `created_at` |  |
 | `created_by` |  |
 | `created_by_url` |  |
 | `default` |  |
 | `disable_url` |  |
-| `download` |  |
+| `downloads` |  |
 | `enable_url` |  |
 | `eula_accepted` |  |
 | `eula_accepted_at` |  |
 | `eula_accepted_from` |  |
 | `eula_required` |  |
-| `has_limit` |  |
+| `has_limits` |  |
 | `identifier` |  |
 | `is_active` |  |
 | `is_limited` |  |
@@ -2071,8 +1950,8 @@ API path: `/entitlements/{owner}/{repo}/`
 | `limit_bandwidth_unit` |  |
 | `limit_date_range_from` |  |
 | `limit_date_range_to` |  |
-| `limit_num_client` |  |
-| `limit_num_download` |  |
+| `limit_num_clients` |  |
+| `limit_num_downloads` |  |
 | `limit_package_query` |  |
 | `limit_path_query` |  |
 | `metadata` |  |
@@ -2099,7 +1978,7 @@ API path: `/entitlements/{owner}/{repo}/{identifier}/refresh/`
 
 | Field | Description |
 | --- | --- |
-| `token` |  |
+| `tokens` |  |
 
 Operations: Create.
 
@@ -2115,6 +1994,7 @@ API path: `/entitlements/{owner}/{repo}/sync/`
 | `disable_reason` |  |
 | `disable_reason_str` |  |
 | `event` |  |
+| `events` |  |
 | `identifier` |  |
 | `is_active` |  |
 | `is_last_response_bad` |  |
@@ -2132,6 +2012,7 @@ API path: `/entitlements/{owner}/{repo}/sync/`
 | `slug_perm` |  |
 | `target_url` |  |
 | `template` |  |
+| `templates` |  |
 | `updated_at` |  |
 | `updated_by` |  |
 | `updated_by_url` |  |
@@ -2192,7 +2073,12 @@ API path: ``
 
 | Field | Description |
 | --- | --- |
-| `resource` |  |
+| `interval` |  |
+| `limit` |  |
+| `remaining` |  |
+| `reset` |  |
+| `reset_iso_8601` |  |
+| `throttled` |  |
 
 Operations: Load.
 
@@ -2233,7 +2119,7 @@ API path: ``
 | `gpg_key_inline` |  |
 | `gpg_key_url` |  |
 | `gpg_verification` |  |
-| `include_source` |  |
+| `include_sources` |  |
 | `is_active` |  |
 | `mode` |  |
 | `name` |  |
@@ -2325,7 +2211,7 @@ API path: ``
 | `name` |  |
 | `role` |  |
 | `slug` |  |
-| `team` |  |
+| `teams` |  |
 
 Operations: Create, List, Load, Update.
 
@@ -2552,12 +2438,12 @@ API path: ``
 | Field | Description |
 | --- | --- |
 | `created_at` |  |
-| `has_vulnerability` |  |
+| `has_vulnerabilities` |  |
 | `identifier` |  |
 | `max_severity` |  |
-| `num_vulnerability` |  |
+| `num_vulnerabilities` |  |
 | `package` |  |
-| `result` |  |
+| `results` |  |
 | `scan_id` |  |
 | `target` |  |
 | `type` |  |
@@ -2672,7 +2558,7 @@ cargo = client.Cargo().load({"id": "cargo_id", "identifier": "identifier", "owne
 #### Example: List
 
 ```python
-cargos = client.Cargo().list()
+cargos = client.Cargo().list({"identifier": "example", "owner": "example"})
 ```
 
 #### Example: Create
@@ -2681,6 +2567,8 @@ cargos = client.Cargo().list()
 cargo = client.Cargo().create({
     "identifier": "example_identifier",  # Any
     "owner": "example_owner",  # Any
+    "name": "example_name",  # str
+    "upstream_url": "example_upstream_url",  # str
 })
 ```
 
@@ -2740,7 +2628,7 @@ composer = client.Composer().load({"id": "composer_id", "identifier": "identifie
 #### Example: List
 
 ```python
-composers = client.Composer().list()
+composers = client.Composer().list({"identifier": "example", "owner": "example"})
 ```
 
 #### Example: Create
@@ -2749,6 +2637,8 @@ composers = client.Composer().list()
 composer = client.Composer().create({
     "identifier": "example_identifier",  # Any
     "owner": "example_owner",  # Any
+    "name": "example_name",  # str
+    "upstream_url": "example_upstream_url",  # str
 })
 ```
 
@@ -2803,7 +2693,7 @@ conda = client.Conda().load({"id": "conda_id", "identifier": "identifier", "owne
 #### Example: List
 
 ```python
-condas = client.Conda().list()
+condas = client.Conda().list({"identifier": "example", "owner": "example"})
 ```
 
 #### Example: Create
@@ -2812,6 +2702,8 @@ condas = client.Conda().list()
 conda = client.Conda().create({
     "identifier": "example_identifier",  # Any
     "owner": "example_owner",  # Any
+    "name": "example_name",  # str
+    "upstream_url": "example_upstream_url",  # str
 })
 ```
 
@@ -2866,7 +2758,7 @@ cran = client.Cran().load({"id": "cran_id", "identifier": "identifier", "owner":
 #### Example: List
 
 ```python
-crans = client.Cran().list()
+crans = client.Cran().list({"identifier": "example", "owner": "example"})
 ```
 
 #### Example: Create
@@ -2875,6 +2767,8 @@ crans = client.Cran().list()
 cran = client.Cran().create({
     "identifier": "example_identifier",  # Any
     "owner": "example_owner",  # Any
+    "name": "example_name",  # str
+    "upstream_url": "example_upstream_url",  # str
 })
 ```
 
@@ -2924,7 +2818,7 @@ dart = client.Dart().load({"id": "dart_id", "identifier": "identifier", "owner":
 #### Example: List
 
 ```python
-darts = client.Dart().list()
+darts = client.Dart().list({"identifier": "example", "owner": "example"})
 ```
 
 #### Example: Create
@@ -2933,6 +2827,8 @@ darts = client.Dart().list()
 dart = client.Dart().create({
     "identifier": "example_identifier",  # Any
     "owner": "example_owner",  # Any
+    "name": "example_name",  # str
+    "upstream_url": "example_upstream_url",  # str
 })
 ```
 
@@ -2960,7 +2856,7 @@ Create an instance: `deb = client.Deb()`
 | `component` | `str` |  |
 | `created_at` | `str` |  |
 | `disable_reason` | `str` |  |
-| `distro_version` | `list` |  |
+| `distro_versions` | `list` |  |
 | `extra_header_1` | `str` |  |
 | `extra_header_2` | `str` |  |
 | `extra_value_1` | `str` |  |
@@ -2968,7 +2864,7 @@ Create an instance: `deb = client.Deb()`
 | `gpg_key_inline` | `str` |  |
 | `gpg_key_url` | `str` |  |
 | `gpg_verification` | `str` |  |
-| `include_source` | `bool` |  |
+| `include_sources` | `bool` |  |
 | `is_active` | `bool` |  |
 | `mode` | `str` |  |
 | `name` | `str` |  |
@@ -2990,7 +2886,7 @@ deb = client.Deb().load({"id": "deb_id", "identifier": "identifier", "owner": "o
 #### Example: List
 
 ```python
-debs = client.Deb().list()
+debs = client.Deb().list({"identifier": "example", "owner": "example"})
 ```
 
 #### Example: Create
@@ -2999,6 +2895,9 @@ debs = client.Deb().list()
 deb = client.Deb().create({
     "identifier": "example_identifier",  # Any
     "owner": "example_owner",  # Any
+    "distro_versions": [],  # list
+    "name": "example_name",  # str
+    "upstream_url": "example_upstream_url",  # str
 })
 ```
 
@@ -3038,8 +2937,8 @@ Create an instance: `distribution_full = client.DistributionFull()`
 | `name` | `str` |  |
 | `self_url` | `str` |  |
 | `slug` | `str` |  |
-| `variant` | `str` |  |
-| `version` | `list` |  |
+| `variants` | `str` |  |
+| `versions` | `list` |  |
 
 #### Example: Load
 
@@ -3104,7 +3003,7 @@ docker = client.Docker().load({"id": "docker_id", "identifier": "identifier", "o
 #### Example: List
 
 ```python
-dockers = client.Docker().list()
+dockers = client.Docker().list({"identifier": "example", "owner": "example"})
 ```
 
 #### Example: Create
@@ -3113,6 +3012,8 @@ dockers = client.Docker().list()
 docker = client.Docker().create({
     "identifier": "example_identifier",  # Any
     "owner": "example_owner",  # Any
+    "name": "example_name",  # str
+    "upstream_url": "example_upstream_url",  # str
 })
 ```
 
@@ -3144,7 +3045,7 @@ dynamic_mapping = client.DynamicMapping().load({"id": "dynamic_mapping_id", "ope
 #### Example: List
 
 ```python
-dynamic_mappings = client.DynamicMapping().list()
+dynamic_mappings = client.DynamicMapping().list({"org_id": "example", "provider_setting": "example"})
 ```
 
 
@@ -3174,7 +3075,11 @@ Create an instance: `entitlement = client.Entitlement()`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `token` | `dict` |  |
+| `active` | `int` |  |
+| `bandwidth` | `dict` |  |
+| `downloads` | `dict` |  |
+| `inactive` | `int` |  |
+| `total` | `int` |  |
 
 #### Example: Load
 
@@ -3189,6 +3094,8 @@ entitlement = client.Entitlement().create({
     "identifier": "example_identifier",  # Any
     "owner": "example_owner",  # Any
     "repo": "example_repo",  # Any
+    "bandwidth": {},  # dict
+    "downloads": {},  # dict
 })
 ```
 
@@ -3234,14 +3141,14 @@ Create an instance: `format = client.Format()`
 | Field | Type | Description |
 | --- | --- | --- |
 | `description` | `str` |  |
-| `distribution` | `list` |  |
-| `extension` | `list` |  |
+| `distributions` | `list` |  |
+| `extensions` | `list` |  |
 | `name` | `str` |  |
 | `premium` | `bool` |  |
 | `premium_plan_id` | `str` |  |
 | `premium_plan_name` | `str` |  |
 | `slug` | `str` |  |
-| `support` | `dict` |  |
+| `supports` | `dict` |  |
 
 #### Example: Load
 
@@ -3265,86 +3172,14 @@ Create an instance: `geoip = client.Geoip()`
 
 Create an instance: `gon = client.Gon()`
 
-
-### Gon2
-
-Create an instance: `gon2 = client.Gon2()`
-
-
-### Gon3
-
-Create an instance: `gon3 = client.Gon3()`
-
-#### Operations
-
-| Method | Description |
-| --- | --- |
-| `list()` | List entities, optionally matching the given criteria. |
-
-#### Fields
-
-| Field | Type | Description |
-| --- | --- | --- |
-| `auth_mode` | `str` |  |
-| `auth_secret` | `str` |  |
-| `auth_username` | `str` |  |
-| `created_at` | `str` |  |
-| `disable_reason` | `str` |  |
-| `extra_header_1` | `str` |  |
-| `extra_header_2` | `str` |  |
-| `extra_value_1` | `str` |  |
-| `extra_value_2` | `str` |  |
-| `is_active` | `bool` |  |
-| `mode` | `str` |  |
-| `name` | `str` |  |
-| `pending_validation` | `bool` |  |
-| `priority` | `int` |  |
-| `slug_perm` | `str` |  |
-| `updated_at` | `str` |  |
-| `upstream_url` | `str` |  |
-| `verify_ssl` | `bool` |  |
-
-#### Example: List
-
-```python
-gon3s = client.Gon3().list()
-```
-
-
-### Gon4
-
-Create an instance: `gon4 = client.Gon4()`
-
-
-### Gon5
-
-Create an instance: `gon5 = client.Gon5()`
-
 #### Operations
 
 | Method | Description |
 | --- | --- |
 | `create(data)` | Create a new entity with the given data. |
-
-#### Example: Create
-
-```python
-gon5 = client.Gon5().create({
-    "identifier": "example_identifier",  # Any
-    "owner": "example_owner",  # Any
-})
-```
-
-
-### Gon6
-
-Create an instance: `gon6 = client.Gon6()`
-
-#### Operations
-
-| Method | Description |
-| --- | --- |
+| `list()` | List entities, optionally matching the given criteria. |
 | `load(match)` | Load a single entity by match criteria. |
+| `update(data)` | Update an existing entity. |
 
 #### Fields
 
@@ -3372,81 +3207,25 @@ Create an instance: `gon6 = client.Gon6()`
 #### Example: Load
 
 ```python
-gon6 = client.Gon6().load({"identifier": "identifier", "owner": "owner", "slug_perm": "slug_perm"})
+gon = client.Gon().load({"identifier": "identifier", "owner": "owner", "slug_perm": "slug_perm"})
 ```
 
+#### Example: List
 
-### Gon7
+```python
+gons = client.Gon().list({"identifier": "example", "owner": "example"})
+```
 
-Create an instance: `gon7 = client.Gon7()`
+#### Example: Create
 
-
-### Gon8
-
-Create an instance: `gon8 = client.Gon8()`
-
-#### Operations
-
-| Method | Description |
-| --- | --- |
-| `update(data)` | Update an existing entity. |
-
-#### Fields
-
-| Field | Type | Description |
-| --- | --- | --- |
-| `auth_mode` | `str` |  |
-| `auth_secret` | `str` |  |
-| `auth_username` | `str` |  |
-| `created_at` | `str` |  |
-| `disable_reason` | `str` |  |
-| `extra_header_1` | `str` |  |
-| `extra_header_2` | `str` |  |
-| `extra_value_1` | `str` |  |
-| `extra_value_2` | `str` |  |
-| `is_active` | `bool` |  |
-| `mode` | `str` |  |
-| `name` | `str` |  |
-| `pending_validation` | `bool` |  |
-| `priority` | `int` |  |
-| `slug_perm` | `str` |  |
-| `updated_at` | `str` |  |
-| `upstream_url` | `str` |  |
-| `verify_ssl` | `bool` |  |
-
-
-### Gon9
-
-Create an instance: `gon9 = client.Gon9()`
-
-#### Operations
-
-| Method | Description |
-| --- | --- |
-| `update(data)` | Update an existing entity. |
-
-#### Fields
-
-| Field | Type | Description |
-| --- | --- | --- |
-| `auth_mode` | `str` |  |
-| `auth_secret` | `str` |  |
-| `auth_username` | `str` |  |
-| `created_at` | `str` |  |
-| `disable_reason` | `str` |  |
-| `extra_header_1` | `str` |  |
-| `extra_header_2` | `str` |  |
-| `extra_value_1` | `str` |  |
-| `extra_value_2` | `str` |  |
-| `is_active` | `bool` |  |
-| `mode` | `str` |  |
-| `name` | `str` |  |
-| `pending_validation` | `bool` |  |
-| `priority` | `int` |  |
-| `slug_perm` | `str` |  |
-| `updated_at` | `str` |  |
-| `upstream_url` | `str` |  |
-| `verify_ssl` | `bool` |  |
+```python
+gon = client.Gon().create({
+    "identifier": "example_identifier",  # Any
+    "owner": "example_owner",  # Any
+    "name": "example_name",  # str
+    "upstream_url": "example_upstream_url",  # str
+})
+```
 
 
 ### Gpg
@@ -3504,7 +3283,7 @@ helm = client.Helm().load({"id": "helm_id", "identifier": "identifier", "owner":
 #### Example: List
 
 ```python
-helms = client.Helm().list()
+helms = client.Helm().list({"identifier": "example", "owner": "example"})
 ```
 
 #### Example: Create
@@ -3513,6 +3292,8 @@ helms = client.Helm().list()
 helm = client.Helm().create({
     "identifier": "example_identifier",  # Any
     "owner": "example_owner",  # Any
+    "name": "example_name",  # str
+    "upstream_url": "example_upstream_url",  # str
 })
 ```
 
@@ -3562,7 +3343,7 @@ hex = client.Hex().load({"id": "hex_id", "identifier": "identifier", "owner": "o
 #### Example: List
 
 ```python
-hexs = client.Hex().list()
+hexs = client.Hex().list({"identifier": "example", "owner": "example"})
 ```
 
 #### Example: Create
@@ -3571,6 +3352,8 @@ hexs = client.Hex().list()
 hex = client.Hex().create({
     "identifier": "example_identifier",  # Any
     "owner": "example_owner",  # Any
+    "name": "example_name",  # str
+    "upstream_url": "example_upstream_url",  # str
 })
 ```
 
@@ -3625,7 +3408,7 @@ huggingface = client.Huggingface().load({"id": "huggingface_id", "identifier": "
 #### Example: List
 
 ```python
-huggingfaces = client.Huggingface().list()
+huggingfaces = client.Huggingface().list({"identifier": "example", "owner": "example"})
 ```
 
 #### Example: Create
@@ -3634,6 +3417,8 @@ huggingfaces = client.Huggingface().list()
 huggingface = client.Huggingface().create({
     "identifier": "example_identifier",  # Any
     "owner": "example_owner",  # Any
+    "name": "example_name",  # str
+    "upstream_url": "example_upstream_url",  # str
 })
 ```
 
@@ -3712,7 +3497,7 @@ maven = client.Maven().load({"id": "maven_id", "identifier": "identifier", "owne
 #### Example: List
 
 ```python
-mavens = client.Maven().list()
+mavens = client.Maven().list({"identifier": "example", "owner": "example"})
 ```
 
 #### Example: Create
@@ -3721,6 +3506,8 @@ mavens = client.Maven().list()
 maven = client.Maven().create({
     "identifier": "example_identifier",  # Any
     "owner": "example_owner",  # Any
+    "name": "example_name",  # str
+    "upstream_url": "example_upstream_url",  # str
 })
 ```
 
@@ -3851,7 +3638,7 @@ npm = client.Npm().load({"id": "npm_id", "identifier": "identifier", "owner": "o
 #### Example: List
 
 ```python
-npms = client.Npm().list()
+npms = client.Npm().list({"identifier": "example", "owner": "example"})
 ```
 
 #### Example: Create
@@ -3860,6 +3647,8 @@ npms = client.Npm().list()
 npm = client.Npm().create({
     "identifier": "example_identifier",  # Any
     "owner": "example_owner",  # Any
+    "name": "example_name",  # str
+    "upstream_url": "example_upstream_url",  # str
 })
 ```
 
@@ -3909,7 +3698,7 @@ nuget = client.Nuget().load({"id": "nuget_id", "identifier": "identifier", "owne
 #### Example: List
 
 ```python
-nugets = client.Nuget().list()
+nugets = client.Nuget().list({"identifier": "example", "owner": "example"})
 ```
 
 #### Example: Create
@@ -3918,6 +3707,8 @@ nugets = client.Nuget().list()
 nuget = client.Nuget().create({
     "identifier": "example_identifier",  # Any
     "owner": "example_owner",  # Any
+    "name": "example_name",  # str
+    "upstream_url": "example_upstream_url",  # str
 })
 ```
 
@@ -3952,11 +3743,11 @@ Create an instance: `org = client.Org()`
 | `name` | `str` |  |
 | `package` | `dict` |  |
 | `policy` | `dict` |  |
-| `reason` | `list` |  |
+| `reasons` | `list` |  |
 | `slug` | `str` |  |
 | `slug_perm` | `str` |  |
 | `tagline` | `str` |  |
-| `vulnerability_scan_result` | `dict` |  |
+| `vulnerability_scan_results` | `dict` |  |
 
 #### Example: Load
 
@@ -3975,6 +3766,11 @@ orgs = client.Org().list()
 ```python
 org = client.Org().create({
     "id": "example_id",  # str
+    "name": "example_name",  # str
+    "package": {},  # dict
+    "policy": {},  # dict
+    "reasons": [],  # list
+    "vulnerability_scan_results": {},  # dict
 })
 ```
 
@@ -4003,7 +3799,7 @@ Create an instance: `organization_group_sync = client.OrganizationGroupSync()`
 #### Example: List
 
 ```python
-organization_group_syncs = client.OrganizationGroupSync().list()
+organization_group_syncs = client.OrganizationGroupSync().list({"org_id": "example"})
 ```
 
 #### Example: Create
@@ -4011,6 +3807,9 @@ organization_group_syncs = client.OrganizationGroupSync().list()
 ```python
 organization_group_sync = client.OrganizationGroupSync().create({
     "org_id": "example_org_id",  # str
+    "idp_key": "example_idp_key",  # str
+    "idp_value": "example_idp_value",  # str
+    "team": "example_team",  # str
 })
 ```
 
@@ -4061,14 +3860,14 @@ Create an instance: `organization_invite = client.OrganizationInvite()`
 | `org` | `str` |  |
 | `role` | `str` |  |
 | `slug_perm` | `str` |  |
-| `team` | `list` |  |
+| `teams` | `list` |  |
 | `user` | `str` |  |
 | `user_url` | `str` |  |
 
 #### Example: List
 
 ```python
-organization_invites = client.OrganizationInvite().list()
+organization_invites = client.OrganizationInvite().list({"org_id": "example"})
 ```
 
 #### Example: Create
@@ -4101,7 +3900,7 @@ Create an instance: `organization_invite_extend = client.OrganizationInviteExten
 | `org` | `str` |  |
 | `role` | `str` |  |
 | `slug_perm` | `str` |  |
-| `team` | `list` |  |
+| `teams` | `list` |  |
 | `user` | `str` |  |
 | `user_url` | `str` |  |
 
@@ -4153,7 +3952,7 @@ organization_membership = client.OrganizationMembership().load({"member": "membe
 #### Example: List
 
 ```python
-organization_memberships = client.OrganizationMembership().list()
+organization_memberships = client.OrganizationMembership().list({"org_id": "example"})
 ```
 
 
@@ -4228,14 +4027,14 @@ Create an instance: `organization_package_license_policy = client.OrganizationPa
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `allow_unknown_license` | `bool` |  |
+| `allow_unknown_licenses` | `bool` |  |
 | `created_at` | `str` |  |
 | `description` | `str` |  |
 | `name` | `str` |  |
 | `on_violation_quarantine` | `bool` |  |
 | `package_query_string` | `str` |  |
 | `slug_perm` | `str` |  |
-| `spdx_identifier` | `list` |  |
+| `spdx_identifiers` | `list` |  |
 | `updated_at` | `str` |  |
 
 #### Example: Load
@@ -4247,7 +4046,7 @@ organization_package_license_policy = client.OrganizationPackageLicensePolicy().
 #### Example: List
 
 ```python
-organization_package_license_policys = client.OrganizationPackageLicensePolicy().list()
+organization_package_license_policys = client.OrganizationPackageLicensePolicy().list({"org_id": "example"})
 ```
 
 #### Example: Create
@@ -4255,6 +4054,8 @@ organization_package_license_policys = client.OrganizationPackageLicensePolicy()
 ```python
 organization_package_license_policy = client.OrganizationPackageLicensePolicy().create({
     "org_id": "example_org_id",  # str
+    "name": "example_name",  # str
+    "spdx_identifiers": [],  # list
 })
 ```
 
@@ -4295,7 +4096,7 @@ organization_package_vulnerability_policy = client.OrganizationPackageVulnerabil
 #### Example: List
 
 ```python
-organization_package_vulnerability_policys = client.OrganizationPackageVulnerabilityPolicy().list()
+organization_package_vulnerability_policys = client.OrganizationPackageVulnerabilityPolicy().list({"org_id": "example"})
 ```
 
 #### Example: Create
@@ -4303,6 +4104,7 @@ organization_package_vulnerability_policys = client.OrganizationPackageVulnerabi
 ```python
 organization_package_vulnerability_policy = client.OrganizationPackageVulnerabilityPolicy().create({
     "org_id": "example_org_id",  # str
+    "name": "example_name",  # str
 })
 ```
 
@@ -4366,7 +4168,7 @@ organization_team = client.OrganizationTeam().load({"id": "organization_team_id"
 #### Example: List
 
 ```python
-organization_teams = client.OrganizationTeam().list()
+organization_teams = client.OrganizationTeam().list({"org_id": "example"})
 ```
 
 #### Example: Create
@@ -4374,6 +4176,7 @@ organization_teams = client.OrganizationTeam().list()
 ```python
 organization_team = client.OrganizationTeam().create({
     "org_id": "example_org_id",  # str
+    "name": "example_name",  # str
 })
 ```
 
@@ -4399,7 +4202,7 @@ Create an instance: `organization_team_member = client.OrganizationTeamMember()`
 #### Example: List
 
 ```python
-organization_team_members = client.OrganizationTeamMember().list()
+organization_team_members = client.OrganizationTeamMember().list({"org_id": "example", "team_id": "example"})
 ```
 
 #### Example: Create
@@ -4408,6 +4211,8 @@ organization_team_members = client.OrganizationTeamMember().list()
 organization_team_member = client.OrganizationTeamMember().create({
     "org_id": "example_org_id",  # str
     "team_id": "example_team_id",  # str
+    "role": "example_role",  # str
+    "user": "example_user",  # str
 })
 ```
 
@@ -4420,11 +4225,6 @@ Create an instance: `oss = client.Oss()`
 ### P2n
 
 Create an instance: `p2n = client.P2n()`
-
-
-### P2n2
-
-Create an instance: `p2n2 = client.P2n2()`
 
 
 ### Package
@@ -4444,8 +4244,10 @@ Create an instance: `package = client.Package()`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `architecture` | `list` |  |
+| `active` | `int` |  |
+| `architectures` | `list` |  |
 | `backend_kind` | `int` |  |
+| `bandwidth` | `dict` |  |
 | `cdn_url` | `str` |  |
 | `checksum_md5` | `str` |  |
 | `checksum_sha1` | `str` |  |
@@ -4459,17 +4261,18 @@ Create an instance: `package = client.Package()`
 | `display_name` | `str` |  |
 | `distro` | `dict` |  |
 | `distro_version` | `dict` |  |
-| `download` | `int` |  |
+| `downloads` | `dict` |  |
 | `epoch` | `int` |  |
 | `extension` | `str` |  |
-| `file` | `list` |  |
 | `filename` | `str` |  |
+| `files` | `list` |  |
 | `format` | `str` |  |
 | `format_url` | `str` |  |
 | `freeable_storage` | `int` |  |
 | `fully_qualified_name` | `str` |  |
-| `identifier` | `dict` |  |
 | `identifier_perm` | `str` |  |
+| `identifiers` | `dict` |  |
+| `inactive` | `int` |  |
 | `indexed` | `bool` |  |
 | `is_cancellable` | `bool` |  |
 | `is_copyable` | `bool` |  |
@@ -4490,12 +4293,11 @@ Create an instance: `package = client.Package()`
 | `name` | `str` |  |
 | `namespace` | `str` |  |
 | `namespace_url` | `str` |  |
-| `num_download` | `int` |  |
-| `num_file` | `int` |  |
+| `num_downloads` | `int` |  |
+| `num_files` | `int` |  |
 | `operator` | `str` |  |
 | `origin_repository` | `str` |  |
 | `origin_repository_url` | `str` |  |
-| `package` | `dict` |  |
 | `package_type` | `int` |  |
 | `policy_violated` | `bool` |  |
 | `release` | `str` |  |
@@ -4523,8 +4325,9 @@ Create an instance: `package = client.Package()`
 | `summary` | `str` |  |
 | `sync_finished_at` | `str` |  |
 | `sync_progress` | `int` |  |
-| `tag` | `dict` |  |
+| `tags` | `dict` |  |
 | `tags_immutable` | `dict` |  |
+| `total` | `int` |  |
 | `type_display` | `str` |  |
 | `uploaded_at` | `str` |  |
 | `uploader` | `str` |  |
@@ -4542,7 +4345,7 @@ package = client.Package().load({"owner": "owner", "repo": "repo"})
 #### Example: List
 
 ```python
-packages = client.Package().list()
+packages = client.Package().list({"owner": "example", "repo": "example"})
 ```
 
 #### Example: Create
@@ -4551,6 +4354,12 @@ packages = client.Package().list()
 package = client.Package().create({
     "owner": "example_owner",  # Any
     "repo": "example_repo",  # Any
+    "bandwidth": {},  # dict
+    "count": 1,  # int
+    "distro": {},  # dict
+    "downloads": {},  # dict
+    "last_push": "example_last_push",  # str
+    "num_downloads": 1,  # int
 })
 ```
 
@@ -4591,7 +4400,7 @@ package_deny_policy = client.PackageDenyPolicy().load({"id": "package_deny_polic
 #### Example: List
 
 ```python
-package_deny_policys = client.PackageDenyPolicy().list()
+package_deny_policys = client.PackageDenyPolicy().list({"org_id": "example"})
 ```
 
 #### Example: Create
@@ -4599,6 +4408,7 @@ package_deny_policys = client.PackageDenyPolicy().list()
 ```python
 package_deny_policy = client.PackageDenyPolicy().create({
     "org_id": "example_org_id",  # str
+    "package_query_string": "example_package_query_string",  # str
 })
 ```
 
@@ -4665,12 +4475,19 @@ Create an instance: `package_license_policy_evaluation = client.PackageLicensePo
 
 | Field | Type | Description |
 | --- | --- | --- |
+| `allow_unknown_licenses` | `bool` |  |
 | `created_at` | `str` |  |
+| `description` | `str` |  |
 | `evaluation_count` | `int` |  |
+| `name` | `str` |  |
+| `on_violation_quarantine` | `bool` |  |
+| `package_query_string` | `str` |  |
 | `policy` | `dict` |  |
 | `slug_perm` | `str` |  |
+| `spdx_identifiers` | `list` |  |
 | `status` | `str` |  |
 | `updated_at` | `str` |  |
+| `url` | `str` |  |
 | `violation_count` | `int` |  |
 
 #### Example: Load
@@ -4682,7 +4499,7 @@ package_license_policy_evaluation = client.PackageLicensePolicyEvaluation().load
 #### Example: List
 
 ```python
-package_license_policy_evaluations = client.PackageLicensePolicyEvaluation().list()
+package_license_policy_evaluations = client.PackageLicensePolicyEvaluation().list({"org_id": "example", "policy_slug_perm": "example"})
 ```
 
 #### Example: Create
@@ -4691,6 +4508,8 @@ package_license_policy_evaluations = client.PackageLicensePolicyEvaluation().lis
 package_license_policy_evaluation = client.PackageLicensePolicyEvaluation().create({
     "org_id": "example_org_id",  # str
     "policy_slug_perm": "example_policy_slug_perm",  # Any
+    "policy": {},  # dict
+    "spdx_identifiers": [],  # list
 })
 ```
 
@@ -4728,12 +4547,19 @@ Create an instance: `package_vulnerability_policy_evaluation = client.PackageVul
 
 | Field | Type | Description |
 | --- | --- | --- |
+| `allow_unknown_severity` | `bool` |  |
 | `created_at` | `str` |  |
+| `description` | `str` |  |
 | `evaluation_count` | `int` |  |
+| `min_severity` | `str` |  |
+| `name` | `str` |  |
+| `on_violation_quarantine` | `bool` |  |
+| `package_query_string` | `str` |  |
 | `policy` | `dict` |  |
 | `slug_perm` | `str` |  |
 | `status` | `str` |  |
 | `updated_at` | `str` |  |
+| `url` | `str` |  |
 | `violation_count` | `int` |  |
 
 #### Example: Load
@@ -4745,7 +4571,7 @@ package_vulnerability_policy_evaluation = client.PackageVulnerabilityPolicyEvalu
 #### Example: List
 
 ```python
-package_vulnerability_policy_evaluations = client.PackageVulnerabilityPolicyEvaluation().list()
+package_vulnerability_policy_evaluations = client.PackageVulnerabilityPolicyEvaluation().list({"org_id": "example", "policy_slug_perm": "example"})
 ```
 
 #### Example: Create
@@ -4783,12 +4609,12 @@ Create an instance: `provider_setting = client.ProviderSetting()`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `claim` | `dict` |  |
+| `claims` | `dict` |  |
 | `enabled` | `bool` |  |
 | `mapping_claim` | `str` |  |
 | `name` | `str` |  |
 | `provider_url` | `str` |  |
-| `service_account` | `list` |  |
+| `service_accounts` | `list` |  |
 | `slug` | `str` |  |
 | `slug_perm` | `str` |  |
 
@@ -4801,7 +4627,7 @@ provider_setting = client.ProviderSetting().load({"org_id": "org_id", "slug_perm
 #### Example: List
 
 ```python
-provider_settings = client.ProviderSetting().list()
+provider_settings = client.ProviderSetting().list({"org_id": "example"})
 ```
 
 
@@ -4820,13 +4646,13 @@ Create an instance: `provider_settings_write = client.ProviderSettingsWrite()`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `claim` | `dict` |  |
-| `dynamic_mapping` | `list` |  |
+| `claims` | `dict` |  |
+| `dynamic_mappings` | `list` |  |
 | `enabled` | `bool` |  |
 | `mapping_claim` | `str` |  |
 | `name` | `str` |  |
 | `provider_url` | `str` |  |
-| `service_account` | `list` |  |
+| `service_accounts` | `list` |  |
 | `slug` | `str` |  |
 | `slug_perm` | `str` |  |
 
@@ -4835,6 +4661,10 @@ Create an instance: `provider_settings_write = client.ProviderSettingsWrite()`
 ```python
 provider_settings_write = client.ProviderSettingsWrite().create({
     "org_id": "example_org_id",  # str
+    "claims": {},  # dict
+    "enabled": True,  # bool
+    "name": "example_name",  # str
+    "provider_url": "example_provider_url",  # str
 })
 ```
 
@@ -4884,7 +4714,7 @@ python = client.Python().load({"id": "python_id", "identifier": "identifier", "o
 #### Example: List
 
 ```python
-pythons = client.Python().list()
+pythons = client.Python().list({"identifier": "example", "owner": "example"})
 ```
 
 #### Example: Create
@@ -4893,6 +4723,8 @@ pythons = client.Python().list()
 python = client.Python().create({
     "identifier": "example_identifier",  # Any
     "owner": "example_owner",  # Any
+    "name": "example_name",  # str
+    "upstream_url": "example_upstream_url",  # str
 })
 ```
 
@@ -4916,8 +4748,9 @@ Create an instance: `quota = client.Quota()`
 
 | Field | Type | Description |
 | --- | --- | --- |
+| `display` | `dict` |  |
 | `history` | `list` |  |
-| `usage` | `dict` |  |
+| `raw` | `dict` |  |
 
 #### Example: Load
 
@@ -4963,49 +4796,49 @@ Create an instance: `repo = client.Repo()`
 | `content_kind` | `str` |  |
 | `contextual_auth_realm` | `bool` |  |
 | `copy_own` | `bool` |  |
-| `copy_package` | `str` |  |
+| `copy_packages` | `str` |  |
 | `cosign_signing_enabled` | `bool` |  |
 | `created_at` | `str` |  |
 | `default_privilege` | `str` |  |
 | `delete_own` | `bool` |  |
-| `delete_package` | `str` |  |
+| `delete_packages` | `str` |  |
 | `deleted_at` | `str` |  |
 | `description` | `str` |  |
-| `distribute` | `list` |  |
+| `distributes` | `list` |  |
 | `docker_refresh_tokens_enabled` | `bool` |  |
-| `ecdsa_key` | `list` |  |
+| `ecdsa_keys` | `list` |  |
 | `enforce_eula` | `bool` |  |
-| `gpg_key` | `list` |  |
-| `index_file` | `bool` |  |
+| `gpg_keys` | `list` |  |
+| `index_files` | `bool` |  |
 | `is_open_source` | `bool` |  |
 | `is_private` | `bool` |  |
 | `is_public` | `bool` |  |
 | `manage_entitlements_privilege` | `str` |  |
 | `move_own` | `bool` |  |
-| `move_package` | `str` |  |
+| `move_packages` | `str` |  |
 | `name` | `str` |  |
 | `namespace` | `str` |  |
 | `namespace_url` | `str` |  |
 | `nuget_native_signing_enabled` | `bool` |  |
-| `num_download` | `int` |  |
-| `num_policy_violated_package` | `int` |  |
-| `num_quarantined_package` | `int` |  |
+| `num_downloads` | `int` |  |
+| `num_policy_violated_packages` | `int` |  |
+| `num_quarantined_packages` | `int` |  |
 | `open_source_license` | `str` |  |
 | `open_source_project_url` | `str` |  |
 | `package_count` | `int` |  |
 | `package_group_count` | `int` |  |
-| `proxy_npmj` | `bool` |  |
+| `proxy_npmjs` | `bool` |  |
 | `proxy_pypi` | `bool` |  |
 | `raw_package_index_enabled` | `bool` |  |
 | `raw_package_index_signatures_enabled` | `bool` |  |
-| `replace_package` | `str` |  |
+| `replace_packages` | `str` |  |
 | `replace_packages_by_default` | `bool` |  |
 | `repository_type` | `int` |  |
 | `repository_type_str` | `str` |  |
 | `resync_own` | `bool` |  |
-| `resync_package` | `str` |  |
+| `resync_packages` | `str` |  |
 | `scan_own` | `bool` |  |
-| `scan_package` | `str` |  |
+| `scan_packages` | `str` |  |
 | `self_html_url` | `str` |  |
 | `self_url` | `str` |  |
 | `show_setup_all` | `bool` |  |
@@ -5016,14 +4849,14 @@ Create an instance: `repo = client.Repo()`
 | `storage_region` | `str` |  |
 | `strict_npm_validation` | `bool` |  |
 | `tag_pre_releases_as_latest` | `bool` |  |
-| `use_debian_label` | `bool` |  |
+| `use_debian_labels` | `bool` |  |
 | `use_default_cargo_upstream` | `bool` |  |
 | `use_entitlements_privilege` | `str` |  |
-| `use_noarch_package` | `bool` |  |
-| `use_source_package` | `bool` |  |
+| `use_noarch_packages` | `bool` |  |
+| `use_source_packages` | `bool` |  |
 | `use_vulnerability_scanning` | `bool` |  |
 | `user_entitlements_enabled` | `bool` |  |
-| `view_statistic` | `str` |  |
+| `view_statistics` | `str` |  |
 
 #### Example: Load
 
@@ -5041,6 +4874,7 @@ repos = client.Repo().list()
 
 ```python
 repo = client.Repo().create({
+    "name": "example_name",  # str
 })
 ```
 
@@ -5076,7 +4910,7 @@ Create an instance: `repository_audit_log = client.RepositoryAuditLog()`
 #### Example: List
 
 ```python
-repository_audit_logs = client.RepositoryAuditLog().list()
+repository_audit_logs = client.RepositoryAuditLog().list({"owner": "example", "repo": "example"})
 ```
 
 
@@ -5222,6 +5056,7 @@ repository_gpg_key = client.RepositoryGpgKey().load({"identifier": "identifier",
 repository_gpg_key = client.RepositoryGpgKey().create({
     "identifier": "example_identifier",  # Any
     "owner": "example_owner",  # Any
+    "comment": "example_comment",  # str
 })
 ```
 
@@ -5248,7 +5083,7 @@ Create an instance: `repository_privilege_input = client.RepositoryPrivilegeInpu
 #### Example: List
 
 ```python
-repository_privilege_inputs = client.RepositoryPrivilegeInput().list()
+repository_privilege_inputs = client.RepositoryPrivilegeInput().list({"identifier": "example", "owner": "example"})
 ```
 
 
@@ -5339,19 +5174,19 @@ Create an instance: `repository_token = client.RepositoryToken()`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `client` | `int` |  |
+| `clients` | `int` |  |
 | `created_at` | `str` |  |
 | `created_by` | `str` |  |
 | `created_by_url` | `str` |  |
 | `default` | `bool` |  |
 | `disable_url` | `str` |  |
-| `download` | `int` |  |
+| `downloads` | `int` |  |
 | `enable_url` | `str` |  |
 | `eula_accepted` | `dict` |  |
 | `eula_accepted_at` | `str` |  |
 | `eula_accepted_from` | `str` |  |
 | `eula_required` | `bool` |  |
-| `has_limit` | `bool` |  |
+| `has_limits` | `bool` |  |
 | `identifier` | `int` |  |
 | `is_active` | `bool` |  |
 | `is_limited` | `bool` |  |
@@ -5359,8 +5194,8 @@ Create an instance: `repository_token = client.RepositoryToken()`
 | `limit_bandwidth_unit` | `str` |  |
 | `limit_date_range_from` | `str` |  |
 | `limit_date_range_to` | `str` |  |
-| `limit_num_client` | `int` |  |
-| `limit_num_download` | `int` |  |
+| `limit_num_clients` | `int` |  |
+| `limit_num_downloads` | `int` |  |
 | `limit_package_query` | `str` |  |
 | `limit_path_query` | `str` |  |
 | `metadata` | `dict` |  |
@@ -5388,7 +5223,7 @@ repository_token = client.RepositoryToken().load({"identifier": "identifier", "o
 #### Example: List
 
 ```python
-repository_tokens = client.RepositoryToken().list()
+repository_tokens = client.RepositoryToken().list({"owner": "example", "repo": "example"})
 ```
 
 #### Example: Create
@@ -5397,6 +5232,7 @@ repository_tokens = client.RepositoryToken().list()
 repository_token = client.RepositoryToken().create({
     "owner": "example_owner",  # Any
     "repo": "example_repo",  # Any
+    "name": "example_name",  # str
 })
 ```
 
@@ -5415,19 +5251,19 @@ Create an instance: `repository_token_refresh = client.RepositoryTokenRefresh()`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `client` | `int` |  |
+| `clients` | `int` |  |
 | `created_at` | `str` |  |
 | `created_by` | `str` |  |
 | `created_by_url` | `str` |  |
 | `default` | `bool` |  |
 | `disable_url` | `str` |  |
-| `download` | `int` |  |
+| `downloads` | `int` |  |
 | `enable_url` | `str` |  |
 | `eula_accepted` | `dict` |  |
 | `eula_accepted_at` | `str` |  |
 | `eula_accepted_from` | `str` |  |
 | `eula_required` | `bool` |  |
-| `has_limit` | `bool` |  |
+| `has_limits` | `bool` |  |
 | `identifier` | `int` |  |
 | `is_active` | `bool` |  |
 | `is_limited` | `bool` |  |
@@ -5435,8 +5271,8 @@ Create an instance: `repository_token_refresh = client.RepositoryTokenRefresh()`
 | `limit_bandwidth_unit` | `str` |  |
 | `limit_date_range_from` | `str` |  |
 | `limit_date_range_to` | `str` |  |
-| `limit_num_client` | `int` |  |
-| `limit_num_download` | `int` |  |
+| `limit_num_clients` | `int` |  |
+| `limit_num_downloads` | `int` |  |
 | `limit_package_query` | `str` |  |
 | `limit_path_query` | `str` |  |
 | `metadata` | `dict` |  |
@@ -5480,7 +5316,7 @@ Create an instance: `repository_token_sync = client.RepositoryTokenSync()`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `token` | `list` |  |
+| `tokens` | `list` |  |
 
 #### Example: Create
 
@@ -5513,7 +5349,8 @@ Create an instance: `repository_webhook = client.RepositoryWebhook()`
 | `created_by_url` | `str` |  |
 | `disable_reason` | `int` |  |
 | `disable_reason_str` | `str` |  |
-| `event` | `list` |  |
+| `event` | `str` |  |
+| `events` | `list` |  |
 | `identifier` | `int` |  |
 | `is_active` | `bool` |  |
 | `is_last_response_bad` | `bool` |  |
@@ -5530,7 +5367,8 @@ Create an instance: `repository_webhook = client.RepositoryWebhook()`
 | `self_url` | `str` |  |
 | `slug_perm` | `str` |  |
 | `target_url` | `str` |  |
-| `template` | `list` |  |
+| `template` | `str` |  |
+| `templates` | `list` |  |
 | `updated_at` | `str` |  |
 | `updated_by` | `str` |  |
 | `updated_by_url` | `str` |  |
@@ -5539,7 +5377,7 @@ Create an instance: `repository_webhook = client.RepositoryWebhook()`
 #### Example: List
 
 ```python
-repository_webhooks = client.RepositoryWebhook().list()
+repository_webhooks = client.RepositoryWebhook().list({"owner": "example", "repo": "example"})
 ```
 
 #### Example: Create
@@ -5548,6 +5386,10 @@ repository_webhooks = client.RepositoryWebhook().list()
 repository_webhook = client.RepositoryWebhook().create({
     "owner": "example_owner",  # Any
     "repo": "example_repo",  # Any
+    "event": "example_event",  # str
+    "events": [],  # list
+    "target_url": "example_target_url",  # str
+    "templates": [],  # list
 })
 ```
 
@@ -5635,7 +5477,12 @@ Create an instance: `resources_rate_check = client.ResourcesRateCheck()`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `resource` | `dict` |  |
+| `interval` | `float` |  |
+| `limit` | `int` |  |
+| `remaining` | `int` |  |
+| `reset` | `int` |  |
+| `reset_iso_8601` | `str` |  |
+| `throttled` | `bool` |  |
 
 #### Example: Load
 
@@ -5684,7 +5531,7 @@ Create an instance: `rpm = client.Rpm()`
 | `gpg_key_inline` | `str` |  |
 | `gpg_key_url` | `str` |  |
 | `gpg_verification` | `str` |  |
-| `include_source` | `bool` |  |
+| `include_sources` | `bool` |  |
 | `is_active` | `bool` |  |
 | `mode` | `str` |  |
 | `name` | `str` |  |
@@ -5705,7 +5552,7 @@ rpm = client.Rpm().load({"id": "rpm_id", "identifier": "identifier", "owner": "o
 #### Example: List
 
 ```python
-rpms = client.Rpm().list()
+rpms = client.Rpm().list({"identifier": "example", "owner": "example"})
 ```
 
 #### Example: Create
@@ -5714,6 +5561,9 @@ rpms = client.Rpm().list()
 rpm = client.Rpm().create({
     "identifier": "example_identifier",  # Any
     "owner": "example_owner",  # Any
+    "distro_version": "example_distro_version",  # str
+    "name": "example_name",  # str
+    "upstream_url": "example_upstream_url",  # str
 })
 ```
 
@@ -5768,7 +5618,7 @@ ruby = client.Ruby().load({"id": "ruby_id", "identifier": "identifier", "owner":
 #### Example: List
 
 ```python
-rubys = client.Ruby().list()
+rubys = client.Ruby().list({"identifier": "example", "owner": "example"})
 ```
 
 #### Example: Create
@@ -5777,6 +5627,8 @@ rubys = client.Ruby().list()
 ruby = client.Ruby().create({
     "identifier": "example_identifier",  # Any
     "owner": "example_owner",  # Any
+    "name": "example_name",  # str
+    "upstream_url": "example_upstream_url",  # str
 })
 ```
 
@@ -5822,7 +5674,7 @@ Create an instance: `service = client.Service()`
 | `name` | `str` |  |
 | `role` | `str` |  |
 | `slug` | `str` |  |
-| `team` | `list` |  |
+| `teams` | `list` |  |
 
 #### Example: Load
 
@@ -5833,7 +5685,7 @@ service = client.Service().load({"id": "service_id", "org_id": "org_id"})
 #### Example: List
 
 ```python
-services = client.Service().list()
+services = client.Service().list({"org_id": "example"})
 ```
 
 #### Example: Create
@@ -5841,6 +5693,7 @@ services = client.Service().list()
 ```python
 service = client.Service().create({
     "org_id": "example_org_id",  # str
+    "name": "example_name",  # str
 })
 ```
 
@@ -5950,7 +5803,7 @@ swift = client.Swift().load({"id": "swift_id", "identifier": "identifier", "owne
 #### Example: List
 
 ```python
-swifts = client.Swift().list()
+swifts = client.Swift().list({"identifier": "example", "owner": "example"})
 ```
 
 #### Example: Create
@@ -5959,6 +5812,8 @@ swifts = client.Swift().list()
 swift = client.Swift().create({
     "identifier": "example_identifier",  # Any
     "owner": "example_owner",  # Any
+    "name": "example_name",  # str
+    "upstream_url": "example_upstream_url",  # str
 })
 ```
 
@@ -6160,12 +6015,12 @@ Create an instance: `vulnerability = client.Vulnerability()`
 | Field | Type | Description |
 | --- | --- | --- |
 | `created_at` | `str` |  |
-| `has_vulnerability` | `bool` |  |
+| `has_vulnerabilities` | `bool` |  |
 | `identifier` | `str` |  |
 | `max_severity` | `str` |  |
-| `num_vulnerability` | `int` |  |
+| `num_vulnerabilities` | `int` |  |
 | `package` | `dict` |  |
-| `result` | `list` |  |
+| `results` | `list` |  |
 | `scan_id` | `int` |  |
 | `target` | `str` |  |
 | `type` | `str` |  |
@@ -6179,7 +6034,7 @@ vulnerability = client.Vulnerability().load({"id": "vulnerability_id"})
 #### Example: List
 
 ```python
-vulnerabilitys = client.Vulnerability().list()
+vulnerabilitys = client.Vulnerability().list({"owner": "example", "repo": "example"})
 ```
 
 
@@ -6284,11 +6139,11 @@ Entity instances are stateful. After a successful `list`, the entity
 stores the returned data and match criteria internally.
 
 ```python
-cargo = client.Cargo()
-cargo.list()
+vulnerability = client.Vulnerability()
+vulnerability.list()
 
-# cargo.data_get() now returns the cargo data from the last list
-# cargo.match_get() returns the last match criteria
+# vulnerability.data_get() now returns the vulnerability data from the last list
+# vulnerability.match_get() returns the last match criteria
 ```
 
 Call `make()` to create a fresh instance with the same configuration

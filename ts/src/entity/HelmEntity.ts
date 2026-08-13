@@ -39,7 +39,7 @@ class HelmEntity extends CloudsmithEntityBase<Helm> {
 
 
 
-  async load(this: any, reqmatch?: HelmLoadMatch, ctrl?: Control): Promise<Helm> {
+  async load(this: any, reqmatch?: HelmLoadMatch, ctrl?: Control): Promise<HelmEntity> {
 
     const utility = this._utility
 
@@ -130,7 +130,15 @@ class HelmEntity extends CloudsmithEntityBase<Helm> {
         }
       }
 
-      return done(ctx)
+      const out = done(ctx)
+
+      // An operation resolves to the ENTITY, not the raw data — the record
+      // has just been absorbed into this instance and is reached through
+      // data(). `done` still runs: it completes the pipeline and raises on
+      // failure, and when throwing is disabled it hands back the error
+      // payload, which passes through unchanged. See AGENTS.md "Entity
+      // operations return ENTITIES".
+      return (ctx.result && ctx.result.ok) ? this : out
     }
     catch (err: any) {
 
@@ -152,7 +160,7 @@ class HelmEntity extends CloudsmithEntityBase<Helm> {
 
 
 
-  async list(this: any, reqmatch?: HelmListMatch, ctrl?: Control): Promise<Helm[]> {
+  async list(this: any, reqmatch?: HelmListMatch, ctrl?: Control): Promise<HelmEntity[]> {
 
     const utility = this._utility
 
@@ -261,7 +269,7 @@ class HelmEntity extends CloudsmithEntityBase<Helm> {
 
 
 
-  async create(this: any, reqdata?: HelmCreateData, ctrl?: Control): Promise<Helm> {
+  async create(this: any, reqdata?: HelmCreateData, ctrl?: Control): Promise<HelmEntity> {
 
     const utility = this._utility
     const {
@@ -347,7 +355,15 @@ class HelmEntity extends CloudsmithEntityBase<Helm> {
         }
       }
 
-      return done(ctx)
+      const out = done(ctx)
+
+      // An operation resolves to the ENTITY, not the raw data — the record
+      // has just been absorbed into this instance and is reached through
+      // data(). `done` still runs: it completes the pipeline and raises on
+      // failure, and when throwing is disabled it hands back the error
+      // payload, which passes through unchanged. See AGENTS.md "Entity
+      // operations return ENTITIES".
+      return (ctx.result && ctx.result.ok) ? this : out
     }
     catch (err: any) {
 
@@ -369,7 +385,7 @@ class HelmEntity extends CloudsmithEntityBase<Helm> {
 
 
 
-  async update(this: any, reqdata?: HelmUpdateData, ctrl?: Control): Promise<Helm> {
+  async update(this: any, reqdata?: HelmUpdateData, ctrl?: Control): Promise<HelmEntity> {
 
     const utility = this._utility
 
@@ -461,7 +477,15 @@ class HelmEntity extends CloudsmithEntityBase<Helm> {
         }
       }
 
-      return done(ctx)
+      const out = done(ctx)
+
+      // An operation resolves to the ENTITY, not the raw data — the record
+      // has just been absorbed into this instance and is reached through
+      // data(). `done` still runs: it completes the pipeline and raises on
+      // failure, and when throwing is disabled it hands back the error
+      // payload, which passes through unchanged. See AGENTS.md "Entity
+      // operations return ENTITIES".
+      return (ctx.result && ctx.result.ok) ? this : out
     }
     catch (err: any) {
 

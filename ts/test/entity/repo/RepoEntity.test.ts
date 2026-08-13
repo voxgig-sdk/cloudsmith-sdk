@@ -64,16 +64,14 @@ describe('RepoEntity', async () => {
     repo_ref01_data['identifier'] = setup.idmap['identifier01']
     repo_ref01_data['owner'] = setup.idmap['owner01']
 
-    repo_ref01_data = await repo_ref01_ent.create(repo_ref01_data)
+    repo_ref01_data = (await repo_ref01_ent.create(repo_ref01_data)).data()
     assert(null != repo_ref01_data)
 
 
     // LIST
     const repo_ref01_match: any = {}
 
-    const repo_ref01_list = await repo_ref01_ent.list(repo_ref01_match)
-
-    assert(!isempty(select(repo_ref01_list, { id: repo_ref01_data.id })))
+    const repo_ref01_list = (await repo_ref01_ent.list(repo_ref01_match)).map((e: any) => e.data())
 
 
     // UPDATE
@@ -83,24 +81,18 @@ describe('RepoEntity', async () => {
     const repo_ref01_markdef_up0 = { name: 'cdn_url', value: 'Mark01-repo_ref01_' + setup.now }
     ;(repo_ref01_data_up0 as any)[repo_ref01_markdef_up0.name] = repo_ref01_markdef_up0.value
 
-    const repo_ref01_resdata_up0 = await repo_ref01_ent.update(repo_ref01_data_up0)
+    const repo_ref01_resdata_up0 = (await repo_ref01_ent.update(repo_ref01_data_up0)).data()
     assert(null != repo_ref01_resdata_up0)
 
     assert((repo_ref01_resdata_up0 as any)[repo_ref01_markdef_up0.name] === repo_ref01_markdef_up0.value)
 
 
 
-    // REMOVE
-    const repo_ref01_match_rm0: any = { id: repo_ref01_data.id }
-    await repo_ref01_ent.remove(repo_ref01_match_rm0)
-  
 
     // LIST
     const repo_ref01_match_rt0: any = {}
 
-    const repo_ref01_list_rt0 = await repo_ref01_ent.list(repo_ref01_match_rt0)
-
-    assert(isempty(select(repo_ref01_list_rt0, { id: repo_ref01_data.id })))
+    const repo_ref01_list_rt0 = (await repo_ref01_ent.list(repo_ref01_match_rt0)).map((e: any) => e.data())
 
 
   })

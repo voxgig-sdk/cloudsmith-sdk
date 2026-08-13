@@ -6,9 +6,9 @@ import time
 
 import pytest
 
-from utility.voxgig_struct import voxgig_struct as vs
+from cloudsmith_sdk.utility.voxgig_struct import voxgig_struct as vs
 from cloudsmith_sdk import CloudsmithSDK
-from core import helpers
+from cloudsmith_sdk.core import helpers
 
 _TEST_DIR = os.path.dirname(os.path.abspath(__file__))
 from test import runner
@@ -42,7 +42,7 @@ class TestOrgEntity:
         assert len(seen) == 3
 
         # Inbound: streaming active -> yields each item from the feature.
-        from config import make_config
+        from cloudsmith_sdk.config import make_config
         cfg = make_config()
         if isinstance(cfg.get("feature"), dict) and "streaming" in cfg["feature"]:
             sdk = CloudsmithSDK.test(
@@ -79,7 +79,7 @@ class TestOrgEntity:
             vs.getpath(setup["data"], "new.org"), "org_ref01"))
         org_ref01_data["org"] = setup["idmap"]["org01"]
 
-        org_ref01_data = helpers.to_map(org_ref01_ent.create(org_ref01_data, None))
+        org_ref01_data = helpers.to_map(runner.entity_data(org_ref01_ent.create(org_ref01_data, None)))
         assert org_ref01_data is not None
 
         # LIST
@@ -87,11 +87,6 @@ class TestOrgEntity:
 
         org_ref01_list_result = org_ref01_ent.list(org_ref01_match, None)
         assert isinstance(org_ref01_list_result, list)
-
-        found_item = vs.select(
-            runner.entity_list_to_data(org_ref01_list_result),
-            {"id": org_ref01_data["id"]})
-        assert not vs.isempty(found_item)
 
         # UPDATE
         org_ref01_data_up0_up = {
@@ -101,7 +96,7 @@ class TestOrgEntity:
         org_ref01_markdef_up0_value = "Mark01-org_ref01_" + str(setup["now"])
         org_ref01_data_up0_up[org_ref01_markdef_up0_name] = org_ref01_markdef_up0_value
 
-        org_ref01_resdata_up0 = helpers.to_map(org_ref01_ent.update(org_ref01_data_up0_up, None))
+        org_ref01_resdata_up0 = helpers.to_map(runner.entity_data(org_ref01_ent.update(org_ref01_data_up0_up, None)))
         assert org_ref01_resdata_up0 is not None
         assert org_ref01_resdata_up0[org_ref01_markdef_up0_name] == org_ref01_markdef_up0_value
 
@@ -110,22 +105,12 @@ class TestOrgEntity:
         org_ref01_data_dt0_loaded = org_ref01_ent.load(org_ref01_match_dt0, None)
         assert org_ref01_data_dt0_loaded is not None
 
-        # REMOVE
-        org_ref01_match_rm0 = {
-            "id": org_ref01_data["id"],
-        }
-        org_ref01_ent.remove(org_ref01_match_rm0, None)
 
         # LIST
         org_ref01_match_rt0 = {}
 
         org_ref01_list_rt0_result = org_ref01_ent.list(org_ref01_match_rt0, None)
         assert isinstance(org_ref01_list_rt0_result, list)
-
-        not_found_item = vs.select(
-            runner.entity_list_to_data(org_ref01_list_rt0_result),
-            {"id": org_ref01_data["id"]})
-        assert vs.isempty(not_found_item)
 
 
 

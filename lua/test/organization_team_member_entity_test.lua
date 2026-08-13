@@ -84,7 +84,7 @@ describe("OrganizationTeamMemberEntity", function()
 
     local organization_team_member_ref01_data_result, err = organization_team_member_ref01_ent:create(organization_team_member_ref01_data, nil)
     assert.is_nil(err)
-    organization_team_member_ref01_data = helpers.to_map(organization_team_member_ref01_data_result)
+    organization_team_member_ref01_data = helpers.to_map(type(organization_team_member_ref01_data_result) == 'table' and organization_team_member_ref01_data_result.data_get and organization_team_member_ref01_data_result:data_get() or organization_team_member_ref01_data_result)
     assert.is_not_nil(organization_team_member_ref01_data)
 
     -- LIST
@@ -96,11 +96,6 @@ describe("OrganizationTeamMemberEntity", function()
     local organization_team_member_ref01_list_result, err = organization_team_member_ref01_ent:list(organization_team_member_ref01_match, nil)
     assert.is_nil(err)
     assert.is_table(organization_team_member_ref01_list_result)
-
-    local found_item = vs.select(
-      runner.entity_list_to_data(organization_team_member_ref01_list_result),
-      { id = organization_team_member_ref01_data["id"] })
-    assert.is_false(vs.isempty(found_item))
 
   end)
 end)

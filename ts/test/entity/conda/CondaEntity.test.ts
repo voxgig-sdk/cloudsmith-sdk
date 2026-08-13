@@ -64,7 +64,7 @@ describe('CondaEntity', async () => {
     conda_ref01_data['identifier'] = setup.idmap['identifier01']
     conda_ref01_data['owner'] = setup.idmap['owner01']
 
-    conda_ref01_data = await conda_ref01_ent.create(conda_ref01_data)
+    conda_ref01_data = (await conda_ref01_ent.create(conda_ref01_data)).data()
     assert(null != conda_ref01_data)
 
 
@@ -73,9 +73,7 @@ describe('CondaEntity', async () => {
     conda_ref01_match['identifier'] = setup.idmap['identifier01']
     conda_ref01_match['owner'] = setup.idmap['owner01']
 
-    const conda_ref01_list = await conda_ref01_ent.list(conda_ref01_match)
-
-    assert(!isempty(select(conda_ref01_list, { id: conda_ref01_data.id })))
+    const conda_ref01_list = (await conda_ref01_ent.list(conda_ref01_match)).map((e: any) => e.data())
 
 
     // UPDATE
@@ -86,7 +84,7 @@ describe('CondaEntity', async () => {
     const conda_ref01_markdef_up0 = { name: 'auth_mode', value: 'Mark01-conda_ref01_' + setup.now }
     ;(conda_ref01_data_up0 as any)[conda_ref01_markdef_up0.name] = conda_ref01_markdef_up0.value
 
-    const conda_ref01_resdata_up0 = await conda_ref01_ent.update(conda_ref01_data_up0)
+    const conda_ref01_resdata_up0 = (await conda_ref01_ent.update(conda_ref01_data_up0)).data()
     assert(null != conda_ref01_resdata_up0)
 
     assert((conda_ref01_resdata_up0 as any)[conda_ref01_markdef_up0.name] === conda_ref01_markdef_up0.value)

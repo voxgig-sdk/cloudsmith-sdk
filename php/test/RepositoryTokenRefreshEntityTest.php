@@ -47,7 +47,7 @@ class RepositoryTokenRefreshEntityTest extends TestCase
         $repository_token_refresh_ref01_data["repo"] = $setup["idmap"]["repo01"];
 
         $repository_token_refresh_ref01_data_result = $repository_token_refresh_ref01_ent->create($repository_token_refresh_ref01_data, null);
-        $repository_token_refresh_ref01_data = Helpers::to_map($repository_token_refresh_ref01_data_result);
+        $repository_token_refresh_ref01_data = Helpers::to_map(is_object($repository_token_refresh_ref01_data_result) && method_exists($repository_token_refresh_ref01_data_result, 'data_get') ? $repository_token_refresh_ref01_data_result->data_get() : $repository_token_refresh_ref01_data_result);
         $this->assertNotNull($repository_token_refresh_ref01_data);
 
     }

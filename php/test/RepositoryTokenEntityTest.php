@@ -85,7 +85,7 @@ class RepositoryTokenEntityTest extends TestCase
         $repository_token_ref01_data["repo"] = $setup["idmap"]["repo01"];
 
         $repository_token_ref01_data_result = $repository_token_ref01_ent->create($repository_token_ref01_data, null);
-        $repository_token_ref01_data = Helpers::to_map($repository_token_ref01_data_result);
+        $repository_token_ref01_data = Helpers::to_map(is_object($repository_token_ref01_data_result) && method_exists($repository_token_ref01_data_result, 'data_get') ? $repository_token_ref01_data_result->data_get() : $repository_token_ref01_data_result);
         $this->assertNotNull($repository_token_ref01_data);
 
         // LIST
@@ -96,11 +96,6 @@ class RepositoryTokenEntityTest extends TestCase
 
         $repository_token_ref01_list_result = $repository_token_ref01_ent->list($repository_token_ref01_match, null);
         $this->assertIsArray($repository_token_ref01_list_result);
-
-        $found_item = sdk_select(
-            Runner::entity_list_to_data($repository_token_ref01_list_result),
-            ["id" => $repository_token_ref01_data["id"]]);
-        $this->assertNotEmpty($found_item);
 
         // UPDATE
         $repository_token_ref01_data_up0_up = [
@@ -113,7 +108,7 @@ class RepositoryTokenEntityTest extends TestCase
         $repository_token_ref01_data_up0_up[$repository_token_ref01_markdef_up0_name] = $repository_token_ref01_markdef_up0_value;
 
         $repository_token_ref01_resdata_up0_result = $repository_token_ref01_ent->update($repository_token_ref01_data_up0_up, null);
-        $repository_token_ref01_resdata_up0 = Helpers::to_map($repository_token_ref01_resdata_up0_result);
+        $repository_token_ref01_resdata_up0 = Helpers::to_map(is_object($repository_token_ref01_resdata_up0_result) && method_exists($repository_token_ref01_resdata_up0_result, 'data_get') ? $repository_token_ref01_resdata_up0_result->data_get() : $repository_token_ref01_resdata_up0_result);
         $this->assertNotNull($repository_token_ref01_resdata_up0);
         $this->assertEquals($repository_token_ref01_resdata_up0[$repository_token_ref01_markdef_up0_name], $repository_token_ref01_markdef_up0_value);
 

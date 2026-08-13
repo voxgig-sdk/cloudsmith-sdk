@@ -42,7 +42,7 @@ describe("ProviderSettingsWriteEntity", function()
 
     local provider_settings_write_ref01_data_result, err = provider_settings_write_ref01_ent:create(provider_settings_write_ref01_data, nil)
     assert.is_nil(err)
-    provider_settings_write_ref01_data = helpers.to_map(provider_settings_write_ref01_data_result)
+    provider_settings_write_ref01_data = helpers.to_map(type(provider_settings_write_ref01_data_result) == 'table' and provider_settings_write_ref01_data_result.data_get and provider_settings_write_ref01_data_result:data_get() or provider_settings_write_ref01_data_result)
     assert.is_not_nil(provider_settings_write_ref01_data)
 
     -- UPDATE
@@ -56,7 +56,7 @@ describe("ProviderSettingsWriteEntity", function()
 
     local provider_settings_write_ref01_resdata_up0_result, err = provider_settings_write_ref01_ent:update(provider_settings_write_ref01_data_up0_up, nil)
     assert.is_nil(err)
-    local provider_settings_write_ref01_resdata_up0 = helpers.to_map(provider_settings_write_ref01_resdata_up0_result)
+    local provider_settings_write_ref01_resdata_up0 = helpers.to_map(type(provider_settings_write_ref01_resdata_up0_result) == 'table' and provider_settings_write_ref01_resdata_up0_result.data_get and provider_settings_write_ref01_resdata_up0_result:data_get() or provider_settings_write_ref01_resdata_up0_result)
     assert.is_not_nil(provider_settings_write_ref01_resdata_up0)
     assert.are.equal(provider_settings_write_ref01_resdata_up0[provider_settings_write_ref01_markdef_up0_name], provider_settings_write_ref01_markdef_up0_value)
 

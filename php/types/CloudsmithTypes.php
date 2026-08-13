@@ -75,6 +75,24 @@ class CargoCreateData
 {
     public mixed $identifier;
     public mixed $owner;
+    public ?string $auth_mode = null;
+    public ?string $auth_secret = null;
+    public ?string $auth_username = null;
+    public ?string $created_at = null;
+    public ?string $disable_reason = null;
+    public ?string $extra_header_1 = null;
+    public ?string $extra_header_2 = null;
+    public ?string $extra_value_1 = null;
+    public ?string $extra_value_2 = null;
+    public ?bool $is_active = null;
+    public ?string $mode = null;
+    public string $name;
+    public ?bool $pending_validation = null;
+    public ?int $priority = null;
+    public ?string $slug_perm = null;
+    public ?string $updated_at = null;
+    public string $upstream_url;
+    public ?bool $verify_ssl = null;
 }
 
 /** Request payload for Cargo#update. */
@@ -83,6 +101,24 @@ class CargoUpdateData
     public string $id;
     public mixed $identifier;
     public mixed $owner;
+    public ?string $auth_mode = null;
+    public ?string $auth_secret = null;
+    public ?string $auth_username = null;
+    public ?string $created_at = null;
+    public ?string $disable_reason = null;
+    public ?string $extra_header_1 = null;
+    public ?string $extra_header_2 = null;
+    public ?string $extra_value_1 = null;
+    public ?string $extra_value_2 = null;
+    public ?bool $is_active = null;
+    public ?string $mode = null;
+    public ?string $name = null;
+    public ?bool $pending_validation = null;
+    public ?int $priority = null;
+    public ?string $slug_perm = null;
+    public ?string $updated_at = null;
+    public ?string $upstream_url = null;
+    public ?bool $verify_ssl = null;
 }
 
 /** Cocoapod entity data model. */
@@ -138,6 +174,24 @@ class ComposerCreateData
 {
     public mixed $identifier;
     public mixed $owner;
+    public ?string $auth_mode = null;
+    public ?string $auth_secret = null;
+    public ?string $auth_username = null;
+    public ?string $created_at = null;
+    public ?string $disable_reason = null;
+    public ?string $extra_header_1 = null;
+    public ?string $extra_header_2 = null;
+    public ?string $extra_value_1 = null;
+    public ?string $extra_value_2 = null;
+    public ?bool $is_active = null;
+    public ?string $mode = null;
+    public string $name;
+    public ?bool $pending_validation = null;
+    public ?int $priority = null;
+    public ?string $slug_perm = null;
+    public ?string $updated_at = null;
+    public string $upstream_url;
+    public ?bool $verify_ssl = null;
 }
 
 /** Request payload for Composer#update. */
@@ -146,6 +200,24 @@ class ComposerUpdateData
     public string $id;
     public mixed $identifier;
     public mixed $owner;
+    public ?string $auth_mode = null;
+    public ?string $auth_secret = null;
+    public ?string $auth_username = null;
+    public ?string $created_at = null;
+    public ?string $disable_reason = null;
+    public ?string $extra_header_1 = null;
+    public ?string $extra_header_2 = null;
+    public ?string $extra_value_1 = null;
+    public ?string $extra_value_2 = null;
+    public ?bool $is_active = null;
+    public ?string $mode = null;
+    public ?string $name = null;
+    public ?bool $pending_validation = null;
+    public ?int $priority = null;
+    public ?string $slug_perm = null;
+    public ?string $updated_at = null;
+    public ?string $upstream_url = null;
+    public ?bool $verify_ssl = null;
 }
 
 /** Conan entity data model. */
@@ -196,6 +268,24 @@ class CondaCreateData
 {
     public mixed $identifier;
     public mixed $owner;
+    public ?string $auth_mode = null;
+    public ?string $auth_secret = null;
+    public ?string $auth_username = null;
+    public ?string $created_at = null;
+    public ?string $disable_reason = null;
+    public ?string $extra_header_1 = null;
+    public ?string $extra_header_2 = null;
+    public ?string $extra_value_1 = null;
+    public ?string $extra_value_2 = null;
+    public ?bool $is_active = null;
+    public ?string $mode = null;
+    public string $name;
+    public ?bool $pending_validation = null;
+    public ?int $priority = null;
+    public ?string $slug_perm = null;
+    public ?string $updated_at = null;
+    public string $upstream_url;
+    public ?bool $verify_ssl = null;
 }
 
 /** Request payload for Conda#update. */
@@ -204,6 +294,24 @@ class CondaUpdateData
     public string $id;
     public mixed $identifier;
     public mixed $owner;
+    public ?string $auth_mode = null;
+    public ?string $auth_secret = null;
+    public ?string $auth_username = null;
+    public ?string $created_at = null;
+    public ?string $disable_reason = null;
+    public ?string $extra_header_1 = null;
+    public ?string $extra_header_2 = null;
+    public ?string $extra_value_1 = null;
+    public ?string $extra_value_2 = null;
+    public ?bool $is_active = null;
+    public ?string $mode = null;
+    public ?string $name = null;
+    public ?bool $pending_validation = null;
+    public ?int $priority = null;
+    public ?string $slug_perm = null;
+    public ?string $updated_at = null;
+    public ?string $upstream_url = null;
+    public ?bool $verify_ssl = null;
 }
 
 /** Copy entity data model. */
@@ -254,6 +362,24 @@ class CranCreateData
 {
     public mixed $identifier;
     public mixed $owner;
+    public ?string $auth_mode = null;
+    public ?string $auth_secret = null;
+    public ?string $auth_username = null;
+    public ?string $created_at = null;
+    public ?string $disable_reason = null;
+    public ?string $extra_header_1 = null;
+    public ?string $extra_header_2 = null;
+    public ?string $extra_value_1 = null;
+    public ?string $extra_value_2 = null;
+    public ?bool $is_active = null;
+    public ?string $mode = null;
+    public string $name;
+    public ?bool $pending_validation = null;
+    public ?int $priority = null;
+    public ?string $slug_perm = null;
+    public ?string $updated_at = null;
+    public string $upstream_url;
+    public ?bool $verify_ssl = null;
 }
 
 /** Request payload for Cran#update. */
@@ -262,6 +388,24 @@ class CranUpdateData
     public string $id;
     public mixed $identifier;
     public mixed $owner;
+    public ?string $auth_mode = null;
+    public ?string $auth_secret = null;
+    public ?string $auth_username = null;
+    public ?string $created_at = null;
+    public ?string $disable_reason = null;
+    public ?string $extra_header_1 = null;
+    public ?string $extra_header_2 = null;
+    public ?string $extra_value_1 = null;
+    public ?string $extra_value_2 = null;
+    public ?bool $is_active = null;
+    public ?string $mode = null;
+    public ?string $name = null;
+    public ?bool $pending_validation = null;
+    public ?int $priority = null;
+    public ?string $slug_perm = null;
+    public ?string $updated_at = null;
+    public ?string $upstream_url = null;
+    public ?bool $verify_ssl = null;
 }
 
 /** Dart entity data model. */
@@ -307,6 +451,24 @@ class DartCreateData
 {
     public mixed $identifier;
     public mixed $owner;
+    public ?string $auth_mode = null;
+    public ?string $auth_secret = null;
+    public ?string $auth_username = null;
+    public ?string $created_at = null;
+    public ?string $disable_reason = null;
+    public ?string $extra_header_1 = null;
+    public ?string $extra_header_2 = null;
+    public ?string $extra_value_1 = null;
+    public ?string $extra_value_2 = null;
+    public ?bool $is_active = null;
+    public ?string $mode = null;
+    public string $name;
+    public ?bool $pending_validation = null;
+    public ?int $priority = null;
+    public ?string $slug_perm = null;
+    public ?string $updated_at = null;
+    public string $upstream_url;
+    public ?bool $verify_ssl = null;
 }
 
 /** Request payload for Dart#update. */
@@ -315,6 +477,24 @@ class DartUpdateData
     public string $id;
     public mixed $identifier;
     public mixed $owner;
+    public ?string $auth_mode = null;
+    public ?string $auth_secret = null;
+    public ?string $auth_username = null;
+    public ?string $created_at = null;
+    public ?string $disable_reason = null;
+    public ?string $extra_header_1 = null;
+    public ?string $extra_header_2 = null;
+    public ?string $extra_value_1 = null;
+    public ?string $extra_value_2 = null;
+    public ?bool $is_active = null;
+    public ?string $mode = null;
+    public ?string $name = null;
+    public ?bool $pending_validation = null;
+    public ?int $priority = null;
+    public ?string $slug_perm = null;
+    public ?string $updated_at = null;
+    public ?string $upstream_url = null;
+    public ?bool $verify_ssl = null;
 }
 
 /** Deb entity data model. */
@@ -326,7 +506,7 @@ class Deb
     public ?string $component = null;
     public ?string $created_at = null;
     public ?string $disable_reason = null;
-    public array $distro_version;
+    public array $distro_versions;
     public ?string $extra_header_1 = null;
     public ?string $extra_header_2 = null;
     public ?string $extra_value_1 = null;
@@ -334,7 +514,7 @@ class Deb
     public ?string $gpg_key_inline = null;
     public ?string $gpg_key_url = null;
     public ?string $gpg_verification = null;
-    public ?bool $include_source = null;
+    public ?bool $include_sources = null;
     public ?bool $is_active = null;
     public ?string $mode = null;
     public string $name;
@@ -368,6 +548,32 @@ class DebCreateData
 {
     public mixed $identifier;
     public mixed $owner;
+    public ?string $auth_mode = null;
+    public ?string $auth_secret = null;
+    public ?string $auth_username = null;
+    public ?string $component = null;
+    public ?string $created_at = null;
+    public ?string $disable_reason = null;
+    public array $distro_versions;
+    public ?string $extra_header_1 = null;
+    public ?string $extra_header_2 = null;
+    public ?string $extra_value_1 = null;
+    public ?string $extra_value_2 = null;
+    public ?string $gpg_key_inline = null;
+    public ?string $gpg_key_url = null;
+    public ?string $gpg_verification = null;
+    public ?bool $include_sources = null;
+    public ?bool $is_active = null;
+    public ?string $mode = null;
+    public string $name;
+    public ?bool $pending_validation = null;
+    public ?int $priority = null;
+    public ?string $slug_perm = null;
+    public ?string $updated_at = null;
+    public ?string $upstream_distribution = null;
+    public string $upstream_url;
+    public ?string $verification_status = null;
+    public ?bool $verify_ssl = null;
 }
 
 /** Request payload for Deb#update. */
@@ -376,6 +582,32 @@ class DebUpdateData
     public string $id;
     public mixed $identifier;
     public mixed $owner;
+    public ?string $auth_mode = null;
+    public ?string $auth_secret = null;
+    public ?string $auth_username = null;
+    public ?string $component = null;
+    public ?string $created_at = null;
+    public ?string $disable_reason = null;
+    public ?array $distro_versions = null;
+    public ?string $extra_header_1 = null;
+    public ?string $extra_header_2 = null;
+    public ?string $extra_value_1 = null;
+    public ?string $extra_value_2 = null;
+    public ?string $gpg_key_inline = null;
+    public ?string $gpg_key_url = null;
+    public ?string $gpg_verification = null;
+    public ?bool $include_sources = null;
+    public ?bool $is_active = null;
+    public ?string $mode = null;
+    public ?string $name = null;
+    public ?bool $pending_validation = null;
+    public ?int $priority = null;
+    public ?string $slug_perm = null;
+    public ?string $updated_at = null;
+    public ?string $upstream_distribution = null;
+    public ?string $upstream_url = null;
+    public ?string $verification_status = null;
+    public ?bool $verify_ssl = null;
 }
 
 /** DenyPolicy entity data model. */
@@ -401,8 +633,8 @@ class DistributionFull
     public string $name;
     public ?string $self_url = null;
     public ?string $slug = null;
-    public ?string $variant = null;
-    public ?array $version = null;
+    public ?string $variants = null;
+    public ?array $versions = null;
 }
 
 /** Request payload for DistributionFull#load. */
@@ -419,8 +651,8 @@ class DistributionFullListMatch
     public ?string $name = null;
     public ?string $self_url = null;
     public ?string $slug = null;
-    public ?string $variant = null;
-    public ?array $version = null;
+    public ?string $variants = null;
+    public ?array $versions = null;
 }
 
 /** Distro entity data model. */
@@ -471,6 +703,24 @@ class DockerCreateData
 {
     public mixed $identifier;
     public mixed $owner;
+    public ?string $auth_mode = null;
+    public ?string $auth_secret = null;
+    public ?string $auth_username = null;
+    public ?string $created_at = null;
+    public ?string $disable_reason = null;
+    public ?string $extra_header_1 = null;
+    public ?string $extra_header_2 = null;
+    public ?string $extra_value_1 = null;
+    public ?string $extra_value_2 = null;
+    public ?bool $is_active = null;
+    public ?string $mode = null;
+    public string $name;
+    public ?bool $pending_validation = null;
+    public ?int $priority = null;
+    public ?string $slug_perm = null;
+    public ?string $updated_at = null;
+    public string $upstream_url;
+    public ?bool $verify_ssl = null;
 }
 
 /** Request payload for Docker#update. */
@@ -479,6 +729,24 @@ class DockerUpdateData
     public string $id;
     public mixed $identifier;
     public mixed $owner;
+    public ?string $auth_mode = null;
+    public ?string $auth_secret = null;
+    public ?string $auth_username = null;
+    public ?string $created_at = null;
+    public ?string $disable_reason = null;
+    public ?string $extra_header_1 = null;
+    public ?string $extra_header_2 = null;
+    public ?string $extra_value_1 = null;
+    public ?string $extra_value_2 = null;
+    public ?bool $is_active = null;
+    public ?string $mode = null;
+    public ?string $name = null;
+    public ?bool $pending_validation = null;
+    public ?int $priority = null;
+    public ?string $slug_perm = null;
+    public ?string $updated_at = null;
+    public ?string $upstream_url = null;
+    public ?bool $verify_ssl = null;
 }
 
 /** DynamicMapping entity data model. */
@@ -516,7 +784,11 @@ class Enable
 /** Entitlement entity data model. */
 class Entitlement
 {
-    public array $token;
+    public ?int $active = null;
+    public array $bandwidth;
+    public array $downloads;
+    public ?int $inactive = null;
+    public ?int $total = null;
 }
 
 /** Request payload for Entitlement#load. */
@@ -533,6 +805,11 @@ class EntitlementCreateData
     public mixed $identifier;
     public mixed $owner;
     public mixed $repo;
+    public ?int $active = null;
+    public array $bandwidth;
+    public array $downloads;
+    public ?int $inactive = null;
+    public ?int $total = null;
 }
 
 /** Request payload for Entitlement#remove. */
@@ -565,14 +842,14 @@ class FileCreateData
 class Format
 {
     public string $description;
-    public ?array $distribution = null;
-    public array $extension;
+    public ?array $distributions = null;
+    public array $extensions;
     public string $name;
     public bool $premium;
     public ?string $premium_plan_id = null;
     public ?string $premium_plan_name = null;
     public string $slug;
-    public array $support;
+    public array $supports;
 }
 
 /** Request payload for Format#load. */
@@ -585,14 +862,14 @@ class FormatLoadMatch
 class FormatListMatch
 {
     public ?string $description = null;
-    public ?array $distribution = null;
-    public ?array $extension = null;
+    public ?array $distributions = null;
+    public ?array $extensions = null;
     public ?string $name = null;
     public ?bool $premium = null;
     public ?string $premium_plan_id = null;
     public ?string $premium_plan_name = null;
     public ?string $slug = null;
-    public ?array $support = null;
+    public ?array $supports = null;
 }
 
 /** Geoip entity data model. */
@@ -603,16 +880,6 @@ class Geoip
 /** Gon entity data model. */
 class Gon
 {
-}
-
-/** Gon2 entity data model. */
-class Gon2
-{
-}
-
-/** Gon3 entity data model. */
-class Gon3
-{
     public ?string $auth_mode = null;
     public ?string $auth_secret = null;
     public ?string $auth_username = null;
@@ -633,69 +900,26 @@ class Gon3
     public ?bool $verify_ssl = null;
 }
 
-/** Request payload for Gon3#list. */
-class Gon3ListMatch
-{
-    public mixed $identifier;
-    public mixed $owner;
-}
-
-/** Gon4 entity data model. */
-class Gon4
-{
-}
-
-/** Gon5 entity data model. */
-class Gon5
-{
-}
-
-/** Request payload for Gon5#create. */
-class Gon5CreateData
-{
-    public mixed $identifier;
-    public mixed $owner;
-}
-
-/** Gon6 entity data model. */
-class Gon6
-{
-    public ?string $auth_mode = null;
-    public ?string $auth_secret = null;
-    public ?string $auth_username = null;
-    public ?string $created_at = null;
-    public ?string $disable_reason = null;
-    public ?string $extra_header_1 = null;
-    public ?string $extra_header_2 = null;
-    public ?string $extra_value_1 = null;
-    public ?string $extra_value_2 = null;
-    public ?bool $is_active = null;
-    public ?string $mode = null;
-    public string $name;
-    public ?bool $pending_validation = null;
-    public ?int $priority = null;
-    public ?string $slug_perm = null;
-    public ?string $updated_at = null;
-    public string $upstream_url;
-    public ?bool $verify_ssl = null;
-}
-
-/** Request payload for Gon6#load. */
-class Gon6LoadMatch
+/** Request payload for Gon#load. */
+class GonLoadMatch
 {
     public mixed $identifier;
     public mixed $owner;
     public mixed $slug_perm;
 }
 
-/** Gon7 entity data model. */
-class Gon7
+/** Request payload for Gon#list. */
+class GonListMatch
 {
+    public mixed $identifier;
+    public mixed $owner;
 }
 
-/** Gon8 entity data model. */
-class Gon8
+/** Request payload for Gon#create. */
+class GonCreateData
 {
+    public mixed $identifier;
+    public mixed $owner;
     public ?string $auth_mode = null;
     public ?string $auth_secret = null;
     public ?string $auth_username = null;
@@ -716,17 +940,12 @@ class Gon8
     public ?bool $verify_ssl = null;
 }
 
-/** Request payload for Gon8#update. */
-class Gon8UpdateData
+/** Request payload for Gon#update. */
+class GonUpdateData
 {
     public mixed $identifier;
     public mixed $owner;
     public mixed $slug_perm;
-}
-
-/** Gon9 entity data model. */
-class Gon9
-{
     public ?string $auth_mode = null;
     public ?string $auth_secret = null;
     public ?string $auth_username = null;
@@ -738,21 +957,12 @@ class Gon9
     public ?string $extra_value_2 = null;
     public ?bool $is_active = null;
     public ?string $mode = null;
-    public string $name;
+    public ?string $name = null;
     public ?bool $pending_validation = null;
     public ?int $priority = null;
-    public ?string $slug_perm = null;
     public ?string $updated_at = null;
-    public string $upstream_url;
+    public ?string $upstream_url = null;
     public ?bool $verify_ssl = null;
-}
-
-/** Request payload for Gon9#update. */
-class Gon9UpdateData
-{
-    public mixed $identifier;
-    public mixed $owner;
-    public mixed $slug_perm;
 }
 
 /** Gpg entity data model. */
@@ -808,6 +1018,24 @@ class HelmCreateData
 {
     public mixed $identifier;
     public mixed $owner;
+    public ?string $auth_mode = null;
+    public ?string $auth_secret = null;
+    public ?string $auth_username = null;
+    public ?string $created_at = null;
+    public ?string $disable_reason = null;
+    public ?string $extra_header_1 = null;
+    public ?string $extra_header_2 = null;
+    public ?string $extra_value_1 = null;
+    public ?string $extra_value_2 = null;
+    public ?bool $is_active = null;
+    public ?string $mode = null;
+    public string $name;
+    public ?bool $pending_validation = null;
+    public ?int $priority = null;
+    public ?string $slug_perm = null;
+    public ?string $updated_at = null;
+    public string $upstream_url;
+    public ?bool $verify_ssl = null;
 }
 
 /** Request payload for Helm#update. */
@@ -816,6 +1044,24 @@ class HelmUpdateData
     public string $id;
     public mixed $identifier;
     public mixed $owner;
+    public ?string $auth_mode = null;
+    public ?string $auth_secret = null;
+    public ?string $auth_username = null;
+    public ?string $created_at = null;
+    public ?string $disable_reason = null;
+    public ?string $extra_header_1 = null;
+    public ?string $extra_header_2 = null;
+    public ?string $extra_value_1 = null;
+    public ?string $extra_value_2 = null;
+    public ?bool $is_active = null;
+    public ?string $mode = null;
+    public ?string $name = null;
+    public ?bool $pending_validation = null;
+    public ?int $priority = null;
+    public ?string $slug_perm = null;
+    public ?string $updated_at = null;
+    public ?string $upstream_url = null;
+    public ?bool $verify_ssl = null;
 }
 
 /** Hex entity data model. */
@@ -861,6 +1107,24 @@ class HexCreateData
 {
     public mixed $identifier;
     public mixed $owner;
+    public ?string $auth_mode = null;
+    public ?string $auth_secret = null;
+    public ?string $auth_username = null;
+    public ?string $created_at = null;
+    public ?string $disable_reason = null;
+    public ?string $extra_header_1 = null;
+    public ?string $extra_header_2 = null;
+    public ?string $extra_value_1 = null;
+    public ?string $extra_value_2 = null;
+    public ?bool $is_active = null;
+    public ?string $mode = null;
+    public string $name;
+    public ?bool $pending_validation = null;
+    public ?int $priority = null;
+    public ?string $slug_perm = null;
+    public ?string $updated_at = null;
+    public string $upstream_url;
+    public ?bool $verify_ssl = null;
 }
 
 /** Request payload for Hex#update. */
@@ -869,6 +1133,24 @@ class HexUpdateData
     public string $id;
     public mixed $identifier;
     public mixed $owner;
+    public ?string $auth_mode = null;
+    public ?string $auth_secret = null;
+    public ?string $auth_username = null;
+    public ?string $created_at = null;
+    public ?string $disable_reason = null;
+    public ?string $extra_header_1 = null;
+    public ?string $extra_header_2 = null;
+    public ?string $extra_value_1 = null;
+    public ?string $extra_value_2 = null;
+    public ?bool $is_active = null;
+    public ?string $mode = null;
+    public ?string $name = null;
+    public ?bool $pending_validation = null;
+    public ?int $priority = null;
+    public ?string $slug_perm = null;
+    public ?string $updated_at = null;
+    public ?string $upstream_url = null;
+    public ?bool $verify_ssl = null;
 }
 
 /** History entity data model. */
@@ -919,6 +1201,24 @@ class HuggingfaceCreateData
 {
     public mixed $identifier;
     public mixed $owner;
+    public ?string $auth_mode = null;
+    public ?string $auth_secret = null;
+    public ?string $auth_username = null;
+    public ?string $created_at = null;
+    public ?string $disable_reason = null;
+    public ?string $extra_header_1 = null;
+    public ?string $extra_header_2 = null;
+    public ?string $extra_value_1 = null;
+    public ?string $extra_value_2 = null;
+    public ?bool $is_active = null;
+    public ?string $mode = null;
+    public string $name;
+    public ?bool $pending_validation = null;
+    public ?int $priority = null;
+    public ?string $slug_perm = null;
+    public ?string $updated_at = null;
+    public string $upstream_url;
+    public ?bool $verify_ssl = null;
 }
 
 /** Request payload for Huggingface#update. */
@@ -927,6 +1227,24 @@ class HuggingfaceUpdateData
     public string $id;
     public mixed $identifier;
     public mixed $owner;
+    public ?string $auth_mode = null;
+    public ?string $auth_secret = null;
+    public ?string $auth_username = null;
+    public ?string $created_at = null;
+    public ?string $disable_reason = null;
+    public ?string $extra_header_1 = null;
+    public ?string $extra_header_2 = null;
+    public ?string $extra_value_1 = null;
+    public ?string $extra_value_2 = null;
+    public ?bool $is_active = null;
+    public ?string $mode = null;
+    public ?string $name = null;
+    public ?bool $pending_validation = null;
+    public ?int $priority = null;
+    public ?string $slug_perm = null;
+    public ?string $updated_at = null;
+    public ?string $upstream_url = null;
+    public ?bool $verify_ssl = null;
 }
 
 /** Info entity data model. */
@@ -1001,6 +1319,28 @@ class MavenCreateData
 {
     public mixed $identifier;
     public mixed $owner;
+    public ?string $auth_mode = null;
+    public ?string $auth_secret = null;
+    public ?string $auth_username = null;
+    public ?string $created_at = null;
+    public ?string $disable_reason = null;
+    public ?string $extra_header_1 = null;
+    public ?string $extra_header_2 = null;
+    public ?string $extra_value_1 = null;
+    public ?string $extra_value_2 = null;
+    public ?string $gpg_key_inline = null;
+    public ?string $gpg_key_url = null;
+    public ?string $gpg_verification = null;
+    public ?bool $is_active = null;
+    public ?string $mode = null;
+    public string $name;
+    public ?bool $pending_validation = null;
+    public ?int $priority = null;
+    public ?string $slug_perm = null;
+    public ?string $updated_at = null;
+    public string $upstream_url;
+    public ?string $verification_status = null;
+    public ?bool $verify_ssl = null;
 }
 
 /** Request payload for Maven#update. */
@@ -1009,6 +1349,28 @@ class MavenUpdateData
     public string $id;
     public mixed $identifier;
     public mixed $owner;
+    public ?string $auth_mode = null;
+    public ?string $auth_secret = null;
+    public ?string $auth_username = null;
+    public ?string $created_at = null;
+    public ?string $disable_reason = null;
+    public ?string $extra_header_1 = null;
+    public ?string $extra_header_2 = null;
+    public ?string $extra_value_1 = null;
+    public ?string $extra_value_2 = null;
+    public ?string $gpg_key_inline = null;
+    public ?string $gpg_key_url = null;
+    public ?string $gpg_verification = null;
+    public ?bool $is_active = null;
+    public ?string $mode = null;
+    public ?string $name = null;
+    public ?bool $pending_validation = null;
+    public ?int $priority = null;
+    public ?string $slug_perm = null;
+    public ?string $updated_at = null;
+    public ?string $upstream_url = null;
+    public ?string $verification_status = null;
+    public ?bool $verify_ssl = null;
 }
 
 /** Member entity data model. */
@@ -1115,6 +1477,24 @@ class NpmCreateData
 {
     public mixed $identifier;
     public mixed $owner;
+    public ?string $auth_mode = null;
+    public ?string $auth_secret = null;
+    public ?string $auth_username = null;
+    public ?string $created_at = null;
+    public ?string $disable_reason = null;
+    public ?string $extra_header_1 = null;
+    public ?string $extra_header_2 = null;
+    public ?string $extra_value_1 = null;
+    public ?string $extra_value_2 = null;
+    public ?bool $is_active = null;
+    public ?string $mode = null;
+    public string $name;
+    public ?bool $pending_validation = null;
+    public ?int $priority = null;
+    public ?string $slug_perm = null;
+    public ?string $updated_at = null;
+    public string $upstream_url;
+    public ?bool $verify_ssl = null;
 }
 
 /** Request payload for Npm#update. */
@@ -1123,6 +1503,24 @@ class NpmUpdateData
     public string $id;
     public mixed $identifier;
     public mixed $owner;
+    public ?string $auth_mode = null;
+    public ?string $auth_secret = null;
+    public ?string $auth_username = null;
+    public ?string $created_at = null;
+    public ?string $disable_reason = null;
+    public ?string $extra_header_1 = null;
+    public ?string $extra_header_2 = null;
+    public ?string $extra_value_1 = null;
+    public ?string $extra_value_2 = null;
+    public ?bool $is_active = null;
+    public ?string $mode = null;
+    public ?string $name = null;
+    public ?bool $pending_validation = null;
+    public ?int $priority = null;
+    public ?string $slug_perm = null;
+    public ?string $updated_at = null;
+    public ?string $upstream_url = null;
+    public ?bool $verify_ssl = null;
 }
 
 /** Nuget entity data model. */
@@ -1168,6 +1566,24 @@ class NugetCreateData
 {
     public mixed $identifier;
     public mixed $owner;
+    public ?string $auth_mode = null;
+    public ?string $auth_secret = null;
+    public ?string $auth_username = null;
+    public ?string $created_at = null;
+    public ?string $disable_reason = null;
+    public ?string $extra_header_1 = null;
+    public ?string $extra_header_2 = null;
+    public ?string $extra_value_1 = null;
+    public ?string $extra_value_2 = null;
+    public ?bool $is_active = null;
+    public ?string $mode = null;
+    public string $name;
+    public ?bool $pending_validation = null;
+    public ?int $priority = null;
+    public ?string $slug_perm = null;
+    public ?string $updated_at = null;
+    public string $upstream_url;
+    public ?bool $verify_ssl = null;
 }
 
 /** Request payload for Nuget#update. */
@@ -1176,6 +1592,24 @@ class NugetUpdateData
     public string $id;
     public mixed $identifier;
     public mixed $owner;
+    public ?string $auth_mode = null;
+    public ?string $auth_secret = null;
+    public ?string $auth_username = null;
+    public ?string $created_at = null;
+    public ?string $disable_reason = null;
+    public ?string $extra_header_1 = null;
+    public ?string $extra_header_2 = null;
+    public ?string $extra_value_1 = null;
+    public ?string $extra_value_2 = null;
+    public ?bool $is_active = null;
+    public ?string $mode = null;
+    public ?string $name = null;
+    public ?bool $pending_validation = null;
+    public ?int $priority = null;
+    public ?string $slug_perm = null;
+    public ?string $updated_at = null;
+    public ?string $upstream_url = null;
+    public ?bool $verify_ssl = null;
 }
 
 /** OpenidConnect entity data model. */
@@ -1193,11 +1627,11 @@ class Org
     public string $name;
     public array $package;
     public array $policy;
-    public array $reason;
+    public array $reasons;
     public ?string $slug = null;
     public ?string $slug_perm = null;
     public ?string $tagline = null;
-    public array $vulnerability_scan_result;
+    public array $vulnerability_scan_results;
 }
 
 /** Request payload for Org#load. */
@@ -1217,11 +1651,11 @@ class OrgListMatch
     public ?string $name = null;
     public ?array $package = null;
     public ?array $policy = null;
-    public ?array $reason = null;
+    public ?array $reasons = null;
     public ?string $slug = null;
     public ?string $slug_perm = null;
     public ?string $tagline = null;
-    public ?array $vulnerability_scan_result = null;
+    public ?array $vulnerability_scan_results = null;
 }
 
 /** Request payload for Org#create. */
@@ -1229,6 +1663,18 @@ class OrgCreateData
 {
     public string $id;
     public ?string $member_id = null;
+    public ?string $country = null;
+    public ?string $created_at = null;
+    public ?string $event_at = null;
+    public ?string $location = null;
+    public string $name;
+    public array $package;
+    public array $policy;
+    public array $reasons;
+    public ?string $slug = null;
+    public ?string $slug_perm = null;
+    public ?string $tagline = null;
+    public array $vulnerability_scan_results;
 }
 
 /** Request payload for Org#update. */
@@ -1236,6 +1682,18 @@ class OrgUpdateData
 {
     public string $id;
     public string $team_id;
+    public ?string $country = null;
+    public ?string $created_at = null;
+    public ?string $event_at = null;
+    public ?string $location = null;
+    public ?string $name = null;
+    public ?array $package = null;
+    public ?array $policy = null;
+    public ?array $reasons = null;
+    public ?string $slug = null;
+    public ?string $slug_perm = null;
+    public ?string $tagline = null;
+    public ?array $vulnerability_scan_results = null;
 }
 
 /** Request payload for Org#remove. */
@@ -1268,6 +1726,11 @@ class OrganizationGroupSyncListMatch
 class OrganizationGroupSyncCreateData
 {
     public string $org_id;
+    public string $idp_key;
+    public string $idp_value;
+    public ?string $role = null;
+    public ?string $slug_perm = null;
+    public string $team;
 }
 
 /** OrganizationGroupSyncStatus entity data model. */
@@ -1292,7 +1755,7 @@ class OrganizationInvite
     public ?string $org = null;
     public ?string $role = null;
     public ?string $slug_perm = null;
-    public ?array $team = null;
+    public ?array $teams = null;
     public ?string $user = null;
     public ?string $user_url = null;
 }
@@ -1307,6 +1770,16 @@ class OrganizationInviteListMatch
 class OrganizationInviteCreateData
 {
     public string $org_id;
+    public ?string $email = null;
+    public ?string $expires_at = null;
+    public ?string $inviter = null;
+    public ?string $inviter_url = null;
+    public ?string $org = null;
+    public ?string $role = null;
+    public ?string $slug_perm = null;
+    public ?array $teams = null;
+    public ?string $user = null;
+    public ?string $user_url = null;
 }
 
 /** Request payload for OrganizationInvite#update. */
@@ -1314,6 +1787,16 @@ class OrganizationInviteUpdateData
 {
     public string $id;
     public string $org_id;
+    public ?string $email = null;
+    public ?string $expires_at = null;
+    public ?string $inviter = null;
+    public ?string $inviter_url = null;
+    public ?string $org = null;
+    public ?string $role = null;
+    public ?string $slug_perm = null;
+    public ?array $teams = null;
+    public ?string $user = null;
+    public ?string $user_url = null;
 }
 
 /** OrganizationInviteExtend entity data model. */
@@ -1326,7 +1809,7 @@ class OrganizationInviteExtend
     public ?string $org = null;
     public ?string $role = null;
     public ?string $slug_perm = null;
-    public ?array $team = null;
+    public ?array $teams = null;
     public ?string $user = null;
     public ?string $user_url = null;
 }
@@ -1336,6 +1819,15 @@ class OrganizationInviteExtendCreateData
 {
     public string $org_id;
     public mixed $slug_perm;
+    public ?string $email = null;
+    public ?string $expires_at = null;
+    public ?string $inviter = null;
+    public ?string $inviter_url = null;
+    public ?string $org = null;
+    public ?string $role = null;
+    public ?array $teams = null;
+    public ?string $user = null;
+    public ?string $user_url = null;
 }
 
 /** OrganizationMembership entity data model. */
@@ -1373,6 +1865,18 @@ class OrganizationMembershipUpdateData
 {
     public mixed $member;
     public string $org_id;
+    public ?string $email = null;
+    public ?bool $has_two_factor = null;
+    public ?bool $is_active = null;
+    public ?string $joined_at = null;
+    public ?string $last_login_at = null;
+    public ?string $last_login_method = null;
+    public ?string $role = null;
+    public ?string $user = null;
+    public ?string $user_id = null;
+    public ?string $user_name = null;
+    public ?string $user_url = null;
+    public ?string $visibility = null;
 }
 
 /** OrganizationMembershipRoleUpdate entity data model. */
@@ -1396,6 +1900,17 @@ class OrganizationMembershipRoleUpdateUpdateData
 {
     public string $member_id;
     public string $org_id;
+    public ?string $email = null;
+    public ?bool $has_two_factor = null;
+    public ?string $joined_at = null;
+    public ?string $last_login_at = null;
+    public ?string $last_login_method = null;
+    public ?string $role = null;
+    public ?string $user = null;
+    public ?string $user_id = null;
+    public ?string $user_name = null;
+    public ?string $user_url = null;
+    public ?string $visibility = null;
 }
 
 /** OrganizationMembershipVisibilityUpdate entity data model. */
@@ -1419,19 +1934,30 @@ class OrganizationMembershipVisibilityUpdateUpdateData
 {
     public string $member_id;
     public string $org_id;
+    public ?string $email = null;
+    public ?bool $has_two_factor = null;
+    public ?string $joined_at = null;
+    public ?string $last_login_at = null;
+    public ?string $last_login_method = null;
+    public ?string $role = null;
+    public ?string $user = null;
+    public ?string $user_id = null;
+    public ?string $user_name = null;
+    public ?string $user_url = null;
+    public ?string $visibility = null;
 }
 
 /** OrganizationPackageLicensePolicy entity data model. */
 class OrganizationPackageLicensePolicy
 {
-    public ?bool $allow_unknown_license = null;
+    public ?bool $allow_unknown_licenses = null;
     public ?string $created_at = null;
     public ?string $description = null;
     public string $name;
     public ?bool $on_violation_quarantine = null;
     public ?string $package_query_string = null;
     public ?string $slug_perm = null;
-    public array $spdx_identifier;
+    public array $spdx_identifiers;
     public ?string $updated_at = null;
 }
 
@@ -1452,6 +1978,15 @@ class OrganizationPackageLicensePolicyListMatch
 class OrganizationPackageLicensePolicyCreateData
 {
     public string $org_id;
+    public ?bool $allow_unknown_licenses = null;
+    public ?string $created_at = null;
+    public ?string $description = null;
+    public string $name;
+    public ?bool $on_violation_quarantine = null;
+    public ?string $package_query_string = null;
+    public ?string $slug_perm = null;
+    public array $spdx_identifiers;
+    public ?string $updated_at = null;
 }
 
 /** Request payload for OrganizationPackageLicensePolicy#update. */
@@ -1459,6 +1994,15 @@ class OrganizationPackageLicensePolicyUpdateData
 {
     public string $id;
     public string $org_id;
+    public ?bool $allow_unknown_licenses = null;
+    public ?string $created_at = null;
+    public ?string $description = null;
+    public ?string $name = null;
+    public ?bool $on_violation_quarantine = null;
+    public ?string $package_query_string = null;
+    public ?string $slug_perm = null;
+    public ?array $spdx_identifiers = null;
+    public ?string $updated_at = null;
 }
 
 /** OrganizationPackageVulnerabilityPolicy entity data model. */
@@ -1492,6 +2036,15 @@ class OrganizationPackageVulnerabilityPolicyListMatch
 class OrganizationPackageVulnerabilityPolicyCreateData
 {
     public string $org_id;
+    public ?bool $allow_unknown_severity = null;
+    public ?string $created_at = null;
+    public ?string $description = null;
+    public ?string $min_severity = null;
+    public string $name;
+    public ?bool $on_violation_quarantine = null;
+    public ?string $package_query_string = null;
+    public ?string $slug_perm = null;
+    public ?string $updated_at = null;
 }
 
 /** Request payload for OrganizationPackageVulnerabilityPolicy#update. */
@@ -1499,6 +2052,15 @@ class OrganizationPackageVulnerabilityPolicyUpdateData
 {
     public string $id;
     public string $org_id;
+    public ?bool $allow_unknown_severity = null;
+    public ?string $created_at = null;
+    public ?string $description = null;
+    public ?string $min_severity = null;
+    public ?string $name = null;
+    public ?bool $on_violation_quarantine = null;
+    public ?string $package_query_string = null;
+    public ?string $slug_perm = null;
+    public ?string $updated_at = null;
 }
 
 /** OrganizationSamlAuth entity data model. */
@@ -1520,6 +2082,10 @@ class OrganizationSamlAuthLoadMatch
 class OrganizationSamlAuthUpdateData
 {
     public string $org_id;
+    public ?bool $saml_auth_enabled = null;
+    public ?bool $saml_auth_enforced = null;
+    public ?string $saml_metadata_inline = null;
+    public ?string $saml_metadata_url = null;
 }
 
 /** OrganizationTeam entity data model. */
@@ -1549,6 +2115,11 @@ class OrganizationTeamListMatch
 class OrganizationTeamCreateData
 {
     public string $org_id;
+    public ?string $description = null;
+    public string $name;
+    public ?string $slug = null;
+    public ?string $slug_perm = null;
+    public ?string $visibility = null;
 }
 
 /** Request payload for OrganizationTeam#update. */
@@ -1556,6 +2127,11 @@ class OrganizationTeamUpdateData
 {
     public string $id;
     public string $org_id;
+    public ?string $description = null;
+    public ?string $name = null;
+    public ?string $slug = null;
+    public ?string $slug_perm = null;
+    public ?string $visibility = null;
 }
 
 /** OrganizationTeamMember entity data model. */
@@ -1577,6 +2153,8 @@ class OrganizationTeamMemberCreateData
 {
     public string $org_id;
     public string $team_id;
+    public string $role;
+    public string $user;
 }
 
 /** Oss entity data model. */
@@ -1589,16 +2167,13 @@ class P2n
 {
 }
 
-/** P2n2 entity data model. */
-class P2n2
-{
-}
-
 /** Package entity data model. */
 class Package
 {
-    public ?array $architecture = null;
+    public ?int $active = null;
+    public ?array $architectures = null;
     public ?int $backend_kind = null;
+    public array $bandwidth;
     public ?string $cdn_url = null;
     public ?string $checksum_md5 = null;
     public ?string $checksum_sha1 = null;
@@ -1612,17 +2187,18 @@ class Package
     public ?string $display_name = null;
     public array $distro;
     public ?array $distro_version = null;
-    public ?int $download = null;
+    public array $downloads;
     public ?int $epoch = null;
     public ?string $extension = null;
-    public ?array $file = null;
     public ?string $filename = null;
+    public ?array $files = null;
     public ?string $format = null;
     public ?string $format_url = null;
     public ?int $freeable_storage = null;
     public ?string $fully_qualified_name = null;
-    public ?array $identifier = null;
     public ?string $identifier_perm = null;
+    public ?array $identifiers = null;
+    public ?int $inactive = null;
     public ?bool $indexed = null;
     public ?bool $is_cancellable = null;
     public ?bool $is_copyable = null;
@@ -1643,12 +2219,11 @@ class Package
     public ?string $name = null;
     public ?string $namespace = null;
     public ?string $namespace_url = null;
-    public int $num_download;
-    public ?int $num_file = null;
+    public int $num_downloads;
+    public ?int $num_files = null;
     public ?string $operator = null;
     public ?string $origin_repository = null;
     public ?string $origin_repository_url = null;
-    public array $package;
     public ?int $package_type = null;
     public ?bool $policy_violated = null;
     public ?string $release = null;
@@ -1676,8 +2251,9 @@ class Package
     public ?string $summary = null;
     public ?string $sync_finished_at = null;
     public ?int $sync_progress = null;
-    public ?array $tag = null;
+    public ?array $tags = null;
     public ?array $tags_immutable = null;
+    public ?int $total = null;
     public ?string $type_display = null;
     public ?string $uploaded_at = null;
     public ?string $uploader = null;
@@ -1709,6 +2285,97 @@ class PackageCreateData
     public mixed $identifier = null;
     public mixed $owner;
     public mixed $repo;
+    public ?int $active = null;
+    public ?array $architectures = null;
+    public ?int $backend_kind = null;
+    public array $bandwidth;
+    public ?string $cdn_url = null;
+    public ?string $checksum_md5 = null;
+    public ?string $checksum_sha1 = null;
+    public ?string $checksum_sha256 = null;
+    public ?string $checksum_sha512 = null;
+    public int $count;
+    public ?string $dep_type = null;
+    public ?string $dependencies_checksum_md5 = null;
+    public ?string $dependencies_url = null;
+    public ?string $description = null;
+    public ?string $display_name = null;
+    public array $distro;
+    public ?array $distro_version = null;
+    public array $downloads;
+    public ?int $epoch = null;
+    public ?string $extension = null;
+    public ?string $filename = null;
+    public ?array $files = null;
+    public ?string $format = null;
+    public ?string $format_url = null;
+    public ?int $freeable_storage = null;
+    public ?string $fully_qualified_name = null;
+    public ?string $identifier_perm = null;
+    public ?array $identifiers = null;
+    public ?int $inactive = null;
+    public ?bool $indexed = null;
+    public ?bool $is_cancellable = null;
+    public ?bool $is_copyable = null;
+    public ?bool $is_deleteable = null;
+    public ?bool $is_downloadable = null;
+    public ?bool $is_moveable = null;
+    public ?bool $is_quarantinable = null;
+    public ?bool $is_quarantined = null;
+    public ?bool $is_resyncable = null;
+    public ?bool $is_security_scannable = null;
+    public ?bool $is_sync_awaiting = null;
+    public ?bool $is_sync_completed = null;
+    public ?bool $is_sync_failed = null;
+    public ?bool $is_sync_in_flight = null;
+    public ?bool $is_sync_in_progress = null;
+    public string $last_push;
+    public ?string $license = null;
+    public ?string $name = null;
+    public ?string $namespace = null;
+    public ?string $namespace_url = null;
+    public int $num_downloads;
+    public ?int $num_files = null;
+    public ?string $operator = null;
+    public ?string $origin_repository = null;
+    public ?string $origin_repository_url = null;
+    public ?int $package_type = null;
+    public ?bool $policy_violated = null;
+    public ?string $release = null;
+    public ?string $repository = null;
+    public ?string $repository_url = null;
+    public ?string $security_scan_completed_at = null;
+    public ?string $security_scan_started_at = null;
+    public ?string $security_scan_status = null;
+    public ?string $security_scan_status_updated_at = null;
+    public ?string $self_html_url = null;
+    public ?string $self_url = null;
+    public ?string $signature_url = null;
+    public ?int $size = null;
+    public ?string $slug = null;
+    public ?string $slug_perm = null;
+    public ?int $stage = null;
+    public ?string $stage_str = null;
+    public ?string $stage_updated_at = null;
+    public ?int $status = null;
+    public ?string $status_reason = null;
+    public ?string $status_str = null;
+    public ?string $status_updated_at = null;
+    public ?string $status_url = null;
+    public ?string $subtype = null;
+    public ?string $summary = null;
+    public ?string $sync_finished_at = null;
+    public ?int $sync_progress = null;
+    public ?array $tags = null;
+    public ?array $tags_immutable = null;
+    public ?int $total = null;
+    public ?string $type_display = null;
+    public ?string $uploaded_at = null;
+    public ?string $uploader = null;
+    public ?string $uploader_url = null;
+    public ?string $version = null;
+    public ?string $version_orig = null;
+    public ?string $vulnerability_scan_results_url = null;
 }
 
 /** Request payload for Package#remove. */
@@ -1750,6 +2417,15 @@ class PackageDenyPolicyListMatch
 class PackageDenyPolicyCreateData
 {
     public string $org_id;
+    public ?string $action = null;
+    public ?string $created_at = null;
+    public ?string $description = null;
+    public ?bool $enabled = null;
+    public ?string $name = null;
+    public string $package_query_string;
+    public ?string $slug_perm = null;
+    public ?string $status = null;
+    public ?string $updated_at = null;
 }
 
 /** Request payload for PackageDenyPolicy#update. */
@@ -1757,6 +2433,15 @@ class PackageDenyPolicyUpdateData
 {
     public string $id;
     public string $org_id;
+    public ?string $action = null;
+    public ?string $created_at = null;
+    public ?string $description = null;
+    public ?bool $enabled = null;
+    public ?string $name = null;
+    public ?string $package_query_string = null;
+    public ?string $slug_perm = null;
+    public ?string $status = null;
+    public ?string $updated_at = null;
 }
 
 /** PackageFilePartsUpload entity data model. */
@@ -1791,12 +2476,19 @@ class PackageFileUploadCreateData
 /** PackageLicensePolicyEvaluation entity data model. */
 class PackageLicensePolicyEvaluation
 {
+    public ?bool $allow_unknown_licenses = null;
     public ?string $created_at = null;
+    public ?string $description = null;
     public ?int $evaluation_count = null;
+    public ?string $name = null;
+    public ?bool $on_violation_quarantine = null;
+    public ?string $package_query_string = null;
     public array $policy;
     public ?string $slug_perm = null;
+    public array $spdx_identifiers;
     public ?string $status = null;
     public ?string $updated_at = null;
+    public ?string $url = null;
     public ?int $violation_count = null;
 }
 
@@ -1820,6 +2512,20 @@ class PackageLicensePolicyEvaluationCreateData
 {
     public string $org_id;
     public mixed $policy_slug_perm;
+    public ?bool $allow_unknown_licenses = null;
+    public ?string $created_at = null;
+    public ?string $description = null;
+    public ?int $evaluation_count = null;
+    public ?string $name = null;
+    public ?bool $on_violation_quarantine = null;
+    public ?string $package_query_string = null;
+    public array $policy;
+    public ?string $slug_perm = null;
+    public array $spdx_identifiers;
+    public ?string $status = null;
+    public ?string $updated_at = null;
+    public ?string $url = null;
+    public ?int $violation_count = null;
 }
 
 /** PackageVersionBadge entity data model. */
@@ -1841,12 +2547,19 @@ class PackageVersionBadgeLoadMatch
 /** PackageVulnerabilityPolicyEvaluation entity data model. */
 class PackageVulnerabilityPolicyEvaluation
 {
+    public ?bool $allow_unknown_severity = null;
     public ?string $created_at = null;
+    public ?string $description = null;
     public ?int $evaluation_count = null;
+    public ?string $min_severity = null;
+    public ?string $name = null;
+    public ?bool $on_violation_quarantine = null;
+    public ?string $package_query_string = null;
     public ?array $policy = null;
     public ?string $slug_perm = null;
     public ?string $status = null;
     public ?string $updated_at = null;
+    public ?string $url = null;
     public ?int $violation_count = null;
 }
 
@@ -1870,6 +2583,20 @@ class PackageVulnerabilityPolicyEvaluationCreateData
 {
     public string $org_id;
     public mixed $policy_slug_perm;
+    public ?bool $allow_unknown_severity = null;
+    public ?string $created_at = null;
+    public ?string $description = null;
+    public ?int $evaluation_count = null;
+    public ?string $min_severity = null;
+    public ?string $name = null;
+    public ?bool $on_violation_quarantine = null;
+    public ?string $package_query_string = null;
+    public ?array $policy = null;
+    public ?string $slug_perm = null;
+    public ?string $status = null;
+    public ?string $updated_at = null;
+    public ?string $url = null;
+    public ?int $violation_count = null;
 }
 
 /** Privilege entity data model. */
@@ -1885,12 +2612,12 @@ class Profile
 /** ProviderSetting entity data model. */
 class ProviderSetting
 {
-    public array $claim;
+    public array $claims;
     public bool $enabled;
     public ?string $mapping_claim = null;
     public string $name;
     public string $provider_url;
-    public ?array $service_account = null;
+    public ?array $service_accounts = null;
     public ?string $slug = null;
     public ?string $slug_perm = null;
 }
@@ -1911,13 +2638,13 @@ class ProviderSettingListMatch
 /** ProviderSettingsWrite entity data model. */
 class ProviderSettingsWrite
 {
-    public array $claim;
-    public ?array $dynamic_mapping = null;
+    public array $claims;
+    public ?array $dynamic_mappings = null;
     public bool $enabled;
     public ?string $mapping_claim = null;
     public string $name;
     public string $provider_url;
-    public ?array $service_account = null;
+    public ?array $service_accounts = null;
     public ?string $slug = null;
     public ?string $slug_perm = null;
 }
@@ -1926,6 +2653,15 @@ class ProviderSettingsWrite
 class ProviderSettingsWriteCreateData
 {
     public string $org_id;
+    public array $claims;
+    public ?array $dynamic_mappings = null;
+    public bool $enabled;
+    public ?string $mapping_claim = null;
+    public string $name;
+    public string $provider_url;
+    public ?array $service_accounts = null;
+    public ?string $slug = null;
+    public ?string $slug_perm = null;
 }
 
 /** Request payload for ProviderSettingsWrite#update. */
@@ -1933,6 +2669,14 @@ class ProviderSettingsWriteUpdateData
 {
     public string $org_id;
     public mixed $slug_perm;
+    public ?array $claims = null;
+    public ?array $dynamic_mappings = null;
+    public ?bool $enabled = null;
+    public ?string $mapping_claim = null;
+    public ?string $name = null;
+    public ?string $provider_url = null;
+    public ?array $service_accounts = null;
+    public ?string $slug = null;
 }
 
 /** Python entity data model. */
@@ -1978,6 +2722,24 @@ class PythonCreateData
 {
     public mixed $identifier;
     public mixed $owner;
+    public ?string $auth_mode = null;
+    public ?string $auth_secret = null;
+    public ?string $auth_username = null;
+    public ?string $created_at = null;
+    public ?string $disable_reason = null;
+    public ?string $extra_header_1 = null;
+    public ?string $extra_header_2 = null;
+    public ?string $extra_value_1 = null;
+    public ?string $extra_value_2 = null;
+    public ?bool $is_active = null;
+    public ?string $mode = null;
+    public string $name;
+    public ?bool $pending_validation = null;
+    public ?int $priority = null;
+    public ?string $slug_perm = null;
+    public ?string $updated_at = null;
+    public string $upstream_url;
+    public ?bool $verify_ssl = null;
 }
 
 /** Request payload for Python#update. */
@@ -1986,6 +2748,24 @@ class PythonUpdateData
     public string $id;
     public mixed $identifier;
     public mixed $owner;
+    public ?string $auth_mode = null;
+    public ?string $auth_secret = null;
+    public ?string $auth_username = null;
+    public ?string $created_at = null;
+    public ?string $disable_reason = null;
+    public ?string $extra_header_1 = null;
+    public ?string $extra_header_2 = null;
+    public ?string $extra_value_1 = null;
+    public ?string $extra_value_2 = null;
+    public ?bool $is_active = null;
+    public ?string $mode = null;
+    public ?string $name = null;
+    public ?bool $pending_validation = null;
+    public ?int $priority = null;
+    public ?string $slug_perm = null;
+    public ?string $updated_at = null;
+    public ?string $upstream_url = null;
+    public ?bool $verify_ssl = null;
 }
 
 /** Quarantine entity data model. */
@@ -1996,8 +2776,9 @@ class Quarantine
 /** Quota entity data model. */
 class Quota
 {
+    public array $display;
     public array $history;
-    public array $usage;
+    public array $raw;
 }
 
 /** Request payload for Quota#load. */
@@ -2029,49 +2810,49 @@ class Repo
     public ?string $content_kind = null;
     public ?bool $contextual_auth_realm = null;
     public ?bool $copy_own = null;
-    public ?string $copy_package = null;
+    public ?string $copy_packages = null;
     public ?bool $cosign_signing_enabled = null;
     public ?string $created_at = null;
     public ?string $default_privilege = null;
     public ?bool $delete_own = null;
-    public ?string $delete_package = null;
+    public ?string $delete_packages = null;
     public ?string $deleted_at = null;
     public ?string $description = null;
-    public ?array $distribute = null;
+    public ?array $distributes = null;
     public ?bool $docker_refresh_tokens_enabled = null;
-    public ?array $ecdsa_key = null;
+    public ?array $ecdsa_keys = null;
     public ?bool $enforce_eula = null;
-    public ?array $gpg_key = null;
-    public ?bool $index_file = null;
+    public ?array $gpg_keys = null;
+    public ?bool $index_files = null;
     public ?bool $is_open_source = null;
     public ?bool $is_private = null;
     public ?bool $is_public = null;
     public ?string $manage_entitlements_privilege = null;
     public ?bool $move_own = null;
-    public ?string $move_package = null;
+    public ?string $move_packages = null;
     public string $name;
     public ?string $namespace = null;
     public ?string $namespace_url = null;
     public ?bool $nuget_native_signing_enabled = null;
-    public ?int $num_download = null;
-    public ?int $num_policy_violated_package = null;
-    public ?int $num_quarantined_package = null;
+    public ?int $num_downloads = null;
+    public ?int $num_policy_violated_packages = null;
+    public ?int $num_quarantined_packages = null;
     public ?string $open_source_license = null;
     public ?string $open_source_project_url = null;
     public ?int $package_count = null;
     public ?int $package_group_count = null;
-    public ?bool $proxy_npmj = null;
+    public ?bool $proxy_npmjs = null;
     public ?bool $proxy_pypi = null;
     public ?bool $raw_package_index_enabled = null;
     public ?bool $raw_package_index_signatures_enabled = null;
-    public ?string $replace_package = null;
+    public ?string $replace_packages = null;
     public ?bool $replace_packages_by_default = null;
     public ?int $repository_type = null;
     public ?string $repository_type_str = null;
     public ?bool $resync_own = null;
-    public ?string $resync_package = null;
+    public ?string $resync_packages = null;
     public ?bool $scan_own = null;
-    public ?string $scan_package = null;
+    public ?string $scan_packages = null;
     public ?string $self_html_url = null;
     public ?string $self_url = null;
     public ?bool $show_setup_all = null;
@@ -2082,14 +2863,14 @@ class Repo
     public ?string $storage_region = null;
     public ?bool $strict_npm_validation = null;
     public ?bool $tag_pre_releases_as_latest = null;
-    public ?bool $use_debian_label = null;
+    public ?bool $use_debian_labels = null;
     public ?bool $use_default_cargo_upstream = null;
     public ?string $use_entitlements_privilege = null;
-    public ?bool $use_noarch_package = null;
-    public ?bool $use_source_package = null;
+    public ?bool $use_noarch_packages = null;
+    public ?bool $use_source_packages = null;
     public ?bool $use_vulnerability_scanning = null;
     public ?bool $user_entitlements_enabled = null;
-    public ?string $view_statistic = null;
+    public ?string $view_statistics = null;
 }
 
 /** Request payload for Repo#load. */
@@ -2111,6 +2892,71 @@ class RepoCreateData
     public mixed $identifier = null;
     public mixed $owner = null;
     public ?string $id = null;
+    public ?string $cdn_url = null;
+    public ?string $content_kind = null;
+    public ?bool $contextual_auth_realm = null;
+    public ?bool $copy_own = null;
+    public ?string $copy_packages = null;
+    public ?bool $cosign_signing_enabled = null;
+    public ?string $created_at = null;
+    public ?string $default_privilege = null;
+    public ?bool $delete_own = null;
+    public ?string $delete_packages = null;
+    public ?string $deleted_at = null;
+    public ?string $description = null;
+    public ?array $distributes = null;
+    public ?bool $docker_refresh_tokens_enabled = null;
+    public ?array $ecdsa_keys = null;
+    public ?bool $enforce_eula = null;
+    public ?array $gpg_keys = null;
+    public ?bool $index_files = null;
+    public ?bool $is_open_source = null;
+    public ?bool $is_private = null;
+    public ?bool $is_public = null;
+    public ?string $manage_entitlements_privilege = null;
+    public ?bool $move_own = null;
+    public ?string $move_packages = null;
+    public string $name;
+    public ?string $namespace = null;
+    public ?string $namespace_url = null;
+    public ?bool $nuget_native_signing_enabled = null;
+    public ?int $num_downloads = null;
+    public ?int $num_policy_violated_packages = null;
+    public ?int $num_quarantined_packages = null;
+    public ?string $open_source_license = null;
+    public ?string $open_source_project_url = null;
+    public ?int $package_count = null;
+    public ?int $package_group_count = null;
+    public ?bool $proxy_npmjs = null;
+    public ?bool $proxy_pypi = null;
+    public ?bool $raw_package_index_enabled = null;
+    public ?bool $raw_package_index_signatures_enabled = null;
+    public ?string $replace_packages = null;
+    public ?bool $replace_packages_by_default = null;
+    public ?int $repository_type = null;
+    public ?string $repository_type_str = null;
+    public ?bool $resync_own = null;
+    public ?string $resync_packages = null;
+    public ?bool $scan_own = null;
+    public ?string $scan_packages = null;
+    public ?string $self_html_url = null;
+    public ?string $self_url = null;
+    public ?bool $show_setup_all = null;
+    public ?int $size = null;
+    public ?string $size_str = null;
+    public ?string $slug = null;
+    public ?string $slug_perm = null;
+    public ?string $storage_region = null;
+    public ?bool $strict_npm_validation = null;
+    public ?bool $tag_pre_releases_as_latest = null;
+    public ?bool $use_debian_labels = null;
+    public ?bool $use_default_cargo_upstream = null;
+    public ?string $use_entitlements_privilege = null;
+    public ?bool $use_noarch_packages = null;
+    public ?bool $use_source_packages = null;
+    public ?bool $use_vulnerability_scanning = null;
+    public ?bool $user_entitlements_enabled = null;
+    public ?string $view_statistics = null;
 }
 
 /** Request payload for Repo#update. */
@@ -2118,6 +2964,71 @@ class RepoUpdateData
 {
     public mixed $identifier;
     public mixed $owner;
+    public ?string $cdn_url = null;
+    public ?string $content_kind = null;
+    public ?bool $contextual_auth_realm = null;
+    public ?bool $copy_own = null;
+    public ?string $copy_packages = null;
+    public ?bool $cosign_signing_enabled = null;
+    public ?string $created_at = null;
+    public ?string $default_privilege = null;
+    public ?bool $delete_own = null;
+    public ?string $delete_packages = null;
+    public ?string $deleted_at = null;
+    public ?string $description = null;
+    public ?array $distributes = null;
+    public ?bool $docker_refresh_tokens_enabled = null;
+    public ?array $ecdsa_keys = null;
+    public ?bool $enforce_eula = null;
+    public ?array $gpg_keys = null;
+    public ?bool $index_files = null;
+    public ?bool $is_open_source = null;
+    public ?bool $is_private = null;
+    public ?bool $is_public = null;
+    public ?string $manage_entitlements_privilege = null;
+    public ?bool $move_own = null;
+    public ?string $move_packages = null;
+    public ?string $name = null;
+    public ?string $namespace = null;
+    public ?string $namespace_url = null;
+    public ?bool $nuget_native_signing_enabled = null;
+    public ?int $num_downloads = null;
+    public ?int $num_policy_violated_packages = null;
+    public ?int $num_quarantined_packages = null;
+    public ?string $open_source_license = null;
+    public ?string $open_source_project_url = null;
+    public ?int $package_count = null;
+    public ?int $package_group_count = null;
+    public ?bool $proxy_npmjs = null;
+    public ?bool $proxy_pypi = null;
+    public ?bool $raw_package_index_enabled = null;
+    public ?bool $raw_package_index_signatures_enabled = null;
+    public ?string $replace_packages = null;
+    public ?bool $replace_packages_by_default = null;
+    public ?int $repository_type = null;
+    public ?string $repository_type_str = null;
+    public ?bool $resync_own = null;
+    public ?string $resync_packages = null;
+    public ?bool $scan_own = null;
+    public ?string $scan_packages = null;
+    public ?string $self_html_url = null;
+    public ?string $self_url = null;
+    public ?bool $show_setup_all = null;
+    public ?int $size = null;
+    public ?string $size_str = null;
+    public ?string $slug = null;
+    public ?string $slug_perm = null;
+    public ?string $storage_region = null;
+    public ?bool $strict_npm_validation = null;
+    public ?bool $tag_pre_releases_as_latest = null;
+    public ?bool $use_debian_labels = null;
+    public ?bool $use_default_cargo_upstream = null;
+    public ?string $use_entitlements_privilege = null;
+    public ?bool $use_noarch_packages = null;
+    public ?bool $use_source_packages = null;
+    public ?bool $use_vulnerability_scanning = null;
+    public ?bool $user_entitlements_enabled = null;
+    public ?string $view_statistics = null;
 }
 
 /** Request payload for Repo#remove. */
@@ -2177,6 +3088,13 @@ class RepositoryEcdsaKeyCreateData
 {
     public mixed $identifier;
     public mixed $owner;
+    public ?bool $active = null;
+    public ?string $created_at = null;
+    public ?bool $default = null;
+    public ?string $fingerprint = null;
+    public ?string $fingerprint_short = null;
+    public ?string $public_key = null;
+    public ?string $ssh_fingerprint = null;
 }
 
 /** RepositoryGeoIpRule entity data model. */
@@ -2198,6 +3116,8 @@ class RepositoryGeoIpRuleUpdateData
 {
     public mixed $identifier;
     public mixed $owner;
+    public ?array $cidr = null;
+    public ?array $country_code = null;
 }
 
 /** RepositoryGeoIpStatus entity data model. */
@@ -2249,6 +3169,13 @@ class RepositoryGpgKeyCreateData
 {
     public mixed $identifier;
     public mixed $owner;
+    public ?bool $active = null;
+    public string $comment;
+    public ?string $created_at = null;
+    public ?bool $default = null;
+    public ?string $fingerprint = null;
+    public ?string $fingerprint_short = null;
+    public ?string $public_key = null;
 }
 
 /** RepositoryPrivilegeInput entity data model. */
@@ -2292,6 +3219,14 @@ class RepositoryRetentionRuleUpdateData
 {
     public mixed $owner;
     public mixed $repo;
+    public ?int $retention_count_limit = null;
+    public ?int $retention_days_limit = null;
+    public ?bool $retention_enabled = null;
+    public ?bool $retention_group_by_format = null;
+    public ?bool $retention_group_by_name = null;
+    public ?bool $retention_group_by_package_type = null;
+    public ?string $retention_package_query_string = null;
+    public ?int $retention_size_limit = null;
 }
 
 /** RepositoryRsaKey entity data model. */
@@ -2318,24 +3253,31 @@ class RepositoryRsaKeyCreateData
 {
     public mixed $identifier;
     public mixed $owner;
+    public ?bool $active = null;
+    public ?string $created_at = null;
+    public ?bool $default = null;
+    public ?string $fingerprint = null;
+    public ?string $fingerprint_short = null;
+    public ?string $public_key = null;
+    public ?string $ssh_fingerprint = null;
 }
 
 /** RepositoryToken entity data model. */
 class RepositoryToken
 {
-    public ?int $client = null;
+    public ?int $clients = null;
     public ?string $created_at = null;
     public ?string $created_by = null;
     public ?string $created_by_url = null;
     public ?bool $default = null;
     public ?string $disable_url = null;
-    public ?int $download = null;
+    public ?int $downloads = null;
     public ?string $enable_url = null;
     public ?array $eula_accepted = null;
     public ?string $eula_accepted_at = null;
     public ?string $eula_accepted_from = null;
     public ?bool $eula_required = null;
-    public ?bool $has_limit = null;
+    public ?bool $has_limits = null;
     public ?int $identifier = null;
     public ?bool $is_active = null;
     public ?bool $is_limited = null;
@@ -2343,8 +3285,8 @@ class RepositoryToken
     public ?string $limit_bandwidth_unit = null;
     public ?string $limit_date_range_from = null;
     public ?string $limit_date_range_to = null;
-    public ?int $limit_num_client = null;
-    public ?int $limit_num_download = null;
+    public ?int $limit_num_clients = null;
+    public ?int $limit_num_downloads = null;
     public ?string $limit_package_query = null;
     public ?string $limit_path_query = null;
     public ?array $metadata = null;
@@ -2384,6 +3326,45 @@ class RepositoryTokenCreateData
 {
     public mixed $owner;
     public mixed $repo;
+    public ?int $clients = null;
+    public ?string $created_at = null;
+    public ?string $created_by = null;
+    public ?string $created_by_url = null;
+    public ?bool $default = null;
+    public ?string $disable_url = null;
+    public ?int $downloads = null;
+    public ?string $enable_url = null;
+    public ?array $eula_accepted = null;
+    public ?string $eula_accepted_at = null;
+    public ?string $eula_accepted_from = null;
+    public ?bool $eula_required = null;
+    public ?bool $has_limits = null;
+    public ?int $identifier = null;
+    public ?bool $is_active = null;
+    public ?bool $is_limited = null;
+    public ?int $limit_bandwidth = null;
+    public ?string $limit_bandwidth_unit = null;
+    public ?string $limit_date_range_from = null;
+    public ?string $limit_date_range_to = null;
+    public ?int $limit_num_clients = null;
+    public ?int $limit_num_downloads = null;
+    public ?string $limit_package_query = null;
+    public ?string $limit_path_query = null;
+    public ?array $metadata = null;
+    public string $name;
+    public ?string $refresh_url = null;
+    public ?string $reset_url = null;
+    public ?string $scheduled_reset_at = null;
+    public ?string $scheduled_reset_period = null;
+    public ?string $self_url = null;
+    public ?string $slug_perm = null;
+    public ?string $token = null;
+    public ?string $updated_at = null;
+    public ?string $updated_by = null;
+    public ?string $updated_by_url = null;
+    public ?string $usage = null;
+    public ?string $user = null;
+    public ?string $user_url = null;
 }
 
 /** Request payload for RepositoryToken#update. */
@@ -2392,24 +3373,62 @@ class RepositoryTokenUpdateData
     public mixed $identifier;
     public mixed $owner;
     public mixed $repo;
-}
-
-/** RepositoryTokenRefresh entity data model. */
-class RepositoryTokenRefresh
-{
-    public ?int $client = null;
+    public ?int $clients = null;
     public ?string $created_at = null;
     public ?string $created_by = null;
     public ?string $created_by_url = null;
     public ?bool $default = null;
     public ?string $disable_url = null;
-    public ?int $download = null;
+    public ?int $downloads = null;
     public ?string $enable_url = null;
     public ?array $eula_accepted = null;
     public ?string $eula_accepted_at = null;
     public ?string $eula_accepted_from = null;
     public ?bool $eula_required = null;
-    public ?bool $has_limit = null;
+    public ?bool $has_limits = null;
+    public ?bool $is_active = null;
+    public ?bool $is_limited = null;
+    public ?int $limit_bandwidth = null;
+    public ?string $limit_bandwidth_unit = null;
+    public ?string $limit_date_range_from = null;
+    public ?string $limit_date_range_to = null;
+    public ?int $limit_num_clients = null;
+    public ?int $limit_num_downloads = null;
+    public ?string $limit_package_query = null;
+    public ?string $limit_path_query = null;
+    public ?array $metadata = null;
+    public ?string $name = null;
+    public ?string $refresh_url = null;
+    public ?string $reset_url = null;
+    public ?string $scheduled_reset_at = null;
+    public ?string $scheduled_reset_period = null;
+    public ?string $self_url = null;
+    public ?string $slug_perm = null;
+    public ?string $token = null;
+    public ?string $updated_at = null;
+    public ?string $updated_by = null;
+    public ?string $updated_by_url = null;
+    public ?string $usage = null;
+    public ?string $user = null;
+    public ?string $user_url = null;
+}
+
+/** RepositoryTokenRefresh entity data model. */
+class RepositoryTokenRefresh
+{
+    public ?int $clients = null;
+    public ?string $created_at = null;
+    public ?string $created_by = null;
+    public ?string $created_by_url = null;
+    public ?bool $default = null;
+    public ?string $disable_url = null;
+    public ?int $downloads = null;
+    public ?string $enable_url = null;
+    public ?array $eula_accepted = null;
+    public ?string $eula_accepted_at = null;
+    public ?string $eula_accepted_from = null;
+    public ?bool $eula_required = null;
+    public ?bool $has_limits = null;
     public ?int $identifier = null;
     public ?bool $is_active = null;
     public ?bool $is_limited = null;
@@ -2417,8 +3436,8 @@ class RepositoryTokenRefresh
     public ?string $limit_bandwidth_unit = null;
     public ?string $limit_date_range_from = null;
     public ?string $limit_date_range_to = null;
-    public ?int $limit_num_client = null;
-    public ?int $limit_num_download = null;
+    public ?int $limit_num_clients = null;
+    public ?int $limit_num_downloads = null;
     public ?string $limit_package_query = null;
     public ?string $limit_path_query = null;
     public ?array $metadata = null;
@@ -2444,12 +3463,50 @@ class RepositoryTokenRefreshCreateData
     public mixed $identifier;
     public mixed $owner;
     public mixed $repo;
+    public ?int $clients = null;
+    public ?string $created_at = null;
+    public ?string $created_by = null;
+    public ?string $created_by_url = null;
+    public ?bool $default = null;
+    public ?string $disable_url = null;
+    public ?int $downloads = null;
+    public ?string $enable_url = null;
+    public ?array $eula_accepted = null;
+    public ?string $eula_accepted_at = null;
+    public ?string $eula_accepted_from = null;
+    public ?bool $eula_required = null;
+    public ?bool $has_limits = null;
+    public ?bool $is_active = null;
+    public ?bool $is_limited = null;
+    public ?int $limit_bandwidth = null;
+    public ?string $limit_bandwidth_unit = null;
+    public ?string $limit_date_range_from = null;
+    public ?string $limit_date_range_to = null;
+    public ?int $limit_num_clients = null;
+    public ?int $limit_num_downloads = null;
+    public ?string $limit_package_query = null;
+    public ?string $limit_path_query = null;
+    public ?array $metadata = null;
+    public ?string $name = null;
+    public ?string $refresh_url = null;
+    public ?string $reset_url = null;
+    public ?string $scheduled_reset_at = null;
+    public ?string $scheduled_reset_period = null;
+    public ?string $self_url = null;
+    public ?string $slug_perm = null;
+    public ?string $token = null;
+    public ?string $updated_at = null;
+    public ?string $updated_by = null;
+    public ?string $updated_by_url = null;
+    public ?string $usage = null;
+    public ?string $user = null;
+    public ?string $user_url = null;
 }
 
 /** RepositoryTokenSync entity data model. */
 class RepositoryTokenSync
 {
-    public ?array $token = null;
+    public ?array $tokens = null;
 }
 
 /** Request payload for RepositoryTokenSync#create. */
@@ -2457,6 +3514,7 @@ class RepositoryTokenSyncCreateData
 {
     public mixed $owner;
     public mixed $repo;
+    public ?array $tokens = null;
 }
 
 /** RepositoryWebhook entity data model. */
@@ -2467,7 +3525,8 @@ class RepositoryWebhook
     public ?string $created_by_url = null;
     public ?int $disable_reason = null;
     public ?string $disable_reason_str = null;
-    public array $event;
+    public string $event;
+    public array $events;
     public ?int $identifier = null;
     public ?bool $is_active = null;
     public ?bool $is_last_response_bad = null;
@@ -2484,7 +3543,8 @@ class RepositoryWebhook
     public ?string $self_url = null;
     public ?string $slug_perm = null;
     public string $target_url;
-    public array $template;
+    public ?string $template = null;
+    public array $templates;
     public ?string $updated_at = null;
     public ?string $updated_by = null;
     public ?string $updated_by_url = null;
@@ -2504,6 +3564,35 @@ class RepositoryWebhookCreateData
 {
     public mixed $owner;
     public mixed $repo;
+    public ?string $created_at = null;
+    public ?string $created_by = null;
+    public ?string $created_by_url = null;
+    public ?int $disable_reason = null;
+    public ?string $disable_reason_str = null;
+    public string $event;
+    public array $events;
+    public ?int $identifier = null;
+    public ?bool $is_active = null;
+    public ?bool $is_last_response_bad = null;
+    public ?int $last_response_status = null;
+    public ?string $last_response_status_str = null;
+    public ?int $num_sent = null;
+    public ?string $package_query = null;
+    public ?int $request_body_format = null;
+    public ?string $request_body_format_str = null;
+    public ?int $request_body_template_format = null;
+    public ?string $request_body_template_format_str = null;
+    public ?string $request_content_type = null;
+    public ?string $secret_header = null;
+    public ?string $self_url = null;
+    public ?string $slug_perm = null;
+    public string $target_url;
+    public ?string $template = null;
+    public array $templates;
+    public ?string $updated_at = null;
+    public ?string $updated_by = null;
+    public ?string $updated_by_url = null;
+    public ?bool $verify_ssl = null;
 }
 
 /** Request payload for RepositoryWebhook#update. */
@@ -2512,6 +3601,34 @@ class RepositoryWebhookUpdateData
     public mixed $identifier;
     public mixed $owner;
     public mixed $repo;
+    public ?string $created_at = null;
+    public ?string $created_by = null;
+    public ?string $created_by_url = null;
+    public ?int $disable_reason = null;
+    public ?string $disable_reason_str = null;
+    public ?string $event = null;
+    public ?array $events = null;
+    public ?bool $is_active = null;
+    public ?bool $is_last_response_bad = null;
+    public ?int $last_response_status = null;
+    public ?string $last_response_status_str = null;
+    public ?int $num_sent = null;
+    public ?string $package_query = null;
+    public ?int $request_body_format = null;
+    public ?string $request_body_format_str = null;
+    public ?int $request_body_template_format = null;
+    public ?string $request_body_template_format_str = null;
+    public ?string $request_content_type = null;
+    public ?string $secret_header = null;
+    public ?string $self_url = null;
+    public ?string $slug_perm = null;
+    public ?string $target_url = null;
+    public ?string $template = null;
+    public ?array $templates = null;
+    public ?string $updated_at = null;
+    public ?string $updated_by = null;
+    public ?string $updated_by_url = null;
+    public ?bool $verify_ssl = null;
 }
 
 /** RepositoryX509EcdsaCertificate entity data model. */
@@ -2566,13 +3683,23 @@ class Reset
 /** ResourcesRateCheck entity data model. */
 class ResourcesRateCheck
 {
-    public ?array $resource = null;
+    public ?float $interval = null;
+    public ?int $limit = null;
+    public ?int $remaining = null;
+    public ?int $reset = null;
+    public ?string $reset_iso_8601 = null;
+    public ?bool $throttled = null;
 }
 
 /** Request payload for ResourcesRateCheck#load. */
 class ResourcesRateCheckLoadMatch
 {
-    public ?array $resource = null;
+    public ?float $interval = null;
+    public ?int $limit = null;
+    public ?int $remaining = null;
+    public ?int $reset = null;
+    public ?string $reset_iso_8601 = null;
+    public ?bool $throttled = null;
 }
 
 /** Resync entity data model. */
@@ -2601,7 +3728,7 @@ class Rpm
     public ?string $gpg_key_inline = null;
     public ?string $gpg_key_url = null;
     public ?string $gpg_verification = null;
-    public ?bool $include_source = null;
+    public ?bool $include_sources = null;
     public ?bool $is_active = null;
     public ?string $mode = null;
     public string $name;
@@ -2634,6 +3761,30 @@ class RpmCreateData
 {
     public mixed $identifier;
     public mixed $owner;
+    public ?string $auth_mode = null;
+    public ?string $auth_secret = null;
+    public ?string $auth_username = null;
+    public ?string $created_at = null;
+    public ?string $disable_reason = null;
+    public string $distro_version;
+    public ?string $extra_header_1 = null;
+    public ?string $extra_header_2 = null;
+    public ?string $extra_value_1 = null;
+    public ?string $extra_value_2 = null;
+    public ?string $gpg_key_inline = null;
+    public ?string $gpg_key_url = null;
+    public ?string $gpg_verification = null;
+    public ?bool $include_sources = null;
+    public ?bool $is_active = null;
+    public ?string $mode = null;
+    public string $name;
+    public ?bool $pending_validation = null;
+    public ?int $priority = null;
+    public ?string $slug_perm = null;
+    public ?string $updated_at = null;
+    public string $upstream_url;
+    public ?string $verification_status = null;
+    public ?bool $verify_ssl = null;
 }
 
 /** Request payload for Rpm#update. */
@@ -2642,6 +3793,30 @@ class RpmUpdateData
     public string $id;
     public mixed $identifier;
     public mixed $owner;
+    public ?string $auth_mode = null;
+    public ?string $auth_secret = null;
+    public ?string $auth_username = null;
+    public ?string $created_at = null;
+    public ?string $disable_reason = null;
+    public ?string $distro_version = null;
+    public ?string $extra_header_1 = null;
+    public ?string $extra_header_2 = null;
+    public ?string $extra_value_1 = null;
+    public ?string $extra_value_2 = null;
+    public ?string $gpg_key_inline = null;
+    public ?string $gpg_key_url = null;
+    public ?string $gpg_verification = null;
+    public ?bool $include_sources = null;
+    public ?bool $is_active = null;
+    public ?string $mode = null;
+    public ?string $name = null;
+    public ?bool $pending_validation = null;
+    public ?int $priority = null;
+    public ?string $slug_perm = null;
+    public ?string $updated_at = null;
+    public ?string $upstream_url = null;
+    public ?string $verification_status = null;
+    public ?bool $verify_ssl = null;
 }
 
 /** Rsa entity data model. */
@@ -2692,6 +3867,24 @@ class RubyCreateData
 {
     public mixed $identifier;
     public mixed $owner;
+    public ?string $auth_mode = null;
+    public ?string $auth_secret = null;
+    public ?string $auth_username = null;
+    public ?string $created_at = null;
+    public ?string $disable_reason = null;
+    public ?string $extra_header_1 = null;
+    public ?string $extra_header_2 = null;
+    public ?string $extra_value_1 = null;
+    public ?string $extra_value_2 = null;
+    public ?bool $is_active = null;
+    public ?string $mode = null;
+    public string $name;
+    public ?bool $pending_validation = null;
+    public ?int $priority = null;
+    public ?string $slug_perm = null;
+    public ?string $updated_at = null;
+    public string $upstream_url;
+    public ?bool $verify_ssl = null;
 }
 
 /** Request payload for Ruby#update. */
@@ -2700,6 +3893,24 @@ class RubyUpdateData
     public string $id;
     public mixed $identifier;
     public mixed $owner;
+    public ?string $auth_mode = null;
+    public ?string $auth_secret = null;
+    public ?string $auth_username = null;
+    public ?string $created_at = null;
+    public ?string $disable_reason = null;
+    public ?string $extra_header_1 = null;
+    public ?string $extra_header_2 = null;
+    public ?string $extra_value_1 = null;
+    public ?string $extra_value_2 = null;
+    public ?bool $is_active = null;
+    public ?string $mode = null;
+    public ?string $name = null;
+    public ?bool $pending_validation = null;
+    public ?int $priority = null;
+    public ?string $slug_perm = null;
+    public ?string $updated_at = null;
+    public ?string $upstream_url = null;
+    public ?bool $verify_ssl = null;
 }
 
 /** SamlGroupSync entity data model. */
@@ -2729,7 +3940,7 @@ class Service
     public string $name;
     public ?string $role = null;
     public ?string $slug = null;
-    public ?array $team = null;
+    public ?array $teams = null;
 }
 
 /** Request payload for Service#load. */
@@ -2749,6 +3960,16 @@ class ServiceListMatch
 class ServiceCreateData
 {
     public string $org_id;
+    public ?string $created_at = null;
+    public ?string $created_by = null;
+    public ?string $created_by_url = null;
+    public ?string $description = null;
+    public ?string $key = null;
+    public ?string $key_expires_at = null;
+    public string $name;
+    public ?string $role = null;
+    public ?string $slug = null;
+    public ?array $teams = null;
 }
 
 /** Request payload for Service#update. */
@@ -2756,6 +3977,16 @@ class ServiceUpdateData
 {
     public string $id;
     public string $org_id;
+    public ?string $created_at = null;
+    public ?string $created_by = null;
+    public ?string $created_by_url = null;
+    public ?string $description = null;
+    public ?string $key = null;
+    public ?string $key_expires_at = null;
+    public ?string $name = null;
+    public ?string $role = null;
+    public ?string $slug = null;
+    public ?array $teams = null;
 }
 
 /** Status entity data model. */
@@ -2840,6 +4071,24 @@ class SwiftCreateData
 {
     public mixed $identifier;
     public mixed $owner;
+    public ?string $auth_mode = null;
+    public ?string $auth_secret = null;
+    public ?string $auth_username = null;
+    public ?string $created_at = null;
+    public ?string $disable_reason = null;
+    public ?string $extra_header_1 = null;
+    public ?string $extra_header_2 = null;
+    public ?string $extra_value_1 = null;
+    public ?string $extra_value_2 = null;
+    public ?bool $is_active = null;
+    public ?string $mode = null;
+    public string $name;
+    public ?bool $pending_validation = null;
+    public ?int $priority = null;
+    public ?string $slug_perm = null;
+    public ?string $updated_at = null;
+    public string $upstream_url;
+    public ?bool $verify_ssl = null;
 }
 
 /** Request payload for Swift#update. */
@@ -2848,6 +4097,24 @@ class SwiftUpdateData
     public string $id;
     public mixed $identifier;
     public mixed $owner;
+    public ?string $auth_mode = null;
+    public ?string $auth_secret = null;
+    public ?string $auth_username = null;
+    public ?string $created_at = null;
+    public ?string $disable_reason = null;
+    public ?string $extra_header_1 = null;
+    public ?string $extra_header_2 = null;
+    public ?string $extra_value_1 = null;
+    public ?string $extra_value_2 = null;
+    public ?bool $is_active = null;
+    public ?string $mode = null;
+    public ?string $name = null;
+    public ?bool $pending_validation = null;
+    public ?int $priority = null;
+    public ?string $slug_perm = null;
+    public ?string $updated_at = null;
+    public ?string $upstream_url = null;
+    public ?bool $verify_ssl = null;
 }
 
 /** Sync entity data model. */
@@ -2931,6 +4198,8 @@ class UserAuthenticationTokenCreateData
 class UserAuthenticationTokenUpdateData
 {
     public mixed $slug_perm;
+    public ?string $created = null;
+    public ?string $key = null;
 }
 
 /** UserBrief entity data model. */
@@ -2997,12 +4266,12 @@ class Version
 class Vulnerability
 {
     public ?string $created_at = null;
-    public ?bool $has_vulnerability = null;
+    public ?bool $has_vulnerabilities = null;
     public string $identifier;
     public ?string $max_severity = null;
-    public ?int $num_vulnerability = null;
+    public ?int $num_vulnerabilities = null;
     public array $package;
-    public array $result;
+    public array $results;
     public int $scan_id;
     public string $target;
     public string $type;

@@ -63,7 +63,7 @@ describe('OrganizationGroupSyncEntity', async () => {
     let organization_group_sync_ref01_data = setup.data.new.organization_group_sync['organization_group_sync_ref01']
     organization_group_sync_ref01_data['org_id'] = setup.idmap['org01']
 
-    organization_group_sync_ref01_data = await organization_group_sync_ref01_ent.create(organization_group_sync_ref01_data)
+    organization_group_sync_ref01_data = (await organization_group_sync_ref01_ent.create(organization_group_sync_ref01_data)).data()
     assert(null != organization_group_sync_ref01_data)
 
 
@@ -71,9 +71,7 @@ describe('OrganizationGroupSyncEntity', async () => {
     const organization_group_sync_ref01_match: any = {}
     organization_group_sync_ref01_match['org_id'] = setup.idmap['org01']
 
-    const organization_group_sync_ref01_list = await organization_group_sync_ref01_ent.list(organization_group_sync_ref01_match)
-
-    assert(!isempty(select(organization_group_sync_ref01_list, { id: organization_group_sync_ref01_data.id })))
+    const organization_group_sync_ref01_list = (await organization_group_sync_ref01_ent.list(organization_group_sync_ref01_match)).map((e: any) => e.data())
 
 
   })

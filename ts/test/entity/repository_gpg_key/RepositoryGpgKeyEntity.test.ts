@@ -64,7 +64,7 @@ describe('RepositoryGpgKeyEntity', async () => {
     repository_gpg_key_ref01_data['identifier'] = setup.idmap['identifier01']
     repository_gpg_key_ref01_data['owner'] = setup.idmap['owner01']
 
-    repository_gpg_key_ref01_data = await repository_gpg_key_ref01_ent.create(repository_gpg_key_ref01_data)
+    repository_gpg_key_ref01_data = (await repository_gpg_key_ref01_ent.create(repository_gpg_key_ref01_data)).data()
     assert(null != repository_gpg_key_ref01_data)
 
 

@@ -53,7 +53,7 @@ describe("OrganizationSamlAuthEntity", function()
 
     local organization_saml_auth_ref01_resdata_up0_result, err = organization_saml_auth_ref01_ent:update(organization_saml_auth_ref01_data_up0_up, nil)
     assert.is_nil(err)
-    local organization_saml_auth_ref01_resdata_up0 = helpers.to_map(organization_saml_auth_ref01_resdata_up0_result)
+    local organization_saml_auth_ref01_resdata_up0 = helpers.to_map(type(organization_saml_auth_ref01_resdata_up0_result) == 'table' and organization_saml_auth_ref01_resdata_up0_result.data_get and organization_saml_auth_ref01_resdata_up0_result:data_get() or organization_saml_auth_ref01_resdata_up0_result)
     assert.is_not_nil(organization_saml_auth_ref01_resdata_up0)
     assert.are.equal(organization_saml_auth_ref01_resdata_up0[organization_saml_auth_ref01_markdef_up0_name], organization_saml_auth_ref01_markdef_up0_value)
 

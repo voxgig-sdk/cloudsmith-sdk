@@ -64,22 +64,6 @@ var NewGeoipEntityFunc func(client *CloudsmithSDK, entopts map[string]any) Cloud
 
 var NewGonEntityFunc func(client *CloudsmithSDK, entopts map[string]any) CloudsmithEntity
 
-var NewGon2EntityFunc func(client *CloudsmithSDK, entopts map[string]any) CloudsmithEntity
-
-var NewGon3EntityFunc func(client *CloudsmithSDK, entopts map[string]any) CloudsmithEntity
-
-var NewGon4EntityFunc func(client *CloudsmithSDK, entopts map[string]any) CloudsmithEntity
-
-var NewGon5EntityFunc func(client *CloudsmithSDK, entopts map[string]any) CloudsmithEntity
-
-var NewGon6EntityFunc func(client *CloudsmithSDK, entopts map[string]any) CloudsmithEntity
-
-var NewGon7EntityFunc func(client *CloudsmithSDK, entopts map[string]any) CloudsmithEntity
-
-var NewGon8EntityFunc func(client *CloudsmithSDK, entopts map[string]any) CloudsmithEntity
-
-var NewGon9EntityFunc func(client *CloudsmithSDK, entopts map[string]any) CloudsmithEntity
-
 var NewGpgEntityFunc func(client *CloudsmithSDK, entopts map[string]any) CloudsmithEntity
 
 var NewGroupEntityFunc func(client *CloudsmithSDK, entopts map[string]any) CloudsmithEntity
@@ -147,8 +131,6 @@ var NewOrganizationTeamMemberEntityFunc func(client *CloudsmithSDK, entopts map[
 var NewOssEntityFunc func(client *CloudsmithSDK, entopts map[string]any) CloudsmithEntity
 
 var NewP2nEntityFunc func(client *CloudsmithSDK, entopts map[string]any) CloudsmithEntity
-
-var NewP2n2EntityFunc func(client *CloudsmithSDK, entopts map[string]any) CloudsmithEntity
 
 var NewPackageEntityFunc func(client *CloudsmithSDK, entopts map[string]any) CloudsmithEntity
 

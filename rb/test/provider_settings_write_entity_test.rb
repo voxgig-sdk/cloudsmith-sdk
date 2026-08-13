@@ -38,7 +38,7 @@ class ProviderSettingsWriteEntityTest < Minitest::Test
     provider_settings_write_ref01_data["org_id"] = setup[:idmap]["org01"]
 
     provider_settings_write_ref01_data_result = provider_settings_write_ref01_ent.create(provider_settings_write_ref01_data, nil)
-    provider_settings_write_ref01_data = Helpers.to_map(provider_settings_write_ref01_data_result)
+    provider_settings_write_ref01_data = Helpers.to_map(provider_settings_write_ref01_data_result.respond_to?(:data_get) ? provider_settings_write_ref01_data_result.data_get : provider_settings_write_ref01_data_result)
     assert !provider_settings_write_ref01_data.nil?
 
     # UPDATE
@@ -51,7 +51,7 @@ class ProviderSettingsWriteEntityTest < Minitest::Test
     provider_settings_write_ref01_data_up0_up[provider_settings_write_ref01_markdef_up0_name] = provider_settings_write_ref01_markdef_up0_value
 
     provider_settings_write_ref01_resdata_up0_result = provider_settings_write_ref01_ent.update(provider_settings_write_ref01_data_up0_up, nil)
-    provider_settings_write_ref01_resdata_up0 = Helpers.to_map(provider_settings_write_ref01_resdata_up0_result)
+    provider_settings_write_ref01_resdata_up0 = Helpers.to_map(provider_settings_write_ref01_resdata_up0_result.respond_to?(:data_get) ? provider_settings_write_ref01_resdata_up0_result.data_get : provider_settings_write_ref01_resdata_up0_result)
     assert !provider_settings_write_ref01_resdata_up0.nil?
     assert_equal provider_settings_write_ref01_resdata_up0[provider_settings_write_ref01_markdef_up0_name], provider_settings_write_ref01_markdef_up0_value
 

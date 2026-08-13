@@ -62,7 +62,7 @@ describe('UserAuthenticationTokenEntity', async () => {
     const user_authentication_token_ref01_ent = client.UserAuthenticationToken()
     let user_authentication_token_ref01_data = setup.data.new.user_authentication_token['user_authentication_token_ref01']
 
-    user_authentication_token_ref01_data = await user_authentication_token_ref01_ent.create(user_authentication_token_ref01_data)
+    user_authentication_token_ref01_data = (await user_authentication_token_ref01_ent.create(user_authentication_token_ref01_data)).data()
     assert(null != user_authentication_token_ref01_data)
 
 
@@ -72,7 +72,7 @@ describe('UserAuthenticationTokenEntity', async () => {
     const user_authentication_token_ref01_markdef_up0 = { name: 'created', value: 'Mark01-user_authentication_token_ref01_' + setup.now }
     ;(user_authentication_token_ref01_data_up0 as any)[user_authentication_token_ref01_markdef_up0.name] = user_authentication_token_ref01_markdef_up0.value
 
-    const user_authentication_token_ref01_resdata_up0 = await user_authentication_token_ref01_ent.update(user_authentication_token_ref01_data_up0)
+    const user_authentication_token_ref01_resdata_up0 = (await user_authentication_token_ref01_ent.update(user_authentication_token_ref01_data_up0)).data()
     assert(null != user_authentication_token_ref01_resdata_up0)
 
     assert((user_authentication_token_ref01_resdata_up0 as any)[user_authentication_token_ref01_markdef_up0.name] === user_authentication_token_ref01_markdef_up0.value)

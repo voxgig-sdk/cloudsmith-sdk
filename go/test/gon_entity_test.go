@@ -2,6 +2,7 @@ package sdktest
 
 import (
 	"encoding/json"
+	"fmt"
 	"os"
 	"path/filepath"
 	"runtime"
@@ -24,6 +25,54 @@ func TestGonEntity(t *testing.T) {
 		}
 	})
 
+	// Feature #4: the entity Stream(action, ...) method runs the op pipeline and
+	// returns a channel over result items. With the streaming feature active it
+	// yields the feature's incremental output; otherwise it falls back to the
+	// materialised list so Stream always yields.
+	t.Run("stream", func(t *testing.T) {
+		seed := map[string]any{
+			"entity": map[string]any{
+				"gon": map[string]any{
+					"s1": map[string]any{"id": "s1"},
+					"s2": map[string]any{"id": "s2"},
+					"s3": map[string]any{"id": "s3"},
+				},
+			},
+		}
+
+		// Fallback: streaming inactive -> yields the materialised list items.
+		base := sdk.TestSDK(seed, nil)
+		var seen []any
+		for item := range base.Gon(nil).Stream("list", nil, nil) {
+			seen = append(seen, item)
+		}
+		if len(seen) != 3 {
+			t.Fatalf("expected 3 streamed items, got %d", len(seen))
+		}
+
+		// Inbound: streaming active -> yields each item from the feature iterator.
+		hasStreaming := false
+		if fm, ok := core.MakeConfig()["feature"].(map[string]any); ok {
+			_, hasStreaming = fm["streaming"]
+		}
+		if hasStreaming {
+			streamSdk := sdk.TestSDK(seed, map[string]any{
+				"feature": map[string]any{"streaming": map[string]any{"active": true}},
+			})
+			var got []any
+			for item := range streamSdk.Gon(nil).Stream("list", nil, nil) {
+				if sub, ok := item.([]any); ok {
+					got = append(got, sub...)
+				} else {
+					got = append(got, item)
+				}
+			}
+			if len(got) != 3 {
+				t.Fatalf("expected 3 items via streaming feature, got %d", len(got))
+			}
+		}
+	})
+
 	t.Run("basic", func(t *testing.T) {
 		setup := gonBasicSetup(nil)
 		// Per-op sdk-test-control.json skip — basic test exercises a flow
@@ -32,7 +81,7 @@ func TestGonEntity(t *testing.T) {
 		if setup.live {
 			_mode = "live"
 		}
-		for _, _op := range []string{} {
+		for _, _op := range []string{"create", "list", "update", "load"} {
 			if _shouldSkip, _reason := isControlSkipped("entityOp", "gon." + _op, _mode); _shouldSkip {
 				if _reason == "" {
 					_reason = "skipped via sdk-test-control.json"
@@ -47,15 +96,70 @@ func TestGonEntity(t *testing.T) {
 			t.Skip("live entity test uses synthetic IDs from fixture — set CLOUDSMITH_TEST_GON_ENTID JSON to run live")
 			return
 		}
-		// Bootstrap entity data from existing test data (no create step in flow).
-		gonRef01DataRaw := vs.Items(core.ToMapAny(vs.GetPath("existing.gon", setup.data)))
-		var gonRef01Data map[string]any
-		if len(gonRef01DataRaw) > 0 {
-			gonRef01Data = core.ToMapAny(gonRef01DataRaw[0][1])
+		client := setup.client
+
+		// CREATE
+		gonRef01Ent := client.Gon(nil)
+		gonRef01Data := core.ToMapAny(vs.GetProp(
+			vs.GetPath([]any{"new", "gon"}, setup.data), "gon_ref01"))
+		gonRef01Data["identifier"] = setup.idmap["identifier01"]
+		gonRef01Data["owner"] = setup.idmap["owner01"]
+
+		gonRef01DataResult, err := gonRef01Ent.Create(gonRef01Data, nil)
+		if err != nil {
+			t.Fatalf("create failed: %v", err)
 		}
-		// Discard guards against Go's unused-var check when the flow's steps
-		// happen not to consume the bootstrap data (e.g. list-only flows).
-		_ = gonRef01Data
+		gonRef01Data = core.ToMapAny(entityData(gonRef01DataResult))
+		if gonRef01Data == nil {
+			t.Fatal("expected create result to be a map")
+		}
+
+		// LIST
+		gonRef01Match := map[string]any{
+			"identifier": setup.idmap["identifier01"],
+			"owner": setup.idmap["owner01"],
+		}
+
+		gonRef01ListResult, err := gonRef01Ent.List(gonRef01Match, nil)
+		if err != nil {
+			t.Fatalf("list failed: %v", err)
+		}
+		_, gonRef01ListOk := gonRef01ListResult.([]any)
+		if !gonRef01ListOk {
+			t.Fatalf("expected list result to be an array, got %T", gonRef01ListResult)
+		}
+
+		// UPDATE
+		gonRef01DataUp0Up := map[string]any{
+			"identifier": setup.idmap["identifier"],
+			"owner": setup.idmap["owner"],
+		}
+
+		gonRef01MarkdefUp0Name := "auth_mode"
+		gonRef01MarkdefUp0Value := fmt.Sprintf("Mark01-gon_ref01_%d", setup.now)
+		gonRef01DataUp0Up[gonRef01MarkdefUp0Name] = gonRef01MarkdefUp0Value
+
+		gonRef01ResdataUp0Result, err := gonRef01Ent.Update(gonRef01DataUp0Up, nil)
+		if err != nil {
+			t.Fatalf("update failed: %v", err)
+		}
+		gonRef01ResdataUp0 := core.ToMapAny(entityData(gonRef01ResdataUp0Result))
+		if gonRef01ResdataUp0 == nil {
+			t.Fatal("expected update result to be a map")
+		}
+		if gonRef01ResdataUp0[gonRef01MarkdefUp0Name] != gonRef01MarkdefUp0Value {
+			t.Fatalf("expected %s to be updated, got %v", gonRef01MarkdefUp0Name, gonRef01ResdataUp0[gonRef01MarkdefUp0Name])
+		}
+
+		// LOAD
+		gonRef01MatchDt0 := map[string]any{}
+		gonRef01DataDt0Loaded, err := gonRef01Ent.Load(gonRef01MatchDt0, nil)
+		if err != nil {
+			t.Fatalf("load failed: %v", err)
+		}
+		if gonRef01DataDt0Loaded == nil {
+			t.Fatal("expected load result to be non-nil")
+		}
 
 	})
 }
@@ -85,7 +189,7 @@ func gonBasicSetup(extra map[string]any) *entityTestSetup {
 
 	// Generate idmap via transform, matching TS pattern.
 	idmap := vs.Transform(
-		[]any{"gon01", "gon02", "gon03", "package01", "package02", "package03"},
+		[]any{"gon01", "gon02", "gon03", "package01", "package02", "package03", "repo01", "repo02", "repo03", "go01", "go02", "go03", "identifier01", "owner01"},
 		map[string]any{
 			"`$PACK`": []any{"", map[string]any{
 				"`$KEY`": "`$COPY`",
@@ -110,6 +214,14 @@ func gonBasicSetup(extra map[string]any) *entityTestSetup {
 	idmapResolved := core.ToMapAny(env["CLOUDSMITH_TEST_GON_ENTID"])
 	if idmapResolved == nil {
 		idmapResolved = core.ToMapAny(idmap)
+	}
+	// Add identifier alias for update test.
+	if idmapResolved["identifier"] == nil {
+		idmapResolved["identifier"] = idmapResolved["identifier01"]
+	}
+	// Add owner alias for update test.
+	if idmapResolved["owner"] == nil {
+		idmapResolved["owner"] = idmapResolved["owner01"]
 	}
 
 	if env["CLOUDSMITH_TEST_LIVE"] == "TRUE" {

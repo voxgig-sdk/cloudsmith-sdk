@@ -6,9 +6,9 @@ import time
 
 import pytest
 
-from utility.voxgig_struct import voxgig_struct as vs
+from cloudsmith_sdk.utility.voxgig_struct import voxgig_struct as vs
 from cloudsmith_sdk import CloudsmithSDK
-from core import helpers
+from cloudsmith_sdk.core import helpers
 
 _TEST_DIR = os.path.dirname(os.path.abspath(__file__))
 from test import runner
@@ -36,7 +36,7 @@ class TestRepositoryX509EcdsaCertificateEntity:
         # without an *_ENTID env override, those IDs hit the live API and 4xx.
         if setup.get("synthetic_only"):
             pytest.skip("live entity test uses synthetic IDs from fixture — "
-                        "set CLOUDSMITH_TEST_REPOSITORY_X____ECDSA_CERTIFICATE_ENTID JSON to run live")
+                        "set CLOUDSMITH_TEST_REPOSITORY_X509_ECDSA_CERTIFICATE_ENTID JSON to run live")
         client = setup["client"]
 
         # Bootstrap entity data from existing test data.
@@ -83,18 +83,18 @@ def _repository_x509_ecdsa_certificate_basic_setup(extra):
     # mode is on without a real override, the basic test runs against synthetic
     # IDs from the fixture and 4xx's. We surface this so the test can skip.
     _entid_env_raw = os.environ.get(
-        "CLOUDSMITH_TEST_REPOSITORY_X____ECDSA_CERTIFICATE_ENTID")
+        "CLOUDSMITH_TEST_REPOSITORY_X509_ECDSA_CERTIFICATE_ENTID")
     _idmap_overridden = _entid_env_raw is not None and _entid_env_raw.strip().startswith("{")
 
     env = runner.env_override({
-        "CLOUDSMITH_TEST_REPOSITORY_X____ECDSA_CERTIFICATE_ENTID": idmap,
+        "CLOUDSMITH_TEST_REPOSITORY_X509_ECDSA_CERTIFICATE_ENTID": idmap,
         "CLOUDSMITH_TEST_LIVE": "FALSE",
         "CLOUDSMITH_TEST_EXPLAIN": "FALSE",
         "CLOUDSMITH_APIKEY": "NONE",
     })
 
     idmap_resolved = helpers.to_map(
-        env.get("CLOUDSMITH_TEST_REPOSITORY_X____ECDSA_CERTIFICATE_ENTID"))
+        env.get("CLOUDSMITH_TEST_REPOSITORY_X509_ECDSA_CERTIFICATE_ENTID"))
     if idmap_resolved is None:
         idmap_resolved = helpers.to_map(idmap)
 

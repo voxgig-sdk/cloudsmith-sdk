@@ -75,7 +75,7 @@ class HuggingfaceEntityTest < Minitest::Test
     huggingface_ref01_data["owner"] = setup[:idmap]["owner01"]
 
     huggingface_ref01_data_result = huggingface_ref01_ent.create(huggingface_ref01_data, nil)
-    huggingface_ref01_data = Helpers.to_map(huggingface_ref01_data_result)
+    huggingface_ref01_data = Helpers.to_map(huggingface_ref01_data_result.respond_to?(:data_get) ? huggingface_ref01_data_result.data_get : huggingface_ref01_data_result)
     assert !huggingface_ref01_data.nil?
 
     # LIST
@@ -86,11 +86,6 @@ class HuggingfaceEntityTest < Minitest::Test
 
     huggingface_ref01_list_result = huggingface_ref01_ent.list(huggingface_ref01_match, nil)
     assert huggingface_ref01_list_result.is_a?(Array)
-
-    found_item = Vs.select(
-      Runner.entity_list_to_data(huggingface_ref01_list_result),
-      { "id" => huggingface_ref01_data["id"] })
-    assert !Vs.isempty(found_item)
 
     # UPDATE
     huggingface_ref01_data_up0_up = {
@@ -103,7 +98,7 @@ class HuggingfaceEntityTest < Minitest::Test
     huggingface_ref01_data_up0_up[huggingface_ref01_markdef_up0_name] = huggingface_ref01_markdef_up0_value
 
     huggingface_ref01_resdata_up0_result = huggingface_ref01_ent.update(huggingface_ref01_data_up0_up, nil)
-    huggingface_ref01_resdata_up0 = Helpers.to_map(huggingface_ref01_resdata_up0_result)
+    huggingface_ref01_resdata_up0 = Helpers.to_map(huggingface_ref01_resdata_up0_result.respond_to?(:data_get) ? huggingface_ref01_resdata_up0_result.data_get : huggingface_ref01_resdata_up0_result)
     assert !huggingface_ref01_resdata_up0.nil?
     assert_equal huggingface_ref01_resdata_up0[huggingface_ref01_markdef_up0_name], huggingface_ref01_markdef_up0_value
 

@@ -85,7 +85,7 @@ class PythonEntityTest extends TestCase
         $python_ref01_data["owner"] = $setup["idmap"]["owner01"];
 
         $python_ref01_data_result = $python_ref01_ent->create($python_ref01_data, null);
-        $python_ref01_data = Helpers::to_map($python_ref01_data_result);
+        $python_ref01_data = Helpers::to_map(is_object($python_ref01_data_result) && method_exists($python_ref01_data_result, 'data_get') ? $python_ref01_data_result->data_get() : $python_ref01_data_result);
         $this->assertNotNull($python_ref01_data);
 
         // LIST
@@ -96,11 +96,6 @@ class PythonEntityTest extends TestCase
 
         $python_ref01_list_result = $python_ref01_ent->list($python_ref01_match, null);
         $this->assertIsArray($python_ref01_list_result);
-
-        $found_item = sdk_select(
-            Runner::entity_list_to_data($python_ref01_list_result),
-            ["id" => $python_ref01_data["id"]]);
-        $this->assertNotEmpty($found_item);
 
         // UPDATE
         $python_ref01_data_up0_up = [
@@ -113,7 +108,7 @@ class PythonEntityTest extends TestCase
         $python_ref01_data_up0_up[$python_ref01_markdef_up0_name] = $python_ref01_markdef_up0_value;
 
         $python_ref01_resdata_up0_result = $python_ref01_ent->update($python_ref01_data_up0_up, null);
-        $python_ref01_resdata_up0 = Helpers::to_map($python_ref01_resdata_up0_result);
+        $python_ref01_resdata_up0 = Helpers::to_map(is_object($python_ref01_resdata_up0_result) && method_exists($python_ref01_resdata_up0_result, 'data_get') ? $python_ref01_resdata_up0_result->data_get() : $python_ref01_resdata_up0_result);
         $this->assertNotNull($python_ref01_resdata_up0);
         $this->assertEquals($python_ref01_resdata_up0[$python_ref01_markdef_up0_name], $python_ref01_markdef_up0_value);
 

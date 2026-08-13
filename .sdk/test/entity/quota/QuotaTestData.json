@@ -2,20 +2,23 @@
   "existing": {
     "quota": {
       "QUOTA00": {
+        "display": {},
         "history": [],
-        "usage": {},
+        "raw": {},
         "owner": "OWNER01",
         "id": "QUOTA00"
       },
       "QUOTA01": {
+        "display": {},
         "history": [],
-        "usage": {},
+        "raw": {},
         "owner": "OWNER01",
         "id": "QUOTA01"
       },
       "QUOTA02": {
+        "display": {},
         "history": [],
-        "usage": {},
+        "raw": {},
         "owner": "OWNER01",
         "id": "QUOTA02"
       }
@@ -24,8 +27,9 @@
   "new": {
     "quota": {
       "quota_ref01": {
+        "display": {},
         "history": [],
-        "usage": {}
+        "raw": {}
       }
     }
   }

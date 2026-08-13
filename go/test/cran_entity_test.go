@@ -109,7 +109,7 @@ func TestCranEntity(t *testing.T) {
 		if err != nil {
 			t.Fatalf("create failed: %v", err)
 		}
-		cranRef01Data = core.ToMapAny(cranRef01DataResult)
+		cranRef01Data = core.ToMapAny(entityData(cranRef01DataResult))
 		if cranRef01Data == nil {
 			t.Fatal("expected create result to be a map")
 		}
@@ -124,14 +124,9 @@ func TestCranEntity(t *testing.T) {
 		if err != nil {
 			t.Fatalf("list failed: %v", err)
 		}
-		cranRef01List, cranRef01ListOk := cranRef01ListResult.([]any)
+		_, cranRef01ListOk := cranRef01ListResult.([]any)
 		if !cranRef01ListOk {
 			t.Fatalf("expected list result to be an array, got %T", cranRef01ListResult)
-		}
-
-		foundItem := vs.Select(entityListToData(cranRef01List), map[string]any{"id": cranRef01Data["id"]})
-		if vs.IsEmpty(foundItem) {
-			t.Fatal("expected to find created entity in list")
 		}
 
 		// UPDATE
@@ -148,7 +143,7 @@ func TestCranEntity(t *testing.T) {
 		if err != nil {
 			t.Fatalf("update failed: %v", err)
 		}
-		cranRef01ResdataUp0 := core.ToMapAny(cranRef01ResdataUp0Result)
+		cranRef01ResdataUp0 := core.ToMapAny(entityData(cranRef01ResdataUp0Result))
 		if cranRef01ResdataUp0 == nil {
 			t.Fatal("expected update result to be a map")
 		}

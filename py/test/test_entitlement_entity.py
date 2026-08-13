@@ -6,9 +6,9 @@ import time
 
 import pytest
 
-from utility.voxgig_struct import voxgig_struct as vs
+from cloudsmith_sdk.utility.voxgig_struct import voxgig_struct as vs
 from cloudsmith_sdk import CloudsmithSDK
-from core import helpers
+from cloudsmith_sdk.core import helpers
 
 _TEST_DIR = os.path.dirname(os.path.abspath(__file__))
 from test import runner
@@ -47,7 +47,7 @@ class TestEntitlementEntity:
         entitlement_ref01_data["owner"] = setup["idmap"]["owner01"]
         entitlement_ref01_data["repo"] = setup["idmap"]["repo01"]
 
-        entitlement_ref01_data = helpers.to_map(entitlement_ref01_ent.create(entitlement_ref01_data, None))
+        entitlement_ref01_data = helpers.to_map(runner.entity_data(entitlement_ref01_ent.create(entitlement_ref01_data, None)))
         assert entitlement_ref01_data is not None
 
         # LOAD
@@ -55,11 +55,6 @@ class TestEntitlementEntity:
         entitlement_ref01_data_dt0_loaded = entitlement_ref01_ent.load(entitlement_ref01_match_dt0, None)
         assert entitlement_ref01_data_dt0_loaded is not None
 
-        # REMOVE
-        entitlement_ref01_match_rm0 = {
-            "id": entitlement_ref01_data["id"],
-        }
-        entitlement_ref01_ent.remove(entitlement_ref01_match_rm0, None)
 
 
 

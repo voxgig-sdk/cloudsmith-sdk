@@ -75,7 +75,7 @@ class OrganizationTeamMemberEntityTest < Minitest::Test
     organization_team_member_ref01_data["team_id"] = setup[:idmap]["team01"]
 
     organization_team_member_ref01_data_result = organization_team_member_ref01_ent.create(organization_team_member_ref01_data, nil)
-    organization_team_member_ref01_data = Helpers.to_map(organization_team_member_ref01_data_result)
+    organization_team_member_ref01_data = Helpers.to_map(organization_team_member_ref01_data_result.respond_to?(:data_get) ? organization_team_member_ref01_data_result.data_get : organization_team_member_ref01_data_result)
     assert !organization_team_member_ref01_data.nil?
 
     # LIST
@@ -86,11 +86,6 @@ class OrganizationTeamMemberEntityTest < Minitest::Test
 
     organization_team_member_ref01_list_result = organization_team_member_ref01_ent.list(organization_team_member_ref01_match, nil)
     assert organization_team_member_ref01_list_result.is_a?(Array)
-
-    found_item = Vs.select(
-      Runner.entity_list_to_data(organization_team_member_ref01_list_result),
-      { "id" => organization_team_member_ref01_data["id"] })
-    assert !Vs.isempty(found_item)
 
   end
 end

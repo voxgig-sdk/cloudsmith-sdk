@@ -24,6 +24,7 @@ require_relative 'prepare_method'
 require_relative 'prepare_params'
 require_relative 'prepare_path'
 require_relative 'prepare_query'
+require_relative 'graphql'
 require_relative 'result_basic'
 require_relative 'result_body'
 require_relative 'result_headers'
@@ -55,6 +56,8 @@ CloudsmithUtility.registrar = ->(u) {
   u.prepare_params = CloudsmithUtilities::PrepareParams
   u.prepare_path = CloudsmithUtilities::PreparePath
   u.prepare_query = CloudsmithUtilities::PrepareQuery
+  u.graphql_body = CloudsmithUtilities::GraphqlBody
+  u.graphql_errors = CloudsmithUtilities::GraphqlErrors
   u.result_basic = CloudsmithUtilities::ResultBasic
   u.result_body = CloudsmithUtilities::ResultBody
   u.result_headers = CloudsmithUtilities::ResultHeaders

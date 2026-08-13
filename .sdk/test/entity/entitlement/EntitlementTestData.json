@@ -2,21 +2,33 @@
   "existing": {
     "entitlement": {
       "ENTITLEMENT00": {
-        "token": {},
+        "active": "s32",
+        "bandwidth": {},
+        "downloads": {},
+        "inactive": "s35",
+        "total": "s36",
         "identifier": "IDENTIFIER01",
         "owner": "OWNER01",
         "repo": "REPO01",
         "id": "ENTITLEMENT00"
       },
       "ENTITLEMENT01": {
-        "token": {},
+        "active": "s64",
+        "bandwidth": {},
+        "downloads": {},
+        "inactive": "s67",
+        "total": "s68",
         "identifier": "IDENTIFIER01",
         "owner": "OWNER01",
         "repo": "REPO01",
         "id": "ENTITLEMENT01"
       },
       "ENTITLEMENT02": {
-        "token": {},
+        "active": "s96",
+        "bandwidth": {},
+        "downloads": {},
+        "inactive": "s99",
+        "total": "s9a",
         "identifier": "IDENTIFIER01",
         "owner": "OWNER01",
         "repo": "REPO01",
@@ -27,7 +39,11 @@
   "new": {
     "entitlement": {
       "entitlement_ref01": {
-        "token": {}
+        "active": "sc8",
+        "bandwidth": {},
+        "downloads": {},
+        "inactive": "scb",
+        "total": "scc"
       }
     }
   }

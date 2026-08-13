@@ -157,38 +157,6 @@ Create a new `Geoip` entity instance. Pass `nil` for no initial data.
 
 Create a new `Gon` entity instance. Pass `nil` for no initial data.
 
-#### `Gon2(data)`
-
-Create a new `Gon2` entity instance. Pass `nil` for no initial data.
-
-#### `Gon3(data)`
-
-Create a new `Gon3` entity instance. Pass `nil` for no initial data.
-
-#### `Gon4(data)`
-
-Create a new `Gon4` entity instance. Pass `nil` for no initial data.
-
-#### `Gon5(data)`
-
-Create a new `Gon5` entity instance. Pass `nil` for no initial data.
-
-#### `Gon6(data)`
-
-Create a new `Gon6` entity instance. Pass `nil` for no initial data.
-
-#### `Gon7(data)`
-
-Create a new `Gon7` entity instance. Pass `nil` for no initial data.
-
-#### `Gon8(data)`
-
-Create a new `Gon8` entity instance. Pass `nil` for no initial data.
-
-#### `Gon9(data)`
-
-Create a new `Gon9` entity instance. Pass `nil` for no initial data.
-
 #### `Gpg(data)`
 
 Create a new `Gpg` entity instance. Pass `nil` for no initial data.
@@ -324,10 +292,6 @@ Create a new `Oss` entity instance. Pass `nil` for no initial data.
 #### `P2n(data)`
 
 Create a new `P2n` entity instance. Pass `nil` for no initial data.
-
-#### `P2n2(data)`
-
-Create a new `P2n2` entity instance. Pass `nil` for no initial data.
 
 #### `Package(data)`
 
@@ -820,6 +784,8 @@ Create a new entity with the given data.
 local result, err = client:Cargo():create({
   identifier = --[[ any ]],
   owner = --[[ any ]],
+  name = --[[ string ]],
+  upstream_url = --[[ string ]],
 })
 ```
 
@@ -993,6 +959,8 @@ Create a new entity with the given data.
 local result, err = client:Composer():create({
   identifier = --[[ any ]],
   owner = --[[ any ]],
+  name = --[[ string ]],
+  upstream_url = --[[ string ]],
 })
 ```
 
@@ -1130,6 +1098,8 @@ Create a new entity with the given data.
 local result, err = client:Conda():create({
   identifier = --[[ any ]],
   owner = --[[ any ]],
+  name = --[[ string ]],
+  upstream_url = --[[ string ]],
 })
 ```
 
@@ -1267,6 +1237,8 @@ Create a new entity with the given data.
 local result, err = client:Cran():create({
   identifier = --[[ any ]],
   owner = --[[ any ]],
+  name = --[[ string ]],
+  upstream_url = --[[ string ]],
 })
 ```
 
@@ -1368,6 +1340,8 @@ Create a new entity with the given data.
 local result, err = client:Dart():create({
   identifier = --[[ any ]],
   owner = --[[ any ]],
+  name = --[[ string ]],
+  upstream_url = --[[ string ]],
 })
 ```
 
@@ -1446,7 +1420,7 @@ local deb = client:Deb(nil)
 | `component` | `string` | No |  |
 | `created_at` | `string` | No |  |
 | `disable_reason` | `string` | No |  |
-| `distro_version` | `table` | Yes |  |
+| `distro_versions` | `table` | Yes |  |
 | `extra_header_1` | `string` | No |  |
 | `extra_header_2` | `string` | No |  |
 | `extra_value_1` | `string` | No |  |
@@ -1454,7 +1428,7 @@ local deb = client:Deb(nil)
 | `gpg_key_inline` | `string` | No |  |
 | `gpg_key_url` | `string` | No |  |
 | `gpg_verification` | `string` | No |  |
-| `include_source` | `boolean` | No |  |
+| `include_sources` | `boolean` | No |  |
 | `is_active` | `boolean` | No |  |
 | `mode` | `string` | No |  |
 | `name` | `string` | Yes |  |
@@ -1477,6 +1451,9 @@ Create a new entity with the given data.
 local result, err = client:Deb():create({
   identifier = --[[ any ]],
   owner = --[[ any ]],
+  distro_versions = --[[ table ]],
+  name = --[[ string ]],
+  upstream_url = --[[ string ]],
 })
 ```
 
@@ -1662,8 +1639,8 @@ local distribution_full = client:DistributionFull(nil)
 | `name` | `string` | Yes |  |
 | `self_url` | `string` | No |  |
 | `slug` | `string` | No |  |
-| `variant` | `string` | No |  |
-| `version` | `table` | No |  |
+| `variants` | `string` | No |  |
+| `versions` | `table` | No |  |
 
 ### Operations
 
@@ -1788,6 +1765,8 @@ Create a new entity with the given data.
 local result, err = client:Docker():create({
   identifier = --[[ any ]],
   owner = --[[ any ]],
+  name = --[[ string ]],
+  upstream_url = --[[ string ]],
 })
 ```
 
@@ -1993,7 +1972,11 @@ local entitlement = client:Entitlement(nil)
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `token` | `table` | Yes |  |
+| `active` | `number` | No |  |
+| `bandwidth` | `table` | Yes |  |
+| `downloads` | `table` | Yes |  |
+| `inactive` | `number` | No |  |
+| `total` | `number` | No |  |
 
 ### Operations
 
@@ -2006,6 +1989,8 @@ local result, err = client:Entitlement():create({
   identifier = --[[ any ]],
   owner = --[[ any ]],
   repo = --[[ any ]],
+  bandwidth = --[[ table ]],
+  downloads = --[[ table ]],
 })
 ```
 
@@ -2151,14 +2136,14 @@ local format = client:Format(nil)
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
 | `description` | `string` | Yes |  |
-| `distribution` | `table` | No |  |
-| `extension` | `table` | Yes |  |
+| `distributions` | `table` | No |  |
+| `extensions` | `table` | Yes |  |
 | `name` | `string` | Yes |  |
 | `premium` | `boolean` | Yes |  |
 | `premium_plan_id` | `string` | No |  |
 | `premium_plan_name` | `string` | No |  |
 | `slug` | `string` | Yes |  |
-| `support` | `table` | Yes |  |
+| `supports` | `table` | Yes |  |
 
 ### Operations
 
@@ -2250,6 +2235,73 @@ Return the entity name.
 local gon = client:Gon(nil)
 ```
 
+### Fields
+
+| Field | Type | Required | Description |
+| --- | --- | --- | --- |
+| `auth_mode` | `string` | No |  |
+| `auth_secret` | `string` | No |  |
+| `auth_username` | `string` | No |  |
+| `created_at` | `string` | No |  |
+| `disable_reason` | `string` | No |  |
+| `extra_header_1` | `string` | No |  |
+| `extra_header_2` | `string` | No |  |
+| `extra_value_1` | `string` | No |  |
+| `extra_value_2` | `string` | No |  |
+| `is_active` | `boolean` | No |  |
+| `mode` | `string` | No |  |
+| `name` | `string` | Yes |  |
+| `pending_validation` | `boolean` | No |  |
+| `priority` | `number` | No |  |
+| `slug_perm` | `string` | No |  |
+| `updated_at` | `string` | No |  |
+| `upstream_url` | `string` | Yes |  |
+| `verify_ssl` | `boolean` | No |  |
+
+### Operations
+
+#### `create(reqdata, ctrl) -> any, err`
+
+Create a new entity with the given data.
+
+```lua
+local result, err = client:Gon():create({
+  identifier = --[[ any ]],
+  owner = --[[ any ]],
+  name = --[[ string ]],
+  upstream_url = --[[ string ]],
+})
+```
+
+#### `list(reqmatch, ctrl) -> any, err`
+
+List entities matching the given criteria. Returns an array.
+
+```lua
+local results, err = client:Gon():list()
+```
+
+#### `load(reqmatch, ctrl) -> any, err`
+
+Load a single entity matching the given criteria.
+
+```lua
+local result, err = client:Gon():load({ identifier = "identifier", owner = "owner", slug_perm = "slug_perm" })
+```
+
+#### `update(reqdata, ctrl) -> any, err`
+
+Update an existing entity. The data must include the entity `id`.
+
+```lua
+local result, err = client:Gon():update({
+  identifier = "identifier",
+  owner = "owner",
+  slug_perm = "slug_perm",
+  -- Fields to update
+})
+```
+
 ### Common Methods
 
 #### `data_get() -> table`
@@ -2271,449 +2323,6 @@ Set the entity match criteria.
 #### `make() -> Entity`
 
 Create a new `GonEntity` instance with the same client and
-options.
-
-#### `get_name() -> string`
-
-Return the entity name.
-
-
----
-
-## Gon2Entity
-
-```lua
-local gon2 = client:Gon2(nil)
-```
-
-### Common Methods
-
-#### `data_get() -> table`
-
-Get the entity data. Returns a copy of the current data.
-
-#### `data_set(data)`
-
-Set the entity data.
-
-#### `match_get() -> table`
-
-Get the entity match criteria.
-
-#### `match_set(match)`
-
-Set the entity match criteria.
-
-#### `make() -> Entity`
-
-Create a new `Gon2Entity` instance with the same client and
-options.
-
-#### `get_name() -> string`
-
-Return the entity name.
-
-
----
-
-## Gon3Entity
-
-```lua
-local gon3 = client:Gon3(nil)
-```
-
-### Fields
-
-| Field | Type | Required | Description |
-| --- | --- | --- | --- |
-| `auth_mode` | `string` | No |  |
-| `auth_secret` | `string` | No |  |
-| `auth_username` | `string` | No |  |
-| `created_at` | `string` | No |  |
-| `disable_reason` | `string` | No |  |
-| `extra_header_1` | `string` | No |  |
-| `extra_header_2` | `string` | No |  |
-| `extra_value_1` | `string` | No |  |
-| `extra_value_2` | `string` | No |  |
-| `is_active` | `boolean` | No |  |
-| `mode` | `string` | No |  |
-| `name` | `string` | Yes |  |
-| `pending_validation` | `boolean` | No |  |
-| `priority` | `number` | No |  |
-| `slug_perm` | `string` | No |  |
-| `updated_at` | `string` | No |  |
-| `upstream_url` | `string` | Yes |  |
-| `verify_ssl` | `boolean` | No |  |
-
-### Operations
-
-#### `list(reqmatch, ctrl) -> any, err`
-
-List entities matching the given criteria. Returns an array.
-
-```lua
-local results, err = client:Gon3():list()
-```
-
-### Common Methods
-
-#### `data_get() -> table`
-
-Get the entity data. Returns a copy of the current data.
-
-#### `data_set(data)`
-
-Set the entity data.
-
-#### `match_get() -> table`
-
-Get the entity match criteria.
-
-#### `match_set(match)`
-
-Set the entity match criteria.
-
-#### `make() -> Entity`
-
-Create a new `Gon3Entity` instance with the same client and
-options.
-
-#### `get_name() -> string`
-
-Return the entity name.
-
-
----
-
-## Gon4Entity
-
-```lua
-local gon4 = client:Gon4(nil)
-```
-
-### Common Methods
-
-#### `data_get() -> table`
-
-Get the entity data. Returns a copy of the current data.
-
-#### `data_set(data)`
-
-Set the entity data.
-
-#### `match_get() -> table`
-
-Get the entity match criteria.
-
-#### `match_set(match)`
-
-Set the entity match criteria.
-
-#### `make() -> Entity`
-
-Create a new `Gon4Entity` instance with the same client and
-options.
-
-#### `get_name() -> string`
-
-Return the entity name.
-
-
----
-
-## Gon5Entity
-
-```lua
-local gon5 = client:Gon5(nil)
-```
-
-### Operations
-
-#### `create(reqdata, ctrl) -> any, err`
-
-Create a new entity with the given data.
-
-```lua
-local result, err = client:Gon5():create({
-  identifier = --[[ any ]],
-  owner = --[[ any ]],
-})
-```
-
-### Common Methods
-
-#### `data_get() -> table`
-
-Get the entity data. Returns a copy of the current data.
-
-#### `data_set(data)`
-
-Set the entity data.
-
-#### `match_get() -> table`
-
-Get the entity match criteria.
-
-#### `match_set(match)`
-
-Set the entity match criteria.
-
-#### `make() -> Entity`
-
-Create a new `Gon5Entity` instance with the same client and
-options.
-
-#### `get_name() -> string`
-
-Return the entity name.
-
-
----
-
-## Gon6Entity
-
-```lua
-local gon6 = client:Gon6(nil)
-```
-
-### Fields
-
-| Field | Type | Required | Description |
-| --- | --- | --- | --- |
-| `auth_mode` | `string` | No |  |
-| `auth_secret` | `string` | No |  |
-| `auth_username` | `string` | No |  |
-| `created_at` | `string` | No |  |
-| `disable_reason` | `string` | No |  |
-| `extra_header_1` | `string` | No |  |
-| `extra_header_2` | `string` | No |  |
-| `extra_value_1` | `string` | No |  |
-| `extra_value_2` | `string` | No |  |
-| `is_active` | `boolean` | No |  |
-| `mode` | `string` | No |  |
-| `name` | `string` | Yes |  |
-| `pending_validation` | `boolean` | No |  |
-| `priority` | `number` | No |  |
-| `slug_perm` | `string` | No |  |
-| `updated_at` | `string` | No |  |
-| `upstream_url` | `string` | Yes |  |
-| `verify_ssl` | `boolean` | No |  |
-
-### Operations
-
-#### `load(reqmatch, ctrl) -> any, err`
-
-Load a single entity matching the given criteria.
-
-```lua
-local result, err = client:Gon6():load({ identifier = "identifier", owner = "owner", slug_perm = "slug_perm" })
-```
-
-### Common Methods
-
-#### `data_get() -> table`
-
-Get the entity data. Returns a copy of the current data.
-
-#### `data_set(data)`
-
-Set the entity data.
-
-#### `match_get() -> table`
-
-Get the entity match criteria.
-
-#### `match_set(match)`
-
-Set the entity match criteria.
-
-#### `make() -> Entity`
-
-Create a new `Gon6Entity` instance with the same client and
-options.
-
-#### `get_name() -> string`
-
-Return the entity name.
-
-
----
-
-## Gon7Entity
-
-```lua
-local gon7 = client:Gon7(nil)
-```
-
-### Common Methods
-
-#### `data_get() -> table`
-
-Get the entity data. Returns a copy of the current data.
-
-#### `data_set(data)`
-
-Set the entity data.
-
-#### `match_get() -> table`
-
-Get the entity match criteria.
-
-#### `match_set(match)`
-
-Set the entity match criteria.
-
-#### `make() -> Entity`
-
-Create a new `Gon7Entity` instance with the same client and
-options.
-
-#### `get_name() -> string`
-
-Return the entity name.
-
-
----
-
-## Gon8Entity
-
-```lua
-local gon8 = client:Gon8(nil)
-```
-
-### Fields
-
-| Field | Type | Required | Description |
-| --- | --- | --- | --- |
-| `auth_mode` | `string` | No |  |
-| `auth_secret` | `string` | No |  |
-| `auth_username` | `string` | No |  |
-| `created_at` | `string` | No |  |
-| `disable_reason` | `string` | No |  |
-| `extra_header_1` | `string` | No |  |
-| `extra_header_2` | `string` | No |  |
-| `extra_value_1` | `string` | No |  |
-| `extra_value_2` | `string` | No |  |
-| `is_active` | `boolean` | No |  |
-| `mode` | `string` | No |  |
-| `name` | `string` | Yes |  |
-| `pending_validation` | `boolean` | No |  |
-| `priority` | `number` | No |  |
-| `slug_perm` | `string` | No |  |
-| `updated_at` | `string` | No |  |
-| `upstream_url` | `string` | Yes |  |
-| `verify_ssl` | `boolean` | No |  |
-
-### Operations
-
-#### `update(reqdata, ctrl) -> any, err`
-
-Update an existing entity. The data must include the entity `id`.
-
-```lua
-local result, err = client:Gon8():update({
-  identifier = "identifier",
-  owner = "owner",
-  slug_perm = "slug_perm",
-  -- Fields to update
-})
-```
-
-### Common Methods
-
-#### `data_get() -> table`
-
-Get the entity data. Returns a copy of the current data.
-
-#### `data_set(data)`
-
-Set the entity data.
-
-#### `match_get() -> table`
-
-Get the entity match criteria.
-
-#### `match_set(match)`
-
-Set the entity match criteria.
-
-#### `make() -> Entity`
-
-Create a new `Gon8Entity` instance with the same client and
-options.
-
-#### `get_name() -> string`
-
-Return the entity name.
-
-
----
-
-## Gon9Entity
-
-```lua
-local gon9 = client:Gon9(nil)
-```
-
-### Fields
-
-| Field | Type | Required | Description |
-| --- | --- | --- | --- |
-| `auth_mode` | `string` | No |  |
-| `auth_secret` | `string` | No |  |
-| `auth_username` | `string` | No |  |
-| `created_at` | `string` | No |  |
-| `disable_reason` | `string` | No |  |
-| `extra_header_1` | `string` | No |  |
-| `extra_header_2` | `string` | No |  |
-| `extra_value_1` | `string` | No |  |
-| `extra_value_2` | `string` | No |  |
-| `is_active` | `boolean` | No |  |
-| `mode` | `string` | No |  |
-| `name` | `string` | Yes |  |
-| `pending_validation` | `boolean` | No |  |
-| `priority` | `number` | No |  |
-| `slug_perm` | `string` | No |  |
-| `updated_at` | `string` | No |  |
-| `upstream_url` | `string` | Yes |  |
-| `verify_ssl` | `boolean` | No |  |
-
-### Operations
-
-#### `update(reqdata, ctrl) -> any, err`
-
-Update an existing entity. The data must include the entity `id`.
-
-```lua
-local result, err = client:Gon9():update({
-  identifier = "identifier",
-  owner = "owner",
-  slug_perm = "slug_perm",
-  -- Fields to update
-})
-```
-
-### Common Methods
-
-#### `data_get() -> table`
-
-Get the entity data. Returns a copy of the current data.
-
-#### `data_set(data)`
-
-Set the entity data.
-
-#### `match_get() -> table`
-
-Get the entity match criteria.
-
-#### `match_set(match)`
-
-Set the entity match criteria.
-
-#### `make() -> Entity`
-
-Create a new `Gon9Entity` instance with the same client and
 options.
 
 #### `get_name() -> string`
@@ -2834,6 +2443,8 @@ Create a new entity with the given data.
 local result, err = client:Helm():create({
   identifier = --[[ any ]],
   owner = --[[ any ]],
+  name = --[[ string ]],
+  upstream_url = --[[ string ]],
 })
 ```
 
@@ -2935,6 +2546,8 @@ Create a new entity with the given data.
 local result, err = client:Hex():create({
   identifier = --[[ any ]],
   owner = --[[ any ]],
+  name = --[[ string ]],
+  upstream_url = --[[ string ]],
 })
 ```
 
@@ -3072,6 +2685,8 @@ Create a new entity with the given data.
 local result, err = client:Huggingface():create({
   identifier = --[[ any ]],
   owner = --[[ any ]],
+  name = --[[ string ]],
+  upstream_url = --[[ string ]],
 })
 ```
 
@@ -3357,6 +2972,8 @@ Create a new entity with the given data.
 local result, err = client:Maven():create({
   identifier = --[[ any ]],
   owner = --[[ any ]],
+  name = --[[ string ]],
+  upstream_url = --[[ string ]],
 })
 ```
 
@@ -3660,6 +3277,8 @@ Create a new entity with the given data.
 local result, err = client:Npm():create({
   identifier = --[[ any ]],
   owner = --[[ any ]],
+  name = --[[ string ]],
+  upstream_url = --[[ string ]],
 })
 ```
 
@@ -3761,6 +3380,8 @@ Create a new entity with the given data.
 local result, err = client:Nuget():create({
   identifier = --[[ any ]],
   owner = --[[ any ]],
+  name = --[[ string ]],
+  upstream_url = --[[ string ]],
 })
 ```
 
@@ -3876,11 +3497,11 @@ local org = client:Org(nil)
 | `name` | `string` | Yes |  |
 | `package` | `table` | Yes |  |
 | `policy` | `table` | Yes |  |
-| `reason` | `table` | Yes |  |
+| `reasons` | `table` | Yes |  |
 | `slug` | `string` | No |  |
 | `slug_perm` | `string` | No |  |
 | `tagline` | `string` | No |  |
-| `vulnerability_scan_result` | `table` | Yes |  |
+| `vulnerability_scan_results` | `table` | Yes |  |
 
 ### Operations
 
@@ -3891,6 +3512,11 @@ Create a new entity with the given data.
 ```lua
 local result, err = client:Org():create({
   id = --[[ string ]],
+  name = --[[ string ]],
+  package = --[[ table ]],
+  policy = --[[ table ]],
+  reasons = --[[ table ]],
+  vulnerability_scan_results = --[[ table ]],
 })
 ```
 
@@ -3985,6 +3611,9 @@ Create a new entity with the given data.
 ```lua
 local result, err = client:OrganizationGroupSync():create({
   org_id = --[[ string ]],
+  idp_key = --[[ string ]],
+  idp_value = --[[ string ]],
+  team = --[[ string ]],
 })
 ```
 
@@ -4095,7 +3724,7 @@ local organization_invite = client:OrganizationInvite(nil)
 | `org` | `string` | No |  |
 | `role` | `string` | No |  |
 | `slug_perm` | `string` | No |  |
-| `team` | `table` | No |  |
+| `teams` | `table` | No |  |
 | `user` | `string` | No |  |
 | `user_url` | `string` | No |  |
 
@@ -4178,7 +3807,7 @@ local organization_invite_extend = client:OrganizationInviteExtend(nil)
 | `org` | `string` | No |  |
 | `role` | `string` | No |  |
 | `slug_perm` | `string` | No |  |
-| `team` | `table` | No |  |
+| `teams` | `table` | No |  |
 | `user` | `string` | No |  |
 | `user_url` | `string` | No |  |
 
@@ -4450,14 +4079,14 @@ local organization_package_license_policy = client:OrganizationPackageLicensePol
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `allow_unknown_license` | `boolean` | No |  |
+| `allow_unknown_licenses` | `boolean` | No |  |
 | `created_at` | `string` | No |  |
 | `description` | `string` | No |  |
 | `name` | `string` | Yes |  |
 | `on_violation_quarantine` | `boolean` | No |  |
 | `package_query_string` | `string` | No |  |
 | `slug_perm` | `string` | No |  |
-| `spdx_identifier` | `table` | Yes |  |
+| `spdx_identifiers` | `table` | Yes |  |
 | `updated_at` | `string` | No |  |
 
 ### Operations
@@ -4469,6 +4098,8 @@ Create a new entity with the given data.
 ```lua
 local result, err = client:OrganizationPackageLicensePolicy():create({
   org_id = --[[ string ]],
+  name = --[[ string ]],
+  spdx_identifiers = --[[ table ]],
 })
 ```
 
@@ -4559,6 +4190,7 @@ Create a new entity with the given data.
 ```lua
 local result, err = client:OrganizationPackageVulnerabilityPolicy():create({
   org_id = --[[ string ]],
+  name = --[[ string ]],
 })
 ```
 
@@ -4711,6 +4343,7 @@ Create a new entity with the given data.
 ```lua
 local result, err = client:OrganizationTeam():create({
   org_id = --[[ string ]],
+  name = --[[ string ]],
 })
 ```
 
@@ -4795,6 +4428,8 @@ Create a new entity with the given data.
 local result, err = client:OrganizationTeamMember():create({
   org_id = --[[ string ]],
   team_id = --[[ string ]],
+  role = --[[ string ]],
+  user = --[[ string ]],
 })
 ```
 
@@ -4908,42 +4543,6 @@ Return the entity name.
 
 ---
 
-## P2n2Entity
-
-```lua
-local p2n2 = client:P2n2(nil)
-```
-
-### Common Methods
-
-#### `data_get() -> table`
-
-Get the entity data. Returns a copy of the current data.
-
-#### `data_set(data)`
-
-Set the entity data.
-
-#### `match_get() -> table`
-
-Get the entity match criteria.
-
-#### `match_set(match)`
-
-Set the entity match criteria.
-
-#### `make() -> Entity`
-
-Create a new `P2n2Entity` instance with the same client and
-options.
-
-#### `get_name() -> string`
-
-Return the entity name.
-
-
----
-
 ## PackageEntity
 
 ```lua
@@ -4954,8 +4553,10 @@ local package = client:Package(nil)
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `architecture` | `table` | No |  |
+| `active` | `number` | No |  |
+| `architectures` | `table` | No |  |
 | `backend_kind` | `number` | No |  |
+| `bandwidth` | `table` | Yes |  |
 | `cdn_url` | `string` | No |  |
 | `checksum_md5` | `string` | No |  |
 | `checksum_sha1` | `string` | No |  |
@@ -4969,17 +4570,18 @@ local package = client:Package(nil)
 | `display_name` | `string` | No |  |
 | `distro` | `table` | Yes |  |
 | `distro_version` | `table` | No |  |
-| `download` | `number` | No |  |
+| `downloads` | `table` | Yes |  |
 | `epoch` | `number` | No |  |
 | `extension` | `string` | No |  |
-| `file` | `table` | No |  |
 | `filename` | `string` | No |  |
+| `files` | `table` | No |  |
 | `format` | `string` | No |  |
 | `format_url` | `string` | No |  |
 | `freeable_storage` | `number` | No |  |
 | `fully_qualified_name` | `string` | No |  |
-| `identifier` | `table` | No |  |
 | `identifier_perm` | `string` | No |  |
+| `identifiers` | `table` | No |  |
+| `inactive` | `number` | No |  |
 | `indexed` | `boolean` | No |  |
 | `is_cancellable` | `boolean` | No |  |
 | `is_copyable` | `boolean` | No |  |
@@ -5000,12 +4602,11 @@ local package = client:Package(nil)
 | `name` | `string` | No |  |
 | `namespace` | `string` | No |  |
 | `namespace_url` | `string` | No |  |
-| `num_download` | `number` | Yes |  |
-| `num_file` | `number` | No |  |
+| `num_downloads` | `number` | Yes |  |
+| `num_files` | `number` | No |  |
 | `operator` | `string` | No |  |
 | `origin_repository` | `string` | No |  |
 | `origin_repository_url` | `string` | No |  |
-| `package` | `table` | Yes |  |
 | `package_type` | `number` | No |  |
 | `policy_violated` | `boolean` | No |  |
 | `release` | `string` | No |  |
@@ -5033,8 +4634,9 @@ local package = client:Package(nil)
 | `summary` | `string` | No |  |
 | `sync_finished_at` | `string` | No |  |
 | `sync_progress` | `number` | No |  |
-| `tag` | `table` | No |  |
+| `tags` | `table` | No |  |
 | `tags_immutable` | `table` | No |  |
+| `total` | `number` | No |  |
 | `type_display` | `string` | No |  |
 | `uploaded_at` | `string` | No |  |
 | `uploader` | `string` | No |  |
@@ -5047,8 +4649,10 @@ local package = client:Package(nil)
 
 | Field | load | list | create | remove |
 | --- | --- | --- | --- | --- |
-| `architecture` | - | - | - | - |
+| `active` | - | - | - | - |
+| `architectures` | - | - | - | - |
 | `backend_kind` | - | - | - | - |
+| `bandwidth` | - | - | - | - |
 | `cdn_url` | - | - | - | - |
 | `checksum_md5` | - | - | - | - |
 | `checksum_sha1` | - | - | - | - |
@@ -5062,17 +4666,18 @@ local package = client:Package(nil)
 | `display_name` | - | - | - | - |
 | `distro` | - | - | - | - |
 | `distro_version` | - | - | - | - |
-| `download` | - | - | - | - |
+| `downloads` | - | Yes | Yes | - |
 | `epoch` | - | - | - | - |
 | `extension` | - | - | - | - |
-| `file` | - | - | - | - |
 | `filename` | - | - | - | - |
+| `files` | - | - | - | - |
 | `format` | - | - | - | - |
 | `format_url` | - | - | - | - |
 | `freeable_storage` | - | - | - | - |
 | `fully_qualified_name` | - | - | - | - |
-| `identifier` | - | - | - | - |
 | `identifier_perm` | - | - | - | - |
+| `identifiers` | - | - | - | - |
+| `inactive` | - | - | - | - |
 | `indexed` | - | - | - | - |
 | `is_cancellable` | - | - | - | - |
 | `is_copyable` | - | - | - | - |
@@ -5093,12 +4698,11 @@ local package = client:Package(nil)
 | `name` | - | - | - | - |
 | `namespace` | - | - | - | - |
 | `namespace_url` | - | - | - | - |
-| `num_download` | - | - | - | - |
-| `num_file` | - | - | - | - |
+| `num_downloads` | - | - | - | - |
+| `num_files` | - | - | - | - |
 | `operator` | - | - | - | - |
 | `origin_repository` | - | - | - | - |
 | `origin_repository_url` | - | - | - | - |
-| `package` | - | - | - | - |
 | `package_type` | - | - | - | - |
 | `policy_violated` | - | - | - | - |
 | `release` | - | - | - | - |
@@ -5126,8 +4730,9 @@ local package = client:Package(nil)
 | `summary` | - | - | - | - |
 | `sync_finished_at` | - | - | - | - |
 | `sync_progress` | - | - | - | - |
-| `tag` | - | - | - | - |
+| `tags` | - | - | - | - |
 | `tags_immutable` | - | - | - | - |
+| `total` | - | - | - | - |
 | `type_display` | - | - | - | - |
 | `uploaded_at` | - | - | - | - |
 | `uploader` | - | - | - | - |
@@ -5146,6 +4751,12 @@ Create a new entity with the given data.
 local result, err = client:Package():create({
   owner = --[[ any ]],
   repo = --[[ any ]],
+  bandwidth = --[[ table ]],
+  count = --[[ number ]],
+  distro = --[[ table ]],
+  downloads = --[[ table ]],
+  last_push = --[[ string ]],
+  num_downloads = --[[ number ]],
 })
 ```
 
@@ -5232,6 +4843,7 @@ Create a new entity with the given data.
 ```lua
 local result, err = client:PackageDenyPolicy():create({
   org_id = --[[ string ]],
+  package_query_string = --[[ string ]],
 })
 ```
 
@@ -5407,12 +5019,19 @@ local package_license_policy_evaluation = client:PackageLicensePolicyEvaluation(
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
+| `allow_unknown_licenses` | `boolean` | No |  |
 | `created_at` | `string` | No |  |
+| `description` | `string` | No |  |
 | `evaluation_count` | `number` | No |  |
+| `name` | `string` | No |  |
+| `on_violation_quarantine` | `boolean` | No |  |
+| `package_query_string` | `string` | No |  |
 | `policy` | `table` | Yes |  |
 | `slug_perm` | `string` | No |  |
+| `spdx_identifiers` | `table` | Yes |  |
 | `status` | `string` | No |  |
 | `updated_at` | `string` | No |  |
+| `url` | `string` | No |  |
 | `violation_count` | `number` | No |  |
 
 ### Operations
@@ -5425,6 +5044,8 @@ Create a new entity with the given data.
 local result, err = client:PackageLicensePolicyEvaluation():create({
   org_id = --[[ string ]],
   policy_slug_perm = --[[ any ]],
+  policy = --[[ table ]],
+  spdx_identifiers = --[[ table ]],
 })
 ```
 
@@ -5530,12 +5151,19 @@ local package_vulnerability_policy_evaluation = client:PackageVulnerabilityPolic
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
+| `allow_unknown_severity` | `boolean` | No |  |
 | `created_at` | `string` | No |  |
+| `description` | `string` | No |  |
 | `evaluation_count` | `number` | No |  |
+| `min_severity` | `string` | No |  |
+| `name` | `string` | No |  |
+| `on_violation_quarantine` | `boolean` | No |  |
+| `package_query_string` | `string` | No |  |
 | `policy` | `table` | No |  |
 | `slug_perm` | `string` | No |  |
 | `status` | `string` | No |  |
 | `updated_at` | `string` | No |  |
+| `url` | `string` | No |  |
 | `violation_count` | `number` | No |  |
 
 ### Operations
@@ -5679,12 +5307,12 @@ local provider_setting = client:ProviderSetting(nil)
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `claim` | `table` | Yes |  |
+| `claims` | `table` | Yes |  |
 | `enabled` | `boolean` | Yes |  |
 | `mapping_claim` | `string` | No |  |
 | `name` | `string` | Yes |  |
 | `provider_url` | `string` | Yes |  |
-| `service_account` | `table` | No |  |
+| `service_accounts` | `table` | No |  |
 | `slug` | `string` | No |  |
 | `slug_perm` | `string` | No |  |
 
@@ -5746,13 +5374,13 @@ local provider_settings_write = client:ProviderSettingsWrite(nil)
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `claim` | `table` | Yes |  |
-| `dynamic_mapping` | `table` | No |  |
+| `claims` | `table` | Yes |  |
+| `dynamic_mappings` | `table` | No |  |
 | `enabled` | `boolean` | Yes |  |
 | `mapping_claim` | `string` | No |  |
 | `name` | `string` | Yes |  |
 | `provider_url` | `string` | Yes |  |
-| `service_account` | `table` | No |  |
+| `service_accounts` | `table` | No |  |
 | `slug` | `string` | No |  |
 | `slug_perm` | `string` | No |  |
 
@@ -5765,6 +5393,10 @@ Create a new entity with the given data.
 ```lua
 local result, err = client:ProviderSettingsWrite():create({
   org_id = --[[ string ]],
+  claims = --[[ table ]],
+  enabled = --[[ boolean ]],
+  name = --[[ string ]],
+  provider_url = --[[ string ]],
 })
 ```
 
@@ -5849,6 +5481,8 @@ Create a new entity with the given data.
 local result, err = client:Python():create({
   identifier = --[[ any ]],
   owner = --[[ any ]],
+  name = --[[ string ]],
+  upstream_url = --[[ string ]],
 })
 ```
 
@@ -5957,8 +5591,9 @@ local quota = client:Quota(nil)
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
+| `display` | `table` | Yes |  |
 | `history` | `table` | Yes |  |
-| `usage` | `table` | Yes |  |
+| `raw` | `table` | Yes |  |
 
 ### Operations
 
@@ -6122,49 +5757,49 @@ local repo = client:Repo(nil)
 | `content_kind` | `string` | No |  |
 | `contextual_auth_realm` | `boolean` | No |  |
 | `copy_own` | `boolean` | No |  |
-| `copy_package` | `string` | No |  |
+| `copy_packages` | `string` | No |  |
 | `cosign_signing_enabled` | `boolean` | No |  |
 | `created_at` | `string` | No |  |
 | `default_privilege` | `string` | No |  |
 | `delete_own` | `boolean` | No |  |
-| `delete_package` | `string` | No |  |
+| `delete_packages` | `string` | No |  |
 | `deleted_at` | `string` | No |  |
 | `description` | `string` | No |  |
-| `distribute` | `table` | No |  |
+| `distributes` | `table` | No |  |
 | `docker_refresh_tokens_enabled` | `boolean` | No |  |
-| `ecdsa_key` | `table` | No |  |
+| `ecdsa_keys` | `table` | No |  |
 | `enforce_eula` | `boolean` | No |  |
-| `gpg_key` | `table` | No |  |
-| `index_file` | `boolean` | No |  |
+| `gpg_keys` | `table` | No |  |
+| `index_files` | `boolean` | No |  |
 | `is_open_source` | `boolean` | No |  |
 | `is_private` | `boolean` | No |  |
 | `is_public` | `boolean` | No |  |
 | `manage_entitlements_privilege` | `string` | No |  |
 | `move_own` | `boolean` | No |  |
-| `move_package` | `string` | No |  |
+| `move_packages` | `string` | No |  |
 | `name` | `string` | Yes |  |
 | `namespace` | `string` | No |  |
 | `namespace_url` | `string` | No |  |
 | `nuget_native_signing_enabled` | `boolean` | No |  |
-| `num_download` | `number` | No |  |
-| `num_policy_violated_package` | `number` | No |  |
-| `num_quarantined_package` | `number` | No |  |
+| `num_downloads` | `number` | No |  |
+| `num_policy_violated_packages` | `number` | No |  |
+| `num_quarantined_packages` | `number` | No |  |
 | `open_source_license` | `string` | No |  |
 | `open_source_project_url` | `string` | No |  |
 | `package_count` | `number` | No |  |
 | `package_group_count` | `number` | No |  |
-| `proxy_npmj` | `boolean` | No |  |
+| `proxy_npmjs` | `boolean` | No |  |
 | `proxy_pypi` | `boolean` | No |  |
 | `raw_package_index_enabled` | `boolean` | No |  |
 | `raw_package_index_signatures_enabled` | `boolean` | No |  |
-| `replace_package` | `string` | No |  |
+| `replace_packages` | `string` | No |  |
 | `replace_packages_by_default` | `boolean` | No |  |
 | `repository_type` | `number` | No |  |
 | `repository_type_str` | `string` | No |  |
 | `resync_own` | `boolean` | No |  |
-| `resync_package` | `string` | No |  |
+| `resync_packages` | `string` | No |  |
 | `scan_own` | `boolean` | No |  |
-| `scan_package` | `string` | No |  |
+| `scan_packages` | `string` | No |  |
 | `self_html_url` | `string` | No |  |
 | `self_url` | `string` | No |  |
 | `show_setup_all` | `boolean` | No |  |
@@ -6175,14 +5810,14 @@ local repo = client:Repo(nil)
 | `storage_region` | `string` | No |  |
 | `strict_npm_validation` | `boolean` | No |  |
 | `tag_pre_releases_as_latest` | `boolean` | No |  |
-| `use_debian_label` | `boolean` | No |  |
+| `use_debian_labels` | `boolean` | No |  |
 | `use_default_cargo_upstream` | `boolean` | No |  |
 | `use_entitlements_privilege` | `string` | No |  |
-| `use_noarch_package` | `boolean` | No |  |
-| `use_source_package` | `boolean` | No |  |
+| `use_noarch_packages` | `boolean` | No |  |
+| `use_source_packages` | `boolean` | No |  |
 | `use_vulnerability_scanning` | `boolean` | No |  |
 | `user_entitlements_enabled` | `boolean` | No |  |
-| `view_statistic` | `string` | No |  |
+| `view_statistics` | `string` | No |  |
 
 ### Operations
 
@@ -6192,6 +5827,7 @@ Create a new entity with the given data.
 
 ```lua
 local result, err = client:Repo():create({
+  name = --[[ string ]],
 })
 ```
 
@@ -6588,6 +6224,7 @@ Create a new entity with the given data.
 local result, err = client:RepositoryGpgKey():create({
   identifier = --[[ any ]],
   owner = --[[ any ]],
+  comment = --[[ string ]],
 })
 ```
 
@@ -6834,19 +6471,19 @@ local repository_token = client:RepositoryToken(nil)
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `client` | `number` | No |  |
+| `clients` | `number` | No |  |
 | `created_at` | `string` | No |  |
 | `created_by` | `string` | No |  |
 | `created_by_url` | `string` | No |  |
 | `default` | `boolean` | No |  |
 | `disable_url` | `string` | No |  |
-| `download` | `number` | No |  |
+| `downloads` | `number` | No |  |
 | `enable_url` | `string` | No |  |
 | `eula_accepted` | `table` | No |  |
 | `eula_accepted_at` | `string` | No |  |
 | `eula_accepted_from` | `string` | No |  |
 | `eula_required` | `boolean` | No |  |
-| `has_limit` | `boolean` | No |  |
+| `has_limits` | `boolean` | No |  |
 | `identifier` | `number` | No |  |
 | `is_active` | `boolean` | No |  |
 | `is_limited` | `boolean` | No |  |
@@ -6854,8 +6491,8 @@ local repository_token = client:RepositoryToken(nil)
 | `limit_bandwidth_unit` | `string` | No |  |
 | `limit_date_range_from` | `string` | No |  |
 | `limit_date_range_to` | `string` | No |  |
-| `limit_num_client` | `number` | No |  |
-| `limit_num_download` | `number` | No |  |
+| `limit_num_clients` | `number` | No |  |
+| `limit_num_downloads` | `number` | No |  |
 | `limit_package_query` | `string` | No |  |
 | `limit_path_query` | `string` | No |  |
 | `metadata` | `table` | No |  |
@@ -6884,6 +6521,7 @@ Create a new entity with the given data.
 local result, err = client:RepositoryToken():create({
   owner = --[[ any ]],
   repo = --[[ any ]],
+  name = --[[ string ]],
 })
 ```
 
@@ -6956,19 +6594,19 @@ local repository_token_refresh = client:RepositoryTokenRefresh(nil)
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `client` | `number` | No |  |
+| `clients` | `number` | No |  |
 | `created_at` | `string` | No |  |
 | `created_by` | `string` | No |  |
 | `created_by_url` | `string` | No |  |
 | `default` | `boolean` | No |  |
 | `disable_url` | `string` | No |  |
-| `download` | `number` | No |  |
+| `downloads` | `number` | No |  |
 | `enable_url` | `string` | No |  |
 | `eula_accepted` | `table` | No |  |
 | `eula_accepted_at` | `string` | No |  |
 | `eula_accepted_from` | `string` | No |  |
 | `eula_required` | `boolean` | No |  |
-| `has_limit` | `boolean` | No |  |
+| `has_limits` | `boolean` | No |  |
 | `identifier` | `number` | No |  |
 | `is_active` | `boolean` | No |  |
 | `is_limited` | `boolean` | No |  |
@@ -6976,8 +6614,8 @@ local repository_token_refresh = client:RepositoryTokenRefresh(nil)
 | `limit_bandwidth_unit` | `string` | No |  |
 | `limit_date_range_from` | `string` | No |  |
 | `limit_date_range_to` | `string` | No |  |
-| `limit_num_client` | `number` | No |  |
-| `limit_num_download` | `number` | No |  |
+| `limit_num_clients` | `number` | No |  |
+| `limit_num_downloads` | `number` | No |  |
 | `limit_package_query` | `string` | No |  |
 | `limit_path_query` | `string` | No |  |
 | `metadata` | `table` | No |  |
@@ -7050,7 +6688,7 @@ local repository_token_sync = client:RepositoryTokenSync(nil)
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `token` | `table` | No |  |
+| `tokens` | `table` | No |  |
 
 ### Operations
 
@@ -7110,7 +6748,8 @@ local repository_webhook = client:RepositoryWebhook(nil)
 | `created_by_url` | `string` | No |  |
 | `disable_reason` | `number` | No |  |
 | `disable_reason_str` | `string` | No |  |
-| `event` | `table` | Yes |  |
+| `event` | `string` | Yes |  |
+| `events` | `table` | Yes |  |
 | `identifier` | `number` | No |  |
 | `is_active` | `boolean` | No |  |
 | `is_last_response_bad` | `boolean` | No |  |
@@ -7127,43 +6766,12 @@ local repository_webhook = client:RepositoryWebhook(nil)
 | `self_url` | `string` | No |  |
 | `slug_perm` | `string` | No |  |
 | `target_url` | `string` | Yes |  |
-| `template` | `table` | Yes |  |
+| `template` | `string` | No |  |
+| `templates` | `table` | Yes |  |
 | `updated_at` | `string` | No |  |
 | `updated_by` | `string` | No |  |
 | `updated_by_url` | `string` | No |  |
 | `verify_ssl` | `boolean` | No |  |
-
-### Field Usage by Operation
-
-| Field | list | create | update |
-| --- | --- | --- | --- |
-| `created_at` | - | - | - |
-| `created_by` | - | - | - |
-| `created_by_url` | - | - | - |
-| `disable_reason` | - | - | - |
-| `disable_reason_str` | - | - | - |
-| `event` | - | - | - |
-| `identifier` | - | - | - |
-| `is_active` | - | - | - |
-| `is_last_response_bad` | - | - | - |
-| `last_response_status` | - | - | - |
-| `last_response_status_str` | - | - | - |
-| `num_sent` | - | - | - |
-| `package_query` | - | - | - |
-| `request_body_format` | - | - | - |
-| `request_body_format_str` | - | - | - |
-| `request_body_template_format` | - | - | - |
-| `request_body_template_format_str` | - | - | - |
-| `request_content_type` | - | - | - |
-| `secret_header` | - | - | - |
-| `self_url` | - | - | - |
-| `slug_perm` | - | - | - |
-| `target_url` | - | - | - |
-| `template` | Yes | - | - |
-| `updated_at` | - | - | - |
-| `updated_by` | - | - | - |
-| `updated_by_url` | - | - | - |
-| `verify_ssl` | - | - | - |
 
 ### Operations
 
@@ -7175,6 +6783,10 @@ Create a new entity with the given data.
 local result, err = client:RepositoryWebhook():create({
   owner = --[[ any ]],
   repo = --[[ any ]],
+  event = --[[ string ]],
+  events = --[[ table ]],
+  target_url = --[[ string ]],
+  templates = --[[ table ]],
 })
 ```
 
@@ -7397,7 +7009,12 @@ local resources_rate_check = client:ResourcesRateCheck(nil)
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `resource` | `table` | No |  |
+| `interval` | `number` | No |  |
+| `limit` | `number` | No |  |
+| `remaining` | `number` | No |  |
+| `reset` | `number` | No |  |
+| `reset_iso_8601` | `string` | No |  |
+| `throttled` | `boolean` | No |  |
 
 ### Operations
 
@@ -7534,7 +7151,7 @@ local rpm = client:Rpm(nil)
 | `gpg_key_inline` | `string` | No |  |
 | `gpg_key_url` | `string` | No |  |
 | `gpg_verification` | `string` | No |  |
-| `include_source` | `boolean` | No |  |
+| `include_sources` | `boolean` | No |  |
 | `is_active` | `boolean` | No |  |
 | `mode` | `string` | No |  |
 | `name` | `string` | Yes |  |
@@ -7556,6 +7173,9 @@ Create a new entity with the given data.
 local result, err = client:Rpm():create({
   identifier = --[[ any ]],
   owner = --[[ any ]],
+  distro_version = --[[ string ]],
+  name = --[[ string ]],
+  upstream_url = --[[ string ]],
 })
 ```
 
@@ -7693,6 +7313,8 @@ Create a new entity with the given data.
 local result, err = client:Ruby():create({
   identifier = --[[ any ]],
   owner = --[[ any ]],
+  name = --[[ string ]],
+  upstream_url = --[[ string ]],
 })
 ```
 
@@ -7882,7 +7504,7 @@ local service = client:Service(nil)
 | `name` | `string` | Yes |  |
 | `role` | `string` | No |  |
 | `slug` | `string` | No |  |
-| `team` | `table` | No |  |
+| `teams` | `table` | No |  |
 
 ### Operations
 
@@ -7893,6 +7515,7 @@ Create a new entity with the given data.
 ```lua
 local result, err = client:Service():create({
   org_id = --[[ string ]],
+  name = --[[ string ]],
 })
 ```
 
@@ -8143,6 +7766,8 @@ Create a new entity with the given data.
 local result, err = client:Swift():create({
   identifier = --[[ any ]],
   owner = --[[ any ]],
+  name = --[[ string ]],
+  upstream_url = --[[ string ]],
 })
 ```
 
@@ -8862,12 +8487,12 @@ local vulnerability = client:Vulnerability(nil)
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
 | `created_at` | `string` | No |  |
-| `has_vulnerability` | `boolean` | No |  |
+| `has_vulnerabilities` | `boolean` | No |  |
 | `identifier` | `string` | Yes |  |
 | `max_severity` | `string` | No |  |
-| `num_vulnerability` | `number` | No |  |
+| `num_vulnerabilities` | `number` | No |  |
 | `package` | `table` | Yes |  |
-| `result` | `table` | Yes |  |
+| `results` | `table` | Yes |  |
 | `scan_id` | `number` | Yes |  |
 | `target` | `string` | Yes |  |
 | `type` | `string` | Yes |  |

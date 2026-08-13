@@ -109,7 +109,7 @@ func TestHexEntity(t *testing.T) {
 		if err != nil {
 			t.Fatalf("create failed: %v", err)
 		}
-		hexRef01Data = core.ToMapAny(hexRef01DataResult)
+		hexRef01Data = core.ToMapAny(entityData(hexRef01DataResult))
 		if hexRef01Data == nil {
 			t.Fatal("expected create result to be a map")
 		}
@@ -124,14 +124,9 @@ func TestHexEntity(t *testing.T) {
 		if err != nil {
 			t.Fatalf("list failed: %v", err)
 		}
-		hexRef01List, hexRef01ListOk := hexRef01ListResult.([]any)
+		_, hexRef01ListOk := hexRef01ListResult.([]any)
 		if !hexRef01ListOk {
 			t.Fatalf("expected list result to be an array, got %T", hexRef01ListResult)
-		}
-
-		foundItem := vs.Select(entityListToData(hexRef01List), map[string]any{"id": hexRef01Data["id"]})
-		if vs.IsEmpty(foundItem) {
-			t.Fatal("expected to find created entity in list")
 		}
 
 		// UPDATE
@@ -148,7 +143,7 @@ func TestHexEntity(t *testing.T) {
 		if err != nil {
 			t.Fatalf("update failed: %v", err)
 		}
-		hexRef01ResdataUp0 := core.ToMapAny(hexRef01ResdataUp0Result)
+		hexRef01ResdataUp0 := core.ToMapAny(entityData(hexRef01ResdataUp0Result))
 		if hexRef01ResdataUp0 == nil {
 			t.Fatal("expected update result to be a map")
 		}

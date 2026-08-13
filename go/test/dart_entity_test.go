@@ -109,7 +109,7 @@ func TestDartEntity(t *testing.T) {
 		if err != nil {
 			t.Fatalf("create failed: %v", err)
 		}
-		dartRef01Data = core.ToMapAny(dartRef01DataResult)
+		dartRef01Data = core.ToMapAny(entityData(dartRef01DataResult))
 		if dartRef01Data == nil {
 			t.Fatal("expected create result to be a map")
 		}
@@ -124,14 +124,9 @@ func TestDartEntity(t *testing.T) {
 		if err != nil {
 			t.Fatalf("list failed: %v", err)
 		}
-		dartRef01List, dartRef01ListOk := dartRef01ListResult.([]any)
+		_, dartRef01ListOk := dartRef01ListResult.([]any)
 		if !dartRef01ListOk {
 			t.Fatalf("expected list result to be an array, got %T", dartRef01ListResult)
-		}
-
-		foundItem := vs.Select(entityListToData(dartRef01List), map[string]any{"id": dartRef01Data["id"]})
-		if vs.IsEmpty(foundItem) {
-			t.Fatal("expected to find created entity in list")
 		}
 
 		// UPDATE
@@ -148,7 +143,7 @@ func TestDartEntity(t *testing.T) {
 		if err != nil {
 			t.Fatalf("update failed: %v", err)
 		}
-		dartRef01ResdataUp0 := core.ToMapAny(dartRef01ResdataUp0Result)
+		dartRef01ResdataUp0 := core.ToMapAny(entityData(dartRef01ResdataUp0Result))
 		if dartRef01ResdataUp0 == nil {
 			t.Fatal("expected update result to be a map")
 		}

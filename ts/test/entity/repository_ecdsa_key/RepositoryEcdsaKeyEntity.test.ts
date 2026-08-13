@@ -64,7 +64,7 @@ describe('RepositoryEcdsaKeyEntity', async () => {
     repository_ecdsa_key_ref01_data['identifier'] = setup.idmap['identifier01']
     repository_ecdsa_key_ref01_data['owner'] = setup.idmap['owner01']
 
-    repository_ecdsa_key_ref01_data = await repository_ecdsa_key_ref01_ent.create(repository_ecdsa_key_ref01_data)
+    repository_ecdsa_key_ref01_data = (await repository_ecdsa_key_ref01_ent.create(repository_ecdsa_key_ref01_data)).data()
     assert(null != repository_ecdsa_key_ref01_data)
 
 

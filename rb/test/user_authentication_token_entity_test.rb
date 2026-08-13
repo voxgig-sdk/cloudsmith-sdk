@@ -37,7 +37,7 @@ class UserAuthenticationTokenEntityTest < Minitest::Test
       Vs.getpath(setup[:data], "new.user_authentication_token"), "user_authentication_token_ref01"))
 
     user_authentication_token_ref01_data_result = user_authentication_token_ref01_ent.create(user_authentication_token_ref01_data, nil)
-    user_authentication_token_ref01_data = Helpers.to_map(user_authentication_token_ref01_data_result)
+    user_authentication_token_ref01_data = Helpers.to_map(user_authentication_token_ref01_data_result.respond_to?(:data_get) ? user_authentication_token_ref01_data_result.data_get : user_authentication_token_ref01_data_result)
     assert !user_authentication_token_ref01_data.nil?
 
     # UPDATE
@@ -49,7 +49,7 @@ class UserAuthenticationTokenEntityTest < Minitest::Test
     user_authentication_token_ref01_data_up0_up[user_authentication_token_ref01_markdef_up0_name] = user_authentication_token_ref01_markdef_up0_value
 
     user_authentication_token_ref01_resdata_up0_result = user_authentication_token_ref01_ent.update(user_authentication_token_ref01_data_up0_up, nil)
-    user_authentication_token_ref01_resdata_up0 = Helpers.to_map(user_authentication_token_ref01_resdata_up0_result)
+    user_authentication_token_ref01_resdata_up0 = Helpers.to_map(user_authentication_token_ref01_resdata_up0_result.respond_to?(:data_get) ? user_authentication_token_ref01_resdata_up0_result.data_get : user_authentication_token_ref01_resdata_up0_result)
     assert !user_authentication_token_ref01_resdata_up0.nil?
     assert_equal user_authentication_token_ref01_resdata_up0[user_authentication_token_ref01_markdef_up0_name], user_authentication_token_ref01_markdef_up0_value
 

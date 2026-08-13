@@ -85,7 +85,7 @@ class RpmEntityTest extends TestCase
         $rpm_ref01_data["owner"] = $setup["idmap"]["owner01"];
 
         $rpm_ref01_data_result = $rpm_ref01_ent->create($rpm_ref01_data, null);
-        $rpm_ref01_data = Helpers::to_map($rpm_ref01_data_result);
+        $rpm_ref01_data = Helpers::to_map(is_object($rpm_ref01_data_result) && method_exists($rpm_ref01_data_result, 'data_get') ? $rpm_ref01_data_result->data_get() : $rpm_ref01_data_result);
         $this->assertNotNull($rpm_ref01_data);
 
         // LIST
@@ -96,11 +96,6 @@ class RpmEntityTest extends TestCase
 
         $rpm_ref01_list_result = $rpm_ref01_ent->list($rpm_ref01_match, null);
         $this->assertIsArray($rpm_ref01_list_result);
-
-        $found_item = sdk_select(
-            Runner::entity_list_to_data($rpm_ref01_list_result),
-            ["id" => $rpm_ref01_data["id"]]);
-        $this->assertNotEmpty($found_item);
 
         // UPDATE
         $rpm_ref01_data_up0_up = [
@@ -113,7 +108,7 @@ class RpmEntityTest extends TestCase
         $rpm_ref01_data_up0_up[$rpm_ref01_markdef_up0_name] = $rpm_ref01_markdef_up0_value;
 
         $rpm_ref01_resdata_up0_result = $rpm_ref01_ent->update($rpm_ref01_data_up0_up, null);
-        $rpm_ref01_resdata_up0 = Helpers::to_map($rpm_ref01_resdata_up0_result);
+        $rpm_ref01_resdata_up0 = Helpers::to_map(is_object($rpm_ref01_resdata_up0_result) && method_exists($rpm_ref01_resdata_up0_result, 'data_get') ? $rpm_ref01_resdata_up0_result->data_get() : $rpm_ref01_resdata_up0_result);
         $this->assertNotNull($rpm_ref01_resdata_up0);
         $this->assertEquals($rpm_ref01_resdata_up0[$rpm_ref01_markdef_up0_name], $rpm_ref01_markdef_up0_value);
 

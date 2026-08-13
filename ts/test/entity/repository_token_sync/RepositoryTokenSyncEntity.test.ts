@@ -64,7 +64,7 @@ describe('RepositoryTokenSyncEntity', async () => {
     repository_token_sync_ref01_data['owner'] = setup.idmap['owner01']
     repository_token_sync_ref01_data['repo'] = setup.idmap['repo01']
 
-    repository_token_sync_ref01_data = await repository_token_sync_ref01_ent.create(repository_token_sync_ref01_data)
+    repository_token_sync_ref01_data = (await repository_token_sync_ref01_ent.create(repository_token_sync_ref01_data)).data()
     assert(null != repository_token_sync_ref01_data)
 
 

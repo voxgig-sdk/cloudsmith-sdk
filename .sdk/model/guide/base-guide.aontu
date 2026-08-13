@@ -1,7 +1,7 @@
 # Guide
 
 guide: {
-  metrics: count: entity: 140
+  metrics: count: entity: 131
   metrics: count: path: 201
   metrics: count: method: 325
 
@@ -258,9 +258,11 @@ guide: {
     path: "/metrics/entitlements/{owner}/": {
       rename: param: "owner": *"id"
       op: load: method: *GET
+      op: load: transform: res: *("`body.tokens`")|top
     }
     path: "/metrics/entitlements/{owner}/{repo}/": {
       op: load: method: *GET
+      op: load: transform: res: *("`body.tokens`")|top
     }
   }
 
@@ -307,50 +309,16 @@ guide: {
   entity: gon: {
     path: "/packages/{owner}/{repo}/upload/go/": {
     }
-  }
-
-  entity: gon2: {
     path: "/packages/{owner}/{repo}/validate-upload/go/": {
     }
-  }
-
-  entity: gon3: {
-    path: "/repos/{owner}/{identifier}/upstream/go/": {
-      op: list: method: *GET
-    }
-  }
-
-  entity: gon4: {
-    path: "/repos/{owner}/{identifier}/upstream/go/": {
-    }
-  }
-
-  entity: gon5: {
     path: "/repos/{owner}/{identifier}/upstream/go/": {
       op: create: method: *POST
+      op: list: method: *GET
     }
-  }
-
-  entity: gon6: {
     path: "/repos/{owner}/{identifier}/upstream/go/{slug_perm}/": {
       op: load: method: *GET
-    }
-  }
-
-  entity: gon7: {
-    path: "/repos/{owner}/{identifier}/upstream/go/{slug_perm}/": {
-    }
-  }
-
-  entity: gon8: {
-    path: "/repos/{owner}/{identifier}/upstream/go/{slug_perm}/": {
-      op: update: method: *PUT
-    }
-  }
-
-  entity: gon9: {
-    path: "/repos/{owner}/{identifier}/upstream/go/{slug_perm}/": {
       op: patch: method: *PATCH
+      op: update: method: *PUT
     }
   }
 
@@ -607,6 +575,7 @@ guide: {
       action: "license_policy_violation": {}
       rename: param: "org": *"id"
       op: list: method: *GET
+      op: list: transform: res: *("`body.results`")|top
     }
     path: "/orgs/{org}/license-policy/": {
       action: "license_policy": {}
@@ -687,6 +656,7 @@ guide: {
       action: "vulnerability_policy_violation": {}
       rename: param: "org": *"id"
       op: list: method: *GET
+      op: list: transform: res: *("`body.results`")|top
     }
     path: "/orgs/{org}/vulnerability-policy/": {
       action: "vulnerability_policy": {}
@@ -823,6 +793,7 @@ guide: {
       rename: param: "team": *"team_id"
       op: create: method: *POST
       op: list: method: *GET
+      op: list: transform: res: *("`body.members`")|top
     }
   }
 
@@ -835,9 +806,6 @@ guide: {
   entity: p2n: {
     path: "/packages/{owner}/{repo}/upload/p2/": {
     }
-  }
-
-  entity: p2n2: {
     path: "/packages/{owner}/{repo}/validate-upload/p2/": {
     }
   }
@@ -845,12 +813,14 @@ guide: {
   entity: package: {
     path: "/metrics/packages/{owner}/{repo}/": {
       op: load: method: *GET
+      op: load: transform: res: *("`body.packages`")|top
     }
     path: "/packages/{owner}/{repo}/": {
       op: list: method: *GET
     }
     path: "/packages/{owner}/{repo}/groups/": {
       op: list: method: *GET
+      op: list: transform: res: *("`body.results`")|top
     }
     path: "/packages/{owner}/{repo}/upload/alpine/": {
       op: create: method: *POST
@@ -1017,6 +987,7 @@ guide: {
     }
     path: "/packages/{owner}/{repo}/{identifier}/dependencies/": {
       op: list: method: *GET
+      op: list: transform: res: *("`body.dependencies`")|top
     }
     path: "/packages/{owner}/{repo}/{identifier}/move/": {
       op: create: method: *POST
@@ -1069,6 +1040,7 @@ guide: {
     path: "/orgs/{org}/license-policy/{policy_slug_perm}/evaluation/": {
       rename: param: "org": *"org_id"
       op: create: method: *POST
+      op: create: transform: res: *("`body.policy`")|top
       op: list: method: *GET
     }
     path: "/orgs/{org}/license-policy/{policy_slug_perm}/evaluation/{slug_perm}/": {
@@ -1076,6 +1048,7 @@ guide: {
       rename: param: "policy_slug_perm": *"license_policy_id"
       rename: param: "slug_perm": *"id"
       op: load: method: *GET
+      op: load: transform: res: *("`body.policy`")|top
     }
   }
 
@@ -1090,6 +1063,7 @@ guide: {
     path: "/orgs/{org}/vulnerability-policy/{policy_slug_perm}/evaluation/": {
       rename: param: "org": *"org_id"
       op: create: method: *POST
+      op: create: transform: res: *("`body.policy`")|top
       op: list: method: *GET
     }
     path: "/orgs/{org}/vulnerability-policy/{policy_slug_perm}/evaluation/{slug_perm}/": {
@@ -1097,6 +1071,7 @@ guide: {
       rename: param: "policy_slug_perm": *"vulnerability_policy_id"
       rename: param: "slug_perm": *"id"
       op: load: method: *GET
+      op: load: transform: res: *("`body.policy`")|top
     }
   }
 
@@ -1165,10 +1140,12 @@ guide: {
     }
     path: "/quota/oss/{owner}/": {
       op: load: method: *GET
+      op: load: transform: res: *("`body.usage`")|top
     }
     path: "/quota/{owner}/": {
       rename: param: "owner": *"id"
       op: load: method: *GET
+      op: load: transform: res: *("`body.usage`")|top
     }
   }
 
@@ -1326,6 +1303,7 @@ guide: {
   entity: repository_privilege_input: {
     path: "/repos/{owner}/{identifier}/privileges": {
       op: list: method: *GET
+      op: list: transform: res: *("`body.privileges`")|top
     }
   }
 
@@ -1400,6 +1378,7 @@ guide: {
   entity: resources_rate_check: {
     path: "/rates/limits/": {
       op: load: method: *GET
+      op: load: transform: res: *("`body.resources`")|top
     }
   }
 
@@ -1585,6 +1564,7 @@ guide: {
     path: "/user/tokens/": {
       action: "token": {}
       op: list: method: *GET
+      op: list: transform: res: *("`body.results`")|top
     }
   }
 

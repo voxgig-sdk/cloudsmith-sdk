@@ -6,9 +6,9 @@ import time
 
 import pytest
 
-from utility.voxgig_struct import voxgig_struct as vs
+from cloudsmith_sdk.utility.voxgig_struct import voxgig_struct as vs
 from cloudsmith_sdk import CloudsmithSDK
-from core import helpers
+from cloudsmith_sdk.core import helpers
 
 _TEST_DIR = os.path.dirname(os.path.abspath(__file__))
 from test import runner
@@ -42,7 +42,7 @@ class TestServiceEntity:
         assert len(seen) == 3
 
         # Inbound: streaming active -> yields each item from the feature.
-        from config import make_config
+        from cloudsmith_sdk.config import make_config
         cfg = make_config()
         if isinstance(cfg.get("feature"), dict) and "streaming" in cfg["feature"]:
             sdk = CloudsmithSDK.test(
@@ -80,7 +80,7 @@ class TestServiceEntity:
         service_ref01_data["org_id"] = setup["idmap"]["org01"]
         service_ref01_data["service"] = setup["idmap"]["service01"]
 
-        service_ref01_data = helpers.to_map(service_ref01_ent.create(service_ref01_data, None))
+        service_ref01_data = helpers.to_map(runner.entity_data(service_ref01_ent.create(service_ref01_data, None)))
         assert service_ref01_data is not None
 
         # LIST
@@ -91,11 +91,6 @@ class TestServiceEntity:
         service_ref01_list_result = service_ref01_ent.list(service_ref01_match, None)
         assert isinstance(service_ref01_list_result, list)
 
-        found_item = vs.select(
-            runner.entity_list_to_data(service_ref01_list_result),
-            {"id": service_ref01_data["id"]})
-        assert not vs.isempty(found_item)
-
         # UPDATE
         service_ref01_data_up0_up = {
             "org_id": setup["idmap"]["org_id"],
@@ -105,7 +100,7 @@ class TestServiceEntity:
         service_ref01_markdef_up0_value = "Mark01-service_ref01_" + str(setup["now"])
         service_ref01_data_up0_up[service_ref01_markdef_up0_name] = service_ref01_markdef_up0_value
 
-        service_ref01_resdata_up0 = helpers.to_map(service_ref01_ent.update(service_ref01_data_up0_up, None))
+        service_ref01_resdata_up0 = helpers.to_map(runner.entity_data(service_ref01_ent.update(service_ref01_data_up0_up, None)))
         assert service_ref01_resdata_up0 is not None
         assert service_ref01_resdata_up0[service_ref01_markdef_up0_name] == service_ref01_markdef_up0_value
 

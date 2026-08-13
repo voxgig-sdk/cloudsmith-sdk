@@ -60,7 +60,7 @@ func TestOrganizationInviteExtendEntity(t *testing.T) {
 		if err != nil {
 			t.Fatalf("create failed: %v", err)
 		}
-		organizationInviteExtendRef01Data = core.ToMapAny(organizationInviteExtendRef01DataResult)
+		organizationInviteExtendRef01Data = core.ToMapAny(entityData(organizationInviteExtendRef01DataResult))
 		if organizationInviteExtendRef01Data == nil {
 			t.Fatal("expected create result to be a map")
 		}

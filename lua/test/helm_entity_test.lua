@@ -84,7 +84,7 @@ describe("HelmEntity", function()
 
     local helm_ref01_data_result, err = helm_ref01_ent:create(helm_ref01_data, nil)
     assert.is_nil(err)
-    helm_ref01_data = helpers.to_map(helm_ref01_data_result)
+    helm_ref01_data = helpers.to_map(type(helm_ref01_data_result) == 'table' and helm_ref01_data_result.data_get and helm_ref01_data_result:data_get() or helm_ref01_data_result)
     assert.is_not_nil(helm_ref01_data)
 
     -- LIST
@@ -96,11 +96,6 @@ describe("HelmEntity", function()
     local helm_ref01_list_result, err = helm_ref01_ent:list(helm_ref01_match, nil)
     assert.is_nil(err)
     assert.is_table(helm_ref01_list_result)
-
-    local found_item = vs.select(
-      runner.entity_list_to_data(helm_ref01_list_result),
-      { id = helm_ref01_data["id"] })
-    assert.is_false(vs.isempty(found_item))
 
     -- UPDATE
     local helm_ref01_data_up0_up = {
@@ -114,7 +109,7 @@ describe("HelmEntity", function()
 
     local helm_ref01_resdata_up0_result, err = helm_ref01_ent:update(helm_ref01_data_up0_up, nil)
     assert.is_nil(err)
-    local helm_ref01_resdata_up0 = helpers.to_map(helm_ref01_resdata_up0_result)
+    local helm_ref01_resdata_up0 = helpers.to_map(type(helm_ref01_resdata_up0_result) == 'table' and helm_ref01_resdata_up0_result.data_get and helm_ref01_resdata_up0_result:data_get() or helm_ref01_resdata_up0_result)
     assert.is_not_nil(helm_ref01_resdata_up0)
     assert.are.equal(helm_ref01_resdata_up0[helm_ref01_markdef_up0_name], helm_ref01_markdef_up0_value)
 

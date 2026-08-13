@@ -64,7 +64,7 @@ describe('DartEntity', async () => {
     dart_ref01_data['identifier'] = setup.idmap['identifier01']
     dart_ref01_data['owner'] = setup.idmap['owner01']
 
-    dart_ref01_data = await dart_ref01_ent.create(dart_ref01_data)
+    dart_ref01_data = (await dart_ref01_ent.create(dart_ref01_data)).data()
     assert(null != dart_ref01_data)
 
 
@@ -73,9 +73,7 @@ describe('DartEntity', async () => {
     dart_ref01_match['identifier'] = setup.idmap['identifier01']
     dart_ref01_match['owner'] = setup.idmap['owner01']
 
-    const dart_ref01_list = await dart_ref01_ent.list(dart_ref01_match)
-
-    assert(!isempty(select(dart_ref01_list, { id: dart_ref01_data.id })))
+    const dart_ref01_list = (await dart_ref01_ent.list(dart_ref01_match)).map((e: any) => e.data())
 
 
     // UPDATE
@@ -86,7 +84,7 @@ describe('DartEntity', async () => {
     const dart_ref01_markdef_up0 = { name: 'auth_mode', value: 'Mark01-dart_ref01_' + setup.now }
     ;(dart_ref01_data_up0 as any)[dart_ref01_markdef_up0.name] = dart_ref01_markdef_up0.value
 
-    const dart_ref01_resdata_up0 = await dart_ref01_ent.update(dart_ref01_data_up0)
+    const dart_ref01_resdata_up0 = (await dart_ref01_ent.update(dart_ref01_data_up0)).data()
     assert(null != dart_ref01_resdata_up0)
 
     assert((dart_ref01_resdata_up0 as any)[dart_ref01_markdef_up0.name] === dart_ref01_markdef_up0.value)

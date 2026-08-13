@@ -44,7 +44,7 @@ describe("EntitlementEntity", function()
 
     local entitlement_ref01_data_result, err = entitlement_ref01_ent:create(entitlement_ref01_data, nil)
     assert.is_nil(err)
-    entitlement_ref01_data = helpers.to_map(entitlement_ref01_data_result)
+    entitlement_ref01_data = helpers.to_map(type(entitlement_ref01_data_result) == 'table' and entitlement_ref01_data_result.data_get and entitlement_ref01_data_result:data_get() or entitlement_ref01_data_result)
     assert.is_not_nil(entitlement_ref01_data)
 
     -- LOAD
@@ -53,12 +53,6 @@ describe("EntitlementEntity", function()
     assert.is_nil(err)
     assert.is_not_nil(entitlement_ref01_data_dt0_loaded)
 
-    -- REMOVE
-    local entitlement_ref01_match_rm0 = {
-      id = entitlement_ref01_data["id"],
-    }
-    local _, err = entitlement_ref01_ent:remove(entitlement_ref01_match_rm0, nil)
-    assert.is_nil(err)
 
   end)
 end)

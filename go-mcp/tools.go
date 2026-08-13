@@ -16,7 +16,7 @@ import (
 // reqdata map passed through to the SDK. For load, `query` should be
 // `{"id": <value>}`. For list, omit `query` or pass an empty map.
 type Args struct {
-	Entity string         `json:"entity" jsonschema:"abort | alpine | audit_log | basic | cargo | cocoapod | complete | composer | conan | conda | copy | cran | dart | deb | deny_policy | dependency | disable | distribution_full | distro | docker | dynamic_mapping | ecdsa | enable | entitlement | evaluation | file | format | geoip | gon | gon2 | gon3 | gon4 | gon5 | gon6 | gon7 | gon8 | gon9 | gpg | group | helm | hex | history | huggingface | info | invite | license_policy | limit | luarock | maven | member | move | namespace | namespace_audit_log | npm | nuget | openid_connect | org | organization_group_sync | organization_group_sync_status | organization_invite | organization_invite_extend | organization_membership | organization_membership_role_update | organization_membership_visibility_update | organization_package_license_policy | organization_package_vulnerability_policy | organization_saml_auth | organization_team | organization_team_member | oss | p2n | p2n2 | package | package_deny_policy | package_file_parts_upload | package_file_upload | package_license_policy_evaluation | package_version_badge | package_vulnerability_policy_evaluation | privilege | profile | provider_setting | provider_settings_write | python | quarantine | quota | raw | refresh | regenerate | repo | repository_audit_log | repository_ecdsa_key | repository_geo_ip_rule | repository_geo_ip_status | repository_geo_ip_test_address | repository_gpg_key | repository_privilege_input | repository_retention_rule | repository_rsa_key | repository_token | repository_token_refresh | repository_token_sync | repository_webhook | repository_x509_ecdsa_certificate | repository_x509_rsa_certificate | reset | resources_rate_check | resync | retention | rpm | rsa | ruby | saml_group_sync | scan | self | service | status | status_basic | storage_region | swift | sync | tag | team | terraform | test | token | transfer_region | user | user_auth_token | user_authentication_token | user_brief | user_profile | vagrant | validate | version | vulnerability | vulnerability_policy | webhook | x509_ecdsa | x509_rsa"`
+	Entity string         `json:"entity" jsonschema:"abort | alpine | audit_log | basic | cargo | cocoapod | complete | composer | conan | conda | copy | cran | dart | deb | deny_policy | dependency | disable | distribution_full | distro | docker | dynamic_mapping | ecdsa | enable | entitlement | evaluation | file | format | geoip | gon | gpg | group | helm | hex | history | huggingface | info | invite | license_policy | limit | luarock | maven | member | move | namespace | namespace_audit_log | npm | nuget | openid_connect | org | organization_group_sync | organization_group_sync_status | organization_invite | organization_invite_extend | organization_membership | organization_membership_role_update | organization_membership_visibility_update | organization_package_license_policy | organization_package_vulnerability_policy | organization_saml_auth | organization_team | organization_team_member | oss | p2n | package | package_deny_policy | package_file_parts_upload | package_file_upload | package_license_policy_evaluation | package_version_badge | package_vulnerability_policy_evaluation | privilege | profile | provider_setting | provider_settings_write | python | quarantine | quota | raw | refresh | regenerate | repo | repository_audit_log | repository_ecdsa_key | repository_geo_ip_rule | repository_geo_ip_status | repository_geo_ip_test_address | repository_gpg_key | repository_privilege_input | repository_retention_rule | repository_rsa_key | repository_token | repository_token_refresh | repository_token_sync | repository_webhook | repository_x509_ecdsa_certificate | repository_x509_rsa_certificate | reset | resources_rate_check | resync | retention | rpm | rsa | ruby | saml_group_sync | scan | self | service | status | status_basic | storage_region | swift | sync | tag | team | terraform | test | token | transfer_region | user | user_auth_token | user_authentication_token | user_brief | user_profile | vagrant | validate | version | vulnerability | vulnerability_policy | webhook | x509_ecdsa | x509_rsa"`
 	Query  map[string]any `json:"query,omitempty" jsonschema:"optional match map e.g. {\"id\":1} for load, omit for list"`
 }
 
@@ -135,22 +135,6 @@ func entityFor(client *sdk.CloudsmithSDK, name string) (sdk.CloudsmithEntity, er
 		return client.Geoip(nil), nil
 	case "gon":
 		return client.Gon(nil), nil
-	case "gon2":
-		return client.Gon2(nil), nil
-	case "gon3":
-		return client.Gon3(nil), nil
-	case "gon4":
-		return client.Gon4(nil), nil
-	case "gon5":
-		return client.Gon5(nil), nil
-	case "gon6":
-		return client.Gon6(nil), nil
-	case "gon7":
-		return client.Gon7(nil), nil
-	case "gon8":
-		return client.Gon8(nil), nil
-	case "gon9":
-		return client.Gon9(nil), nil
 	case "gpg":
 		return client.Gpg(nil), nil
 	case "group":
@@ -219,8 +203,6 @@ func entityFor(client *sdk.CloudsmithSDK, name string) (sdk.CloudsmithEntity, er
 		return client.Oss(nil), nil
 	case "p2n":
 		return client.P2n(nil), nil
-	case "p2n2":
-		return client.P2n2(nil), nil
 	case "package":
 		return client.Package(nil), nil
 	case "package_deny_policy":

@@ -61,7 +61,7 @@ func TestPackageFileUploadEntity(t *testing.T) {
 		if err != nil {
 			t.Fatalf("create failed: %v", err)
 		}
-		packageFileUploadRef01Data = core.ToMapAny(packageFileUploadRef01DataResult)
+		packageFileUploadRef01Data = core.ToMapAny(entityData(packageFileUploadRef01DataResult))
 		if packageFileUploadRef01Data == nil {
 			t.Fatal("expected create result to be a map")
 		}

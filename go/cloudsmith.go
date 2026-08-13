@@ -119,30 +119,6 @@ func init() {
 	core.NewGonEntityFunc = func(client *core.CloudsmithSDK, entopts map[string]any) core.CloudsmithEntity {
 		return entity.NewGonEntity(client, entopts)
 	}
-	core.NewGon2EntityFunc = func(client *core.CloudsmithSDK, entopts map[string]any) core.CloudsmithEntity {
-		return entity.NewGon2Entity(client, entopts)
-	}
-	core.NewGon3EntityFunc = func(client *core.CloudsmithSDK, entopts map[string]any) core.CloudsmithEntity {
-		return entity.NewGon3Entity(client, entopts)
-	}
-	core.NewGon4EntityFunc = func(client *core.CloudsmithSDK, entopts map[string]any) core.CloudsmithEntity {
-		return entity.NewGon4Entity(client, entopts)
-	}
-	core.NewGon5EntityFunc = func(client *core.CloudsmithSDK, entopts map[string]any) core.CloudsmithEntity {
-		return entity.NewGon5Entity(client, entopts)
-	}
-	core.NewGon6EntityFunc = func(client *core.CloudsmithSDK, entopts map[string]any) core.CloudsmithEntity {
-		return entity.NewGon6Entity(client, entopts)
-	}
-	core.NewGon7EntityFunc = func(client *core.CloudsmithSDK, entopts map[string]any) core.CloudsmithEntity {
-		return entity.NewGon7Entity(client, entopts)
-	}
-	core.NewGon8EntityFunc = func(client *core.CloudsmithSDK, entopts map[string]any) core.CloudsmithEntity {
-		return entity.NewGon8Entity(client, entopts)
-	}
-	core.NewGon9EntityFunc = func(client *core.CloudsmithSDK, entopts map[string]any) core.CloudsmithEntity {
-		return entity.NewGon9Entity(client, entopts)
-	}
 	core.NewGpgEntityFunc = func(client *core.CloudsmithSDK, entopts map[string]any) core.CloudsmithEntity {
 		return entity.NewGpgEntity(client, entopts)
 	}
@@ -244,9 +220,6 @@ func init() {
 	}
 	core.NewP2nEntityFunc = func(client *core.CloudsmithSDK, entopts map[string]any) core.CloudsmithEntity {
 		return entity.NewP2nEntity(client, entopts)
-	}
-	core.NewP2n2EntityFunc = func(client *core.CloudsmithSDK, entopts map[string]any) core.CloudsmithEntity {
-		return entity.NewP2n2Entity(client, entopts)
 	}
 	core.NewPackageEntityFunc = func(client *core.CloudsmithSDK, entopts map[string]any) core.CloudsmithEntity {
 		return entity.NewPackageEntity(client, entopts)

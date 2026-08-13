@@ -46,7 +46,7 @@ class RepositoryRsaKeyEntityTest extends TestCase
         $repository_rsa_key_ref01_data["owner"] = $setup["idmap"]["owner01"];
 
         $repository_rsa_key_ref01_data_result = $repository_rsa_key_ref01_ent->create($repository_rsa_key_ref01_data, null);
-        $repository_rsa_key_ref01_data = Helpers::to_map($repository_rsa_key_ref01_data_result);
+        $repository_rsa_key_ref01_data = Helpers::to_map(is_object($repository_rsa_key_ref01_data_result) && method_exists($repository_rsa_key_ref01_data_result, 'data_get') ? $repository_rsa_key_ref01_data_result->data_get() : $repository_rsa_key_ref01_data_result);
         $this->assertNotNull($repository_rsa_key_ref01_data);
 
         // LOAD

@@ -41,7 +41,7 @@ describe("UserAuthTokenEntity", function()
 
     local user_auth_token_ref01_data_result, err = user_auth_token_ref01_ent:create(user_auth_token_ref01_data, nil)
     assert.is_nil(err)
-    user_auth_token_ref01_data = helpers.to_map(user_auth_token_ref01_data_result)
+    user_auth_token_ref01_data = helpers.to_map(type(user_auth_token_ref01_data_result) == 'table' and user_auth_token_ref01_data_result.data_get and user_auth_token_ref01_data_result:data_get() or user_auth_token_ref01_data_result)
     assert.is_not_nil(user_auth_token_ref01_data)
 
   end)

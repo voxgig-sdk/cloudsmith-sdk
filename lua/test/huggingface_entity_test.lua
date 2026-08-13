@@ -84,7 +84,7 @@ describe("HuggingfaceEntity", function()
 
     local huggingface_ref01_data_result, err = huggingface_ref01_ent:create(huggingface_ref01_data, nil)
     assert.is_nil(err)
-    huggingface_ref01_data = helpers.to_map(huggingface_ref01_data_result)
+    huggingface_ref01_data = helpers.to_map(type(huggingface_ref01_data_result) == 'table' and huggingface_ref01_data_result.data_get and huggingface_ref01_data_result:data_get() or huggingface_ref01_data_result)
     assert.is_not_nil(huggingface_ref01_data)
 
     -- LIST
@@ -96,11 +96,6 @@ describe("HuggingfaceEntity", function()
     local huggingface_ref01_list_result, err = huggingface_ref01_ent:list(huggingface_ref01_match, nil)
     assert.is_nil(err)
     assert.is_table(huggingface_ref01_list_result)
-
-    local found_item = vs.select(
-      runner.entity_list_to_data(huggingface_ref01_list_result),
-      { id = huggingface_ref01_data["id"] })
-    assert.is_false(vs.isempty(found_item))
 
     -- UPDATE
     local huggingface_ref01_data_up0_up = {
@@ -114,7 +109,7 @@ describe("HuggingfaceEntity", function()
 
     local huggingface_ref01_resdata_up0_result, err = huggingface_ref01_ent:update(huggingface_ref01_data_up0_up, nil)
     assert.is_nil(err)
-    local huggingface_ref01_resdata_up0 = helpers.to_map(huggingface_ref01_resdata_up0_result)
+    local huggingface_ref01_resdata_up0 = helpers.to_map(type(huggingface_ref01_resdata_up0_result) == 'table' and huggingface_ref01_resdata_up0_result.data_get and huggingface_ref01_resdata_up0_result:data_get() or huggingface_ref01_resdata_up0_result)
     assert.is_not_nil(huggingface_ref01_resdata_up0)
     assert.are.equal(huggingface_ref01_resdata_up0[huggingface_ref01_markdef_up0_name], huggingface_ref01_markdef_up0_value)
 

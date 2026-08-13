@@ -46,7 +46,7 @@ class RepositoryGpgKeyEntityTest extends TestCase
         $repository_gpg_key_ref01_data["owner"] = $setup["idmap"]["owner01"];
 
         $repository_gpg_key_ref01_data_result = $repository_gpg_key_ref01_ent->create($repository_gpg_key_ref01_data, null);
-        $repository_gpg_key_ref01_data = Helpers::to_map($repository_gpg_key_ref01_data_result);
+        $repository_gpg_key_ref01_data = Helpers::to_map(is_object($repository_gpg_key_ref01_data_result) && method_exists($repository_gpg_key_ref01_data_result, 'data_get') ? $repository_gpg_key_ref01_data_result->data_get() : $repository_gpg_key_ref01_data_result);
         $this->assertNotNull($repository_gpg_key_ref01_data);
 
         // LOAD

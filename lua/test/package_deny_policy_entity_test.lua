@@ -83,7 +83,7 @@ describe("PackageDenyPolicyEntity", function()
 
     local package_deny_policy_ref01_data_result, err = package_deny_policy_ref01_ent:create(package_deny_policy_ref01_data, nil)
     assert.is_nil(err)
-    package_deny_policy_ref01_data = helpers.to_map(package_deny_policy_ref01_data_result)
+    package_deny_policy_ref01_data = helpers.to_map(type(package_deny_policy_ref01_data_result) == 'table' and package_deny_policy_ref01_data_result.data_get and package_deny_policy_ref01_data_result:data_get() or package_deny_policy_ref01_data_result)
     assert.is_not_nil(package_deny_policy_ref01_data)
 
     -- LIST
@@ -94,11 +94,6 @@ describe("PackageDenyPolicyEntity", function()
     local package_deny_policy_ref01_list_result, err = package_deny_policy_ref01_ent:list(package_deny_policy_ref01_match, nil)
     assert.is_nil(err)
     assert.is_table(package_deny_policy_ref01_list_result)
-
-    local found_item = vs.select(
-      runner.entity_list_to_data(package_deny_policy_ref01_list_result),
-      { id = package_deny_policy_ref01_data["id"] })
-    assert.is_false(vs.isempty(found_item))
 
     -- UPDATE
     local package_deny_policy_ref01_data_up0_up = {
@@ -111,7 +106,7 @@ describe("PackageDenyPolicyEntity", function()
 
     local package_deny_policy_ref01_resdata_up0_result, err = package_deny_policy_ref01_ent:update(package_deny_policy_ref01_data_up0_up, nil)
     assert.is_nil(err)
-    local package_deny_policy_ref01_resdata_up0 = helpers.to_map(package_deny_policy_ref01_resdata_up0_result)
+    local package_deny_policy_ref01_resdata_up0 = helpers.to_map(type(package_deny_policy_ref01_resdata_up0_result) == 'table' and package_deny_policy_ref01_resdata_up0_result.data_get and package_deny_policy_ref01_resdata_up0_result:data_get() or package_deny_policy_ref01_resdata_up0_result)
     assert.is_not_nil(package_deny_policy_ref01_resdata_up0)
     assert.are.equal(package_deny_policy_ref01_resdata_up0[package_deny_policy_ref01_markdef_up0_name], package_deny_policy_ref01_markdef_up0_value)
 

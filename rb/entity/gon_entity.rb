@@ -19,6 +19,7 @@ class GonEntity
     @_utility = client.get_utility
     @_entopts = entopts
     @_data = {}
+    @_deleted = false
     @_match = {}
 
     @_entctx = @_utility.make_context.call({
@@ -32,6 +33,18 @@ class GonEntity
   def get_name
     @_name
   end
+
+  # Every operation resolves to the entity; `remove` additionally marks
+  # it. The instance KEEPS the data it held — a caller can still read what
+  # was deleted — but it is no longer a live record. See AGENTS.md.
+  def mark_deleted
+    @_deleted = true
+  end
+
+  def deleted
+    true == @_deleted
+  end
+
 
   def make
     opts = @_entopts.dup
@@ -158,12 +171,127 @@ class GonEntity
   end
 
   
+  # Load a single Gon.
+  #
+  # @param reqmatch [GonLoadMatch, Hash, nil] match criteria (id/query fields);
+  #   optional — an entity with no id-like key loads with no match (nil is treated
+  #   as an empty match, so client.Gon.load works with no args).
+  # @param ctrl [Object, nil] optional per-call control
+  # @return [Gon, Hash] the loaded Gon; raises CloudsmithError on failure
+  def load(reqmatch = nil, ctrl = nil)
+    utility = @_utility
+    ctx = utility.make_context.call({
+      "opname" => "load",
+      "ctrl" => ctrl,
+      "match" => @_match,
+      "data" => @_data,
+      "reqmatch" => reqmatch,
+    }, @_entctx)
+
+    _run_op(ctx) do
+      if ctx.result
+        @_match = ctx.result.resmatch if ctx.result.resmatch
+        if ctx.result.resdata
+          @_data = CloudsmithHelpers.to_map(VoxgigStruct.clone(ctx.result.resdata)) || {}
+        end
+      end
+    end
+  end
+
+
 
   
+  # List Gon items matching the given filter.
+  #
+  # @param reqmatch [GonListMatch, Hash, nil] match filter (any subset of
+  #   Gon fields); defaults to nil, treated as an empty match that lists all.
+  # @param ctrl [Object, nil] optional per-call control
+  # @return [Array<Gon>, Array] the matching Gon items; raises CloudsmithError on failure
+  def list(reqmatch = nil, ctrl = nil)
+    utility = @_utility
+    ctx = utility.make_context.call({
+      "opname" => "list",
+      "ctrl" => ctrl,
+      "match" => @_match,
+      "data" => @_data,
+      "reqmatch" => reqmatch,
+    }, @_entctx)
+
+    records = _run_op(ctx) do
+      if ctx.result
+        @_match = ctx.result.resmatch if ctx.result.resmatch
+      end
+    end
+
+    # list yields the BARE Array of records — each an accessible Hash — so
+    # callers can index item["id"] directly, matching py/lua/go. make_result
+    # wraps each entry as an Entity instance for internal use; unwrap those
+    # back to their bare record Hashes here (load/create/etc. are unaffected).
+    if records.is_a?(Array)
+      records = records.map do |item|
+        item.respond_to?(:data_get) ? item.data_get : item
+      end
+    end
+
+    records
+  end
+
+
 
   
+  # Create a new Gon.
+  #
+  # @param reqdata [GonCreateData, Hash, nil] body data
+  # @param ctrl [Object, nil] optional per-call control
+  # @return [Gon, Hash] the created Gon; raises CloudsmithError on failure
+  def create(reqdata, ctrl = nil)
+    utility = @_utility
+    ctx = utility.make_context.call({
+      "opname" => "create",
+      "ctrl" => ctrl,
+      "match" => @_match,
+      "data" => @_data,
+      "reqdata" => reqdata,
+    }, @_entctx)
+
+    _run_op(ctx) do
+      if ctx.result
+        if ctx.result.resdata
+          @_data = CloudsmithHelpers.to_map(VoxgigStruct.clone(ctx.result.resdata)) || {}
+        end
+      end
+    end
+  end
+
+
 
   
+  # Update an existing Gon.
+  #
+  # @param reqdata [GonUpdateData, Hash, nil] body data
+  # @param ctrl [Object, nil] optional per-call control
+  # @return [Gon, Hash] the updated Gon; raises CloudsmithError on failure
+  def update(reqdata, ctrl = nil)
+    utility = @_utility
+    ctx = utility.make_context.call({
+      "opname" => "update",
+      "ctrl" => ctrl,
+      "match" => @_match,
+      "data" => @_data,
+      "reqdata" => reqdata,
+    }, @_entctx)
+
+    _run_op(ctx) do
+      if ctx.result
+        @_match = ctx.result.resmatch if ctx.result.resmatch
+        if ctx.result.resdata
+          @_data = CloudsmithHelpers.to_map(VoxgigStruct.clone(ctx.result.resdata)) || {}
+        end
+      end
+    end
+  end
+
+
 
   
 
@@ -207,7 +335,24 @@ class GonEntity
 
       post_done.call
 
-      utility.done.call(ctx)
+      out = utility.done.call(ctx)
+
+    # An operation resolves to the ENTITY, not the raw data. Entities are
+    # stateful: post_done has just absorbed resdata/resmatch into this
+    # instance, and the caller reaches the record through data(). Two
+    # structural exceptions: `list` resolves to the ARRAY of entity
+    # instances make_result built, and a failed op with throwing disabled
+    # hands back the error payload unchanged. `remove` additionally marks
+    # the entity deleted; it KEEPS its data, so a caller can still read
+    # what was removed. See AGENTS.md "Entity operations return ENTITIES".
+      opname = ctx.op&.name
+
+      if ctx.result && ctx.result.ok && opname != "list"
+        mark_deleted if opname == "remove"
+        return self
+      end
+
+      out
     rescue StandardError => operr
       utility.feature_hook.call(ctx, "PreUnexpected")
 

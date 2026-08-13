@@ -37,7 +37,7 @@ class RepositoryPrivilegeInputEntity extends CloudsmithEntityBase<RepositoryPriv
 
 
 
-  async list(this: any, reqmatch?: RepositoryPrivilegeInputListMatch, ctrl?: Control): Promise<RepositoryPrivilegeInput[]> {
+  async list(this: any, reqmatch?: RepositoryPrivilegeInputListMatch, ctrl?: Control): Promise<RepositoryPrivilegeInputEntity[]> {
 
     const utility = this._utility
 

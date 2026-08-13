@@ -37,7 +37,7 @@ class RepositoryAuditLogEntity extends CloudsmithEntityBase<RepositoryAuditLog> 
 
 
 
-  async list(this: any, reqmatch?: RepositoryAuditLogListMatch, ctrl?: Control): Promise<RepositoryAuditLog[]> {
+  async list(this: any, reqmatch?: RepositoryAuditLogListMatch, ctrl?: Control): Promise<RepositoryAuditLogEntity[]> {
 
     const utility = this._utility
 

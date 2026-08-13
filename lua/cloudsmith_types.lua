@@ -46,11 +46,47 @@
 ---@class CargoCreateData
 ---@field identifier any
 ---@field owner any
+---@field auth_mode? string
+---@field auth_secret? string
+---@field auth_username? string
+---@field created_at? string
+---@field disable_reason? string
+---@field extra_header_1? string
+---@field extra_header_2? string
+---@field extra_value_1? string
+---@field extra_value_2? string
+---@field is_active? boolean
+---@field mode? string
+---@field name string
+---@field pending_validation? boolean
+---@field priority? number
+---@field slug_perm? string
+---@field updated_at? string
+---@field upstream_url string
+---@field verify_ssl? boolean
 
 ---@class CargoUpdateData
 ---@field id string
 ---@field identifier any
 ---@field owner any
+---@field auth_mode? string
+---@field auth_secret? string
+---@field auth_username? string
+---@field created_at? string
+---@field disable_reason? string
+---@field extra_header_1? string
+---@field extra_header_2? string
+---@field extra_value_1? string
+---@field extra_value_2? string
+---@field is_active? boolean
+---@field mode? string
+---@field name? string
+---@field pending_validation? boolean
+---@field priority? number
+---@field slug_perm? string
+---@field updated_at? string
+---@field upstream_url? string
+---@field verify_ssl? boolean
 
 ---@class Cocoapod
 
@@ -88,11 +124,47 @@
 ---@class ComposerCreateData
 ---@field identifier any
 ---@field owner any
+---@field auth_mode? string
+---@field auth_secret? string
+---@field auth_username? string
+---@field created_at? string
+---@field disable_reason? string
+---@field extra_header_1? string
+---@field extra_header_2? string
+---@field extra_value_1? string
+---@field extra_value_2? string
+---@field is_active? boolean
+---@field mode? string
+---@field name string
+---@field pending_validation? boolean
+---@field priority? number
+---@field slug_perm? string
+---@field updated_at? string
+---@field upstream_url string
+---@field verify_ssl? boolean
 
 ---@class ComposerUpdateData
 ---@field id string
 ---@field identifier any
 ---@field owner any
+---@field auth_mode? string
+---@field auth_secret? string
+---@field auth_username? string
+---@field created_at? string
+---@field disable_reason? string
+---@field extra_header_1? string
+---@field extra_header_2? string
+---@field extra_value_1? string
+---@field extra_value_2? string
+---@field is_active? boolean
+---@field mode? string
+---@field name? string
+---@field pending_validation? boolean
+---@field priority? number
+---@field slug_perm? string
+---@field updated_at? string
+---@field upstream_url? string
+---@field verify_ssl? boolean
 
 ---@class Conan
 
@@ -128,11 +200,47 @@
 ---@class CondaCreateData
 ---@field identifier any
 ---@field owner any
+---@field auth_mode? string
+---@field auth_secret? string
+---@field auth_username? string
+---@field created_at? string
+---@field disable_reason? string
+---@field extra_header_1? string
+---@field extra_header_2? string
+---@field extra_value_1? string
+---@field extra_value_2? string
+---@field is_active? boolean
+---@field mode? string
+---@field name string
+---@field pending_validation? boolean
+---@field priority? number
+---@field slug_perm? string
+---@field updated_at? string
+---@field upstream_url string
+---@field verify_ssl? boolean
 
 ---@class CondaUpdateData
 ---@field id string
 ---@field identifier any
 ---@field owner any
+---@field auth_mode? string
+---@field auth_secret? string
+---@field auth_username? string
+---@field created_at? string
+---@field disable_reason? string
+---@field extra_header_1? string
+---@field extra_header_2? string
+---@field extra_value_1? string
+---@field extra_value_2? string
+---@field is_active? boolean
+---@field mode? string
+---@field name? string
+---@field pending_validation? boolean
+---@field priority? number
+---@field slug_perm? string
+---@field updated_at? string
+---@field upstream_url? string
+---@field verify_ssl? boolean
 
 ---@class Copy
 
@@ -168,11 +276,47 @@
 ---@class CranCreateData
 ---@field identifier any
 ---@field owner any
+---@field auth_mode? string
+---@field auth_secret? string
+---@field auth_username? string
+---@field created_at? string
+---@field disable_reason? string
+---@field extra_header_1? string
+---@field extra_header_2? string
+---@field extra_value_1? string
+---@field extra_value_2? string
+---@field is_active? boolean
+---@field mode? string
+---@field name string
+---@field pending_validation? boolean
+---@field priority? number
+---@field slug_perm? string
+---@field updated_at? string
+---@field upstream_url string
+---@field verify_ssl? boolean
 
 ---@class CranUpdateData
 ---@field id string
 ---@field identifier any
 ---@field owner any
+---@field auth_mode? string
+---@field auth_secret? string
+---@field auth_username? string
+---@field created_at? string
+---@field disable_reason? string
+---@field extra_header_1? string
+---@field extra_header_2? string
+---@field extra_value_1? string
+---@field extra_value_2? string
+---@field is_active? boolean
+---@field mode? string
+---@field name? string
+---@field pending_validation? boolean
+---@field priority? number
+---@field slug_perm? string
+---@field updated_at? string
+---@field upstream_url? string
+---@field verify_ssl? boolean
 
 ---@class Dart
 ---@field auth_mode? string
@@ -206,11 +350,47 @@
 ---@class DartCreateData
 ---@field identifier any
 ---@field owner any
+---@field auth_mode? string
+---@field auth_secret? string
+---@field auth_username? string
+---@field created_at? string
+---@field disable_reason? string
+---@field extra_header_1? string
+---@field extra_header_2? string
+---@field extra_value_1? string
+---@field extra_value_2? string
+---@field is_active? boolean
+---@field mode? string
+---@field name string
+---@field pending_validation? boolean
+---@field priority? number
+---@field slug_perm? string
+---@field updated_at? string
+---@field upstream_url string
+---@field verify_ssl? boolean
 
 ---@class DartUpdateData
 ---@field id string
 ---@field identifier any
 ---@field owner any
+---@field auth_mode? string
+---@field auth_secret? string
+---@field auth_username? string
+---@field created_at? string
+---@field disable_reason? string
+---@field extra_header_1? string
+---@field extra_header_2? string
+---@field extra_value_1? string
+---@field extra_value_2? string
+---@field is_active? boolean
+---@field mode? string
+---@field name? string
+---@field pending_validation? boolean
+---@field priority? number
+---@field slug_perm? string
+---@field updated_at? string
+---@field upstream_url? string
+---@field verify_ssl? boolean
 
 ---@class Deb
 ---@field auth_mode? string
@@ -219,7 +399,7 @@
 ---@field component? string
 ---@field created_at? string
 ---@field disable_reason? string
----@field distro_version table
+---@field distro_versions table
 ---@field extra_header_1? string
 ---@field extra_header_2? string
 ---@field extra_value_1? string
@@ -227,7 +407,7 @@
 ---@field gpg_key_inline? string
 ---@field gpg_key_url? string
 ---@field gpg_verification? string
----@field include_source? boolean
+---@field include_sources? boolean
 ---@field is_active? boolean
 ---@field mode? string
 ---@field name string
@@ -252,11 +432,63 @@
 ---@class DebCreateData
 ---@field identifier any
 ---@field owner any
+---@field auth_mode? string
+---@field auth_secret? string
+---@field auth_username? string
+---@field component? string
+---@field created_at? string
+---@field disable_reason? string
+---@field distro_versions table
+---@field extra_header_1? string
+---@field extra_header_2? string
+---@field extra_value_1? string
+---@field extra_value_2? string
+---@field gpg_key_inline? string
+---@field gpg_key_url? string
+---@field gpg_verification? string
+---@field include_sources? boolean
+---@field is_active? boolean
+---@field mode? string
+---@field name string
+---@field pending_validation? boolean
+---@field priority? number
+---@field slug_perm? string
+---@field updated_at? string
+---@field upstream_distribution? string
+---@field upstream_url string
+---@field verification_status? string
+---@field verify_ssl? boolean
 
 ---@class DebUpdateData
 ---@field id string
 ---@field identifier any
 ---@field owner any
+---@field auth_mode? string
+---@field auth_secret? string
+---@field auth_username? string
+---@field component? string
+---@field created_at? string
+---@field disable_reason? string
+---@field distro_versions? table
+---@field extra_header_1? string
+---@field extra_header_2? string
+---@field extra_value_1? string
+---@field extra_value_2? string
+---@field gpg_key_inline? string
+---@field gpg_key_url? string
+---@field gpg_verification? string
+---@field include_sources? boolean
+---@field is_active? boolean
+---@field mode? string
+---@field name? string
+---@field pending_validation? boolean
+---@field priority? number
+---@field slug_perm? string
+---@field updated_at? string
+---@field upstream_distribution? string
+---@field upstream_url? string
+---@field verification_status? string
+---@field verify_ssl? boolean
 
 ---@class DenyPolicy
 
@@ -270,8 +502,8 @@
 ---@field name string
 ---@field self_url? string
 ---@field slug? string
----@field variant? string
----@field version? table
+---@field variants? string
+---@field versions? table
 
 ---@class DistributionFullLoadMatch
 ---@field slug string
@@ -282,8 +514,8 @@
 ---@field name? string
 ---@field self_url? string
 ---@field slug? string
----@field variant? string
----@field version? table
+---@field variants? string
+---@field versions? table
 
 ---@class Distro
 
@@ -319,11 +551,47 @@
 ---@class DockerCreateData
 ---@field identifier any
 ---@field owner any
+---@field auth_mode? string
+---@field auth_secret? string
+---@field auth_username? string
+---@field created_at? string
+---@field disable_reason? string
+---@field extra_header_1? string
+---@field extra_header_2? string
+---@field extra_value_1? string
+---@field extra_value_2? string
+---@field is_active? boolean
+---@field mode? string
+---@field name string
+---@field pending_validation? boolean
+---@field priority? number
+---@field slug_perm? string
+---@field updated_at? string
+---@field upstream_url string
+---@field verify_ssl? boolean
 
 ---@class DockerUpdateData
 ---@field id string
 ---@field identifier any
 ---@field owner any
+---@field auth_mode? string
+---@field auth_secret? string
+---@field auth_username? string
+---@field created_at? string
+---@field disable_reason? string
+---@field extra_header_1? string
+---@field extra_header_2? string
+---@field extra_value_1? string
+---@field extra_value_2? string
+---@field is_active? boolean
+---@field mode? string
+---@field name? string
+---@field pending_validation? boolean
+---@field priority? number
+---@field slug_perm? string
+---@field updated_at? string
+---@field upstream_url? string
+---@field verify_ssl? boolean
 
 ---@class DynamicMapping
 ---@field claim_value string
@@ -343,7 +611,11 @@
 ---@class Enable
 
 ---@class Entitlement
----@field token table
+---@field active? number
+---@field bandwidth table
+---@field downloads table
+---@field inactive? number
+---@field total? number
 
 ---@class EntitlementLoadMatch
 ---@field owner? any
@@ -354,6 +626,11 @@
 ---@field identifier any
 ---@field owner any
 ---@field repo any
+---@field active? number
+---@field bandwidth table
+---@field downloads table
+---@field inactive? number
+---@field total? number
 
 ---@class EntitlementRemoveMatch
 ---@field identifier any
@@ -371,36 +648,32 @@
 
 ---@class Format
 ---@field description string
----@field distribution? table
----@field extension table
+---@field distributions? table
+---@field extensions table
 ---@field name string
 ---@field premium boolean
 ---@field premium_plan_id? string
 ---@field premium_plan_name? string
 ---@field slug string
----@field support table
+---@field supports table
 
 ---@class FormatLoadMatch
 ---@field id string
 
 ---@class FormatListMatch
 ---@field description? string
----@field distribution? table
----@field extension? table
+---@field distributions? table
+---@field extensions? table
 ---@field name? string
 ---@field premium? boolean
 ---@field premium_plan_id? string
 ---@field premium_plan_name? string
 ---@field slug? string
----@field support? table
+---@field supports? table
 
 ---@class Geoip
 
 ---@class Gon
-
----@class Gon2
-
----@class Gon3
 ---@field auth_mode? string
 ---@field auth_secret? string
 ---@field auth_username? string
@@ -420,46 +693,18 @@
 ---@field upstream_url string
 ---@field verify_ssl? boolean
 
----@class Gon3ListMatch
----@field identifier any
----@field owner any
-
----@class Gon4
-
----@class Gon5
-
----@class Gon5CreateData
----@field identifier any
----@field owner any
-
----@class Gon6
----@field auth_mode? string
----@field auth_secret? string
----@field auth_username? string
----@field created_at? string
----@field disable_reason? string
----@field extra_header_1? string
----@field extra_header_2? string
----@field extra_value_1? string
----@field extra_value_2? string
----@field is_active? boolean
----@field mode? string
----@field name string
----@field pending_validation? boolean
----@field priority? number
----@field slug_perm? string
----@field updated_at? string
----@field upstream_url string
----@field verify_ssl? boolean
-
----@class Gon6LoadMatch
+---@class GonLoadMatch
 ---@field identifier any
 ---@field owner any
 ---@field slug_perm any
 
----@class Gon7
+---@class GonListMatch
+---@field identifier any
+---@field owner any
 
----@class Gon8
+---@class GonCreateData
+---@field identifier any
+---@field owner any
 ---@field auth_mode? string
 ---@field auth_secret? string
 ---@field auth_username? string
@@ -479,12 +724,10 @@
 ---@field upstream_url string
 ---@field verify_ssl? boolean
 
----@class Gon8UpdateData
+---@class GonUpdateData
 ---@field identifier any
 ---@field owner any
 ---@field slug_perm any
-
----@class Gon9
 ---@field auth_mode? string
 ---@field auth_secret? string
 ---@field auth_username? string
@@ -496,18 +739,12 @@
 ---@field extra_value_2? string
 ---@field is_active? boolean
 ---@field mode? string
----@field name string
+---@field name? string
 ---@field pending_validation? boolean
 ---@field priority? number
----@field slug_perm? string
 ---@field updated_at? string
----@field upstream_url string
+---@field upstream_url? string
 ---@field verify_ssl? boolean
-
----@class Gon9UpdateData
----@field identifier any
----@field owner any
----@field slug_perm any
 
 ---@class Gpg
 
@@ -545,11 +782,47 @@
 ---@class HelmCreateData
 ---@field identifier any
 ---@field owner any
+---@field auth_mode? string
+---@field auth_secret? string
+---@field auth_username? string
+---@field created_at? string
+---@field disable_reason? string
+---@field extra_header_1? string
+---@field extra_header_2? string
+---@field extra_value_1? string
+---@field extra_value_2? string
+---@field is_active? boolean
+---@field mode? string
+---@field name string
+---@field pending_validation? boolean
+---@field priority? number
+---@field slug_perm? string
+---@field updated_at? string
+---@field upstream_url string
+---@field verify_ssl? boolean
 
 ---@class HelmUpdateData
 ---@field id string
 ---@field identifier any
 ---@field owner any
+---@field auth_mode? string
+---@field auth_secret? string
+---@field auth_username? string
+---@field created_at? string
+---@field disable_reason? string
+---@field extra_header_1? string
+---@field extra_header_2? string
+---@field extra_value_1? string
+---@field extra_value_2? string
+---@field is_active? boolean
+---@field mode? string
+---@field name? string
+---@field pending_validation? boolean
+---@field priority? number
+---@field slug_perm? string
+---@field updated_at? string
+---@field upstream_url? string
+---@field verify_ssl? boolean
 
 ---@class Hex
 ---@field auth_mode? string
@@ -583,11 +856,47 @@
 ---@class HexCreateData
 ---@field identifier any
 ---@field owner any
+---@field auth_mode? string
+---@field auth_secret? string
+---@field auth_username? string
+---@field created_at? string
+---@field disable_reason? string
+---@field extra_header_1? string
+---@field extra_header_2? string
+---@field extra_value_1? string
+---@field extra_value_2? string
+---@field is_active? boolean
+---@field mode? string
+---@field name string
+---@field pending_validation? boolean
+---@field priority? number
+---@field slug_perm? string
+---@field updated_at? string
+---@field upstream_url string
+---@field verify_ssl? boolean
 
 ---@class HexUpdateData
 ---@field id string
 ---@field identifier any
 ---@field owner any
+---@field auth_mode? string
+---@field auth_secret? string
+---@field auth_username? string
+---@field created_at? string
+---@field disable_reason? string
+---@field extra_header_1? string
+---@field extra_header_2? string
+---@field extra_value_1? string
+---@field extra_value_2? string
+---@field is_active? boolean
+---@field mode? string
+---@field name? string
+---@field pending_validation? boolean
+---@field priority? number
+---@field slug_perm? string
+---@field updated_at? string
+---@field upstream_url? string
+---@field verify_ssl? boolean
 
 ---@class History
 
@@ -623,11 +932,47 @@
 ---@class HuggingfaceCreateData
 ---@field identifier any
 ---@field owner any
+---@field auth_mode? string
+---@field auth_secret? string
+---@field auth_username? string
+---@field created_at? string
+---@field disable_reason? string
+---@field extra_header_1? string
+---@field extra_header_2? string
+---@field extra_value_1? string
+---@field extra_value_2? string
+---@field is_active? boolean
+---@field mode? string
+---@field name string
+---@field pending_validation? boolean
+---@field priority? number
+---@field slug_perm? string
+---@field updated_at? string
+---@field upstream_url string
+---@field verify_ssl? boolean
 
 ---@class HuggingfaceUpdateData
 ---@field id string
 ---@field identifier any
 ---@field owner any
+---@field auth_mode? string
+---@field auth_secret? string
+---@field auth_username? string
+---@field created_at? string
+---@field disable_reason? string
+---@field extra_header_1? string
+---@field extra_header_2? string
+---@field extra_value_1? string
+---@field extra_value_2? string
+---@field is_active? boolean
+---@field mode? string
+---@field name? string
+---@field pending_validation? boolean
+---@field priority? number
+---@field slug_perm? string
+---@field updated_at? string
+---@field upstream_url? string
+---@field verify_ssl? boolean
 
 ---@class Info
 
@@ -675,11 +1020,55 @@
 ---@class MavenCreateData
 ---@field identifier any
 ---@field owner any
+---@field auth_mode? string
+---@field auth_secret? string
+---@field auth_username? string
+---@field created_at? string
+---@field disable_reason? string
+---@field extra_header_1? string
+---@field extra_header_2? string
+---@field extra_value_1? string
+---@field extra_value_2? string
+---@field gpg_key_inline? string
+---@field gpg_key_url? string
+---@field gpg_verification? string
+---@field is_active? boolean
+---@field mode? string
+---@field name string
+---@field pending_validation? boolean
+---@field priority? number
+---@field slug_perm? string
+---@field updated_at? string
+---@field upstream_url string
+---@field verification_status? string
+---@field verify_ssl? boolean
 
 ---@class MavenUpdateData
 ---@field id string
 ---@field identifier any
 ---@field owner any
+---@field auth_mode? string
+---@field auth_secret? string
+---@field auth_username? string
+---@field created_at? string
+---@field disable_reason? string
+---@field extra_header_1? string
+---@field extra_header_2? string
+---@field extra_value_1? string
+---@field extra_value_2? string
+---@field gpg_key_inline? string
+---@field gpg_key_url? string
+---@field gpg_verification? string
+---@field is_active? boolean
+---@field mode? string
+---@field name? string
+---@field pending_validation? boolean
+---@field priority? number
+---@field slug_perm? string
+---@field updated_at? string
+---@field upstream_url? string
+---@field verification_status? string
+---@field verify_ssl? boolean
 
 ---@class Member
 
@@ -753,11 +1142,47 @@
 ---@class NpmCreateData
 ---@field identifier any
 ---@field owner any
+---@field auth_mode? string
+---@field auth_secret? string
+---@field auth_username? string
+---@field created_at? string
+---@field disable_reason? string
+---@field extra_header_1? string
+---@field extra_header_2? string
+---@field extra_value_1? string
+---@field extra_value_2? string
+---@field is_active? boolean
+---@field mode? string
+---@field name string
+---@field pending_validation? boolean
+---@field priority? number
+---@field slug_perm? string
+---@field updated_at? string
+---@field upstream_url string
+---@field verify_ssl? boolean
 
 ---@class NpmUpdateData
 ---@field id string
 ---@field identifier any
 ---@field owner any
+---@field auth_mode? string
+---@field auth_secret? string
+---@field auth_username? string
+---@field created_at? string
+---@field disable_reason? string
+---@field extra_header_1? string
+---@field extra_header_2? string
+---@field extra_value_1? string
+---@field extra_value_2? string
+---@field is_active? boolean
+---@field mode? string
+---@field name? string
+---@field pending_validation? boolean
+---@field priority? number
+---@field slug_perm? string
+---@field updated_at? string
+---@field upstream_url? string
+---@field verify_ssl? boolean
 
 ---@class Nuget
 ---@field auth_mode? string
@@ -791,11 +1216,47 @@
 ---@class NugetCreateData
 ---@field identifier any
 ---@field owner any
+---@field auth_mode? string
+---@field auth_secret? string
+---@field auth_username? string
+---@field created_at? string
+---@field disable_reason? string
+---@field extra_header_1? string
+---@field extra_header_2? string
+---@field extra_value_1? string
+---@field extra_value_2? string
+---@field is_active? boolean
+---@field mode? string
+---@field name string
+---@field pending_validation? boolean
+---@field priority? number
+---@field slug_perm? string
+---@field updated_at? string
+---@field upstream_url string
+---@field verify_ssl? boolean
 
 ---@class NugetUpdateData
 ---@field id string
 ---@field identifier any
 ---@field owner any
+---@field auth_mode? string
+---@field auth_secret? string
+---@field auth_username? string
+---@field created_at? string
+---@field disable_reason? string
+---@field extra_header_1? string
+---@field extra_header_2? string
+---@field extra_value_1? string
+---@field extra_value_2? string
+---@field is_active? boolean
+---@field mode? string
+---@field name? string
+---@field pending_validation? boolean
+---@field priority? number
+---@field slug_perm? string
+---@field updated_at? string
+---@field upstream_url? string
+---@field verify_ssl? boolean
 
 ---@class OpenidConnect
 
@@ -807,11 +1268,11 @@
 ---@field name string
 ---@field package table
 ---@field policy table
----@field reason table
+---@field reasons table
 ---@field slug? string
 ---@field slug_perm? string
 ---@field tagline? string
----@field vulnerability_scan_result table
+---@field vulnerability_scan_results table
 
 ---@class OrgLoadMatch
 ---@field id string
@@ -825,19 +1286,43 @@
 ---@field name? string
 ---@field package? table
 ---@field policy? table
----@field reason? table
+---@field reasons? table
 ---@field slug? string
 ---@field slug_perm? string
 ---@field tagline? string
----@field vulnerability_scan_result? table
+---@field vulnerability_scan_results? table
 
 ---@class OrgCreateData
 ---@field id string
 ---@field member_id? string
+---@field country? string
+---@field created_at? string
+---@field event_at? string
+---@field location? string
+---@field name string
+---@field package table
+---@field policy table
+---@field reasons table
+---@field slug? string
+---@field slug_perm? string
+---@field tagline? string
+---@field vulnerability_scan_results table
 
 ---@class OrgUpdateData
 ---@field id string
 ---@field team_id string
+---@field country? string
+---@field created_at? string
+---@field event_at? string
+---@field location? string
+---@field name? string
+---@field package? table
+---@field policy? table
+---@field reasons? table
+---@field slug? string
+---@field slug_perm? string
+---@field tagline? string
+---@field vulnerability_scan_results? table
 
 ---@class OrgRemoveMatch
 ---@field id string
@@ -858,6 +1343,11 @@
 
 ---@class OrganizationGroupSyncCreateData
 ---@field org_id string
+---@field idp_key string
+---@field idp_value string
+---@field role? string
+---@field slug_perm? string
+---@field team string
 
 ---@class OrganizationGroupSyncStatus
 ---@field saml_group_sync_status? boolean
@@ -873,7 +1363,7 @@
 ---@field org? string
 ---@field role? string
 ---@field slug_perm? string
----@field team? table
+---@field teams? table
 ---@field user? string
 ---@field user_url? string
 
@@ -882,10 +1372,30 @@
 
 ---@class OrganizationInviteCreateData
 ---@field org_id string
+---@field email? string
+---@field expires_at? string
+---@field inviter? string
+---@field inviter_url? string
+---@field org? string
+---@field role? string
+---@field slug_perm? string
+---@field teams? table
+---@field user? string
+---@field user_url? string
 
 ---@class OrganizationInviteUpdateData
 ---@field id string
 ---@field org_id string
+---@field email? string
+---@field expires_at? string
+---@field inviter? string
+---@field inviter_url? string
+---@field org? string
+---@field role? string
+---@field slug_perm? string
+---@field teams? table
+---@field user? string
+---@field user_url? string
 
 ---@class OrganizationInviteExtend
 ---@field email? string
@@ -895,13 +1405,22 @@
 ---@field org? string
 ---@field role? string
 ---@field slug_perm? string
----@field team? table
+---@field teams? table
 ---@field user? string
 ---@field user_url? string
 
 ---@class OrganizationInviteExtendCreateData
 ---@field org_id string
 ---@field slug_perm any
+---@field email? string
+---@field expires_at? string
+---@field inviter? string
+---@field inviter_url? string
+---@field org? string
+---@field role? string
+---@field teams? table
+---@field user? string
+---@field user_url? string
 
 ---@class OrganizationMembership
 ---@field email? string
@@ -927,6 +1446,18 @@
 ---@class OrganizationMembershipUpdateData
 ---@field member any
 ---@field org_id string
+---@field email? string
+---@field has_two_factor? boolean
+---@field is_active? boolean
+---@field joined_at? string
+---@field last_login_at? string
+---@field last_login_method? string
+---@field role? string
+---@field user? string
+---@field user_id? string
+---@field user_name? string
+---@field user_url? string
+---@field visibility? string
 
 ---@class OrganizationMembershipRoleUpdate
 ---@field email? string
@@ -944,6 +1475,17 @@
 ---@class OrganizationMembershipRoleUpdateUpdateData
 ---@field member_id string
 ---@field org_id string
+---@field email? string
+---@field has_two_factor? boolean
+---@field joined_at? string
+---@field last_login_at? string
+---@field last_login_method? string
+---@field role? string
+---@field user? string
+---@field user_id? string
+---@field user_name? string
+---@field user_url? string
+---@field visibility? string
 
 ---@class OrganizationMembershipVisibilityUpdate
 ---@field email? string
@@ -961,16 +1503,27 @@
 ---@class OrganizationMembershipVisibilityUpdateUpdateData
 ---@field member_id string
 ---@field org_id string
+---@field email? string
+---@field has_two_factor? boolean
+---@field joined_at? string
+---@field last_login_at? string
+---@field last_login_method? string
+---@field role? string
+---@field user? string
+---@field user_id? string
+---@field user_name? string
+---@field user_url? string
+---@field visibility? string
 
 ---@class OrganizationPackageLicensePolicy
----@field allow_unknown_license? boolean
+---@field allow_unknown_licenses? boolean
 ---@field created_at? string
 ---@field description? string
 ---@field name string
 ---@field on_violation_quarantine? boolean
 ---@field package_query_string? string
 ---@field slug_perm? string
----@field spdx_identifier table
+---@field spdx_identifiers table
 ---@field updated_at? string
 
 ---@class OrganizationPackageLicensePolicyLoadMatch
@@ -982,10 +1535,28 @@
 
 ---@class OrganizationPackageLicensePolicyCreateData
 ---@field org_id string
+---@field allow_unknown_licenses? boolean
+---@field created_at? string
+---@field description? string
+---@field name string
+---@field on_violation_quarantine? boolean
+---@field package_query_string? string
+---@field slug_perm? string
+---@field spdx_identifiers table
+---@field updated_at? string
 
 ---@class OrganizationPackageLicensePolicyUpdateData
 ---@field id string
 ---@field org_id string
+---@field allow_unknown_licenses? boolean
+---@field created_at? string
+---@field description? string
+---@field name? string
+---@field on_violation_quarantine? boolean
+---@field package_query_string? string
+---@field slug_perm? string
+---@field spdx_identifiers? table
+---@field updated_at? string
 
 ---@class OrganizationPackageVulnerabilityPolicy
 ---@field allow_unknown_severity? boolean
@@ -1007,10 +1578,28 @@
 
 ---@class OrganizationPackageVulnerabilityPolicyCreateData
 ---@field org_id string
+---@field allow_unknown_severity? boolean
+---@field created_at? string
+---@field description? string
+---@field min_severity? string
+---@field name string
+---@field on_violation_quarantine? boolean
+---@field package_query_string? string
+---@field slug_perm? string
+---@field updated_at? string
 
 ---@class OrganizationPackageVulnerabilityPolicyUpdateData
 ---@field id string
 ---@field org_id string
+---@field allow_unknown_severity? boolean
+---@field created_at? string
+---@field description? string
+---@field min_severity? string
+---@field name? string
+---@field on_violation_quarantine? boolean
+---@field package_query_string? string
+---@field slug_perm? string
+---@field updated_at? string
 
 ---@class OrganizationSamlAuth
 ---@field saml_auth_enabled boolean
@@ -1023,6 +1612,10 @@
 
 ---@class OrganizationSamlAuthUpdateData
 ---@field org_id string
+---@field saml_auth_enabled? boolean
+---@field saml_auth_enforced? boolean
+---@field saml_metadata_inline? string
+---@field saml_metadata_url? string
 
 ---@class OrganizationTeam
 ---@field description? string
@@ -1040,10 +1633,20 @@
 
 ---@class OrganizationTeamCreateData
 ---@field org_id string
+---@field description? string
+---@field name string
+---@field slug? string
+---@field slug_perm? string
+---@field visibility? string
 
 ---@class OrganizationTeamUpdateData
 ---@field id string
 ---@field org_id string
+---@field description? string
+---@field name? string
+---@field slug? string
+---@field slug_perm? string
+---@field visibility? string
 
 ---@class OrganizationTeamMember
 ---@field role string
@@ -1056,16 +1659,18 @@
 ---@class OrganizationTeamMemberCreateData
 ---@field org_id string
 ---@field team_id string
+---@field role string
+---@field user string
 
 ---@class Oss
 
 ---@class P2n
 
----@class P2n2
-
 ---@class Package
----@field architecture? table
+---@field active? number
+---@field architectures? table
 ---@field backend_kind? number
+---@field bandwidth table
 ---@field cdn_url? string
 ---@field checksum_md5? string
 ---@field checksum_sha1? string
@@ -1079,17 +1684,18 @@
 ---@field display_name? string
 ---@field distro table
 ---@field distro_version? table
----@field download? number
+---@field downloads table
 ---@field epoch? number
 ---@field extension? string
----@field file? table
 ---@field filename? string
+---@field files? table
 ---@field format? string
 ---@field format_url? string
 ---@field freeable_storage? number
 ---@field fully_qualified_name? string
----@field identifier? table
 ---@field identifier_perm? string
+---@field identifiers? table
+---@field inactive? number
 ---@field indexed? boolean
 ---@field is_cancellable? boolean
 ---@field is_copyable? boolean
@@ -1110,12 +1716,11 @@
 ---@field name? string
 ---@field namespace? string
 ---@field namespace_url? string
----@field num_download number
----@field num_file? number
+---@field num_downloads number
+---@field num_files? number
 ---@field operator? string
 ---@field origin_repository? string
 ---@field origin_repository_url? string
----@field package table
 ---@field package_type? number
 ---@field policy_violated? boolean
 ---@field release? string
@@ -1143,8 +1748,9 @@
 ---@field summary? string
 ---@field sync_finished_at? string
 ---@field sync_progress? number
----@field tag? table
+---@field tags? table
 ---@field tags_immutable? table
+---@field total? number
 ---@field type_display? string
 ---@field uploaded_at? string
 ---@field uploader? string
@@ -1167,6 +1773,97 @@
 ---@field identifier? any
 ---@field owner any
 ---@field repo any
+---@field active? number
+---@field architectures? table
+---@field backend_kind? number
+---@field bandwidth table
+---@field cdn_url? string
+---@field checksum_md5? string
+---@field checksum_sha1? string
+---@field checksum_sha256? string
+---@field checksum_sha512? string
+---@field count number
+---@field dep_type? string
+---@field dependencies_checksum_md5? string
+---@field dependencies_url? string
+---@field description? string
+---@field display_name? string
+---@field distro table
+---@field distro_version? table
+---@field downloads table
+---@field epoch? number
+---@field extension? string
+---@field filename? string
+---@field files? table
+---@field format? string
+---@field format_url? string
+---@field freeable_storage? number
+---@field fully_qualified_name? string
+---@field identifier_perm? string
+---@field identifiers? table
+---@field inactive? number
+---@field indexed? boolean
+---@field is_cancellable? boolean
+---@field is_copyable? boolean
+---@field is_deleteable? boolean
+---@field is_downloadable? boolean
+---@field is_moveable? boolean
+---@field is_quarantinable? boolean
+---@field is_quarantined? boolean
+---@field is_resyncable? boolean
+---@field is_security_scannable? boolean
+---@field is_sync_awaiting? boolean
+---@field is_sync_completed? boolean
+---@field is_sync_failed? boolean
+---@field is_sync_in_flight? boolean
+---@field is_sync_in_progress? boolean
+---@field last_push string
+---@field license? string
+---@field name? string
+---@field namespace? string
+---@field namespace_url? string
+---@field num_downloads number
+---@field num_files? number
+---@field operator? string
+---@field origin_repository? string
+---@field origin_repository_url? string
+---@field package_type? number
+---@field policy_violated? boolean
+---@field release? string
+---@field repository? string
+---@field repository_url? string
+---@field security_scan_completed_at? string
+---@field security_scan_started_at? string
+---@field security_scan_status? string
+---@field security_scan_status_updated_at? string
+---@field self_html_url? string
+---@field self_url? string
+---@field signature_url? string
+---@field size? number
+---@field slug? string
+---@field slug_perm? string
+---@field stage? number
+---@field stage_str? string
+---@field stage_updated_at? string
+---@field status? number
+---@field status_reason? string
+---@field status_str? string
+---@field status_updated_at? string
+---@field status_url? string
+---@field subtype? string
+---@field summary? string
+---@field sync_finished_at? string
+---@field sync_progress? number
+---@field tags? table
+---@field tags_immutable? table
+---@field total? number
+---@field type_display? string
+---@field uploaded_at? string
+---@field uploader? string
+---@field uploader_url? string
+---@field version? string
+---@field version_orig? string
+---@field vulnerability_scan_results_url? string
 
 ---@class PackageRemoveMatch
 ---@field identifier any
@@ -1193,10 +1890,28 @@
 
 ---@class PackageDenyPolicyCreateData
 ---@field org_id string
+---@field action? string
+---@field created_at? string
+---@field description? string
+---@field enabled? boolean
+---@field name? string
+---@field package_query_string string
+---@field slug_perm? string
+---@field status? string
+---@field updated_at? string
 
 ---@class PackageDenyPolicyUpdateData
 ---@field id string
 ---@field org_id string
+---@field action? string
+---@field created_at? string
+---@field description? string
+---@field enabled? boolean
+---@field name? string
+---@field package_query_string? string
+---@field slug_perm? string
+---@field status? string
+---@field updated_at? string
 
 ---@class PackageFilePartsUpload
 ---@field identifier? string
@@ -1216,12 +1931,19 @@
 ---@field repo any
 
 ---@class PackageLicensePolicyEvaluation
+---@field allow_unknown_licenses? boolean
 ---@field created_at? string
+---@field description? string
 ---@field evaluation_count? number
+---@field name? string
+---@field on_violation_quarantine? boolean
+---@field package_query_string? string
 ---@field policy table
 ---@field slug_perm? string
+---@field spdx_identifiers table
 ---@field status? string
 ---@field updated_at? string
+---@field url? string
 ---@field violation_count? number
 
 ---@class PackageLicensePolicyEvaluationLoadMatch
@@ -1236,6 +1958,20 @@
 ---@class PackageLicensePolicyEvaluationCreateData
 ---@field org_id string
 ---@field policy_slug_perm any
+---@field allow_unknown_licenses? boolean
+---@field created_at? string
+---@field description? string
+---@field evaluation_count? number
+---@field name? string
+---@field on_violation_quarantine? boolean
+---@field package_query_string? string
+---@field policy table
+---@field slug_perm? string
+---@field spdx_identifiers table
+---@field status? string
+---@field updated_at? string
+---@field url? string
+---@field violation_count? number
 
 ---@class PackageVersionBadge
 
@@ -1248,12 +1984,19 @@
 ---@field repo any
 
 ---@class PackageVulnerabilityPolicyEvaluation
+---@field allow_unknown_severity? boolean
 ---@field created_at? string
+---@field description? string
 ---@field evaluation_count? number
+---@field min_severity? string
+---@field name? string
+---@field on_violation_quarantine? boolean
+---@field package_query_string? string
 ---@field policy? table
 ---@field slug_perm? string
 ---@field status? string
 ---@field updated_at? string
+---@field url? string
 ---@field violation_count? number
 
 ---@class PackageVulnerabilityPolicyEvaluationLoadMatch
@@ -1268,18 +2011,32 @@
 ---@class PackageVulnerabilityPolicyEvaluationCreateData
 ---@field org_id string
 ---@field policy_slug_perm any
+---@field allow_unknown_severity? boolean
+---@field created_at? string
+---@field description? string
+---@field evaluation_count? number
+---@field min_severity? string
+---@field name? string
+---@field on_violation_quarantine? boolean
+---@field package_query_string? string
+---@field policy? table
+---@field slug_perm? string
+---@field status? string
+---@field updated_at? string
+---@field url? string
+---@field violation_count? number
 
 ---@class Privilege
 
 ---@class Profile
 
 ---@class ProviderSetting
----@field claim table
+---@field claims table
 ---@field enabled boolean
 ---@field mapping_claim? string
 ---@field name string
 ---@field provider_url string
----@field service_account? table
+---@field service_accounts? table
 ---@field slug? string
 ---@field slug_perm? string
 
@@ -1291,22 +2048,39 @@
 ---@field org_id string
 
 ---@class ProviderSettingsWrite
----@field claim table
----@field dynamic_mapping? table
+---@field claims table
+---@field dynamic_mappings? table
 ---@field enabled boolean
 ---@field mapping_claim? string
 ---@field name string
 ---@field provider_url string
----@field service_account? table
+---@field service_accounts? table
 ---@field slug? string
 ---@field slug_perm? string
 
 ---@class ProviderSettingsWriteCreateData
 ---@field org_id string
+---@field claims table
+---@field dynamic_mappings? table
+---@field enabled boolean
+---@field mapping_claim? string
+---@field name string
+---@field provider_url string
+---@field service_accounts? table
+---@field slug? string
+---@field slug_perm? string
 
 ---@class ProviderSettingsWriteUpdateData
 ---@field org_id string
 ---@field slug_perm any
+---@field claims? table
+---@field dynamic_mappings? table
+---@field enabled? boolean
+---@field mapping_claim? string
+---@field name? string
+---@field provider_url? string
+---@field service_accounts? table
+---@field slug? string
 
 ---@class Python
 ---@field auth_mode? string
@@ -1340,17 +2114,54 @@
 ---@class PythonCreateData
 ---@field identifier any
 ---@field owner any
+---@field auth_mode? string
+---@field auth_secret? string
+---@field auth_username? string
+---@field created_at? string
+---@field disable_reason? string
+---@field extra_header_1? string
+---@field extra_header_2? string
+---@field extra_value_1? string
+---@field extra_value_2? string
+---@field is_active? boolean
+---@field mode? string
+---@field name string
+---@field pending_validation? boolean
+---@field priority? number
+---@field slug_perm? string
+---@field updated_at? string
+---@field upstream_url string
+---@field verify_ssl? boolean
 
 ---@class PythonUpdateData
 ---@field id string
 ---@field identifier any
 ---@field owner any
+---@field auth_mode? string
+---@field auth_secret? string
+---@field auth_username? string
+---@field created_at? string
+---@field disable_reason? string
+---@field extra_header_1? string
+---@field extra_header_2? string
+---@field extra_value_1? string
+---@field extra_value_2? string
+---@field is_active? boolean
+---@field mode? string
+---@field name? string
+---@field pending_validation? boolean
+---@field priority? number
+---@field slug_perm? string
+---@field updated_at? string
+---@field upstream_url? string
+---@field verify_ssl? boolean
 
 ---@class Quarantine
 
 ---@class Quota
+---@field display table
 ---@field history table
----@field usage table
+---@field raw table
 
 ---@class QuotaLoadMatch
 ---@field id? string
@@ -1367,49 +2178,49 @@
 ---@field content_kind? string
 ---@field contextual_auth_realm? boolean
 ---@field copy_own? boolean
----@field copy_package? string
+---@field copy_packages? string
 ---@field cosign_signing_enabled? boolean
 ---@field created_at? string
 ---@field default_privilege? string
 ---@field delete_own? boolean
----@field delete_package? string
+---@field delete_packages? string
 ---@field deleted_at? string
 ---@field description? string
----@field distribute? table
+---@field distributes? table
 ---@field docker_refresh_tokens_enabled? boolean
----@field ecdsa_key? table
+---@field ecdsa_keys? table
 ---@field enforce_eula? boolean
----@field gpg_key? table
----@field index_file? boolean
+---@field gpg_keys? table
+---@field index_files? boolean
 ---@field is_open_source? boolean
 ---@field is_private? boolean
 ---@field is_public? boolean
 ---@field manage_entitlements_privilege? string
 ---@field move_own? boolean
----@field move_package? string
+---@field move_packages? string
 ---@field name string
 ---@field namespace? string
 ---@field namespace_url? string
 ---@field nuget_native_signing_enabled? boolean
----@field num_download? number
----@field num_policy_violated_package? number
----@field num_quarantined_package? number
+---@field num_downloads? number
+---@field num_policy_violated_packages? number
+---@field num_quarantined_packages? number
 ---@field open_source_license? string
 ---@field open_source_project_url? string
 ---@field package_count? number
 ---@field package_group_count? number
----@field proxy_npmj? boolean
+---@field proxy_npmjs? boolean
 ---@field proxy_pypi? boolean
 ---@field raw_package_index_enabled? boolean
 ---@field raw_package_index_signatures_enabled? boolean
----@field replace_package? string
+---@field replace_packages? string
 ---@field replace_packages_by_default? boolean
 ---@field repository_type? number
 ---@field repository_type_str? string
 ---@field resync_own? boolean
----@field resync_package? string
+---@field resync_packages? string
 ---@field scan_own? boolean
----@field scan_package? string
+---@field scan_packages? string
 ---@field self_html_url? string
 ---@field self_url? string
 ---@field show_setup_all? boolean
@@ -1420,14 +2231,14 @@
 ---@field storage_region? string
 ---@field strict_npm_validation? boolean
 ---@field tag_pre_releases_as_latest? boolean
----@field use_debian_label? boolean
+---@field use_debian_labels? boolean
 ---@field use_default_cargo_upstream? boolean
 ---@field use_entitlements_privilege? string
----@field use_noarch_package? boolean
----@field use_source_package? boolean
+---@field use_noarch_packages? boolean
+---@field use_source_packages? boolean
 ---@field use_vulnerability_scanning? boolean
 ---@field user_entitlements_enabled? boolean
----@field view_statistic? string
+---@field view_statistics? string
 
 ---@class RepoLoadMatch
 ---@field id string
@@ -1440,10 +2251,140 @@
 ---@field identifier? any
 ---@field owner? any
 ---@field id? string
+---@field cdn_url? string
+---@field content_kind? string
+---@field contextual_auth_realm? boolean
+---@field copy_own? boolean
+---@field copy_packages? string
+---@field cosign_signing_enabled? boolean
+---@field created_at? string
+---@field default_privilege? string
+---@field delete_own? boolean
+---@field delete_packages? string
+---@field deleted_at? string
+---@field description? string
+---@field distributes? table
+---@field docker_refresh_tokens_enabled? boolean
+---@field ecdsa_keys? table
+---@field enforce_eula? boolean
+---@field gpg_keys? table
+---@field index_files? boolean
+---@field is_open_source? boolean
+---@field is_private? boolean
+---@field is_public? boolean
+---@field manage_entitlements_privilege? string
+---@field move_own? boolean
+---@field move_packages? string
+---@field name string
+---@field namespace? string
+---@field namespace_url? string
+---@field nuget_native_signing_enabled? boolean
+---@field num_downloads? number
+---@field num_policy_violated_packages? number
+---@field num_quarantined_packages? number
+---@field open_source_license? string
+---@field open_source_project_url? string
+---@field package_count? number
+---@field package_group_count? number
+---@field proxy_npmjs? boolean
+---@field proxy_pypi? boolean
+---@field raw_package_index_enabled? boolean
+---@field raw_package_index_signatures_enabled? boolean
+---@field replace_packages? string
+---@field replace_packages_by_default? boolean
+---@field repository_type? number
+---@field repository_type_str? string
+---@field resync_own? boolean
+---@field resync_packages? string
+---@field scan_own? boolean
+---@field scan_packages? string
+---@field self_html_url? string
+---@field self_url? string
+---@field show_setup_all? boolean
+---@field size? number
+---@field size_str? string
+---@field slug? string
+---@field slug_perm? string
+---@field storage_region? string
+---@field strict_npm_validation? boolean
+---@field tag_pre_releases_as_latest? boolean
+---@field use_debian_labels? boolean
+---@field use_default_cargo_upstream? boolean
+---@field use_entitlements_privilege? string
+---@field use_noarch_packages? boolean
+---@field use_source_packages? boolean
+---@field use_vulnerability_scanning? boolean
+---@field user_entitlements_enabled? boolean
+---@field view_statistics? string
 
 ---@class RepoUpdateData
 ---@field identifier any
 ---@field owner any
+---@field cdn_url? string
+---@field content_kind? string
+---@field contextual_auth_realm? boolean
+---@field copy_own? boolean
+---@field copy_packages? string
+---@field cosign_signing_enabled? boolean
+---@field created_at? string
+---@field default_privilege? string
+---@field delete_own? boolean
+---@field delete_packages? string
+---@field deleted_at? string
+---@field description? string
+---@field distributes? table
+---@field docker_refresh_tokens_enabled? boolean
+---@field ecdsa_keys? table
+---@field enforce_eula? boolean
+---@field gpg_keys? table
+---@field index_files? boolean
+---@field is_open_source? boolean
+---@field is_private? boolean
+---@field is_public? boolean
+---@field manage_entitlements_privilege? string
+---@field move_own? boolean
+---@field move_packages? string
+---@field name? string
+---@field namespace? string
+---@field namespace_url? string
+---@field nuget_native_signing_enabled? boolean
+---@field num_downloads? number
+---@field num_policy_violated_packages? number
+---@field num_quarantined_packages? number
+---@field open_source_license? string
+---@field open_source_project_url? string
+---@field package_count? number
+---@field package_group_count? number
+---@field proxy_npmjs? boolean
+---@field proxy_pypi? boolean
+---@field raw_package_index_enabled? boolean
+---@field raw_package_index_signatures_enabled? boolean
+---@field replace_packages? string
+---@field replace_packages_by_default? boolean
+---@field repository_type? number
+---@field repository_type_str? string
+---@field resync_own? boolean
+---@field resync_packages? string
+---@field scan_own? boolean
+---@field scan_packages? string
+---@field self_html_url? string
+---@field self_url? string
+---@field show_setup_all? boolean
+---@field size? number
+---@field size_str? string
+---@field slug? string
+---@field slug_perm? string
+---@field storage_region? string
+---@field strict_npm_validation? boolean
+---@field tag_pre_releases_as_latest? boolean
+---@field use_debian_labels? boolean
+---@field use_default_cargo_upstream? boolean
+---@field use_entitlements_privilege? string
+---@field use_noarch_packages? boolean
+---@field use_source_packages? boolean
+---@field use_vulnerability_scanning? boolean
+---@field user_entitlements_enabled? boolean
+---@field view_statistics? string
 
 ---@class RepoRemoveMatch
 ---@field identifier any
@@ -1485,6 +2426,13 @@
 ---@class RepositoryEcdsaKeyCreateData
 ---@field identifier any
 ---@field owner any
+---@field active? boolean
+---@field created_at? string
+---@field default? boolean
+---@field fingerprint? string
+---@field fingerprint_short? string
+---@field public_key? string
+---@field ssh_fingerprint? string
 
 ---@class RepositoryGeoIpRule
 ---@field cidr table
@@ -1497,6 +2445,8 @@
 ---@class RepositoryGeoIpRuleUpdateData
 ---@field identifier any
 ---@field owner any
+---@field cidr? table
+---@field country_code? table
 
 ---@class RepositoryGeoIpStatus
 ---@field geoip_enabled? boolean
@@ -1527,6 +2477,13 @@
 ---@class RepositoryGpgKeyCreateData
 ---@field identifier any
 ---@field owner any
+---@field active? boolean
+---@field comment string
+---@field created_at? string
+---@field default? boolean
+---@field fingerprint? string
+---@field fingerprint_short? string
+---@field public_key? string
 
 ---@class RepositoryPrivilegeInput
 ---@field privilege string
@@ -1555,6 +2512,14 @@
 ---@class RepositoryRetentionRuleUpdateData
 ---@field owner any
 ---@field repo any
+---@field retention_count_limit? number
+---@field retention_days_limit? number
+---@field retention_enabled? boolean
+---@field retention_group_by_format? boolean
+---@field retention_group_by_name? boolean
+---@field retention_group_by_package_type? boolean
+---@field retention_package_query_string? string
+---@field retention_size_limit? number
 
 ---@class RepositoryRsaKey
 ---@field active? boolean
@@ -1572,21 +2537,28 @@
 ---@class RepositoryRsaKeyCreateData
 ---@field identifier any
 ---@field owner any
+---@field active? boolean
+---@field created_at? string
+---@field default? boolean
+---@field fingerprint? string
+---@field fingerprint_short? string
+---@field public_key? string
+---@field ssh_fingerprint? string
 
 ---@class RepositoryToken
----@field client? number
+---@field clients? number
 ---@field created_at? string
 ---@field created_by? string
 ---@field created_by_url? string
 ---@field default? boolean
 ---@field disable_url? string
----@field download? number
+---@field downloads? number
 ---@field enable_url? string
 ---@field eula_accepted? table
 ---@field eula_accepted_at? string
 ---@field eula_accepted_from? string
 ---@field eula_required? boolean
----@field has_limit? boolean
+---@field has_limits? boolean
 ---@field identifier? number
 ---@field is_active? boolean
 ---@field is_limited? boolean
@@ -1594,8 +2566,8 @@
 ---@field limit_bandwidth_unit? string
 ---@field limit_date_range_from? string
 ---@field limit_date_range_to? string
----@field limit_num_client? number
----@field limit_num_download? number
+---@field limit_num_clients? number
+---@field limit_num_downloads? number
 ---@field limit_package_query? string
 ---@field limit_path_query? string
 ---@field metadata? table
@@ -1626,26 +2598,19 @@
 ---@class RepositoryTokenCreateData
 ---@field owner any
 ---@field repo any
-
----@class RepositoryTokenUpdateData
----@field identifier any
----@field owner any
----@field repo any
-
----@class RepositoryTokenRefresh
----@field client? number
+---@field clients? number
 ---@field created_at? string
 ---@field created_by? string
 ---@field created_by_url? string
 ---@field default? boolean
 ---@field disable_url? string
----@field download? number
+---@field downloads? number
 ---@field enable_url? string
 ---@field eula_accepted? table
 ---@field eula_accepted_at? string
 ---@field eula_accepted_from? string
 ---@field eula_required? boolean
----@field has_limit? boolean
+---@field has_limits? boolean
 ---@field identifier? number
 ---@field is_active? boolean
 ---@field is_limited? boolean
@@ -1653,8 +2618,92 @@
 ---@field limit_bandwidth_unit? string
 ---@field limit_date_range_from? string
 ---@field limit_date_range_to? string
----@field limit_num_client? number
----@field limit_num_download? number
+---@field limit_num_clients? number
+---@field limit_num_downloads? number
+---@field limit_package_query? string
+---@field limit_path_query? string
+---@field metadata? table
+---@field name string
+---@field refresh_url? string
+---@field reset_url? string
+---@field scheduled_reset_at? string
+---@field scheduled_reset_period? string
+---@field self_url? string
+---@field slug_perm? string
+---@field token? string
+---@field updated_at? string
+---@field updated_by? string
+---@field updated_by_url? string
+---@field usage? string
+---@field user? string
+---@field user_url? string
+
+---@class RepositoryTokenUpdateData
+---@field identifier any
+---@field owner any
+---@field repo any
+---@field clients? number
+---@field created_at? string
+---@field created_by? string
+---@field created_by_url? string
+---@field default? boolean
+---@field disable_url? string
+---@field downloads? number
+---@field enable_url? string
+---@field eula_accepted? table
+---@field eula_accepted_at? string
+---@field eula_accepted_from? string
+---@field eula_required? boolean
+---@field has_limits? boolean
+---@field is_active? boolean
+---@field is_limited? boolean
+---@field limit_bandwidth? number
+---@field limit_bandwidth_unit? string
+---@field limit_date_range_from? string
+---@field limit_date_range_to? string
+---@field limit_num_clients? number
+---@field limit_num_downloads? number
+---@field limit_package_query? string
+---@field limit_path_query? string
+---@field metadata? table
+---@field name? string
+---@field refresh_url? string
+---@field reset_url? string
+---@field scheduled_reset_at? string
+---@field scheduled_reset_period? string
+---@field self_url? string
+---@field slug_perm? string
+---@field token? string
+---@field updated_at? string
+---@field updated_by? string
+---@field updated_by_url? string
+---@field usage? string
+---@field user? string
+---@field user_url? string
+
+---@class RepositoryTokenRefresh
+---@field clients? number
+---@field created_at? string
+---@field created_by? string
+---@field created_by_url? string
+---@field default? boolean
+---@field disable_url? string
+---@field downloads? number
+---@field enable_url? string
+---@field eula_accepted? table
+---@field eula_accepted_at? string
+---@field eula_accepted_from? string
+---@field eula_required? boolean
+---@field has_limits? boolean
+---@field identifier? number
+---@field is_active? boolean
+---@field is_limited? boolean
+---@field limit_bandwidth? number
+---@field limit_bandwidth_unit? string
+---@field limit_date_range_from? string
+---@field limit_date_range_to? string
+---@field limit_num_clients? number
+---@field limit_num_downloads? number
 ---@field limit_package_query? string
 ---@field limit_path_query? string
 ---@field metadata? table
@@ -1677,13 +2726,52 @@
 ---@field identifier any
 ---@field owner any
 ---@field repo any
+---@field clients? number
+---@field created_at? string
+---@field created_by? string
+---@field created_by_url? string
+---@field default? boolean
+---@field disable_url? string
+---@field downloads? number
+---@field enable_url? string
+---@field eula_accepted? table
+---@field eula_accepted_at? string
+---@field eula_accepted_from? string
+---@field eula_required? boolean
+---@field has_limits? boolean
+---@field is_active? boolean
+---@field is_limited? boolean
+---@field limit_bandwidth? number
+---@field limit_bandwidth_unit? string
+---@field limit_date_range_from? string
+---@field limit_date_range_to? string
+---@field limit_num_clients? number
+---@field limit_num_downloads? number
+---@field limit_package_query? string
+---@field limit_path_query? string
+---@field metadata? table
+---@field name? string
+---@field refresh_url? string
+---@field reset_url? string
+---@field scheduled_reset_at? string
+---@field scheduled_reset_period? string
+---@field self_url? string
+---@field slug_perm? string
+---@field token? string
+---@field updated_at? string
+---@field updated_by? string
+---@field updated_by_url? string
+---@field usage? string
+---@field user? string
+---@field user_url? string
 
 ---@class RepositoryTokenSync
----@field token? table
+---@field tokens? table
 
 ---@class RepositoryTokenSyncCreateData
 ---@field owner any
 ---@field repo any
+---@field tokens? table
 
 ---@class RepositoryWebhook
 ---@field created_at? string
@@ -1691,7 +2779,8 @@
 ---@field created_by_url? string
 ---@field disable_reason? number
 ---@field disable_reason_str? string
----@field event table
+---@field event string
+---@field events table
 ---@field identifier? number
 ---@field is_active? boolean
 ---@field is_last_response_bad? boolean
@@ -1708,7 +2797,8 @@
 ---@field self_url? string
 ---@field slug_perm? string
 ---@field target_url string
----@field template table
+---@field template? string
+---@field templates table
 ---@field updated_at? string
 ---@field updated_by? string
 ---@field updated_by_url? string
@@ -1722,11 +2812,68 @@
 ---@class RepositoryWebhookCreateData
 ---@field owner any
 ---@field repo any
+---@field created_at? string
+---@field created_by? string
+---@field created_by_url? string
+---@field disable_reason? number
+---@field disable_reason_str? string
+---@field event string
+---@field events table
+---@field identifier? number
+---@field is_active? boolean
+---@field is_last_response_bad? boolean
+---@field last_response_status? number
+---@field last_response_status_str? string
+---@field num_sent? number
+---@field package_query? string
+---@field request_body_format? number
+---@field request_body_format_str? string
+---@field request_body_template_format? number
+---@field request_body_template_format_str? string
+---@field request_content_type? string
+---@field secret_header? string
+---@field self_url? string
+---@field slug_perm? string
+---@field target_url string
+---@field template? string
+---@field templates table
+---@field updated_at? string
+---@field updated_by? string
+---@field updated_by_url? string
+---@field verify_ssl? boolean
 
 ---@class RepositoryWebhookUpdateData
 ---@field identifier any
 ---@field owner any
 ---@field repo any
+---@field created_at? string
+---@field created_by? string
+---@field created_by_url? string
+---@field disable_reason? number
+---@field disable_reason_str? string
+---@field event? string
+---@field events? table
+---@field is_active? boolean
+---@field is_last_response_bad? boolean
+---@field last_response_status? number
+---@field last_response_status_str? string
+---@field num_sent? number
+---@field package_query? string
+---@field request_body_format? number
+---@field request_body_format_str? string
+---@field request_body_template_format? number
+---@field request_body_template_format_str? string
+---@field request_content_type? string
+---@field secret_header? string
+---@field self_url? string
+---@field slug_perm? string
+---@field target_url? string
+---@field template? string
+---@field templates? table
+---@field updated_at? string
+---@field updated_by? string
+---@field updated_by_url? string
+---@field verify_ssl? boolean
 
 ---@class RepositoryX509EcdsaCertificate
 ---@field active? boolean
@@ -1763,10 +2910,20 @@
 ---@class Reset
 
 ---@class ResourcesRateCheck
----@field resource? table
+---@field interval? number
+---@field limit? number
+---@field remaining? number
+---@field reset? number
+---@field reset_iso_8601? string
+---@field throttled? boolean
 
 ---@class ResourcesRateCheckLoadMatch
----@field resource? table
+---@field interval? number
+---@field limit? number
+---@field remaining? number
+---@field reset? number
+---@field reset_iso_8601? string
+---@field throttled? boolean
 
 ---@class Resync
 
@@ -1786,7 +2943,7 @@
 ---@field gpg_key_inline? string
 ---@field gpg_key_url? string
 ---@field gpg_verification? string
----@field include_source? boolean
+---@field include_sources? boolean
 ---@field is_active? boolean
 ---@field mode? string
 ---@field name string
@@ -1810,11 +2967,59 @@
 ---@class RpmCreateData
 ---@field identifier any
 ---@field owner any
+---@field auth_mode? string
+---@field auth_secret? string
+---@field auth_username? string
+---@field created_at? string
+---@field disable_reason? string
+---@field distro_version string
+---@field extra_header_1? string
+---@field extra_header_2? string
+---@field extra_value_1? string
+---@field extra_value_2? string
+---@field gpg_key_inline? string
+---@field gpg_key_url? string
+---@field gpg_verification? string
+---@field include_sources? boolean
+---@field is_active? boolean
+---@field mode? string
+---@field name string
+---@field pending_validation? boolean
+---@field priority? number
+---@field slug_perm? string
+---@field updated_at? string
+---@field upstream_url string
+---@field verification_status? string
+---@field verify_ssl? boolean
 
 ---@class RpmUpdateData
 ---@field id string
 ---@field identifier any
 ---@field owner any
+---@field auth_mode? string
+---@field auth_secret? string
+---@field auth_username? string
+---@field created_at? string
+---@field disable_reason? string
+---@field distro_version? string
+---@field extra_header_1? string
+---@field extra_header_2? string
+---@field extra_value_1? string
+---@field extra_value_2? string
+---@field gpg_key_inline? string
+---@field gpg_key_url? string
+---@field gpg_verification? string
+---@field include_sources? boolean
+---@field is_active? boolean
+---@field mode? string
+---@field name? string
+---@field pending_validation? boolean
+---@field priority? number
+---@field slug_perm? string
+---@field updated_at? string
+---@field upstream_url? string
+---@field verification_status? string
+---@field verify_ssl? boolean
 
 ---@class Rsa
 
@@ -1850,11 +3055,47 @@
 ---@class RubyCreateData
 ---@field identifier any
 ---@field owner any
+---@field auth_mode? string
+---@field auth_secret? string
+---@field auth_username? string
+---@field created_at? string
+---@field disable_reason? string
+---@field extra_header_1? string
+---@field extra_header_2? string
+---@field extra_value_1? string
+---@field extra_value_2? string
+---@field is_active? boolean
+---@field mode? string
+---@field name string
+---@field pending_validation? boolean
+---@field priority? number
+---@field slug_perm? string
+---@field updated_at? string
+---@field upstream_url string
+---@field verify_ssl? boolean
 
 ---@class RubyUpdateData
 ---@field id string
 ---@field identifier any
 ---@field owner any
+---@field auth_mode? string
+---@field auth_secret? string
+---@field auth_username? string
+---@field created_at? string
+---@field disable_reason? string
+---@field extra_header_1? string
+---@field extra_header_2? string
+---@field extra_value_1? string
+---@field extra_value_2? string
+---@field is_active? boolean
+---@field mode? string
+---@field name? string
+---@field pending_validation? boolean
+---@field priority? number
+---@field slug_perm? string
+---@field updated_at? string
+---@field upstream_url? string
+---@field verify_ssl? boolean
 
 ---@class SamlGroupSync
 
@@ -1872,7 +3113,7 @@
 ---@field name string
 ---@field role? string
 ---@field slug? string
----@field team? table
+---@field teams? table
 
 ---@class ServiceLoadMatch
 ---@field id string
@@ -1883,10 +3124,30 @@
 
 ---@class ServiceCreateData
 ---@field org_id string
+---@field created_at? string
+---@field created_by? string
+---@field created_by_url? string
+---@field description? string
+---@field key? string
+---@field key_expires_at? string
+---@field name string
+---@field role? string
+---@field slug? string
+---@field teams? table
 
 ---@class ServiceUpdateData
 ---@field id string
 ---@field org_id string
+---@field created_at? string
+---@field created_by? string
+---@field created_by_url? string
+---@field description? string
+---@field key? string
+---@field key_expires_at? string
+---@field name? string
+---@field role? string
+---@field slug? string
+---@field teams? table
 
 ---@class Status
 
@@ -1941,11 +3202,47 @@
 ---@class SwiftCreateData
 ---@field identifier any
 ---@field owner any
+---@field auth_mode? string
+---@field auth_secret? string
+---@field auth_username? string
+---@field created_at? string
+---@field disable_reason? string
+---@field extra_header_1? string
+---@field extra_header_2? string
+---@field extra_value_1? string
+---@field extra_value_2? string
+---@field is_active? boolean
+---@field mode? string
+---@field name string
+---@field pending_validation? boolean
+---@field priority? number
+---@field slug_perm? string
+---@field updated_at? string
+---@field upstream_url string
+---@field verify_ssl? boolean
 
 ---@class SwiftUpdateData
 ---@field id string
 ---@field identifier any
 ---@field owner any
+---@field auth_mode? string
+---@field auth_secret? string
+---@field auth_username? string
+---@field created_at? string
+---@field disable_reason? string
+---@field extra_header_1? string
+---@field extra_header_2? string
+---@field extra_value_1? string
+---@field extra_value_2? string
+---@field is_active? boolean
+---@field mode? string
+---@field name? string
+---@field pending_validation? boolean
+---@field priority? number
+---@field slug_perm? string
+---@field updated_at? string
+---@field upstream_url? string
+---@field verify_ssl? boolean
 
 ---@class Sync
 
@@ -1987,6 +3284,8 @@
 
 ---@class UserAuthenticationTokenUpdateData
 ---@field slug_perm any
+---@field created? string
+---@field key? string
 
 ---@class UserBrief
 ---@field authenticated? boolean
@@ -2029,12 +3328,12 @@
 
 ---@class Vulnerability
 ---@field created_at? string
----@field has_vulnerability? boolean
+---@field has_vulnerabilities? boolean
 ---@field identifier string
 ---@field max_severity? string
----@field num_vulnerability? number
+---@field num_vulnerabilities? number
 ---@field package table
----@field result table
+---@field results table
 ---@field scan_id number
 ---@field target string
 ---@field type string

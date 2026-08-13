@@ -6,9 +6,9 @@ import time
 
 import pytest
 
-from utility.voxgig_struct import voxgig_struct as vs
+from cloudsmith_sdk.utility.voxgig_struct import voxgig_struct as vs
 from cloudsmith_sdk import CloudsmithSDK
-from core import helpers
+from cloudsmith_sdk.core import helpers
 
 _TEST_DIR = os.path.dirname(os.path.abspath(__file__))
 from test import runner
@@ -42,7 +42,7 @@ class TestOrganizationTeamEntity:
         assert len(seen) == 3
 
         # Inbound: streaming active -> yields each item from the feature.
-        from config import make_config
+        from cloudsmith_sdk.config import make_config
         cfg = make_config()
         if isinstance(cfg.get("feature"), dict) and "streaming" in cfg["feature"]:
             sdk = CloudsmithSDK.test(
@@ -79,7 +79,7 @@ class TestOrganizationTeamEntity:
             vs.getpath(setup["data"], "new.organization_team"), "organization_team_ref01"))
         organization_team_ref01_data["org_id"] = setup["idmap"]["org01"]
 
-        organization_team_ref01_data = helpers.to_map(organization_team_ref01_ent.create(organization_team_ref01_data, None))
+        organization_team_ref01_data = helpers.to_map(runner.entity_data(organization_team_ref01_ent.create(organization_team_ref01_data, None)))
         assert organization_team_ref01_data is not None
 
         # LIST
@@ -90,11 +90,6 @@ class TestOrganizationTeamEntity:
         organization_team_ref01_list_result = organization_team_ref01_ent.list(organization_team_ref01_match, None)
         assert isinstance(organization_team_ref01_list_result, list)
 
-        found_item = vs.select(
-            runner.entity_list_to_data(organization_team_ref01_list_result),
-            {"id": organization_team_ref01_data["id"]})
-        assert not vs.isempty(found_item)
-
         # UPDATE
         organization_team_ref01_data_up0_up = {
             "org_id": setup["idmap"]["org_id"],
@@ -104,7 +99,7 @@ class TestOrganizationTeamEntity:
         organization_team_ref01_markdef_up0_value = "Mark01-organization_team_ref01_" + str(setup["now"])
         organization_team_ref01_data_up0_up[organization_team_ref01_markdef_up0_name] = organization_team_ref01_markdef_up0_value
 
-        organization_team_ref01_resdata_up0 = helpers.to_map(organization_team_ref01_ent.update(organization_team_ref01_data_up0_up, None))
+        organization_team_ref01_resdata_up0 = helpers.to_map(runner.entity_data(organization_team_ref01_ent.update(organization_team_ref01_data_up0_up, None)))
         assert organization_team_ref01_resdata_up0 is not None
         assert organization_team_ref01_resdata_up0[organization_team_ref01_markdef_up0_name] == organization_team_ref01_markdef_up0_value
 

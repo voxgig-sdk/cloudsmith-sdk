@@ -49,7 +49,7 @@ class OrganizationSamlAuthEntityTest < Minitest::Test
     organization_saml_auth_ref01_data_up0_up[organization_saml_auth_ref01_markdef_up0_name] = organization_saml_auth_ref01_markdef_up0_value
 
     organization_saml_auth_ref01_resdata_up0_result = organization_saml_auth_ref01_ent.update(organization_saml_auth_ref01_data_up0_up, nil)
-    organization_saml_auth_ref01_resdata_up0 = Helpers.to_map(organization_saml_auth_ref01_resdata_up0_result)
+    organization_saml_auth_ref01_resdata_up0 = Helpers.to_map(organization_saml_auth_ref01_resdata_up0_result.respond_to?(:data_get) ? organization_saml_auth_ref01_resdata_up0_result.data_get : organization_saml_auth_ref01_resdata_up0_result)
     assert !organization_saml_auth_ref01_resdata_up0.nil?
     assert_equal organization_saml_auth_ref01_resdata_up0[organization_saml_auth_ref01_markdef_up0_name], organization_saml_auth_ref01_markdef_up0_value
 

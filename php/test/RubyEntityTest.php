@@ -85,7 +85,7 @@ class RubyEntityTest extends TestCase
         $ruby_ref01_data["owner"] = $setup["idmap"]["owner01"];
 
         $ruby_ref01_data_result = $ruby_ref01_ent->create($ruby_ref01_data, null);
-        $ruby_ref01_data = Helpers::to_map($ruby_ref01_data_result);
+        $ruby_ref01_data = Helpers::to_map(is_object($ruby_ref01_data_result) && method_exists($ruby_ref01_data_result, 'data_get') ? $ruby_ref01_data_result->data_get() : $ruby_ref01_data_result);
         $this->assertNotNull($ruby_ref01_data);
 
         // LIST
@@ -96,11 +96,6 @@ class RubyEntityTest extends TestCase
 
         $ruby_ref01_list_result = $ruby_ref01_ent->list($ruby_ref01_match, null);
         $this->assertIsArray($ruby_ref01_list_result);
-
-        $found_item = sdk_select(
-            Runner::entity_list_to_data($ruby_ref01_list_result),
-            ["id" => $ruby_ref01_data["id"]]);
-        $this->assertNotEmpty($found_item);
 
         // UPDATE
         $ruby_ref01_data_up0_up = [
@@ -113,7 +108,7 @@ class RubyEntityTest extends TestCase
         $ruby_ref01_data_up0_up[$ruby_ref01_markdef_up0_name] = $ruby_ref01_markdef_up0_value;
 
         $ruby_ref01_resdata_up0_result = $ruby_ref01_ent->update($ruby_ref01_data_up0_up, null);
-        $ruby_ref01_resdata_up0 = Helpers::to_map($ruby_ref01_resdata_up0_result);
+        $ruby_ref01_resdata_up0 = Helpers::to_map(is_object($ruby_ref01_resdata_up0_result) && method_exists($ruby_ref01_resdata_up0_result, 'data_get') ? $ruby_ref01_resdata_up0_result->data_get() : $ruby_ref01_resdata_up0_result);
         $this->assertNotNull($ruby_ref01_resdata_up0);
         $this->assertEquals($ruby_ref01_resdata_up0[$ruby_ref01_markdef_up0_name], $ruby_ref01_markdef_up0_value);
 

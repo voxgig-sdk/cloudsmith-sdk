@@ -7,7 +7,7 @@
 # SDK Details.
 name: 'cloudsmith'
 origin: 'voxgig-sdk'
-def: 'cloudsmith-openapi.json'
+def: 'cloudsmith-v1-swagger-2.0.json'
 
 
 # API Information

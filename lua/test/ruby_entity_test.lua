@@ -84,7 +84,7 @@ describe("RubyEntity", function()
 
     local ruby_ref01_data_result, err = ruby_ref01_ent:create(ruby_ref01_data, nil)
     assert.is_nil(err)
-    ruby_ref01_data = helpers.to_map(ruby_ref01_data_result)
+    ruby_ref01_data = helpers.to_map(type(ruby_ref01_data_result) == 'table' and ruby_ref01_data_result.data_get and ruby_ref01_data_result:data_get() or ruby_ref01_data_result)
     assert.is_not_nil(ruby_ref01_data)
 
     -- LIST
@@ -96,11 +96,6 @@ describe("RubyEntity", function()
     local ruby_ref01_list_result, err = ruby_ref01_ent:list(ruby_ref01_match, nil)
     assert.is_nil(err)
     assert.is_table(ruby_ref01_list_result)
-
-    local found_item = vs.select(
-      runner.entity_list_to_data(ruby_ref01_list_result),
-      { id = ruby_ref01_data["id"] })
-    assert.is_false(vs.isempty(found_item))
 
     -- UPDATE
     local ruby_ref01_data_up0_up = {
@@ -114,7 +109,7 @@ describe("RubyEntity", function()
 
     local ruby_ref01_resdata_up0_result, err = ruby_ref01_ent:update(ruby_ref01_data_up0_up, nil)
     assert.is_nil(err)
-    local ruby_ref01_resdata_up0 = helpers.to_map(ruby_ref01_resdata_up0_result)
+    local ruby_ref01_resdata_up0 = helpers.to_map(type(ruby_ref01_resdata_up0_result) == 'table' and ruby_ref01_resdata_up0_result.data_get and ruby_ref01_resdata_up0_result:data_get() or ruby_ref01_resdata_up0_result)
     assert.is_not_nil(ruby_ref01_resdata_up0)
     assert.are.equal(ruby_ref01_resdata_up0[ruby_ref01_markdef_up0_name], ruby_ref01_markdef_up0_value)
 

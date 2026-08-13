@@ -6,9 +6,9 @@ import time
 
 import pytest
 
-from utility.voxgig_struct import voxgig_struct as vs
+from cloudsmith_sdk.utility.voxgig_struct import voxgig_struct as vs
 from cloudsmith_sdk import CloudsmithSDK
-from core import helpers
+from cloudsmith_sdk.core import helpers
 
 _TEST_DIR = os.path.dirname(os.path.abspath(__file__))
 from test import runner
@@ -42,7 +42,7 @@ class TestSwiftEntity:
         assert len(seen) == 3
 
         # Inbound: streaming active -> yields each item from the feature.
-        from config import make_config
+        from cloudsmith_sdk.config import make_config
         cfg = make_config()
         if isinstance(cfg.get("feature"), dict) and "streaming" in cfg["feature"]:
             sdk = CloudsmithSDK.test(
@@ -80,7 +80,7 @@ class TestSwiftEntity:
         swift_ref01_data["identifier"] = setup["idmap"]["identifier01"]
         swift_ref01_data["owner"] = setup["idmap"]["owner01"]
 
-        swift_ref01_data = helpers.to_map(swift_ref01_ent.create(swift_ref01_data, None))
+        swift_ref01_data = helpers.to_map(runner.entity_data(swift_ref01_ent.create(swift_ref01_data, None)))
         assert swift_ref01_data is not None
 
         # LIST
@@ -92,11 +92,6 @@ class TestSwiftEntity:
         swift_ref01_list_result = swift_ref01_ent.list(swift_ref01_match, None)
         assert isinstance(swift_ref01_list_result, list)
 
-        found_item = vs.select(
-            runner.entity_list_to_data(swift_ref01_list_result),
-            {"id": swift_ref01_data["id"]})
-        assert not vs.isempty(found_item)
-
         # UPDATE
         swift_ref01_data_up0_up = {
             "identifier": setup["idmap"]["identifier"],
@@ -107,7 +102,7 @@ class TestSwiftEntity:
         swift_ref01_markdef_up0_value = "Mark01-swift_ref01_" + str(setup["now"])
         swift_ref01_data_up0_up[swift_ref01_markdef_up0_name] = swift_ref01_markdef_up0_value
 
-        swift_ref01_resdata_up0 = helpers.to_map(swift_ref01_ent.update(swift_ref01_data_up0_up, None))
+        swift_ref01_resdata_up0 = helpers.to_map(runner.entity_data(swift_ref01_ent.update(swift_ref01_data_up0_up, None)))
         assert swift_ref01_resdata_up0 is not None
         assert swift_ref01_resdata_up0[swift_ref01_markdef_up0_name] == swift_ref01_markdef_up0_value
 

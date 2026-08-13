@@ -158,38 +158,6 @@ Create a new `GeoipEntity` instance. Pass `null` for no initial data.
 
 Create a new `GonEntity` instance. Pass `null` for no initial data.
 
-#### `Gon2($data = null)`
-
-Create a new `Gon2Entity` instance. Pass `null` for no initial data.
-
-#### `Gon3($data = null)`
-
-Create a new `Gon3Entity` instance. Pass `null` for no initial data.
-
-#### `Gon4($data = null)`
-
-Create a new `Gon4Entity` instance. Pass `null` for no initial data.
-
-#### `Gon5($data = null)`
-
-Create a new `Gon5Entity` instance. Pass `null` for no initial data.
-
-#### `Gon6($data = null)`
-
-Create a new `Gon6Entity` instance. Pass `null` for no initial data.
-
-#### `Gon7($data = null)`
-
-Create a new `Gon7Entity` instance. Pass `null` for no initial data.
-
-#### `Gon8($data = null)`
-
-Create a new `Gon8Entity` instance. Pass `null` for no initial data.
-
-#### `Gon9($data = null)`
-
-Create a new `Gon9Entity` instance. Pass `null` for no initial data.
-
 #### `Gpg($data = null)`
 
 Create a new `GpgEntity` instance. Pass `null` for no initial data.
@@ -325,10 +293,6 @@ Create a new `OssEntity` instance. Pass `null` for no initial data.
 #### `P2n($data = null)`
 
 Create a new `P2nEntity` instance. Pass `null` for no initial data.
-
-#### `P2n2($data = null)`
-
-Create a new `P2n2Entity` instance. Pass `null` for no initial data.
 
 #### `Package($data = null)`
 
@@ -822,6 +786,8 @@ Create a new entity with the given data. Throws on error.
 $result = $client->Cargo()->create([
   "identifier" => null, // mixed
   "owner" => null, // mixed
+  "name" => null, // string
+  "upstream_url" => null, // string
 ]);
 ```
 
@@ -995,6 +961,8 @@ Create a new entity with the given data. Throws on error.
 $result = $client->Composer()->create([
   "identifier" => null, // mixed
   "owner" => null, // mixed
+  "name" => null, // string
+  "upstream_url" => null, // string
 ]);
 ```
 
@@ -1132,6 +1100,8 @@ Create a new entity with the given data. Throws on error.
 $result = $client->Conda()->create([
   "identifier" => null, // mixed
   "owner" => null, // mixed
+  "name" => null, // string
+  "upstream_url" => null, // string
 ]);
 ```
 
@@ -1269,6 +1239,8 @@ Create a new entity with the given data. Throws on error.
 $result = $client->Cran()->create([
   "identifier" => null, // mixed
   "owner" => null, // mixed
+  "name" => null, // string
+  "upstream_url" => null, // string
 ]);
 ```
 
@@ -1370,6 +1342,8 @@ Create a new entity with the given data. Throws on error.
 $result = $client->Dart()->create([
   "identifier" => null, // mixed
   "owner" => null, // mixed
+  "name" => null, // string
+  "upstream_url" => null, // string
 ]);
 ```
 
@@ -1448,7 +1422,7 @@ $deb = $client->Deb();
 | `component` | `string` | No |  |
 | `created_at` | `string` | No |  |
 | `disable_reason` | `string` | No |  |
-| `distro_version` | `array` | Yes |  |
+| `distro_versions` | `array` | Yes |  |
 | `extra_header_1` | `string` | No |  |
 | `extra_header_2` | `string` | No |  |
 | `extra_value_1` | `string` | No |  |
@@ -1456,7 +1430,7 @@ $deb = $client->Deb();
 | `gpg_key_inline` | `string` | No |  |
 | `gpg_key_url` | `string` | No |  |
 | `gpg_verification` | `string` | No |  |
-| `include_source` | `bool` | No |  |
+| `include_sources` | `bool` | No |  |
 | `is_active` | `bool` | No |  |
 | `mode` | `string` | No |  |
 | `name` | `string` | Yes |  |
@@ -1479,6 +1453,9 @@ Create a new entity with the given data. Throws on error.
 $result = $client->Deb()->create([
   "identifier" => null, // mixed
   "owner" => null, // mixed
+  "distro_versions" => null, // array
+  "name" => null, // string
+  "upstream_url" => null, // string
 ]);
 ```
 
@@ -1664,8 +1641,8 @@ $distribution_full = $client->DistributionFull();
 | `name` | `string` | Yes |  |
 | `self_url` | `string` | No |  |
 | `slug` | `string` | No |  |
-| `variant` | `string` | No |  |
-| `version` | `array` | No |  |
+| `variants` | `string` | No |  |
+| `versions` | `array` | No |  |
 
 ### Operations
 
@@ -1790,6 +1767,8 @@ Create a new entity with the given data. Throws on error.
 $result = $client->Docker()->create([
   "identifier" => null, // mixed
   "owner" => null, // mixed
+  "name" => null, // string
+  "upstream_url" => null, // string
 ]);
 ```
 
@@ -1995,7 +1974,11 @@ $entitlement = $client->Entitlement();
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `token` | `array` | Yes |  |
+| `active` | `int` | No |  |
+| `bandwidth` | `array` | Yes |  |
+| `downloads` | `array` | Yes |  |
+| `inactive` | `int` | No |  |
+| `total` | `int` | No |  |
 
 ### Operations
 
@@ -2008,6 +1991,8 @@ $result = $client->Entitlement()->create([
   "identifier" => null, // mixed
   "owner" => null, // mixed
   "repo" => null, // mixed
+  "bandwidth" => null, // array
+  "downloads" => null, // array
 ]);
 ```
 
@@ -2153,14 +2138,14 @@ $format = $client->Format();
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
 | `description` | `string` | Yes |  |
-| `distribution` | `array` | No |  |
-| `extension` | `array` | Yes |  |
+| `distributions` | `array` | No |  |
+| `extensions` | `array` | Yes |  |
 | `name` | `string` | Yes |  |
 | `premium` | `bool` | Yes |  |
 | `premium_plan_id` | `string` | No |  |
 | `premium_plan_name` | `string` | No |  |
 | `slug` | `string` | Yes |  |
-| `support` | `array` | Yes |  |
+| `supports` | `array` | Yes |  |
 
 ### Operations
 
@@ -2252,6 +2237,73 @@ Return the entity name.
 $gon = $client->Gon();
 ```
 
+### Fields
+
+| Field | Type | Required | Description |
+| --- | --- | --- | --- |
+| `auth_mode` | `string` | No |  |
+| `auth_secret` | `string` | No |  |
+| `auth_username` | `string` | No |  |
+| `created_at` | `string` | No |  |
+| `disable_reason` | `string` | No |  |
+| `extra_header_1` | `string` | No |  |
+| `extra_header_2` | `string` | No |  |
+| `extra_value_1` | `string` | No |  |
+| `extra_value_2` | `string` | No |  |
+| `is_active` | `bool` | No |  |
+| `mode` | `string` | No |  |
+| `name` | `string` | Yes |  |
+| `pending_validation` | `bool` | No |  |
+| `priority` | `int` | No |  |
+| `slug_perm` | `string` | No |  |
+| `updated_at` | `string` | No |  |
+| `upstream_url` | `string` | Yes |  |
+| `verify_ssl` | `bool` | No |  |
+
+### Operations
+
+#### `create(array $reqdata, ?array $ctrl = null): mixed`
+
+Create a new entity with the given data. Throws on error.
+
+```php
+$result = $client->Gon()->create([
+  "identifier" => null, // mixed
+  "owner" => null, // mixed
+  "name" => null, // string
+  "upstream_url" => null, // string
+]);
+```
+
+#### `list(?array $reqmatch = null, ?array $ctrl = null): mixed`
+
+List entities matching the given criteria (call with no argument to list all). Returns an array. Throws on error.
+
+```php
+$results = $client->Gon()->list();
+```
+
+#### `load(array $reqmatch, ?array $ctrl = null): mixed`
+
+Load a single entity matching the given criteria. Throws on error.
+
+```php
+$result = $client->Gon()->load(["identifier" => "identifier", "owner" => "owner", "slug_perm" => "slug_perm"]);
+```
+
+#### `update(array $reqdata, ?array $ctrl = null): mixed`
+
+Update an existing entity. The data must include the entity `id`. Throws on error.
+
+```php
+$result = $client->Gon()->update([
+  "identifier" => "identifier",
+  "owner" => "owner",
+  "slug_perm" => "slug_perm",
+  // Fields to update
+]);
+```
+
 ### Common Methods
 
 #### `data_get(): array`
@@ -2273,449 +2325,6 @@ Set the entity match criteria.
 #### `make(): GonEntity`
 
 Create a new `GonEntity` instance with the same client and
-options.
-
-#### `get_name(): string`
-
-Return the entity name.
-
-
----
-
-## Gon2Entity
-
-```php
-$gon2 = $client->Gon2();
-```
-
-### Common Methods
-
-#### `data_get(): array`
-
-Get the entity data. Returns a copy of the current data.
-
-#### `data_set($data): void`
-
-Set the entity data.
-
-#### `match_get(): array`
-
-Get the entity match criteria.
-
-#### `match_set($match): void`
-
-Set the entity match criteria.
-
-#### `make(): Gon2Entity`
-
-Create a new `Gon2Entity` instance with the same client and
-options.
-
-#### `get_name(): string`
-
-Return the entity name.
-
-
----
-
-## Gon3Entity
-
-```php
-$gon3 = $client->Gon3();
-```
-
-### Fields
-
-| Field | Type | Required | Description |
-| --- | --- | --- | --- |
-| `auth_mode` | `string` | No |  |
-| `auth_secret` | `string` | No |  |
-| `auth_username` | `string` | No |  |
-| `created_at` | `string` | No |  |
-| `disable_reason` | `string` | No |  |
-| `extra_header_1` | `string` | No |  |
-| `extra_header_2` | `string` | No |  |
-| `extra_value_1` | `string` | No |  |
-| `extra_value_2` | `string` | No |  |
-| `is_active` | `bool` | No |  |
-| `mode` | `string` | No |  |
-| `name` | `string` | Yes |  |
-| `pending_validation` | `bool` | No |  |
-| `priority` | `int` | No |  |
-| `slug_perm` | `string` | No |  |
-| `updated_at` | `string` | No |  |
-| `upstream_url` | `string` | Yes |  |
-| `verify_ssl` | `bool` | No |  |
-
-### Operations
-
-#### `list(?array $reqmatch = null, ?array $ctrl = null): mixed`
-
-List entities matching the given criteria (call with no argument to list all). Returns an array. Throws on error.
-
-```php
-$results = $client->Gon3()->list();
-```
-
-### Common Methods
-
-#### `data_get(): array`
-
-Get the entity data. Returns a copy of the current data.
-
-#### `data_set($data): void`
-
-Set the entity data.
-
-#### `match_get(): array`
-
-Get the entity match criteria.
-
-#### `match_set($match): void`
-
-Set the entity match criteria.
-
-#### `make(): Gon3Entity`
-
-Create a new `Gon3Entity` instance with the same client and
-options.
-
-#### `get_name(): string`
-
-Return the entity name.
-
-
----
-
-## Gon4Entity
-
-```php
-$gon4 = $client->Gon4();
-```
-
-### Common Methods
-
-#### `data_get(): array`
-
-Get the entity data. Returns a copy of the current data.
-
-#### `data_set($data): void`
-
-Set the entity data.
-
-#### `match_get(): array`
-
-Get the entity match criteria.
-
-#### `match_set($match): void`
-
-Set the entity match criteria.
-
-#### `make(): Gon4Entity`
-
-Create a new `Gon4Entity` instance with the same client and
-options.
-
-#### `get_name(): string`
-
-Return the entity name.
-
-
----
-
-## Gon5Entity
-
-```php
-$gon5 = $client->Gon5();
-```
-
-### Operations
-
-#### `create(array $reqdata, ?array $ctrl = null): mixed`
-
-Create a new entity with the given data. Throws on error.
-
-```php
-$result = $client->Gon5()->create([
-  "identifier" => null, // mixed
-  "owner" => null, // mixed
-]);
-```
-
-### Common Methods
-
-#### `data_get(): array`
-
-Get the entity data. Returns a copy of the current data.
-
-#### `data_set($data): void`
-
-Set the entity data.
-
-#### `match_get(): array`
-
-Get the entity match criteria.
-
-#### `match_set($match): void`
-
-Set the entity match criteria.
-
-#### `make(): Gon5Entity`
-
-Create a new `Gon5Entity` instance with the same client and
-options.
-
-#### `get_name(): string`
-
-Return the entity name.
-
-
----
-
-## Gon6Entity
-
-```php
-$gon6 = $client->Gon6();
-```
-
-### Fields
-
-| Field | Type | Required | Description |
-| --- | --- | --- | --- |
-| `auth_mode` | `string` | No |  |
-| `auth_secret` | `string` | No |  |
-| `auth_username` | `string` | No |  |
-| `created_at` | `string` | No |  |
-| `disable_reason` | `string` | No |  |
-| `extra_header_1` | `string` | No |  |
-| `extra_header_2` | `string` | No |  |
-| `extra_value_1` | `string` | No |  |
-| `extra_value_2` | `string` | No |  |
-| `is_active` | `bool` | No |  |
-| `mode` | `string` | No |  |
-| `name` | `string` | Yes |  |
-| `pending_validation` | `bool` | No |  |
-| `priority` | `int` | No |  |
-| `slug_perm` | `string` | No |  |
-| `updated_at` | `string` | No |  |
-| `upstream_url` | `string` | Yes |  |
-| `verify_ssl` | `bool` | No |  |
-
-### Operations
-
-#### `load(array $reqmatch, ?array $ctrl = null): mixed`
-
-Load a single entity matching the given criteria. Throws on error.
-
-```php
-$result = $client->Gon6()->load(["identifier" => "identifier", "owner" => "owner", "slug_perm" => "slug_perm"]);
-```
-
-### Common Methods
-
-#### `data_get(): array`
-
-Get the entity data. Returns a copy of the current data.
-
-#### `data_set($data): void`
-
-Set the entity data.
-
-#### `match_get(): array`
-
-Get the entity match criteria.
-
-#### `match_set($match): void`
-
-Set the entity match criteria.
-
-#### `make(): Gon6Entity`
-
-Create a new `Gon6Entity` instance with the same client and
-options.
-
-#### `get_name(): string`
-
-Return the entity name.
-
-
----
-
-## Gon7Entity
-
-```php
-$gon7 = $client->Gon7();
-```
-
-### Common Methods
-
-#### `data_get(): array`
-
-Get the entity data. Returns a copy of the current data.
-
-#### `data_set($data): void`
-
-Set the entity data.
-
-#### `match_get(): array`
-
-Get the entity match criteria.
-
-#### `match_set($match): void`
-
-Set the entity match criteria.
-
-#### `make(): Gon7Entity`
-
-Create a new `Gon7Entity` instance with the same client and
-options.
-
-#### `get_name(): string`
-
-Return the entity name.
-
-
----
-
-## Gon8Entity
-
-```php
-$gon8 = $client->Gon8();
-```
-
-### Fields
-
-| Field | Type | Required | Description |
-| --- | --- | --- | --- |
-| `auth_mode` | `string` | No |  |
-| `auth_secret` | `string` | No |  |
-| `auth_username` | `string` | No |  |
-| `created_at` | `string` | No |  |
-| `disable_reason` | `string` | No |  |
-| `extra_header_1` | `string` | No |  |
-| `extra_header_2` | `string` | No |  |
-| `extra_value_1` | `string` | No |  |
-| `extra_value_2` | `string` | No |  |
-| `is_active` | `bool` | No |  |
-| `mode` | `string` | No |  |
-| `name` | `string` | Yes |  |
-| `pending_validation` | `bool` | No |  |
-| `priority` | `int` | No |  |
-| `slug_perm` | `string` | No |  |
-| `updated_at` | `string` | No |  |
-| `upstream_url` | `string` | Yes |  |
-| `verify_ssl` | `bool` | No |  |
-
-### Operations
-
-#### `update(array $reqdata, ?array $ctrl = null): mixed`
-
-Update an existing entity. The data must include the entity `id`. Throws on error.
-
-```php
-$result = $client->Gon8()->update([
-  "identifier" => "identifier",
-  "owner" => "owner",
-  "slug_perm" => "slug_perm",
-  // Fields to update
-]);
-```
-
-### Common Methods
-
-#### `data_get(): array`
-
-Get the entity data. Returns a copy of the current data.
-
-#### `data_set($data): void`
-
-Set the entity data.
-
-#### `match_get(): array`
-
-Get the entity match criteria.
-
-#### `match_set($match): void`
-
-Set the entity match criteria.
-
-#### `make(): Gon8Entity`
-
-Create a new `Gon8Entity` instance with the same client and
-options.
-
-#### `get_name(): string`
-
-Return the entity name.
-
-
----
-
-## Gon9Entity
-
-```php
-$gon9 = $client->Gon9();
-```
-
-### Fields
-
-| Field | Type | Required | Description |
-| --- | --- | --- | --- |
-| `auth_mode` | `string` | No |  |
-| `auth_secret` | `string` | No |  |
-| `auth_username` | `string` | No |  |
-| `created_at` | `string` | No |  |
-| `disable_reason` | `string` | No |  |
-| `extra_header_1` | `string` | No |  |
-| `extra_header_2` | `string` | No |  |
-| `extra_value_1` | `string` | No |  |
-| `extra_value_2` | `string` | No |  |
-| `is_active` | `bool` | No |  |
-| `mode` | `string` | No |  |
-| `name` | `string` | Yes |  |
-| `pending_validation` | `bool` | No |  |
-| `priority` | `int` | No |  |
-| `slug_perm` | `string` | No |  |
-| `updated_at` | `string` | No |  |
-| `upstream_url` | `string` | Yes |  |
-| `verify_ssl` | `bool` | No |  |
-
-### Operations
-
-#### `update(array $reqdata, ?array $ctrl = null): mixed`
-
-Update an existing entity. The data must include the entity `id`. Throws on error.
-
-```php
-$result = $client->Gon9()->update([
-  "identifier" => "identifier",
-  "owner" => "owner",
-  "slug_perm" => "slug_perm",
-  // Fields to update
-]);
-```
-
-### Common Methods
-
-#### `data_get(): array`
-
-Get the entity data. Returns a copy of the current data.
-
-#### `data_set($data): void`
-
-Set the entity data.
-
-#### `match_get(): array`
-
-Get the entity match criteria.
-
-#### `match_set($match): void`
-
-Set the entity match criteria.
-
-#### `make(): Gon9Entity`
-
-Create a new `Gon9Entity` instance with the same client and
 options.
 
 #### `get_name(): string`
@@ -2836,6 +2445,8 @@ Create a new entity with the given data. Throws on error.
 $result = $client->Helm()->create([
   "identifier" => null, // mixed
   "owner" => null, // mixed
+  "name" => null, // string
+  "upstream_url" => null, // string
 ]);
 ```
 
@@ -2937,6 +2548,8 @@ Create a new entity with the given data. Throws on error.
 $result = $client->Hex()->create([
   "identifier" => null, // mixed
   "owner" => null, // mixed
+  "name" => null, // string
+  "upstream_url" => null, // string
 ]);
 ```
 
@@ -3074,6 +2687,8 @@ Create a new entity with the given data. Throws on error.
 $result = $client->Huggingface()->create([
   "identifier" => null, // mixed
   "owner" => null, // mixed
+  "name" => null, // string
+  "upstream_url" => null, // string
 ]);
 ```
 
@@ -3359,6 +2974,8 @@ Create a new entity with the given data. Throws on error.
 $result = $client->Maven()->create([
   "identifier" => null, // mixed
   "owner" => null, // mixed
+  "name" => null, // string
+  "upstream_url" => null, // string
 ]);
 ```
 
@@ -3662,6 +3279,8 @@ Create a new entity with the given data. Throws on error.
 $result = $client->Npm()->create([
   "identifier" => null, // mixed
   "owner" => null, // mixed
+  "name" => null, // string
+  "upstream_url" => null, // string
 ]);
 ```
 
@@ -3763,6 +3382,8 @@ Create a new entity with the given data. Throws on error.
 $result = $client->Nuget()->create([
   "identifier" => null, // mixed
   "owner" => null, // mixed
+  "name" => null, // string
+  "upstream_url" => null, // string
 ]);
 ```
 
@@ -3878,11 +3499,11 @@ $org = $client->Org();
 | `name` | `string` | Yes |  |
 | `package` | `array` | Yes |  |
 | `policy` | `array` | Yes |  |
-| `reason` | `array` | Yes |  |
+| `reasons` | `array` | Yes |  |
 | `slug` | `string` | No |  |
 | `slug_perm` | `string` | No |  |
 | `tagline` | `string` | No |  |
-| `vulnerability_scan_result` | `array` | Yes |  |
+| `vulnerability_scan_results` | `array` | Yes |  |
 
 ### Operations
 
@@ -3893,6 +3514,11 @@ Create a new entity with the given data. Throws on error.
 ```php
 $result = $client->Org()->create([
   "id" => null, // string
+  "name" => null, // string
+  "package" => null, // array
+  "policy" => null, // array
+  "reasons" => null, // array
+  "vulnerability_scan_results" => null, // array
 ]);
 ```
 
@@ -3987,6 +3613,9 @@ Create a new entity with the given data. Throws on error.
 ```php
 $result = $client->OrganizationGroupSync()->create([
   "org_id" => null, // string
+  "idp_key" => null, // string
+  "idp_value" => null, // string
+  "team" => null, // string
 ]);
 ```
 
@@ -4097,7 +3726,7 @@ $organization_invite = $client->OrganizationInvite();
 | `org` | `string` | No |  |
 | `role` | `string` | No |  |
 | `slug_perm` | `string` | No |  |
-| `team` | `array` | No |  |
+| `teams` | `array` | No |  |
 | `user` | `string` | No |  |
 | `user_url` | `string` | No |  |
 
@@ -4180,7 +3809,7 @@ $organization_invite_extend = $client->OrganizationInviteExtend();
 | `org` | `string` | No |  |
 | `role` | `string` | No |  |
 | `slug_perm` | `string` | No |  |
-| `team` | `array` | No |  |
+| `teams` | `array` | No |  |
 | `user` | `string` | No |  |
 | `user_url` | `string` | No |  |
 
@@ -4452,14 +4081,14 @@ $organization_package_license_policy = $client->OrganizationPackageLicensePolicy
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `allow_unknown_license` | `bool` | No |  |
+| `allow_unknown_licenses` | `bool` | No |  |
 | `created_at` | `string` | No |  |
 | `description` | `string` | No |  |
 | `name` | `string` | Yes |  |
 | `on_violation_quarantine` | `bool` | No |  |
 | `package_query_string` | `string` | No |  |
 | `slug_perm` | `string` | No |  |
-| `spdx_identifier` | `array` | Yes |  |
+| `spdx_identifiers` | `array` | Yes |  |
 | `updated_at` | `string` | No |  |
 
 ### Operations
@@ -4471,6 +4100,8 @@ Create a new entity with the given data. Throws on error.
 ```php
 $result = $client->OrganizationPackageLicensePolicy()->create([
   "org_id" => null, // string
+  "name" => null, // string
+  "spdx_identifiers" => null, // array
 ]);
 ```
 
@@ -4561,6 +4192,7 @@ Create a new entity with the given data. Throws on error.
 ```php
 $result = $client->OrganizationPackageVulnerabilityPolicy()->create([
   "org_id" => null, // string
+  "name" => null, // string
 ]);
 ```
 
@@ -4713,6 +4345,7 @@ Create a new entity with the given data. Throws on error.
 ```php
 $result = $client->OrganizationTeam()->create([
   "org_id" => null, // string
+  "name" => null, // string
 ]);
 ```
 
@@ -4797,6 +4430,8 @@ Create a new entity with the given data. Throws on error.
 $result = $client->OrganizationTeamMember()->create([
   "org_id" => null, // string
   "team_id" => null, // string
+  "role" => null, // string
+  "user" => null, // string
 ]);
 ```
 
@@ -4910,42 +4545,6 @@ Return the entity name.
 
 ---
 
-## P2n2Entity
-
-```php
-$p2n2 = $client->P2n2();
-```
-
-### Common Methods
-
-#### `data_get(): array`
-
-Get the entity data. Returns a copy of the current data.
-
-#### `data_set($data): void`
-
-Set the entity data.
-
-#### `match_get(): array`
-
-Get the entity match criteria.
-
-#### `match_set($match): void`
-
-Set the entity match criteria.
-
-#### `make(): P2n2Entity`
-
-Create a new `P2n2Entity` instance with the same client and
-options.
-
-#### `get_name(): string`
-
-Return the entity name.
-
-
----
-
 ## PackageEntity
 
 ```php
@@ -4956,8 +4555,10 @@ $package = $client->Package();
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `architecture` | `array` | No |  |
+| `active` | `int` | No |  |
+| `architectures` | `array` | No |  |
 | `backend_kind` | `int` | No |  |
+| `bandwidth` | `array` | Yes |  |
 | `cdn_url` | `string` | No |  |
 | `checksum_md5` | `string` | No |  |
 | `checksum_sha1` | `string` | No |  |
@@ -4971,17 +4572,18 @@ $package = $client->Package();
 | `display_name` | `string` | No |  |
 | `distro` | `array` | Yes |  |
 | `distro_version` | `array` | No |  |
-| `download` | `int` | No |  |
+| `downloads` | `array` | Yes |  |
 | `epoch` | `int` | No |  |
 | `extension` | `string` | No |  |
-| `file` | `array` | No |  |
 | `filename` | `string` | No |  |
+| `files` | `array` | No |  |
 | `format` | `string` | No |  |
 | `format_url` | `string` | No |  |
 | `freeable_storage` | `int` | No |  |
 | `fully_qualified_name` | `string` | No |  |
-| `identifier` | `array` | No |  |
 | `identifier_perm` | `string` | No |  |
+| `identifiers` | `array` | No |  |
+| `inactive` | `int` | No |  |
 | `indexed` | `bool` | No |  |
 | `is_cancellable` | `bool` | No |  |
 | `is_copyable` | `bool` | No |  |
@@ -5002,12 +4604,11 @@ $package = $client->Package();
 | `name` | `string` | No |  |
 | `namespace` | `string` | No |  |
 | `namespace_url` | `string` | No |  |
-| `num_download` | `int` | Yes |  |
-| `num_file` | `int` | No |  |
+| `num_downloads` | `int` | Yes |  |
+| `num_files` | `int` | No |  |
 | `operator` | `string` | No |  |
 | `origin_repository` | `string` | No |  |
 | `origin_repository_url` | `string` | No |  |
-| `package` | `array` | Yes |  |
 | `package_type` | `int` | No |  |
 | `policy_violated` | `bool` | No |  |
 | `release` | `string` | No |  |
@@ -5035,8 +4636,9 @@ $package = $client->Package();
 | `summary` | `string` | No |  |
 | `sync_finished_at` | `string` | No |  |
 | `sync_progress` | `int` | No |  |
-| `tag` | `array` | No |  |
+| `tags` | `array` | No |  |
 | `tags_immutable` | `array` | No |  |
+| `total` | `int` | No |  |
 | `type_display` | `string` | No |  |
 | `uploaded_at` | `string` | No |  |
 | `uploader` | `string` | No |  |
@@ -5049,8 +4651,10 @@ $package = $client->Package();
 
 | Field | load | list | create | remove |
 | --- | --- | --- | --- | --- |
-| `architecture` | - | - | - | - |
+| `active` | - | - | - | - |
+| `architectures` | - | - | - | - |
 | `backend_kind` | - | - | - | - |
+| `bandwidth` | - | - | - | - |
 | `cdn_url` | - | - | - | - |
 | `checksum_md5` | - | - | - | - |
 | `checksum_sha1` | - | - | - | - |
@@ -5064,17 +4668,18 @@ $package = $client->Package();
 | `display_name` | - | - | - | - |
 | `distro` | - | - | - | - |
 | `distro_version` | - | - | - | - |
-| `download` | - | - | - | - |
+| `downloads` | - | Yes | Yes | - |
 | `epoch` | - | - | - | - |
 | `extension` | - | - | - | - |
-| `file` | - | - | - | - |
 | `filename` | - | - | - | - |
+| `files` | - | - | - | - |
 | `format` | - | - | - | - |
 | `format_url` | - | - | - | - |
 | `freeable_storage` | - | - | - | - |
 | `fully_qualified_name` | - | - | - | - |
-| `identifier` | - | - | - | - |
 | `identifier_perm` | - | - | - | - |
+| `identifiers` | - | - | - | - |
+| `inactive` | - | - | - | - |
 | `indexed` | - | - | - | - |
 | `is_cancellable` | - | - | - | - |
 | `is_copyable` | - | - | - | - |
@@ -5095,12 +4700,11 @@ $package = $client->Package();
 | `name` | - | - | - | - |
 | `namespace` | - | - | - | - |
 | `namespace_url` | - | - | - | - |
-| `num_download` | - | - | - | - |
-| `num_file` | - | - | - | - |
+| `num_downloads` | - | - | - | - |
+| `num_files` | - | - | - | - |
 | `operator` | - | - | - | - |
 | `origin_repository` | - | - | - | - |
 | `origin_repository_url` | - | - | - | - |
-| `package` | - | - | - | - |
 | `package_type` | - | - | - | - |
 | `policy_violated` | - | - | - | - |
 | `release` | - | - | - | - |
@@ -5128,8 +4732,9 @@ $package = $client->Package();
 | `summary` | - | - | - | - |
 | `sync_finished_at` | - | - | - | - |
 | `sync_progress` | - | - | - | - |
-| `tag` | - | - | - | - |
+| `tags` | - | - | - | - |
 | `tags_immutable` | - | - | - | - |
+| `total` | - | - | - | - |
 | `type_display` | - | - | - | - |
 | `uploaded_at` | - | - | - | - |
 | `uploader` | - | - | - | - |
@@ -5148,6 +4753,12 @@ Create a new entity with the given data. Throws on error.
 $result = $client->Package()->create([
   "owner" => null, // mixed
   "repo" => null, // mixed
+  "bandwidth" => null, // array
+  "count" => null, // int
+  "distro" => null, // array
+  "downloads" => null, // array
+  "last_push" => null, // string
+  "num_downloads" => null, // int
 ]);
 ```
 
@@ -5234,6 +4845,7 @@ Create a new entity with the given data. Throws on error.
 ```php
 $result = $client->PackageDenyPolicy()->create([
   "org_id" => null, // string
+  "package_query_string" => null, // string
 ]);
 ```
 
@@ -5409,12 +5021,19 @@ $package_license_policy_evaluation = $client->PackageLicensePolicyEvaluation();
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
+| `allow_unknown_licenses` | `bool` | No |  |
 | `created_at` | `string` | No |  |
+| `description` | `string` | No |  |
 | `evaluation_count` | `int` | No |  |
+| `name` | `string` | No |  |
+| `on_violation_quarantine` | `bool` | No |  |
+| `package_query_string` | `string` | No |  |
 | `policy` | `array` | Yes |  |
 | `slug_perm` | `string` | No |  |
+| `spdx_identifiers` | `array` | Yes |  |
 | `status` | `string` | No |  |
 | `updated_at` | `string` | No |  |
+| `url` | `string` | No |  |
 | `violation_count` | `int` | No |  |
 
 ### Operations
@@ -5427,6 +5046,8 @@ Create a new entity with the given data. Throws on error.
 $result = $client->PackageLicensePolicyEvaluation()->create([
   "org_id" => null, // string
   "policy_slug_perm" => null, // mixed
+  "policy" => null, // array
+  "spdx_identifiers" => null, // array
 ]);
 ```
 
@@ -5532,12 +5153,19 @@ $package_vulnerability_policy_evaluation = $client->PackageVulnerabilityPolicyEv
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
+| `allow_unknown_severity` | `bool` | No |  |
 | `created_at` | `string` | No |  |
+| `description` | `string` | No |  |
 | `evaluation_count` | `int` | No |  |
+| `min_severity` | `string` | No |  |
+| `name` | `string` | No |  |
+| `on_violation_quarantine` | `bool` | No |  |
+| `package_query_string` | `string` | No |  |
 | `policy` | `array` | No |  |
 | `slug_perm` | `string` | No |  |
 | `status` | `string` | No |  |
 | `updated_at` | `string` | No |  |
+| `url` | `string` | No |  |
 | `violation_count` | `int` | No |  |
 
 ### Operations
@@ -5681,12 +5309,12 @@ $provider_setting = $client->ProviderSetting();
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `claim` | `array` | Yes |  |
+| `claims` | `array` | Yes |  |
 | `enabled` | `bool` | Yes |  |
 | `mapping_claim` | `string` | No |  |
 | `name` | `string` | Yes |  |
 | `provider_url` | `string` | Yes |  |
-| `service_account` | `array` | No |  |
+| `service_accounts` | `array` | No |  |
 | `slug` | `string` | No |  |
 | `slug_perm` | `string` | No |  |
 
@@ -5748,13 +5376,13 @@ $provider_settings_write = $client->ProviderSettingsWrite();
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `claim` | `array` | Yes |  |
-| `dynamic_mapping` | `array` | No |  |
+| `claims` | `array` | Yes |  |
+| `dynamic_mappings` | `array` | No |  |
 | `enabled` | `bool` | Yes |  |
 | `mapping_claim` | `string` | No |  |
 | `name` | `string` | Yes |  |
 | `provider_url` | `string` | Yes |  |
-| `service_account` | `array` | No |  |
+| `service_accounts` | `array` | No |  |
 | `slug` | `string` | No |  |
 | `slug_perm` | `string` | No |  |
 
@@ -5767,6 +5395,10 @@ Create a new entity with the given data. Throws on error.
 ```php
 $result = $client->ProviderSettingsWrite()->create([
   "org_id" => null, // string
+  "claims" => null, // array
+  "enabled" => null, // bool
+  "name" => null, // string
+  "provider_url" => null, // string
 ]);
 ```
 
@@ -5851,6 +5483,8 @@ Create a new entity with the given data. Throws on error.
 $result = $client->Python()->create([
   "identifier" => null, // mixed
   "owner" => null, // mixed
+  "name" => null, // string
+  "upstream_url" => null, // string
 ]);
 ```
 
@@ -5959,8 +5593,9 @@ $quota = $client->Quota();
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
+| `display` | `array` | Yes |  |
 | `history` | `array` | Yes |  |
-| `usage` | `array` | Yes |  |
+| `raw` | `array` | Yes |  |
 
 ### Operations
 
@@ -6124,49 +5759,49 @@ $repo = $client->Repo();
 | `content_kind` | `string` | No |  |
 | `contextual_auth_realm` | `bool` | No |  |
 | `copy_own` | `bool` | No |  |
-| `copy_package` | `string` | No |  |
+| `copy_packages` | `string` | No |  |
 | `cosign_signing_enabled` | `bool` | No |  |
 | `created_at` | `string` | No |  |
 | `default_privilege` | `string` | No |  |
 | `delete_own` | `bool` | No |  |
-| `delete_package` | `string` | No |  |
+| `delete_packages` | `string` | No |  |
 | `deleted_at` | `string` | No |  |
 | `description` | `string` | No |  |
-| `distribute` | `array` | No |  |
+| `distributes` | `array` | No |  |
 | `docker_refresh_tokens_enabled` | `bool` | No |  |
-| `ecdsa_key` | `array` | No |  |
+| `ecdsa_keys` | `array` | No |  |
 | `enforce_eula` | `bool` | No |  |
-| `gpg_key` | `array` | No |  |
-| `index_file` | `bool` | No |  |
+| `gpg_keys` | `array` | No |  |
+| `index_files` | `bool` | No |  |
 | `is_open_source` | `bool` | No |  |
 | `is_private` | `bool` | No |  |
 | `is_public` | `bool` | No |  |
 | `manage_entitlements_privilege` | `string` | No |  |
 | `move_own` | `bool` | No |  |
-| `move_package` | `string` | No |  |
+| `move_packages` | `string` | No |  |
 | `name` | `string` | Yes |  |
 | `namespace` | `string` | No |  |
 | `namespace_url` | `string` | No |  |
 | `nuget_native_signing_enabled` | `bool` | No |  |
-| `num_download` | `int` | No |  |
-| `num_policy_violated_package` | `int` | No |  |
-| `num_quarantined_package` | `int` | No |  |
+| `num_downloads` | `int` | No |  |
+| `num_policy_violated_packages` | `int` | No |  |
+| `num_quarantined_packages` | `int` | No |  |
 | `open_source_license` | `string` | No |  |
 | `open_source_project_url` | `string` | No |  |
 | `package_count` | `int` | No |  |
 | `package_group_count` | `int` | No |  |
-| `proxy_npmj` | `bool` | No |  |
+| `proxy_npmjs` | `bool` | No |  |
 | `proxy_pypi` | `bool` | No |  |
 | `raw_package_index_enabled` | `bool` | No |  |
 | `raw_package_index_signatures_enabled` | `bool` | No |  |
-| `replace_package` | `string` | No |  |
+| `replace_packages` | `string` | No |  |
 | `replace_packages_by_default` | `bool` | No |  |
 | `repository_type` | `int` | No |  |
 | `repository_type_str` | `string` | No |  |
 | `resync_own` | `bool` | No |  |
-| `resync_package` | `string` | No |  |
+| `resync_packages` | `string` | No |  |
 | `scan_own` | `bool` | No |  |
-| `scan_package` | `string` | No |  |
+| `scan_packages` | `string` | No |  |
 | `self_html_url` | `string` | No |  |
 | `self_url` | `string` | No |  |
 | `show_setup_all` | `bool` | No |  |
@@ -6177,14 +5812,14 @@ $repo = $client->Repo();
 | `storage_region` | `string` | No |  |
 | `strict_npm_validation` | `bool` | No |  |
 | `tag_pre_releases_as_latest` | `bool` | No |  |
-| `use_debian_label` | `bool` | No |  |
+| `use_debian_labels` | `bool` | No |  |
 | `use_default_cargo_upstream` | `bool` | No |  |
 | `use_entitlements_privilege` | `string` | No |  |
-| `use_noarch_package` | `bool` | No |  |
-| `use_source_package` | `bool` | No |  |
+| `use_noarch_packages` | `bool` | No |  |
+| `use_source_packages` | `bool` | No |  |
 | `use_vulnerability_scanning` | `bool` | No |  |
 | `user_entitlements_enabled` | `bool` | No |  |
-| `view_statistic` | `string` | No |  |
+| `view_statistics` | `string` | No |  |
 
 ### Operations
 
@@ -6194,6 +5829,7 @@ Create a new entity with the given data. Throws on error.
 
 ```php
 $result = $client->Repo()->create([
+  "name" => null, // string
 ]);
 ```
 
@@ -6590,6 +6226,7 @@ Create a new entity with the given data. Throws on error.
 $result = $client->RepositoryGpgKey()->create([
   "identifier" => null, // mixed
   "owner" => null, // mixed
+  "comment" => null, // string
 ]);
 ```
 
@@ -6836,19 +6473,19 @@ $repository_token = $client->RepositoryToken();
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `client` | `int` | No |  |
+| `clients` | `int` | No |  |
 | `created_at` | `string` | No |  |
 | `created_by` | `string` | No |  |
 | `created_by_url` | `string` | No |  |
 | `default` | `bool` | No |  |
 | `disable_url` | `string` | No |  |
-| `download` | `int` | No |  |
+| `downloads` | `int` | No |  |
 | `enable_url` | `string` | No |  |
 | `eula_accepted` | `array` | No |  |
 | `eula_accepted_at` | `string` | No |  |
 | `eula_accepted_from` | `string` | No |  |
 | `eula_required` | `bool` | No |  |
-| `has_limit` | `bool` | No |  |
+| `has_limits` | `bool` | No |  |
 | `identifier` | `int` | No |  |
 | `is_active` | `bool` | No |  |
 | `is_limited` | `bool` | No |  |
@@ -6856,8 +6493,8 @@ $repository_token = $client->RepositoryToken();
 | `limit_bandwidth_unit` | `string` | No |  |
 | `limit_date_range_from` | `string` | No |  |
 | `limit_date_range_to` | `string` | No |  |
-| `limit_num_client` | `int` | No |  |
-| `limit_num_download` | `int` | No |  |
+| `limit_num_clients` | `int` | No |  |
+| `limit_num_downloads` | `int` | No |  |
 | `limit_package_query` | `string` | No |  |
 | `limit_path_query` | `string` | No |  |
 | `metadata` | `array` | No |  |
@@ -6886,6 +6523,7 @@ Create a new entity with the given data. Throws on error.
 $result = $client->RepositoryToken()->create([
   "owner" => null, // mixed
   "repo" => null, // mixed
+  "name" => null, // string
 ]);
 ```
 
@@ -6958,19 +6596,19 @@ $repository_token_refresh = $client->RepositoryTokenRefresh();
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `client` | `int` | No |  |
+| `clients` | `int` | No |  |
 | `created_at` | `string` | No |  |
 | `created_by` | `string` | No |  |
 | `created_by_url` | `string` | No |  |
 | `default` | `bool` | No |  |
 | `disable_url` | `string` | No |  |
-| `download` | `int` | No |  |
+| `downloads` | `int` | No |  |
 | `enable_url` | `string` | No |  |
 | `eula_accepted` | `array` | No |  |
 | `eula_accepted_at` | `string` | No |  |
 | `eula_accepted_from` | `string` | No |  |
 | `eula_required` | `bool` | No |  |
-| `has_limit` | `bool` | No |  |
+| `has_limits` | `bool` | No |  |
 | `identifier` | `int` | No |  |
 | `is_active` | `bool` | No |  |
 | `is_limited` | `bool` | No |  |
@@ -6978,8 +6616,8 @@ $repository_token_refresh = $client->RepositoryTokenRefresh();
 | `limit_bandwidth_unit` | `string` | No |  |
 | `limit_date_range_from` | `string` | No |  |
 | `limit_date_range_to` | `string` | No |  |
-| `limit_num_client` | `int` | No |  |
-| `limit_num_download` | `int` | No |  |
+| `limit_num_clients` | `int` | No |  |
+| `limit_num_downloads` | `int` | No |  |
 | `limit_package_query` | `string` | No |  |
 | `limit_path_query` | `string` | No |  |
 | `metadata` | `array` | No |  |
@@ -7052,7 +6690,7 @@ $repository_token_sync = $client->RepositoryTokenSync();
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `token` | `array` | No |  |
+| `tokens` | `array` | No |  |
 
 ### Operations
 
@@ -7112,7 +6750,8 @@ $repository_webhook = $client->RepositoryWebhook();
 | `created_by_url` | `string` | No |  |
 | `disable_reason` | `int` | No |  |
 | `disable_reason_str` | `string` | No |  |
-| `event` | `array` | Yes |  |
+| `event` | `string` | Yes |  |
+| `events` | `array` | Yes |  |
 | `identifier` | `int` | No |  |
 | `is_active` | `bool` | No |  |
 | `is_last_response_bad` | `bool` | No |  |
@@ -7129,43 +6768,12 @@ $repository_webhook = $client->RepositoryWebhook();
 | `self_url` | `string` | No |  |
 | `slug_perm` | `string` | No |  |
 | `target_url` | `string` | Yes |  |
-| `template` | `array` | Yes |  |
+| `template` | `string` | No |  |
+| `templates` | `array` | Yes |  |
 | `updated_at` | `string` | No |  |
 | `updated_by` | `string` | No |  |
 | `updated_by_url` | `string` | No |  |
 | `verify_ssl` | `bool` | No |  |
-
-### Field Usage by Operation
-
-| Field | list | create | update |
-| --- | --- | --- | --- |
-| `created_at` | - | - | - |
-| `created_by` | - | - | - |
-| `created_by_url` | - | - | - |
-| `disable_reason` | - | - | - |
-| `disable_reason_str` | - | - | - |
-| `event` | - | - | - |
-| `identifier` | - | - | - |
-| `is_active` | - | - | - |
-| `is_last_response_bad` | - | - | - |
-| `last_response_status` | - | - | - |
-| `last_response_status_str` | - | - | - |
-| `num_sent` | - | - | - |
-| `package_query` | - | - | - |
-| `request_body_format` | - | - | - |
-| `request_body_format_str` | - | - | - |
-| `request_body_template_format` | - | - | - |
-| `request_body_template_format_str` | - | - | - |
-| `request_content_type` | - | - | - |
-| `secret_header` | - | - | - |
-| `self_url` | - | - | - |
-| `slug_perm` | - | - | - |
-| `target_url` | - | - | - |
-| `template` | Yes | - | - |
-| `updated_at` | - | - | - |
-| `updated_by` | - | - | - |
-| `updated_by_url` | - | - | - |
-| `verify_ssl` | - | - | - |
 
 ### Operations
 
@@ -7177,6 +6785,10 @@ Create a new entity with the given data. Throws on error.
 $result = $client->RepositoryWebhook()->create([
   "owner" => null, // mixed
   "repo" => null, // mixed
+  "event" => null, // string
+  "events" => null, // array
+  "target_url" => null, // string
+  "templates" => null, // array
 ]);
 ```
 
@@ -7399,7 +7011,12 @@ $resources_rate_check = $client->ResourcesRateCheck();
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `resource` | `array` | No |  |
+| `interval` | `float` | No |  |
+| `limit` | `int` | No |  |
+| `remaining` | `int` | No |  |
+| `reset` | `int` | No |  |
+| `reset_iso_8601` | `string` | No |  |
+| `throttled` | `bool` | No |  |
 
 ### Operations
 
@@ -7536,7 +7153,7 @@ $rpm = $client->Rpm();
 | `gpg_key_inline` | `string` | No |  |
 | `gpg_key_url` | `string` | No |  |
 | `gpg_verification` | `string` | No |  |
-| `include_source` | `bool` | No |  |
+| `include_sources` | `bool` | No |  |
 | `is_active` | `bool` | No |  |
 | `mode` | `string` | No |  |
 | `name` | `string` | Yes |  |
@@ -7558,6 +7175,9 @@ Create a new entity with the given data. Throws on error.
 $result = $client->Rpm()->create([
   "identifier" => null, // mixed
   "owner" => null, // mixed
+  "distro_version" => null, // string
+  "name" => null, // string
+  "upstream_url" => null, // string
 ]);
 ```
 
@@ -7695,6 +7315,8 @@ Create a new entity with the given data. Throws on error.
 $result = $client->Ruby()->create([
   "identifier" => null, // mixed
   "owner" => null, // mixed
+  "name" => null, // string
+  "upstream_url" => null, // string
 ]);
 ```
 
@@ -7884,7 +7506,7 @@ $service = $client->Service();
 | `name` | `string` | Yes |  |
 | `role` | `string` | No |  |
 | `slug` | `string` | No |  |
-| `team` | `array` | No |  |
+| `teams` | `array` | No |  |
 
 ### Operations
 
@@ -7895,6 +7517,7 @@ Create a new entity with the given data. Throws on error.
 ```php
 $result = $client->Service()->create([
   "org_id" => null, // string
+  "name" => null, // string
 ]);
 ```
 
@@ -8145,6 +7768,8 @@ Create a new entity with the given data. Throws on error.
 $result = $client->Swift()->create([
   "identifier" => null, // mixed
   "owner" => null, // mixed
+  "name" => null, // string
+  "upstream_url" => null, // string
 ]);
 ```
 
@@ -8354,7 +7979,7 @@ Return the entity name.
 ## TestEntity
 
 ```php
-$test = $client->Test();
+$test = $client->Test_();
 ```
 
 ### Common Methods
@@ -8864,12 +8489,12 @@ $vulnerability = $client->Vulnerability();
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
 | `created_at` | `string` | No |  |
-| `has_vulnerability` | `bool` | No |  |
+| `has_vulnerabilities` | `bool` | No |  |
 | `identifier` | `string` | Yes |  |
 | `max_severity` | `string` | No |  |
-| `num_vulnerability` | `int` | No |  |
+| `num_vulnerabilities` | `int` | No |  |
 | `package` | `array` | Yes |  |
-| `result` | `array` | Yes |  |
+| `results` | `array` | Yes |  |
 | `scan_id` | `int` | Yes |  |
 | `target` | `string` | Yes |  |
 | `type` | `string` | Yes |  |

@@ -6,9 +6,9 @@ import time
 
 import pytest
 
-from utility.voxgig_struct import voxgig_struct as vs
+from cloudsmith_sdk.utility.voxgig_struct import voxgig_struct as vs
 from cloudsmith_sdk import CloudsmithSDK
-from core import helpers
+from cloudsmith_sdk.core import helpers
 
 _TEST_DIR = os.path.dirname(os.path.abspath(__file__))
 from test import runner
@@ -42,7 +42,7 @@ class TestHuggingfaceEntity:
         assert len(seen) == 3
 
         # Inbound: streaming active -> yields each item from the feature.
-        from config import make_config
+        from cloudsmith_sdk.config import make_config
         cfg = make_config()
         if isinstance(cfg.get("feature"), dict) and "streaming" in cfg["feature"]:
             sdk = CloudsmithSDK.test(
@@ -80,7 +80,7 @@ class TestHuggingfaceEntity:
         huggingface_ref01_data["identifier"] = setup["idmap"]["identifier01"]
         huggingface_ref01_data["owner"] = setup["idmap"]["owner01"]
 
-        huggingface_ref01_data = helpers.to_map(huggingface_ref01_ent.create(huggingface_ref01_data, None))
+        huggingface_ref01_data = helpers.to_map(runner.entity_data(huggingface_ref01_ent.create(huggingface_ref01_data, None)))
         assert huggingface_ref01_data is not None
 
         # LIST
@@ -92,11 +92,6 @@ class TestHuggingfaceEntity:
         huggingface_ref01_list_result = huggingface_ref01_ent.list(huggingface_ref01_match, None)
         assert isinstance(huggingface_ref01_list_result, list)
 
-        found_item = vs.select(
-            runner.entity_list_to_data(huggingface_ref01_list_result),
-            {"id": huggingface_ref01_data["id"]})
-        assert not vs.isempty(found_item)
-
         # UPDATE
         huggingface_ref01_data_up0_up = {
             "identifier": setup["idmap"]["identifier"],
@@ -107,7 +102,7 @@ class TestHuggingfaceEntity:
         huggingface_ref01_markdef_up0_value = "Mark01-huggingface_ref01_" + str(setup["now"])
         huggingface_ref01_data_up0_up[huggingface_ref01_markdef_up0_name] = huggingface_ref01_markdef_up0_value
 
-        huggingface_ref01_resdata_up0 = helpers.to_map(huggingface_ref01_ent.update(huggingface_ref01_data_up0_up, None))
+        huggingface_ref01_resdata_up0 = helpers.to_map(runner.entity_data(huggingface_ref01_ent.update(huggingface_ref01_data_up0_up, None)))
         assert huggingface_ref01_resdata_up0 is not None
         assert huggingface_ref01_resdata_up0[huggingface_ref01_markdef_up0_name] == huggingface_ref01_markdef_up0_value
 

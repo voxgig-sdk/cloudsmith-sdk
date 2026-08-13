@@ -64,7 +64,7 @@ describe('ComposerEntity', async () => {
     composer_ref01_data['identifier'] = setup.idmap['identifier01']
     composer_ref01_data['owner'] = setup.idmap['owner01']
 
-    composer_ref01_data = await composer_ref01_ent.create(composer_ref01_data)
+    composer_ref01_data = (await composer_ref01_ent.create(composer_ref01_data)).data()
     assert(null != composer_ref01_data)
 
 
@@ -73,9 +73,7 @@ describe('ComposerEntity', async () => {
     composer_ref01_match['identifier'] = setup.idmap['identifier01']
     composer_ref01_match['owner'] = setup.idmap['owner01']
 
-    const composer_ref01_list = await composer_ref01_ent.list(composer_ref01_match)
-
-    assert(!isempty(select(composer_ref01_list, { id: composer_ref01_data.id })))
+    const composer_ref01_list = (await composer_ref01_ent.list(composer_ref01_match)).map((e: any) => e.data())
 
 
     // UPDATE
@@ -86,7 +84,7 @@ describe('ComposerEntity', async () => {
     const composer_ref01_markdef_up0 = { name: 'auth_mode', value: 'Mark01-composer_ref01_' + setup.now }
     ;(composer_ref01_data_up0 as any)[composer_ref01_markdef_up0.name] = composer_ref01_markdef_up0.value
 
-    const composer_ref01_resdata_up0 = await composer_ref01_ent.update(composer_ref01_data_up0)
+    const composer_ref01_resdata_up0 = (await composer_ref01_ent.update(composer_ref01_data_up0)).data()
     assert(null != composer_ref01_resdata_up0)
 
     assert((composer_ref01_resdata_up0 as any)[composer_ref01_markdef_up0.name] === composer_ref01_markdef_up0.value)

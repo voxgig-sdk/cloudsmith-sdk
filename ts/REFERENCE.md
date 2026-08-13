@@ -397,102 +397,6 @@ Create a new `Gon` entity instance.
 
 **Returns:** `GonEntity` instance.
 
-#### `Gon2(data?: object)`
-
-Create a new `Gon2` entity instance.
-
-**Parameters:**
-
-| Name | Type | Description |
-| --- | --- | --- |
-| `data` | `object` | Initial entity data. |
-
-**Returns:** `Gon2Entity` instance.
-
-#### `Gon3(data?: object)`
-
-Create a new `Gon3` entity instance.
-
-**Parameters:**
-
-| Name | Type | Description |
-| --- | --- | --- |
-| `data` | `object` | Initial entity data. |
-
-**Returns:** `Gon3Entity` instance.
-
-#### `Gon4(data?: object)`
-
-Create a new `Gon4` entity instance.
-
-**Parameters:**
-
-| Name | Type | Description |
-| --- | --- | --- |
-| `data` | `object` | Initial entity data. |
-
-**Returns:** `Gon4Entity` instance.
-
-#### `Gon5(data?: object)`
-
-Create a new `Gon5` entity instance.
-
-**Parameters:**
-
-| Name | Type | Description |
-| --- | --- | --- |
-| `data` | `object` | Initial entity data. |
-
-**Returns:** `Gon5Entity` instance.
-
-#### `Gon6(data?: object)`
-
-Create a new `Gon6` entity instance.
-
-**Parameters:**
-
-| Name | Type | Description |
-| --- | --- | --- |
-| `data` | `object` | Initial entity data. |
-
-**Returns:** `Gon6Entity` instance.
-
-#### `Gon7(data?: object)`
-
-Create a new `Gon7` entity instance.
-
-**Parameters:**
-
-| Name | Type | Description |
-| --- | --- | --- |
-| `data` | `object` | Initial entity data. |
-
-**Returns:** `Gon7Entity` instance.
-
-#### `Gon8(data?: object)`
-
-Create a new `Gon8` entity instance.
-
-**Parameters:**
-
-| Name | Type | Description |
-| --- | --- | --- |
-| `data` | `object` | Initial entity data. |
-
-**Returns:** `Gon8Entity` instance.
-
-#### `Gon9(data?: object)`
-
-Create a new `Gon9` entity instance.
-
-**Parameters:**
-
-| Name | Type | Description |
-| --- | --- | --- |
-| `data` | `object` | Initial entity data. |
-
-**Returns:** `Gon9Entity` instance.
-
 #### `Gpg(data?: object)`
 
 Create a new `Gpg` entity instance.
@@ -900,18 +804,6 @@ Create a new `P2n` entity instance.
 | `data` | `object` | Initial entity data. |
 
 **Returns:** `P2nEntity` instance.
-
-#### `P2n2(data?: object)`
-
-Create a new `P2n2` entity instance.
-
-**Parameters:**
-
-| Name | Type | Description |
-| --- | --- | --- |
-| `data` | `object` | Initial entity data. |
-
-**Returns:** `P2n2Entity` instance.
 
 #### `Package(data?: object)`
 
@@ -1950,6 +1842,8 @@ Create a new entity with the given data.
 const result = await client.Cargo().create({
   identifier: 'example_identifier',
   owner: 'example_owner',
+  name: 'example_name',
+  upstream_url: 'example_upstream_url',
 })
 ```
 
@@ -1958,7 +1852,7 @@ const result = await client.Cargo().create({
 List entities matching the given criteria. Returns an array.
 
 ```ts
-const results = await client.Cargo().list()
+const results = await client.Cargo().list({ identifier: "example", owner: "example" })
 ```
 
 #### `load(match: object, ctrl?: object)`
@@ -2117,6 +2011,8 @@ Create a new entity with the given data.
 const result = await client.Composer().create({
   identifier: 'example_identifier',
   owner: 'example_owner',
+  name: 'example_name',
+  upstream_url: 'example_upstream_url',
 })
 ```
 
@@ -2125,7 +2021,7 @@ const result = await client.Composer().create({
 List entities matching the given criteria. Returns an array.
 
 ```ts
-const results = await client.Composer().list()
+const results = await client.Composer().list({ identifier: "example", owner: "example" })
 ```
 
 #### `load(match: object, ctrl?: object)`
@@ -2250,6 +2146,8 @@ Create a new entity with the given data.
 const result = await client.Conda().create({
   identifier: 'example_identifier',
   owner: 'example_owner',
+  name: 'example_name',
+  upstream_url: 'example_upstream_url',
 })
 ```
 
@@ -2258,7 +2156,7 @@ const result = await client.Conda().create({
 List entities matching the given criteria. Returns an array.
 
 ```ts
-const results = await client.Conda().list()
+const results = await client.Conda().list({ identifier: "example", owner: "example" })
 ```
 
 #### `load(match: object, ctrl?: object)`
@@ -2383,6 +2281,8 @@ Create a new entity with the given data.
 const result = await client.Cran().create({
   identifier: 'example_identifier',
   owner: 'example_owner',
+  name: 'example_name',
+  upstream_url: 'example_upstream_url',
 })
 ```
 
@@ -2391,7 +2291,7 @@ const result = await client.Cran().create({
 List entities matching the given criteria. Returns an array.
 
 ```ts
-const results = await client.Cran().list()
+const results = await client.Cran().list({ identifier: "example", owner: "example" })
 ```
 
 #### `load(match: object, ctrl?: object)`
@@ -2482,6 +2382,8 @@ Create a new entity with the given data.
 const result = await client.Dart().create({
   identifier: 'example_identifier',
   owner: 'example_owner',
+  name: 'example_name',
+  upstream_url: 'example_upstream_url',
 })
 ```
 
@@ -2490,7 +2392,7 @@ const result = await client.Dart().create({
 List entities matching the given criteria. Returns an array.
 
 ```ts
-const results = await client.Dart().list()
+const results = await client.Dart().list({ identifier: "example", owner: "example" })
 ```
 
 #### `load(match: object, ctrl?: object)`
@@ -2558,7 +2460,7 @@ const deb = client.Deb()
 | `component` | `string` | No |  |
 | `created_at` | `string` | No |  |
 | `disable_reason` | `string` | No |  |
-| `distro_version` | `any[]` | Yes |  |
+| `distro_versions` | `any[]` | Yes |  |
 | `extra_header_1` | `string` | No |  |
 | `extra_header_2` | `string` | No |  |
 | `extra_value_1` | `string` | No |  |
@@ -2566,7 +2468,7 @@ const deb = client.Deb()
 | `gpg_key_inline` | `string` | No |  |
 | `gpg_key_url` | `string` | No |  |
 | `gpg_verification` | `string` | No |  |
-| `include_source` | `boolean` | No |  |
+| `include_sources` | `boolean` | No |  |
 | `is_active` | `boolean` | No |  |
 | `mode` | `string` | No |  |
 | `name` | `string` | Yes |  |
@@ -2589,6 +2491,9 @@ Create a new entity with the given data.
 const result = await client.Deb().create({
   identifier: 'example_identifier',
   owner: 'example_owner',
+  distro_versions: [],
+  name: 'example_name',
+  upstream_url: 'example_upstream_url',
 })
 ```
 
@@ -2597,7 +2502,7 @@ const result = await client.Deb().create({
 List entities matching the given criteria. Returns an array.
 
 ```ts
-const results = await client.Deb().list()
+const results = await client.Deb().list({ identifier: "example", owner: "example" })
 ```
 
 #### `load(match: object, ctrl?: object)`
@@ -2766,8 +2671,8 @@ const distribution_full = client.DistributionFull()
 | `name` | `string` | Yes |  |
 | `self_url` | `string` | No |  |
 | `slug` | `string` | No |  |
-| `variant` | `string` | No |  |
-| `version` | `any[]` | No |  |
+| `variants` | `string` | No |  |
+| `versions` | `any[]` | No |  |
 
 ### Operations
 
@@ -2888,6 +2793,8 @@ Create a new entity with the given data.
 const result = await client.Docker().create({
   identifier: 'example_identifier',
   owner: 'example_owner',
+  name: 'example_name',
+  upstream_url: 'example_upstream_url',
 })
 ```
 
@@ -2896,7 +2803,7 @@ const result = await client.Docker().create({
 List entities matching the given criteria. Returns an array.
 
 ```ts
-const results = await client.Docker().list()
+const results = await client.Docker().list({ identifier: "example", owner: "example" })
 ```
 
 #### `load(match: object, ctrl?: object)`
@@ -2968,7 +2875,7 @@ const dynamic_mapping = client.DynamicMapping()
 List entities matching the given criteria. Returns an array.
 
 ```ts
-const results = await client.DynamicMapping().list()
+const results = await client.DynamicMapping().list({ org_id: "example", provider_setting: "example" })
 ```
 
 #### `load(match: object, ctrl?: object)`
@@ -3085,7 +2992,11 @@ const entitlement = client.Entitlement()
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `token` | `Record<string, any>` | Yes |  |
+| `active` | `number` | No |  |
+| `bandwidth` | `Record<string, any>` | Yes |  |
+| `downloads` | `Record<string, any>` | Yes |  |
+| `inactive` | `number` | No |  |
+| `total` | `number` | No |  |
 
 ### Operations
 
@@ -3098,6 +3009,8 @@ const result = await client.Entitlement().create({
   identifier: 'example_identifier',
   owner: 'example_owner',
   repo: 'example_repo',
+  bandwidth: {},
+  downloads: {},
 })
 ```
 
@@ -3237,14 +3150,14 @@ const format = client.Format()
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
 | `description` | `string` | Yes |  |
-| `distribution` | `any[]` | No |  |
-| `extension` | `any[]` | Yes |  |
+| `distributions` | `any[]` | No |  |
+| `extensions` | `any[]` | Yes |  |
 | `name` | `string` | Yes |  |
 | `premium` | `boolean` | Yes |  |
 | `premium_plan_id` | `string` | No |  |
 | `premium_plan_name` | `string` | No |  |
 | `slug` | `string` | Yes |  |
-| `support` | `Record<string, any>` | Yes |  |
+| `supports` | `Record<string, any>` | Yes |  |
 
 ### Operations
 
@@ -3332,6 +3245,73 @@ Return a copy of the entity options.
 const gon = client.Gon()
 ```
 
+### Fields
+
+| Field | Type | Required | Description |
+| --- | --- | --- | --- |
+| `auth_mode` | `string` | No |  |
+| `auth_secret` | `string` | No |  |
+| `auth_username` | `string` | No |  |
+| `created_at` | `string` | No |  |
+| `disable_reason` | `string` | No |  |
+| `extra_header_1` | `string` | No |  |
+| `extra_header_2` | `string` | No |  |
+| `extra_value_1` | `string` | No |  |
+| `extra_value_2` | `string` | No |  |
+| `is_active` | `boolean` | No |  |
+| `mode` | `string` | No |  |
+| `name` | `string` | Yes |  |
+| `pending_validation` | `boolean` | No |  |
+| `priority` | `number` | No |  |
+| `slug_perm` | `string` | No |  |
+| `updated_at` | `string` | No |  |
+| `upstream_url` | `string` | Yes |  |
+| `verify_ssl` | `boolean` | No |  |
+
+### Operations
+
+#### `create(data: object, ctrl?: object)`
+
+Create a new entity with the given data.
+
+```ts
+const result = await client.Gon().create({
+  identifier: 'example_identifier',
+  owner: 'example_owner',
+  name: 'example_name',
+  upstream_url: 'example_upstream_url',
+})
+```
+
+#### `list(match: object, ctrl?: object)`
+
+List entities matching the given criteria. Returns an array.
+
+```ts
+const results = await client.Gon().list({ identifier: "example", owner: "example" })
+```
+
+#### `load(match: object, ctrl?: object)`
+
+Load a single entity matching the given criteria.
+
+```ts
+const result = await client.Gon().load({ identifier: 'identifier', owner: 'owner', slug_perm: 'slug_perm' })
+```
+
+#### `update(data: object, ctrl?: object)`
+
+Update an existing entity. The data must include the entity `id`.
+
+```ts
+const result = await client.Gon().update({
+  identifier: 'identifier',
+  owner: 'owner',
+  slug_perm: 'slug_perm',
+  // Fields to update
+})
+```
+
 ### Common Methods
 
 #### `data(data?: object)`
@@ -3347,433 +3327,6 @@ Get or set the entity match criteria. Works the same as `data()`.
 #### `make()`
 
 Create a new `GonEntity` instance with the same client and
-options.
-
-#### `client()`
-
-Return the parent `CloudsmithSDK` instance.
-
-#### `entopts()`
-
-Return a copy of the entity options.
-
-
----
-
-## Gon2Entity
-
-```ts
-const gon2 = client.Gon2()
-```
-
-### Common Methods
-
-#### `data(data?: object)`
-
-Get or set the entity data. When called with data, sets the entity's
-internal data and returns the current data. When called without
-arguments, returns a copy of the current data.
-
-#### `match(match?: object)`
-
-Get or set the entity match criteria. Works the same as `data()`.
-
-#### `make()`
-
-Create a new `Gon2Entity` instance with the same client and
-options.
-
-#### `client()`
-
-Return the parent `CloudsmithSDK` instance.
-
-#### `entopts()`
-
-Return a copy of the entity options.
-
-
----
-
-## Gon3Entity
-
-```ts
-const gon3 = client.Gon3()
-```
-
-### Fields
-
-| Field | Type | Required | Description |
-| --- | --- | --- | --- |
-| `auth_mode` | `string` | No |  |
-| `auth_secret` | `string` | No |  |
-| `auth_username` | `string` | No |  |
-| `created_at` | `string` | No |  |
-| `disable_reason` | `string` | No |  |
-| `extra_header_1` | `string` | No |  |
-| `extra_header_2` | `string` | No |  |
-| `extra_value_1` | `string` | No |  |
-| `extra_value_2` | `string` | No |  |
-| `is_active` | `boolean` | No |  |
-| `mode` | `string` | No |  |
-| `name` | `string` | Yes |  |
-| `pending_validation` | `boolean` | No |  |
-| `priority` | `number` | No |  |
-| `slug_perm` | `string` | No |  |
-| `updated_at` | `string` | No |  |
-| `upstream_url` | `string` | Yes |  |
-| `verify_ssl` | `boolean` | No |  |
-
-### Operations
-
-#### `list(match: object, ctrl?: object)`
-
-List entities matching the given criteria. Returns an array.
-
-```ts
-const results = await client.Gon3().list()
-```
-
-### Common Methods
-
-#### `data(data?: object)`
-
-Get or set the entity data. When called with data, sets the entity's
-internal data and returns the current data. When called without
-arguments, returns a copy of the current data.
-
-#### `match(match?: object)`
-
-Get or set the entity match criteria. Works the same as `data()`.
-
-#### `make()`
-
-Create a new `Gon3Entity` instance with the same client and
-options.
-
-#### `client()`
-
-Return the parent `CloudsmithSDK` instance.
-
-#### `entopts()`
-
-Return a copy of the entity options.
-
-
----
-
-## Gon4Entity
-
-```ts
-const gon4 = client.Gon4()
-```
-
-### Common Methods
-
-#### `data(data?: object)`
-
-Get or set the entity data. When called with data, sets the entity's
-internal data and returns the current data. When called without
-arguments, returns a copy of the current data.
-
-#### `match(match?: object)`
-
-Get or set the entity match criteria. Works the same as `data()`.
-
-#### `make()`
-
-Create a new `Gon4Entity` instance with the same client and
-options.
-
-#### `client()`
-
-Return the parent `CloudsmithSDK` instance.
-
-#### `entopts()`
-
-Return a copy of the entity options.
-
-
----
-
-## Gon5Entity
-
-```ts
-const gon5 = client.Gon5()
-```
-
-### Operations
-
-#### `create(data: object, ctrl?: object)`
-
-Create a new entity with the given data.
-
-```ts
-const result = await client.Gon5().create({
-  identifier: 'example_identifier',
-  owner: 'example_owner',
-})
-```
-
-### Common Methods
-
-#### `data(data?: object)`
-
-Get or set the entity data. When called with data, sets the entity's
-internal data and returns the current data. When called without
-arguments, returns a copy of the current data.
-
-#### `match(match?: object)`
-
-Get or set the entity match criteria. Works the same as `data()`.
-
-#### `make()`
-
-Create a new `Gon5Entity` instance with the same client and
-options.
-
-#### `client()`
-
-Return the parent `CloudsmithSDK` instance.
-
-#### `entopts()`
-
-Return a copy of the entity options.
-
-
----
-
-## Gon6Entity
-
-```ts
-const gon6 = client.Gon6()
-```
-
-### Fields
-
-| Field | Type | Required | Description |
-| --- | --- | --- | --- |
-| `auth_mode` | `string` | No |  |
-| `auth_secret` | `string` | No |  |
-| `auth_username` | `string` | No |  |
-| `created_at` | `string` | No |  |
-| `disable_reason` | `string` | No |  |
-| `extra_header_1` | `string` | No |  |
-| `extra_header_2` | `string` | No |  |
-| `extra_value_1` | `string` | No |  |
-| `extra_value_2` | `string` | No |  |
-| `is_active` | `boolean` | No |  |
-| `mode` | `string` | No |  |
-| `name` | `string` | Yes |  |
-| `pending_validation` | `boolean` | No |  |
-| `priority` | `number` | No |  |
-| `slug_perm` | `string` | No |  |
-| `updated_at` | `string` | No |  |
-| `upstream_url` | `string` | Yes |  |
-| `verify_ssl` | `boolean` | No |  |
-
-### Operations
-
-#### `load(match: object, ctrl?: object)`
-
-Load a single entity matching the given criteria.
-
-```ts
-const result = await client.Gon6().load({ identifier: 'identifier', owner: 'owner', slug_perm: 'slug_perm' })
-```
-
-### Common Methods
-
-#### `data(data?: object)`
-
-Get or set the entity data. When called with data, sets the entity's
-internal data and returns the current data. When called without
-arguments, returns a copy of the current data.
-
-#### `match(match?: object)`
-
-Get or set the entity match criteria. Works the same as `data()`.
-
-#### `make()`
-
-Create a new `Gon6Entity` instance with the same client and
-options.
-
-#### `client()`
-
-Return the parent `CloudsmithSDK` instance.
-
-#### `entopts()`
-
-Return a copy of the entity options.
-
-
----
-
-## Gon7Entity
-
-```ts
-const gon7 = client.Gon7()
-```
-
-### Common Methods
-
-#### `data(data?: object)`
-
-Get or set the entity data. When called with data, sets the entity's
-internal data and returns the current data. When called without
-arguments, returns a copy of the current data.
-
-#### `match(match?: object)`
-
-Get or set the entity match criteria. Works the same as `data()`.
-
-#### `make()`
-
-Create a new `Gon7Entity` instance with the same client and
-options.
-
-#### `client()`
-
-Return the parent `CloudsmithSDK` instance.
-
-#### `entopts()`
-
-Return a copy of the entity options.
-
-
----
-
-## Gon8Entity
-
-```ts
-const gon8 = client.Gon8()
-```
-
-### Fields
-
-| Field | Type | Required | Description |
-| --- | --- | --- | --- |
-| `auth_mode` | `string` | No |  |
-| `auth_secret` | `string` | No |  |
-| `auth_username` | `string` | No |  |
-| `created_at` | `string` | No |  |
-| `disable_reason` | `string` | No |  |
-| `extra_header_1` | `string` | No |  |
-| `extra_header_2` | `string` | No |  |
-| `extra_value_1` | `string` | No |  |
-| `extra_value_2` | `string` | No |  |
-| `is_active` | `boolean` | No |  |
-| `mode` | `string` | No |  |
-| `name` | `string` | Yes |  |
-| `pending_validation` | `boolean` | No |  |
-| `priority` | `number` | No |  |
-| `slug_perm` | `string` | No |  |
-| `updated_at` | `string` | No |  |
-| `upstream_url` | `string` | Yes |  |
-| `verify_ssl` | `boolean` | No |  |
-
-### Operations
-
-#### `update(data: object, ctrl?: object)`
-
-Update an existing entity. The data must include the entity `id`.
-
-```ts
-const result = await client.Gon8().update({
-  identifier: 'identifier',
-  owner: 'owner',
-  slug_perm: 'slug_perm',
-  // Fields to update
-})
-```
-
-### Common Methods
-
-#### `data(data?: object)`
-
-Get or set the entity data. When called with data, sets the entity's
-internal data and returns the current data. When called without
-arguments, returns a copy of the current data.
-
-#### `match(match?: object)`
-
-Get or set the entity match criteria. Works the same as `data()`.
-
-#### `make()`
-
-Create a new `Gon8Entity` instance with the same client and
-options.
-
-#### `client()`
-
-Return the parent `CloudsmithSDK` instance.
-
-#### `entopts()`
-
-Return a copy of the entity options.
-
-
----
-
-## Gon9Entity
-
-```ts
-const gon9 = client.Gon9()
-```
-
-### Fields
-
-| Field | Type | Required | Description |
-| --- | --- | --- | --- |
-| `auth_mode` | `string` | No |  |
-| `auth_secret` | `string` | No |  |
-| `auth_username` | `string` | No |  |
-| `created_at` | `string` | No |  |
-| `disable_reason` | `string` | No |  |
-| `extra_header_1` | `string` | No |  |
-| `extra_header_2` | `string` | No |  |
-| `extra_value_1` | `string` | No |  |
-| `extra_value_2` | `string` | No |  |
-| `is_active` | `boolean` | No |  |
-| `mode` | `string` | No |  |
-| `name` | `string` | Yes |  |
-| `pending_validation` | `boolean` | No |  |
-| `priority` | `number` | No |  |
-| `slug_perm` | `string` | No |  |
-| `updated_at` | `string` | No |  |
-| `upstream_url` | `string` | Yes |  |
-| `verify_ssl` | `boolean` | No |  |
-
-### Operations
-
-#### `update(data: object, ctrl?: object)`
-
-Update an existing entity. The data must include the entity `id`.
-
-```ts
-const result = await client.Gon9().update({
-  identifier: 'identifier',
-  owner: 'owner',
-  slug_perm: 'slug_perm',
-  // Fields to update
-})
-```
-
-### Common Methods
-
-#### `data(data?: object)`
-
-Get or set the entity data. When called with data, sets the entity's
-internal data and returns the current data. When called without
-arguments, returns a copy of the current data.
-
-#### `match(match?: object)`
-
-Get or set the entity match criteria. Works the same as `data()`.
-
-#### `make()`
-
-Create a new `Gon9Entity` instance with the same client and
 options.
 
 #### `client()`
@@ -3894,6 +3447,8 @@ Create a new entity with the given data.
 const result = await client.Helm().create({
   identifier: 'example_identifier',
   owner: 'example_owner',
+  name: 'example_name',
+  upstream_url: 'example_upstream_url',
 })
 ```
 
@@ -3902,7 +3457,7 @@ const result = await client.Helm().create({
 List entities matching the given criteria. Returns an array.
 
 ```ts
-const results = await client.Helm().list()
+const results = await client.Helm().list({ identifier: "example", owner: "example" })
 ```
 
 #### `load(match: object, ctrl?: object)`
@@ -3993,6 +3548,8 @@ Create a new entity with the given data.
 const result = await client.Hex().create({
   identifier: 'example_identifier',
   owner: 'example_owner',
+  name: 'example_name',
+  upstream_url: 'example_upstream_url',
 })
 ```
 
@@ -4001,7 +3558,7 @@ const result = await client.Hex().create({
 List entities matching the given criteria. Returns an array.
 
 ```ts
-const results = await client.Hex().list()
+const results = await client.Hex().list({ identifier: "example", owner: "example" })
 ```
 
 #### `load(match: object, ctrl?: object)`
@@ -4126,6 +3683,8 @@ Create a new entity with the given data.
 const result = await client.Huggingface().create({
   identifier: 'example_identifier',
   owner: 'example_owner',
+  name: 'example_name',
+  upstream_url: 'example_upstream_url',
 })
 ```
 
@@ -4134,7 +3693,7 @@ const result = await client.Huggingface().create({
 List entities matching the given criteria. Returns an array.
 
 ```ts
-const results = await client.Huggingface().list()
+const results = await client.Huggingface().list({ identifier: "example", owner: "example" })
 ```
 
 #### `load(match: object, ctrl?: object)`
@@ -4399,6 +3958,8 @@ Create a new entity with the given data.
 const result = await client.Maven().create({
   identifier: 'example_identifier',
   owner: 'example_owner',
+  name: 'example_name',
+  upstream_url: 'example_upstream_url',
 })
 ```
 
@@ -4407,7 +3968,7 @@ const result = await client.Maven().create({
 List entities matching the given criteria. Returns an array.
 
 ```ts
-const results = await client.Maven().list()
+const results = await client.Maven().list({ identifier: "example", owner: "example" })
 ```
 
 #### `load(match: object, ctrl?: object)`
@@ -4692,6 +4253,8 @@ Create a new entity with the given data.
 const result = await client.Npm().create({
   identifier: 'example_identifier',
   owner: 'example_owner',
+  name: 'example_name',
+  upstream_url: 'example_upstream_url',
 })
 ```
 
@@ -4700,7 +4263,7 @@ const result = await client.Npm().create({
 List entities matching the given criteria. Returns an array.
 
 ```ts
-const results = await client.Npm().list()
+const results = await client.Npm().list({ identifier: "example", owner: "example" })
 ```
 
 #### `load(match: object, ctrl?: object)`
@@ -4791,6 +4354,8 @@ Create a new entity with the given data.
 const result = await client.Nuget().create({
   identifier: 'example_identifier',
   owner: 'example_owner',
+  name: 'example_name',
+  upstream_url: 'example_upstream_url',
 })
 ```
 
@@ -4799,7 +4364,7 @@ const result = await client.Nuget().create({
 List entities matching the given criteria. Returns an array.
 
 ```ts
-const results = await client.Nuget().list()
+const results = await client.Nuget().list({ identifier: "example", owner: "example" })
 ```
 
 #### `load(match: object, ctrl?: object)`
@@ -4902,11 +4467,32 @@ const org = client.Org()
 | `name` | `string` | Yes |  |
 | `package` | `Record<string, any>` | Yes |  |
 | `policy` | `Record<string, any>` | Yes |  |
-| `reason` | `any[]` | Yes |  |
+| `reasons` | `any[]` | Yes |  |
 | `slug` | `string` | No |  |
 | `slug_perm` | `string` | No |  |
 | `tagline` | `string` | No |  |
-| `vulnerability_scan_result` | `Record<string, any>` | Yes |  |
+| `vulnerability_scan_results` | `Record<string, any>` | Yes |  |
+
+### Actions
+
+This entity exposes custom API actions in addition to the standard
+operations. Select one with `$action` in the call's argument; the
+remaining keys are sent as that action's payload.
+
+| Action | Route | Call |
+| --- | --- | --- |
+| `license_policy_violation` | `/orgs/{org}/license-policy-violation/` | `client.Org().list({ $action: 'license_policy_violation', ... })` |
+| `vulnerability_policy_violation` | `/orgs/{org}/vulnerability-policy-violation/` | `client.Org().list({ $action: 'vulnerability_policy_violation', ... })` |
+
+An action returns that action's OWN response, which is not necessarily a
+Org record — check the API definition for its shape.
+
+```ts
+const result = await client.Org().list({
+  $action: 'license_policy_violation',
+  /* ...the action's own arguments */
+})
+```
 
 ### Operations
 
@@ -4917,6 +4503,11 @@ Create a new entity with the given data.
 ```ts
 const result = await client.Org().create({
   id: 'example_id',
+  name: 'example_name',
+  package: {},
+  policy: {},
+  reasons: [],
+  vulnerability_scan_results: {},
 })
 ```
 
@@ -5009,6 +4600,9 @@ Create a new entity with the given data.
 ```ts
 const result = await client.OrganizationGroupSync().create({
   org_id: 'example_org_id',
+  idp_key: 'example_idp_key',
+  idp_value: 'example_idp_value',
+  team: 'example_team',
 })
 ```
 
@@ -5017,7 +4611,7 @@ const result = await client.OrganizationGroupSync().create({
 List entities matching the given criteria. Returns an array.
 
 ```ts
-const results = await client.OrganizationGroupSync().list()
+const results = await client.OrganizationGroupSync().list({ org_id: "example" })
 ```
 
 ### Common Methods
@@ -5115,7 +4709,7 @@ const organization_invite = client.OrganizationInvite()
 | `org` | `string` | No |  |
 | `role` | `string` | No |  |
 | `slug_perm` | `string` | No |  |
-| `team` | `any[]` | No |  |
+| `teams` | `any[]` | No |  |
 | `user` | `string` | No |  |
 | `user_url` | `string` | No |  |
 
@@ -5136,7 +4730,7 @@ const result = await client.OrganizationInvite().create({
 List entities matching the given criteria. Returns an array.
 
 ```ts
-const results = await client.OrganizationInvite().list()
+const results = await client.OrganizationInvite().list({ org_id: "example" })
 ```
 
 #### `update(data: object, ctrl?: object)`
@@ -5196,7 +4790,7 @@ const organization_invite_extend = client.OrganizationInviteExtend()
 | `org` | `string` | No |  |
 | `role` | `string` | No |  |
 | `slug_perm` | `string` | No |  |
-| `team` | `any[]` | No |  |
+| `teams` | `any[]` | No |  |
 | `user` | `string` | No |  |
 | `user_url` | `string` | No |  |
 
@@ -5271,7 +4865,7 @@ const organization_membership = client.OrganizationMembership()
 List entities matching the given criteria. Returns an array.
 
 ```ts
-const results = await client.OrganizationMembership().list()
+const results = await client.OrganizationMembership().list({ org_id: "example" })
 ```
 
 #### `load(match: object, ctrl?: object)`
@@ -5460,14 +5054,14 @@ const organization_package_license_policy = client.OrganizationPackageLicensePol
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `allow_unknown_license` | `boolean` | No |  |
+| `allow_unknown_licenses` | `boolean` | No |  |
 | `created_at` | `string` | No |  |
 | `description` | `string` | No |  |
 | `name` | `string` | Yes |  |
 | `on_violation_quarantine` | `boolean` | No |  |
 | `package_query_string` | `string` | No |  |
 | `slug_perm` | `string` | No |  |
-| `spdx_identifier` | `any[]` | Yes |  |
+| `spdx_identifiers` | `any[]` | Yes |  |
 | `updated_at` | `string` | No |  |
 
 ### Operations
@@ -5479,6 +5073,8 @@ Create a new entity with the given data.
 ```ts
 const result = await client.OrganizationPackageLicensePolicy().create({
   org_id: 'example_org_id',
+  name: 'example_name',
+  spdx_identifiers: [],
 })
 ```
 
@@ -5487,7 +5083,7 @@ const result = await client.OrganizationPackageLicensePolicy().create({
 List entities matching the given criteria. Returns an array.
 
 ```ts
-const results = await client.OrganizationPackageLicensePolicy().list()
+const results = await client.OrganizationPackageLicensePolicy().list({ org_id: "example" })
 ```
 
 #### `load(match: object, ctrl?: object)`
@@ -5567,6 +5163,7 @@ Create a new entity with the given data.
 ```ts
 const result = await client.OrganizationPackageVulnerabilityPolicy().create({
   org_id: 'example_org_id',
+  name: 'example_name',
 })
 ```
 
@@ -5575,7 +5172,7 @@ const result = await client.OrganizationPackageVulnerabilityPolicy().create({
 List entities matching the given criteria. Returns an array.
 
 ```ts
-const results = await client.OrganizationPackageVulnerabilityPolicy().list()
+const results = await client.OrganizationPackageVulnerabilityPolicy().list({ org_id: "example" })
 ```
 
 #### `load(match: object, ctrl?: object)`
@@ -5715,6 +5312,7 @@ Create a new entity with the given data.
 ```ts
 const result = await client.OrganizationTeam().create({
   org_id: 'example_org_id',
+  name: 'example_name',
 })
 ```
 
@@ -5723,7 +5321,7 @@ const result = await client.OrganizationTeam().create({
 List entities matching the given criteria. Returns an array.
 
 ```ts
-const results = await client.OrganizationTeam().list()
+const results = await client.OrganizationTeam().list({ org_id: "example" })
 ```
 
 #### `load(match: object, ctrl?: object)`
@@ -5797,6 +5395,8 @@ Create a new entity with the given data.
 const result = await client.OrganizationTeamMember().create({
   org_id: 'example_org_id',
   team_id: 'example_team_id',
+  role: 'example_role',
+  user: 'example_user',
 })
 ```
 
@@ -5805,7 +5405,7 @@ const result = await client.OrganizationTeamMember().create({
 List entities matching the given criteria. Returns an array.
 
 ```ts
-const results = await client.OrganizationTeamMember().list()
+const results = await client.OrganizationTeamMember().list({ org_id: "example", team_id: "example" })
 ```
 
 ### Common Methods
@@ -5904,40 +5504,6 @@ Return a copy of the entity options.
 
 ---
 
-## P2n2Entity
-
-```ts
-const p2n2 = client.P2n2()
-```
-
-### Common Methods
-
-#### `data(data?: object)`
-
-Get or set the entity data. When called with data, sets the entity's
-internal data and returns the current data. When called without
-arguments, returns a copy of the current data.
-
-#### `match(match?: object)`
-
-Get or set the entity match criteria. Works the same as `data()`.
-
-#### `make()`
-
-Create a new `P2n2Entity` instance with the same client and
-options.
-
-#### `client()`
-
-Return the parent `CloudsmithSDK` instance.
-
-#### `entopts()`
-
-Return a copy of the entity options.
-
-
----
-
 ## PackageEntity
 
 ```ts
@@ -5948,8 +5514,10 @@ const package_ = client.Package()
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `architecture` | `any[]` | No |  |
+| `active` | `number` | No |  |
+| `architectures` | `any[]` | No |  |
 | `backend_kind` | `number` | No |  |
+| `bandwidth` | `Record<string, any>` | Yes |  |
 | `cdn_url` | `string` | No |  |
 | `checksum_md5` | `string` | No |  |
 | `checksum_sha1` | `string` | No |  |
@@ -5963,17 +5531,18 @@ const package_ = client.Package()
 | `display_name` | `string` | No |  |
 | `distro` | `Record<string, any>` | Yes |  |
 | `distro_version` | `Record<string, any>` | No |  |
-| `download` | `number` | No |  |
+| `downloads` | `Record<string, any>` | Yes |  |
 | `epoch` | `number` | No |  |
 | `extension` | `string` | No |  |
-| `file` | `any[]` | No |  |
 | `filename` | `string` | No |  |
+| `files` | `any[]` | No |  |
 | `format` | `string` | No |  |
 | `format_url` | `string` | No |  |
 | `freeable_storage` | `number` | No |  |
 | `fully_qualified_name` | `string` | No |  |
-| `identifier` | `Record<string, any>` | No |  |
 | `identifier_perm` | `string` | No |  |
+| `identifiers` | `Record<string, any>` | No |  |
+| `inactive` | `number` | No |  |
 | `indexed` | `boolean` | No |  |
 | `is_cancellable` | `boolean` | No |  |
 | `is_copyable` | `boolean` | No |  |
@@ -5994,12 +5563,11 @@ const package_ = client.Package()
 | `name` | `string` | No |  |
 | `namespace` | `string` | No |  |
 | `namespace_url` | `string` | No |  |
-| `num_download` | `number` | Yes |  |
-| `num_file` | `number` | No |  |
+| `num_downloads` | `number` | Yes |  |
+| `num_files` | `number` | No |  |
 | `operator` | `string` | No |  |
 | `origin_repository` | `string` | No |  |
 | `origin_repository_url` | `string` | No |  |
-| `package` | `Record<string, any>` | Yes |  |
 | `package_type` | `number` | No |  |
 | `policy_violated` | `boolean` | No |  |
 | `release` | `string` | No |  |
@@ -6027,8 +5595,9 @@ const package_ = client.Package()
 | `summary` | `string` | No |  |
 | `sync_finished_at` | `string` | No |  |
 | `sync_progress` | `number` | No |  |
-| `tag` | `Record<string, any>` | No |  |
+| `tags` | `Record<string, any>` | No |  |
 | `tags_immutable` | `Record<string, any>` | No |  |
+| `total` | `number` | No |  |
 | `type_display` | `string` | No |  |
 | `uploaded_at` | `string` | No |  |
 | `uploader` | `string` | No |  |
@@ -6041,8 +5610,10 @@ const package_ = client.Package()
 
 | Field | load | list | create | remove |
 | --- | --- | --- | --- | --- |
-| `architecture` | - | - | - | - |
+| `active` | - | - | - | - |
+| `architectures` | - | - | - | - |
 | `backend_kind` | - | - | - | - |
+| `bandwidth` | - | - | - | - |
 | `cdn_url` | - | - | - | - |
 | `checksum_md5` | - | - | - | - |
 | `checksum_sha1` | - | - | - | - |
@@ -6056,17 +5627,18 @@ const package_ = client.Package()
 | `display_name` | - | - | - | - |
 | `distro` | - | - | - | - |
 | `distro_version` | - | - | - | - |
-| `download` | - | - | - | - |
+| `downloads` | - | Yes | Yes | - |
 | `epoch` | - | - | - | - |
 | `extension` | - | - | - | - |
-| `file` | - | - | - | - |
 | `filename` | - | - | - | - |
+| `files` | - | - | - | - |
 | `format` | - | - | - | - |
 | `format_url` | - | - | - | - |
 | `freeable_storage` | - | - | - | - |
 | `fully_qualified_name` | - | - | - | - |
-| `identifier` | - | - | - | - |
 | `identifier_perm` | - | - | - | - |
+| `identifiers` | - | - | - | - |
+| `inactive` | - | - | - | - |
 | `indexed` | - | - | - | - |
 | `is_cancellable` | - | - | - | - |
 | `is_copyable` | - | - | - | - |
@@ -6087,12 +5659,11 @@ const package_ = client.Package()
 | `name` | - | - | - | - |
 | `namespace` | - | - | - | - |
 | `namespace_url` | - | - | - | - |
-| `num_download` | - | - | - | - |
-| `num_file` | - | - | - | - |
+| `num_downloads` | - | - | - | - |
+| `num_files` | - | - | - | - |
 | `operator` | - | - | - | - |
 | `origin_repository` | - | - | - | - |
 | `origin_repository_url` | - | - | - | - |
-| `package` | - | - | - | - |
 | `package_type` | - | - | - | - |
 | `policy_violated` | - | - | - | - |
 | `release` | - | - | - | - |
@@ -6120,8 +5691,9 @@ const package_ = client.Package()
 | `summary` | - | - | - | - |
 | `sync_finished_at` | - | - | - | - |
 | `sync_progress` | - | - | - | - |
-| `tag` | - | - | - | - |
+| `tags` | - | - | - | - |
 | `tags_immutable` | - | - | - | - |
+| `total` | - | - | - | - |
 | `type_display` | - | - | - | - |
 | `uploaded_at` | - | - | - | - |
 | `uploader` | - | - | - | - |
@@ -6140,6 +5712,12 @@ Create a new entity with the given data.
 const result = await client.Package().create({
   owner: 'example_owner',
   repo: 'example_repo',
+  bandwidth: {},
+  count: 1,
+  distro: {},
+  downloads: {},
+  last_push: 'example_last_push',
+  num_downloads: 1,
 })
 ```
 
@@ -6148,7 +5726,7 @@ const result = await client.Package().create({
 List entities matching the given criteria. Returns an array.
 
 ```ts
-const results = await client.Package().list()
+const results = await client.Package().list({ owner: "example", repo: "example" })
 ```
 
 #### `load(match: object, ctrl?: object)`
@@ -6224,6 +5802,7 @@ Create a new entity with the given data.
 ```ts
 const result = await client.PackageDenyPolicy().create({
   org_id: 'example_org_id',
+  package_query_string: 'example_package_query_string',
 })
 ```
 
@@ -6232,7 +5811,7 @@ const result = await client.PackageDenyPolicy().create({
 List entities matching the given criteria. Returns an array.
 
 ```ts
-const results = await client.PackageDenyPolicy().list()
+const results = await client.PackageDenyPolicy().list({ org_id: "example" })
 ```
 
 #### `load(match: object, ctrl?: object)`
@@ -6393,12 +5972,19 @@ const package_license_policy_evaluation = client.PackageLicensePolicyEvaluation(
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
+| `allow_unknown_licenses` | `boolean` | No |  |
 | `created_at` | `string` | No |  |
+| `description` | `string` | No |  |
 | `evaluation_count` | `number` | No |  |
+| `name` | `string` | No |  |
+| `on_violation_quarantine` | `boolean` | No |  |
+| `package_query_string` | `string` | No |  |
 | `policy` | `Record<string, any>` | Yes |  |
 | `slug_perm` | `string` | No |  |
+| `spdx_identifiers` | `any[]` | Yes |  |
 | `status` | `string` | No |  |
 | `updated_at` | `string` | No |  |
+| `url` | `string` | No |  |
 | `violation_count` | `number` | No |  |
 
 ### Operations
@@ -6411,6 +5997,8 @@ Create a new entity with the given data.
 const result = await client.PackageLicensePolicyEvaluation().create({
   org_id: 'example_org_id',
   policy_slug_perm: 'example_policy_slug_perm',
+  policy: {},
+  spdx_identifiers: [],
 })
 ```
 
@@ -6419,7 +6007,7 @@ const result = await client.PackageLicensePolicyEvaluation().create({
 List entities matching the given criteria. Returns an array.
 
 ```ts
-const results = await client.PackageLicensePolicyEvaluation().list()
+const results = await client.PackageLicensePolicyEvaluation().list({ org_id: "example", policy_slug_perm: "example" })
 ```
 
 #### `load(match: object, ctrl?: object)`
@@ -6512,12 +6100,19 @@ const package_vulnerability_policy_evaluation = client.PackageVulnerabilityPolic
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
+| `allow_unknown_severity` | `boolean` | No |  |
 | `created_at` | `string` | No |  |
+| `description` | `string` | No |  |
 | `evaluation_count` | `number` | No |  |
+| `min_severity` | `string` | No |  |
+| `name` | `string` | No |  |
+| `on_violation_quarantine` | `boolean` | No |  |
+| `package_query_string` | `string` | No |  |
 | `policy` | `Record<string, any>` | No |  |
 | `slug_perm` | `string` | No |  |
 | `status` | `string` | No |  |
 | `updated_at` | `string` | No |  |
+| `url` | `string` | No |  |
 | `violation_count` | `number` | No |  |
 
 ### Operations
@@ -6538,7 +6133,7 @@ const result = await client.PackageVulnerabilityPolicyEvaluation().create({
 List entities matching the given criteria. Returns an array.
 
 ```ts
-const results = await client.PackageVulnerabilityPolicyEvaluation().list()
+const results = await client.PackageVulnerabilityPolicyEvaluation().list({ org_id: "example", policy_slug_perm: "example" })
 ```
 
 #### `load(match: object, ctrl?: object)`
@@ -6655,12 +6250,12 @@ const provider_setting = client.ProviderSetting()
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `claim` | `Record<string, any>` | Yes |  |
+| `claims` | `Record<string, any>` | Yes |  |
 | `enabled` | `boolean` | Yes |  |
 | `mapping_claim` | `string` | No |  |
 | `name` | `string` | Yes |  |
 | `provider_url` | `string` | Yes |  |
-| `service_account` | `any[]` | No |  |
+| `service_accounts` | `any[]` | No |  |
 | `slug` | `string` | No |  |
 | `slug_perm` | `string` | No |  |
 
@@ -6671,7 +6266,7 @@ const provider_setting = client.ProviderSetting()
 List entities matching the given criteria. Returns an array.
 
 ```ts
-const results = await client.ProviderSetting().list()
+const results = await client.ProviderSetting().list({ org_id: "example" })
 ```
 
 #### `load(match: object, ctrl?: object)`
@@ -6720,13 +6315,13 @@ const provider_settings_write = client.ProviderSettingsWrite()
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `claim` | `Record<string, any>` | Yes |  |
-| `dynamic_mapping` | `any[]` | No |  |
+| `claims` | `Record<string, any>` | Yes |  |
+| `dynamic_mappings` | `any[]` | No |  |
 | `enabled` | `boolean` | Yes |  |
 | `mapping_claim` | `string` | No |  |
 | `name` | `string` | Yes |  |
 | `provider_url` | `string` | Yes |  |
-| `service_account` | `any[]` | No |  |
+| `service_accounts` | `any[]` | No |  |
 | `slug` | `string` | No |  |
 | `slug_perm` | `string` | No |  |
 
@@ -6739,6 +6334,10 @@ Create a new entity with the given data.
 ```ts
 const result = await client.ProviderSettingsWrite().create({
   org_id: 'example_org_id',
+  claims: {},
+  enabled: true,
+  name: 'example_name',
+  provider_url: 'example_provider_url',
 })
 ```
 
@@ -6821,6 +6420,8 @@ Create a new entity with the given data.
 const result = await client.Python().create({
   identifier: 'example_identifier',
   owner: 'example_owner',
+  name: 'example_name',
+  upstream_url: 'example_upstream_url',
 })
 ```
 
@@ -6829,7 +6430,7 @@ const result = await client.Python().create({
 List entities matching the given criteria. Returns an array.
 
 ```ts
-const results = await client.Python().list()
+const results = await client.Python().list({ identifier: "example", owner: "example" })
 ```
 
 #### `load(match: object, ctrl?: object)`
@@ -6925,8 +6526,9 @@ const quota = client.Quota()
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
+| `display` | `Record<string, any>` | Yes |  |
 | `history` | `any[]` | Yes |  |
-| `usage` | `Record<string, any>` | Yes |  |
+| `raw` | `Record<string, any>` | Yes |  |
 
 ### Operations
 
@@ -7082,49 +6684,49 @@ const repo = client.Repo()
 | `content_kind` | `string` | No |  |
 | `contextual_auth_realm` | `boolean` | No |  |
 | `copy_own` | `boolean` | No |  |
-| `copy_package` | `string` | No |  |
+| `copy_packages` | `string` | No |  |
 | `cosign_signing_enabled` | `boolean` | No |  |
 | `created_at` | `string` | No |  |
 | `default_privilege` | `string` | No |  |
 | `delete_own` | `boolean` | No |  |
-| `delete_package` | `string` | No |  |
+| `delete_packages` | `string` | No |  |
 | `deleted_at` | `string` | No |  |
 | `description` | `string` | No |  |
-| `distribute` | `any[]` | No |  |
+| `distributes` | `any[]` | No |  |
 | `docker_refresh_tokens_enabled` | `boolean` | No |  |
-| `ecdsa_key` | `any[]` | No |  |
+| `ecdsa_keys` | `any[]` | No |  |
 | `enforce_eula` | `boolean` | No |  |
-| `gpg_key` | `any[]` | No |  |
-| `index_file` | `boolean` | No |  |
+| `gpg_keys` | `any[]` | No |  |
+| `index_files` | `boolean` | No |  |
 | `is_open_source` | `boolean` | No |  |
 | `is_private` | `boolean` | No |  |
 | `is_public` | `boolean` | No |  |
 | `manage_entitlements_privilege` | `string` | No |  |
 | `move_own` | `boolean` | No |  |
-| `move_package` | `string` | No |  |
+| `move_packages` | `string` | No |  |
 | `name` | `string` | Yes |  |
 | `namespace` | `string` | No |  |
 | `namespace_url` | `string` | No |  |
 | `nuget_native_signing_enabled` | `boolean` | No |  |
-| `num_download` | `number` | No |  |
-| `num_policy_violated_package` | `number` | No |  |
-| `num_quarantined_package` | `number` | No |  |
+| `num_downloads` | `number` | No |  |
+| `num_policy_violated_packages` | `number` | No |  |
+| `num_quarantined_packages` | `number` | No |  |
 | `open_source_license` | `string` | No |  |
 | `open_source_project_url` | `string` | No |  |
 | `package_count` | `number` | No |  |
 | `package_group_count` | `number` | No |  |
-| `proxy_npmj` | `boolean` | No |  |
+| `proxy_npmjs` | `boolean` | No |  |
 | `proxy_pypi` | `boolean` | No |  |
 | `raw_package_index_enabled` | `boolean` | No |  |
 | `raw_package_index_signatures_enabled` | `boolean` | No |  |
-| `replace_package` | `string` | No |  |
+| `replace_packages` | `string` | No |  |
 | `replace_packages_by_default` | `boolean` | No |  |
 | `repository_type` | `number` | No |  |
 | `repository_type_str` | `string` | No |  |
 | `resync_own` | `boolean` | No |  |
-| `resync_package` | `string` | No |  |
+| `resync_packages` | `string` | No |  |
 | `scan_own` | `boolean` | No |  |
-| `scan_package` | `string` | No |  |
+| `scan_packages` | `string` | No |  |
 | `self_html_url` | `string` | No |  |
 | `self_url` | `string` | No |  |
 | `show_setup_all` | `boolean` | No |  |
@@ -7135,14 +6737,34 @@ const repo = client.Repo()
 | `storage_region` | `string` | No |  |
 | `strict_npm_validation` | `boolean` | No |  |
 | `tag_pre_releases_as_latest` | `boolean` | No |  |
-| `use_debian_label` | `boolean` | No |  |
+| `use_debian_labels` | `boolean` | No |  |
 | `use_default_cargo_upstream` | `boolean` | No |  |
 | `use_entitlements_privilege` | `string` | No |  |
-| `use_noarch_package` | `boolean` | No |  |
-| `use_source_package` | `boolean` | No |  |
+| `use_noarch_packages` | `boolean` | No |  |
+| `use_source_packages` | `boolean` | No |  |
 | `use_vulnerability_scanning` | `boolean` | No |  |
 | `user_entitlements_enabled` | `boolean` | No |  |
-| `view_statistic` | `string` | No |  |
+| `view_statistics` | `string` | No |  |
+
+### Actions
+
+This entity exposes custom API actions in addition to the standard
+operations. Select one with `$action` in the call's argument; the
+remaining keys are sent as that action's payload.
+
+| Action | Route | Call |
+| --- | --- | --- |
+| `transfer_region` | `/repos/{owner}/{repo}/transfer-region/` | `client.Repo().create({ $action: 'transfer_region', ... })` |
+
+An action returns that action's OWN response, which is not necessarily a
+Repo record — check the API definition for its shape.
+
+```ts
+const result = await client.Repo().create({
+  $action: 'transfer_region',
+  /* ...the action's own arguments */
+})
+```
 
 ### Operations
 
@@ -7152,6 +6774,7 @@ Create a new entity with the given data.
 
 ```ts
 const result = await client.Repo().create({
+  name: 'example_name',
 })
 ```
 
@@ -7250,7 +6873,7 @@ const repository_audit_log = client.RepositoryAuditLog()
 List entities matching the given criteria. Returns an array.
 
 ```ts
-const results = await client.RepositoryAuditLog().list()
+const results = await client.RepositoryAuditLog().list({ owner: "example", repo: "example" })
 ```
 
 ### Common Methods
@@ -7536,6 +7159,7 @@ Create a new entity with the given data.
 const result = await client.RepositoryGpgKey().create({
   identifier: 'example_identifier',
   owner: 'example_owner',
+  comment: 'example_comment',
 })
 ```
 
@@ -7597,7 +7221,7 @@ const repository_privilege_input = client.RepositoryPrivilegeInput()
 List entities matching the given criteria. Returns an array.
 
 ```ts
-const results = await client.RepositoryPrivilegeInput().list()
+const results = await client.RepositoryPrivilegeInput().list({ identifier: "example", owner: "example" })
 ```
 
 ### Common Methods
@@ -7774,19 +7398,19 @@ const repository_token = client.RepositoryToken()
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `client` | `number` | No |  |
+| `clients` | `number` | No |  |
 | `created_at` | `string` | No |  |
 | `created_by` | `string` | No |  |
 | `created_by_url` | `string` | No |  |
 | `default` | `boolean` | No |  |
 | `disable_url` | `string` | No |  |
-| `download` | `number` | No |  |
+| `downloads` | `number` | No |  |
 | `enable_url` | `string` | No |  |
 | `eula_accepted` | `Record<string, any>` | No |  |
 | `eula_accepted_at` | `string` | No |  |
 | `eula_accepted_from` | `string` | No |  |
 | `eula_required` | `boolean` | No |  |
-| `has_limit` | `boolean` | No |  |
+| `has_limits` | `boolean` | No |  |
 | `identifier` | `number` | No |  |
 | `is_active` | `boolean` | No |  |
 | `is_limited` | `boolean` | No |  |
@@ -7794,8 +7418,8 @@ const repository_token = client.RepositoryToken()
 | `limit_bandwidth_unit` | `string` | No |  |
 | `limit_date_range_from` | `string` | No |  |
 | `limit_date_range_to` | `string` | No |  |
-| `limit_num_client` | `number` | No |  |
-| `limit_num_download` | `number` | No |  |
+| `limit_num_clients` | `number` | No |  |
+| `limit_num_downloads` | `number` | No |  |
 | `limit_package_query` | `string` | No |  |
 | `limit_path_query` | `string` | No |  |
 | `metadata` | `Record<string, any>` | No |  |
@@ -7824,6 +7448,7 @@ Create a new entity with the given data.
 const result = await client.RepositoryToken().create({
   owner: 'example_owner',
   repo: 'example_repo',
+  name: 'example_name',
 })
 ```
 
@@ -7832,7 +7457,7 @@ const result = await client.RepositoryToken().create({
 List entities matching the given criteria. Returns an array.
 
 ```ts
-const results = await client.RepositoryToken().list()
+const results = await client.RepositoryToken().list({ owner: "example", repo: "example" })
 ```
 
 #### `load(match: object, ctrl?: object)`
@@ -7894,19 +7519,19 @@ const repository_token_refresh = client.RepositoryTokenRefresh()
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `client` | `number` | No |  |
+| `clients` | `number` | No |  |
 | `created_at` | `string` | No |  |
 | `created_by` | `string` | No |  |
 | `created_by_url` | `string` | No |  |
 | `default` | `boolean` | No |  |
 | `disable_url` | `string` | No |  |
-| `download` | `number` | No |  |
+| `downloads` | `number` | No |  |
 | `enable_url` | `string` | No |  |
 | `eula_accepted` | `Record<string, any>` | No |  |
 | `eula_accepted_at` | `string` | No |  |
 | `eula_accepted_from` | `string` | No |  |
 | `eula_required` | `boolean` | No |  |
-| `has_limit` | `boolean` | No |  |
+| `has_limits` | `boolean` | No |  |
 | `identifier` | `number` | No |  |
 | `is_active` | `boolean` | No |  |
 | `is_limited` | `boolean` | No |  |
@@ -7914,8 +7539,8 @@ const repository_token_refresh = client.RepositoryTokenRefresh()
 | `limit_bandwidth_unit` | `string` | No |  |
 | `limit_date_range_from` | `string` | No |  |
 | `limit_date_range_to` | `string` | No |  |
-| `limit_num_client` | `number` | No |  |
-| `limit_num_download` | `number` | No |  |
+| `limit_num_clients` | `number` | No |  |
+| `limit_num_downloads` | `number` | No |  |
 | `limit_package_query` | `string` | No |  |
 | `limit_path_query` | `string` | No |  |
 | `metadata` | `Record<string, any>` | No |  |
@@ -7986,7 +7611,7 @@ const repository_token_sync = client.RepositoryTokenSync()
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `token` | `any[]` | No |  |
+| `tokens` | `any[]` | No |  |
 
 ### Operations
 
@@ -8044,7 +7669,8 @@ const repository_webhook = client.RepositoryWebhook()
 | `created_by_url` | `string` | No |  |
 | `disable_reason` | `number` | No |  |
 | `disable_reason_str` | `string` | No |  |
-| `event` | `any[]` | Yes |  |
+| `event` | `string` | Yes |  |
+| `events` | `any[]` | Yes |  |
 | `identifier` | `number` | No |  |
 | `is_active` | `boolean` | No |  |
 | `is_last_response_bad` | `boolean` | No |  |
@@ -8061,43 +7687,12 @@ const repository_webhook = client.RepositoryWebhook()
 | `self_url` | `string` | No |  |
 | `slug_perm` | `string` | No |  |
 | `target_url` | `string` | Yes |  |
-| `template` | `any[]` | Yes |  |
+| `template` | `string` | No |  |
+| `templates` | `any[]` | Yes |  |
 | `updated_at` | `string` | No |  |
 | `updated_by` | `string` | No |  |
 | `updated_by_url` | `string` | No |  |
 | `verify_ssl` | `boolean` | No |  |
-
-### Field Usage by Operation
-
-| Field | list | create | update |
-| --- | --- | --- | --- |
-| `created_at` | - | - | - |
-| `created_by` | - | - | - |
-| `created_by_url` | - | - | - |
-| `disable_reason` | - | - | - |
-| `disable_reason_str` | - | - | - |
-| `event` | - | - | - |
-| `identifier` | - | - | - |
-| `is_active` | - | - | - |
-| `is_last_response_bad` | - | - | - |
-| `last_response_status` | - | - | - |
-| `last_response_status_str` | - | - | - |
-| `num_sent` | - | - | - |
-| `package_query` | - | - | - |
-| `request_body_format` | - | - | - |
-| `request_body_format_str` | - | - | - |
-| `request_body_template_format` | - | - | - |
-| `request_body_template_format_str` | - | - | - |
-| `request_content_type` | - | - | - |
-| `secret_header` | - | - | - |
-| `self_url` | - | - | - |
-| `slug_perm` | - | - | - |
-| `target_url` | - | - | - |
-| `template` | Yes | - | - |
-| `updated_at` | - | - | - |
-| `updated_by` | - | - | - |
-| `updated_by_url` | - | - | - |
-| `verify_ssl` | - | - | - |
 
 ### Operations
 
@@ -8109,6 +7704,10 @@ Create a new entity with the given data.
 const result = await client.RepositoryWebhook().create({
   owner: 'example_owner',
   repo: 'example_repo',
+  event: 'example_event',
+  events: [],
+  target_url: 'example_target_url',
+  templates: [],
 })
 ```
 
@@ -8117,7 +7716,7 @@ const result = await client.RepositoryWebhook().create({
 List entities matching the given criteria. Returns an array.
 
 ```ts
-const results = await client.RepositoryWebhook().list()
+const results = await client.RepositoryWebhook().list({ owner: "example", repo: "example" })
 ```
 
 #### `update(data: object, ctrl?: object)`
@@ -8323,7 +7922,12 @@ const resources_rate_check = client.ResourcesRateCheck()
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `resource` | `Record<string, any>` | No |  |
+| `interval` | `number` | No |  |
+| `limit` | `number` | No |  |
+| `remaining` | `number` | No |  |
+| `reset` | `number` | No |  |
+| `reset_iso_8601` | `string` | No |  |
+| `throttled` | `boolean` | No |  |
 
 ### Operations
 
@@ -8454,7 +8058,7 @@ const rpm = client.Rpm()
 | `gpg_key_inline` | `string` | No |  |
 | `gpg_key_url` | `string` | No |  |
 | `gpg_verification` | `string` | No |  |
-| `include_source` | `boolean` | No |  |
+| `include_sources` | `boolean` | No |  |
 | `is_active` | `boolean` | No |  |
 | `mode` | `string` | No |  |
 | `name` | `string` | Yes |  |
@@ -8476,6 +8080,9 @@ Create a new entity with the given data.
 const result = await client.Rpm().create({
   identifier: 'example_identifier',
   owner: 'example_owner',
+  distro_version: 'example_distro_version',
+  name: 'example_name',
+  upstream_url: 'example_upstream_url',
 })
 ```
 
@@ -8484,7 +8091,7 @@ const result = await client.Rpm().create({
 List entities matching the given criteria. Returns an array.
 
 ```ts
-const results = await client.Rpm().list()
+const results = await client.Rpm().list({ identifier: "example", owner: "example" })
 ```
 
 #### `load(match: object, ctrl?: object)`
@@ -8609,6 +8216,8 @@ Create a new entity with the given data.
 const result = await client.Ruby().create({
   identifier: 'example_identifier',
   owner: 'example_owner',
+  name: 'example_name',
+  upstream_url: 'example_upstream_url',
 })
 ```
 
@@ -8617,7 +8226,7 @@ const result = await client.Ruby().create({
 List entities matching the given criteria. Returns an array.
 
 ```ts
-const results = await client.Ruby().list()
+const results = await client.Ruby().list({ identifier: "example", owner: "example" })
 ```
 
 #### `load(match: object, ctrl?: object)`
@@ -8790,7 +8399,27 @@ const service = client.Service()
 | `name` | `string` | Yes |  |
 | `role` | `string` | No |  |
 | `slug` | `string` | No |  |
-| `team` | `any[]` | No |  |
+| `teams` | `any[]` | No |  |
+
+### Actions
+
+This entity exposes custom API actions in addition to the standard
+operations. Select one with `$action` in the call's argument; the
+remaining keys are sent as that action's payload.
+
+| Action | Route | Call |
+| --- | --- | --- |
+| `refresh` | `/orgs/{org}/services/{service}/refresh/` | `client.Service().create({ $action: 'refresh', ... })` |
+
+An action returns that action's OWN response, which is not necessarily a
+Service record — check the API definition for its shape.
+
+```ts
+const result = await client.Service().create({
+  $action: 'refresh',
+  /* ...the action's own arguments */
+})
+```
 
 ### Operations
 
@@ -8801,6 +8430,7 @@ Create a new entity with the given data.
 ```ts
 const result = await client.Service().create({
   org_id: 'example_org_id',
+  name: 'example_name',
 })
 ```
 
@@ -8809,7 +8439,7 @@ const result = await client.Service().create({
 List entities matching the given criteria. Returns an array.
 
 ```ts
-const results = await client.Service().list()
+const results = await client.Service().list({ org_id: "example" })
 ```
 
 #### `load(match: object, ctrl?: object)`
@@ -9043,6 +8673,8 @@ Create a new entity with the given data.
 const result = await client.Swift().create({
   identifier: 'example_identifier',
   owner: 'example_owner',
+  name: 'example_name',
+  upstream_url: 'example_upstream_url',
 })
 ```
 
@@ -9051,7 +8683,7 @@ const result = await client.Swift().create({
 List entities matching the given criteria. Returns an array.
 
 ```ts
-const results = await client.Swift().list()
+const results = await client.Swift().list({ identifier: "example", owner: "example" })
 ```
 
 #### `load(match: object, ctrl?: object)`
@@ -9354,6 +8986,26 @@ const user = client.User()
 | `created` | `string` | No |  |
 | `key` | `string` | No |  |
 | `slug_perm` | `string` | No |  |
+
+### Actions
+
+This entity exposes custom API actions in addition to the standard
+operations. Select one with `$action` in the call's argument; the
+remaining keys are sent as that action's payload.
+
+| Action | Route | Call |
+| --- | --- | --- |
+| `token` | `/user/tokens/` | `client.User().list({ $action: 'token', ... })` |
+
+An action returns that action's OWN response, which is not necessarily a
+User record — check the API definition for its shape.
+
+```ts
+const result = await client.User().list({
+  $action: 'token',
+  /* ...the action's own arguments */
+})
+```
 
 ### Operations
 
@@ -9730,12 +9382,12 @@ const vulnerability = client.Vulnerability()
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
 | `created_at` | `string` | No |  |
-| `has_vulnerability` | `boolean` | No |  |
+| `has_vulnerabilities` | `boolean` | No |  |
 | `identifier` | `string` | Yes |  |
 | `max_severity` | `string` | No |  |
-| `num_vulnerability` | `number` | No |  |
+| `num_vulnerabilities` | `number` | No |  |
 | `package` | `Record<string, any>` | Yes |  |
-| `result` | `any[]` | Yes |  |
+| `results` | `any[]` | Yes |  |
 | `scan_id` | `number` | Yes |  |
 | `target` | `string` | Yes |  |
 | `type` | `string` | Yes |  |
@@ -9747,7 +9399,7 @@ const vulnerability = client.Vulnerability()
 List entities matching the given criteria. Returns an array.
 
 ```ts
-const results = await client.Vulnerability().list()
+const results = await client.Vulnerability().list({ owner: "example", repo: "example" })
 ```
 
 #### `load(match: object, ctrl?: object)`

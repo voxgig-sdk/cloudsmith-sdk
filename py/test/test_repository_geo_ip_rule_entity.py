@@ -6,9 +6,9 @@ import time
 
 import pytest
 
-from utility.voxgig_struct import voxgig_struct as vs
+from cloudsmith_sdk.utility.voxgig_struct import voxgig_struct as vs
 from cloudsmith_sdk import CloudsmithSDK
-from core import helpers
+from cloudsmith_sdk.core import helpers
 
 _TEST_DIR = os.path.dirname(os.path.abspath(__file__))
 from test import runner
@@ -52,7 +52,7 @@ class TestRepositoryGeoIpRuleEntity:
             "owner": setup["idmap"]["owner"],
         }
 
-        repository_geo_ip_rule_ref01_resdata_up0 = helpers.to_map(repository_geo_ip_rule_ref01_ent.update(repository_geo_ip_rule_ref01_data_up0_up, None))
+        repository_geo_ip_rule_ref01_resdata_up0 = helpers.to_map(runner.entity_data(repository_geo_ip_rule_ref01_ent.update(repository_geo_ip_rule_ref01_data_up0_up, None)))
         assert repository_geo_ip_rule_ref01_resdata_up0 is not None
 
         # LOAD

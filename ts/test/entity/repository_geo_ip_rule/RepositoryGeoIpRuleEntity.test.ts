@@ -64,7 +64,7 @@ describe('RepositoryGeoIpRuleEntity', async () => {
     const repository_geo_ip_rule_ref01_data_up0: any = {}
     repository_geo_ip_rule_ref01_data_up0 ['owner'] = setup.idmap['owner']
 
-    const repository_geo_ip_rule_ref01_resdata_up0 = await repository_geo_ip_rule_ref01_ent.update(repository_geo_ip_rule_ref01_data_up0)
+    const repository_geo_ip_rule_ref01_resdata_up0 = (await repository_geo_ip_rule_ref01_ent.update(repository_geo_ip_rule_ref01_data_up0)).data()
     assert(null != repository_geo_ip_rule_ref01_resdata_up0)
 
 

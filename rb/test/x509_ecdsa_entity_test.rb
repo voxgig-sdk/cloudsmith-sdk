@@ -26,7 +26,7 @@ class X509EcdsaEntityTest < Minitest::Test
     # The basic flow consumes synthetic IDs from the fixture. In live mode
     # without an *_ENTID env override, those IDs hit the live API and 4xx.
     if setup[:synthetic_only]
-      skip "live entity test uses synthetic IDs from fixture — set CLOUDSMITH_TEST_X____ECDSA_ENTID JSON to run live"
+      skip "live entity test uses synthetic IDs from fixture — set CLOUDSMITH_TEST_X509_ECDSA_ENTID JSON to run live"
       return
     end
     client = setup[:client]
@@ -68,18 +68,18 @@ def x509_ecdsa_basic_setup(extra)
   # Detect ENTID env override before envOverride consumes it. When live
   # mode is on without a real override, the basic test runs against synthetic
   # IDs from the fixture and 4xx's. Surface this so the test can skip.
-  entid_env_raw = ENV["CLOUDSMITH_TEST_X____ECDSA_ENTID"]
+  entid_env_raw = ENV["CLOUDSMITH_TEST_X509_ECDSA_ENTID"]
   idmap_overridden = !entid_env_raw.nil? && entid_env_raw.strip.start_with?("{")
 
   env = Runner.env_override({
-    "CLOUDSMITH_TEST_X____ECDSA_ENTID" => idmap,
+    "CLOUDSMITH_TEST_X509_ECDSA_ENTID" => idmap,
     "CLOUDSMITH_TEST_LIVE" => "FALSE",
     "CLOUDSMITH_TEST_EXPLAIN" => "FALSE",
     "CLOUDSMITH_APIKEY" => "NONE",
   })
 
   idmap_resolved = Helpers.to_map(
-    env["CLOUDSMITH_TEST_X____ECDSA_ENTID"])
+    env["CLOUDSMITH_TEST_X509_ECDSA_ENTID"])
   if idmap_resolved.nil?
     idmap_resolved = Helpers.to_map(idmap)
   end

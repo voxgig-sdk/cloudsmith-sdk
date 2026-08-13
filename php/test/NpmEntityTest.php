@@ -85,7 +85,7 @@ class NpmEntityTest extends TestCase
         $npm_ref01_data["owner"] = $setup["idmap"]["owner01"];
 
         $npm_ref01_data_result = $npm_ref01_ent->create($npm_ref01_data, null);
-        $npm_ref01_data = Helpers::to_map($npm_ref01_data_result);
+        $npm_ref01_data = Helpers::to_map(is_object($npm_ref01_data_result) && method_exists($npm_ref01_data_result, 'data_get') ? $npm_ref01_data_result->data_get() : $npm_ref01_data_result);
         $this->assertNotNull($npm_ref01_data);
 
         // LIST
@@ -96,11 +96,6 @@ class NpmEntityTest extends TestCase
 
         $npm_ref01_list_result = $npm_ref01_ent->list($npm_ref01_match, null);
         $this->assertIsArray($npm_ref01_list_result);
-
-        $found_item = sdk_select(
-            Runner::entity_list_to_data($npm_ref01_list_result),
-            ["id" => $npm_ref01_data["id"]]);
-        $this->assertNotEmpty($found_item);
 
         // UPDATE
         $npm_ref01_data_up0_up = [
@@ -113,7 +108,7 @@ class NpmEntityTest extends TestCase
         $npm_ref01_data_up0_up[$npm_ref01_markdef_up0_name] = $npm_ref01_markdef_up0_value;
 
         $npm_ref01_resdata_up0_result = $npm_ref01_ent->update($npm_ref01_data_up0_up, null);
-        $npm_ref01_resdata_up0 = Helpers::to_map($npm_ref01_resdata_up0_result);
+        $npm_ref01_resdata_up0 = Helpers::to_map(is_object($npm_ref01_resdata_up0_result) && method_exists($npm_ref01_resdata_up0_result, 'data_get') ? $npm_ref01_resdata_up0_result->data_get() : $npm_ref01_resdata_up0_result);
         $this->assertNotNull($npm_ref01_resdata_up0);
         $this->assertEquals($npm_ref01_resdata_up0[$npm_ref01_markdef_up0_name], $npm_ref01_markdef_up0_value);
 

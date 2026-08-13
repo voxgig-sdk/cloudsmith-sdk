@@ -46,7 +46,7 @@ class FileEntityTest extends TestCase
         $file_ref01_data["repo"] = $setup["idmap"]["repo01"];
 
         $file_ref01_data_result = $file_ref01_ent->create($file_ref01_data, null);
-        $file_ref01_data = Helpers::to_map($file_ref01_data_result);
+        $file_ref01_data = Helpers::to_map(is_object($file_ref01_data_result) && method_exists($file_ref01_data_result, 'data_get') ? $file_ref01_data_result->data_get() : $file_ref01_data_result);
         $this->assertNotNull($file_ref01_data);
 
     }

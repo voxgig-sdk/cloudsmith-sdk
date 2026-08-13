@@ -158,38 +158,6 @@ Create a new `GeoipEntity` instance. Pass `None` for no initial data.
 
 Create a new `GonEntity` instance. Pass `None` for no initial data.
 
-#### `Gon2(data=None)`
-
-Create a new `Gon2Entity` instance. Pass `None` for no initial data.
-
-#### `Gon3(data=None)`
-
-Create a new `Gon3Entity` instance. Pass `None` for no initial data.
-
-#### `Gon4(data=None)`
-
-Create a new `Gon4Entity` instance. Pass `None` for no initial data.
-
-#### `Gon5(data=None)`
-
-Create a new `Gon5Entity` instance. Pass `None` for no initial data.
-
-#### `Gon6(data=None)`
-
-Create a new `Gon6Entity` instance. Pass `None` for no initial data.
-
-#### `Gon7(data=None)`
-
-Create a new `Gon7Entity` instance. Pass `None` for no initial data.
-
-#### `Gon8(data=None)`
-
-Create a new `Gon8Entity` instance. Pass `None` for no initial data.
-
-#### `Gon9(data=None)`
-
-Create a new `Gon9Entity` instance. Pass `None` for no initial data.
-
 #### `Gpg(data=None)`
 
 Create a new `GpgEntity` instance. Pass `None` for no initial data.
@@ -325,10 +293,6 @@ Create a new `OssEntity` instance. Pass `None` for no initial data.
 #### `P2n(data=None)`
 
 Create a new `P2nEntity` instance. Pass `None` for no initial data.
-
-#### `P2n2(data=None)`
-
-Create a new `P2n2Entity` instance. Pass `None` for no initial data.
 
 #### `Package(data=None)`
 
@@ -813,6 +777,8 @@ Create a new entity with the given data. Returns the created entity data and rai
 result = client.Cargo().create({
     "identifier": "example_identifier",  # Any
     "owner": "example_owner",  # Any
+    "name": "example_name",  # str
+    "upstream_url": "example_upstream_url",  # str
 })
 ```
 
@@ -821,7 +787,7 @@ result = client.Cargo().create({
 List entities matching the given criteria. The match is optional — call `list()` with no argument to list all records. Returns a list and raises on error.
 
 ```python
-results = client.Cargo().list()
+results = client.Cargo().list({"identifier": "example", "owner": "example"})
 for cargo in results:
     print(cargo)
 ```
@@ -985,6 +951,8 @@ Create a new entity with the given data. Returns the created entity data and rai
 result = client.Composer().create({
     "identifier": "example_identifier",  # Any
     "owner": "example_owner",  # Any
+    "name": "example_name",  # str
+    "upstream_url": "example_upstream_url",  # str
 })
 ```
 
@@ -993,7 +961,7 @@ result = client.Composer().create({
 List entities matching the given criteria. The match is optional — call `list()` with no argument to list all records. Returns a list and raises on error.
 
 ```python
-results = client.Composer().list()
+results = client.Composer().list({"identifier": "example", "owner": "example"})
 for composer in results:
     print(composer)
 ```
@@ -1122,6 +1090,8 @@ Create a new entity with the given data. Returns the created entity data and rai
 result = client.Conda().create({
     "identifier": "example_identifier",  # Any
     "owner": "example_owner",  # Any
+    "name": "example_name",  # str
+    "upstream_url": "example_upstream_url",  # str
 })
 ```
 
@@ -1130,7 +1100,7 @@ result = client.Conda().create({
 List entities matching the given criteria. The match is optional — call `list()` with no argument to list all records. Returns a list and raises on error.
 
 ```python
-results = client.Conda().list()
+results = client.Conda().list({"identifier": "example", "owner": "example"})
 for conda in results:
     print(conda)
 ```
@@ -1259,6 +1229,8 @@ Create a new entity with the given data. Returns the created entity data and rai
 result = client.Cran().create({
     "identifier": "example_identifier",  # Any
     "owner": "example_owner",  # Any
+    "name": "example_name",  # str
+    "upstream_url": "example_upstream_url",  # str
 })
 ```
 
@@ -1267,7 +1239,7 @@ result = client.Cran().create({
 List entities matching the given criteria. The match is optional — call `list()` with no argument to list all records. Returns a list and raises on error.
 
 ```python
-results = client.Cran().list()
+results = client.Cran().list({"identifier": "example", "owner": "example"})
 for cran in results:
     print(cran)
 ```
@@ -1361,6 +1333,8 @@ Create a new entity with the given data. Returns the created entity data and rai
 result = client.Dart().create({
     "identifier": "example_identifier",  # Any
     "owner": "example_owner",  # Any
+    "name": "example_name",  # str
+    "upstream_url": "example_upstream_url",  # str
 })
 ```
 
@@ -1369,7 +1343,7 @@ result = client.Dart().create({
 List entities matching the given criteria. The match is optional — call `list()` with no argument to list all records. Returns a list and raises on error.
 
 ```python
-results = client.Dart().list()
+results = client.Dart().list({"identifier": "example", "owner": "example"})
 for dart in results:
     print(dart)
 ```
@@ -1440,7 +1414,7 @@ deb = client.Deb()
 | `component` | `str` | No |  |
 | `created_at` | `str` | No |  |
 | `disable_reason` | `str` | No |  |
-| `distro_version` | `list` | Yes |  |
+| `distro_versions` | `list` | Yes |  |
 | `extra_header_1` | `str` | No |  |
 | `extra_header_2` | `str` | No |  |
 | `extra_value_1` | `str` | No |  |
@@ -1448,7 +1422,7 @@ deb = client.Deb()
 | `gpg_key_inline` | `str` | No |  |
 | `gpg_key_url` | `str` | No |  |
 | `gpg_verification` | `str` | No |  |
-| `include_source` | `bool` | No |  |
+| `include_sources` | `bool` | No |  |
 | `is_active` | `bool` | No |  |
 | `mode` | `str` | No |  |
 | `name` | `str` | Yes |  |
@@ -1471,6 +1445,9 @@ Create a new entity with the given data. Returns the created entity data and rai
 result = client.Deb().create({
     "identifier": "example_identifier",  # Any
     "owner": "example_owner",  # Any
+    "distro_versions": [],  # list
+    "name": "example_name",  # str
+    "upstream_url": "example_upstream_url",  # str
 })
 ```
 
@@ -1479,7 +1456,7 @@ result = client.Deb().create({
 List entities matching the given criteria. The match is optional — call `list()` with no argument to list all records. Returns a list and raises on error.
 
 ```python
-results = client.Deb().list()
+results = client.Deb().list({"identifier": "example", "owner": "example"})
 for deb in results:
     print(deb)
 ```
@@ -1654,8 +1631,8 @@ distribution_full = client.DistributionFull()
 | `name` | `str` | Yes |  |
 | `self_url` | `str` | No |  |
 | `slug` | `str` | No |  |
-| `variant` | `str` | No |  |
-| `version` | `list` | No |  |
+| `variants` | `str` | No |  |
+| `versions` | `list` | No |  |
 
 ### Operations
 
@@ -1780,6 +1757,8 @@ Create a new entity with the given data. Returns the created entity data and rai
 result = client.Docker().create({
     "identifier": "example_identifier",  # Any
     "owner": "example_owner",  # Any
+    "name": "example_name",  # str
+    "upstream_url": "example_upstream_url",  # str
 })
 ```
 
@@ -1788,7 +1767,7 @@ result = client.Docker().create({
 List entities matching the given criteria. The match is optional — call `list()` with no argument to list all records. Returns a list and raises on error.
 
 ```python
-results = client.Docker().list()
+results = client.Docker().list({"identifier": "example", "owner": "example"})
 for docker in results:
     print(docker)
 ```
@@ -1863,7 +1842,7 @@ dynamic_mapping = client.DynamicMapping()
 List entities matching the given criteria. The match is optional — call `list()` with no argument to list all records. Returns a list and raises on error.
 
 ```python
-results = client.DynamicMapping().list()
+results = client.DynamicMapping().list({"org_id": "example", "provider_setting": "example"})
 for dynamic_mapping in results:
     print(dynamic_mapping)
 ```
@@ -1985,7 +1964,11 @@ entitlement = client.Entitlement()
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `token` | `dict` | Yes |  |
+| `active` | `int` | No |  |
+| `bandwidth` | `dict` | Yes |  |
+| `downloads` | `dict` | Yes |  |
+| `inactive` | `int` | No |  |
+| `total` | `int` | No |  |
 
 ### Operations
 
@@ -1998,6 +1981,8 @@ result = client.Entitlement().create({
     "identifier": "example_identifier",  # Any
     "owner": "example_owner",  # Any
     "repo": "example_repo",  # Any
+    "bandwidth": {},  # dict
+    "downloads": {},  # dict
 })
 ```
 
@@ -2140,14 +2125,14 @@ format = client.Format()
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
 | `description` | `str` | Yes |  |
-| `distribution` | `list` | No |  |
-| `extension` | `list` | Yes |  |
+| `distributions` | `list` | No |  |
+| `extensions` | `list` | Yes |  |
 | `name` | `str` | Yes |  |
 | `premium` | `bool` | Yes |  |
 | `premium_plan_id` | `str` | No |  |
 | `premium_plan_name` | `str` | No |  |
 | `slug` | `str` | Yes |  |
-| `support` | `dict` | Yes |  |
+| `supports` | `dict` | Yes |  |
 
 ### Operations
 
@@ -2239,6 +2224,75 @@ Return the entity name.
 gon = client.Gon()
 ```
 
+### Fields
+
+| Field | Type | Required | Description |
+| --- | --- | --- | --- |
+| `auth_mode` | `str` | No |  |
+| `auth_secret` | `str` | No |  |
+| `auth_username` | `str` | No |  |
+| `created_at` | `str` | No |  |
+| `disable_reason` | `str` | No |  |
+| `extra_header_1` | `str` | No |  |
+| `extra_header_2` | `str` | No |  |
+| `extra_value_1` | `str` | No |  |
+| `extra_value_2` | `str` | No |  |
+| `is_active` | `bool` | No |  |
+| `mode` | `str` | No |  |
+| `name` | `str` | Yes |  |
+| `pending_validation` | `bool` | No |  |
+| `priority` | `int` | No |  |
+| `slug_perm` | `str` | No |  |
+| `updated_at` | `str` | No |  |
+| `upstream_url` | `str` | Yes |  |
+| `verify_ssl` | `bool` | No |  |
+
+### Operations
+
+#### `create(reqdata, ctrl=None) -> dict`
+
+Create a new entity with the given data. Returns the created entity data and raises on error.
+
+```python
+result = client.Gon().create({
+    "identifier": "example_identifier",  # Any
+    "owner": "example_owner",  # Any
+    "name": "example_name",  # str
+    "upstream_url": "example_upstream_url",  # str
+})
+```
+
+#### `list(reqmatch=None, ctrl=None) -> list`
+
+List entities matching the given criteria. The match is optional — call `list()` with no argument to list all records. Returns a list and raises on error.
+
+```python
+results = client.Gon().list({"identifier": "example", "owner": "example"})
+for gon in results:
+    print(gon)
+```
+
+#### `load(reqmatch, ctrl=None) -> dict`
+
+Load a single entity matching the given criteria. Returns the entity data and raises on error.
+
+```python
+result = client.Gon().load({"identifier": "identifier", "owner": "owner", "slug_perm": "slug_perm"})
+```
+
+#### `update(reqdata, ctrl=None) -> dict`
+
+Update an existing entity. The data must include the entity `id`. Returns the updated entity data and raises on error.
+
+```python
+result = client.Gon().update({
+    "identifier": "identifier",
+    "owner": "owner",
+    "slug_perm": "slug_perm",
+    # Fields to update
+})
+```
+
 ### Common Methods
 
 #### `data_get() -> dict`
@@ -2260,443 +2314,6 @@ Set the entity match criteria.
 #### `make() -> Entity`
 
 Create a new `GonEntity` instance with the same options.
-
-#### `get_name() -> str`
-
-Return the entity name.
-
-
----
-
-## Gon2Entity
-
-```python
-gon2 = client.Gon2()
-```
-
-### Common Methods
-
-#### `data_get() -> dict`
-
-Get the entity data.
-
-#### `data_set(data)`
-
-Set the entity data.
-
-#### `match_get() -> dict`
-
-Get the entity match criteria.
-
-#### `match_set(match)`
-
-Set the entity match criteria.
-
-#### `make() -> Entity`
-
-Create a new `Gon2Entity` instance with the same options.
-
-#### `get_name() -> str`
-
-Return the entity name.
-
-
----
-
-## Gon3Entity
-
-```python
-gon3 = client.Gon3()
-```
-
-### Fields
-
-| Field | Type | Required | Description |
-| --- | --- | --- | --- |
-| `auth_mode` | `str` | No |  |
-| `auth_secret` | `str` | No |  |
-| `auth_username` | `str` | No |  |
-| `created_at` | `str` | No |  |
-| `disable_reason` | `str` | No |  |
-| `extra_header_1` | `str` | No |  |
-| `extra_header_2` | `str` | No |  |
-| `extra_value_1` | `str` | No |  |
-| `extra_value_2` | `str` | No |  |
-| `is_active` | `bool` | No |  |
-| `mode` | `str` | No |  |
-| `name` | `str` | Yes |  |
-| `pending_validation` | `bool` | No |  |
-| `priority` | `int` | No |  |
-| `slug_perm` | `str` | No |  |
-| `updated_at` | `str` | No |  |
-| `upstream_url` | `str` | Yes |  |
-| `verify_ssl` | `bool` | No |  |
-
-### Operations
-
-#### `list(reqmatch=None, ctrl=None) -> list`
-
-List entities matching the given criteria. The match is optional — call `list()` with no argument to list all records. Returns a list and raises on error.
-
-```python
-results = client.Gon3().list()
-for gon3 in results:
-    print(gon3)
-```
-
-### Common Methods
-
-#### `data_get() -> dict`
-
-Get the entity data.
-
-#### `data_set(data)`
-
-Set the entity data.
-
-#### `match_get() -> dict`
-
-Get the entity match criteria.
-
-#### `match_set(match)`
-
-Set the entity match criteria.
-
-#### `make() -> Entity`
-
-Create a new `Gon3Entity` instance with the same options.
-
-#### `get_name() -> str`
-
-Return the entity name.
-
-
----
-
-## Gon4Entity
-
-```python
-gon4 = client.Gon4()
-```
-
-### Common Methods
-
-#### `data_get() -> dict`
-
-Get the entity data.
-
-#### `data_set(data)`
-
-Set the entity data.
-
-#### `match_get() -> dict`
-
-Get the entity match criteria.
-
-#### `match_set(match)`
-
-Set the entity match criteria.
-
-#### `make() -> Entity`
-
-Create a new `Gon4Entity` instance with the same options.
-
-#### `get_name() -> str`
-
-Return the entity name.
-
-
----
-
-## Gon5Entity
-
-```python
-gon5 = client.Gon5()
-```
-
-### Operations
-
-#### `create(reqdata, ctrl=None) -> dict`
-
-Create a new entity with the given data. Returns the created entity data and raises on error.
-
-```python
-result = client.Gon5().create({
-    "identifier": "example_identifier",  # Any
-    "owner": "example_owner",  # Any
-})
-```
-
-### Common Methods
-
-#### `data_get() -> dict`
-
-Get the entity data.
-
-#### `data_set(data)`
-
-Set the entity data.
-
-#### `match_get() -> dict`
-
-Get the entity match criteria.
-
-#### `match_set(match)`
-
-Set the entity match criteria.
-
-#### `make() -> Entity`
-
-Create a new `Gon5Entity` instance with the same options.
-
-#### `get_name() -> str`
-
-Return the entity name.
-
-
----
-
-## Gon6Entity
-
-```python
-gon6 = client.Gon6()
-```
-
-### Fields
-
-| Field | Type | Required | Description |
-| --- | --- | --- | --- |
-| `auth_mode` | `str` | No |  |
-| `auth_secret` | `str` | No |  |
-| `auth_username` | `str` | No |  |
-| `created_at` | `str` | No |  |
-| `disable_reason` | `str` | No |  |
-| `extra_header_1` | `str` | No |  |
-| `extra_header_2` | `str` | No |  |
-| `extra_value_1` | `str` | No |  |
-| `extra_value_2` | `str` | No |  |
-| `is_active` | `bool` | No |  |
-| `mode` | `str` | No |  |
-| `name` | `str` | Yes |  |
-| `pending_validation` | `bool` | No |  |
-| `priority` | `int` | No |  |
-| `slug_perm` | `str` | No |  |
-| `updated_at` | `str` | No |  |
-| `upstream_url` | `str` | Yes |  |
-| `verify_ssl` | `bool` | No |  |
-
-### Operations
-
-#### `load(reqmatch, ctrl=None) -> dict`
-
-Load a single entity matching the given criteria. Returns the entity data and raises on error.
-
-```python
-result = client.Gon6().load({"identifier": "identifier", "owner": "owner", "slug_perm": "slug_perm"})
-```
-
-### Common Methods
-
-#### `data_get() -> dict`
-
-Get the entity data.
-
-#### `data_set(data)`
-
-Set the entity data.
-
-#### `match_get() -> dict`
-
-Get the entity match criteria.
-
-#### `match_set(match)`
-
-Set the entity match criteria.
-
-#### `make() -> Entity`
-
-Create a new `Gon6Entity` instance with the same options.
-
-#### `get_name() -> str`
-
-Return the entity name.
-
-
----
-
-## Gon7Entity
-
-```python
-gon7 = client.Gon7()
-```
-
-### Common Methods
-
-#### `data_get() -> dict`
-
-Get the entity data.
-
-#### `data_set(data)`
-
-Set the entity data.
-
-#### `match_get() -> dict`
-
-Get the entity match criteria.
-
-#### `match_set(match)`
-
-Set the entity match criteria.
-
-#### `make() -> Entity`
-
-Create a new `Gon7Entity` instance with the same options.
-
-#### `get_name() -> str`
-
-Return the entity name.
-
-
----
-
-## Gon8Entity
-
-```python
-gon8 = client.Gon8()
-```
-
-### Fields
-
-| Field | Type | Required | Description |
-| --- | --- | --- | --- |
-| `auth_mode` | `str` | No |  |
-| `auth_secret` | `str` | No |  |
-| `auth_username` | `str` | No |  |
-| `created_at` | `str` | No |  |
-| `disable_reason` | `str` | No |  |
-| `extra_header_1` | `str` | No |  |
-| `extra_header_2` | `str` | No |  |
-| `extra_value_1` | `str` | No |  |
-| `extra_value_2` | `str` | No |  |
-| `is_active` | `bool` | No |  |
-| `mode` | `str` | No |  |
-| `name` | `str` | Yes |  |
-| `pending_validation` | `bool` | No |  |
-| `priority` | `int` | No |  |
-| `slug_perm` | `str` | No |  |
-| `updated_at` | `str` | No |  |
-| `upstream_url` | `str` | Yes |  |
-| `verify_ssl` | `bool` | No |  |
-
-### Operations
-
-#### `update(reqdata, ctrl=None) -> dict`
-
-Update an existing entity. The data must include the entity `id`. Returns the updated entity data and raises on error.
-
-```python
-result = client.Gon8().update({
-    "identifier": "identifier",
-    "owner": "owner",
-    "slug_perm": "slug_perm",
-    # Fields to update
-})
-```
-
-### Common Methods
-
-#### `data_get() -> dict`
-
-Get the entity data.
-
-#### `data_set(data)`
-
-Set the entity data.
-
-#### `match_get() -> dict`
-
-Get the entity match criteria.
-
-#### `match_set(match)`
-
-Set the entity match criteria.
-
-#### `make() -> Entity`
-
-Create a new `Gon8Entity` instance with the same options.
-
-#### `get_name() -> str`
-
-Return the entity name.
-
-
----
-
-## Gon9Entity
-
-```python
-gon9 = client.Gon9()
-```
-
-### Fields
-
-| Field | Type | Required | Description |
-| --- | --- | --- | --- |
-| `auth_mode` | `str` | No |  |
-| `auth_secret` | `str` | No |  |
-| `auth_username` | `str` | No |  |
-| `created_at` | `str` | No |  |
-| `disable_reason` | `str` | No |  |
-| `extra_header_1` | `str` | No |  |
-| `extra_header_2` | `str` | No |  |
-| `extra_value_1` | `str` | No |  |
-| `extra_value_2` | `str` | No |  |
-| `is_active` | `bool` | No |  |
-| `mode` | `str` | No |  |
-| `name` | `str` | Yes |  |
-| `pending_validation` | `bool` | No |  |
-| `priority` | `int` | No |  |
-| `slug_perm` | `str` | No |  |
-| `updated_at` | `str` | No |  |
-| `upstream_url` | `str` | Yes |  |
-| `verify_ssl` | `bool` | No |  |
-
-### Operations
-
-#### `update(reqdata, ctrl=None) -> dict`
-
-Update an existing entity. The data must include the entity `id`. Returns the updated entity data and raises on error.
-
-```python
-result = client.Gon9().update({
-    "identifier": "identifier",
-    "owner": "owner",
-    "slug_perm": "slug_perm",
-    # Fields to update
-})
-```
-
-### Common Methods
-
-#### `data_get() -> dict`
-
-Get the entity data.
-
-#### `data_set(data)`
-
-Set the entity data.
-
-#### `match_get() -> dict`
-
-Get the entity match criteria.
-
-#### `match_set(match)`
-
-Set the entity match criteria.
-
-#### `make() -> Entity`
-
-Create a new `Gon9Entity` instance with the same options.
 
 #### `get_name() -> str`
 
@@ -2814,6 +2431,8 @@ Create a new entity with the given data. Returns the created entity data and rai
 result = client.Helm().create({
     "identifier": "example_identifier",  # Any
     "owner": "example_owner",  # Any
+    "name": "example_name",  # str
+    "upstream_url": "example_upstream_url",  # str
 })
 ```
 
@@ -2822,7 +2441,7 @@ result = client.Helm().create({
 List entities matching the given criteria. The match is optional — call `list()` with no argument to list all records. Returns a list and raises on error.
 
 ```python
-results = client.Helm().list()
+results = client.Helm().list({"identifier": "example", "owner": "example"})
 for helm in results:
     print(helm)
 ```
@@ -2916,6 +2535,8 @@ Create a new entity with the given data. Returns the created entity data and rai
 result = client.Hex().create({
     "identifier": "example_identifier",  # Any
     "owner": "example_owner",  # Any
+    "name": "example_name",  # str
+    "upstream_url": "example_upstream_url",  # str
 })
 ```
 
@@ -2924,7 +2545,7 @@ result = client.Hex().create({
 List entities matching the given criteria. The match is optional — call `list()` with no argument to list all records. Returns a list and raises on error.
 
 ```python
-results = client.Hex().list()
+results = client.Hex().list({"identifier": "example", "owner": "example"})
 for hex in results:
     print(hex)
 ```
@@ -3053,6 +2674,8 @@ Create a new entity with the given data. Returns the created entity data and rai
 result = client.Huggingface().create({
     "identifier": "example_identifier",  # Any
     "owner": "example_owner",  # Any
+    "name": "example_name",  # str
+    "upstream_url": "example_upstream_url",  # str
 })
 ```
 
@@ -3061,7 +2684,7 @@ result = client.Huggingface().create({
 List entities matching the given criteria. The match is optional — call `list()` with no argument to list all records. Returns a list and raises on error.
 
 ```python
-results = client.Huggingface().list()
+results = client.Huggingface().list({"identifier": "example", "owner": "example"})
 for huggingface in results:
     print(huggingface)
 ```
@@ -3334,6 +2957,8 @@ Create a new entity with the given data. Returns the created entity data and rai
 result = client.Maven().create({
     "identifier": "example_identifier",  # Any
     "owner": "example_owner",  # Any
+    "name": "example_name",  # str
+    "upstream_url": "example_upstream_url",  # str
 })
 ```
 
@@ -3342,7 +2967,7 @@ result = client.Maven().create({
 List entities matching the given criteria. The match is optional — call `list()` with no argument to list all records. Returns a list and raises on error.
 
 ```python
-results = client.Maven().list()
+results = client.Maven().list({"identifier": "example", "owner": "example"})
 for maven in results:
     print(maven)
 ```
@@ -3636,6 +3261,8 @@ Create a new entity with the given data. Returns the created entity data and rai
 result = client.Npm().create({
     "identifier": "example_identifier",  # Any
     "owner": "example_owner",  # Any
+    "name": "example_name",  # str
+    "upstream_url": "example_upstream_url",  # str
 })
 ```
 
@@ -3644,7 +3271,7 @@ result = client.Npm().create({
 List entities matching the given criteria. The match is optional — call `list()` with no argument to list all records. Returns a list and raises on error.
 
 ```python
-results = client.Npm().list()
+results = client.Npm().list({"identifier": "example", "owner": "example"})
 for npm in results:
     print(npm)
 ```
@@ -3738,6 +3365,8 @@ Create a new entity with the given data. Returns the created entity data and rai
 result = client.Nuget().create({
     "identifier": "example_identifier",  # Any
     "owner": "example_owner",  # Any
+    "name": "example_name",  # str
+    "upstream_url": "example_upstream_url",  # str
 })
 ```
 
@@ -3746,7 +3375,7 @@ result = client.Nuget().create({
 List entities matching the given criteria. The match is optional — call `list()` with no argument to list all records. Returns a list and raises on error.
 
 ```python
-results = client.Nuget().list()
+results = client.Nuget().list({"identifier": "example", "owner": "example"})
 for nuget in results:
     print(nuget)
 ```
@@ -3853,11 +3482,11 @@ org = client.Org()
 | `name` | `str` | Yes |  |
 | `package` | `dict` | Yes |  |
 | `policy` | `dict` | Yes |  |
-| `reason` | `list` | Yes |  |
+| `reasons` | `list` | Yes |  |
 | `slug` | `str` | No |  |
 | `slug_perm` | `str` | No |  |
 | `tagline` | `str` | No |  |
-| `vulnerability_scan_result` | `dict` | Yes |  |
+| `vulnerability_scan_results` | `dict` | Yes |  |
 
 ### Operations
 
@@ -3868,6 +3497,11 @@ Create a new entity with the given data. Returns the created entity data and rai
 ```python
 result = client.Org().create({
     "id": "example_id",  # str
+    "name": "example_name",  # str
+    "package": {},  # dict
+    "policy": {},  # dict
+    "reasons": [],  # list
+    "vulnerability_scan_results": {},  # dict
 })
 ```
 
@@ -3963,6 +3597,9 @@ Create a new entity with the given data. Returns the created entity data and rai
 ```python
 result = client.OrganizationGroupSync().create({
     "org_id": "example_org_id",  # str
+    "idp_key": "example_idp_key",  # str
+    "idp_value": "example_idp_value",  # str
+    "team": "example_team",  # str
 })
 ```
 
@@ -3971,7 +3608,7 @@ result = client.OrganizationGroupSync().create({
 List entities matching the given criteria. The match is optional — call `list()` with no argument to list all records. Returns a list and raises on error.
 
 ```python
-results = client.OrganizationGroupSync().list()
+results = client.OrganizationGroupSync().list({"org_id": "example"})
 for organization_group_sync in results:
     print(organization_group_sync)
 ```
@@ -4073,7 +3710,7 @@ organization_invite = client.OrganizationInvite()
 | `org` | `str` | No |  |
 | `role` | `str` | No |  |
 | `slug_perm` | `str` | No |  |
-| `team` | `list` | No |  |
+| `teams` | `list` | No |  |
 | `user` | `str` | No |  |
 | `user_url` | `str` | No |  |
 
@@ -4094,7 +3731,7 @@ result = client.OrganizationInvite().create({
 List entities matching the given criteria. The match is optional — call `list()` with no argument to list all records. Returns a list and raises on error.
 
 ```python
-results = client.OrganizationInvite().list()
+results = client.OrganizationInvite().list({"org_id": "example"})
 for organization_invite in results:
     print(organization_invite)
 ```
@@ -4157,7 +3794,7 @@ organization_invite_extend = client.OrganizationInviteExtend()
 | `org` | `str` | No |  |
 | `role` | `str` | No |  |
 | `slug_perm` | `str` | No |  |
-| `team` | `list` | No |  |
+| `teams` | `list` | No |  |
 | `user` | `str` | No |  |
 | `user_url` | `str` | No |  |
 
@@ -4233,7 +3870,7 @@ organization_membership = client.OrganizationMembership()
 List entities matching the given criteria. The match is optional — call `list()` with no argument to list all records. Returns a list and raises on error.
 
 ```python
-results = client.OrganizationMembership().list()
+results = client.OrganizationMembership().list({"org_id": "example"})
 for organization_membership in results:
     print(organization_membership)
 ```
@@ -4427,14 +4064,14 @@ organization_package_license_policy = client.OrganizationPackageLicensePolicy()
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `allow_unknown_license` | `bool` | No |  |
+| `allow_unknown_licenses` | `bool` | No |  |
 | `created_at` | `str` | No |  |
 | `description` | `str` | No |  |
 | `name` | `str` | Yes |  |
 | `on_violation_quarantine` | `bool` | No |  |
 | `package_query_string` | `str` | No |  |
 | `slug_perm` | `str` | No |  |
-| `spdx_identifier` | `list` | Yes |  |
+| `spdx_identifiers` | `list` | Yes |  |
 | `updated_at` | `str` | No |  |
 
 ### Operations
@@ -4446,6 +4083,8 @@ Create a new entity with the given data. Returns the created entity data and rai
 ```python
 result = client.OrganizationPackageLicensePolicy().create({
     "org_id": "example_org_id",  # str
+    "name": "example_name",  # str
+    "spdx_identifiers": [],  # list
 })
 ```
 
@@ -4454,7 +4093,7 @@ result = client.OrganizationPackageLicensePolicy().create({
 List entities matching the given criteria. The match is optional — call `list()` with no argument to list all records. Returns a list and raises on error.
 
 ```python
-results = client.OrganizationPackageLicensePolicy().list()
+results = client.OrganizationPackageLicensePolicy().list({"org_id": "example"})
 for organization_package_license_policy in results:
     print(organization_package_license_policy)
 ```
@@ -4537,6 +4176,7 @@ Create a new entity with the given data. Returns the created entity data and rai
 ```python
 result = client.OrganizationPackageVulnerabilityPolicy().create({
     "org_id": "example_org_id",  # str
+    "name": "example_name",  # str
 })
 ```
 
@@ -4545,7 +4185,7 @@ result = client.OrganizationPackageVulnerabilityPolicy().create({
 List entities matching the given criteria. The match is optional — call `list()` with no argument to list all records. Returns a list and raises on error.
 
 ```python
-results = client.OrganizationPackageVulnerabilityPolicy().list()
+results = client.OrganizationPackageVulnerabilityPolicy().list({"org_id": "example"})
 for organization_package_vulnerability_policy in results:
     print(organization_package_vulnerability_policy)
 ```
@@ -4689,6 +4329,7 @@ Create a new entity with the given data. Returns the created entity data and rai
 ```python
 result = client.OrganizationTeam().create({
     "org_id": "example_org_id",  # str
+    "name": "example_name",  # str
 })
 ```
 
@@ -4697,7 +4338,7 @@ result = client.OrganizationTeam().create({
 List entities matching the given criteria. The match is optional — call `list()` with no argument to list all records. Returns a list and raises on error.
 
 ```python
-results = client.OrganizationTeam().list()
+results = client.OrganizationTeam().list({"org_id": "example"})
 for organization_team in results:
     print(organization_team)
 ```
@@ -4774,6 +4415,8 @@ Create a new entity with the given data. Returns the created entity data and rai
 result = client.OrganizationTeamMember().create({
     "org_id": "example_org_id",  # str
     "team_id": "example_team_id",  # str
+    "role": "example_role",  # str
+    "user": "example_user",  # str
 })
 ```
 
@@ -4782,7 +4425,7 @@ result = client.OrganizationTeamMember().create({
 List entities matching the given criteria. The match is optional — call `list()` with no argument to list all records. Returns a list and raises on error.
 
 ```python
-results = client.OrganizationTeamMember().list()
+results = client.OrganizationTeamMember().list({"org_id": "example", "team_id": "example"})
 for organization_team_member in results:
     print(organization_team_member)
 ```
@@ -4886,41 +4529,6 @@ Return the entity name.
 
 ---
 
-## P2n2Entity
-
-```python
-p2n2 = client.P2n2()
-```
-
-### Common Methods
-
-#### `data_get() -> dict`
-
-Get the entity data.
-
-#### `data_set(data)`
-
-Set the entity data.
-
-#### `match_get() -> dict`
-
-Get the entity match criteria.
-
-#### `match_set(match)`
-
-Set the entity match criteria.
-
-#### `make() -> Entity`
-
-Create a new `P2n2Entity` instance with the same options.
-
-#### `get_name() -> str`
-
-Return the entity name.
-
-
----
-
 ## PackageEntity
 
 ```python
@@ -4931,8 +4539,10 @@ package = client.Package()
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `architecture` | `list` | No |  |
+| `active` | `int` | No |  |
+| `architectures` | `list` | No |  |
 | `backend_kind` | `int` | No |  |
+| `bandwidth` | `dict` | Yes |  |
 | `cdn_url` | `str` | No |  |
 | `checksum_md5` | `str` | No |  |
 | `checksum_sha1` | `str` | No |  |
@@ -4946,17 +4556,18 @@ package = client.Package()
 | `display_name` | `str` | No |  |
 | `distro` | `dict` | Yes |  |
 | `distro_version` | `dict` | No |  |
-| `download` | `int` | No |  |
+| `downloads` | `dict` | Yes |  |
 | `epoch` | `int` | No |  |
 | `extension` | `str` | No |  |
-| `file` | `list` | No |  |
 | `filename` | `str` | No |  |
+| `files` | `list` | No |  |
 | `format` | `str` | No |  |
 | `format_url` | `str` | No |  |
 | `freeable_storage` | `int` | No |  |
 | `fully_qualified_name` | `str` | No |  |
-| `identifier` | `dict` | No |  |
 | `identifier_perm` | `str` | No |  |
+| `identifiers` | `dict` | No |  |
+| `inactive` | `int` | No |  |
 | `indexed` | `bool` | No |  |
 | `is_cancellable` | `bool` | No |  |
 | `is_copyable` | `bool` | No |  |
@@ -4977,12 +4588,11 @@ package = client.Package()
 | `name` | `str` | No |  |
 | `namespace` | `str` | No |  |
 | `namespace_url` | `str` | No |  |
-| `num_download` | `int` | Yes |  |
-| `num_file` | `int` | No |  |
+| `num_downloads` | `int` | Yes |  |
+| `num_files` | `int` | No |  |
 | `operator` | `str` | No |  |
 | `origin_repository` | `str` | No |  |
 | `origin_repository_url` | `str` | No |  |
-| `package` | `dict` | Yes |  |
 | `package_type` | `int` | No |  |
 | `policy_violated` | `bool` | No |  |
 | `release` | `str` | No |  |
@@ -5010,8 +4620,9 @@ package = client.Package()
 | `summary` | `str` | No |  |
 | `sync_finished_at` | `str` | No |  |
 | `sync_progress` | `int` | No |  |
-| `tag` | `dict` | No |  |
+| `tags` | `dict` | No |  |
 | `tags_immutable` | `dict` | No |  |
+| `total` | `int` | No |  |
 | `type_display` | `str` | No |  |
 | `uploaded_at` | `str` | No |  |
 | `uploader` | `str` | No |  |
@@ -5024,8 +4635,10 @@ package = client.Package()
 
 | Field | load | list | create | remove |
 | --- | --- | --- | --- | --- |
-| `architecture` | - | - | - | - |
+| `active` | - | - | - | - |
+| `architectures` | - | - | - | - |
 | `backend_kind` | - | - | - | - |
+| `bandwidth` | - | - | - | - |
 | `cdn_url` | - | - | - | - |
 | `checksum_md5` | - | - | - | - |
 | `checksum_sha1` | - | - | - | - |
@@ -5039,17 +4652,18 @@ package = client.Package()
 | `display_name` | - | - | - | - |
 | `distro` | - | - | - | - |
 | `distro_version` | - | - | - | - |
-| `download` | - | - | - | - |
+| `downloads` | - | Yes | Yes | - |
 | `epoch` | - | - | - | - |
 | `extension` | - | - | - | - |
-| `file` | - | - | - | - |
 | `filename` | - | - | - | - |
+| `files` | - | - | - | - |
 | `format` | - | - | - | - |
 | `format_url` | - | - | - | - |
 | `freeable_storage` | - | - | - | - |
 | `fully_qualified_name` | - | - | - | - |
-| `identifier` | - | - | - | - |
 | `identifier_perm` | - | - | - | - |
+| `identifiers` | - | - | - | - |
+| `inactive` | - | - | - | - |
 | `indexed` | - | - | - | - |
 | `is_cancellable` | - | - | - | - |
 | `is_copyable` | - | - | - | - |
@@ -5070,12 +4684,11 @@ package = client.Package()
 | `name` | - | - | - | - |
 | `namespace` | - | - | - | - |
 | `namespace_url` | - | - | - | - |
-| `num_download` | - | - | - | - |
-| `num_file` | - | - | - | - |
+| `num_downloads` | - | - | - | - |
+| `num_files` | - | - | - | - |
 | `operator` | - | - | - | - |
 | `origin_repository` | - | - | - | - |
 | `origin_repository_url` | - | - | - | - |
-| `package` | - | - | - | - |
 | `package_type` | - | - | - | - |
 | `policy_violated` | - | - | - | - |
 | `release` | - | - | - | - |
@@ -5103,8 +4716,9 @@ package = client.Package()
 | `summary` | - | - | - | - |
 | `sync_finished_at` | - | - | - | - |
 | `sync_progress` | - | - | - | - |
-| `tag` | - | - | - | - |
+| `tags` | - | - | - | - |
 | `tags_immutable` | - | - | - | - |
+| `total` | - | - | - | - |
 | `type_display` | - | - | - | - |
 | `uploaded_at` | - | - | - | - |
 | `uploader` | - | - | - | - |
@@ -5123,6 +4737,12 @@ Create a new entity with the given data. Returns the created entity data and rai
 result = client.Package().create({
     "owner": "example_owner",  # Any
     "repo": "example_repo",  # Any
+    "bandwidth": {},  # dict
+    "count": 1,  # int
+    "distro": {},  # dict
+    "downloads": {},  # dict
+    "last_push": "example_last_push",  # str
+    "num_downloads": 1,  # int
 })
 ```
 
@@ -5131,7 +4751,7 @@ result = client.Package().create({
 List entities matching the given criteria. The match is optional — call `list()` with no argument to list all records. Returns a list and raises on error.
 
 ```python
-results = client.Package().list()
+results = client.Package().list({"owner": "example", "repo": "example"})
 for package in results:
     print(package)
 ```
@@ -5210,6 +4830,7 @@ Create a new entity with the given data. Returns the created entity data and rai
 ```python
 result = client.PackageDenyPolicy().create({
     "org_id": "example_org_id",  # str
+    "package_query_string": "example_package_query_string",  # str
 })
 ```
 
@@ -5218,7 +4839,7 @@ result = client.PackageDenyPolicy().create({
 List entities matching the given criteria. The match is optional — call `list()` with no argument to list all records. Returns a list and raises on error.
 
 ```python
-results = client.PackageDenyPolicy().list()
+results = client.PackageDenyPolicy().list({"org_id": "example"})
 for package_deny_policy in results:
     print(package_deny_policy)
 ```
@@ -5384,12 +5005,19 @@ package_license_policy_evaluation = client.PackageLicensePolicyEvaluation()
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
+| `allow_unknown_licenses` | `bool` | No |  |
 | `created_at` | `str` | No |  |
+| `description` | `str` | No |  |
 | `evaluation_count` | `int` | No |  |
+| `name` | `str` | No |  |
+| `on_violation_quarantine` | `bool` | No |  |
+| `package_query_string` | `str` | No |  |
 | `policy` | `dict` | Yes |  |
 | `slug_perm` | `str` | No |  |
+| `spdx_identifiers` | `list` | Yes |  |
 | `status` | `str` | No |  |
 | `updated_at` | `str` | No |  |
+| `url` | `str` | No |  |
 | `violation_count` | `int` | No |  |
 
 ### Operations
@@ -5402,6 +5030,8 @@ Create a new entity with the given data. Returns the created entity data and rai
 result = client.PackageLicensePolicyEvaluation().create({
     "org_id": "example_org_id",  # str
     "policy_slug_perm": "example_policy_slug_perm",  # Any
+    "policy": {},  # dict
+    "spdx_identifiers": [],  # list
 })
 ```
 
@@ -5410,7 +5040,7 @@ result = client.PackageLicensePolicyEvaluation().create({
 List entities matching the given criteria. The match is optional — call `list()` with no argument to list all records. Returns a list and raises on error.
 
 ```python
-results = client.PackageLicensePolicyEvaluation().list()
+results = client.PackageLicensePolicyEvaluation().list({"org_id": "example", "policy_slug_perm": "example"})
 for package_license_policy_evaluation in results:
     print(package_license_policy_evaluation)
 ```
@@ -5507,12 +5137,19 @@ package_vulnerability_policy_evaluation = client.PackageVulnerabilityPolicyEvalu
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
+| `allow_unknown_severity` | `bool` | No |  |
 | `created_at` | `str` | No |  |
+| `description` | `str` | No |  |
 | `evaluation_count` | `int` | No |  |
+| `min_severity` | `str` | No |  |
+| `name` | `str` | No |  |
+| `on_violation_quarantine` | `bool` | No |  |
+| `package_query_string` | `str` | No |  |
 | `policy` | `dict` | No |  |
 | `slug_perm` | `str` | No |  |
 | `status` | `str` | No |  |
 | `updated_at` | `str` | No |  |
+| `url` | `str` | No |  |
 | `violation_count` | `int` | No |  |
 
 ### Operations
@@ -5533,7 +5170,7 @@ result = client.PackageVulnerabilityPolicyEvaluation().create({
 List entities matching the given criteria. The match is optional — call `list()` with no argument to list all records. Returns a list and raises on error.
 
 ```python
-results = client.PackageVulnerabilityPolicyEvaluation().list()
+results = client.PackageVulnerabilityPolicyEvaluation().list({"org_id": "example", "policy_slug_perm": "example"})
 for package_vulnerability_policy_evaluation in results:
     print(package_vulnerability_policy_evaluation)
 ```
@@ -5655,12 +5292,12 @@ provider_setting = client.ProviderSetting()
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `claim` | `dict` | Yes |  |
+| `claims` | `dict` | Yes |  |
 | `enabled` | `bool` | Yes |  |
 | `mapping_claim` | `str` | No |  |
 | `name` | `str` | Yes |  |
 | `provider_url` | `str` | Yes |  |
-| `service_account` | `list` | No |  |
+| `service_accounts` | `list` | No |  |
 | `slug` | `str` | No |  |
 | `slug_perm` | `str` | No |  |
 
@@ -5671,7 +5308,7 @@ provider_setting = client.ProviderSetting()
 List entities matching the given criteria. The match is optional — call `list()` with no argument to list all records. Returns a list and raises on error.
 
 ```python
-results = client.ProviderSetting().list()
+results = client.ProviderSetting().list({"org_id": "example"})
 for provider_setting in results:
     print(provider_setting)
 ```
@@ -5723,13 +5360,13 @@ provider_settings_write = client.ProviderSettingsWrite()
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `claim` | `dict` | Yes |  |
-| `dynamic_mapping` | `list` | No |  |
+| `claims` | `dict` | Yes |  |
+| `dynamic_mappings` | `list` | No |  |
 | `enabled` | `bool` | Yes |  |
 | `mapping_claim` | `str` | No |  |
 | `name` | `str` | Yes |  |
 | `provider_url` | `str` | Yes |  |
-| `service_account` | `list` | No |  |
+| `service_accounts` | `list` | No |  |
 | `slug` | `str` | No |  |
 | `slug_perm` | `str` | No |  |
 
@@ -5742,6 +5379,10 @@ Create a new entity with the given data. Returns the created entity data and rai
 ```python
 result = client.ProviderSettingsWrite().create({
     "org_id": "example_org_id",  # str
+    "claims": {},  # dict
+    "enabled": True,  # bool
+    "name": "example_name",  # str
+    "provider_url": "example_provider_url",  # str
 })
 ```
 
@@ -5825,6 +5466,8 @@ Create a new entity with the given data. Returns the created entity data and rai
 result = client.Python().create({
     "identifier": "example_identifier",  # Any
     "owner": "example_owner",  # Any
+    "name": "example_name",  # str
+    "upstream_url": "example_upstream_url",  # str
 })
 ```
 
@@ -5833,7 +5476,7 @@ result = client.Python().create({
 List entities matching the given criteria. The match is optional — call `list()` with no argument to list all records. Returns a list and raises on error.
 
 ```python
-results = client.Python().list()
+results = client.Python().list({"identifier": "example", "owner": "example"})
 for python in results:
     print(python)
 ```
@@ -5933,8 +5576,9 @@ quota = client.Quota()
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
+| `display` | `dict` | Yes |  |
 | `history` | `list` | Yes |  |
-| `usage` | `dict` | Yes |  |
+| `raw` | `dict` | Yes |  |
 
 ### Operations
 
@@ -6094,49 +5738,49 @@ repo = client.Repo()
 | `content_kind` | `str` | No |  |
 | `contextual_auth_realm` | `bool` | No |  |
 | `copy_own` | `bool` | No |  |
-| `copy_package` | `str` | No |  |
+| `copy_packages` | `str` | No |  |
 | `cosign_signing_enabled` | `bool` | No |  |
 | `created_at` | `str` | No |  |
 | `default_privilege` | `str` | No |  |
 | `delete_own` | `bool` | No |  |
-| `delete_package` | `str` | No |  |
+| `delete_packages` | `str` | No |  |
 | `deleted_at` | `str` | No |  |
 | `description` | `str` | No |  |
-| `distribute` | `list` | No |  |
+| `distributes` | `list` | No |  |
 | `docker_refresh_tokens_enabled` | `bool` | No |  |
-| `ecdsa_key` | `list` | No |  |
+| `ecdsa_keys` | `list` | No |  |
 | `enforce_eula` | `bool` | No |  |
-| `gpg_key` | `list` | No |  |
-| `index_file` | `bool` | No |  |
+| `gpg_keys` | `list` | No |  |
+| `index_files` | `bool` | No |  |
 | `is_open_source` | `bool` | No |  |
 | `is_private` | `bool` | No |  |
 | `is_public` | `bool` | No |  |
 | `manage_entitlements_privilege` | `str` | No |  |
 | `move_own` | `bool` | No |  |
-| `move_package` | `str` | No |  |
+| `move_packages` | `str` | No |  |
 | `name` | `str` | Yes |  |
 | `namespace` | `str` | No |  |
 | `namespace_url` | `str` | No |  |
 | `nuget_native_signing_enabled` | `bool` | No |  |
-| `num_download` | `int` | No |  |
-| `num_policy_violated_package` | `int` | No |  |
-| `num_quarantined_package` | `int` | No |  |
+| `num_downloads` | `int` | No |  |
+| `num_policy_violated_packages` | `int` | No |  |
+| `num_quarantined_packages` | `int` | No |  |
 | `open_source_license` | `str` | No |  |
 | `open_source_project_url` | `str` | No |  |
 | `package_count` | `int` | No |  |
 | `package_group_count` | `int` | No |  |
-| `proxy_npmj` | `bool` | No |  |
+| `proxy_npmjs` | `bool` | No |  |
 | `proxy_pypi` | `bool` | No |  |
 | `raw_package_index_enabled` | `bool` | No |  |
 | `raw_package_index_signatures_enabled` | `bool` | No |  |
-| `replace_package` | `str` | No |  |
+| `replace_packages` | `str` | No |  |
 | `replace_packages_by_default` | `bool` | No |  |
 | `repository_type` | `int` | No |  |
 | `repository_type_str` | `str` | No |  |
 | `resync_own` | `bool` | No |  |
-| `resync_package` | `str` | No |  |
+| `resync_packages` | `str` | No |  |
 | `scan_own` | `bool` | No |  |
-| `scan_package` | `str` | No |  |
+| `scan_packages` | `str` | No |  |
 | `self_html_url` | `str` | No |  |
 | `self_url` | `str` | No |  |
 | `show_setup_all` | `bool` | No |  |
@@ -6147,14 +5791,14 @@ repo = client.Repo()
 | `storage_region` | `str` | No |  |
 | `strict_npm_validation` | `bool` | No |  |
 | `tag_pre_releases_as_latest` | `bool` | No |  |
-| `use_debian_label` | `bool` | No |  |
+| `use_debian_labels` | `bool` | No |  |
 | `use_default_cargo_upstream` | `bool` | No |  |
 | `use_entitlements_privilege` | `str` | No |  |
-| `use_noarch_package` | `bool` | No |  |
-| `use_source_package` | `bool` | No |  |
+| `use_noarch_packages` | `bool` | No |  |
+| `use_source_packages` | `bool` | No |  |
 | `use_vulnerability_scanning` | `bool` | No |  |
 | `user_entitlements_enabled` | `bool` | No |  |
-| `view_statistic` | `str` | No |  |
+| `view_statistics` | `str` | No |  |
 
 ### Operations
 
@@ -6164,6 +5808,7 @@ Create a new entity with the given data. Returns the created entity data and rai
 
 ```python
 result = client.Repo().create({
+    "name": "example_name",  # str
 })
 ```
 
@@ -6265,7 +5910,7 @@ repository_audit_log = client.RepositoryAuditLog()
 List entities matching the given criteria. The match is optional — call `list()` with no argument to list all records. Returns a list and raises on error.
 
 ```python
-results = client.RepositoryAuditLog().list()
+results = client.RepositoryAuditLog().list({"owner": "example", "repo": "example"})
 for repository_audit_log in results:
     print(repository_audit_log)
 ```
@@ -6558,6 +6203,7 @@ Create a new entity with the given data. Returns the created entity data and rai
 result = client.RepositoryGpgKey().create({
     "identifier": "example_identifier",  # Any
     "owner": "example_owner",  # Any
+    "comment": "example_comment",  # str
 })
 ```
 
@@ -6620,7 +6266,7 @@ repository_privilege_input = client.RepositoryPrivilegeInput()
 List entities matching the given criteria. The match is optional — call `list()` with no argument to list all records. Returns a list and raises on error.
 
 ```python
-results = client.RepositoryPrivilegeInput().list()
+results = client.RepositoryPrivilegeInput().list({"identifier": "example", "owner": "example"})
 for repository_privilege_input in results:
     print(repository_privilege_input)
 ```
@@ -6802,19 +6448,19 @@ repository_token = client.RepositoryToken()
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `client` | `int` | No |  |
+| `clients` | `int` | No |  |
 | `created_at` | `str` | No |  |
 | `created_by` | `str` | No |  |
 | `created_by_url` | `str` | No |  |
 | `default` | `bool` | No |  |
 | `disable_url` | `str` | No |  |
-| `download` | `int` | No |  |
+| `downloads` | `int` | No |  |
 | `enable_url` | `str` | No |  |
 | `eula_accepted` | `dict` | No |  |
 | `eula_accepted_at` | `str` | No |  |
 | `eula_accepted_from` | `str` | No |  |
 | `eula_required` | `bool` | No |  |
-| `has_limit` | `bool` | No |  |
+| `has_limits` | `bool` | No |  |
 | `identifier` | `int` | No |  |
 | `is_active` | `bool` | No |  |
 | `is_limited` | `bool` | No |  |
@@ -6822,8 +6468,8 @@ repository_token = client.RepositoryToken()
 | `limit_bandwidth_unit` | `str` | No |  |
 | `limit_date_range_from` | `str` | No |  |
 | `limit_date_range_to` | `str` | No |  |
-| `limit_num_client` | `int` | No |  |
-| `limit_num_download` | `int` | No |  |
+| `limit_num_clients` | `int` | No |  |
+| `limit_num_downloads` | `int` | No |  |
 | `limit_package_query` | `str` | No |  |
 | `limit_path_query` | `str` | No |  |
 | `metadata` | `dict` | No |  |
@@ -6852,6 +6498,7 @@ Create a new entity with the given data. Returns the created entity data and rai
 result = client.RepositoryToken().create({
     "owner": "example_owner",  # Any
     "repo": "example_repo",  # Any
+    "name": "example_name",  # str
 })
 ```
 
@@ -6860,7 +6507,7 @@ result = client.RepositoryToken().create({
 List entities matching the given criteria. The match is optional — call `list()` with no argument to list all records. Returns a list and raises on error.
 
 ```python
-results = client.RepositoryToken().list()
+results = client.RepositoryToken().list({"owner": "example", "repo": "example"})
 for repository_token in results:
     print(repository_token)
 ```
@@ -6925,19 +6572,19 @@ repository_token_refresh = client.RepositoryTokenRefresh()
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `client` | `int` | No |  |
+| `clients` | `int` | No |  |
 | `created_at` | `str` | No |  |
 | `created_by` | `str` | No |  |
 | `created_by_url` | `str` | No |  |
 | `default` | `bool` | No |  |
 | `disable_url` | `str` | No |  |
-| `download` | `int` | No |  |
+| `downloads` | `int` | No |  |
 | `enable_url` | `str` | No |  |
 | `eula_accepted` | `dict` | No |  |
 | `eula_accepted_at` | `str` | No |  |
 | `eula_accepted_from` | `str` | No |  |
 | `eula_required` | `bool` | No |  |
-| `has_limit` | `bool` | No |  |
+| `has_limits` | `bool` | No |  |
 | `identifier` | `int` | No |  |
 | `is_active` | `bool` | No |  |
 | `is_limited` | `bool` | No |  |
@@ -6945,8 +6592,8 @@ repository_token_refresh = client.RepositoryTokenRefresh()
 | `limit_bandwidth_unit` | `str` | No |  |
 | `limit_date_range_from` | `str` | No |  |
 | `limit_date_range_to` | `str` | No |  |
-| `limit_num_client` | `int` | No |  |
-| `limit_num_download` | `int` | No |  |
+| `limit_num_clients` | `int` | No |  |
+| `limit_num_downloads` | `int` | No |  |
 | `limit_package_query` | `str` | No |  |
 | `limit_path_query` | `str` | No |  |
 | `metadata` | `dict` | No |  |
@@ -7018,7 +6665,7 @@ repository_token_sync = client.RepositoryTokenSync()
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `token` | `list` | No |  |
+| `tokens` | `list` | No |  |
 
 ### Operations
 
@@ -7077,7 +6724,8 @@ repository_webhook = client.RepositoryWebhook()
 | `created_by_url` | `str` | No |  |
 | `disable_reason` | `int` | No |  |
 | `disable_reason_str` | `str` | No |  |
-| `event` | `list` | Yes |  |
+| `event` | `str` | Yes |  |
+| `events` | `list` | Yes |  |
 | `identifier` | `int` | No |  |
 | `is_active` | `bool` | No |  |
 | `is_last_response_bad` | `bool` | No |  |
@@ -7094,43 +6742,12 @@ repository_webhook = client.RepositoryWebhook()
 | `self_url` | `str` | No |  |
 | `slug_perm` | `str` | No |  |
 | `target_url` | `str` | Yes |  |
-| `template` | `list` | Yes |  |
+| `template` | `str` | No |  |
+| `templates` | `list` | Yes |  |
 | `updated_at` | `str` | No |  |
 | `updated_by` | `str` | No |  |
 | `updated_by_url` | `str` | No |  |
 | `verify_ssl` | `bool` | No |  |
-
-### Field Usage by Operation
-
-| Field | list | create | update |
-| --- | --- | --- | --- |
-| `created_at` | - | - | - |
-| `created_by` | - | - | - |
-| `created_by_url` | - | - | - |
-| `disable_reason` | - | - | - |
-| `disable_reason_str` | - | - | - |
-| `event` | - | - | - |
-| `identifier` | - | - | - |
-| `is_active` | - | - | - |
-| `is_last_response_bad` | - | - | - |
-| `last_response_status` | - | - | - |
-| `last_response_status_str` | - | - | - |
-| `num_sent` | - | - | - |
-| `package_query` | - | - | - |
-| `request_body_format` | - | - | - |
-| `request_body_format_str` | - | - | - |
-| `request_body_template_format` | - | - | - |
-| `request_body_template_format_str` | - | - | - |
-| `request_content_type` | - | - | - |
-| `secret_header` | - | - | - |
-| `self_url` | - | - | - |
-| `slug_perm` | - | - | - |
-| `target_url` | - | - | - |
-| `template` | Yes | - | - |
-| `updated_at` | - | - | - |
-| `updated_by` | - | - | - |
-| `updated_by_url` | - | - | - |
-| `verify_ssl` | - | - | - |
 
 ### Operations
 
@@ -7142,6 +6759,10 @@ Create a new entity with the given data. Returns the created entity data and rai
 result = client.RepositoryWebhook().create({
     "owner": "example_owner",  # Any
     "repo": "example_repo",  # Any
+    "event": "example_event",  # str
+    "events": [],  # list
+    "target_url": "example_target_url",  # str
+    "templates": [],  # list
 })
 ```
 
@@ -7150,7 +6771,7 @@ result = client.RepositoryWebhook().create({
 List entities matching the given criteria. The match is optional — call `list()` with no argument to list all records. Returns a list and raises on error.
 
 ```python
-results = client.RepositoryWebhook().list()
+results = client.RepositoryWebhook().list({"owner": "example", "repo": "example"})
 for repository_webhook in results:
     print(repository_webhook)
 ```
@@ -7362,7 +6983,12 @@ resources_rate_check = client.ResourcesRateCheck()
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `resource` | `dict` | No |  |
+| `interval` | `float` | No |  |
+| `limit` | `int` | No |  |
+| `remaining` | `int` | No |  |
+| `reset` | `int` | No |  |
+| `reset_iso_8601` | `str` | No |  |
+| `throttled` | `bool` | No |  |
 
 ### Operations
 
@@ -7496,7 +7122,7 @@ rpm = client.Rpm()
 | `gpg_key_inline` | `str` | No |  |
 | `gpg_key_url` | `str` | No |  |
 | `gpg_verification` | `str` | No |  |
-| `include_source` | `bool` | No |  |
+| `include_sources` | `bool` | No |  |
 | `is_active` | `bool` | No |  |
 | `mode` | `str` | No |  |
 | `name` | `str` | Yes |  |
@@ -7518,6 +7144,9 @@ Create a new entity with the given data. Returns the created entity data and rai
 result = client.Rpm().create({
     "identifier": "example_identifier",  # Any
     "owner": "example_owner",  # Any
+    "distro_version": "example_distro_version",  # str
+    "name": "example_name",  # str
+    "upstream_url": "example_upstream_url",  # str
 })
 ```
 
@@ -7526,7 +7155,7 @@ result = client.Rpm().create({
 List entities matching the given criteria. The match is optional — call `list()` with no argument to list all records. Returns a list and raises on error.
 
 ```python
-results = client.Rpm().list()
+results = client.Rpm().list({"identifier": "example", "owner": "example"})
 for rpm in results:
     print(rpm)
 ```
@@ -7655,6 +7284,8 @@ Create a new entity with the given data. Returns the created entity data and rai
 result = client.Ruby().create({
     "identifier": "example_identifier",  # Any
     "owner": "example_owner",  # Any
+    "name": "example_name",  # str
+    "upstream_url": "example_upstream_url",  # str
 })
 ```
 
@@ -7663,7 +7294,7 @@ result = client.Ruby().create({
 List entities matching the given criteria. The match is optional — call `list()` with no argument to list all records. Returns a list and raises on error.
 
 ```python
-results = client.Ruby().list()
+results = client.Ruby().list({"identifier": "example", "owner": "example"})
 for ruby in results:
     print(ruby)
 ```
@@ -7842,7 +7473,7 @@ service = client.Service()
 | `name` | `str` | Yes |  |
 | `role` | `str` | No |  |
 | `slug` | `str` | No |  |
-| `team` | `list` | No |  |
+| `teams` | `list` | No |  |
 
 ### Operations
 
@@ -7853,6 +7484,7 @@ Create a new entity with the given data. Returns the created entity data and rai
 ```python
 result = client.Service().create({
     "org_id": "example_org_id",  # str
+    "name": "example_name",  # str
 })
 ```
 
@@ -7861,7 +7493,7 @@ result = client.Service().create({
 List entities matching the given criteria. The match is optional — call `list()` with no argument to list all records. Returns a list and raises on error.
 
 ```python
-results = client.Service().list()
+results = client.Service().list({"org_id": "example"})
 for service in results:
     print(service)
 ```
@@ -8103,6 +7735,8 @@ Create a new entity with the given data. Returns the created entity data and rai
 result = client.Swift().create({
     "identifier": "example_identifier",  # Any
     "owner": "example_owner",  # Any
+    "name": "example_name",  # str
+    "upstream_url": "example_upstream_url",  # str
 })
 ```
 
@@ -8111,7 +7745,7 @@ result = client.Swift().create({
 List entities matching the given criteria. The match is optional — call `list()` with no argument to list all records. Returns a list and raises on error.
 
 ```python
-results = client.Swift().list()
+results = client.Swift().list({"identifier": "example", "owner": "example"})
 for swift in results:
     print(swift)
 ```
@@ -8810,12 +8444,12 @@ vulnerability = client.Vulnerability()
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
 | `created_at` | `str` | No |  |
-| `has_vulnerability` | `bool` | No |  |
+| `has_vulnerabilities` | `bool` | No |  |
 | `identifier` | `str` | Yes |  |
 | `max_severity` | `str` | No |  |
-| `num_vulnerability` | `int` | No |  |
+| `num_vulnerabilities` | `int` | No |  |
 | `package` | `dict` | Yes |  |
-| `result` | `list` | Yes |  |
+| `results` | `list` | Yes |  |
 | `scan_id` | `int` | Yes |  |
 | `target` | `str` | Yes |  |
 | `type` | `str` | Yes |  |
@@ -8827,7 +8461,7 @@ vulnerability = client.Vulnerability()
 List entities matching the given criteria. The match is optional — call `list()` with no argument to list all records. Returns a list and raises on error.
 
 ```python
-results = client.Vulnerability().list()
+results = client.Vulnerability().list({"owner": "example", "repo": "example"})
 for vulnerability in results:
     print(vulnerability)
 ```

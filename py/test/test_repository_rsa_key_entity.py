@@ -6,9 +6,9 @@ import time
 
 import pytest
 
-from utility.voxgig_struct import voxgig_struct as vs
+from cloudsmith_sdk.utility.voxgig_struct import voxgig_struct as vs
 from cloudsmith_sdk import CloudsmithSDK
-from core import helpers
+from cloudsmith_sdk.core import helpers
 
 _TEST_DIR = os.path.dirname(os.path.abspath(__file__))
 from test import runner
@@ -46,7 +46,7 @@ class TestRepositoryRsaKeyEntity:
         repository_rsa_key_ref01_data["identifier"] = setup["idmap"]["identifier01"]
         repository_rsa_key_ref01_data["owner"] = setup["idmap"]["owner01"]
 
-        repository_rsa_key_ref01_data = helpers.to_map(repository_rsa_key_ref01_ent.create(repository_rsa_key_ref01_data, None))
+        repository_rsa_key_ref01_data = helpers.to_map(runner.entity_data(repository_rsa_key_ref01_ent.create(repository_rsa_key_ref01_data, None)))
         assert repository_rsa_key_ref01_data is not None
 
         # LOAD

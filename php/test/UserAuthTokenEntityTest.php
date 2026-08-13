@@ -44,7 +44,7 @@ class UserAuthTokenEntityTest extends TestCase
             Vs::getpath($setup["data"], "new.user_auth_token"), "user_auth_token_ref01"));
 
         $user_auth_token_ref01_data_result = $user_auth_token_ref01_ent->create($user_auth_token_ref01_data, null);
-        $user_auth_token_ref01_data = Helpers::to_map($user_auth_token_ref01_data_result);
+        $user_auth_token_ref01_data = Helpers::to_map(is_object($user_auth_token_ref01_data_result) && method_exists($user_auth_token_ref01_data_result, 'data_get') ? $user_auth_token_ref01_data_result->data_get() : $user_auth_token_ref01_data_result);
         $this->assertNotNull($user_auth_token_ref01_data);
 
     }

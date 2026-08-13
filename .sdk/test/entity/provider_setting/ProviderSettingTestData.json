@@ -2,36 +2,36 @@
   "existing": {
     "provider_setting": {
       "PROVIDER_SETTING00": {
-        "claim": {},
+        "claims": {},
         "enabled": false,
         "mapping_claim": "s52",
         "name": "s53",
         "provider_url": "s54",
-        "service_account": [],
+        "service_accounts": [],
         "slug": "s56",
         "slug_perm": "s57",
         "org_id": "ORG01",
         "id": "PROVIDER_SETTING00"
       },
       "PROVIDER_SETTING01": {
-        "claim": {},
+        "claims": {},
         "enabled": false,
         "mapping_claim": "sa2",
         "name": "sa3",
         "provider_url": "sa4",
-        "service_account": [],
+        "service_accounts": [],
         "slug": "sa6",
         "slug_perm": "sa7",
         "org_id": "ORG01",
         "id": "PROVIDER_SETTING01"
       },
       "PROVIDER_SETTING02": {
-        "claim": {},
+        "claims": {},
         "enabled": false,
         "mapping_claim": "sf2",
         "name": "sf3",
         "provider_url": "sf4",
-        "service_account": [],
+        "service_accounts": [],
         "slug": "sf6",
         "slug_perm": "sf7",
         "org_id": "ORG01",
@@ -42,12 +42,12 @@
   "new": {
     "provider_setting": {
       "provider_setting_ref01": {
-        "claim": {},
+        "claims": {},
         "enabled": false,
         "mapping_claim": "s142",
         "name": "s143",
         "provider_url": "s144",
-        "service_account": [],
+        "service_accounts": [],
         "slug": "s146",
         "slug_perm": "s147"
       }

@@ -54,7 +54,7 @@ describe("RepositoryRetentionRuleEntity", function()
 
     local repository_retention_rule_ref01_resdata_up0_result, err = repository_retention_rule_ref01_ent:update(repository_retention_rule_ref01_data_up0_up, nil)
     assert.is_nil(err)
-    local repository_retention_rule_ref01_resdata_up0 = helpers.to_map(repository_retention_rule_ref01_resdata_up0_result)
+    local repository_retention_rule_ref01_resdata_up0 = helpers.to_map(type(repository_retention_rule_ref01_resdata_up0_result) == 'table' and repository_retention_rule_ref01_resdata_up0_result.data_get and repository_retention_rule_ref01_resdata_up0_result:data_get() or repository_retention_rule_ref01_resdata_up0_result)
     assert.is_not_nil(repository_retention_rule_ref01_resdata_up0)
     assert.are.equal(repository_retention_rule_ref01_resdata_up0[repository_retention_rule_ref01_markdef_up0_name], repository_retention_rule_ref01_markdef_up0_value)
 

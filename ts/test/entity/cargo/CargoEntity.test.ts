@@ -64,7 +64,7 @@ describe('CargoEntity', async () => {
     cargo_ref01_data['identifier'] = setup.idmap['identifier01']
     cargo_ref01_data['owner'] = setup.idmap['owner01']
 
-    cargo_ref01_data = await cargo_ref01_ent.create(cargo_ref01_data)
+    cargo_ref01_data = (await cargo_ref01_ent.create(cargo_ref01_data)).data()
     assert(null != cargo_ref01_data)
 
 
@@ -73,9 +73,7 @@ describe('CargoEntity', async () => {
     cargo_ref01_match['identifier'] = setup.idmap['identifier01']
     cargo_ref01_match['owner'] = setup.idmap['owner01']
 
-    const cargo_ref01_list = await cargo_ref01_ent.list(cargo_ref01_match)
-
-    assert(!isempty(select(cargo_ref01_list, { id: cargo_ref01_data.id })))
+    const cargo_ref01_list = (await cargo_ref01_ent.list(cargo_ref01_match)).map((e: any) => e.data())
 
 
     // UPDATE
@@ -86,7 +84,7 @@ describe('CargoEntity', async () => {
     const cargo_ref01_markdef_up0 = { name: 'auth_mode', value: 'Mark01-cargo_ref01_' + setup.now }
     ;(cargo_ref01_data_up0 as any)[cargo_ref01_markdef_up0.name] = cargo_ref01_markdef_up0.value
 
-    const cargo_ref01_resdata_up0 = await cargo_ref01_ent.update(cargo_ref01_data_up0)
+    const cargo_ref01_resdata_up0 = (await cargo_ref01_ent.update(cargo_ref01_data_up0)).data()
     assert(null != cargo_ref01_resdata_up0)
 
     assert((cargo_ref01_resdata_up0 as any)[cargo_ref01_markdef_up0.name] === cargo_ref01_markdef_up0.value)

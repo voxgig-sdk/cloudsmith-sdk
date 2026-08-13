@@ -14,7 +14,7 @@ Learn more about Voxgig SDKs at [voxgig.com/sdk](https://voxgig.com/sdk/).
 
 ## Entities, not endpoints
 
-This SDK exposes the API as **140 semantic entities** that you
+This SDK exposes the API as **131 semantic entities** that you
 call directly, instead of assembling URL paths and query strings. See the [Entities](#entities) table below for the full list. Entities are
 **Capitalised** to mark them as the primary surface, each with the operations they
 support (`list`, `load`, `create`, `update`, `remove`, `patch`):
@@ -35,18 +35,27 @@ network, and no credentials:
 ### TypeScript
 
 ```ts
-const client = CloudsmithSDK.test()
-const cargos = await client.Cargo().list()
-// cargos is an array of bare Cargo records populated with mock data
-console.log(cargos)
+// The offline mock starts EMPTY — seed it with the records the test needs.
+// Shape: { entity: { <entity-name>: { <id>: <record> } } }
+const client = CloudsmithSDK.test({
+  entity: {
+    vulnerability: {
+      test01: { id: 'test01' },
+    },
+  },
+})
+const vulnerabilitys = await client.Vulnerability().list()
+// vulnerabilitys is an array of Vulnerability entities, populated with mock data
+// — call vulnerabilitys[0].data() for the record itself
+console.log(vulnerabilitys)
 ```
 
 ### Python
 
 ```python
 client = CloudsmithSDK.test()
-cargos = client.Cargo().list()
-print(cargos)
+vulnerabilitys = client.Vulnerability().list()
+print(vulnerabilitys)
 ```
 
 ### PHP
@@ -54,16 +63,16 @@ print(cargos)
 ```php
 // Seed fixture data so offline calls resolve without a live server.
 $client = CloudsmithSDK::test([
-    "entity" => ["cargo" => ["test01" => ["id" => "test01"]]],
+    "entity" => ["vulnerability" => ["test01" => ["id" => "test01"]]],
 ]);
-$cargos = $client->Cargo()->list();
+$vulnerabilitys = $client->Vulnerability()->list();
 ```
 
 ### Golang
 
 ```go
 client := sdk.Test()
-result, err := client.Cargo(nil).List(
+result, err := client.Vulnerability(nil).List(
     nil, nil,
 )
 ```
@@ -73,16 +82,16 @@ result, err := client.Cargo(nil).List(
 ```ruby
 # Seed fixture data so offline calls resolve without a live server.
 client = CloudsmithSDK.test({
-  "entity" => { "cargo" => { "test01" => { "id" => "test01" } } },
+  "entity" => { "vulnerability" => { "test01" => { "id" => "test01" } } },
 })
-cargos = client.Cargo.list()
+vulnerabilitys = client.Vulnerability.list()
 ```
 
 ### Lua
 
 ```lua
 local client = sdk.test()
-local results, err = client:Cargo():list()
+local results, err = client:Vulnerability():list()
 ```
 
 ## Packages
@@ -153,7 +162,7 @@ Then add it to your agent's MCP config (Claude Desktop, Cursor, etc.):
 
 ## Entities
 
-The API exposes 140 entities:
+The API exposes 131 entities:
 
 | Entity | Description | API path |
 | --- | --- | --- |
@@ -180,20 +189,12 @@ The API exposes 140 entities:
 | **DynamicMapping** | The DynamicMapping entity (list, load). | `/orgs/{org}/openid-connect/{provider_setting}/dynamic-mappings/` |
 | **Ecdsa** | The Ecdsa entity. | `` |
 | **Enable** | The Enable entity. | `` |
-| **Entitlement** | The Entitlement entity (create, load, remove). | `/entitlements/{owner}/{repo}/{identifier}/reset/` |
+| **Entitlement** | The Entitlement entity (create, load, remove). | `/metrics/entitlements/{owner}/{repo}/` |
 | **Evaluation** | The Evaluation entity. | `` |
 | **File** | The File entity (create). | `/files/{owner}/{repo}/{identifier}/abort/` |
 | **Format** | The Format entity (list, load). | `/formats/` |
 | **Geoip** | The Geoip entity. | `` |
-| **Gon** | The Gon entity. | `` |
-| **Gon2** | The Gon2 entity. | `` |
-| **Gon3** | The Gon3 entity (list). | `/repos/{owner}/{identifier}/upstream/go/` |
-| **Gon4** | The Gon4 entity. | `` |
-| **Gon5** | The Gon5 entity (create). | `/repos/{owner}/{identifier}/upstream/go/` |
-| **Gon6** | The Gon6 entity (load). | `/repos/{owner}/{identifier}/upstream/go/{slug_perm}/` |
-| **Gon7** | The Gon7 entity. | `` |
-| **Gon8** | The Gon8 entity (update). | `/repos/{owner}/{identifier}/upstream/go/{slug_perm}/` |
-| **Gon9** | The Gon9 entity (update). | `/repos/{owner}/{identifier}/upstream/go/{slug_perm}/` |
+| **Gon** | The Gon entity (create, list, load, patch, update). | `/repos/{owner}/{identifier}/upstream/go/` |
 | **Gpg** | The Gpg entity. | `` |
 | **Group** | The Group entity. | `` |
 | **Helm** | The Helm entity (create, list, load, patch, update). | `/repos/{owner}/{identifier}/upstream/helm/` |
@@ -213,7 +214,7 @@ The API exposes 140 entities:
 | **Npm** | The Npm entity (create, list, load, patch, update). | `/repos/{owner}/{identifier}/upstream/npm/` |
 | **Nuget** | The Nuget entity (create, list, load, patch, update). | `/repos/{owner}/{identifier}/upstream/nuget/` |
 | **OpenidConnect** | The OpenidConnect entity. | `` |
-| **Org** | The Org entity (create, list, load, remove, update). | `/orgs/{org}/members/{member}/refresh/` |
+| **Org** | The Org entity (create, list, load, remove, update). | `/orgs/` |
 | **OrganizationGroupSync** | The OrganizationGroupSync entity (create, list). | `/orgs/{org}/saml-group-sync/` |
 | **OrganizationGroupSyncStatus** | The OrganizationGroupSyncStatus entity (load). | `/orgs/{org}/saml-group-sync/status/` |
 | **OrganizationInvite** | The OrganizationInvite entity (create, list, update). | `/orgs/{org}/invites/` |
@@ -228,8 +229,7 @@ The API exposes 140 entities:
 | **OrganizationTeamMember** | The OrganizationTeamMember entity (create, list). | `/orgs/{org}/teams/{team}/members` |
 | **Oss** | The Oss entity. | `` |
 | **P2n** | The P2n entity. | `` |
-| **P2n2** | The P2n2 entity. | `` |
-| **Package** | The Package entity (create, list, load, remove). | `/packages/{owner}/{repo}/{identifier}/copy/` |
+| **Package** | The Package entity (create, list, load, remove). | `/packages/{owner}/{repo}/groups/` |
 | **PackageDenyPolicy** | The PackageDenyPolicy entity (create, list, load, patch, update). | `/orgs/{org}/deny-policy/` |
 | **PackageFilePartsUpload** | The PackageFilePartsUpload entity (load). | `/files/{owner}/{repo}/{identifier}/info/` |
 | **PackageFileUpload** | The PackageFileUpload entity (create). | `/files/{owner}/{repo}/{identifier}/complete/` |
@@ -246,7 +246,7 @@ The API exposes 140 entities:
 | **Raw** | The Raw entity. | `` |
 | **Refresh** | The Refresh entity. | `` |
 | **Regenerate** | The Regenerate entity. | `` |
-| **Repo** | The Repo entity (create, list, load, patch, remove, update). | `/repos/{owner}/{identifier}/geoip/disable/` |
+| **Repo** | The Repo entity (create, list, load, patch, remove, update). | `/repos/{owner}/{identifier}/` |
 | **RepositoryAuditLog** | The RepositoryAuditLog entity (list). | `/audit-log/{owner}/{repo}/` |
 | **RepositoryEcdsaKey** | The RepositoryEcdsaKey entity (create, load). | `/repos/{owner}/{identifier}/ecdsa/` |
 | **RepositoryGeoIpRule** | The RepositoryGeoIpRule entity (load, patch, update). | `/repos/{owner}/{identifier}/geoip` |
@@ -485,6 +485,9 @@ Pass custom features via the `extend` option at construction time.
 
 This SDK is generated from the upstream OpenAPI specification. It is an
 unofficial client and is not affiliated with the API provider.
+
+The OpenAPI spec(s) this SDK was generated from are kept in the
+[`.sdk/def/`](.sdk/def/) folder.
 
 - Upstream API: [https://help.cloudsmith.io](https://help.cloudsmith.io)
 

@@ -38,7 +38,7 @@ Cargo is nested under identifier, so provide the `identifier`.
 
 ```ruby
 begin
-  # load returns the bare Cargo record (raises on error).
+  # load returns the ENTITY — call data_get for the Cargo record (raises on error).
   cargo = client.Cargo.load({ "identifier" => "example_identifier", "owner" => "example_owner", "id" => "example_id" })
   puts cargo
 rescue => err
@@ -53,7 +53,7 @@ Entity operations raise on failure, so rescue them:
 
 ```ruby
 begin
-  cargos = client.Cargo.list()
+  vulnerabilitys = client.Vulnerability.list()
 rescue => err
   warn "list failed: #{err}"
 end
@@ -121,12 +121,13 @@ data via the `entity` option so offline calls resolve without a live server:
 
 ```ruby
 client = CloudsmithSDK.test({
-  "entity" => { "cargo" => { "test01" => { "id" => "test01" } } },
+  "entity" => { "vulnerability" => { "test01" => { "id" => "test01" } } },
 })
 
-# Entity ops return the bare mock record (raises on error).
-cargo = client.Cargo.list()
-puts cargo
+# Entity ops return the ENTITY (raises on error);
+# call data_get for the mock record.
+vulnerability = client.Vulnerability.list()
+puts vulnerability
 ```
 
 ### Use a custom fetch function
@@ -233,14 +234,6 @@ Creates a test-mode client with mock transport. Both arguments may be `nil`.
 | `Format` | `(data) -> FormatEntity` | Create a Format entity instance. |
 | `Geoip` | `(data) -> GeoipEntity` | Create a Geoip entity instance. |
 | `Gon` | `(data) -> GonEntity` | Create a Gon entity instance. |
-| `Gon2` | `(data) -> Gon2Entity` | Create a Gon2 entity instance. |
-| `Gon3` | `(data) -> Gon3Entity` | Create a Gon3 entity instance. |
-| `Gon4` | `(data) -> Gon4Entity` | Create a Gon4 entity instance. |
-| `Gon5` | `(data) -> Gon5Entity` | Create a Gon5 entity instance. |
-| `Gon6` | `(data) -> Gon6Entity` | Create a Gon6 entity instance. |
-| `Gon7` | `(data) -> Gon7Entity` | Create a Gon7 entity instance. |
-| `Gon8` | `(data) -> Gon8Entity` | Create a Gon8 entity instance. |
-| `Gon9` | `(data) -> Gon9Entity` | Create a Gon9 entity instance. |
 | `Gpg` | `(data) -> GpgEntity` | Create a Gpg entity instance. |
 | `Group` | `(data) -> GroupEntity` | Create a Group entity instance. |
 | `Helm` | `(data) -> HelmEntity` | Create a Helm entity instance. |
@@ -275,7 +268,6 @@ Creates a test-mode client with mock transport. Both arguments may be `nil`.
 | `OrganizationTeamMember` | `(data) -> OrganizationTeamMemberEntity` | Create an OrganizationTeamMember entity instance. |
 | `Oss` | `(data) -> OssEntity` | Create an Oss entity instance. |
 | `P2n` | `(data) -> P2nEntity` | Create a P2n entity instance. |
-| `P2n2` | `(data) -> P2n2Entity` | Create a P2n2 entity instance. |
 | `Package` | `(data) -> PackageEntity` | Create a Package entity instance. |
 | `PackageDenyPolicy` | `(data) -> PackageDenyPolicyEntity` | Create a PackageDenyPolicy entity instance. |
 | `PackageFilePartsUpload` | `(data) -> PackageFilePartsUploadEntity` | Create a PackageFilePartsUpload entity instance. |
@@ -599,7 +591,7 @@ API path: `/repos/{owner}/{identifier}/upstream/dart/`
 | `component` |  |
 | `created_at` |  |
 | `disable_reason` |  |
-| `distro_version` |  |
+| `distro_versions` |  |
 | `extra_header_1` |  |
 | `extra_header_2` |  |
 | `extra_value_1` |  |
@@ -607,7 +599,7 @@ API path: `/repos/{owner}/{identifier}/upstream/dart/`
 | `gpg_key_inline` |  |
 | `gpg_key_url` |  |
 | `gpg_verification` |  |
-| `include_source` |  |
+| `include_sources` |  |
 | `is_active` |  |
 | `mode` |  |
 | `name` |  |
@@ -660,8 +652,8 @@ API path: ``
 | `name` |  |
 | `self_url` |  |
 | `slug` |  |
-| `variant` |  |
-| `version` |  |
+| `variants` |  |
+| `versions` |  |
 
 Operations: List, Load.
 
@@ -736,7 +728,11 @@ API path: ``
 
 | Field | Description |
 | --- | --- |
-| `token` |  |
+| `active` |  |
+| `bandwidth` |  |
+| `downloads` |  |
+| `inactive` |  |
+| `total` |  |
 
 Operations: Create, Load, Remove.
 
@@ -765,14 +761,14 @@ API path: `/files/{owner}/{repo}/{identifier}/abort/`
 | Field | Description |
 | --- | --- |
 | `description` |  |
-| `distribution` |  |
-| `extension` |  |
+| `distributions` |  |
+| `extensions` |  |
 | `name` |  |
 | `premium` |  |
 | `premium_plan_id` |  |
 | `premium_plan_name` |  |
 | `slug` |  |
-| `support` |  |
+| `supports` |  |
 
 Operations: List, Load.
 
@@ -791,24 +787,6 @@ API path: ``
 
 | Field | Description |
 | --- | --- |
-
-Operations: .
-
-API path: ``
-
-#### Gon2
-
-| Field | Description |
-| --- | --- |
-
-Operations: .
-
-API path: ``
-
-#### Gon3
-
-| Field | Description |
-| --- | --- |
 | `auth_mode` |  |
 | `auth_secret` |  |
 | `auth_username` |  |
@@ -828,117 +806,9 @@ API path: ``
 | `upstream_url` |  |
 | `verify_ssl` |  |
 
-Operations: List.
+Operations: Create, List, Load, Patch, Update.
 
 API path: `/repos/{owner}/{identifier}/upstream/go/`
-
-#### Gon4
-
-| Field | Description |
-| --- | --- |
-
-Operations: .
-
-API path: ``
-
-#### Gon5
-
-| Field | Description |
-| --- | --- |
-
-Operations: Create.
-
-API path: `/repos/{owner}/{identifier}/upstream/go/`
-
-#### Gon6
-
-| Field | Description |
-| --- | --- |
-| `auth_mode` |  |
-| `auth_secret` |  |
-| `auth_username` |  |
-| `created_at` |  |
-| `disable_reason` |  |
-| `extra_header_1` |  |
-| `extra_header_2` |  |
-| `extra_value_1` |  |
-| `extra_value_2` |  |
-| `is_active` |  |
-| `mode` |  |
-| `name` |  |
-| `pending_validation` |  |
-| `priority` |  |
-| `slug_perm` |  |
-| `updated_at` |  |
-| `upstream_url` |  |
-| `verify_ssl` |  |
-
-Operations: Load.
-
-API path: `/repos/{owner}/{identifier}/upstream/go/{slug_perm}/`
-
-#### Gon7
-
-| Field | Description |
-| --- | --- |
-
-Operations: .
-
-API path: ``
-
-#### Gon8
-
-| Field | Description |
-| --- | --- |
-| `auth_mode` |  |
-| `auth_secret` |  |
-| `auth_username` |  |
-| `created_at` |  |
-| `disable_reason` |  |
-| `extra_header_1` |  |
-| `extra_header_2` |  |
-| `extra_value_1` |  |
-| `extra_value_2` |  |
-| `is_active` |  |
-| `mode` |  |
-| `name` |  |
-| `pending_validation` |  |
-| `priority` |  |
-| `slug_perm` |  |
-| `updated_at` |  |
-| `upstream_url` |  |
-| `verify_ssl` |  |
-
-Operations: Update.
-
-API path: `/repos/{owner}/{identifier}/upstream/go/{slug_perm}/`
-
-#### Gon9
-
-| Field | Description |
-| --- | --- |
-| `auth_mode` |  |
-| `auth_secret` |  |
-| `auth_username` |  |
-| `created_at` |  |
-| `disable_reason` |  |
-| `extra_header_1` |  |
-| `extra_header_2` |  |
-| `extra_value_1` |  |
-| `extra_value_2` |  |
-| `is_active` |  |
-| `mode` |  |
-| `name` |  |
-| `pending_validation` |  |
-| `priority` |  |
-| `slug_perm` |  |
-| `updated_at` |  |
-| `upstream_url` |  |
-| `verify_ssl` |  |
-
-Operations: Update.
-
-API path: `/repos/{owner}/{identifier}/upstream/go/{slug_perm}/`
 
 #### Gpg
 
@@ -1254,11 +1124,11 @@ API path: ``
 | `name` |  |
 | `package` |  |
 | `policy` |  |
-| `reason` |  |
+| `reasons` |  |
 | `slug` |  |
 | `slug_perm` |  |
 | `tagline` |  |
-| `vulnerability_scan_result` |  |
+| `vulnerability_scan_results` |  |
 
 Operations: Create, List, Load, Remove, Update.
 
@@ -1299,7 +1169,7 @@ API path: `/orgs/{org}/saml-group-sync/status/`
 | `org` |  |
 | `role` |  |
 | `slug_perm` |  |
-| `team` |  |
+| `teams` |  |
 | `user` |  |
 | `user_url` |  |
 
@@ -1318,7 +1188,7 @@ API path: `/orgs/{org}/invites/`
 | `org` |  |
 | `role` |  |
 | `slug_perm` |  |
-| `team` |  |
+| `teams` |  |
 | `user` |  |
 | `user_url` |  |
 
@@ -1391,14 +1261,14 @@ API path: `/orgs/{org}/members/{member}/update-visibility/`
 
 | Field | Description |
 | --- | --- |
-| `allow_unknown_license` |  |
+| `allow_unknown_licenses` |  |
 | `created_at` |  |
 | `description` |  |
 | `name` |  |
 | `on_violation_quarantine` |  |
 | `package_query_string` |  |
 | `slug_perm` |  |
-| `spdx_identifier` |  |
+| `spdx_identifiers` |  |
 | `updated_at` |  |
 
 Operations: Create, List, Load, Patch, Update.
@@ -1479,21 +1349,14 @@ Operations: .
 
 API path: ``
 
-#### P2n2
-
-| Field | Description |
-| --- | --- |
-
-Operations: .
-
-API path: ``
-
 #### Package
 
 | Field | Description |
 | --- | --- |
-| `architecture` |  |
+| `active` |  |
+| `architectures` |  |
 | `backend_kind` |  |
+| `bandwidth` |  |
 | `cdn_url` |  |
 | `checksum_md5` |  |
 | `checksum_sha1` |  |
@@ -1507,17 +1370,18 @@ API path: ``
 | `display_name` |  |
 | `distro` |  |
 | `distro_version` |  |
-| `download` |  |
+| `downloads` |  |
 | `epoch` |  |
 | `extension` |  |
-| `file` |  |
 | `filename` |  |
+| `files` |  |
 | `format` |  |
 | `format_url` |  |
 | `freeable_storage` |  |
 | `fully_qualified_name` |  |
-| `identifier` |  |
 | `identifier_perm` |  |
+| `identifiers` |  |
+| `inactive` |  |
 | `indexed` |  |
 | `is_cancellable` |  |
 | `is_copyable` |  |
@@ -1538,12 +1402,11 @@ API path: ``
 | `name` |  |
 | `namespace` |  |
 | `namespace_url` |  |
-| `num_download` |  |
-| `num_file` |  |
+| `num_downloads` |  |
+| `num_files` |  |
 | `operator` |  |
 | `origin_repository` |  |
 | `origin_repository_url` |  |
-| `package` |  |
 | `package_type` |  |
 | `policy_violated` |  |
 | `release` |  |
@@ -1571,8 +1434,9 @@ API path: ``
 | `summary` |  |
 | `sync_finished_at` |  |
 | `sync_progress` |  |
-| `tag` |  |
+| `tags` |  |
 | `tags_immutable` |  |
+| `total` |  |
 | `type_display` |  |
 | `uploaded_at` |  |
 | `uploader` |  |
@@ -1628,12 +1492,19 @@ API path: `/files/{owner}/{repo}/{identifier}/complete/`
 
 | Field | Description |
 | --- | --- |
+| `allow_unknown_licenses` |  |
 | `created_at` |  |
+| `description` |  |
 | `evaluation_count` |  |
+| `name` |  |
+| `on_violation_quarantine` |  |
+| `package_query_string` |  |
 | `policy` |  |
 | `slug_perm` |  |
+| `spdx_identifiers` |  |
 | `status` |  |
 | `updated_at` |  |
+| `url` |  |
 | `violation_count` |  |
 
 Operations: Create, List, Load.
@@ -1653,12 +1524,19 @@ API path: `/badges/version/{owner}/{repo}/{package_format}/{package_name}/{packa
 
 | Field | Description |
 | --- | --- |
+| `allow_unknown_severity` |  |
 | `created_at` |  |
+| `description` |  |
 | `evaluation_count` |  |
+| `min_severity` |  |
+| `name` |  |
+| `on_violation_quarantine` |  |
+| `package_query_string` |  |
 | `policy` |  |
 | `slug_perm` |  |
 | `status` |  |
 | `updated_at` |  |
+| `url` |  |
 | `violation_count` |  |
 
 Operations: Create, List, Load.
@@ -1687,12 +1565,12 @@ API path: ``
 
 | Field | Description |
 | --- | --- |
-| `claim` |  |
+| `claims` |  |
 | `enabled` |  |
 | `mapping_claim` |  |
 | `name` |  |
 | `provider_url` |  |
-| `service_account` |  |
+| `service_accounts` |  |
 | `slug` |  |
 | `slug_perm` |  |
 
@@ -1704,13 +1582,13 @@ API path: `/orgs/{org}/openid-connect/`
 
 | Field | Description |
 | --- | --- |
-| `claim` |  |
-| `dynamic_mapping` |  |
+| `claims` |  |
+| `dynamic_mappings` |  |
 | `enabled` |  |
 | `mapping_claim` |  |
 | `name` |  |
 | `provider_url` |  |
-| `service_account` |  |
+| `service_accounts` |  |
 | `slug` |  |
 | `slug_perm` |  |
 
@@ -1758,8 +1636,9 @@ API path: ``
 
 | Field | Description |
 | --- | --- |
+| `display` |  |
 | `history` |  |
-| `usage` |  |
+| `raw` |  |
 
 Operations: Load.
 
@@ -1800,49 +1679,49 @@ API path: ``
 | `content_kind` |  |
 | `contextual_auth_realm` |  |
 | `copy_own` |  |
-| `copy_package` |  |
+| `copy_packages` |  |
 | `cosign_signing_enabled` |  |
 | `created_at` |  |
 | `default_privilege` |  |
 | `delete_own` |  |
-| `delete_package` |  |
+| `delete_packages` |  |
 | `deleted_at` |  |
 | `description` |  |
-| `distribute` |  |
+| `distributes` |  |
 | `docker_refresh_tokens_enabled` |  |
-| `ecdsa_key` |  |
+| `ecdsa_keys` |  |
 | `enforce_eula` |  |
-| `gpg_key` |  |
-| `index_file` |  |
+| `gpg_keys` |  |
+| `index_files` |  |
 | `is_open_source` |  |
 | `is_private` |  |
 | `is_public` |  |
 | `manage_entitlements_privilege` |  |
 | `move_own` |  |
-| `move_package` |  |
+| `move_packages` |  |
 | `name` |  |
 | `namespace` |  |
 | `namespace_url` |  |
 | `nuget_native_signing_enabled` |  |
-| `num_download` |  |
-| `num_policy_violated_package` |  |
-| `num_quarantined_package` |  |
+| `num_downloads` |  |
+| `num_policy_violated_packages` |  |
+| `num_quarantined_packages` |  |
 | `open_source_license` |  |
 | `open_source_project_url` |  |
 | `package_count` |  |
 | `package_group_count` |  |
-| `proxy_npmj` |  |
+| `proxy_npmjs` |  |
 | `proxy_pypi` |  |
 | `raw_package_index_enabled` |  |
 | `raw_package_index_signatures_enabled` |  |
-| `replace_package` |  |
+| `replace_packages` |  |
 | `replace_packages_by_default` |  |
 | `repository_type` |  |
 | `repository_type_str` |  |
 | `resync_own` |  |
-| `resync_package` |  |
+| `resync_packages` |  |
 | `scan_own` |  |
-| `scan_package` |  |
+| `scan_packages` |  |
 | `self_html_url` |  |
 | `self_url` |  |
 | `show_setup_all` |  |
@@ -1853,14 +1732,14 @@ API path: ``
 | `storage_region` |  |
 | `strict_npm_validation` |  |
 | `tag_pre_releases_as_latest` |  |
-| `use_debian_label` |  |
+| `use_debian_labels` |  |
 | `use_default_cargo_upstream` |  |
 | `use_entitlements_privilege` |  |
-| `use_noarch_package` |  |
-| `use_source_package` |  |
+| `use_noarch_packages` |  |
+| `use_source_packages` |  |
 | `use_vulnerability_scanning` |  |
 | `user_entitlements_enabled` |  |
-| `view_statistic` |  |
+| `view_statistics` |  |
 
 Operations: Create, List, Load, Patch, Remove, Update.
 
@@ -2000,19 +1879,19 @@ API path: `/repos/{owner}/{identifier}/rsa/`
 
 | Field | Description |
 | --- | --- |
-| `client` |  |
+| `clients` |  |
 | `created_at` |  |
 | `created_by` |  |
 | `created_by_url` |  |
 | `default` |  |
 | `disable_url` |  |
-| `download` |  |
+| `downloads` |  |
 | `enable_url` |  |
 | `eula_accepted` |  |
 | `eula_accepted_at` |  |
 | `eula_accepted_from` |  |
 | `eula_required` |  |
-| `has_limit` |  |
+| `has_limits` |  |
 | `identifier` |  |
 | `is_active` |  |
 | `is_limited` |  |
@@ -2020,8 +1899,8 @@ API path: `/repos/{owner}/{identifier}/rsa/`
 | `limit_bandwidth_unit` |  |
 | `limit_date_range_from` |  |
 | `limit_date_range_to` |  |
-| `limit_num_client` |  |
-| `limit_num_download` |  |
+| `limit_num_clients` |  |
+| `limit_num_downloads` |  |
 | `limit_package_query` |  |
 | `limit_path_query` |  |
 | `metadata` |  |
@@ -2048,19 +1927,19 @@ API path: `/entitlements/{owner}/{repo}/`
 
 | Field | Description |
 | --- | --- |
-| `client` |  |
+| `clients` |  |
 | `created_at` |  |
 | `created_by` |  |
 | `created_by_url` |  |
 | `default` |  |
 | `disable_url` |  |
-| `download` |  |
+| `downloads` |  |
 | `enable_url` |  |
 | `eula_accepted` |  |
 | `eula_accepted_at` |  |
 | `eula_accepted_from` |  |
 | `eula_required` |  |
-| `has_limit` |  |
+| `has_limits` |  |
 | `identifier` |  |
 | `is_active` |  |
 | `is_limited` |  |
@@ -2068,8 +1947,8 @@ API path: `/entitlements/{owner}/{repo}/`
 | `limit_bandwidth_unit` |  |
 | `limit_date_range_from` |  |
 | `limit_date_range_to` |  |
-| `limit_num_client` |  |
-| `limit_num_download` |  |
+| `limit_num_clients` |  |
+| `limit_num_downloads` |  |
 | `limit_package_query` |  |
 | `limit_path_query` |  |
 | `metadata` |  |
@@ -2096,7 +1975,7 @@ API path: `/entitlements/{owner}/{repo}/{identifier}/refresh/`
 
 | Field | Description |
 | --- | --- |
-| `token` |  |
+| `tokens` |  |
 
 Operations: Create.
 
@@ -2112,6 +1991,7 @@ API path: `/entitlements/{owner}/{repo}/sync/`
 | `disable_reason` |  |
 | `disable_reason_str` |  |
 | `event` |  |
+| `events` |  |
 | `identifier` |  |
 | `is_active` |  |
 | `is_last_response_bad` |  |
@@ -2129,6 +2009,7 @@ API path: `/entitlements/{owner}/{repo}/sync/`
 | `slug_perm` |  |
 | `target_url` |  |
 | `template` |  |
+| `templates` |  |
 | `updated_at` |  |
 | `updated_by` |  |
 | `updated_by_url` |  |
@@ -2189,7 +2070,12 @@ API path: ``
 
 | Field | Description |
 | --- | --- |
-| `resource` |  |
+| `interval` |  |
+| `limit` |  |
+| `remaining` |  |
+| `reset` |  |
+| `reset_iso_8601` |  |
+| `throttled` |  |
 
 Operations: Load.
 
@@ -2230,7 +2116,7 @@ API path: ``
 | `gpg_key_inline` |  |
 | `gpg_key_url` |  |
 | `gpg_verification` |  |
-| `include_source` |  |
+| `include_sources` |  |
 | `is_active` |  |
 | `mode` |  |
 | `name` |  |
@@ -2322,7 +2208,7 @@ API path: ``
 | `name` |  |
 | `role` |  |
 | `slug` |  |
-| `team` |  |
+| `teams` |  |
 
 Operations: Create, List, Load, Update.
 
@@ -2549,12 +2435,12 @@ API path: ``
 | Field | Description |
 | --- | --- |
 | `created_at` |  |
-| `has_vulnerability` |  |
+| `has_vulnerabilities` |  |
 | `identifier` |  |
 | `max_severity` |  |
-| `num_vulnerability` |  |
+| `num_vulnerabilities` |  |
 | `package` |  |
-| `result` |  |
+| `results` |  |
 | `scan_id` |  |
 | `target` |  |
 | `type` |  |
@@ -2663,7 +2549,7 @@ Create an instance: `cargo = client.Cargo`
 #### Example: Load
 
 ```ruby
-# load returns the bare Cargo record (raises on error).
+# load returns the ENTITY — call data_get for the Cargo record (raises on error).
 cargo = client.Cargo.load({ "id" => "cargo_id", "identifier" => "identifier", "owner" => "owner" })
 ```
 
@@ -2680,6 +2566,8 @@ cargos = client.Cargo.list
 cargo = client.Cargo.create({
   "identifier" => "example_identifier", # Object
   "owner" => "example_owner", # Object
+  "name" => "example_name", # String
+  "upstream_url" => "example_upstream_url", # String
 })
 ```
 
@@ -2733,7 +2621,7 @@ Create an instance: `composer = client.Composer`
 #### Example: Load
 
 ```ruby
-# load returns the bare Composer record (raises on error).
+# load returns the ENTITY — call data_get for the Composer record (raises on error).
 composer = client.Composer.load({ "id" => "composer_id", "identifier" => "identifier", "owner" => "owner" })
 ```
 
@@ -2750,6 +2638,8 @@ composers = client.Composer.list
 composer = client.Composer.create({
   "identifier" => "example_identifier", # Object
   "owner" => "example_owner", # Object
+  "name" => "example_name", # String
+  "upstream_url" => "example_upstream_url", # String
 })
 ```
 
@@ -2798,7 +2688,7 @@ Create an instance: `conda = client.Conda`
 #### Example: Load
 
 ```ruby
-# load returns the bare Conda record (raises on error).
+# load returns the ENTITY — call data_get for the Conda record (raises on error).
 conda = client.Conda.load({ "id" => "conda_id", "identifier" => "identifier", "owner" => "owner" })
 ```
 
@@ -2815,6 +2705,8 @@ condas = client.Conda.list
 conda = client.Conda.create({
   "identifier" => "example_identifier", # Object
   "owner" => "example_owner", # Object
+  "name" => "example_name", # String
+  "upstream_url" => "example_upstream_url", # String
 })
 ```
 
@@ -2863,7 +2755,7 @@ Create an instance: `cran = client.Cran`
 #### Example: Load
 
 ```ruby
-# load returns the bare Cran record (raises on error).
+# load returns the ENTITY — call data_get for the Cran record (raises on error).
 cran = client.Cran.load({ "id" => "cran_id", "identifier" => "identifier", "owner" => "owner" })
 ```
 
@@ -2880,6 +2772,8 @@ crans = client.Cran.list
 cran = client.Cran.create({
   "identifier" => "example_identifier", # Object
   "owner" => "example_owner", # Object
+  "name" => "example_name", # String
+  "upstream_url" => "example_upstream_url", # String
 })
 ```
 
@@ -2923,7 +2817,7 @@ Create an instance: `dart = client.Dart`
 #### Example: Load
 
 ```ruby
-# load returns the bare Dart record (raises on error).
+# load returns the ENTITY — call data_get for the Dart record (raises on error).
 dart = client.Dart.load({ "id" => "dart_id", "identifier" => "identifier", "owner" => "owner" })
 ```
 
@@ -2940,6 +2834,8 @@ darts = client.Dart.list
 dart = client.Dart.create({
   "identifier" => "example_identifier", # Object
   "owner" => "example_owner", # Object
+  "name" => "example_name", # String
+  "upstream_url" => "example_upstream_url", # String
 })
 ```
 
@@ -2967,7 +2863,7 @@ Create an instance: `deb = client.Deb`
 | `component` | `String` |  |
 | `created_at` | `String` |  |
 | `disable_reason` | `String` |  |
-| `distro_version` | `Array` |  |
+| `distro_versions` | `Array` |  |
 | `extra_header_1` | `String` |  |
 | `extra_header_2` | `String` |  |
 | `extra_value_1` | `String` |  |
@@ -2975,7 +2871,7 @@ Create an instance: `deb = client.Deb`
 | `gpg_key_inline` | `String` |  |
 | `gpg_key_url` | `String` |  |
 | `gpg_verification` | `String` |  |
-| `include_source` | `Boolean` |  |
+| `include_sources` | `Boolean` |  |
 | `is_active` | `Boolean` |  |
 | `mode` | `String` |  |
 | `name` | `String` |  |
@@ -2991,7 +2887,7 @@ Create an instance: `deb = client.Deb`
 #### Example: Load
 
 ```ruby
-# load returns the bare Deb record (raises on error).
+# load returns the ENTITY — call data_get for the Deb record (raises on error).
 deb = client.Deb.load({ "id" => "deb_id", "identifier" => "identifier", "owner" => "owner" })
 ```
 
@@ -3008,6 +2904,9 @@ debs = client.Deb.list
 deb = client.Deb.create({
   "identifier" => "example_identifier", # Object
   "owner" => "example_owner", # Object
+  "distro_versions" => [], # Array
+  "name" => "example_name", # String
+  "upstream_url" => "example_upstream_url", # String
 })
 ```
 
@@ -3047,13 +2946,13 @@ Create an instance: `distribution_full = client.DistributionFull`
 | `name` | `String` |  |
 | `self_url` | `String` |  |
 | `slug` | `String` |  |
-| `variant` | `String` |  |
-| `version` | `Array` |  |
+| `variants` | `String` |  |
+| `versions` | `Array` |  |
 
 #### Example: Load
 
 ```ruby
-# load returns the bare DistributionFull record (raises on error).
+# load returns the ENTITY — call data_get for the DistributionFull record (raises on error).
 distribution_full = client.DistributionFull.load({ "slug" => "slug" })
 ```
 
@@ -3109,7 +3008,7 @@ Create an instance: `docker = client.Docker`
 #### Example: Load
 
 ```ruby
-# load returns the bare Docker record (raises on error).
+# load returns the ENTITY — call data_get for the Docker record (raises on error).
 docker = client.Docker.load({ "id" => "docker_id", "identifier" => "identifier", "owner" => "owner" })
 ```
 
@@ -3126,6 +3025,8 @@ dockers = client.Docker.list
 docker = client.Docker.create({
   "identifier" => "example_identifier", # Object
   "owner" => "example_owner", # Object
+  "name" => "example_name", # String
+  "upstream_url" => "example_upstream_url", # String
 })
 ```
 
@@ -3151,7 +3052,7 @@ Create an instance: `dynamic_mapping = client.DynamicMapping`
 #### Example: Load
 
 ```ruby
-# load returns the bare DynamicMapping record (raises on error).
+# load returns the ENTITY — call data_get for the DynamicMapping record (raises on error).
 dynamic_mapping = client.DynamicMapping.load({ "id" => "dynamic_mapping_id", "openid_connect_id" => "openid_connect_id", "org_id" => "org_id" })
 ```
 
@@ -3189,12 +3090,16 @@ Create an instance: `entitlement = client.Entitlement`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `token` | `Hash` |  |
+| `active` | `Integer` |  |
+| `bandwidth` | `Hash` |  |
+| `downloads` | `Hash` |  |
+| `inactive` | `Integer` |  |
+| `total` | `Integer` |  |
 
 #### Example: Load
 
 ```ruby
-# load returns the bare Entitlement record (raises on error).
+# load returns the ENTITY — call data_get for the Entitlement record (raises on error).
 entitlement = client.Entitlement.load({ "id" => "entitlement_id" })
 ```
 
@@ -3205,6 +3110,8 @@ entitlement = client.Entitlement.create({
   "identifier" => "example_identifier", # Object
   "owner" => "example_owner", # Object
   "repo" => "example_repo", # Object
+  "bandwidth" => {}, # Hash
+  "downloads" => {}, # Hash
 })
 ```
 
@@ -3250,19 +3157,19 @@ Create an instance: `format = client.Format`
 | Field | Type | Description |
 | --- | --- | --- |
 | `description` | `String` |  |
-| `distribution` | `Array` |  |
-| `extension` | `Array` |  |
+| `distributions` | `Array` |  |
+| `extensions` | `Array` |  |
 | `name` | `String` |  |
 | `premium` | `Boolean` |  |
 | `premium_plan_id` | `String` |  |
 | `premium_plan_name` | `String` |  |
 | `slug` | `String` |  |
-| `support` | `Hash` |  |
+| `supports` | `Hash` |  |
 
 #### Example: Load
 
 ```ruby
-# load returns the bare Format record (raises on error).
+# load returns the ENTITY — call data_get for the Format record (raises on error).
 format = client.Format.load({ "id" => "format_id" })
 ```
 
@@ -3283,87 +3190,14 @@ Create an instance: `geoip = client.Geoip`
 
 Create an instance: `gon = client.Gon`
 
-
-### Gon2
-
-Create an instance: `gon2 = client.Gon2`
-
-
-### Gon3
-
-Create an instance: `gon3 = client.Gon3`
-
-#### Operations
-
-| Method | Description |
-| --- | --- |
-| `list(match)` | List entities matching the criteria. |
-
-#### Fields
-
-| Field | Type | Description |
-| --- | --- | --- |
-| `auth_mode` | `String` |  |
-| `auth_secret` | `String` |  |
-| `auth_username` | `String` |  |
-| `created_at` | `String` |  |
-| `disable_reason` | `String` |  |
-| `extra_header_1` | `String` |  |
-| `extra_header_2` | `String` |  |
-| `extra_value_1` | `String` |  |
-| `extra_value_2` | `String` |  |
-| `is_active` | `Boolean` |  |
-| `mode` | `String` |  |
-| `name` | `String` |  |
-| `pending_validation` | `Boolean` |  |
-| `priority` | `Integer` |  |
-| `slug_perm` | `String` |  |
-| `updated_at` | `String` |  |
-| `upstream_url` | `String` |  |
-| `verify_ssl` | `Boolean` |  |
-
-#### Example: List
-
-```ruby
-# list returns an Array of Gon3 records (raises on error).
-gon3s = client.Gon3.list
-```
-
-
-### Gon4
-
-Create an instance: `gon4 = client.Gon4`
-
-
-### Gon5
-
-Create an instance: `gon5 = client.Gon5`
-
 #### Operations
 
 | Method | Description |
 | --- | --- |
 | `create(data)` | Create a new entity with the given data. |
-
-#### Example: Create
-
-```ruby
-gon5 = client.Gon5.create({
-  "identifier" => "example_identifier", # Object
-  "owner" => "example_owner", # Object
-})
-```
-
-
-### Gon6
-
-Create an instance: `gon6 = client.Gon6`
-
-#### Operations
-
-| Method | Description |
-| --- | --- |
+| `list(match)` | List entities matching the criteria. |
 | `load(match)` | Load a single entity by match criteria. |
+| `update(data)` | Update an existing entity. |
 
 #### Fields
 
@@ -3391,82 +3225,27 @@ Create an instance: `gon6 = client.Gon6`
 #### Example: Load
 
 ```ruby
-# load returns the bare Gon6 record (raises on error).
-gon6 = client.Gon6.load({ "identifier" => "identifier", "owner" => "owner", "slug_perm" => "slug_perm" })
+# load returns the ENTITY — call data_get for the Gon record (raises on error).
+gon = client.Gon.load({ "identifier" => "identifier", "owner" => "owner", "slug_perm" => "slug_perm" })
 ```
 
+#### Example: List
 
-### Gon7
+```ruby
+# list returns an Array of Gon records (raises on error).
+gons = client.Gon.list
+```
 
-Create an instance: `gon7 = client.Gon7`
+#### Example: Create
 
-
-### Gon8
-
-Create an instance: `gon8 = client.Gon8`
-
-#### Operations
-
-| Method | Description |
-| --- | --- |
-| `update(data)` | Update an existing entity. |
-
-#### Fields
-
-| Field | Type | Description |
-| --- | --- | --- |
-| `auth_mode` | `String` |  |
-| `auth_secret` | `String` |  |
-| `auth_username` | `String` |  |
-| `created_at` | `String` |  |
-| `disable_reason` | `String` |  |
-| `extra_header_1` | `String` |  |
-| `extra_header_2` | `String` |  |
-| `extra_value_1` | `String` |  |
-| `extra_value_2` | `String` |  |
-| `is_active` | `Boolean` |  |
-| `mode` | `String` |  |
-| `name` | `String` |  |
-| `pending_validation` | `Boolean` |  |
-| `priority` | `Integer` |  |
-| `slug_perm` | `String` |  |
-| `updated_at` | `String` |  |
-| `upstream_url` | `String` |  |
-| `verify_ssl` | `Boolean` |  |
-
-
-### Gon9
-
-Create an instance: `gon9 = client.Gon9`
-
-#### Operations
-
-| Method | Description |
-| --- | --- |
-| `update(data)` | Update an existing entity. |
-
-#### Fields
-
-| Field | Type | Description |
-| --- | --- | --- |
-| `auth_mode` | `String` |  |
-| `auth_secret` | `String` |  |
-| `auth_username` | `String` |  |
-| `created_at` | `String` |  |
-| `disable_reason` | `String` |  |
-| `extra_header_1` | `String` |  |
-| `extra_header_2` | `String` |  |
-| `extra_value_1` | `String` |  |
-| `extra_value_2` | `String` |  |
-| `is_active` | `Boolean` |  |
-| `mode` | `String` |  |
-| `name` | `String` |  |
-| `pending_validation` | `Boolean` |  |
-| `priority` | `Integer` |  |
-| `slug_perm` | `String` |  |
-| `updated_at` | `String` |  |
-| `upstream_url` | `String` |  |
-| `verify_ssl` | `Boolean` |  |
+```ruby
+gon = client.Gon.create({
+  "identifier" => "example_identifier", # Object
+  "owner" => "example_owner", # Object
+  "name" => "example_name", # String
+  "upstream_url" => "example_upstream_url", # String
+})
+```
 
 
 ### Gpg
@@ -3518,7 +3297,7 @@ Create an instance: `helm = client.Helm`
 #### Example: Load
 
 ```ruby
-# load returns the bare Helm record (raises on error).
+# load returns the ENTITY — call data_get for the Helm record (raises on error).
 helm = client.Helm.load({ "id" => "helm_id", "identifier" => "identifier", "owner" => "owner" })
 ```
 
@@ -3535,6 +3314,8 @@ helms = client.Helm.list
 helm = client.Helm.create({
   "identifier" => "example_identifier", # Object
   "owner" => "example_owner", # Object
+  "name" => "example_name", # String
+  "upstream_url" => "example_upstream_url", # String
 })
 ```
 
@@ -3578,7 +3359,7 @@ Create an instance: `hex = client.Hex`
 #### Example: Load
 
 ```ruby
-# load returns the bare Hex record (raises on error).
+# load returns the ENTITY — call data_get for the Hex record (raises on error).
 hex = client.Hex.load({ "id" => "hex_id", "identifier" => "identifier", "owner" => "owner" })
 ```
 
@@ -3595,6 +3376,8 @@ hexs = client.Hex.list
 hex = client.Hex.create({
   "identifier" => "example_identifier", # Object
   "owner" => "example_owner", # Object
+  "name" => "example_name", # String
+  "upstream_url" => "example_upstream_url", # String
 })
 ```
 
@@ -3643,7 +3426,7 @@ Create an instance: `huggingface = client.Huggingface`
 #### Example: Load
 
 ```ruby
-# load returns the bare Huggingface record (raises on error).
+# load returns the ENTITY — call data_get for the Huggingface record (raises on error).
 huggingface = client.Huggingface.load({ "id" => "huggingface_id", "identifier" => "identifier", "owner" => "owner" })
 ```
 
@@ -3660,6 +3443,8 @@ huggingfaces = client.Huggingface.list
 huggingface = client.Huggingface.create({
   "identifier" => "example_identifier", # Object
   "owner" => "example_owner", # Object
+  "name" => "example_name", # String
+  "upstream_url" => "example_upstream_url", # String
 })
 ```
 
@@ -3732,7 +3517,7 @@ Create an instance: `maven = client.Maven`
 #### Example: Load
 
 ```ruby
-# load returns the bare Maven record (raises on error).
+# load returns the ENTITY — call data_get for the Maven record (raises on error).
 maven = client.Maven.load({ "id" => "maven_id", "identifier" => "identifier", "owner" => "owner" })
 ```
 
@@ -3749,6 +3534,8 @@ mavens = client.Maven.list
 maven = client.Maven.create({
   "identifier" => "example_identifier", # Object
   "owner" => "example_owner", # Object
+  "name" => "example_name", # String
+  "upstream_url" => "example_upstream_url", # String
 })
 ```
 
@@ -3786,7 +3573,7 @@ Create an instance: `namespace = client.Namespace`
 #### Example: Load
 
 ```ruby
-# load returns the bare Namespace record (raises on error).
+# load returns the ENTITY — call data_get for the Namespace record (raises on error).
 namespace = client.Namespace.load({ "id" => "namespace_id" })
 ```
 
@@ -3832,7 +3619,7 @@ Create an instance: `namespace_audit_log = client.NamespaceAuditLog`
 #### Example: Load
 
 ```ruby
-# load returns the bare NamespaceAuditLog record (raises on error).
+# load returns the ENTITY — call data_get for the NamespaceAuditLog record (raises on error).
 namespace_audit_log = client.NamespaceAuditLog.load({ "id" => "namespace_audit_log_id" })
 ```
 
@@ -3876,7 +3663,7 @@ Create an instance: `npm = client.Npm`
 #### Example: Load
 
 ```ruby
-# load returns the bare Npm record (raises on error).
+# load returns the ENTITY — call data_get for the Npm record (raises on error).
 npm = client.Npm.load({ "id" => "npm_id", "identifier" => "identifier", "owner" => "owner" })
 ```
 
@@ -3893,6 +3680,8 @@ npms = client.Npm.list
 npm = client.Npm.create({
   "identifier" => "example_identifier", # Object
   "owner" => "example_owner", # Object
+  "name" => "example_name", # String
+  "upstream_url" => "example_upstream_url", # String
 })
 ```
 
@@ -3936,7 +3725,7 @@ Create an instance: `nuget = client.Nuget`
 #### Example: Load
 
 ```ruby
-# load returns the bare Nuget record (raises on error).
+# load returns the ENTITY — call data_get for the Nuget record (raises on error).
 nuget = client.Nuget.load({ "id" => "nuget_id", "identifier" => "identifier", "owner" => "owner" })
 ```
 
@@ -3953,6 +3742,8 @@ nugets = client.Nuget.list
 nuget = client.Nuget.create({
   "identifier" => "example_identifier", # Object
   "owner" => "example_owner", # Object
+  "name" => "example_name", # String
+  "upstream_url" => "example_upstream_url", # String
 })
 ```
 
@@ -3987,16 +3778,16 @@ Create an instance: `org = client.Org`
 | `name` | `String` |  |
 | `package` | `Hash` |  |
 | `policy` | `Hash` |  |
-| `reason` | `Array` |  |
+| `reasons` | `Array` |  |
 | `slug` | `String` |  |
 | `slug_perm` | `String` |  |
 | `tagline` | `String` |  |
-| `vulnerability_scan_result` | `Hash` |  |
+| `vulnerability_scan_results` | `Hash` |  |
 
 #### Example: Load
 
 ```ruby
-# load returns the bare Org record (raises on error).
+# load returns the ENTITY — call data_get for the Org record (raises on error).
 org = client.Org.load({ "id" => "org_id" })
 ```
 
@@ -4012,6 +3803,11 @@ orgs = client.Org.list
 ```ruby
 org = client.Org.create({
   "id" => "example_id", # String
+  "name" => "example_name", # String
+  "package" => {}, # Hash
+  "policy" => {}, # Hash
+  "reasons" => [], # Array
+  "vulnerability_scan_results" => {}, # Hash
 })
 ```
 
@@ -4049,6 +3845,9 @@ organization_group_syncs = client.OrganizationGroupSync.list
 ```ruby
 organization_group_sync = client.OrganizationGroupSync.create({
   "org_id" => "example_org_id", # String
+  "idp_key" => "example_idp_key", # String
+  "idp_value" => "example_idp_value", # String
+  "team" => "example_team", # String
 })
 ```
 
@@ -4072,7 +3871,7 @@ Create an instance: `organization_group_sync_status = client.OrganizationGroupSy
 #### Example: Load
 
 ```ruby
-# load returns the bare OrganizationGroupSyncStatus record (raises on error).
+# load returns the ENTITY — call data_get for the OrganizationGroupSyncStatus record (raises on error).
 organization_group_sync_status = client.OrganizationGroupSyncStatus.load({ "org_id" => "org_id" })
 ```
 
@@ -4100,7 +3899,7 @@ Create an instance: `organization_invite = client.OrganizationInvite`
 | `org` | `String` |  |
 | `role` | `String` |  |
 | `slug_perm` | `String` |  |
-| `team` | `Array` |  |
+| `teams` | `Array` |  |
 | `user` | `String` |  |
 | `user_url` | `String` |  |
 
@@ -4141,7 +3940,7 @@ Create an instance: `organization_invite_extend = client.OrganizationInviteExten
 | `org` | `String` |  |
 | `role` | `String` |  |
 | `slug_perm` | `String` |  |
-| `team` | `Array` |  |
+| `teams` | `Array` |  |
 | `user` | `String` |  |
 | `user_url` | `String` |  |
 
@@ -4187,7 +3986,7 @@ Create an instance: `organization_membership = client.OrganizationMembership`
 #### Example: Load
 
 ```ruby
-# load returns the bare OrganizationMembership record (raises on error).
+# load returns the ENTITY — call data_get for the OrganizationMembership record (raises on error).
 organization_membership = client.OrganizationMembership.load({ "member" => "member", "org_id" => "org_id" })
 ```
 
@@ -4270,20 +4069,20 @@ Create an instance: `organization_package_license_policy = client.OrganizationPa
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `allow_unknown_license` | `Boolean` |  |
+| `allow_unknown_licenses` | `Boolean` |  |
 | `created_at` | `String` |  |
 | `description` | `String` |  |
 | `name` | `String` |  |
 | `on_violation_quarantine` | `Boolean` |  |
 | `package_query_string` | `String` |  |
 | `slug_perm` | `String` |  |
-| `spdx_identifier` | `Array` |  |
+| `spdx_identifiers` | `Array` |  |
 | `updated_at` | `String` |  |
 
 #### Example: Load
 
 ```ruby
-# load returns the bare OrganizationPackageLicensePolicy record (raises on error).
+# load returns the ENTITY — call data_get for the OrganizationPackageLicensePolicy record (raises on error).
 organization_package_license_policy = client.OrganizationPackageLicensePolicy.load({ "id" => "organization_package_license_policy_id", "org_id" => "org_id" })
 ```
 
@@ -4299,6 +4098,8 @@ organization_package_license_policys = client.OrganizationPackageLicensePolicy.l
 ```ruby
 organization_package_license_policy = client.OrganizationPackageLicensePolicy.create({
   "org_id" => "example_org_id", # String
+  "name" => "example_name", # String
+  "spdx_identifiers" => [], # Array
 })
 ```
 
@@ -4333,7 +4134,7 @@ Create an instance: `organization_package_vulnerability_policy = client.Organiza
 #### Example: Load
 
 ```ruby
-# load returns the bare OrganizationPackageVulnerabilityPolicy record (raises on error).
+# load returns the ENTITY — call data_get for the OrganizationPackageVulnerabilityPolicy record (raises on error).
 organization_package_vulnerability_policy = client.OrganizationPackageVulnerabilityPolicy.load({ "id" => "organization_package_vulnerability_policy_id", "org_id" => "org_id" })
 ```
 
@@ -4349,6 +4150,7 @@ organization_package_vulnerability_policys = client.OrganizationPackageVulnerabi
 ```ruby
 organization_package_vulnerability_policy = client.OrganizationPackageVulnerabilityPolicy.create({
   "org_id" => "example_org_id", # String
+  "name" => "example_name", # String
 })
 ```
 
@@ -4376,7 +4178,7 @@ Create an instance: `organization_saml_auth = client.OrganizationSamlAuth`
 #### Example: Load
 
 ```ruby
-# load returns the bare OrganizationSamlAuth record (raises on error).
+# load returns the ENTITY — call data_get for the OrganizationSamlAuth record (raises on error).
 organization_saml_auth = client.OrganizationSamlAuth.load({ "org_id" => "org_id" })
 ```
 
@@ -4407,7 +4209,7 @@ Create an instance: `organization_team = client.OrganizationTeam`
 #### Example: Load
 
 ```ruby
-# load returns the bare OrganizationTeam record (raises on error).
+# load returns the ENTITY — call data_get for the OrganizationTeam record (raises on error).
 organization_team = client.OrganizationTeam.load({ "id" => "organization_team_id", "org_id" => "org_id" })
 ```
 
@@ -4423,6 +4225,7 @@ organization_teams = client.OrganizationTeam.list
 ```ruby
 organization_team = client.OrganizationTeam.create({
   "org_id" => "example_org_id", # String
+  "name" => "example_name", # String
 })
 ```
 
@@ -4458,6 +4261,8 @@ organization_team_members = client.OrganizationTeamMember.list
 organization_team_member = client.OrganizationTeamMember.create({
   "org_id" => "example_org_id", # String
   "team_id" => "example_team_id", # String
+  "role" => "example_role", # String
+  "user" => "example_user", # String
 })
 ```
 
@@ -4470,11 +4275,6 @@ Create an instance: `oss = client.Oss`
 ### P2n
 
 Create an instance: `p2n = client.P2n`
-
-
-### P2n2
-
-Create an instance: `p2n2 = client.P2n2`
 
 
 ### Package
@@ -4494,8 +4294,10 @@ Create an instance: `package = client.Package`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `architecture` | `Array` |  |
+| `active` | `Integer` |  |
+| `architectures` | `Array` |  |
 | `backend_kind` | `Integer` |  |
+| `bandwidth` | `Hash` |  |
 | `cdn_url` | `String` |  |
 | `checksum_md5` | `String` |  |
 | `checksum_sha1` | `String` |  |
@@ -4509,17 +4311,18 @@ Create an instance: `package = client.Package`
 | `display_name` | `String` |  |
 | `distro` | `Hash` |  |
 | `distro_version` | `Hash` |  |
-| `download` | `Integer` |  |
+| `downloads` | `Hash` |  |
 | `epoch` | `Integer` |  |
 | `extension` | `String` |  |
-| `file` | `Array` |  |
 | `filename` | `String` |  |
+| `files` | `Array` |  |
 | `format` | `String` |  |
 | `format_url` | `String` |  |
 | `freeable_storage` | `Integer` |  |
 | `fully_qualified_name` | `String` |  |
-| `identifier` | `Hash` |  |
 | `identifier_perm` | `String` |  |
+| `identifiers` | `Hash` |  |
+| `inactive` | `Integer` |  |
 | `indexed` | `Boolean` |  |
 | `is_cancellable` | `Boolean` |  |
 | `is_copyable` | `Boolean` |  |
@@ -4540,12 +4343,11 @@ Create an instance: `package = client.Package`
 | `name` | `String` |  |
 | `namespace` | `String` |  |
 | `namespace_url` | `String` |  |
-| `num_download` | `Integer` |  |
-| `num_file` | `Integer` |  |
+| `num_downloads` | `Integer` |  |
+| `num_files` | `Integer` |  |
 | `operator` | `String` |  |
 | `origin_repository` | `String` |  |
 | `origin_repository_url` | `String` |  |
-| `package` | `Hash` |  |
 | `package_type` | `Integer` |  |
 | `policy_violated` | `Boolean` |  |
 | `release` | `String` |  |
@@ -4573,8 +4375,9 @@ Create an instance: `package = client.Package`
 | `summary` | `String` |  |
 | `sync_finished_at` | `String` |  |
 | `sync_progress` | `Integer` |  |
-| `tag` | `Hash` |  |
+| `tags` | `Hash` |  |
 | `tags_immutable` | `Hash` |  |
+| `total` | `Integer` |  |
 | `type_display` | `String` |  |
 | `uploaded_at` | `String` |  |
 | `uploader` | `String` |  |
@@ -4586,7 +4389,7 @@ Create an instance: `package = client.Package`
 #### Example: Load
 
 ```ruby
-# load returns the bare Package record (raises on error).
+# load returns the ENTITY — call data_get for the Package record (raises on error).
 package = client.Package.load({ "owner" => "owner", "repo" => "repo" })
 ```
 
@@ -4603,6 +4406,12 @@ packages = client.Package.list
 package = client.Package.create({
   "owner" => "example_owner", # Object
   "repo" => "example_repo", # Object
+  "bandwidth" => {}, # Hash
+  "count" => 1, # Integer
+  "distro" => {}, # Hash
+  "downloads" => {}, # Hash
+  "last_push" => "example_last_push", # String
+  "num_downloads" => 1, # Integer
 })
 ```
 
@@ -4637,7 +4446,7 @@ Create an instance: `package_deny_policy = client.PackageDenyPolicy`
 #### Example: Load
 
 ```ruby
-# load returns the bare PackageDenyPolicy record (raises on error).
+# load returns the ENTITY — call data_get for the PackageDenyPolicy record (raises on error).
 package_deny_policy = client.PackageDenyPolicy.load({ "id" => "package_deny_policy_id", "org_id" => "org_id" })
 ```
 
@@ -4653,6 +4462,7 @@ package_deny_policys = client.PackageDenyPolicy.list
 ```ruby
 package_deny_policy = client.PackageDenyPolicy.create({
   "org_id" => "example_org_id", # String
+  "package_query_string" => "example_package_query_string", # String
 })
 ```
 
@@ -4678,7 +4488,7 @@ Create an instance: `package_file_parts_upload = client.PackageFilePartsUpload`
 #### Example: Load
 
 ```ruby
-# load returns the bare PackageFilePartsUpload record (raises on error).
+# load returns the ENTITY — call data_get for the PackageFilePartsUpload record (raises on error).
 package_file_parts_upload = client.PackageFilePartsUpload.load({ "identifier" => "identifier", "owner" => "owner", "repo" => "repo" })
 ```
 
@@ -4720,18 +4530,25 @@ Create an instance: `package_license_policy_evaluation = client.PackageLicensePo
 
 | Field | Type | Description |
 | --- | --- | --- |
+| `allow_unknown_licenses` | `Boolean` |  |
 | `created_at` | `String` |  |
+| `description` | `String` |  |
 | `evaluation_count` | `Integer` |  |
+| `name` | `String` |  |
+| `on_violation_quarantine` | `Boolean` |  |
+| `package_query_string` | `String` |  |
 | `policy` | `Hash` |  |
 | `slug_perm` | `String` |  |
+| `spdx_identifiers` | `Array` |  |
 | `status` | `String` |  |
 | `updated_at` | `String` |  |
+| `url` | `String` |  |
 | `violation_count` | `Integer` |  |
 
 #### Example: Load
 
 ```ruby
-# load returns the bare PackageLicensePolicyEvaluation record (raises on error).
+# load returns the ENTITY — call data_get for the PackageLicensePolicyEvaluation record (raises on error).
 package_license_policy_evaluation = client.PackageLicensePolicyEvaluation.load({ "id" => "package_license_policy_evaluation_id", "license_policy_id" => "license_policy_id", "org_id" => "org_id" })
 ```
 
@@ -4748,6 +4565,8 @@ package_license_policy_evaluations = client.PackageLicensePolicyEvaluation.list
 package_license_policy_evaluation = client.PackageLicensePolicyEvaluation.create({
   "org_id" => "example_org_id", # String
   "policy_slug_perm" => "example_policy_slug_perm", # Object
+  "policy" => {}, # Hash
+  "spdx_identifiers" => [], # Array
 })
 ```
 
@@ -4765,7 +4584,7 @@ Create an instance: `package_version_badge = client.PackageVersionBadge`
 #### Example: Load
 
 ```ruby
-# load returns the bare PackageVersionBadge record (raises on error).
+# load returns the ENTITY — call data_get for the PackageVersionBadge record (raises on error).
 package_version_badge = client.PackageVersionBadge.load({ "owner" => "owner", "package_format" => "package_format", "package_identifier" => "package_identifier", "package_name" => "package_name", "package_version" => "package_version", "repo" => "repo" })
 ```
 
@@ -4786,18 +4605,25 @@ Create an instance: `package_vulnerability_policy_evaluation = client.PackageVul
 
 | Field | Type | Description |
 | --- | --- | --- |
+| `allow_unknown_severity` | `Boolean` |  |
 | `created_at` | `String` |  |
+| `description` | `String` |  |
 | `evaluation_count` | `Integer` |  |
+| `min_severity` | `String` |  |
+| `name` | `String` |  |
+| `on_violation_quarantine` | `Boolean` |  |
+| `package_query_string` | `String` |  |
 | `policy` | `Hash` |  |
 | `slug_perm` | `String` |  |
 | `status` | `String` |  |
 | `updated_at` | `String` |  |
+| `url` | `String` |  |
 | `violation_count` | `Integer` |  |
 
 #### Example: Load
 
 ```ruby
-# load returns the bare PackageVulnerabilityPolicyEvaluation record (raises on error).
+# load returns the ENTITY — call data_get for the PackageVulnerabilityPolicyEvaluation record (raises on error).
 package_vulnerability_policy_evaluation = client.PackageVulnerabilityPolicyEvaluation.load({ "id" => "package_vulnerability_policy_evaluation_id", "org_id" => "org_id", "vulnerability_policy_id" => "vulnerability_policy_id" })
 ```
 
@@ -4843,19 +4669,19 @@ Create an instance: `provider_setting = client.ProviderSetting`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `claim` | `Hash` |  |
+| `claims` | `Hash` |  |
 | `enabled` | `Boolean` |  |
 | `mapping_claim` | `String` |  |
 | `name` | `String` |  |
 | `provider_url` | `String` |  |
-| `service_account` | `Array` |  |
+| `service_accounts` | `Array` |  |
 | `slug` | `String` |  |
 | `slug_perm` | `String` |  |
 
 #### Example: Load
 
 ```ruby
-# load returns the bare ProviderSetting record (raises on error).
+# load returns the ENTITY — call data_get for the ProviderSetting record (raises on error).
 provider_setting = client.ProviderSetting.load({ "org_id" => "org_id", "slug_perm" => "slug_perm" })
 ```
 
@@ -4882,13 +4708,13 @@ Create an instance: `provider_settings_write = client.ProviderSettingsWrite`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `claim` | `Hash` |  |
-| `dynamic_mapping` | `Array` |  |
+| `claims` | `Hash` |  |
+| `dynamic_mappings` | `Array` |  |
 | `enabled` | `Boolean` |  |
 | `mapping_claim` | `String` |  |
 | `name` | `String` |  |
 | `provider_url` | `String` |  |
-| `service_account` | `Array` |  |
+| `service_accounts` | `Array` |  |
 | `slug` | `String` |  |
 | `slug_perm` | `String` |  |
 
@@ -4897,6 +4723,10 @@ Create an instance: `provider_settings_write = client.ProviderSettingsWrite`
 ```ruby
 provider_settings_write = client.ProviderSettingsWrite.create({
   "org_id" => "example_org_id", # String
+  "claims" => {}, # Hash
+  "enabled" => true, # Boolean
+  "name" => "example_name", # String
+  "provider_url" => "example_provider_url", # String
 })
 ```
 
@@ -4940,7 +4770,7 @@ Create an instance: `python = client.Python`
 #### Example: Load
 
 ```ruby
-# load returns the bare Python record (raises on error).
+# load returns the ENTITY — call data_get for the Python record (raises on error).
 python = client.Python.load({ "id" => "python_id", "identifier" => "identifier", "owner" => "owner" })
 ```
 
@@ -4957,6 +4787,8 @@ pythons = client.Python.list
 python = client.Python.create({
   "identifier" => "example_identifier", # Object
   "owner" => "example_owner", # Object
+  "name" => "example_name", # String
+  "upstream_url" => "example_upstream_url", # String
 })
 ```
 
@@ -4980,13 +4812,14 @@ Create an instance: `quota = client.Quota`
 
 | Field | Type | Description |
 | --- | --- | --- |
+| `display` | `Hash` |  |
 | `history` | `Array` |  |
-| `usage` | `Hash` |  |
+| `raw` | `Hash` |  |
 
 #### Example: Load
 
 ```ruby
-# load returns the bare Quota record (raises on error).
+# load returns the ENTITY — call data_get for the Quota record (raises on error).
 quota = client.Quota.load({ "id" => "quota_id" })
 ```
 
@@ -5028,49 +4861,49 @@ Create an instance: `repo = client.Repo`
 | `content_kind` | `String` |  |
 | `contextual_auth_realm` | `Boolean` |  |
 | `copy_own` | `Boolean` |  |
-| `copy_package` | `String` |  |
+| `copy_packages` | `String` |  |
 | `cosign_signing_enabled` | `Boolean` |  |
 | `created_at` | `String` |  |
 | `default_privilege` | `String` |  |
 | `delete_own` | `Boolean` |  |
-| `delete_package` | `String` |  |
+| `delete_packages` | `String` |  |
 | `deleted_at` | `String` |  |
 | `description` | `String` |  |
-| `distribute` | `Array` |  |
+| `distributes` | `Array` |  |
 | `docker_refresh_tokens_enabled` | `Boolean` |  |
-| `ecdsa_key` | `Array` |  |
+| `ecdsa_keys` | `Array` |  |
 | `enforce_eula` | `Boolean` |  |
-| `gpg_key` | `Array` |  |
-| `index_file` | `Boolean` |  |
+| `gpg_keys` | `Array` |  |
+| `index_files` | `Boolean` |  |
 | `is_open_source` | `Boolean` |  |
 | `is_private` | `Boolean` |  |
 | `is_public` | `Boolean` |  |
 | `manage_entitlements_privilege` | `String` |  |
 | `move_own` | `Boolean` |  |
-| `move_package` | `String` |  |
+| `move_packages` | `String` |  |
 | `name` | `String` |  |
 | `namespace` | `String` |  |
 | `namespace_url` | `String` |  |
 | `nuget_native_signing_enabled` | `Boolean` |  |
-| `num_download` | `Integer` |  |
-| `num_policy_violated_package` | `Integer` |  |
-| `num_quarantined_package` | `Integer` |  |
+| `num_downloads` | `Integer` |  |
+| `num_policy_violated_packages` | `Integer` |  |
+| `num_quarantined_packages` | `Integer` |  |
 | `open_source_license` | `String` |  |
 | `open_source_project_url` | `String` |  |
 | `package_count` | `Integer` |  |
 | `package_group_count` | `Integer` |  |
-| `proxy_npmj` | `Boolean` |  |
+| `proxy_npmjs` | `Boolean` |  |
 | `proxy_pypi` | `Boolean` |  |
 | `raw_package_index_enabled` | `Boolean` |  |
 | `raw_package_index_signatures_enabled` | `Boolean` |  |
-| `replace_package` | `String` |  |
+| `replace_packages` | `String` |  |
 | `replace_packages_by_default` | `Boolean` |  |
 | `repository_type` | `Integer` |  |
 | `repository_type_str` | `String` |  |
 | `resync_own` | `Boolean` |  |
-| `resync_package` | `String` |  |
+| `resync_packages` | `String` |  |
 | `scan_own` | `Boolean` |  |
-| `scan_package` | `String` |  |
+| `scan_packages` | `String` |  |
 | `self_html_url` | `String` |  |
 | `self_url` | `String` |  |
 | `show_setup_all` | `Boolean` |  |
@@ -5081,19 +4914,19 @@ Create an instance: `repo = client.Repo`
 | `storage_region` | `String` |  |
 | `strict_npm_validation` | `Boolean` |  |
 | `tag_pre_releases_as_latest` | `Boolean` |  |
-| `use_debian_label` | `Boolean` |  |
+| `use_debian_labels` | `Boolean` |  |
 | `use_default_cargo_upstream` | `Boolean` |  |
 | `use_entitlements_privilege` | `String` |  |
-| `use_noarch_package` | `Boolean` |  |
-| `use_source_package` | `Boolean` |  |
+| `use_noarch_packages` | `Boolean` |  |
+| `use_source_packages` | `Boolean` |  |
 | `use_vulnerability_scanning` | `Boolean` |  |
 | `user_entitlements_enabled` | `Boolean` |  |
-| `view_statistic` | `String` |  |
+| `view_statistics` | `String` |  |
 
 #### Example: Load
 
 ```ruby
-# load returns the bare Repo record (raises on error).
+# load returns the ENTITY — call data_get for the Repo record (raises on error).
 repo = client.Repo.load({ "id" => "repo_id" })
 ```
 
@@ -5108,6 +4941,7 @@ repos = client.Repo.list
 
 ```ruby
 repo = client.Repo.create({
+  "name" => "example_name", # String
 })
 ```
 
@@ -5174,7 +5008,7 @@ Create an instance: `repository_ecdsa_key = client.RepositoryEcdsaKey`
 #### Example: Load
 
 ```ruby
-# load returns the bare RepositoryEcdsaKey record (raises on error).
+# load returns the ENTITY — call data_get for the RepositoryEcdsaKey record (raises on error).
 repository_ecdsa_key = client.RepositoryEcdsaKey.load({ "identifier" => "identifier", "owner" => "owner" })
 ```
 
@@ -5209,7 +5043,7 @@ Create an instance: `repository_geo_ip_rule = client.RepositoryGeoIpRule`
 #### Example: Load
 
 ```ruby
-# load returns the bare RepositoryGeoIpRule record (raises on error).
+# load returns the ENTITY — call data_get for the RepositoryGeoIpRule record (raises on error).
 repository_geo_ip_rule = client.RepositoryGeoIpRule.load({ "identifier" => "identifier", "owner" => "owner" })
 ```
 
@@ -5233,7 +5067,7 @@ Create an instance: `repository_geo_ip_status = client.RepositoryGeoIpStatus`
 #### Example: Load
 
 ```ruby
-# load returns the bare RepositoryGeoIpStatus record (raises on error).
+# load returns the ENTITY — call data_get for the RepositoryGeoIpStatus record (raises on error).
 repository_geo_ip_status = client.RepositoryGeoIpStatus.load({ "identifier" => "identifier", "owner" => "owner" })
 ```
 
@@ -5284,7 +5118,7 @@ Create an instance: `repository_gpg_key = client.RepositoryGpgKey`
 #### Example: Load
 
 ```ruby
-# load returns the bare RepositoryGpgKey record (raises on error).
+# load returns the ENTITY — call data_get for the RepositoryGpgKey record (raises on error).
 repository_gpg_key = client.RepositoryGpgKey.load({ "identifier" => "identifier", "owner" => "owner" })
 ```
 
@@ -5294,6 +5128,7 @@ repository_gpg_key = client.RepositoryGpgKey.load({ "identifier" => "identifier"
 repository_gpg_key = client.RepositoryGpgKey.create({
   "identifier" => "example_identifier", # Object
   "owner" => "example_owner", # Object
+  "comment" => "example_comment", # String
 })
 ```
 
@@ -5352,7 +5187,7 @@ Create an instance: `repository_retention_rule = client.RepositoryRetentionRule`
 #### Example: Load
 
 ```ruby
-# load returns the bare RepositoryRetentionRule record (raises on error).
+# load returns the ENTITY — call data_get for the RepositoryRetentionRule record (raises on error).
 repository_retention_rule = client.RepositoryRetentionRule.load({ "owner" => "owner", "repo" => "repo" })
 ```
 
@@ -5383,7 +5218,7 @@ Create an instance: `repository_rsa_key = client.RepositoryRsaKey`
 #### Example: Load
 
 ```ruby
-# load returns the bare RepositoryRsaKey record (raises on error).
+# load returns the ENTITY — call data_get for the RepositoryRsaKey record (raises on error).
 repository_rsa_key = client.RepositoryRsaKey.load({ "identifier" => "identifier", "owner" => "owner" })
 ```
 
@@ -5414,19 +5249,19 @@ Create an instance: `repository_token = client.RepositoryToken`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `client` | `Integer` |  |
+| `clients` | `Integer` |  |
 | `created_at` | `String` |  |
 | `created_by` | `String` |  |
 | `created_by_url` | `String` |  |
 | `default` | `Boolean` |  |
 | `disable_url` | `String` |  |
-| `download` | `Integer` |  |
+| `downloads` | `Integer` |  |
 | `enable_url` | `String` |  |
 | `eula_accepted` | `Hash` |  |
 | `eula_accepted_at` | `String` |  |
 | `eula_accepted_from` | `String` |  |
 | `eula_required` | `Boolean` |  |
-| `has_limit` | `Boolean` |  |
+| `has_limits` | `Boolean` |  |
 | `identifier` | `Integer` |  |
 | `is_active` | `Boolean` |  |
 | `is_limited` | `Boolean` |  |
@@ -5434,8 +5269,8 @@ Create an instance: `repository_token = client.RepositoryToken`
 | `limit_bandwidth_unit` | `String` |  |
 | `limit_date_range_from` | `String` |  |
 | `limit_date_range_to` | `String` |  |
-| `limit_num_client` | `Integer` |  |
-| `limit_num_download` | `Integer` |  |
+| `limit_num_clients` | `Integer` |  |
+| `limit_num_downloads` | `Integer` |  |
 | `limit_package_query` | `String` |  |
 | `limit_path_query` | `String` |  |
 | `metadata` | `Hash` |  |
@@ -5457,7 +5292,7 @@ Create an instance: `repository_token = client.RepositoryToken`
 #### Example: Load
 
 ```ruby
-# load returns the bare RepositoryToken record (raises on error).
+# load returns the ENTITY — call data_get for the RepositoryToken record (raises on error).
 repository_token = client.RepositoryToken.load({ "identifier" => "identifier", "owner" => "owner", "repo" => "repo" })
 ```
 
@@ -5474,6 +5309,7 @@ repository_tokens = client.RepositoryToken.list
 repository_token = client.RepositoryToken.create({
   "owner" => "example_owner", # Object
   "repo" => "example_repo", # Object
+  "name" => "example_name", # String
 })
 ```
 
@@ -5492,19 +5328,19 @@ Create an instance: `repository_token_refresh = client.RepositoryTokenRefresh`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `client` | `Integer` |  |
+| `clients` | `Integer` |  |
 | `created_at` | `String` |  |
 | `created_by` | `String` |  |
 | `created_by_url` | `String` |  |
 | `default` | `Boolean` |  |
 | `disable_url` | `String` |  |
-| `download` | `Integer` |  |
+| `downloads` | `Integer` |  |
 | `enable_url` | `String` |  |
 | `eula_accepted` | `Hash` |  |
 | `eula_accepted_at` | `String` |  |
 | `eula_accepted_from` | `String` |  |
 | `eula_required` | `Boolean` |  |
-| `has_limit` | `Boolean` |  |
+| `has_limits` | `Boolean` |  |
 | `identifier` | `Integer` |  |
 | `is_active` | `Boolean` |  |
 | `is_limited` | `Boolean` |  |
@@ -5512,8 +5348,8 @@ Create an instance: `repository_token_refresh = client.RepositoryTokenRefresh`
 | `limit_bandwidth_unit` | `String` |  |
 | `limit_date_range_from` | `String` |  |
 | `limit_date_range_to` | `String` |  |
-| `limit_num_client` | `Integer` |  |
-| `limit_num_download` | `Integer` |  |
+| `limit_num_clients` | `Integer` |  |
+| `limit_num_downloads` | `Integer` |  |
 | `limit_package_query` | `String` |  |
 | `limit_path_query` | `String` |  |
 | `metadata` | `Hash` |  |
@@ -5557,7 +5393,7 @@ Create an instance: `repository_token_sync = client.RepositoryTokenSync`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `token` | `Array` |  |
+| `tokens` | `Array` |  |
 
 #### Example: Create
 
@@ -5590,7 +5426,8 @@ Create an instance: `repository_webhook = client.RepositoryWebhook`
 | `created_by_url` | `String` |  |
 | `disable_reason` | `Integer` |  |
 | `disable_reason_str` | `String` |  |
-| `event` | `Array` |  |
+| `event` | `String` |  |
+| `events` | `Array` |  |
 | `identifier` | `Integer` |  |
 | `is_active` | `Boolean` |  |
 | `is_last_response_bad` | `Boolean` |  |
@@ -5607,7 +5444,8 @@ Create an instance: `repository_webhook = client.RepositoryWebhook`
 | `self_url` | `String` |  |
 | `slug_perm` | `String` |  |
 | `target_url` | `String` |  |
-| `template` | `Array` |  |
+| `template` | `String` |  |
+| `templates` | `Array` |  |
 | `updated_at` | `String` |  |
 | `updated_by` | `String` |  |
 | `updated_by_url` | `String` |  |
@@ -5626,6 +5464,10 @@ repository_webhooks = client.RepositoryWebhook.list
 repository_webhook = client.RepositoryWebhook.create({
   "owner" => "example_owner", # Object
   "repo" => "example_repo", # Object
+  "event" => "example_event", # String
+  "events" => [], # Array
+  "target_url" => "example_target_url", # String
+  "templates" => [], # Array
 })
 ```
 
@@ -5658,7 +5500,7 @@ Create an instance: `repository_x509_ecdsa_certificate = client.RepositoryX509Ec
 #### Example: Load
 
 ```ruby
-# load returns the bare RepositoryX509EcdsaCertificate record (raises on error).
+# load returns the ENTITY — call data_get for the RepositoryX509EcdsaCertificate record (raises on error).
 repository_x509_ecdsa_certificate = client.RepositoryX509EcdsaCertificate.load({ "identifier" => "identifier", "owner" => "owner" })
 ```
 
@@ -5691,7 +5533,7 @@ Create an instance: `repository_x509_rsa_certificate = client.RepositoryX509RsaC
 #### Example: Load
 
 ```ruby
-# load returns the bare RepositoryX509RsaCertificate record (raises on error).
+# load returns the ENTITY — call data_get for the RepositoryX509RsaCertificate record (raises on error).
 repository_x509_rsa_certificate = client.RepositoryX509RsaCertificate.load({ "identifier" => "identifier", "owner" => "owner" })
 ```
 
@@ -5715,12 +5557,17 @@ Create an instance: `resources_rate_check = client.ResourcesRateCheck`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `resource` | `Hash` |  |
+| `interval` | `Float` |  |
+| `limit` | `Integer` |  |
+| `remaining` | `Integer` |  |
+| `reset` | `Integer` |  |
+| `reset_iso_8601` | `String` |  |
+| `throttled` | `Boolean` |  |
 
 #### Example: Load
 
 ```ruby
-# load returns the bare ResourcesRateCheck record (raises on error).
+# load returns the ENTITY — call data_get for the ResourcesRateCheck record (raises on error).
 resources_rate_check = client.ResourcesRateCheck.load()
 ```
 
@@ -5765,7 +5612,7 @@ Create an instance: `rpm = client.Rpm`
 | `gpg_key_inline` | `String` |  |
 | `gpg_key_url` | `String` |  |
 | `gpg_verification` | `String` |  |
-| `include_source` | `Boolean` |  |
+| `include_sources` | `Boolean` |  |
 | `is_active` | `Boolean` |  |
 | `mode` | `String` |  |
 | `name` | `String` |  |
@@ -5780,7 +5627,7 @@ Create an instance: `rpm = client.Rpm`
 #### Example: Load
 
 ```ruby
-# load returns the bare Rpm record (raises on error).
+# load returns the ENTITY — call data_get for the Rpm record (raises on error).
 rpm = client.Rpm.load({ "id" => "rpm_id", "identifier" => "identifier", "owner" => "owner" })
 ```
 
@@ -5797,6 +5644,9 @@ rpms = client.Rpm.list
 rpm = client.Rpm.create({
   "identifier" => "example_identifier", # Object
   "owner" => "example_owner", # Object
+  "distro_version" => "example_distro_version", # String
+  "name" => "example_name", # String
+  "upstream_url" => "example_upstream_url", # String
 })
 ```
 
@@ -5845,7 +5695,7 @@ Create an instance: `ruby = client.Ruby`
 #### Example: Load
 
 ```ruby
-# load returns the bare Ruby record (raises on error).
+# load returns the ENTITY — call data_get for the Ruby record (raises on error).
 ruby = client.Ruby.load({ "id" => "ruby_id", "identifier" => "identifier", "owner" => "owner" })
 ```
 
@@ -5862,6 +5712,8 @@ rubys = client.Ruby.list
 ruby = client.Ruby.create({
   "identifier" => "example_identifier", # Object
   "owner" => "example_owner", # Object
+  "name" => "example_name", # String
+  "upstream_url" => "example_upstream_url", # String
 })
 ```
 
@@ -5907,12 +5759,12 @@ Create an instance: `service = client.Service`
 | `name` | `String` |  |
 | `role` | `String` |  |
 | `slug` | `String` |  |
-| `team` | `Array` |  |
+| `teams` | `Array` |  |
 
 #### Example: Load
 
 ```ruby
-# load returns the bare Service record (raises on error).
+# load returns the ENTITY — call data_get for the Service record (raises on error).
 service = client.Service.load({ "id" => "service_id", "org_id" => "org_id" })
 ```
 
@@ -5928,6 +5780,7 @@ services = client.Service.list
 ```ruby
 service = client.Service.create({
   "org_id" => "example_org_id", # String
+  "name" => "example_name", # String
 })
 ```
 
@@ -5957,7 +5810,7 @@ Create an instance: `status_basic = client.StatusBasic`
 #### Example: Load
 
 ```ruby
-# load returns the bare StatusBasic record (raises on error).
+# load returns the ENTITY — call data_get for the StatusBasic record (raises on error).
 status_basic = client.StatusBasic.load()
 ```
 
@@ -5983,7 +5836,7 @@ Create an instance: `storage_region = client.StorageRegion`
 #### Example: Load
 
 ```ruby
-# load returns the bare StorageRegion record (raises on error).
+# load returns the ENTITY — call data_get for the StorageRegion record (raises on error).
 storage_region = client.StorageRegion.load({ "id" => "storage_region_id" })
 ```
 
@@ -6034,7 +5887,7 @@ Create an instance: `swift = client.Swift`
 #### Example: Load
 
 ```ruby
-# load returns the bare Swift record (raises on error).
+# load returns the ENTITY — call data_get for the Swift record (raises on error).
 swift = client.Swift.load({ "id" => "swift_id", "identifier" => "identifier", "owner" => "owner" })
 ```
 
@@ -6051,6 +5904,8 @@ swifts = client.Swift.list
 swift = client.Swift.create({
   "identifier" => "example_identifier", # Object
   "owner" => "example_owner", # Object
+  "name" => "example_name", # String
+  "upstream_url" => "example_upstream_url", # String
 })
 ```
 
@@ -6186,7 +6041,7 @@ Create an instance: `user_brief = client.UserBrief`
 #### Example: Load
 
 ```ruby
-# load returns the bare UserBrief record (raises on error).
+# load returns the ENTITY — call data_get for the UserBrief record (raises on error).
 user_brief = client.UserBrief.load()
 ```
 
@@ -6219,7 +6074,7 @@ Create an instance: `user_profile = client.UserProfile`
 #### Example: Load
 
 ```ruby
-# load returns the bare UserProfile record (raises on error).
+# load returns the ENTITY — call data_get for the UserProfile record (raises on error).
 user_profile = client.UserProfile.load({ "id" => "user_profile_id" })
 ```
 
@@ -6255,12 +6110,12 @@ Create an instance: `vulnerability = client.Vulnerability`
 | Field | Type | Description |
 | --- | --- | --- |
 | `created_at` | `String` |  |
-| `has_vulnerability` | `Boolean` |  |
+| `has_vulnerabilities` | `Boolean` |  |
 | `identifier` | `String` |  |
 | `max_severity` | `String` |  |
-| `num_vulnerability` | `Integer` |  |
+| `num_vulnerabilities` | `Integer` |  |
 | `package` | `Hash` |  |
-| `result` | `Array` |  |
+| `results` | `Array` |  |
 | `scan_id` | `Integer` |  |
 | `target` | `String` |  |
 | `type` | `String` |  |
@@ -6268,7 +6123,7 @@ Create an instance: `vulnerability = client.Vulnerability`
 #### Example: Load
 
 ```ruby
-# load returns the bare Vulnerability record (raises on error).
+# load returns the ENTITY — call data_get for the Vulnerability record (raises on error).
 vulnerability = client.Vulnerability.load({ "id" => "vulnerability_id" })
 ```
 
@@ -6382,11 +6237,11 @@ Entity instances are stateful. After a successful `list`, the entity
 stores the returned data and match criteria internally.
 
 ```ruby
-cargo = client.Cargo
-cargo.list()
+vulnerability = client.Vulnerability
+vulnerability.list()
 
-# cargo.data_get now returns the cargo data from the last list
-# cargo.match_get returns the last match criteria
+# vulnerability.data_get now returns the vulnerability data from the last list
+# vulnerability.match_get returns the last match criteria
 ```
 
 Call `make` to create a fresh instance with the same configuration

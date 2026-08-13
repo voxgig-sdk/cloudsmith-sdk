@@ -63,12 +63,12 @@ Every entity operation returns `(value, error)`. Check `err` before
 using the value — there is no exception to catch:
 
 ```go
-cargos, err := client.Cargo(nil).List(nil, nil)
+vulnerabilitys, err := client.Vulnerability(nil).List(nil, nil)
 if err != nil {
     // handle err
     return
 }
-_ = cargos
+_ = vulnerabilitys
 ```
 
 `Direct` follows the same `(value, error)` convention:
@@ -132,13 +132,13 @@ Create a mock client for unit testing — no server required:
 ```go
 client := sdk.Test()
 
-cargo, err := client.Cargo(nil).List(
+vulnerability, err := client.Vulnerability(nil).List(
     nil, nil,
 )
 if err != nil {
     panic(err)
 }
-fmt.Println(cargo) // the returned mock data
+fmt.Println(vulnerability) // the returned mock data
 ```
 
 ### Use a custom fetch function
@@ -246,14 +246,6 @@ Creates a test-mode client with mock transport. Both arguments may be `nil`.
 | `Format` | `(data map[string]any) CloudsmithEntity` | Create a Format entity instance. |
 | `Geoip` | `(data map[string]any) CloudsmithEntity` | Create a Geoip entity instance. |
 | `Gon` | `(data map[string]any) CloudsmithEntity` | Create a Gon entity instance. |
-| `Gon2` | `(data map[string]any) CloudsmithEntity` | Create a Gon2 entity instance. |
-| `Gon3` | `(data map[string]any) CloudsmithEntity` | Create a Gon3 entity instance. |
-| `Gon4` | `(data map[string]any) CloudsmithEntity` | Create a Gon4 entity instance. |
-| `Gon5` | `(data map[string]any) CloudsmithEntity` | Create a Gon5 entity instance. |
-| `Gon6` | `(data map[string]any) CloudsmithEntity` | Create a Gon6 entity instance. |
-| `Gon7` | `(data map[string]any) CloudsmithEntity` | Create a Gon7 entity instance. |
-| `Gon8` | `(data map[string]any) CloudsmithEntity` | Create a Gon8 entity instance. |
-| `Gon9` | `(data map[string]any) CloudsmithEntity` | Create a Gon9 entity instance. |
 | `Gpg` | `(data map[string]any) CloudsmithEntity` | Create a Gpg entity instance. |
 | `Group` | `(data map[string]any) CloudsmithEntity` | Create a Group entity instance. |
 | `Helm` | `(data map[string]any) CloudsmithEntity` | Create a Helm entity instance. |
@@ -288,7 +280,6 @@ Creates a test-mode client with mock transport. Both arguments may be `nil`.
 | `OrganizationTeamMember` | `(data map[string]any) CloudsmithEntity` | Create an OrganizationTeamMember entity instance. |
 | `Oss` | `(data map[string]any) CloudsmithEntity` | Create an Oss entity instance. |
 | `P2n` | `(data map[string]any) CloudsmithEntity` | Create a P2n entity instance. |
-| `P2n2` | `(data map[string]any) CloudsmithEntity` | Create a P2n2 entity instance. |
 | `Package` | `(data map[string]any) CloudsmithEntity` | Create a Package entity instance. |
 | `PackageDenyPolicy` | `(data map[string]any) CloudsmithEntity` | Create a PackageDenyPolicy entity instance. |
 | `PackageFilePartsUpload` | `(data map[string]any) CloudsmithEntity` | Create a PackageFilePartsUpload entity instance. |
@@ -614,7 +605,7 @@ API path: `/repos/{owner}/{identifier}/upstream/dart/`
 | `"component"` |  |
 | `"created_at"` |  |
 | `"disable_reason"` |  |
-| `"distro_version"` |  |
+| `"distro_versions"` |  |
 | `"extra_header_1"` |  |
 | `"extra_header_2"` |  |
 | `"extra_value_1"` |  |
@@ -622,7 +613,7 @@ API path: `/repos/{owner}/{identifier}/upstream/dart/`
 | `"gpg_key_inline"` |  |
 | `"gpg_key_url"` |  |
 | `"gpg_verification"` |  |
-| `"include_source"` |  |
+| `"include_sources"` |  |
 | `"is_active"` |  |
 | `"mode"` |  |
 | `"name"` |  |
@@ -675,8 +666,8 @@ API path: ``
 | `"name"` |  |
 | `"self_url"` |  |
 | `"slug"` |  |
-| `"variant"` |  |
-| `"version"` |  |
+| `"variants"` |  |
+| `"versions"` |  |
 
 Operations: List, Load.
 
@@ -751,7 +742,11 @@ API path: ``
 
 | Field | Description |
 | --- | --- |
-| `"token"` |  |
+| `"active"` |  |
+| `"bandwidth"` |  |
+| `"downloads"` |  |
+| `"inactive"` |  |
+| `"total"` |  |
 
 Operations: Create, Load, Remove.
 
@@ -780,14 +775,14 @@ API path: `/files/{owner}/{repo}/{identifier}/abort/`
 | Field | Description |
 | --- | --- |
 | `"description"` |  |
-| `"distribution"` |  |
-| `"extension"` |  |
+| `"distributions"` |  |
+| `"extensions"` |  |
 | `"name"` |  |
 | `"premium"` |  |
 | `"premium_plan_id"` |  |
 | `"premium_plan_name"` |  |
 | `"slug"` |  |
-| `"support"` |  |
+| `"supports"` |  |
 
 Operations: List, Load.
 
@@ -806,24 +801,6 @@ API path: ``
 
 | Field | Description |
 | --- | --- |
-
-Operations: .
-
-API path: ``
-
-#### Gon2
-
-| Field | Description |
-| --- | --- |
-
-Operations: .
-
-API path: ``
-
-#### Gon3
-
-| Field | Description |
-| --- | --- |
 | `"auth_mode"` |  |
 | `"auth_secret"` |  |
 | `"auth_username"` |  |
@@ -843,117 +820,9 @@ API path: ``
 | `"upstream_url"` |  |
 | `"verify_ssl"` |  |
 
-Operations: List.
+Operations: Create, List, Load, Patch, Update.
 
 API path: `/repos/{owner}/{identifier}/upstream/go/`
-
-#### Gon4
-
-| Field | Description |
-| --- | --- |
-
-Operations: .
-
-API path: ``
-
-#### Gon5
-
-| Field | Description |
-| --- | --- |
-
-Operations: Create.
-
-API path: `/repos/{owner}/{identifier}/upstream/go/`
-
-#### Gon6
-
-| Field | Description |
-| --- | --- |
-| `"auth_mode"` |  |
-| `"auth_secret"` |  |
-| `"auth_username"` |  |
-| `"created_at"` |  |
-| `"disable_reason"` |  |
-| `"extra_header_1"` |  |
-| `"extra_header_2"` |  |
-| `"extra_value_1"` |  |
-| `"extra_value_2"` |  |
-| `"is_active"` |  |
-| `"mode"` |  |
-| `"name"` |  |
-| `"pending_validation"` |  |
-| `"priority"` |  |
-| `"slug_perm"` |  |
-| `"updated_at"` |  |
-| `"upstream_url"` |  |
-| `"verify_ssl"` |  |
-
-Operations: Load.
-
-API path: `/repos/{owner}/{identifier}/upstream/go/{slug_perm}/`
-
-#### Gon7
-
-| Field | Description |
-| --- | --- |
-
-Operations: .
-
-API path: ``
-
-#### Gon8
-
-| Field | Description |
-| --- | --- |
-| `"auth_mode"` |  |
-| `"auth_secret"` |  |
-| `"auth_username"` |  |
-| `"created_at"` |  |
-| `"disable_reason"` |  |
-| `"extra_header_1"` |  |
-| `"extra_header_2"` |  |
-| `"extra_value_1"` |  |
-| `"extra_value_2"` |  |
-| `"is_active"` |  |
-| `"mode"` |  |
-| `"name"` |  |
-| `"pending_validation"` |  |
-| `"priority"` |  |
-| `"slug_perm"` |  |
-| `"updated_at"` |  |
-| `"upstream_url"` |  |
-| `"verify_ssl"` |  |
-
-Operations: Update.
-
-API path: `/repos/{owner}/{identifier}/upstream/go/{slug_perm}/`
-
-#### Gon9
-
-| Field | Description |
-| --- | --- |
-| `"auth_mode"` |  |
-| `"auth_secret"` |  |
-| `"auth_username"` |  |
-| `"created_at"` |  |
-| `"disable_reason"` |  |
-| `"extra_header_1"` |  |
-| `"extra_header_2"` |  |
-| `"extra_value_1"` |  |
-| `"extra_value_2"` |  |
-| `"is_active"` |  |
-| `"mode"` |  |
-| `"name"` |  |
-| `"pending_validation"` |  |
-| `"priority"` |  |
-| `"slug_perm"` |  |
-| `"updated_at"` |  |
-| `"upstream_url"` |  |
-| `"verify_ssl"` |  |
-
-Operations: Update.
-
-API path: `/repos/{owner}/{identifier}/upstream/go/{slug_perm}/`
 
 #### Gpg
 
@@ -1269,11 +1138,11 @@ API path: ``
 | `"name"` |  |
 | `"package"` |  |
 | `"policy"` |  |
-| `"reason"` |  |
+| `"reasons"` |  |
 | `"slug"` |  |
 | `"slug_perm"` |  |
 | `"tagline"` |  |
-| `"vulnerability_scan_result"` |  |
+| `"vulnerability_scan_results"` |  |
 
 Operations: Create, List, Load, Remove, Update.
 
@@ -1314,7 +1183,7 @@ API path: `/orgs/{org}/saml-group-sync/status/`
 | `"org"` |  |
 | `"role"` |  |
 | `"slug_perm"` |  |
-| `"team"` |  |
+| `"teams"` |  |
 | `"user"` |  |
 | `"user_url"` |  |
 
@@ -1333,7 +1202,7 @@ API path: `/orgs/{org}/invites/`
 | `"org"` |  |
 | `"role"` |  |
 | `"slug_perm"` |  |
-| `"team"` |  |
+| `"teams"` |  |
 | `"user"` |  |
 | `"user_url"` |  |
 
@@ -1406,14 +1275,14 @@ API path: `/orgs/{org}/members/{member}/update-visibility/`
 
 | Field | Description |
 | --- | --- |
-| `"allow_unknown_license"` |  |
+| `"allow_unknown_licenses"` |  |
 | `"created_at"` |  |
 | `"description"` |  |
 | `"name"` |  |
 | `"on_violation_quarantine"` |  |
 | `"package_query_string"` |  |
 | `"slug_perm"` |  |
-| `"spdx_identifier"` |  |
+| `"spdx_identifiers"` |  |
 | `"updated_at"` |  |
 
 Operations: Create, List, Load, Patch, Update.
@@ -1494,21 +1363,14 @@ Operations: .
 
 API path: ``
 
-#### P2n2
-
-| Field | Description |
-| --- | --- |
-
-Operations: .
-
-API path: ``
-
 #### Package
 
 | Field | Description |
 | --- | --- |
-| `"architecture"` |  |
+| `"active"` |  |
+| `"architectures"` |  |
 | `"backend_kind"` |  |
+| `"bandwidth"` |  |
 | `"cdn_url"` |  |
 | `"checksum_md5"` |  |
 | `"checksum_sha1"` |  |
@@ -1522,17 +1384,18 @@ API path: ``
 | `"display_name"` |  |
 | `"distro"` |  |
 | `"distro_version"` |  |
-| `"download"` |  |
+| `"downloads"` |  |
 | `"epoch"` |  |
 | `"extension"` |  |
-| `"file"` |  |
 | `"filename"` |  |
+| `"files"` |  |
 | `"format"` |  |
 | `"format_url"` |  |
 | `"freeable_storage"` |  |
 | `"fully_qualified_name"` |  |
-| `"identifier"` |  |
 | `"identifier_perm"` |  |
+| `"identifiers"` |  |
+| `"inactive"` |  |
 | `"indexed"` |  |
 | `"is_cancellable"` |  |
 | `"is_copyable"` |  |
@@ -1553,12 +1416,11 @@ API path: ``
 | `"name"` |  |
 | `"namespace"` |  |
 | `"namespace_url"` |  |
-| `"num_download"` |  |
-| `"num_file"` |  |
+| `"num_downloads"` |  |
+| `"num_files"` |  |
 | `"operator"` |  |
 | `"origin_repository"` |  |
 | `"origin_repository_url"` |  |
-| `"package"` |  |
 | `"package_type"` |  |
 | `"policy_violated"` |  |
 | `"release"` |  |
@@ -1586,8 +1448,9 @@ API path: ``
 | `"summary"` |  |
 | `"sync_finished_at"` |  |
 | `"sync_progress"` |  |
-| `"tag"` |  |
+| `"tags"` |  |
 | `"tags_immutable"` |  |
+| `"total"` |  |
 | `"type_display"` |  |
 | `"uploaded_at"` |  |
 | `"uploader"` |  |
@@ -1643,12 +1506,19 @@ API path: `/files/{owner}/{repo}/{identifier}/complete/`
 
 | Field | Description |
 | --- | --- |
+| `"allow_unknown_licenses"` |  |
 | `"created_at"` |  |
+| `"description"` |  |
 | `"evaluation_count"` |  |
+| `"name"` |  |
+| `"on_violation_quarantine"` |  |
+| `"package_query_string"` |  |
 | `"policy"` |  |
 | `"slug_perm"` |  |
+| `"spdx_identifiers"` |  |
 | `"status"` |  |
 | `"updated_at"` |  |
+| `"url"` |  |
 | `"violation_count"` |  |
 
 Operations: Create, List, Load.
@@ -1668,12 +1538,19 @@ API path: `/badges/version/{owner}/{repo}/{package_format}/{package_name}/{packa
 
 | Field | Description |
 | --- | --- |
+| `"allow_unknown_severity"` |  |
 | `"created_at"` |  |
+| `"description"` |  |
 | `"evaluation_count"` |  |
+| `"min_severity"` |  |
+| `"name"` |  |
+| `"on_violation_quarantine"` |  |
+| `"package_query_string"` |  |
 | `"policy"` |  |
 | `"slug_perm"` |  |
 | `"status"` |  |
 | `"updated_at"` |  |
+| `"url"` |  |
 | `"violation_count"` |  |
 
 Operations: Create, List, Load.
@@ -1702,12 +1579,12 @@ API path: ``
 
 | Field | Description |
 | --- | --- |
-| `"claim"` |  |
+| `"claims"` |  |
 | `"enabled"` |  |
 | `"mapping_claim"` |  |
 | `"name"` |  |
 | `"provider_url"` |  |
-| `"service_account"` |  |
+| `"service_accounts"` |  |
 | `"slug"` |  |
 | `"slug_perm"` |  |
 
@@ -1719,13 +1596,13 @@ API path: `/orgs/{org}/openid-connect/`
 
 | Field | Description |
 | --- | --- |
-| `"claim"` |  |
-| `"dynamic_mapping"` |  |
+| `"claims"` |  |
+| `"dynamic_mappings"` |  |
 | `"enabled"` |  |
 | `"mapping_claim"` |  |
 | `"name"` |  |
 | `"provider_url"` |  |
-| `"service_account"` |  |
+| `"service_accounts"` |  |
 | `"slug"` |  |
 | `"slug_perm"` |  |
 
@@ -1773,8 +1650,9 @@ API path: ``
 
 | Field | Description |
 | --- | --- |
+| `"display"` |  |
 | `"history"` |  |
-| `"usage"` |  |
+| `"raw"` |  |
 
 Operations: Load.
 
@@ -1815,49 +1693,49 @@ API path: ``
 | `"content_kind"` |  |
 | `"contextual_auth_realm"` |  |
 | `"copy_own"` |  |
-| `"copy_package"` |  |
+| `"copy_packages"` |  |
 | `"cosign_signing_enabled"` |  |
 | `"created_at"` |  |
 | `"default_privilege"` |  |
 | `"delete_own"` |  |
-| `"delete_package"` |  |
+| `"delete_packages"` |  |
 | `"deleted_at"` |  |
 | `"description"` |  |
-| `"distribute"` |  |
+| `"distributes"` |  |
 | `"docker_refresh_tokens_enabled"` |  |
-| `"ecdsa_key"` |  |
+| `"ecdsa_keys"` |  |
 | `"enforce_eula"` |  |
-| `"gpg_key"` |  |
-| `"index_file"` |  |
+| `"gpg_keys"` |  |
+| `"index_files"` |  |
 | `"is_open_source"` |  |
 | `"is_private"` |  |
 | `"is_public"` |  |
 | `"manage_entitlements_privilege"` |  |
 | `"move_own"` |  |
-| `"move_package"` |  |
+| `"move_packages"` |  |
 | `"name"` |  |
 | `"namespace"` |  |
 | `"namespace_url"` |  |
 | `"nuget_native_signing_enabled"` |  |
-| `"num_download"` |  |
-| `"num_policy_violated_package"` |  |
-| `"num_quarantined_package"` |  |
+| `"num_downloads"` |  |
+| `"num_policy_violated_packages"` |  |
+| `"num_quarantined_packages"` |  |
 | `"open_source_license"` |  |
 | `"open_source_project_url"` |  |
 | `"package_count"` |  |
 | `"package_group_count"` |  |
-| `"proxy_npmj"` |  |
+| `"proxy_npmjs"` |  |
 | `"proxy_pypi"` |  |
 | `"raw_package_index_enabled"` |  |
 | `"raw_package_index_signatures_enabled"` |  |
-| `"replace_package"` |  |
+| `"replace_packages"` |  |
 | `"replace_packages_by_default"` |  |
 | `"repository_type"` |  |
 | `"repository_type_str"` |  |
 | `"resync_own"` |  |
-| `"resync_package"` |  |
+| `"resync_packages"` |  |
 | `"scan_own"` |  |
-| `"scan_package"` |  |
+| `"scan_packages"` |  |
 | `"self_html_url"` |  |
 | `"self_url"` |  |
 | `"show_setup_all"` |  |
@@ -1868,14 +1746,14 @@ API path: ``
 | `"storage_region"` |  |
 | `"strict_npm_validation"` |  |
 | `"tag_pre_releases_as_latest"` |  |
-| `"use_debian_label"` |  |
+| `"use_debian_labels"` |  |
 | `"use_default_cargo_upstream"` |  |
 | `"use_entitlements_privilege"` |  |
-| `"use_noarch_package"` |  |
-| `"use_source_package"` |  |
+| `"use_noarch_packages"` |  |
+| `"use_source_packages"` |  |
 | `"use_vulnerability_scanning"` |  |
 | `"user_entitlements_enabled"` |  |
-| `"view_statistic"` |  |
+| `"view_statistics"` |  |
 
 Operations: Create, List, Load, Patch, Remove, Update.
 
@@ -2015,19 +1893,19 @@ API path: `/repos/{owner}/{identifier}/rsa/`
 
 | Field | Description |
 | --- | --- |
-| `"client"` |  |
+| `"clients"` |  |
 | `"created_at"` |  |
 | `"created_by"` |  |
 | `"created_by_url"` |  |
 | `"default"` |  |
 | `"disable_url"` |  |
-| `"download"` |  |
+| `"downloads"` |  |
 | `"enable_url"` |  |
 | `"eula_accepted"` |  |
 | `"eula_accepted_at"` |  |
 | `"eula_accepted_from"` |  |
 | `"eula_required"` |  |
-| `"has_limit"` |  |
+| `"has_limits"` |  |
 | `"identifier"` |  |
 | `"is_active"` |  |
 | `"is_limited"` |  |
@@ -2035,8 +1913,8 @@ API path: `/repos/{owner}/{identifier}/rsa/`
 | `"limit_bandwidth_unit"` |  |
 | `"limit_date_range_from"` |  |
 | `"limit_date_range_to"` |  |
-| `"limit_num_client"` |  |
-| `"limit_num_download"` |  |
+| `"limit_num_clients"` |  |
+| `"limit_num_downloads"` |  |
 | `"limit_package_query"` |  |
 | `"limit_path_query"` |  |
 | `"metadata"` |  |
@@ -2063,19 +1941,19 @@ API path: `/entitlements/{owner}/{repo}/`
 
 | Field | Description |
 | --- | --- |
-| `"client"` |  |
+| `"clients"` |  |
 | `"created_at"` |  |
 | `"created_by"` |  |
 | `"created_by_url"` |  |
 | `"default"` |  |
 | `"disable_url"` |  |
-| `"download"` |  |
+| `"downloads"` |  |
 | `"enable_url"` |  |
 | `"eula_accepted"` |  |
 | `"eula_accepted_at"` |  |
 | `"eula_accepted_from"` |  |
 | `"eula_required"` |  |
-| `"has_limit"` |  |
+| `"has_limits"` |  |
 | `"identifier"` |  |
 | `"is_active"` |  |
 | `"is_limited"` |  |
@@ -2083,8 +1961,8 @@ API path: `/entitlements/{owner}/{repo}/`
 | `"limit_bandwidth_unit"` |  |
 | `"limit_date_range_from"` |  |
 | `"limit_date_range_to"` |  |
-| `"limit_num_client"` |  |
-| `"limit_num_download"` |  |
+| `"limit_num_clients"` |  |
+| `"limit_num_downloads"` |  |
 | `"limit_package_query"` |  |
 | `"limit_path_query"` |  |
 | `"metadata"` |  |
@@ -2111,7 +1989,7 @@ API path: `/entitlements/{owner}/{repo}/{identifier}/refresh/`
 
 | Field | Description |
 | --- | --- |
-| `"token"` |  |
+| `"tokens"` |  |
 
 Operations: Create.
 
@@ -2127,6 +2005,7 @@ API path: `/entitlements/{owner}/{repo}/sync/`
 | `"disable_reason"` |  |
 | `"disable_reason_str"` |  |
 | `"event"` |  |
+| `"events"` |  |
 | `"identifier"` |  |
 | `"is_active"` |  |
 | `"is_last_response_bad"` |  |
@@ -2144,6 +2023,7 @@ API path: `/entitlements/{owner}/{repo}/sync/`
 | `"slug_perm"` |  |
 | `"target_url"` |  |
 | `"template"` |  |
+| `"templates"` |  |
 | `"updated_at"` |  |
 | `"updated_by"` |  |
 | `"updated_by_url"` |  |
@@ -2204,7 +2084,12 @@ API path: ``
 
 | Field | Description |
 | --- | --- |
-| `"resource"` |  |
+| `"interval"` |  |
+| `"limit"` |  |
+| `"remaining"` |  |
+| `"reset"` |  |
+| `"reset_iso_8601"` |  |
+| `"throttled"` |  |
 
 Operations: Load.
 
@@ -2245,7 +2130,7 @@ API path: ``
 | `"gpg_key_inline"` |  |
 | `"gpg_key_url"` |  |
 | `"gpg_verification"` |  |
-| `"include_source"` |  |
+| `"include_sources"` |  |
 | `"is_active"` |  |
 | `"mode"` |  |
 | `"name"` |  |
@@ -2337,7 +2222,7 @@ API path: ``
 | `"name"` |  |
 | `"role"` |  |
 | `"slug"` |  |
-| `"team"` |  |
+| `"teams"` |  |
 
 Operations: Create, List, Load, Update.
 
@@ -2564,12 +2449,12 @@ API path: ``
 | Field | Description |
 | --- | --- |
 | `"created_at"` |  |
-| `"has_vulnerability"` |  |
+| `"has_vulnerabilities"` |  |
 | `"identifier"` |  |
 | `"max_severity"` |  |
-| `"num_vulnerability"` |  |
+| `"num_vulnerabilities"` |  |
 | `"package"` |  |
-| `"result"` |  |
+| `"results"` |  |
 | `"scan_id"` |  |
 | `"target"` |  |
 | `"type"` |  |
@@ -2701,6 +2586,8 @@ fmt.Println(cargos) // the array of records
 result, err := client.Cargo(nil).Create(map[string]any{
     "identifier": "example_identifier",
     "owner": "example_owner",
+    "name": "example_name",
+    "upstream_url": "example_upstream_url",
 }, nil)
 if err != nil {
     panic(err)
@@ -2781,6 +2668,8 @@ fmt.Println(composers) // the array of records
 result, err := client.Composer(nil).Create(map[string]any{
     "identifier": "example_identifier",
     "owner": "example_owner",
+    "name": "example_name",
+    "upstream_url": "example_upstream_url",
 }, nil)
 if err != nil {
     panic(err)
@@ -2856,6 +2745,8 @@ fmt.Println(condas) // the array of records
 result, err := client.Conda(nil).Create(map[string]any{
     "identifier": "example_identifier",
     "owner": "example_owner",
+    "name": "example_name",
+    "upstream_url": "example_upstream_url",
 }, nil)
 if err != nil {
     panic(err)
@@ -2931,6 +2822,8 @@ fmt.Println(crans) // the array of records
 result, err := client.Cran(nil).Create(map[string]any{
     "identifier": "example_identifier",
     "owner": "example_owner",
+    "name": "example_name",
+    "upstream_url": "example_upstream_url",
 }, nil)
 if err != nil {
     panic(err)
@@ -3001,6 +2894,8 @@ fmt.Println(darts) // the array of records
 result, err := client.Dart(nil).Create(map[string]any{
     "identifier": "example_identifier",
     "owner": "example_owner",
+    "name": "example_name",
+    "upstream_url": "example_upstream_url",
 }, nil)
 if err != nil {
     panic(err)
@@ -3032,7 +2927,7 @@ Create an instance: `deb := client.Deb(nil)`
 | `component` | `string` |  |
 | `created_at` | `string` |  |
 | `disable_reason` | `string` |  |
-| `distro_version` | `[]any` |  |
+| `distro_versions` | `[]any` |  |
 | `extra_header_1` | `string` |  |
 | `extra_header_2` | `string` |  |
 | `extra_value_1` | `string` |  |
@@ -3040,7 +2935,7 @@ Create an instance: `deb := client.Deb(nil)`
 | `gpg_key_inline` | `string` |  |
 | `gpg_key_url` | `string` |  |
 | `gpg_verification` | `string` |  |
-| `include_source` | `bool` |  |
+| `include_sources` | `bool` |  |
 | `is_active` | `bool` |  |
 | `mode` | `string` |  |
 | `name` | `string` |  |
@@ -3079,6 +2974,9 @@ fmt.Println(debs) // the array of records
 result, err := client.Deb(nil).Create(map[string]any{
     "identifier": "example_identifier",
     "owner": "example_owner",
+    "distro_versions": []any{},
+    "name": "example_name",
+    "upstream_url": "example_upstream_url",
 }, nil)
 if err != nil {
     panic(err)
@@ -3122,8 +3020,8 @@ Create an instance: `distributionFull := client.DistributionFull(nil)`
 | `name` | `string` |  |
 | `self_url` | `string` |  |
 | `slug` | `string` |  |
-| `variant` | `string` |  |
-| `version` | `[]any` |  |
+| `variants` | `string` |  |
+| `versions` | `[]any` |  |
 
 #### Example: Load
 
@@ -3213,6 +3111,8 @@ fmt.Println(dockers) // the array of records
 result, err := client.Docker(nil).Create(map[string]any{
     "identifier": "example_identifier",
     "owner": "example_owner",
+    "name": "example_name",
+    "upstream_url": "example_upstream_url",
 }, nil)
 if err != nil {
     panic(err)
@@ -3286,7 +3186,11 @@ Create an instance: `entitlement := client.Entitlement(nil)`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `token` | `map[string]any` |  |
+| `active` | `int` |  |
+| `bandwidth` | `map[string]any` |  |
+| `downloads` | `map[string]any` |  |
+| `inactive` | `int` |  |
+| `total` | `int` |  |
 
 #### Example: Load
 
@@ -3305,6 +3209,8 @@ result, err := client.Entitlement(nil).Create(map[string]any{
     "identifier": "example_identifier",
     "owner": "example_owner",
     "repo": "example_repo",
+    "bandwidth": map[string]any{},
+    "downloads": map[string]any{},
 }, nil)
 if err != nil {
     panic(err)
@@ -3358,14 +3264,14 @@ Create an instance: `format := client.Format(nil)`
 | Field | Type | Description |
 | --- | --- | --- |
 | `description` | `string` |  |
-| `distribution` | `[]any` |  |
-| `extension` | `[]any` |  |
+| `distributions` | `[]any` |  |
+| `extensions` | `[]any` |  |
 | `name` | `string` |  |
 | `premium` | `bool` |  |
 | `premium_plan_id` | `string` |  |
 | `premium_plan_name` | `string` |  |
 | `slug` | `string` |  |
-| `support` | `map[string]any` |  |
+| `supports` | `map[string]any` |  |
 
 #### Example: Load
 
@@ -3397,94 +3303,14 @@ Create an instance: `geoip := client.Geoip(nil)`
 
 Create an instance: `gon := client.Gon(nil)`
 
-
-### Gon2
-
-Create an instance: `gon2 := client.Gon2(nil)`
-
-
-### Gon3
-
-Create an instance: `gon3 := client.Gon3(nil)`
-
 #### Operations
 
 | Method | Description |
 | --- | --- |
 | `List(match, ctrl)` | List entities matching the criteria. |
-
-#### Fields
-
-| Field | Type | Description |
-| --- | --- | --- |
-| `auth_mode` | `string` |  |
-| `auth_secret` | `string` |  |
-| `auth_username` | `string` |  |
-| `created_at` | `string` |  |
-| `disable_reason` | `string` |  |
-| `extra_header_1` | `string` |  |
-| `extra_header_2` | `string` |  |
-| `extra_value_1` | `string` |  |
-| `extra_value_2` | `string` |  |
-| `is_active` | `bool` |  |
-| `mode` | `string` |  |
-| `name` | `string` |  |
-| `pending_validation` | `bool` |  |
-| `priority` | `int` |  |
-| `slug_perm` | `string` |  |
-| `updated_at` | `string` |  |
-| `upstream_url` | `string` |  |
-| `verify_ssl` | `bool` |  |
-
-#### Example: List
-
-```go
-gon3s, err := client.Gon3(nil).List(nil, nil)
-if err != nil {
-    panic(err)
-}
-fmt.Println(gon3s) // the array of records
-```
-
-
-### Gon4
-
-Create an instance: `gon4 := client.Gon4(nil)`
-
-
-### Gon5
-
-Create an instance: `gon5 := client.Gon5(nil)`
-
-#### Operations
-
-| Method | Description |
-| --- | --- |
-| `Create(data, ctrl)` | Create a new entity with the given data. |
-
-#### Example: Create
-
-```go
-result, err := client.Gon5(nil).Create(map[string]any{
-    "identifier": "example_identifier",
-    "owner": "example_owner",
-}, nil)
-if err != nil {
-    panic(err)
-}
-fmt.Println(result)
-```
-
-
-### Gon6
-
-Create an instance: `gon6 := client.Gon6(nil)`
-
-#### Operations
-
-| Method | Description |
-| --- | --- |
 | `Load(match, ctrl)` | Load a single entity by match criteria. |
+| `Create(data, ctrl)` | Create a new entity with the given data. |
+| `Update(data, ctrl)` | Update an existing entity. |
 
 #### Fields
 
@@ -3512,85 +3338,37 @@ Create an instance: `gon6 := client.Gon6(nil)`
 #### Example: Load
 
 ```go
-gon6, err := client.Gon6(nil).Load(map[string]any{"identifier": "identifier", "owner": "owner", "slug_perm": "slug_perm"}, nil)
+gon, err := client.Gon(nil).Load(map[string]any{"identifier": "identifier", "owner": "owner", "slug_perm": "slug_perm"}, nil)
 if err != nil {
     panic(err)
 }
-fmt.Println(gon6) // the loaded record
+fmt.Println(gon) // the loaded record
 ```
 
+#### Example: List
 
-### Gon7
+```go
+gons, err := client.Gon(nil).List(nil, nil)
+if err != nil {
+    panic(err)
+}
+fmt.Println(gons) // the array of records
+```
 
-Create an instance: `gon7 := client.Gon7(nil)`
+#### Example: Create
 
-
-### Gon8
-
-Create an instance: `gon8 := client.Gon8(nil)`
-
-#### Operations
-
-| Method | Description |
-| --- | --- |
-| `Update(data, ctrl)` | Update an existing entity. |
-
-#### Fields
-
-| Field | Type | Description |
-| --- | --- | --- |
-| `auth_mode` | `string` |  |
-| `auth_secret` | `string` |  |
-| `auth_username` | `string` |  |
-| `created_at` | `string` |  |
-| `disable_reason` | `string` |  |
-| `extra_header_1` | `string` |  |
-| `extra_header_2` | `string` |  |
-| `extra_value_1` | `string` |  |
-| `extra_value_2` | `string` |  |
-| `is_active` | `bool` |  |
-| `mode` | `string` |  |
-| `name` | `string` |  |
-| `pending_validation` | `bool` |  |
-| `priority` | `int` |  |
-| `slug_perm` | `string` |  |
-| `updated_at` | `string` |  |
-| `upstream_url` | `string` |  |
-| `verify_ssl` | `bool` |  |
-
-
-### Gon9
-
-Create an instance: `gon9 := client.Gon9(nil)`
-
-#### Operations
-
-| Method | Description |
-| --- | --- |
-| `Update(data, ctrl)` | Update an existing entity. |
-
-#### Fields
-
-| Field | Type | Description |
-| --- | --- | --- |
-| `auth_mode` | `string` |  |
-| `auth_secret` | `string` |  |
-| `auth_username` | `string` |  |
-| `created_at` | `string` |  |
-| `disable_reason` | `string` |  |
-| `extra_header_1` | `string` |  |
-| `extra_header_2` | `string` |  |
-| `extra_value_1` | `string` |  |
-| `extra_value_2` | `string` |  |
-| `is_active` | `bool` |  |
-| `mode` | `string` |  |
-| `name` | `string` |  |
-| `pending_validation` | `bool` |  |
-| `priority` | `int` |  |
-| `slug_perm` | `string` |  |
-| `updated_at` | `string` |  |
-| `upstream_url` | `string` |  |
-| `verify_ssl` | `bool` |  |
+```go
+result, err := client.Gon(nil).Create(map[string]any{
+    "identifier": "example_identifier",
+    "owner": "example_owner",
+    "name": "example_name",
+    "upstream_url": "example_upstream_url",
+}, nil)
+if err != nil {
+    panic(err)
+}
+fmt.Println(result)
+```
 
 
 ### Gpg
@@ -3665,6 +3443,8 @@ fmt.Println(helms) // the array of records
 result, err := client.Helm(nil).Create(map[string]any{
     "identifier": "example_identifier",
     "owner": "example_owner",
+    "name": "example_name",
+    "upstream_url": "example_upstream_url",
 }, nil)
 if err != nil {
     panic(err)
@@ -3735,6 +3515,8 @@ fmt.Println(hexs) // the array of records
 result, err := client.Hex(nil).Create(map[string]any{
     "identifier": "example_identifier",
     "owner": "example_owner",
+    "name": "example_name",
+    "upstream_url": "example_upstream_url",
 }, nil)
 if err != nil {
     panic(err)
@@ -3810,6 +3592,8 @@ fmt.Println(huggingfaces) // the array of records
 result, err := client.Huggingface(nil).Create(map[string]any{
     "identifier": "example_identifier",
     "owner": "example_owner",
+    "name": "example_name",
+    "upstream_url": "example_upstream_url",
 }, nil)
 if err != nil {
     panic(err)
@@ -3909,6 +3693,8 @@ fmt.Println(mavens) // the array of records
 result, err := client.Maven(nil).Create(map[string]any{
     "identifier": "example_identifier",
     "owner": "example_owner",
+    "name": "example_name",
+    "upstream_url": "example_upstream_url",
 }, nil)
 if err != nil {
     panic(err)
@@ -4072,6 +3858,8 @@ fmt.Println(npms) // the array of records
 result, err := client.Npm(nil).Create(map[string]any{
     "identifier": "example_identifier",
     "owner": "example_owner",
+    "name": "example_name",
+    "upstream_url": "example_upstream_url",
 }, nil)
 if err != nil {
     panic(err)
@@ -4142,6 +3930,8 @@ fmt.Println(nugets) // the array of records
 result, err := client.Nuget(nil).Create(map[string]any{
     "identifier": "example_identifier",
     "owner": "example_owner",
+    "name": "example_name",
+    "upstream_url": "example_upstream_url",
 }, nil)
 if err != nil {
     panic(err)
@@ -4180,11 +3970,11 @@ Create an instance: `org := client.Org(nil)`
 | `name` | `string` |  |
 | `package` | `map[string]any` |  |
 | `policy` | `map[string]any` |  |
-| `reason` | `[]any` |  |
+| `reasons` | `[]any` |  |
 | `slug` | `string` |  |
 | `slug_perm` | `string` |  |
 | `tagline` | `string` |  |
-| `vulnerability_scan_result` | `map[string]any` |  |
+| `vulnerability_scan_results` | `map[string]any` |  |
 
 #### Example: Load
 
@@ -4211,6 +4001,11 @@ fmt.Println(orgs) // the array of records
 ```go
 result, err := client.Org(nil).Create(map[string]any{
     "id": "example_id",
+    "name": "example_name",
+    "package": map[string]any{},
+    "policy": map[string]any{},
+    "reasons": []any{},
+    "vulnerability_scan_results": map[string]any{},
 }, nil)
 if err != nil {
     panic(err)
@@ -4255,6 +4050,9 @@ fmt.Println(organizationGroupSyncs) // the array of records
 ```go
 result, err := client.OrganizationGroupSync(nil).Create(map[string]any{
     "org_id": "example_org_id",
+    "idp_key": "example_idp_key",
+    "idp_value": "example_idp_value",
+    "team": "example_team",
 }, nil)
 if err != nil {
     panic(err)
@@ -4313,7 +4111,7 @@ Create an instance: `organizationInvite := client.OrganizationInvite(nil)`
 | `org` | `string` |  |
 | `role` | `string` |  |
 | `slug_perm` | `string` |  |
-| `team` | `[]any` |  |
+| `teams` | `[]any` |  |
 | `user` | `string` |  |
 | `user_url` | `string` |  |
 
@@ -4361,7 +4159,7 @@ Create an instance: `organizationInviteExtend := client.OrganizationInviteExtend
 | `org` | `string` |  |
 | `role` | `string` |  |
 | `slug_perm` | `string` |  |
-| `team` | `[]any` |  |
+| `teams` | `[]any` |  |
 | `user` | `string` |  |
 | `user_url` | `string` |  |
 
@@ -4500,14 +4298,14 @@ Create an instance: `organizationPackageLicensePolicy := client.OrganizationPack
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `allow_unknown_license` | `bool` |  |
+| `allow_unknown_licenses` | `bool` |  |
 | `created_at` | `string` |  |
 | `description` | `string` |  |
 | `name` | `string` |  |
 | `on_violation_quarantine` | `bool` |  |
 | `package_query_string` | `string` |  |
 | `slug_perm` | `string` |  |
-| `spdx_identifier` | `[]any` |  |
+| `spdx_identifiers` | `[]any` |  |
 | `updated_at` | `string` |  |
 
 #### Example: Load
@@ -4535,6 +4333,8 @@ fmt.Println(organizationPackageLicensePolicys) // the array of records
 ```go
 result, err := client.OrganizationPackageLicensePolicy(nil).Create(map[string]any{
     "org_id": "example_org_id",
+    "name": "example_name",
+    "spdx_identifiers": []any{},
 }, nil)
 if err != nil {
     panic(err)
@@ -4595,6 +4395,7 @@ fmt.Println(organizationPackageVulnerabilityPolicys) // the array of records
 ```go
 result, err := client.OrganizationPackageVulnerabilityPolicy(nil).Create(map[string]any{
     "org_id": "example_org_id",
+    "name": "example_name",
 }, nil)
 if err != nil {
     panic(err)
@@ -4682,6 +4483,7 @@ fmt.Println(organizationTeams) // the array of records
 ```go
 result, err := client.OrganizationTeam(nil).Create(map[string]any{
     "org_id": "example_org_id",
+    "name": "example_name",
 }, nil)
 if err != nil {
     panic(err)
@@ -4724,6 +4526,8 @@ fmt.Println(organizationTeamMembers) // the array of records
 result, err := client.OrganizationTeamMember(nil).Create(map[string]any{
     "org_id": "example_org_id",
     "team_id": "example_team_id",
+    "role": "example_role",
+    "user": "example_user",
 }, nil)
 if err != nil {
     panic(err)
@@ -4740,11 +4544,6 @@ Create an instance: `oss := client.Oss(nil)`
 ### P2n
 
 Create an instance: `p2n := client.P2n(nil)`
-
-
-### P2n2
-
-Create an instance: `p2n2 := client.P2n2(nil)`
 
 
 ### Package
@@ -4764,8 +4563,10 @@ Create an instance: `package_ := client.Package(nil)`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `architecture` | `[]any` |  |
+| `active` | `int` |  |
+| `architectures` | `[]any` |  |
 | `backend_kind` | `int` |  |
+| `bandwidth` | `map[string]any` |  |
 | `cdn_url` | `string` |  |
 | `checksum_md5` | `string` |  |
 | `checksum_sha1` | `string` |  |
@@ -4779,17 +4580,18 @@ Create an instance: `package_ := client.Package(nil)`
 | `display_name` | `string` |  |
 | `distro` | `map[string]any` |  |
 | `distro_version` | `map[string]any` |  |
-| `download` | `int` |  |
+| `downloads` | `map[string]any` |  |
 | `epoch` | `int` |  |
 | `extension` | `string` |  |
-| `file` | `[]any` |  |
 | `filename` | `string` |  |
+| `files` | `[]any` |  |
 | `format` | `string` |  |
 | `format_url` | `string` |  |
 | `freeable_storage` | `int` |  |
 | `fully_qualified_name` | `string` |  |
-| `identifier` | `map[string]any` |  |
 | `identifier_perm` | `string` |  |
+| `identifiers` | `map[string]any` |  |
+| `inactive` | `int` |  |
 | `indexed` | `bool` |  |
 | `is_cancellable` | `bool` |  |
 | `is_copyable` | `bool` |  |
@@ -4810,12 +4612,11 @@ Create an instance: `package_ := client.Package(nil)`
 | `name` | `string` |  |
 | `namespace` | `string` |  |
 | `namespace_url` | `string` |  |
-| `num_download` | `int` |  |
-| `num_file` | `int` |  |
+| `num_downloads` | `int` |  |
+| `num_files` | `int` |  |
 | `operator` | `string` |  |
 | `origin_repository` | `string` |  |
 | `origin_repository_url` | `string` |  |
-| `package` | `map[string]any` |  |
 | `package_type` | `int` |  |
 | `policy_violated` | `bool` |  |
 | `release` | `string` |  |
@@ -4843,8 +4644,9 @@ Create an instance: `package_ := client.Package(nil)`
 | `summary` | `string` |  |
 | `sync_finished_at` | `string` |  |
 | `sync_progress` | `int` |  |
-| `tag` | `map[string]any` |  |
+| `tags` | `map[string]any` |  |
 | `tags_immutable` | `map[string]any` |  |
+| `total` | `int` |  |
 | `type_display` | `string` |  |
 | `uploaded_at` | `string` |  |
 | `uploader` | `string` |  |
@@ -4879,6 +4681,12 @@ fmt.Println(package_s) // the array of records
 result, err := client.Package(nil).Create(map[string]any{
     "owner": "example_owner",
     "repo": "example_repo",
+    "bandwidth": map[string]any{},
+    "count": 1,
+    "distro": map[string]any{},
+    "downloads": map[string]any{},
+    "last_push": "example_last_push",
+    "num_downloads": 1,
 }, nil)
 if err != nil {
     panic(err)
@@ -4939,6 +4747,7 @@ fmt.Println(packageDenyPolicys) // the array of records
 ```go
 result, err := client.PackageDenyPolicy(nil).Create(map[string]any{
     "org_id": "example_org_id",
+    "package_query_string": "example_package_query_string",
 }, nil)
 if err != nil {
     panic(err)
@@ -5017,12 +4826,19 @@ Create an instance: `packageLicensePolicyEvaluation := client.PackageLicensePoli
 
 | Field | Type | Description |
 | --- | --- | --- |
+| `allow_unknown_licenses` | `bool` |  |
 | `created_at` | `string` |  |
+| `description` | `string` |  |
 | `evaluation_count` | `int` |  |
+| `name` | `string` |  |
+| `on_violation_quarantine` | `bool` |  |
+| `package_query_string` | `string` |  |
 | `policy` | `map[string]any` |  |
 | `slug_perm` | `string` |  |
+| `spdx_identifiers` | `[]any` |  |
 | `status` | `string` |  |
 | `updated_at` | `string` |  |
+| `url` | `string` |  |
 | `violation_count` | `int` |  |
 
 #### Example: Load
@@ -5051,6 +4867,8 @@ fmt.Println(packageLicensePolicyEvaluations) // the array of records
 result, err := client.PackageLicensePolicyEvaluation(nil).Create(map[string]any{
     "org_id": "example_org_id",
     "policy_slug_perm": "example_policy_slug_perm",
+    "policy": map[string]any{},
+    "spdx_identifiers": []any{},
 }, nil)
 if err != nil {
     panic(err)
@@ -5096,12 +4914,19 @@ Create an instance: `packageVulnerabilityPolicyEvaluation := client.PackageVulne
 
 | Field | Type | Description |
 | --- | --- | --- |
+| `allow_unknown_severity` | `bool` |  |
 | `created_at` | `string` |  |
+| `description` | `string` |  |
 | `evaluation_count` | `int` |  |
+| `min_severity` | `string` |  |
+| `name` | `string` |  |
+| `on_violation_quarantine` | `bool` |  |
+| `package_query_string` | `string` |  |
 | `policy` | `map[string]any` |  |
 | `slug_perm` | `string` |  |
 | `status` | `string` |  |
 | `updated_at` | `string` |  |
+| `url` | `string` |  |
 | `violation_count` | `int` |  |
 
 #### Example: Load
@@ -5163,12 +4988,12 @@ Create an instance: `providerSetting := client.ProviderSetting(nil)`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `claim` | `map[string]any` |  |
+| `claims` | `map[string]any` |  |
 | `enabled` | `bool` |  |
 | `mapping_claim` | `string` |  |
 | `name` | `string` |  |
 | `provider_url` | `string` |  |
-| `service_account` | `[]any` |  |
+| `service_accounts` | `[]any` |  |
 | `slug` | `string` |  |
 | `slug_perm` | `string` |  |
 
@@ -5208,13 +5033,13 @@ Create an instance: `providerSettingsWrite := client.ProviderSettingsWrite(nil)`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `claim` | `map[string]any` |  |
-| `dynamic_mapping` | `[]any` |  |
+| `claims` | `map[string]any` |  |
+| `dynamic_mappings` | `[]any` |  |
 | `enabled` | `bool` |  |
 | `mapping_claim` | `string` |  |
 | `name` | `string` |  |
 | `provider_url` | `string` |  |
-| `service_account` | `[]any` |  |
+| `service_accounts` | `[]any` |  |
 | `slug` | `string` |  |
 | `slug_perm` | `string` |  |
 
@@ -5223,6 +5048,10 @@ Create an instance: `providerSettingsWrite := client.ProviderSettingsWrite(nil)`
 ```go
 result, err := client.ProviderSettingsWrite(nil).Create(map[string]any{
     "org_id": "example_org_id",
+    "claims": map[string]any{},
+    "enabled": true,
+    "name": "example_name",
+    "provider_url": "example_provider_url",
 }, nil)
 if err != nil {
     panic(err)
@@ -5293,6 +5122,8 @@ fmt.Println(pythons) // the array of records
 result, err := client.Python(nil).Create(map[string]any{
     "identifier": "example_identifier",
     "owner": "example_owner",
+    "name": "example_name",
+    "upstream_url": "example_upstream_url",
 }, nil)
 if err != nil {
     panic(err)
@@ -5320,8 +5151,9 @@ Create an instance: `quota := client.Quota(nil)`
 
 | Field | Type | Description |
 | --- | --- | --- |
+| `display` | `map[string]any` |  |
 | `history` | `[]any` |  |
-| `usage` | `map[string]any` |  |
+| `raw` | `map[string]any` |  |
 
 #### Example: Load
 
@@ -5371,49 +5203,49 @@ Create an instance: `repo := client.Repo(nil)`
 | `content_kind` | `string` |  |
 | `contextual_auth_realm` | `bool` |  |
 | `copy_own` | `bool` |  |
-| `copy_package` | `string` |  |
+| `copy_packages` | `string` |  |
 | `cosign_signing_enabled` | `bool` |  |
 | `created_at` | `string` |  |
 | `default_privilege` | `string` |  |
 | `delete_own` | `bool` |  |
-| `delete_package` | `string` |  |
+| `delete_packages` | `string` |  |
 | `deleted_at` | `string` |  |
 | `description` | `string` |  |
-| `distribute` | `[]any` |  |
+| `distributes` | `[]any` |  |
 | `docker_refresh_tokens_enabled` | `bool` |  |
-| `ecdsa_key` | `[]any` |  |
+| `ecdsa_keys` | `[]any` |  |
 | `enforce_eula` | `bool` |  |
-| `gpg_key` | `[]any` |  |
-| `index_file` | `bool` |  |
+| `gpg_keys` | `[]any` |  |
+| `index_files` | `bool` |  |
 | `is_open_source` | `bool` |  |
 | `is_private` | `bool` |  |
 | `is_public` | `bool` |  |
 | `manage_entitlements_privilege` | `string` |  |
 | `move_own` | `bool` |  |
-| `move_package` | `string` |  |
+| `move_packages` | `string` |  |
 | `name` | `string` |  |
 | `namespace` | `string` |  |
 | `namespace_url` | `string` |  |
 | `nuget_native_signing_enabled` | `bool` |  |
-| `num_download` | `int` |  |
-| `num_policy_violated_package` | `int` |  |
-| `num_quarantined_package` | `int` |  |
+| `num_downloads` | `int` |  |
+| `num_policy_violated_packages` | `int` |  |
+| `num_quarantined_packages` | `int` |  |
 | `open_source_license` | `string` |  |
 | `open_source_project_url` | `string` |  |
 | `package_count` | `int` |  |
 | `package_group_count` | `int` |  |
-| `proxy_npmj` | `bool` |  |
+| `proxy_npmjs` | `bool` |  |
 | `proxy_pypi` | `bool` |  |
 | `raw_package_index_enabled` | `bool` |  |
 | `raw_package_index_signatures_enabled` | `bool` |  |
-| `replace_package` | `string` |  |
+| `replace_packages` | `string` |  |
 | `replace_packages_by_default` | `bool` |  |
 | `repository_type` | `int` |  |
 | `repository_type_str` | `string` |  |
 | `resync_own` | `bool` |  |
-| `resync_package` | `string` |  |
+| `resync_packages` | `string` |  |
 | `scan_own` | `bool` |  |
-| `scan_package` | `string` |  |
+| `scan_packages` | `string` |  |
 | `self_html_url` | `string` |  |
 | `self_url` | `string` |  |
 | `show_setup_all` | `bool` |  |
@@ -5424,14 +5256,14 @@ Create an instance: `repo := client.Repo(nil)`
 | `storage_region` | `string` |  |
 | `strict_npm_validation` | `bool` |  |
 | `tag_pre_releases_as_latest` | `bool` |  |
-| `use_debian_label` | `bool` |  |
+| `use_debian_labels` | `bool` |  |
 | `use_default_cargo_upstream` | `bool` |  |
 | `use_entitlements_privilege` | `string` |  |
-| `use_noarch_package` | `bool` |  |
-| `use_source_package` | `bool` |  |
+| `use_noarch_packages` | `bool` |  |
+| `use_source_packages` | `bool` |  |
 | `use_vulnerability_scanning` | `bool` |  |
 | `user_entitlements_enabled` | `bool` |  |
-| `view_statistic` | `string` |  |
+| `view_statistics` | `string` |  |
 
 #### Example: Load
 
@@ -5457,6 +5289,7 @@ fmt.Println(repos) // the array of records
 
 ```go
 result, err := client.Repo(nil).Create(map[string]any{
+    "name": "example_name",
 }, nil)
 if err != nil {
     panic(err)
@@ -5670,6 +5503,7 @@ fmt.Println(repositoryGpgKey) // the loaded record
 result, err := client.RepositoryGpgKey(nil).Create(map[string]any{
     "identifier": "example_identifier",
     "owner": "example_owner",
+    "comment": "example_comment",
 }, nil)
 if err != nil {
     panic(err)
@@ -5807,19 +5641,19 @@ Create an instance: `repositoryToken := client.RepositoryToken(nil)`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `client` | `int` |  |
+| `clients` | `int` |  |
 | `created_at` | `string` |  |
 | `created_by` | `string` |  |
 | `created_by_url` | `string` |  |
 | `default` | `bool` |  |
 | `disable_url` | `string` |  |
-| `download` | `int` |  |
+| `downloads` | `int` |  |
 | `enable_url` | `string` |  |
 | `eula_accepted` | `map[string]any` |  |
 | `eula_accepted_at` | `string` |  |
 | `eula_accepted_from` | `string` |  |
 | `eula_required` | `bool` |  |
-| `has_limit` | `bool` |  |
+| `has_limits` | `bool` |  |
 | `identifier` | `int` |  |
 | `is_active` | `bool` |  |
 | `is_limited` | `bool` |  |
@@ -5827,8 +5661,8 @@ Create an instance: `repositoryToken := client.RepositoryToken(nil)`
 | `limit_bandwidth_unit` | `string` |  |
 | `limit_date_range_from` | `string` |  |
 | `limit_date_range_to` | `string` |  |
-| `limit_num_client` | `int` |  |
-| `limit_num_download` | `int` |  |
+| `limit_num_clients` | `int` |  |
+| `limit_num_downloads` | `int` |  |
 | `limit_package_query` | `string` |  |
 | `limit_path_query` | `string` |  |
 | `metadata` | `map[string]any` |  |
@@ -5873,6 +5707,7 @@ fmt.Println(repositoryTokens) // the array of records
 result, err := client.RepositoryToken(nil).Create(map[string]any{
     "owner": "example_owner",
     "repo": "example_repo",
+    "name": "example_name",
 }, nil)
 if err != nil {
     panic(err)
@@ -5895,19 +5730,19 @@ Create an instance: `repositoryTokenRefresh := client.RepositoryTokenRefresh(nil
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `client` | `int` |  |
+| `clients` | `int` |  |
 | `created_at` | `string` |  |
 | `created_by` | `string` |  |
 | `created_by_url` | `string` |  |
 | `default` | `bool` |  |
 | `disable_url` | `string` |  |
-| `download` | `int` |  |
+| `downloads` | `int` |  |
 | `enable_url` | `string` |  |
 | `eula_accepted` | `map[string]any` |  |
 | `eula_accepted_at` | `string` |  |
 | `eula_accepted_from` | `string` |  |
 | `eula_required` | `bool` |  |
-| `has_limit` | `bool` |  |
+| `has_limits` | `bool` |  |
 | `identifier` | `int` |  |
 | `is_active` | `bool` |  |
 | `is_limited` | `bool` |  |
@@ -5915,8 +5750,8 @@ Create an instance: `repositoryTokenRefresh := client.RepositoryTokenRefresh(nil
 | `limit_bandwidth_unit` | `string` |  |
 | `limit_date_range_from` | `string` |  |
 | `limit_date_range_to` | `string` |  |
-| `limit_num_client` | `int` |  |
-| `limit_num_download` | `int` |  |
+| `limit_num_clients` | `int` |  |
+| `limit_num_downloads` | `int` |  |
 | `limit_package_query` | `string` |  |
 | `limit_path_query` | `string` |  |
 | `metadata` | `map[string]any` |  |
@@ -5964,7 +5799,7 @@ Create an instance: `repositoryTokenSync := client.RepositoryTokenSync(nil)`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `token` | `[]any` |  |
+| `tokens` | `[]any` |  |
 
 #### Example: Create
 
@@ -6001,7 +5836,8 @@ Create an instance: `repositoryWebhook := client.RepositoryWebhook(nil)`
 | `created_by_url` | `string` |  |
 | `disable_reason` | `int` |  |
 | `disable_reason_str` | `string` |  |
-| `event` | `[]any` |  |
+| `event` | `string` |  |
+| `events` | `[]any` |  |
 | `identifier` | `int` |  |
 | `is_active` | `bool` |  |
 | `is_last_response_bad` | `bool` |  |
@@ -6018,7 +5854,8 @@ Create an instance: `repositoryWebhook := client.RepositoryWebhook(nil)`
 | `self_url` | `string` |  |
 | `slug_perm` | `string` |  |
 | `target_url` | `string` |  |
-| `template` | `[]any` |  |
+| `template` | `string` |  |
+| `templates` | `[]any` |  |
 | `updated_at` | `string` |  |
 | `updated_by` | `string` |  |
 | `updated_by_url` | `string` |  |
@@ -6040,6 +5877,10 @@ fmt.Println(repositoryWebhooks) // the array of records
 result, err := client.RepositoryWebhook(nil).Create(map[string]any{
     "owner": "example_owner",
     "repo": "example_repo",
+    "event": "example_event",
+    "events": []any{},
+    "target_url": "example_target_url",
+    "templates": []any{},
 }, nil)
 if err != nil {
     panic(err)
@@ -6139,7 +5980,12 @@ Create an instance: `resourcesRateCheck := client.ResourcesRateCheck(nil)`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `resource` | `map[string]any` |  |
+| `interval` | `float64` |  |
+| `limit` | `int` |  |
+| `remaining` | `int` |  |
+| `reset` | `int` |  |
+| `reset_iso_8601` | `string` |  |
+| `throttled` | `bool` |  |
 
 #### Example: Load
 
@@ -6192,7 +6038,7 @@ Create an instance: `rpm := client.Rpm(nil)`
 | `gpg_key_inline` | `string` |  |
 | `gpg_key_url` | `string` |  |
 | `gpg_verification` | `string` |  |
-| `include_source` | `bool` |  |
+| `include_sources` | `bool` |  |
 | `is_active` | `bool` |  |
 | `mode` | `string` |  |
 | `name` | `string` |  |
@@ -6230,6 +6076,9 @@ fmt.Println(rpms) // the array of records
 result, err := client.Rpm(nil).Create(map[string]any{
     "identifier": "example_identifier",
     "owner": "example_owner",
+    "distro_version": "example_distro_version",
+    "name": "example_name",
+    "upstream_url": "example_upstream_url",
 }, nil)
 if err != nil {
     panic(err)
@@ -6305,6 +6154,8 @@ fmt.Println(rubys) // the array of records
 result, err := client.Ruby(nil).Create(map[string]any{
     "identifier": "example_identifier",
     "owner": "example_owner",
+    "name": "example_name",
+    "upstream_url": "example_upstream_url",
 }, nil)
 if err != nil {
     panic(err)
@@ -6354,7 +6205,7 @@ Create an instance: `service := client.Service(nil)`
 | `name` | `string` |  |
 | `role` | `string` |  |
 | `slug` | `string` |  |
-| `team` | `[]any` |  |
+| `teams` | `[]any` |  |
 
 #### Example: Load
 
@@ -6381,6 +6232,7 @@ fmt.Println(services) // the array of records
 ```go
 result, err := client.Service(nil).Create(map[string]any{
     "org_id": "example_org_id",
+    "name": "example_name",
 }, nil)
 if err != nil {
     panic(err)
@@ -6523,6 +6375,8 @@ fmt.Println(swifts) // the array of records
 result, err := client.Swift(nil).Create(map[string]any{
     "identifier": "example_identifier",
     "owner": "example_owner",
+    "name": "example_name",
+    "upstream_url": "example_upstream_url",
 }, nil)
 if err != nil {
     panic(err)
@@ -6748,12 +6602,12 @@ Create an instance: `vulnerability := client.Vulnerability(nil)`
 | Field | Type | Description |
 | --- | --- | --- |
 | `created_at` | `string` |  |
-| `has_vulnerability` | `bool` |  |
+| `has_vulnerabilities` | `bool` |  |
 | `identifier` | `string` |  |
 | `max_severity` | `string` |  |
-| `num_vulnerability` | `int` |  |
+| `num_vulnerabilities` | `int` |  |
 | `package` | `map[string]any` |  |
-| `result` | `[]any` |  |
+| `results` | `[]any` |  |
 | `scan_id` | `int` |  |
 | `target` | `string` |  |
 | `type` | `string` |  |
@@ -6878,11 +6732,11 @@ Entity instances are stateful. After a successful `List`, the entity
 stores the returned data and match criteria internally.
 
 ```go
-cargo := client.Cargo(nil)
-cargo.List(nil, nil)
+vulnerability := client.Vulnerability(nil)
+vulnerability.List(nil, nil)
 
-// cargo.Data() now returns the cargo data from the last list
-// cargo.Match() returns the last match criteria
+// vulnerability.Data() now returns the vulnerability data from the last list
+// vulnerability.Match() returns the last match criteria
 ```
 
 Call `Make()` to create a fresh instance with the same configuration

@@ -39,7 +39,7 @@ class OrganizationInviteExtendEntityTest < Minitest::Test
     organization_invite_extend_ref01_data["slug_perm"] = setup[:idmap]["slug_perm01"]
 
     organization_invite_extend_ref01_data_result = organization_invite_extend_ref01_ent.create(organization_invite_extend_ref01_data, nil)
-    organization_invite_extend_ref01_data = Helpers.to_map(organization_invite_extend_ref01_data_result)
+    organization_invite_extend_ref01_data = Helpers.to_map(organization_invite_extend_ref01_data_result.respond_to?(:data_get) ? organization_invite_extend_ref01_data_result.data_get : organization_invite_extend_ref01_data_result)
     assert !organization_invite_extend_ref01_data.nil?
 
   end

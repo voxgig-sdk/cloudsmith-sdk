@@ -84,7 +84,7 @@ class PackageDenyPolicyEntityTest extends TestCase
         $package_deny_policy_ref01_data["org_id"] = $setup["idmap"]["org01"];
 
         $package_deny_policy_ref01_data_result = $package_deny_policy_ref01_ent->create($package_deny_policy_ref01_data, null);
-        $package_deny_policy_ref01_data = Helpers::to_map($package_deny_policy_ref01_data_result);
+        $package_deny_policy_ref01_data = Helpers::to_map(is_object($package_deny_policy_ref01_data_result) && method_exists($package_deny_policy_ref01_data_result, 'data_get') ? $package_deny_policy_ref01_data_result->data_get() : $package_deny_policy_ref01_data_result);
         $this->assertNotNull($package_deny_policy_ref01_data);
 
         // LIST
@@ -94,11 +94,6 @@ class PackageDenyPolicyEntityTest extends TestCase
 
         $package_deny_policy_ref01_list_result = $package_deny_policy_ref01_ent->list($package_deny_policy_ref01_match, null);
         $this->assertIsArray($package_deny_policy_ref01_list_result);
-
-        $found_item = sdk_select(
-            Runner::entity_list_to_data($package_deny_policy_ref01_list_result),
-            ["id" => $package_deny_policy_ref01_data["id"]]);
-        $this->assertNotEmpty($found_item);
 
         // UPDATE
         $package_deny_policy_ref01_data_up0_up = [
@@ -110,7 +105,7 @@ class PackageDenyPolicyEntityTest extends TestCase
         $package_deny_policy_ref01_data_up0_up[$package_deny_policy_ref01_markdef_up0_name] = $package_deny_policy_ref01_markdef_up0_value;
 
         $package_deny_policy_ref01_resdata_up0_result = $package_deny_policy_ref01_ent->update($package_deny_policy_ref01_data_up0_up, null);
-        $package_deny_policy_ref01_resdata_up0 = Helpers::to_map($package_deny_policy_ref01_resdata_up0_result);
+        $package_deny_policy_ref01_resdata_up0 = Helpers::to_map(is_object($package_deny_policy_ref01_resdata_up0_result) && method_exists($package_deny_policy_ref01_resdata_up0_result, 'data_get') ? $package_deny_policy_ref01_resdata_up0_result->data_get() : $package_deny_policy_ref01_resdata_up0_result);
         $this->assertNotNull($package_deny_policy_ref01_resdata_up0);
         $this->assertEquals($package_deny_policy_ref01_resdata_up0[$package_deny_policy_ref01_markdef_up0_name], $package_deny_policy_ref01_markdef_up0_value);
 

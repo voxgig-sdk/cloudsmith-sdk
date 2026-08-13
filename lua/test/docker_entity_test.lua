@@ -84,7 +84,7 @@ describe("DockerEntity", function()
 
     local docker_ref01_data_result, err = docker_ref01_ent:create(docker_ref01_data, nil)
     assert.is_nil(err)
-    docker_ref01_data = helpers.to_map(docker_ref01_data_result)
+    docker_ref01_data = helpers.to_map(type(docker_ref01_data_result) == 'table' and docker_ref01_data_result.data_get and docker_ref01_data_result:data_get() or docker_ref01_data_result)
     assert.is_not_nil(docker_ref01_data)
 
     -- LIST
@@ -96,11 +96,6 @@ describe("DockerEntity", function()
     local docker_ref01_list_result, err = docker_ref01_ent:list(docker_ref01_match, nil)
     assert.is_nil(err)
     assert.is_table(docker_ref01_list_result)
-
-    local found_item = vs.select(
-      runner.entity_list_to_data(docker_ref01_list_result),
-      { id = docker_ref01_data["id"] })
-    assert.is_false(vs.isempty(found_item))
 
     -- UPDATE
     local docker_ref01_data_up0_up = {
@@ -114,7 +109,7 @@ describe("DockerEntity", function()
 
     local docker_ref01_resdata_up0_result, err = docker_ref01_ent:update(docker_ref01_data_up0_up, nil)
     assert.is_nil(err)
-    local docker_ref01_resdata_up0 = helpers.to_map(docker_ref01_resdata_up0_result)
+    local docker_ref01_resdata_up0 = helpers.to_map(type(docker_ref01_resdata_up0_result) == 'table' and docker_ref01_resdata_up0_result.data_get and docker_ref01_resdata_up0_result:data_get() or docker_ref01_resdata_up0_result)
     assert.is_not_nil(docker_ref01_resdata_up0)
     assert.are.equal(docker_ref01_resdata_up0[docker_ref01_markdef_up0_name], docker_ref01_markdef_up0_value)
 

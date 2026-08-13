@@ -52,7 +52,7 @@ Entity operations return `(value, err)`. Check `err` before using
 the value:
 
 ```lua
-local cargos, err = client:Cargo():list()
+local vulnerabilitys, err = client:Vulnerability():list()
 if err then error(err) end
 ```
 
@@ -110,7 +110,7 @@ Create a mock client for unit testing — no server required:
 ```lua
 local client = sdk.test()
 
-local result, err = client:Cargo():list()
+local result, err = client:Vulnerability():list()
 -- result is the returned data; err is set on failure
 ```
 
@@ -220,14 +220,6 @@ Creates a test-mode client with mock transport. Both arguments may be `nil`.
 | `Format` | `(data) -> FormatEntity` | Create a Format entity instance. |
 | `Geoip` | `(data) -> GeoipEntity` | Create a Geoip entity instance. |
 | `Gon` | `(data) -> GonEntity` | Create a Gon entity instance. |
-| `Gon2` | `(data) -> Gon2Entity` | Create a Gon2 entity instance. |
-| `Gon3` | `(data) -> Gon3Entity` | Create a Gon3 entity instance. |
-| `Gon4` | `(data) -> Gon4Entity` | Create a Gon4 entity instance. |
-| `Gon5` | `(data) -> Gon5Entity` | Create a Gon5 entity instance. |
-| `Gon6` | `(data) -> Gon6Entity` | Create a Gon6 entity instance. |
-| `Gon7` | `(data) -> Gon7Entity` | Create a Gon7 entity instance. |
-| `Gon8` | `(data) -> Gon8Entity` | Create a Gon8 entity instance. |
-| `Gon9` | `(data) -> Gon9Entity` | Create a Gon9 entity instance. |
 | `Gpg` | `(data) -> GpgEntity` | Create a Gpg entity instance. |
 | `Group` | `(data) -> GroupEntity` | Create a Group entity instance. |
 | `Helm` | `(data) -> HelmEntity` | Create a Helm entity instance. |
@@ -262,7 +254,6 @@ Creates a test-mode client with mock transport. Both arguments may be `nil`.
 | `OrganizationTeamMember` | `(data) -> OrganizationTeamMemberEntity` | Create an OrganizationTeamMember entity instance. |
 | `Oss` | `(data) -> OssEntity` | Create an Oss entity instance. |
 | `P2n` | `(data) -> P2nEntity` | Create a P2n entity instance. |
-| `P2n2` | `(data) -> P2n2Entity` | Create a P2n2 entity instance. |
 | `Package` | `(data) -> PackageEntity` | Create a Package entity instance. |
 | `PackageDenyPolicy` | `(data) -> PackageDenyPolicyEntity` | Create a PackageDenyPolicy entity instance. |
 | `PackageFilePartsUpload` | `(data) -> PackageFilePartsUploadEntity` | Create a PackageFilePartsUpload entity instance. |
@@ -362,9 +353,9 @@ data **directly** — there is no wrapper:
 
 Check `err` first (it is non-`nil` on failure), then use `value`:
 
-    local abort, err = client:Abort():load()
+    local cargo, err = client:Cargo():load({ id = "example_id" })
     if err then error(err) end
-    -- abort is the loaded record
+    -- cargo is the loaded record
 
 Only `direct()` returns a response envelope — a `table` with `ok`,
 `status`, `headers`, and `data` keys.
@@ -588,7 +579,7 @@ API path: `/repos/{owner}/{identifier}/upstream/dart/`
 | `component` |  |
 | `created_at` |  |
 | `disable_reason` |  |
-| `distro_version` |  |
+| `distro_versions` |  |
 | `extra_header_1` |  |
 | `extra_header_2` |  |
 | `extra_value_1` |  |
@@ -596,7 +587,7 @@ API path: `/repos/{owner}/{identifier}/upstream/dart/`
 | `gpg_key_inline` |  |
 | `gpg_key_url` |  |
 | `gpg_verification` |  |
-| `include_source` |  |
+| `include_sources` |  |
 | `is_active` |  |
 | `mode` |  |
 | `name` |  |
@@ -649,8 +640,8 @@ API path: ``
 | `name` |  |
 | `self_url` |  |
 | `slug` |  |
-| `variant` |  |
-| `version` |  |
+| `variants` |  |
+| `versions` |  |
 
 Operations: List, Load.
 
@@ -725,7 +716,11 @@ API path: ``
 
 | Field | Description |
 | --- | --- |
-| `token` |  |
+| `active` |  |
+| `bandwidth` |  |
+| `downloads` |  |
+| `inactive` |  |
+| `total` |  |
 
 Operations: Create, Load, Remove.
 
@@ -754,14 +749,14 @@ API path: `/files/{owner}/{repo}/{identifier}/abort/`
 | Field | Description |
 | --- | --- |
 | `description` |  |
-| `distribution` |  |
-| `extension` |  |
+| `distributions` |  |
+| `extensions` |  |
 | `name` |  |
 | `premium` |  |
 | `premium_plan_id` |  |
 | `premium_plan_name` |  |
 | `slug` |  |
-| `support` |  |
+| `supports` |  |
 
 Operations: List, Load.
 
@@ -780,24 +775,6 @@ API path: ``
 
 | Field | Description |
 | --- | --- |
-
-Operations: .
-
-API path: ``
-
-#### Gon2
-
-| Field | Description |
-| --- | --- |
-
-Operations: .
-
-API path: ``
-
-#### Gon3
-
-| Field | Description |
-| --- | --- |
 | `auth_mode` |  |
 | `auth_secret` |  |
 | `auth_username` |  |
@@ -817,117 +794,9 @@ API path: ``
 | `upstream_url` |  |
 | `verify_ssl` |  |
 
-Operations: List.
+Operations: Create, List, Load, Patch, Update.
 
 API path: `/repos/{owner}/{identifier}/upstream/go/`
-
-#### Gon4
-
-| Field | Description |
-| --- | --- |
-
-Operations: .
-
-API path: ``
-
-#### Gon5
-
-| Field | Description |
-| --- | --- |
-
-Operations: Create.
-
-API path: `/repos/{owner}/{identifier}/upstream/go/`
-
-#### Gon6
-
-| Field | Description |
-| --- | --- |
-| `auth_mode` |  |
-| `auth_secret` |  |
-| `auth_username` |  |
-| `created_at` |  |
-| `disable_reason` |  |
-| `extra_header_1` |  |
-| `extra_header_2` |  |
-| `extra_value_1` |  |
-| `extra_value_2` |  |
-| `is_active` |  |
-| `mode` |  |
-| `name` |  |
-| `pending_validation` |  |
-| `priority` |  |
-| `slug_perm` |  |
-| `updated_at` |  |
-| `upstream_url` |  |
-| `verify_ssl` |  |
-
-Operations: Load.
-
-API path: `/repos/{owner}/{identifier}/upstream/go/{slug_perm}/`
-
-#### Gon7
-
-| Field | Description |
-| --- | --- |
-
-Operations: .
-
-API path: ``
-
-#### Gon8
-
-| Field | Description |
-| --- | --- |
-| `auth_mode` |  |
-| `auth_secret` |  |
-| `auth_username` |  |
-| `created_at` |  |
-| `disable_reason` |  |
-| `extra_header_1` |  |
-| `extra_header_2` |  |
-| `extra_value_1` |  |
-| `extra_value_2` |  |
-| `is_active` |  |
-| `mode` |  |
-| `name` |  |
-| `pending_validation` |  |
-| `priority` |  |
-| `slug_perm` |  |
-| `updated_at` |  |
-| `upstream_url` |  |
-| `verify_ssl` |  |
-
-Operations: Update.
-
-API path: `/repos/{owner}/{identifier}/upstream/go/{slug_perm}/`
-
-#### Gon9
-
-| Field | Description |
-| --- | --- |
-| `auth_mode` |  |
-| `auth_secret` |  |
-| `auth_username` |  |
-| `created_at` |  |
-| `disable_reason` |  |
-| `extra_header_1` |  |
-| `extra_header_2` |  |
-| `extra_value_1` |  |
-| `extra_value_2` |  |
-| `is_active` |  |
-| `mode` |  |
-| `name` |  |
-| `pending_validation` |  |
-| `priority` |  |
-| `slug_perm` |  |
-| `updated_at` |  |
-| `upstream_url` |  |
-| `verify_ssl` |  |
-
-Operations: Update.
-
-API path: `/repos/{owner}/{identifier}/upstream/go/{slug_perm}/`
 
 #### Gpg
 
@@ -1243,11 +1112,11 @@ API path: ``
 | `name` |  |
 | `package` |  |
 | `policy` |  |
-| `reason` |  |
+| `reasons` |  |
 | `slug` |  |
 | `slug_perm` |  |
 | `tagline` |  |
-| `vulnerability_scan_result` |  |
+| `vulnerability_scan_results` |  |
 
 Operations: Create, List, Load, Remove, Update.
 
@@ -1288,7 +1157,7 @@ API path: `/orgs/{org}/saml-group-sync/status/`
 | `org` |  |
 | `role` |  |
 | `slug_perm` |  |
-| `team` |  |
+| `teams` |  |
 | `user` |  |
 | `user_url` |  |
 
@@ -1307,7 +1176,7 @@ API path: `/orgs/{org}/invites/`
 | `org` |  |
 | `role` |  |
 | `slug_perm` |  |
-| `team` |  |
+| `teams` |  |
 | `user` |  |
 | `user_url` |  |
 
@@ -1380,14 +1249,14 @@ API path: `/orgs/{org}/members/{member}/update-visibility/`
 
 | Field | Description |
 | --- | --- |
-| `allow_unknown_license` |  |
+| `allow_unknown_licenses` |  |
 | `created_at` |  |
 | `description` |  |
 | `name` |  |
 | `on_violation_quarantine` |  |
 | `package_query_string` |  |
 | `slug_perm` |  |
-| `spdx_identifier` |  |
+| `spdx_identifiers` |  |
 | `updated_at` |  |
 
 Operations: Create, List, Load, Patch, Update.
@@ -1468,21 +1337,14 @@ Operations: .
 
 API path: ``
 
-#### P2n2
-
-| Field | Description |
-| --- | --- |
-
-Operations: .
-
-API path: ``
-
 #### Package
 
 | Field | Description |
 | --- | --- |
-| `architecture` |  |
+| `active` |  |
+| `architectures` |  |
 | `backend_kind` |  |
+| `bandwidth` |  |
 | `cdn_url` |  |
 | `checksum_md5` |  |
 | `checksum_sha1` |  |
@@ -1496,17 +1358,18 @@ API path: ``
 | `display_name` |  |
 | `distro` |  |
 | `distro_version` |  |
-| `download` |  |
+| `downloads` |  |
 | `epoch` |  |
 | `extension` |  |
-| `file` |  |
 | `filename` |  |
+| `files` |  |
 | `format` |  |
 | `format_url` |  |
 | `freeable_storage` |  |
 | `fully_qualified_name` |  |
-| `identifier` |  |
 | `identifier_perm` |  |
+| `identifiers` |  |
+| `inactive` |  |
 | `indexed` |  |
 | `is_cancellable` |  |
 | `is_copyable` |  |
@@ -1527,12 +1390,11 @@ API path: ``
 | `name` |  |
 | `namespace` |  |
 | `namespace_url` |  |
-| `num_download` |  |
-| `num_file` |  |
+| `num_downloads` |  |
+| `num_files` |  |
 | `operator` |  |
 | `origin_repository` |  |
 | `origin_repository_url` |  |
-| `package` |  |
 | `package_type` |  |
 | `policy_violated` |  |
 | `release` |  |
@@ -1560,8 +1422,9 @@ API path: ``
 | `summary` |  |
 | `sync_finished_at` |  |
 | `sync_progress` |  |
-| `tag` |  |
+| `tags` |  |
 | `tags_immutable` |  |
+| `total` |  |
 | `type_display` |  |
 | `uploaded_at` |  |
 | `uploader` |  |
@@ -1617,12 +1480,19 @@ API path: `/files/{owner}/{repo}/{identifier}/complete/`
 
 | Field | Description |
 | --- | --- |
+| `allow_unknown_licenses` |  |
 | `created_at` |  |
+| `description` |  |
 | `evaluation_count` |  |
+| `name` |  |
+| `on_violation_quarantine` |  |
+| `package_query_string` |  |
 | `policy` |  |
 | `slug_perm` |  |
+| `spdx_identifiers` |  |
 | `status` |  |
 | `updated_at` |  |
+| `url` |  |
 | `violation_count` |  |
 
 Operations: Create, List, Load.
@@ -1642,12 +1512,19 @@ API path: `/badges/version/{owner}/{repo}/{package_format}/{package_name}/{packa
 
 | Field | Description |
 | --- | --- |
+| `allow_unknown_severity` |  |
 | `created_at` |  |
+| `description` |  |
 | `evaluation_count` |  |
+| `min_severity` |  |
+| `name` |  |
+| `on_violation_quarantine` |  |
+| `package_query_string` |  |
 | `policy` |  |
 | `slug_perm` |  |
 | `status` |  |
 | `updated_at` |  |
+| `url` |  |
 | `violation_count` |  |
 
 Operations: Create, List, Load.
@@ -1676,12 +1553,12 @@ API path: ``
 
 | Field | Description |
 | --- | --- |
-| `claim` |  |
+| `claims` |  |
 | `enabled` |  |
 | `mapping_claim` |  |
 | `name` |  |
 | `provider_url` |  |
-| `service_account` |  |
+| `service_accounts` |  |
 | `slug` |  |
 | `slug_perm` |  |
 
@@ -1693,13 +1570,13 @@ API path: `/orgs/{org}/openid-connect/`
 
 | Field | Description |
 | --- | --- |
-| `claim` |  |
-| `dynamic_mapping` |  |
+| `claims` |  |
+| `dynamic_mappings` |  |
 | `enabled` |  |
 | `mapping_claim` |  |
 | `name` |  |
 | `provider_url` |  |
-| `service_account` |  |
+| `service_accounts` |  |
 | `slug` |  |
 | `slug_perm` |  |
 
@@ -1747,8 +1624,9 @@ API path: ``
 
 | Field | Description |
 | --- | --- |
+| `display` |  |
 | `history` |  |
-| `usage` |  |
+| `raw` |  |
 
 Operations: Load.
 
@@ -1789,49 +1667,49 @@ API path: ``
 | `content_kind` |  |
 | `contextual_auth_realm` |  |
 | `copy_own` |  |
-| `copy_package` |  |
+| `copy_packages` |  |
 | `cosign_signing_enabled` |  |
 | `created_at` |  |
 | `default_privilege` |  |
 | `delete_own` |  |
-| `delete_package` |  |
+| `delete_packages` |  |
 | `deleted_at` |  |
 | `description` |  |
-| `distribute` |  |
+| `distributes` |  |
 | `docker_refresh_tokens_enabled` |  |
-| `ecdsa_key` |  |
+| `ecdsa_keys` |  |
 | `enforce_eula` |  |
-| `gpg_key` |  |
-| `index_file` |  |
+| `gpg_keys` |  |
+| `index_files` |  |
 | `is_open_source` |  |
 | `is_private` |  |
 | `is_public` |  |
 | `manage_entitlements_privilege` |  |
 | `move_own` |  |
-| `move_package` |  |
+| `move_packages` |  |
 | `name` |  |
 | `namespace` |  |
 | `namespace_url` |  |
 | `nuget_native_signing_enabled` |  |
-| `num_download` |  |
-| `num_policy_violated_package` |  |
-| `num_quarantined_package` |  |
+| `num_downloads` |  |
+| `num_policy_violated_packages` |  |
+| `num_quarantined_packages` |  |
 | `open_source_license` |  |
 | `open_source_project_url` |  |
 | `package_count` |  |
 | `package_group_count` |  |
-| `proxy_npmj` |  |
+| `proxy_npmjs` |  |
 | `proxy_pypi` |  |
 | `raw_package_index_enabled` |  |
 | `raw_package_index_signatures_enabled` |  |
-| `replace_package` |  |
+| `replace_packages` |  |
 | `replace_packages_by_default` |  |
 | `repository_type` |  |
 | `repository_type_str` |  |
 | `resync_own` |  |
-| `resync_package` |  |
+| `resync_packages` |  |
 | `scan_own` |  |
-| `scan_package` |  |
+| `scan_packages` |  |
 | `self_html_url` |  |
 | `self_url` |  |
 | `show_setup_all` |  |
@@ -1842,14 +1720,14 @@ API path: ``
 | `storage_region` |  |
 | `strict_npm_validation` |  |
 | `tag_pre_releases_as_latest` |  |
-| `use_debian_label` |  |
+| `use_debian_labels` |  |
 | `use_default_cargo_upstream` |  |
 | `use_entitlements_privilege` |  |
-| `use_noarch_package` |  |
-| `use_source_package` |  |
+| `use_noarch_packages` |  |
+| `use_source_packages` |  |
 | `use_vulnerability_scanning` |  |
 | `user_entitlements_enabled` |  |
-| `view_statistic` |  |
+| `view_statistics` |  |
 
 Operations: Create, List, Load, Patch, Remove, Update.
 
@@ -1989,19 +1867,19 @@ API path: `/repos/{owner}/{identifier}/rsa/`
 
 | Field | Description |
 | --- | --- |
-| `client` |  |
+| `clients` |  |
 | `created_at` |  |
 | `created_by` |  |
 | `created_by_url` |  |
 | `default` |  |
 | `disable_url` |  |
-| `download` |  |
+| `downloads` |  |
 | `enable_url` |  |
 | `eula_accepted` |  |
 | `eula_accepted_at` |  |
 | `eula_accepted_from` |  |
 | `eula_required` |  |
-| `has_limit` |  |
+| `has_limits` |  |
 | `identifier` |  |
 | `is_active` |  |
 | `is_limited` |  |
@@ -2009,8 +1887,8 @@ API path: `/repos/{owner}/{identifier}/rsa/`
 | `limit_bandwidth_unit` |  |
 | `limit_date_range_from` |  |
 | `limit_date_range_to` |  |
-| `limit_num_client` |  |
-| `limit_num_download` |  |
+| `limit_num_clients` |  |
+| `limit_num_downloads` |  |
 | `limit_package_query` |  |
 | `limit_path_query` |  |
 | `metadata` |  |
@@ -2037,19 +1915,19 @@ API path: `/entitlements/{owner}/{repo}/`
 
 | Field | Description |
 | --- | --- |
-| `client` |  |
+| `clients` |  |
 | `created_at` |  |
 | `created_by` |  |
 | `created_by_url` |  |
 | `default` |  |
 | `disable_url` |  |
-| `download` |  |
+| `downloads` |  |
 | `enable_url` |  |
 | `eula_accepted` |  |
 | `eula_accepted_at` |  |
 | `eula_accepted_from` |  |
 | `eula_required` |  |
-| `has_limit` |  |
+| `has_limits` |  |
 | `identifier` |  |
 | `is_active` |  |
 | `is_limited` |  |
@@ -2057,8 +1935,8 @@ API path: `/entitlements/{owner}/{repo}/`
 | `limit_bandwidth_unit` |  |
 | `limit_date_range_from` |  |
 | `limit_date_range_to` |  |
-| `limit_num_client` |  |
-| `limit_num_download` |  |
+| `limit_num_clients` |  |
+| `limit_num_downloads` |  |
 | `limit_package_query` |  |
 | `limit_path_query` |  |
 | `metadata` |  |
@@ -2085,7 +1963,7 @@ API path: `/entitlements/{owner}/{repo}/{identifier}/refresh/`
 
 | Field | Description |
 | --- | --- |
-| `token` |  |
+| `tokens` |  |
 
 Operations: Create.
 
@@ -2101,6 +1979,7 @@ API path: `/entitlements/{owner}/{repo}/sync/`
 | `disable_reason` |  |
 | `disable_reason_str` |  |
 | `event` |  |
+| `events` |  |
 | `identifier` |  |
 | `is_active` |  |
 | `is_last_response_bad` |  |
@@ -2118,6 +1997,7 @@ API path: `/entitlements/{owner}/{repo}/sync/`
 | `slug_perm` |  |
 | `target_url` |  |
 | `template` |  |
+| `templates` |  |
 | `updated_at` |  |
 | `updated_by` |  |
 | `updated_by_url` |  |
@@ -2178,7 +2058,12 @@ API path: ``
 
 | Field | Description |
 | --- | --- |
-| `resource` |  |
+| `interval` |  |
+| `limit` |  |
+| `remaining` |  |
+| `reset` |  |
+| `reset_iso_8601` |  |
+| `throttled` |  |
 
 Operations: Load.
 
@@ -2219,7 +2104,7 @@ API path: ``
 | `gpg_key_inline` |  |
 | `gpg_key_url` |  |
 | `gpg_verification` |  |
-| `include_source` |  |
+| `include_sources` |  |
 | `is_active` |  |
 | `mode` |  |
 | `name` |  |
@@ -2311,7 +2196,7 @@ API path: ``
 | `name` |  |
 | `role` |  |
 | `slug` |  |
-| `team` |  |
+| `teams` |  |
 
 Operations: Create, List, Load, Update.
 
@@ -2538,12 +2423,12 @@ API path: ``
 | Field | Description |
 | --- | --- |
 | `created_at` |  |
-| `has_vulnerability` |  |
+| `has_vulnerabilities` |  |
 | `identifier` |  |
 | `max_severity` |  |
-| `num_vulnerability` |  |
+| `num_vulnerabilities` |  |
 | `package` |  |
-| `result` |  |
+| `results` |  |
 | `scan_id` |  |
 | `target` |  |
 | `type` |  |
@@ -2667,6 +2552,8 @@ local cargos, err = client:Cargo():list()
 local cargo, err = client:Cargo():create({
   identifier = "example_identifier", -- any
   owner = "example_owner", -- any
+  name = "example_name", -- string
+  upstream_url = "example_upstream_url", -- string
 })
 ```
 
@@ -2735,6 +2622,8 @@ local composers, err = client:Composer():list()
 local composer, err = client:Composer():create({
   identifier = "example_identifier", -- any
   owner = "example_owner", -- any
+  name = "example_name", -- string
+  upstream_url = "example_upstream_url", -- string
 })
 ```
 
@@ -2798,6 +2687,8 @@ local condas, err = client:Conda():list()
 local conda, err = client:Conda():create({
   identifier = "example_identifier", -- any
   owner = "example_owner", -- any
+  name = "example_name", -- string
+  upstream_url = "example_upstream_url", -- string
 })
 ```
 
@@ -2861,6 +2752,8 @@ local crans, err = client:Cran():list()
 local cran, err = client:Cran():create({
   identifier = "example_identifier", -- any
   owner = "example_owner", -- any
+  name = "example_name", -- string
+  upstream_url = "example_upstream_url", -- string
 })
 ```
 
@@ -2919,6 +2812,8 @@ local darts, err = client:Dart():list()
 local dart, err = client:Dart():create({
   identifier = "example_identifier", -- any
   owner = "example_owner", -- any
+  name = "example_name", -- string
+  upstream_url = "example_upstream_url", -- string
 })
 ```
 
@@ -2946,7 +2841,7 @@ Create an instance: `local deb = client:Deb(nil)`
 | `component` | `string` |  |
 | `created_at` | `string` |  |
 | `disable_reason` | `string` |  |
-| `distro_version` | `table` |  |
+| `distro_versions` | `table` |  |
 | `extra_header_1` | `string` |  |
 | `extra_header_2` | `string` |  |
 | `extra_value_1` | `string` |  |
@@ -2954,7 +2849,7 @@ Create an instance: `local deb = client:Deb(nil)`
 | `gpg_key_inline` | `string` |  |
 | `gpg_key_url` | `string` |  |
 | `gpg_verification` | `string` |  |
-| `include_source` | `boolean` |  |
+| `include_sources` | `boolean` |  |
 | `is_active` | `boolean` |  |
 | `mode` | `string` |  |
 | `name` | `string` |  |
@@ -2985,6 +2880,9 @@ local debs, err = client:Deb():list()
 local deb, err = client:Deb():create({
   identifier = "example_identifier", -- any
   owner = "example_owner", -- any
+  distro_versions = {}, -- table
+  name = "example_name", -- string
+  upstream_url = "example_upstream_url", -- string
 })
 ```
 
@@ -3024,8 +2922,8 @@ Create an instance: `local distribution_full = client:DistributionFull(nil)`
 | `name` | `string` |  |
 | `self_url` | `string` |  |
 | `slug` | `string` |  |
-| `variant` | `string` |  |
-| `version` | `table` |  |
+| `variants` | `string` |  |
+| `versions` | `table` |  |
 
 #### Example: Load
 
@@ -3099,6 +2997,8 @@ local dockers, err = client:Docker():list()
 local docker, err = client:Docker():create({
   identifier = "example_identifier", -- any
   owner = "example_owner", -- any
+  name = "example_name", -- string
+  upstream_url = "example_upstream_url", -- string
 })
 ```
 
@@ -3160,7 +3060,11 @@ Create an instance: `local entitlement = client:Entitlement(nil)`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `token` | `table` |  |
+| `active` | `number` |  |
+| `bandwidth` | `table` |  |
+| `downloads` | `table` |  |
+| `inactive` | `number` |  |
+| `total` | `number` |  |
 
 #### Example: Load
 
@@ -3175,6 +3079,8 @@ local entitlement, err = client:Entitlement():create({
   identifier = "example_identifier", -- any
   owner = "example_owner", -- any
   repo = "example_repo", -- any
+  bandwidth = {}, -- table
+  downloads = {}, -- table
 })
 ```
 
@@ -3220,14 +3126,14 @@ Create an instance: `local format = client:Format(nil)`
 | Field | Type | Description |
 | --- | --- | --- |
 | `description` | `string` |  |
-| `distribution` | `table` |  |
-| `extension` | `table` |  |
+| `distributions` | `table` |  |
+| `extensions` | `table` |  |
 | `name` | `string` |  |
 | `premium` | `boolean` |  |
 | `premium_plan_id` | `string` |  |
 | `premium_plan_name` | `string` |  |
 | `slug` | `string` |  |
-| `support` | `table` |  |
+| `supports` | `table` |  |
 
 #### Example: Load
 
@@ -3251,86 +3157,14 @@ Create an instance: `local geoip = client:Geoip(nil)`
 
 Create an instance: `local gon = client:Gon(nil)`
 
-
-### Gon2
-
-Create an instance: `local gon2 = client:Gon2(nil)`
-
-
-### Gon3
-
-Create an instance: `local gon3 = client:Gon3(nil)`
-
-#### Operations
-
-| Method | Description |
-| --- | --- |
-| `list(match)` | List entities matching the criteria. |
-
-#### Fields
-
-| Field | Type | Description |
-| --- | --- | --- |
-| `auth_mode` | `string` |  |
-| `auth_secret` | `string` |  |
-| `auth_username` | `string` |  |
-| `created_at` | `string` |  |
-| `disable_reason` | `string` |  |
-| `extra_header_1` | `string` |  |
-| `extra_header_2` | `string` |  |
-| `extra_value_1` | `string` |  |
-| `extra_value_2` | `string` |  |
-| `is_active` | `boolean` |  |
-| `mode` | `string` |  |
-| `name` | `string` |  |
-| `pending_validation` | `boolean` |  |
-| `priority` | `number` |  |
-| `slug_perm` | `string` |  |
-| `updated_at` | `string` |  |
-| `upstream_url` | `string` |  |
-| `verify_ssl` | `boolean` |  |
-
-#### Example: List
-
-```lua
-local gon3s, err = client:Gon3():list()
-```
-
-
-### Gon4
-
-Create an instance: `local gon4 = client:Gon4(nil)`
-
-
-### Gon5
-
-Create an instance: `local gon5 = client:Gon5(nil)`
-
 #### Operations
 
 | Method | Description |
 | --- | --- |
 | `create(data)` | Create a new entity with the given data. |
-
-#### Example: Create
-
-```lua
-local gon5, err = client:Gon5():create({
-  identifier = "example_identifier", -- any
-  owner = "example_owner", -- any
-})
-```
-
-
-### Gon6
-
-Create an instance: `local gon6 = client:Gon6(nil)`
-
-#### Operations
-
-| Method | Description |
-| --- | --- |
+| `list(match)` | List entities matching the criteria. |
 | `load(match)` | Load a single entity by match criteria. |
+| `update(data)` | Update an existing entity. |
 
 #### Fields
 
@@ -3358,81 +3192,25 @@ Create an instance: `local gon6 = client:Gon6(nil)`
 #### Example: Load
 
 ```lua
-local gon6, err = client:Gon6():load({ identifier = "identifier", owner = "owner", slug_perm = "slug_perm" })
+local gon, err = client:Gon():load({ identifier = "identifier", owner = "owner", slug_perm = "slug_perm" })
 ```
 
+#### Example: List
 
-### Gon7
+```lua
+local gons, err = client:Gon():list()
+```
 
-Create an instance: `local gon7 = client:Gon7(nil)`
+#### Example: Create
 
-
-### Gon8
-
-Create an instance: `local gon8 = client:Gon8(nil)`
-
-#### Operations
-
-| Method | Description |
-| --- | --- |
-| `update(data)` | Update an existing entity. |
-
-#### Fields
-
-| Field | Type | Description |
-| --- | --- | --- |
-| `auth_mode` | `string` |  |
-| `auth_secret` | `string` |  |
-| `auth_username` | `string` |  |
-| `created_at` | `string` |  |
-| `disable_reason` | `string` |  |
-| `extra_header_1` | `string` |  |
-| `extra_header_2` | `string` |  |
-| `extra_value_1` | `string` |  |
-| `extra_value_2` | `string` |  |
-| `is_active` | `boolean` |  |
-| `mode` | `string` |  |
-| `name` | `string` |  |
-| `pending_validation` | `boolean` |  |
-| `priority` | `number` |  |
-| `slug_perm` | `string` |  |
-| `updated_at` | `string` |  |
-| `upstream_url` | `string` |  |
-| `verify_ssl` | `boolean` |  |
-
-
-### Gon9
-
-Create an instance: `local gon9 = client:Gon9(nil)`
-
-#### Operations
-
-| Method | Description |
-| --- | --- |
-| `update(data)` | Update an existing entity. |
-
-#### Fields
-
-| Field | Type | Description |
-| --- | --- | --- |
-| `auth_mode` | `string` |  |
-| `auth_secret` | `string` |  |
-| `auth_username` | `string` |  |
-| `created_at` | `string` |  |
-| `disable_reason` | `string` |  |
-| `extra_header_1` | `string` |  |
-| `extra_header_2` | `string` |  |
-| `extra_value_1` | `string` |  |
-| `extra_value_2` | `string` |  |
-| `is_active` | `boolean` |  |
-| `mode` | `string` |  |
-| `name` | `string` |  |
-| `pending_validation` | `boolean` |  |
-| `priority` | `number` |  |
-| `slug_perm` | `string` |  |
-| `updated_at` | `string` |  |
-| `upstream_url` | `string` |  |
-| `verify_ssl` | `boolean` |  |
+```lua
+local gon, err = client:Gon():create({
+  identifier = "example_identifier", -- any
+  owner = "example_owner", -- any
+  name = "example_name", -- string
+  upstream_url = "example_upstream_url", -- string
+})
+```
 
 
 ### Gpg
@@ -3499,6 +3277,8 @@ local helms, err = client:Helm():list()
 local helm, err = client:Helm():create({
   identifier = "example_identifier", -- any
   owner = "example_owner", -- any
+  name = "example_name", -- string
+  upstream_url = "example_upstream_url", -- string
 })
 ```
 
@@ -3557,6 +3337,8 @@ local hexs, err = client:Hex():list()
 local hex, err = client:Hex():create({
   identifier = "example_identifier", -- any
   owner = "example_owner", -- any
+  name = "example_name", -- string
+  upstream_url = "example_upstream_url", -- string
 })
 ```
 
@@ -3620,6 +3402,8 @@ local huggingfaces, err = client:Huggingface():list()
 local huggingface, err = client:Huggingface():create({
   identifier = "example_identifier", -- any
   owner = "example_owner", -- any
+  name = "example_name", -- string
+  upstream_url = "example_upstream_url", -- string
 })
 ```
 
@@ -3707,6 +3491,8 @@ local mavens, err = client:Maven():list()
 local maven, err = client:Maven():create({
   identifier = "example_identifier", -- any
   owner = "example_owner", -- any
+  name = "example_name", -- string
+  upstream_url = "example_upstream_url", -- string
 })
 ```
 
@@ -3846,6 +3632,8 @@ local npms, err = client:Npm():list()
 local npm, err = client:Npm():create({
   identifier = "example_identifier", -- any
   owner = "example_owner", -- any
+  name = "example_name", -- string
+  upstream_url = "example_upstream_url", -- string
 })
 ```
 
@@ -3904,6 +3692,8 @@ local nugets, err = client:Nuget():list()
 local nuget, err = client:Nuget():create({
   identifier = "example_identifier", -- any
   owner = "example_owner", -- any
+  name = "example_name", -- string
+  upstream_url = "example_upstream_url", -- string
 })
 ```
 
@@ -3938,11 +3728,11 @@ Create an instance: `local org = client:Org(nil)`
 | `name` | `string` |  |
 | `package` | `table` |  |
 | `policy` | `table` |  |
-| `reason` | `table` |  |
+| `reasons` | `table` |  |
 | `slug` | `string` |  |
 | `slug_perm` | `string` |  |
 | `tagline` | `string` |  |
-| `vulnerability_scan_result` | `table` |  |
+| `vulnerability_scan_results` | `table` |  |
 
 #### Example: Load
 
@@ -3961,6 +3751,11 @@ local orgs, err = client:Org():list()
 ```lua
 local org, err = client:Org():create({
   id = "example_id", -- string
+  name = "example_name", -- string
+  package = {}, -- table
+  policy = {}, -- table
+  reasons = {}, -- table
+  vulnerability_scan_results = {}, -- table
 })
 ```
 
@@ -3997,6 +3792,9 @@ local organization_group_syncs, err = client:OrganizationGroupSync():list()
 ```lua
 local organization_group_sync, err = client:OrganizationGroupSync():create({
   org_id = "example_org_id", -- string
+  idp_key = "example_idp_key", -- string
+  idp_value = "example_idp_value", -- string
+  team = "example_team", -- string
 })
 ```
 
@@ -4047,7 +3845,7 @@ Create an instance: `local organization_invite = client:OrganizationInvite(nil)`
 | `org` | `string` |  |
 | `role` | `string` |  |
 | `slug_perm` | `string` |  |
-| `team` | `table` |  |
+| `teams` | `table` |  |
 | `user` | `string` |  |
 | `user_url` | `string` |  |
 
@@ -4087,7 +3885,7 @@ Create an instance: `local organization_invite_extend = client:OrganizationInvit
 | `org` | `string` |  |
 | `role` | `string` |  |
 | `slug_perm` | `string` |  |
-| `team` | `table` |  |
+| `teams` | `table` |  |
 | `user` | `string` |  |
 | `user_url` | `string` |  |
 
@@ -4214,14 +4012,14 @@ Create an instance: `local organization_package_license_policy = client:Organiza
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `allow_unknown_license` | `boolean` |  |
+| `allow_unknown_licenses` | `boolean` |  |
 | `created_at` | `string` |  |
 | `description` | `string` |  |
 | `name` | `string` |  |
 | `on_violation_quarantine` | `boolean` |  |
 | `package_query_string` | `string` |  |
 | `slug_perm` | `string` |  |
-| `spdx_identifier` | `table` |  |
+| `spdx_identifiers` | `table` |  |
 | `updated_at` | `string` |  |
 
 #### Example: Load
@@ -4241,6 +4039,8 @@ local organization_package_license_policys, err = client:OrganizationPackageLice
 ```lua
 local organization_package_license_policy, err = client:OrganizationPackageLicensePolicy():create({
   org_id = "example_org_id", -- string
+  name = "example_name", -- string
+  spdx_identifiers = {}, -- table
 })
 ```
 
@@ -4289,6 +4089,7 @@ local organization_package_vulnerability_policys, err = client:OrganizationPacka
 ```lua
 local organization_package_vulnerability_policy, err = client:OrganizationPackageVulnerabilityPolicy():create({
   org_id = "example_org_id", -- string
+  name = "example_name", -- string
 })
 ```
 
@@ -4360,6 +4161,7 @@ local organization_teams, err = client:OrganizationTeam():list()
 ```lua
 local organization_team, err = client:OrganizationTeam():create({
   org_id = "example_org_id", -- string
+  name = "example_name", -- string
 })
 ```
 
@@ -4394,6 +4196,8 @@ local organization_team_members, err = client:OrganizationTeamMember():list()
 local organization_team_member, err = client:OrganizationTeamMember():create({
   org_id = "example_org_id", -- string
   team_id = "example_team_id", -- string
+  role = "example_role", -- string
+  user = "example_user", -- string
 })
 ```
 
@@ -4406,11 +4210,6 @@ Create an instance: `local oss = client:Oss(nil)`
 ### P2n
 
 Create an instance: `local p2n = client:P2n(nil)`
-
-
-### P2n2
-
-Create an instance: `local p2n2 = client:P2n2(nil)`
 
 
 ### Package
@@ -4430,8 +4229,10 @@ Create an instance: `local package = client:Package(nil)`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `architecture` | `table` |  |
+| `active` | `number` |  |
+| `architectures` | `table` |  |
 | `backend_kind` | `number` |  |
+| `bandwidth` | `table` |  |
 | `cdn_url` | `string` |  |
 | `checksum_md5` | `string` |  |
 | `checksum_sha1` | `string` |  |
@@ -4445,17 +4246,18 @@ Create an instance: `local package = client:Package(nil)`
 | `display_name` | `string` |  |
 | `distro` | `table` |  |
 | `distro_version` | `table` |  |
-| `download` | `number` |  |
+| `downloads` | `table` |  |
 | `epoch` | `number` |  |
 | `extension` | `string` |  |
-| `file` | `table` |  |
 | `filename` | `string` |  |
+| `files` | `table` |  |
 | `format` | `string` |  |
 | `format_url` | `string` |  |
 | `freeable_storage` | `number` |  |
 | `fully_qualified_name` | `string` |  |
-| `identifier` | `table` |  |
 | `identifier_perm` | `string` |  |
+| `identifiers` | `table` |  |
+| `inactive` | `number` |  |
 | `indexed` | `boolean` |  |
 | `is_cancellable` | `boolean` |  |
 | `is_copyable` | `boolean` |  |
@@ -4476,12 +4278,11 @@ Create an instance: `local package = client:Package(nil)`
 | `name` | `string` |  |
 | `namespace` | `string` |  |
 | `namespace_url` | `string` |  |
-| `num_download` | `number` |  |
-| `num_file` | `number` |  |
+| `num_downloads` | `number` |  |
+| `num_files` | `number` |  |
 | `operator` | `string` |  |
 | `origin_repository` | `string` |  |
 | `origin_repository_url` | `string` |  |
-| `package` | `table` |  |
 | `package_type` | `number` |  |
 | `policy_violated` | `boolean` |  |
 | `release` | `string` |  |
@@ -4509,8 +4310,9 @@ Create an instance: `local package = client:Package(nil)`
 | `summary` | `string` |  |
 | `sync_finished_at` | `string` |  |
 | `sync_progress` | `number` |  |
-| `tag` | `table` |  |
+| `tags` | `table` |  |
 | `tags_immutable` | `table` |  |
+| `total` | `number` |  |
 | `type_display` | `string` |  |
 | `uploaded_at` | `string` |  |
 | `uploader` | `string` |  |
@@ -4537,6 +4339,12 @@ local packages, err = client:Package():list()
 local package, err = client:Package():create({
   owner = "example_owner", -- any
   repo = "example_repo", -- any
+  bandwidth = {}, -- table
+  count = 1, -- number
+  distro = {}, -- table
+  downloads = {}, -- table
+  last_push = "example_last_push", -- string
+  num_downloads = 1, -- number
 })
 ```
 
@@ -4585,6 +4393,7 @@ local package_deny_policys, err = client:PackageDenyPolicy():list()
 ```lua
 local package_deny_policy, err = client:PackageDenyPolicy():create({
   org_id = "example_org_id", -- string
+  package_query_string = "example_package_query_string", -- string
 })
 ```
 
@@ -4651,12 +4460,19 @@ Create an instance: `local package_license_policy_evaluation = client:PackageLic
 
 | Field | Type | Description |
 | --- | --- | --- |
+| `allow_unknown_licenses` | `boolean` |  |
 | `created_at` | `string` |  |
+| `description` | `string` |  |
 | `evaluation_count` | `number` |  |
+| `name` | `string` |  |
+| `on_violation_quarantine` | `boolean` |  |
+| `package_query_string` | `string` |  |
 | `policy` | `table` |  |
 | `slug_perm` | `string` |  |
+| `spdx_identifiers` | `table` |  |
 | `status` | `string` |  |
 | `updated_at` | `string` |  |
+| `url` | `string` |  |
 | `violation_count` | `number` |  |
 
 #### Example: Load
@@ -4677,6 +4493,8 @@ local package_license_policy_evaluations, err = client:PackageLicensePolicyEvalu
 local package_license_policy_evaluation, err = client:PackageLicensePolicyEvaluation():create({
   org_id = "example_org_id", -- string
   policy_slug_perm = "example_policy_slug_perm", -- any
+  policy = {}, -- table
+  spdx_identifiers = {}, -- table
 })
 ```
 
@@ -4714,12 +4532,19 @@ Create an instance: `local package_vulnerability_policy_evaluation = client:Pack
 
 | Field | Type | Description |
 | --- | --- | --- |
+| `allow_unknown_severity` | `boolean` |  |
 | `created_at` | `string` |  |
+| `description` | `string` |  |
 | `evaluation_count` | `number` |  |
+| `min_severity` | `string` |  |
+| `name` | `string` |  |
+| `on_violation_quarantine` | `boolean` |  |
+| `package_query_string` | `string` |  |
 | `policy` | `table` |  |
 | `slug_perm` | `string` |  |
 | `status` | `string` |  |
 | `updated_at` | `string` |  |
+| `url` | `string` |  |
 | `violation_count` | `number` |  |
 
 #### Example: Load
@@ -4769,12 +4594,12 @@ Create an instance: `local provider_setting = client:ProviderSetting(nil)`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `claim` | `table` |  |
+| `claims` | `table` |  |
 | `enabled` | `boolean` |  |
 | `mapping_claim` | `string` |  |
 | `name` | `string` |  |
 | `provider_url` | `string` |  |
-| `service_account` | `table` |  |
+| `service_accounts` | `table` |  |
 | `slug` | `string` |  |
 | `slug_perm` | `string` |  |
 
@@ -4806,13 +4631,13 @@ Create an instance: `local provider_settings_write = client:ProviderSettingsWrit
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `claim` | `table` |  |
-| `dynamic_mapping` | `table` |  |
+| `claims` | `table` |  |
+| `dynamic_mappings` | `table` |  |
 | `enabled` | `boolean` |  |
 | `mapping_claim` | `string` |  |
 | `name` | `string` |  |
 | `provider_url` | `string` |  |
-| `service_account` | `table` |  |
+| `service_accounts` | `table` |  |
 | `slug` | `string` |  |
 | `slug_perm` | `string` |  |
 
@@ -4821,6 +4646,10 @@ Create an instance: `local provider_settings_write = client:ProviderSettingsWrit
 ```lua
 local provider_settings_write, err = client:ProviderSettingsWrite():create({
   org_id = "example_org_id", -- string
+  claims = {}, -- table
+  enabled = true, -- boolean
+  name = "example_name", -- string
+  provider_url = "example_provider_url", -- string
 })
 ```
 
@@ -4879,6 +4708,8 @@ local pythons, err = client:Python():list()
 local python, err = client:Python():create({
   identifier = "example_identifier", -- any
   owner = "example_owner", -- any
+  name = "example_name", -- string
+  upstream_url = "example_upstream_url", -- string
 })
 ```
 
@@ -4902,8 +4733,9 @@ Create an instance: `local quota = client:Quota(nil)`
 
 | Field | Type | Description |
 | --- | --- | --- |
+| `display` | `table` |  |
 | `history` | `table` |  |
-| `usage` | `table` |  |
+| `raw` | `table` |  |
 
 #### Example: Load
 
@@ -4949,49 +4781,49 @@ Create an instance: `local repo = client:Repo(nil)`
 | `content_kind` | `string` |  |
 | `contextual_auth_realm` | `boolean` |  |
 | `copy_own` | `boolean` |  |
-| `copy_package` | `string` |  |
+| `copy_packages` | `string` |  |
 | `cosign_signing_enabled` | `boolean` |  |
 | `created_at` | `string` |  |
 | `default_privilege` | `string` |  |
 | `delete_own` | `boolean` |  |
-| `delete_package` | `string` |  |
+| `delete_packages` | `string` |  |
 | `deleted_at` | `string` |  |
 | `description` | `string` |  |
-| `distribute` | `table` |  |
+| `distributes` | `table` |  |
 | `docker_refresh_tokens_enabled` | `boolean` |  |
-| `ecdsa_key` | `table` |  |
+| `ecdsa_keys` | `table` |  |
 | `enforce_eula` | `boolean` |  |
-| `gpg_key` | `table` |  |
-| `index_file` | `boolean` |  |
+| `gpg_keys` | `table` |  |
+| `index_files` | `boolean` |  |
 | `is_open_source` | `boolean` |  |
 | `is_private` | `boolean` |  |
 | `is_public` | `boolean` |  |
 | `manage_entitlements_privilege` | `string` |  |
 | `move_own` | `boolean` |  |
-| `move_package` | `string` |  |
+| `move_packages` | `string` |  |
 | `name` | `string` |  |
 | `namespace` | `string` |  |
 | `namespace_url` | `string` |  |
 | `nuget_native_signing_enabled` | `boolean` |  |
-| `num_download` | `number` |  |
-| `num_policy_violated_package` | `number` |  |
-| `num_quarantined_package` | `number` |  |
+| `num_downloads` | `number` |  |
+| `num_policy_violated_packages` | `number` |  |
+| `num_quarantined_packages` | `number` |  |
 | `open_source_license` | `string` |  |
 | `open_source_project_url` | `string` |  |
 | `package_count` | `number` |  |
 | `package_group_count` | `number` |  |
-| `proxy_npmj` | `boolean` |  |
+| `proxy_npmjs` | `boolean` |  |
 | `proxy_pypi` | `boolean` |  |
 | `raw_package_index_enabled` | `boolean` |  |
 | `raw_package_index_signatures_enabled` | `boolean` |  |
-| `replace_package` | `string` |  |
+| `replace_packages` | `string` |  |
 | `replace_packages_by_default` | `boolean` |  |
 | `repository_type` | `number` |  |
 | `repository_type_str` | `string` |  |
 | `resync_own` | `boolean` |  |
-| `resync_package` | `string` |  |
+| `resync_packages` | `string` |  |
 | `scan_own` | `boolean` |  |
-| `scan_package` | `string` |  |
+| `scan_packages` | `string` |  |
 | `self_html_url` | `string` |  |
 | `self_url` | `string` |  |
 | `show_setup_all` | `boolean` |  |
@@ -5002,14 +4834,14 @@ Create an instance: `local repo = client:Repo(nil)`
 | `storage_region` | `string` |  |
 | `strict_npm_validation` | `boolean` |  |
 | `tag_pre_releases_as_latest` | `boolean` |  |
-| `use_debian_label` | `boolean` |  |
+| `use_debian_labels` | `boolean` |  |
 | `use_default_cargo_upstream` | `boolean` |  |
 | `use_entitlements_privilege` | `string` |  |
-| `use_noarch_package` | `boolean` |  |
-| `use_source_package` | `boolean` |  |
+| `use_noarch_packages` | `boolean` |  |
+| `use_source_packages` | `boolean` |  |
 | `use_vulnerability_scanning` | `boolean` |  |
 | `user_entitlements_enabled` | `boolean` |  |
-| `view_statistic` | `string` |  |
+| `view_statistics` | `string` |  |
 
 #### Example: Load
 
@@ -5027,6 +4859,7 @@ local repos, err = client:Repo():list()
 
 ```lua
 local repo, err = client:Repo():create({
+  name = "example_name", -- string
 })
 ```
 
@@ -5208,6 +5041,7 @@ local repository_gpg_key, err = client:RepositoryGpgKey():load({ identifier = "i
 local repository_gpg_key, err = client:RepositoryGpgKey():create({
   identifier = "example_identifier", -- any
   owner = "example_owner", -- any
+  comment = "example_comment", -- string
 })
 ```
 
@@ -5325,19 +5159,19 @@ Create an instance: `local repository_token = client:RepositoryToken(nil)`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `client` | `number` |  |
+| `clients` | `number` |  |
 | `created_at` | `string` |  |
 | `created_by` | `string` |  |
 | `created_by_url` | `string` |  |
 | `default` | `boolean` |  |
 | `disable_url` | `string` |  |
-| `download` | `number` |  |
+| `downloads` | `number` |  |
 | `enable_url` | `string` |  |
 | `eula_accepted` | `table` |  |
 | `eula_accepted_at` | `string` |  |
 | `eula_accepted_from` | `string` |  |
 | `eula_required` | `boolean` |  |
-| `has_limit` | `boolean` |  |
+| `has_limits` | `boolean` |  |
 | `identifier` | `number` |  |
 | `is_active` | `boolean` |  |
 | `is_limited` | `boolean` |  |
@@ -5345,8 +5179,8 @@ Create an instance: `local repository_token = client:RepositoryToken(nil)`
 | `limit_bandwidth_unit` | `string` |  |
 | `limit_date_range_from` | `string` |  |
 | `limit_date_range_to` | `string` |  |
-| `limit_num_client` | `number` |  |
-| `limit_num_download` | `number` |  |
+| `limit_num_clients` | `number` |  |
+| `limit_num_downloads` | `number` |  |
 | `limit_package_query` | `string` |  |
 | `limit_path_query` | `string` |  |
 | `metadata` | `table` |  |
@@ -5383,6 +5217,7 @@ local repository_tokens, err = client:RepositoryToken():list()
 local repository_token, err = client:RepositoryToken():create({
   owner = "example_owner", -- any
   repo = "example_repo", -- any
+  name = "example_name", -- string
 })
 ```
 
@@ -5401,19 +5236,19 @@ Create an instance: `local repository_token_refresh = client:RepositoryTokenRefr
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `client` | `number` |  |
+| `clients` | `number` |  |
 | `created_at` | `string` |  |
 | `created_by` | `string` |  |
 | `created_by_url` | `string` |  |
 | `default` | `boolean` |  |
 | `disable_url` | `string` |  |
-| `download` | `number` |  |
+| `downloads` | `number` |  |
 | `enable_url` | `string` |  |
 | `eula_accepted` | `table` |  |
 | `eula_accepted_at` | `string` |  |
 | `eula_accepted_from` | `string` |  |
 | `eula_required` | `boolean` |  |
-| `has_limit` | `boolean` |  |
+| `has_limits` | `boolean` |  |
 | `identifier` | `number` |  |
 | `is_active` | `boolean` |  |
 | `is_limited` | `boolean` |  |
@@ -5421,8 +5256,8 @@ Create an instance: `local repository_token_refresh = client:RepositoryTokenRefr
 | `limit_bandwidth_unit` | `string` |  |
 | `limit_date_range_from` | `string` |  |
 | `limit_date_range_to` | `string` |  |
-| `limit_num_client` | `number` |  |
-| `limit_num_download` | `number` |  |
+| `limit_num_clients` | `number` |  |
+| `limit_num_downloads` | `number` |  |
 | `limit_package_query` | `string` |  |
 | `limit_path_query` | `string` |  |
 | `metadata` | `table` |  |
@@ -5466,7 +5301,7 @@ Create an instance: `local repository_token_sync = client:RepositoryTokenSync(ni
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `token` | `table` |  |
+| `tokens` | `table` |  |
 
 #### Example: Create
 
@@ -5499,7 +5334,8 @@ Create an instance: `local repository_webhook = client:RepositoryWebhook(nil)`
 | `created_by_url` | `string` |  |
 | `disable_reason` | `number` |  |
 | `disable_reason_str` | `string` |  |
-| `event` | `table` |  |
+| `event` | `string` |  |
+| `events` | `table` |  |
 | `identifier` | `number` |  |
 | `is_active` | `boolean` |  |
 | `is_last_response_bad` | `boolean` |  |
@@ -5516,7 +5352,8 @@ Create an instance: `local repository_webhook = client:RepositoryWebhook(nil)`
 | `self_url` | `string` |  |
 | `slug_perm` | `string` |  |
 | `target_url` | `string` |  |
-| `template` | `table` |  |
+| `template` | `string` |  |
+| `templates` | `table` |  |
 | `updated_at` | `string` |  |
 | `updated_by` | `string` |  |
 | `updated_by_url` | `string` |  |
@@ -5534,6 +5371,10 @@ local repository_webhooks, err = client:RepositoryWebhook():list()
 local repository_webhook, err = client:RepositoryWebhook():create({
   owner = "example_owner", -- any
   repo = "example_repo", -- any
+  event = "example_event", -- string
+  events = {}, -- table
+  target_url = "example_target_url", -- string
+  templates = {}, -- table
 })
 ```
 
@@ -5621,7 +5462,12 @@ Create an instance: `local resources_rate_check = client:ResourcesRateCheck(nil)
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `resource` | `table` |  |
+| `interval` | `number` |  |
+| `limit` | `number` |  |
+| `remaining` | `number` |  |
+| `reset` | `number` |  |
+| `reset_iso_8601` | `string` |  |
+| `throttled` | `boolean` |  |
 
 #### Example: Load
 
@@ -5670,7 +5516,7 @@ Create an instance: `local rpm = client:Rpm(nil)`
 | `gpg_key_inline` | `string` |  |
 | `gpg_key_url` | `string` |  |
 | `gpg_verification` | `string` |  |
-| `include_source` | `boolean` |  |
+| `include_sources` | `boolean` |  |
 | `is_active` | `boolean` |  |
 | `mode` | `string` |  |
 | `name` | `string` |  |
@@ -5700,6 +5546,9 @@ local rpms, err = client:Rpm():list()
 local rpm, err = client:Rpm():create({
   identifier = "example_identifier", -- any
   owner = "example_owner", -- any
+  distro_version = "example_distro_version", -- string
+  name = "example_name", -- string
+  upstream_url = "example_upstream_url", -- string
 })
 ```
 
@@ -5763,6 +5612,8 @@ local rubys, err = client:Ruby():list()
 local ruby, err = client:Ruby():create({
   identifier = "example_identifier", -- any
   owner = "example_owner", -- any
+  name = "example_name", -- string
+  upstream_url = "example_upstream_url", -- string
 })
 ```
 
@@ -5808,7 +5659,7 @@ Create an instance: `local service = client:Service(nil)`
 | `name` | `string` |  |
 | `role` | `string` |  |
 | `slug` | `string` |  |
-| `team` | `table` |  |
+| `teams` | `table` |  |
 
 #### Example: Load
 
@@ -5827,6 +5678,7 @@ local services, err = client:Service():list()
 ```lua
 local service, err = client:Service():create({
   org_id = "example_org_id", -- string
+  name = "example_name", -- string
 })
 ```
 
@@ -5945,6 +5797,8 @@ local swifts, err = client:Swift():list()
 local swift, err = client:Swift():create({
   identifier = "example_identifier", -- any
   owner = "example_owner", -- any
+  name = "example_name", -- string
+  upstream_url = "example_upstream_url", -- string
 })
 ```
 
@@ -6146,12 +6000,12 @@ Create an instance: `local vulnerability = client:Vulnerability(nil)`
 | Field | Type | Description |
 | --- | --- | --- |
 | `created_at` | `string` |  |
-| `has_vulnerability` | `boolean` |  |
+| `has_vulnerabilities` | `boolean` |  |
 | `identifier` | `string` |  |
 | `max_severity` | `string` |  |
-| `num_vulnerability` | `number` |  |
+| `num_vulnerabilities` | `number` |  |
 | `package` | `table` |  |
-| `result` | `table` |  |
+| `results` | `table` |  |
 | `scan_id` | `number` |  |
 | `target` | `string` |  |
 | `type` | `string` |  |
@@ -6271,11 +6125,11 @@ Entity instances are stateful. After a successful `list`, the entity
 stores the returned data and match criteria internally.
 
 ```lua
-local cargo = client:Cargo()
-cargo:list()
+local vulnerability = client:Vulnerability()
+vulnerability:list()
 
--- cargo:data_get() now returns the cargo data from the last list
--- cargo:match_get() returns the last match criteria
+-- vulnerability:data_get() now returns the vulnerability data from the last list
+-- vulnerability:match_get() returns the last match criteria
 ```
 
 Call `make()` to create a fresh instance with the same configuration

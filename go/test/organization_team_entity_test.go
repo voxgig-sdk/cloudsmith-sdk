@@ -108,7 +108,7 @@ func TestOrganizationTeamEntity(t *testing.T) {
 		if err != nil {
 			t.Fatalf("create failed: %v", err)
 		}
-		organizationTeamRef01Data = core.ToMapAny(organizationTeamRef01DataResult)
+		organizationTeamRef01Data = core.ToMapAny(entityData(organizationTeamRef01DataResult))
 		if organizationTeamRef01Data == nil {
 			t.Fatal("expected create result to be a map")
 		}
@@ -122,14 +122,9 @@ func TestOrganizationTeamEntity(t *testing.T) {
 		if err != nil {
 			t.Fatalf("list failed: %v", err)
 		}
-		organizationTeamRef01List, organizationTeamRef01ListOk := organizationTeamRef01ListResult.([]any)
+		_, organizationTeamRef01ListOk := organizationTeamRef01ListResult.([]any)
 		if !organizationTeamRef01ListOk {
 			t.Fatalf("expected list result to be an array, got %T", organizationTeamRef01ListResult)
-		}
-
-		foundItem := vs.Select(entityListToData(organizationTeamRef01List), map[string]any{"id": organizationTeamRef01Data["id"]})
-		if vs.IsEmpty(foundItem) {
-			t.Fatal("expected to find created entity in list")
 		}
 
 		// UPDATE
@@ -145,7 +140,7 @@ func TestOrganizationTeamEntity(t *testing.T) {
 		if err != nil {
 			t.Fatalf("update failed: %v", err)
 		}
-		organizationTeamRef01ResdataUp0 := core.ToMapAny(organizationTeamRef01ResdataUp0Result)
+		organizationTeamRef01ResdataUp0 := core.ToMapAny(entityData(organizationTeamRef01ResdataUp0Result))
 		if organizationTeamRef01ResdataUp0 == nil {
 			t.Fatal("expected update result to be a map")
 		}

@@ -7,8 +7,8 @@
         "name": "s48",
         "self_url": "s49",
         "slug": "s4a",
-        "variant": "s4b",
-        "version": [],
+        "variants": "s4b",
+        "versions": [],
         "id": "DISTRIBUTION_FULL00"
       },
       "DISTRIBUTION_FULL01": {
@@ -17,8 +17,8 @@
         "name": "s8e",
         "self_url": "s8f",
         "slug": "s90",
-        "variant": "s91",
-        "version": [],
+        "variants": "s91",
+        "versions": [],
         "id": "DISTRIBUTION_FULL01"
       },
       "DISTRIBUTION_FULL02": {
@@ -27,8 +27,8 @@
         "name": "sd4",
         "self_url": "sd5",
         "slug": "sd6",
-        "variant": "sd7",
-        "version": [],
+        "variants": "sd7",
+        "versions": [],
         "id": "DISTRIBUTION_FULL02"
       }
     }
@@ -41,8 +41,8 @@
         "name": "s11a",
         "self_url": "s11b",
         "slug": "s11c",
-        "variant": "s11d",
-        "version": []
+        "variants": "s11d",
+        "versions": []
       }
     }
   }

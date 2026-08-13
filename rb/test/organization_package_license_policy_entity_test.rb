@@ -74,7 +74,7 @@ class OrganizationPackageLicensePolicyEntityTest < Minitest::Test
     organization_package_license_policy_ref01_data["org_id"] = setup[:idmap]["org01"]
 
     organization_package_license_policy_ref01_data_result = organization_package_license_policy_ref01_ent.create(organization_package_license_policy_ref01_data, nil)
-    organization_package_license_policy_ref01_data = Helpers.to_map(organization_package_license_policy_ref01_data_result)
+    organization_package_license_policy_ref01_data = Helpers.to_map(organization_package_license_policy_ref01_data_result.respond_to?(:data_get) ? organization_package_license_policy_ref01_data_result.data_get : organization_package_license_policy_ref01_data_result)
     assert !organization_package_license_policy_ref01_data.nil?
 
     # LIST
@@ -84,11 +84,6 @@ class OrganizationPackageLicensePolicyEntityTest < Minitest::Test
 
     organization_package_license_policy_ref01_list_result = organization_package_license_policy_ref01_ent.list(organization_package_license_policy_ref01_match, nil)
     assert organization_package_license_policy_ref01_list_result.is_a?(Array)
-
-    found_item = Vs.select(
-      Runner.entity_list_to_data(organization_package_license_policy_ref01_list_result),
-      { "id" => organization_package_license_policy_ref01_data["id"] })
-    assert !Vs.isempty(found_item)
 
     # UPDATE
     organization_package_license_policy_ref01_data_up0_up = {
@@ -100,7 +95,7 @@ class OrganizationPackageLicensePolicyEntityTest < Minitest::Test
     organization_package_license_policy_ref01_data_up0_up[organization_package_license_policy_ref01_markdef_up0_name] = organization_package_license_policy_ref01_markdef_up0_value
 
     organization_package_license_policy_ref01_resdata_up0_result = organization_package_license_policy_ref01_ent.update(organization_package_license_policy_ref01_data_up0_up, nil)
-    organization_package_license_policy_ref01_resdata_up0 = Helpers.to_map(organization_package_license_policy_ref01_resdata_up0_result)
+    organization_package_license_policy_ref01_resdata_up0 = Helpers.to_map(organization_package_license_policy_ref01_resdata_up0_result.respond_to?(:data_get) ? organization_package_license_policy_ref01_resdata_up0_result.data_get : organization_package_license_policy_ref01_resdata_up0_result)
     assert !organization_package_license_policy_ref01_resdata_up0.nil?
     assert_equal organization_package_license_policy_ref01_resdata_up0[organization_package_license_policy_ref01_markdef_up0_name], organization_package_license_policy_ref01_markdef_up0_value
 

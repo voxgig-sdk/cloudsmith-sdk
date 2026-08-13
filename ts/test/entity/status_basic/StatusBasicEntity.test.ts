@@ -62,7 +62,7 @@ describe('StatusBasicEntity', async () => {
     // LOAD
     const status_basic_ref01_ent = client.StatusBasic()
     const status_basic_ref01_match_dt0: any = {}
-    const status_basic_ref01_data_dt0 = await status_basic_ref01_ent.load(status_basic_ref01_match_dt0)
+    const status_basic_ref01_data_dt0 = (await status_basic_ref01_ent.load(status_basic_ref01_match_dt0)).data()
     assert(null != status_basic_ref01_data_dt0)
 
 

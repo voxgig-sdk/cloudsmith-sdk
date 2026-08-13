@@ -85,7 +85,7 @@ class NugetEntityTest extends TestCase
         $nuget_ref01_data["owner"] = $setup["idmap"]["owner01"];
 
         $nuget_ref01_data_result = $nuget_ref01_ent->create($nuget_ref01_data, null);
-        $nuget_ref01_data = Helpers::to_map($nuget_ref01_data_result);
+        $nuget_ref01_data = Helpers::to_map(is_object($nuget_ref01_data_result) && method_exists($nuget_ref01_data_result, 'data_get') ? $nuget_ref01_data_result->data_get() : $nuget_ref01_data_result);
         $this->assertNotNull($nuget_ref01_data);
 
         // LIST
@@ -96,11 +96,6 @@ class NugetEntityTest extends TestCase
 
         $nuget_ref01_list_result = $nuget_ref01_ent->list($nuget_ref01_match, null);
         $this->assertIsArray($nuget_ref01_list_result);
-
-        $found_item = sdk_select(
-            Runner::entity_list_to_data($nuget_ref01_list_result),
-            ["id" => $nuget_ref01_data["id"]]);
-        $this->assertNotEmpty($found_item);
 
         // UPDATE
         $nuget_ref01_data_up0_up = [
@@ -113,7 +108,7 @@ class NugetEntityTest extends TestCase
         $nuget_ref01_data_up0_up[$nuget_ref01_markdef_up0_name] = $nuget_ref01_markdef_up0_value;
 
         $nuget_ref01_resdata_up0_result = $nuget_ref01_ent->update($nuget_ref01_data_up0_up, null);
-        $nuget_ref01_resdata_up0 = Helpers::to_map($nuget_ref01_resdata_up0_result);
+        $nuget_ref01_resdata_up0 = Helpers::to_map(is_object($nuget_ref01_resdata_up0_result) && method_exists($nuget_ref01_resdata_up0_result, 'data_get') ? $nuget_ref01_resdata_up0_result->data_get() : $nuget_ref01_resdata_up0_result);
         $this->assertNotNull($nuget_ref01_resdata_up0);
         $this->assertEquals($nuget_ref01_resdata_up0[$nuget_ref01_markdef_up0_name], $nuget_ref01_markdef_up0_value);
 

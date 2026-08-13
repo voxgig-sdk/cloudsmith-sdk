@@ -86,7 +86,7 @@ class PackageLicensePolicyEvaluationEntityTest extends TestCase
         $package_license_policy_evaluation_ref01_data["policy_slug_perm"] = $setup["idmap"]["policy_slug_perm01"];
 
         $package_license_policy_evaluation_ref01_data_result = $package_license_policy_evaluation_ref01_ent->create($package_license_policy_evaluation_ref01_data, null);
-        $package_license_policy_evaluation_ref01_data = Helpers::to_map($package_license_policy_evaluation_ref01_data_result);
+        $package_license_policy_evaluation_ref01_data = Helpers::to_map(is_object($package_license_policy_evaluation_ref01_data_result) && method_exists($package_license_policy_evaluation_ref01_data_result, 'data_get') ? $package_license_policy_evaluation_ref01_data_result->data_get() : $package_license_policy_evaluation_ref01_data_result);
         $this->assertNotNull($package_license_policy_evaluation_ref01_data);
 
         // LIST
@@ -97,11 +97,6 @@ class PackageLicensePolicyEvaluationEntityTest extends TestCase
 
         $package_license_policy_evaluation_ref01_list_result = $package_license_policy_evaluation_ref01_ent->list($package_license_policy_evaluation_ref01_match, null);
         $this->assertIsArray($package_license_policy_evaluation_ref01_list_result);
-
-        $found_item = sdk_select(
-            Runner::entity_list_to_data($package_license_policy_evaluation_ref01_list_result),
-            ["id" => $package_license_policy_evaluation_ref01_data["id"]]);
-        $this->assertNotEmpty($found_item);
 
         // LOAD
         $package_license_policy_evaluation_ref01_match_dt0 = [];

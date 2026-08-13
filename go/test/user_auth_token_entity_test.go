@@ -58,7 +58,7 @@ func TestUserAuthTokenEntity(t *testing.T) {
 		if err != nil {
 			t.Fatalf("create failed: %v", err)
 		}
-		userAuthTokenRef01Data = core.ToMapAny(userAuthTokenRef01DataResult)
+		userAuthTokenRef01Data = core.ToMapAny(entityData(userAuthTokenRef01DataResult))
 		if userAuthTokenRef01Data == nil {
 			t.Fatal("expected create result to be a map")
 		}

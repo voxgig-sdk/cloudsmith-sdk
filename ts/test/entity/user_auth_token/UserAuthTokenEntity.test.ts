@@ -62,7 +62,7 @@ describe('UserAuthTokenEntity', async () => {
     const user_auth_token_ref01_ent = client.UserAuthToken()
     let user_auth_token_ref01_data = setup.data.new.user_auth_token['user_auth_token_ref01']
 
-    user_auth_token_ref01_data = await user_auth_token_ref01_ent.create(user_auth_token_ref01_data)
+    user_auth_token_ref01_data = (await user_auth_token_ref01_ent.create(user_auth_token_ref01_data)).data()
     assert(null != user_auth_token_ref01_data)
 
 
