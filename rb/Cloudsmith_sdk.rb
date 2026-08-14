@@ -28,7 +28,7 @@ class CloudsmithSDK
     utility = CloudsmithUtility.new
     @_utility = utility
 
-    config = CloudsmithConfig.make_config
+    config = CloudsmithConfig.shared_config
 
     @_rootctx = utility.make_context.call({
       "client" => self,

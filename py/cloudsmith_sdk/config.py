@@ -1,7 +1,30 @@
 # Cloudsmith SDK configuration
 
 
+_shared_config = None
+
+
+def shared_config():
+    """Return the process-wide config, built once on first use.
+
+    The SDK reads the config on every request and never writes to it, so one
+    instance is shared by every client rather than rebuilt per client.
+
+    The returned dict is shared: treat it as read-only. Callers that need to
+    mutate should use make_config, which always returns a fresh copy.
+    """
+    global _shared_config
+    if _shared_config is None:
+        _shared_config = make_config()
+    return _shared_config
+
+
 def make_config():
+    """Build a fresh, fully materialised config dict.
+
+    Every call rebuilds the whole structure, so prefer shared_config unless
+    you need a private copy you intend to mutate.
+    """
     return {
         "main": {
             "name": "Cloudsmith",
@@ -203,130 +226,78 @@ def make_config():
       "cargo": {
         "fields": [
           {
-            "active": True,
             "name": "auth_mode",
-            "req": False,
             "type": "`$STRING`",
-            "index$": 0,
           },
           {
-            "active": True,
             "name": "auth_secret",
-            "req": False,
             "type": "`$STRING`",
-            "index$": 1,
           },
           {
-            "active": True,
             "name": "auth_username",
-            "req": False,
             "type": "`$STRING`",
-            "index$": 2,
           },
           {
-            "active": True,
             "name": "created_at",
-            "req": False,
             "type": "`$STRING`",
-            "index$": 3,
           },
           {
-            "active": True,
             "name": "disable_reason",
-            "req": False,
             "type": "`$STRING`",
-            "index$": 4,
           },
           {
-            "active": True,
             "name": "extra_header_1",
-            "req": False,
             "type": "`$STRING`",
-            "index$": 5,
           },
           {
-            "active": True,
             "name": "extra_header_2",
-            "req": False,
             "type": "`$STRING`",
-            "index$": 6,
           },
           {
-            "active": True,
             "name": "extra_value_1",
-            "req": False,
             "type": "`$STRING`",
-            "index$": 7,
           },
           {
-            "active": True,
             "name": "extra_value_2",
-            "req": False,
             "type": "`$STRING`",
-            "index$": 8,
           },
           {
-            "active": True,
             "name": "is_active",
-            "req": False,
             "type": "`$BOOLEAN`",
-            "index$": 9,
           },
           {
-            "active": True,
             "name": "mode",
-            "req": False,
             "type": "`$STRING`",
-            "index$": 10,
           },
           {
-            "active": True,
             "name": "name",
             "req": True,
             "type": "`$STRING`",
-            "index$": 11,
           },
           {
-            "active": True,
             "name": "pending_validation",
-            "req": False,
             "type": "`$BOOLEAN`",
-            "index$": 12,
           },
           {
-            "active": True,
             "name": "priority",
-            "req": False,
             "type": "`$INTEGER`",
-            "index$": 13,
           },
           {
-            "active": True,
             "name": "slug_perm",
-            "req": False,
             "type": "`$STRING`",
-            "index$": 14,
           },
           {
-            "active": True,
             "name": "updated_at",
-            "req": False,
             "type": "`$STRING`",
-            "index$": 15,
           },
           {
-            "active": True,
             "name": "upstream_url",
             "req": True,
             "type": "`$STRING`",
-            "index$": 16,
           },
           {
-            "active": True,
             "name": "verify_ssl",
-            "req": False,
             "type": "`$BOOLEAN`",
-            "index$": 17,
           },
         ],
         "name": "cargo",
@@ -336,35 +307,28 @@ def make_config():
             "name": "create",
             "points": [
               {
-                "active": True,
                 "args": {
                   "params": [
                     {
-                      "active": True,
                       "kind": "param",
                       "name": "identifier",
                       "orig": "identifier",
                       "reqd": True,
                       "type": "`$ANY`",
-                      "index$": 0,
                     },
                     {
-                      "active": True,
                       "kind": "param",
                       "name": "owner",
                       "orig": "owner",
                       "reqd": True,
                       "type": "`$ANY`",
-                      "index$": 1,
                     },
                   ],
                   "query": [
                     {
-                      "active": True,
                       "kind": "query",
                       "name": "data",
                       "orig": "data",
-                      "reqd": False,
                       "type": "`$OBJECT`",
                     },
                   ],
@@ -390,53 +354,42 @@ def make_config():
                   "req": "`reqdata`",
                   "res": "`body`",
                 },
-                "index$": 0,
               },
             ],
-            "key$": "create",
           },
           "list": {
             "input": "data",
             "name": "list",
             "points": [
               {
-                "active": True,
                 "args": {
                   "params": [
                     {
-                      "active": True,
                       "kind": "param",
                       "name": "identifier",
                       "orig": "identifier",
                       "reqd": True,
                       "type": "`$ANY`",
-                      "index$": 0,
                     },
                     {
-                      "active": True,
                       "kind": "param",
                       "name": "owner",
                       "orig": "owner",
                       "reqd": True,
                       "type": "`$ANY`",
-                      "index$": 1,
                     },
                   ],
                   "query": [
                     {
-                      "active": True,
                       "kind": "query",
                       "name": "page",
                       "orig": "page",
-                      "reqd": False,
                       "type": "`$INTEGER`",
                     },
                     {
-                      "active": True,
                       "kind": "query",
                       "name": "page_size",
                       "orig": "page_size",
-                      "reqd": False,
                       "type": "`$INTEGER`",
                     },
                   ],
@@ -463,45 +416,36 @@ def make_config():
                   "req": "`reqdata`",
                   "res": "`body`",
                 },
-                "index$": 0,
               },
             ],
-            "key$": "list",
           },
           "load": {
             "input": "data",
             "name": "load",
             "points": [
               {
-                "active": True,
                 "args": {
                   "params": [
                     {
-                      "active": True,
                       "kind": "param",
                       "name": "id",
                       "orig": "slug_perm",
                       "reqd": True,
                       "type": "`$STRING`",
-                      "index$": 0,
                     },
                     {
-                      "active": True,
                       "kind": "param",
                       "name": "identifier",
                       "orig": "identifier",
                       "reqd": True,
                       "type": "`$ANY`",
-                      "index$": 1,
                     },
                     {
-                      "active": True,
                       "kind": "param",
                       "name": "owner",
                       "orig": "owner",
                       "reqd": True,
                       "type": "`$ANY`",
-                      "index$": 2,
                     },
                   ],
                 },
@@ -532,21 +476,17 @@ def make_config():
                   "req": "`reqdata`",
                   "res": "`body`",
                 },
-                "index$": 0,
               },
             ],
-            "key$": "load",
           },
           "patch": {
             "input": "data",
             "name": "patch",
             "points": [
               {
-                "active": True,
                 "args": {
                   "params": [
                     {
-                      "active": True,
                       "kind": "param",
                       "name": "id",
                       "orig": "slug_perm",
@@ -554,7 +494,6 @@ def make_config():
                       "type": "`$STRING`",
                     },
                     {
-                      "active": True,
                       "kind": "param",
                       "name": "identifier",
                       "orig": "identifier",
@@ -562,7 +501,6 @@ def make_config():
                       "type": "`$ANY`",
                     },
                     {
-                      "active": True,
                       "kind": "param",
                       "name": "owner",
                       "orig": "owner",
@@ -572,11 +510,9 @@ def make_config():
                   ],
                   "query": [
                     {
-                      "active": True,
                       "kind": "query",
                       "name": "data",
                       "orig": "data",
-                      "reqd": False,
                       "type": "`$OBJECT`",
                     },
                   ],
@@ -609,54 +545,43 @@ def make_config():
                   "req": "`reqdata`",
                   "res": "`body`",
                 },
-                "index$": 0,
               },
             ],
-            "key$": "patch",
           },
           "update": {
             "input": "data",
             "name": "update",
             "points": [
               {
-                "active": True,
                 "args": {
                   "params": [
                     {
-                      "active": True,
                       "kind": "param",
                       "name": "id",
                       "orig": "slug_perm",
                       "reqd": True,
                       "type": "`$STRING`",
-                      "index$": 0,
                     },
                     {
-                      "active": True,
                       "kind": "param",
                       "name": "identifier",
                       "orig": "identifier",
                       "reqd": True,
                       "type": "`$ANY`",
-                      "index$": 1,
                     },
                     {
-                      "active": True,
                       "kind": "param",
                       "name": "owner",
                       "orig": "owner",
                       "reqd": True,
                       "type": "`$ANY`",
-                      "index$": 2,
                     },
                   ],
                   "query": [
                     {
-                      "active": True,
                       "kind": "query",
                       "name": "data",
                       "orig": "data",
-                      "reqd": False,
                       "type": "`$OBJECT`",
                     },
                   ],
@@ -689,10 +614,8 @@ def make_config():
                   "req": "`reqdata`",
                   "res": "`body`",
                 },
-                "index$": 0,
               },
             ],
-            "key$": "update",
           },
         },
         "relations": {
@@ -733,130 +656,78 @@ def make_config():
       "composer": {
         "fields": [
           {
-            "active": True,
             "name": "auth_mode",
-            "req": False,
             "type": "`$STRING`",
-            "index$": 0,
           },
           {
-            "active": True,
             "name": "auth_secret",
-            "req": False,
             "type": "`$STRING`",
-            "index$": 1,
           },
           {
-            "active": True,
             "name": "auth_username",
-            "req": False,
             "type": "`$STRING`",
-            "index$": 2,
           },
           {
-            "active": True,
             "name": "created_at",
-            "req": False,
             "type": "`$STRING`",
-            "index$": 3,
           },
           {
-            "active": True,
             "name": "disable_reason",
-            "req": False,
             "type": "`$STRING`",
-            "index$": 4,
           },
           {
-            "active": True,
             "name": "extra_header_1",
-            "req": False,
             "type": "`$STRING`",
-            "index$": 5,
           },
           {
-            "active": True,
             "name": "extra_header_2",
-            "req": False,
             "type": "`$STRING`",
-            "index$": 6,
           },
           {
-            "active": True,
             "name": "extra_value_1",
-            "req": False,
             "type": "`$STRING`",
-            "index$": 7,
           },
           {
-            "active": True,
             "name": "extra_value_2",
-            "req": False,
             "type": "`$STRING`",
-            "index$": 8,
           },
           {
-            "active": True,
             "name": "is_active",
-            "req": False,
             "type": "`$BOOLEAN`",
-            "index$": 9,
           },
           {
-            "active": True,
             "name": "mode",
-            "req": False,
             "type": "`$STRING`",
-            "index$": 10,
           },
           {
-            "active": True,
             "name": "name",
             "req": True,
             "type": "`$STRING`",
-            "index$": 11,
           },
           {
-            "active": True,
             "name": "pending_validation",
-            "req": False,
             "type": "`$BOOLEAN`",
-            "index$": 12,
           },
           {
-            "active": True,
             "name": "priority",
-            "req": False,
             "type": "`$INTEGER`",
-            "index$": 13,
           },
           {
-            "active": True,
             "name": "slug_perm",
-            "req": False,
             "type": "`$STRING`",
-            "index$": 14,
           },
           {
-            "active": True,
             "name": "updated_at",
-            "req": False,
             "type": "`$STRING`",
-            "index$": 15,
           },
           {
-            "active": True,
             "name": "upstream_url",
             "req": True,
             "type": "`$STRING`",
-            "index$": 16,
           },
           {
-            "active": True,
             "name": "verify_ssl",
-            "req": False,
             "type": "`$BOOLEAN`",
-            "index$": 17,
           },
         ],
         "name": "composer",
@@ -866,35 +737,28 @@ def make_config():
             "name": "create",
             "points": [
               {
-                "active": True,
                 "args": {
                   "params": [
                     {
-                      "active": True,
                       "kind": "param",
                       "name": "identifier",
                       "orig": "identifier",
                       "reqd": True,
                       "type": "`$ANY`",
-                      "index$": 0,
                     },
                     {
-                      "active": True,
                       "kind": "param",
                       "name": "owner",
                       "orig": "owner",
                       "reqd": True,
                       "type": "`$ANY`",
-                      "index$": 1,
                     },
                   ],
                   "query": [
                     {
-                      "active": True,
                       "kind": "query",
                       "name": "data",
                       "orig": "data",
-                      "reqd": False,
                       "type": "`$OBJECT`",
                     },
                   ],
@@ -920,53 +784,42 @@ def make_config():
                   "req": "`reqdata`",
                   "res": "`body`",
                 },
-                "index$": 0,
               },
             ],
-            "key$": "create",
           },
           "list": {
             "input": "data",
             "name": "list",
             "points": [
               {
-                "active": True,
                 "args": {
                   "params": [
                     {
-                      "active": True,
                       "kind": "param",
                       "name": "identifier",
                       "orig": "identifier",
                       "reqd": True,
                       "type": "`$ANY`",
-                      "index$": 0,
                     },
                     {
-                      "active": True,
                       "kind": "param",
                       "name": "owner",
                       "orig": "owner",
                       "reqd": True,
                       "type": "`$ANY`",
-                      "index$": 1,
                     },
                   ],
                   "query": [
                     {
-                      "active": True,
                       "kind": "query",
                       "name": "page",
                       "orig": "page",
-                      "reqd": False,
                       "type": "`$INTEGER`",
                     },
                     {
-                      "active": True,
                       "kind": "query",
                       "name": "page_size",
                       "orig": "page_size",
-                      "reqd": False,
                       "type": "`$INTEGER`",
                     },
                   ],
@@ -993,45 +846,36 @@ def make_config():
                   "req": "`reqdata`",
                   "res": "`body`",
                 },
-                "index$": 0,
               },
             ],
-            "key$": "list",
           },
           "load": {
             "input": "data",
             "name": "load",
             "points": [
               {
-                "active": True,
                 "args": {
                   "params": [
                     {
-                      "active": True,
                       "kind": "param",
                       "name": "id",
                       "orig": "slug_perm",
                       "reqd": True,
                       "type": "`$STRING`",
-                      "index$": 0,
                     },
                     {
-                      "active": True,
                       "kind": "param",
                       "name": "identifier",
                       "orig": "identifier",
                       "reqd": True,
                       "type": "`$ANY`",
-                      "index$": 1,
                     },
                     {
-                      "active": True,
                       "kind": "param",
                       "name": "owner",
                       "orig": "owner",
                       "reqd": True,
                       "type": "`$ANY`",
-                      "index$": 2,
                     },
                   ],
                 },
@@ -1062,21 +906,17 @@ def make_config():
                   "req": "`reqdata`",
                   "res": "`body`",
                 },
-                "index$": 0,
               },
             ],
-            "key$": "load",
           },
           "patch": {
             "input": "data",
             "name": "patch",
             "points": [
               {
-                "active": True,
                 "args": {
                   "params": [
                     {
-                      "active": True,
                       "kind": "param",
                       "name": "id",
                       "orig": "slug_perm",
@@ -1084,7 +924,6 @@ def make_config():
                       "type": "`$STRING`",
                     },
                     {
-                      "active": True,
                       "kind": "param",
                       "name": "identifier",
                       "orig": "identifier",
@@ -1092,7 +931,6 @@ def make_config():
                       "type": "`$ANY`",
                     },
                     {
-                      "active": True,
                       "kind": "param",
                       "name": "owner",
                       "orig": "owner",
@@ -1102,11 +940,9 @@ def make_config():
                   ],
                   "query": [
                     {
-                      "active": True,
                       "kind": "query",
                       "name": "data",
                       "orig": "data",
-                      "reqd": False,
                       "type": "`$OBJECT`",
                     },
                   ],
@@ -1139,54 +975,43 @@ def make_config():
                   "req": "`reqdata`",
                   "res": "`body`",
                 },
-                "index$": 0,
               },
             ],
-            "key$": "patch",
           },
           "update": {
             "input": "data",
             "name": "update",
             "points": [
               {
-                "active": True,
                 "args": {
                   "params": [
                     {
-                      "active": True,
                       "kind": "param",
                       "name": "id",
                       "orig": "slug_perm",
                       "reqd": True,
                       "type": "`$STRING`",
-                      "index$": 0,
                     },
                     {
-                      "active": True,
                       "kind": "param",
                       "name": "identifier",
                       "orig": "identifier",
                       "reqd": True,
                       "type": "`$ANY`",
-                      "index$": 1,
                     },
                     {
-                      "active": True,
                       "kind": "param",
                       "name": "owner",
                       "orig": "owner",
                       "reqd": True,
                       "type": "`$ANY`",
-                      "index$": 2,
                     },
                   ],
                   "query": [
                     {
-                      "active": True,
                       "kind": "query",
                       "name": "data",
                       "orig": "data",
-                      "reqd": False,
                       "type": "`$OBJECT`",
                     },
                   ],
@@ -1219,10 +1044,8 @@ def make_config():
                   "req": "`reqdata`",
                   "res": "`body`",
                 },
-                "index$": 0,
               },
             ],
-            "key$": "update",
           },
         },
         "relations": {
@@ -1251,130 +1074,78 @@ def make_config():
       "conda": {
         "fields": [
           {
-            "active": True,
             "name": "auth_mode",
-            "req": False,
             "type": "`$STRING`",
-            "index$": 0,
           },
           {
-            "active": True,
             "name": "auth_secret",
-            "req": False,
             "type": "`$STRING`",
-            "index$": 1,
           },
           {
-            "active": True,
             "name": "auth_username",
-            "req": False,
             "type": "`$STRING`",
-            "index$": 2,
           },
           {
-            "active": True,
             "name": "created_at",
-            "req": False,
             "type": "`$STRING`",
-            "index$": 3,
           },
           {
-            "active": True,
             "name": "disable_reason",
-            "req": False,
             "type": "`$STRING`",
-            "index$": 4,
           },
           {
-            "active": True,
             "name": "extra_header_1",
-            "req": False,
             "type": "`$STRING`",
-            "index$": 5,
           },
           {
-            "active": True,
             "name": "extra_header_2",
-            "req": False,
             "type": "`$STRING`",
-            "index$": 6,
           },
           {
-            "active": True,
             "name": "extra_value_1",
-            "req": False,
             "type": "`$STRING`",
-            "index$": 7,
           },
           {
-            "active": True,
             "name": "extra_value_2",
-            "req": False,
             "type": "`$STRING`",
-            "index$": 8,
           },
           {
-            "active": True,
             "name": "is_active",
-            "req": False,
             "type": "`$BOOLEAN`",
-            "index$": 9,
           },
           {
-            "active": True,
             "name": "mode",
-            "req": False,
             "type": "`$STRING`",
-            "index$": 10,
           },
           {
-            "active": True,
             "name": "name",
             "req": True,
             "type": "`$STRING`",
-            "index$": 11,
           },
           {
-            "active": True,
             "name": "pending_validation",
-            "req": False,
             "type": "`$BOOLEAN`",
-            "index$": 12,
           },
           {
-            "active": True,
             "name": "priority",
-            "req": False,
             "type": "`$INTEGER`",
-            "index$": 13,
           },
           {
-            "active": True,
             "name": "slug_perm",
-            "req": False,
             "type": "`$STRING`",
-            "index$": 14,
           },
           {
-            "active": True,
             "name": "updated_at",
-            "req": False,
             "type": "`$STRING`",
-            "index$": 15,
           },
           {
-            "active": True,
             "name": "upstream_url",
             "req": True,
             "type": "`$STRING`",
-            "index$": 16,
           },
           {
-            "active": True,
             "name": "verify_ssl",
-            "req": False,
             "type": "`$BOOLEAN`",
-            "index$": 17,
           },
         ],
         "name": "conda",
@@ -1384,35 +1155,28 @@ def make_config():
             "name": "create",
             "points": [
               {
-                "active": True,
                 "args": {
                   "params": [
                     {
-                      "active": True,
                       "kind": "param",
                       "name": "identifier",
                       "orig": "identifier",
                       "reqd": True,
                       "type": "`$ANY`",
-                      "index$": 0,
                     },
                     {
-                      "active": True,
                       "kind": "param",
                       "name": "owner",
                       "orig": "owner",
                       "reqd": True,
                       "type": "`$ANY`",
-                      "index$": 1,
                     },
                   ],
                   "query": [
                     {
-                      "active": True,
                       "kind": "query",
                       "name": "data",
                       "orig": "data",
-                      "reqd": False,
                       "type": "`$OBJECT`",
                     },
                   ],
@@ -1438,53 +1202,42 @@ def make_config():
                   "req": "`reqdata`",
                   "res": "`body`",
                 },
-                "index$": 0,
               },
             ],
-            "key$": "create",
           },
           "list": {
             "input": "data",
             "name": "list",
             "points": [
               {
-                "active": True,
                 "args": {
                   "params": [
                     {
-                      "active": True,
                       "kind": "param",
                       "name": "identifier",
                       "orig": "identifier",
                       "reqd": True,
                       "type": "`$ANY`",
-                      "index$": 0,
                     },
                     {
-                      "active": True,
                       "kind": "param",
                       "name": "owner",
                       "orig": "owner",
                       "reqd": True,
                       "type": "`$ANY`",
-                      "index$": 1,
                     },
                   ],
                   "query": [
                     {
-                      "active": True,
                       "kind": "query",
                       "name": "page",
                       "orig": "page",
-                      "reqd": False,
                       "type": "`$INTEGER`",
                     },
                     {
-                      "active": True,
                       "kind": "query",
                       "name": "page_size",
                       "orig": "page_size",
-                      "reqd": False,
                       "type": "`$INTEGER`",
                     },
                   ],
@@ -1511,45 +1264,36 @@ def make_config():
                   "req": "`reqdata`",
                   "res": "`body`",
                 },
-                "index$": 0,
               },
             ],
-            "key$": "list",
           },
           "load": {
             "input": "data",
             "name": "load",
             "points": [
               {
-                "active": True,
                 "args": {
                   "params": [
                     {
-                      "active": True,
                       "kind": "param",
                       "name": "id",
                       "orig": "slug_perm",
                       "reqd": True,
                       "type": "`$STRING`",
-                      "index$": 0,
                     },
                     {
-                      "active": True,
                       "kind": "param",
                       "name": "identifier",
                       "orig": "identifier",
                       "reqd": True,
                       "type": "`$ANY`",
-                      "index$": 1,
                     },
                     {
-                      "active": True,
                       "kind": "param",
                       "name": "owner",
                       "orig": "owner",
                       "reqd": True,
                       "type": "`$ANY`",
-                      "index$": 2,
                     },
                   ],
                 },
@@ -1580,21 +1324,17 @@ def make_config():
                   "req": "`reqdata`",
                   "res": "`body`",
                 },
-                "index$": 0,
               },
             ],
-            "key$": "load",
           },
           "patch": {
             "input": "data",
             "name": "patch",
             "points": [
               {
-                "active": True,
                 "args": {
                   "params": [
                     {
-                      "active": True,
                       "kind": "param",
                       "name": "id",
                       "orig": "slug_perm",
@@ -1602,7 +1342,6 @@ def make_config():
                       "type": "`$STRING`",
                     },
                     {
-                      "active": True,
                       "kind": "param",
                       "name": "identifier",
                       "orig": "identifier",
@@ -1610,7 +1349,6 @@ def make_config():
                       "type": "`$ANY`",
                     },
                     {
-                      "active": True,
                       "kind": "param",
                       "name": "owner",
                       "orig": "owner",
@@ -1620,11 +1358,9 @@ def make_config():
                   ],
                   "query": [
                     {
-                      "active": True,
                       "kind": "query",
                       "name": "data",
                       "orig": "data",
-                      "reqd": False,
                       "type": "`$OBJECT`",
                     },
                   ],
@@ -1657,54 +1393,43 @@ def make_config():
                   "req": "`reqdata`",
                   "res": "`body`",
                 },
-                "index$": 0,
               },
             ],
-            "key$": "patch",
           },
           "update": {
             "input": "data",
             "name": "update",
             "points": [
               {
-                "active": True,
                 "args": {
                   "params": [
                     {
-                      "active": True,
                       "kind": "param",
                       "name": "id",
                       "orig": "slug_perm",
                       "reqd": True,
                       "type": "`$STRING`",
-                      "index$": 0,
                     },
                     {
-                      "active": True,
                       "kind": "param",
                       "name": "identifier",
                       "orig": "identifier",
                       "reqd": True,
                       "type": "`$ANY`",
-                      "index$": 1,
                     },
                     {
-                      "active": True,
                       "kind": "param",
                       "name": "owner",
                       "orig": "owner",
                       "reqd": True,
                       "type": "`$ANY`",
-                      "index$": 2,
                     },
                   ],
                   "query": [
                     {
-                      "active": True,
                       "kind": "query",
                       "name": "data",
                       "orig": "data",
-                      "reqd": False,
                       "type": "`$OBJECT`",
                     },
                   ],
@@ -1737,10 +1462,8 @@ def make_config():
                   "req": "`reqdata`",
                   "res": "`body`",
                 },
-                "index$": 0,
               },
             ],
-            "key$": "update",
           },
         },
         "relations": {
@@ -1769,130 +1492,78 @@ def make_config():
       "cran": {
         "fields": [
           {
-            "active": True,
             "name": "auth_mode",
-            "req": False,
             "type": "`$STRING`",
-            "index$": 0,
           },
           {
-            "active": True,
             "name": "auth_secret",
-            "req": False,
             "type": "`$STRING`",
-            "index$": 1,
           },
           {
-            "active": True,
             "name": "auth_username",
-            "req": False,
             "type": "`$STRING`",
-            "index$": 2,
           },
           {
-            "active": True,
             "name": "created_at",
-            "req": False,
             "type": "`$STRING`",
-            "index$": 3,
           },
           {
-            "active": True,
             "name": "disable_reason",
-            "req": False,
             "type": "`$STRING`",
-            "index$": 4,
           },
           {
-            "active": True,
             "name": "extra_header_1",
-            "req": False,
             "type": "`$STRING`",
-            "index$": 5,
           },
           {
-            "active": True,
             "name": "extra_header_2",
-            "req": False,
             "type": "`$STRING`",
-            "index$": 6,
           },
           {
-            "active": True,
             "name": "extra_value_1",
-            "req": False,
             "type": "`$STRING`",
-            "index$": 7,
           },
           {
-            "active": True,
             "name": "extra_value_2",
-            "req": False,
             "type": "`$STRING`",
-            "index$": 8,
           },
           {
-            "active": True,
             "name": "is_active",
-            "req": False,
             "type": "`$BOOLEAN`",
-            "index$": 9,
           },
           {
-            "active": True,
             "name": "mode",
-            "req": False,
             "type": "`$STRING`",
-            "index$": 10,
           },
           {
-            "active": True,
             "name": "name",
             "req": True,
             "type": "`$STRING`",
-            "index$": 11,
           },
           {
-            "active": True,
             "name": "pending_validation",
-            "req": False,
             "type": "`$BOOLEAN`",
-            "index$": 12,
           },
           {
-            "active": True,
             "name": "priority",
-            "req": False,
             "type": "`$INTEGER`",
-            "index$": 13,
           },
           {
-            "active": True,
             "name": "slug_perm",
-            "req": False,
             "type": "`$STRING`",
-            "index$": 14,
           },
           {
-            "active": True,
             "name": "updated_at",
-            "req": False,
             "type": "`$STRING`",
-            "index$": 15,
           },
           {
-            "active": True,
             "name": "upstream_url",
             "req": True,
             "type": "`$STRING`",
-            "index$": 16,
           },
           {
-            "active": True,
             "name": "verify_ssl",
-            "req": False,
             "type": "`$BOOLEAN`",
-            "index$": 17,
           },
         ],
         "name": "cran",
@@ -1902,35 +1573,28 @@ def make_config():
             "name": "create",
             "points": [
               {
-                "active": True,
                 "args": {
                   "params": [
                     {
-                      "active": True,
                       "kind": "param",
                       "name": "identifier",
                       "orig": "identifier",
                       "reqd": True,
                       "type": "`$ANY`",
-                      "index$": 0,
                     },
                     {
-                      "active": True,
                       "kind": "param",
                       "name": "owner",
                       "orig": "owner",
                       "reqd": True,
                       "type": "`$ANY`",
-                      "index$": 1,
                     },
                   ],
                   "query": [
                     {
-                      "active": True,
                       "kind": "query",
                       "name": "data",
                       "orig": "data",
-                      "reqd": False,
                       "type": "`$OBJECT`",
                     },
                   ],
@@ -1956,53 +1620,42 @@ def make_config():
                   "req": "`reqdata`",
                   "res": "`body`",
                 },
-                "index$": 0,
               },
             ],
-            "key$": "create",
           },
           "list": {
             "input": "data",
             "name": "list",
             "points": [
               {
-                "active": True,
                 "args": {
                   "params": [
                     {
-                      "active": True,
                       "kind": "param",
                       "name": "identifier",
                       "orig": "identifier",
                       "reqd": True,
                       "type": "`$ANY`",
-                      "index$": 0,
                     },
                     {
-                      "active": True,
                       "kind": "param",
                       "name": "owner",
                       "orig": "owner",
                       "reqd": True,
                       "type": "`$ANY`",
-                      "index$": 1,
                     },
                   ],
                   "query": [
                     {
-                      "active": True,
                       "kind": "query",
                       "name": "page",
                       "orig": "page",
-                      "reqd": False,
                       "type": "`$INTEGER`",
                     },
                     {
-                      "active": True,
                       "kind": "query",
                       "name": "page_size",
                       "orig": "page_size",
-                      "reqd": False,
                       "type": "`$INTEGER`",
                     },
                   ],
@@ -2029,45 +1682,36 @@ def make_config():
                   "req": "`reqdata`",
                   "res": "`body`",
                 },
-                "index$": 0,
               },
             ],
-            "key$": "list",
           },
           "load": {
             "input": "data",
             "name": "load",
             "points": [
               {
-                "active": True,
                 "args": {
                   "params": [
                     {
-                      "active": True,
                       "kind": "param",
                       "name": "id",
                       "orig": "slug_perm",
                       "reqd": True,
                       "type": "`$STRING`",
-                      "index$": 0,
                     },
                     {
-                      "active": True,
                       "kind": "param",
                       "name": "identifier",
                       "orig": "identifier",
                       "reqd": True,
                       "type": "`$ANY`",
-                      "index$": 1,
                     },
                     {
-                      "active": True,
                       "kind": "param",
                       "name": "owner",
                       "orig": "owner",
                       "reqd": True,
                       "type": "`$ANY`",
-                      "index$": 2,
                     },
                   ],
                 },
@@ -2098,21 +1742,17 @@ def make_config():
                   "req": "`reqdata`",
                   "res": "`body`",
                 },
-                "index$": 0,
               },
             ],
-            "key$": "load",
           },
           "patch": {
             "input": "data",
             "name": "patch",
             "points": [
               {
-                "active": True,
                 "args": {
                   "params": [
                     {
-                      "active": True,
                       "kind": "param",
                       "name": "id",
                       "orig": "slug_perm",
@@ -2120,7 +1760,6 @@ def make_config():
                       "type": "`$STRING`",
                     },
                     {
-                      "active": True,
                       "kind": "param",
                       "name": "identifier",
                       "orig": "identifier",
@@ -2128,7 +1767,6 @@ def make_config():
                       "type": "`$ANY`",
                     },
                     {
-                      "active": True,
                       "kind": "param",
                       "name": "owner",
                       "orig": "owner",
@@ -2138,11 +1776,9 @@ def make_config():
                   ],
                   "query": [
                     {
-                      "active": True,
                       "kind": "query",
                       "name": "data",
                       "orig": "data",
-                      "reqd": False,
                       "type": "`$OBJECT`",
                     },
                   ],
@@ -2175,54 +1811,43 @@ def make_config():
                   "req": "`reqdata`",
                   "res": "`body`",
                 },
-                "index$": 0,
               },
             ],
-            "key$": "patch",
           },
           "update": {
             "input": "data",
             "name": "update",
             "points": [
               {
-                "active": True,
                 "args": {
                   "params": [
                     {
-                      "active": True,
                       "kind": "param",
                       "name": "id",
                       "orig": "slug_perm",
                       "reqd": True,
                       "type": "`$STRING`",
-                      "index$": 0,
                     },
                     {
-                      "active": True,
                       "kind": "param",
                       "name": "identifier",
                       "orig": "identifier",
                       "reqd": True,
                       "type": "`$ANY`",
-                      "index$": 1,
                     },
                     {
-                      "active": True,
                       "kind": "param",
                       "name": "owner",
                       "orig": "owner",
                       "reqd": True,
                       "type": "`$ANY`",
-                      "index$": 2,
                     },
                   ],
                   "query": [
                     {
-                      "active": True,
                       "kind": "query",
                       "name": "data",
                       "orig": "data",
-                      "reqd": False,
                       "type": "`$OBJECT`",
                     },
                   ],
@@ -2255,10 +1880,8 @@ def make_config():
                   "req": "`reqdata`",
                   "res": "`body`",
                 },
-                "index$": 0,
               },
             ],
-            "key$": "update",
           },
         },
         "relations": {
@@ -2275,130 +1898,78 @@ def make_config():
       "dart": {
         "fields": [
           {
-            "active": True,
             "name": "auth_mode",
-            "req": False,
             "type": "`$STRING`",
-            "index$": 0,
           },
           {
-            "active": True,
             "name": "auth_secret",
-            "req": False,
             "type": "`$STRING`",
-            "index$": 1,
           },
           {
-            "active": True,
             "name": "auth_username",
-            "req": False,
             "type": "`$STRING`",
-            "index$": 2,
           },
           {
-            "active": True,
             "name": "created_at",
-            "req": False,
             "type": "`$STRING`",
-            "index$": 3,
           },
           {
-            "active": True,
             "name": "disable_reason",
-            "req": False,
             "type": "`$STRING`",
-            "index$": 4,
           },
           {
-            "active": True,
             "name": "extra_header_1",
-            "req": False,
             "type": "`$STRING`",
-            "index$": 5,
           },
           {
-            "active": True,
             "name": "extra_header_2",
-            "req": False,
             "type": "`$STRING`",
-            "index$": 6,
           },
           {
-            "active": True,
             "name": "extra_value_1",
-            "req": False,
             "type": "`$STRING`",
-            "index$": 7,
           },
           {
-            "active": True,
             "name": "extra_value_2",
-            "req": False,
             "type": "`$STRING`",
-            "index$": 8,
           },
           {
-            "active": True,
             "name": "is_active",
-            "req": False,
             "type": "`$BOOLEAN`",
-            "index$": 9,
           },
           {
-            "active": True,
             "name": "mode",
-            "req": False,
             "type": "`$STRING`",
-            "index$": 10,
           },
           {
-            "active": True,
             "name": "name",
             "req": True,
             "type": "`$STRING`",
-            "index$": 11,
           },
           {
-            "active": True,
             "name": "pending_validation",
-            "req": False,
             "type": "`$BOOLEAN`",
-            "index$": 12,
           },
           {
-            "active": True,
             "name": "priority",
-            "req": False,
             "type": "`$INTEGER`",
-            "index$": 13,
           },
           {
-            "active": True,
             "name": "slug_perm",
-            "req": False,
             "type": "`$STRING`",
-            "index$": 14,
           },
           {
-            "active": True,
             "name": "updated_at",
-            "req": False,
             "type": "`$STRING`",
-            "index$": 15,
           },
           {
-            "active": True,
             "name": "upstream_url",
             "req": True,
             "type": "`$STRING`",
-            "index$": 16,
           },
           {
-            "active": True,
             "name": "verify_ssl",
-            "req": False,
             "type": "`$BOOLEAN`",
-            "index$": 17,
           },
         ],
         "name": "dart",
@@ -2408,35 +1979,28 @@ def make_config():
             "name": "create",
             "points": [
               {
-                "active": True,
                 "args": {
                   "params": [
                     {
-                      "active": True,
                       "kind": "param",
                       "name": "identifier",
                       "orig": "identifier",
                       "reqd": True,
                       "type": "`$ANY`",
-                      "index$": 0,
                     },
                     {
-                      "active": True,
                       "kind": "param",
                       "name": "owner",
                       "orig": "owner",
                       "reqd": True,
                       "type": "`$ANY`",
-                      "index$": 1,
                     },
                   ],
                   "query": [
                     {
-                      "active": True,
                       "kind": "query",
                       "name": "data",
                       "orig": "data",
-                      "reqd": False,
                       "type": "`$OBJECT`",
                     },
                   ],
@@ -2462,53 +2026,42 @@ def make_config():
                   "req": "`reqdata`",
                   "res": "`body`",
                 },
-                "index$": 0,
               },
             ],
-            "key$": "create",
           },
           "list": {
             "input": "data",
             "name": "list",
             "points": [
               {
-                "active": True,
                 "args": {
                   "params": [
                     {
-                      "active": True,
                       "kind": "param",
                       "name": "identifier",
                       "orig": "identifier",
                       "reqd": True,
                       "type": "`$ANY`",
-                      "index$": 0,
                     },
                     {
-                      "active": True,
                       "kind": "param",
                       "name": "owner",
                       "orig": "owner",
                       "reqd": True,
                       "type": "`$ANY`",
-                      "index$": 1,
                     },
                   ],
                   "query": [
                     {
-                      "active": True,
                       "kind": "query",
                       "name": "page",
                       "orig": "page",
-                      "reqd": False,
                       "type": "`$INTEGER`",
                     },
                     {
-                      "active": True,
                       "kind": "query",
                       "name": "page_size",
                       "orig": "page_size",
-                      "reqd": False,
                       "type": "`$INTEGER`",
                     },
                   ],
@@ -2535,45 +2088,36 @@ def make_config():
                   "req": "`reqdata`",
                   "res": "`body`",
                 },
-                "index$": 0,
               },
             ],
-            "key$": "list",
           },
           "load": {
             "input": "data",
             "name": "load",
             "points": [
               {
-                "active": True,
                 "args": {
                   "params": [
                     {
-                      "active": True,
                       "kind": "param",
                       "name": "id",
                       "orig": "slug_perm",
                       "reqd": True,
                       "type": "`$STRING`",
-                      "index$": 0,
                     },
                     {
-                      "active": True,
                       "kind": "param",
                       "name": "identifier",
                       "orig": "identifier",
                       "reqd": True,
                       "type": "`$ANY`",
-                      "index$": 1,
                     },
                     {
-                      "active": True,
                       "kind": "param",
                       "name": "owner",
                       "orig": "owner",
                       "reqd": True,
                       "type": "`$ANY`",
-                      "index$": 2,
                     },
                   ],
                 },
@@ -2604,21 +2148,17 @@ def make_config():
                   "req": "`reqdata`",
                   "res": "`body`",
                 },
-                "index$": 0,
               },
             ],
-            "key$": "load",
           },
           "patch": {
             "input": "data",
             "name": "patch",
             "points": [
               {
-                "active": True,
                 "args": {
                   "params": [
                     {
-                      "active": True,
                       "kind": "param",
                       "name": "id",
                       "orig": "slug_perm",
@@ -2626,7 +2166,6 @@ def make_config():
                       "type": "`$STRING`",
                     },
                     {
-                      "active": True,
                       "kind": "param",
                       "name": "identifier",
                       "orig": "identifier",
@@ -2634,7 +2173,6 @@ def make_config():
                       "type": "`$ANY`",
                     },
                     {
-                      "active": True,
                       "kind": "param",
                       "name": "owner",
                       "orig": "owner",
@@ -2644,11 +2182,9 @@ def make_config():
                   ],
                   "query": [
                     {
-                      "active": True,
                       "kind": "query",
                       "name": "data",
                       "orig": "data",
-                      "reqd": False,
                       "type": "`$OBJECT`",
                     },
                   ],
@@ -2681,54 +2217,43 @@ def make_config():
                   "req": "`reqdata`",
                   "res": "`body`",
                 },
-                "index$": 0,
               },
             ],
-            "key$": "patch",
           },
           "update": {
             "input": "data",
             "name": "update",
             "points": [
               {
-                "active": True,
                 "args": {
                   "params": [
                     {
-                      "active": True,
                       "kind": "param",
                       "name": "id",
                       "orig": "slug_perm",
                       "reqd": True,
                       "type": "`$STRING`",
-                      "index$": 0,
                     },
                     {
-                      "active": True,
                       "kind": "param",
                       "name": "identifier",
                       "orig": "identifier",
                       "reqd": True,
                       "type": "`$ANY`",
-                      "index$": 1,
                     },
                     {
-                      "active": True,
                       "kind": "param",
                       "name": "owner",
                       "orig": "owner",
                       "reqd": True,
                       "type": "`$ANY`",
-                      "index$": 2,
                     },
                   ],
                   "query": [
                     {
-                      "active": True,
                       "kind": "query",
                       "name": "data",
                       "orig": "data",
-                      "reqd": False,
                       "type": "`$OBJECT`",
                     },
                   ],
@@ -2761,10 +2286,8 @@ def make_config():
                   "req": "`reqdata`",
                   "res": "`body`",
                 },
-                "index$": 0,
               },
             ],
-            "key$": "update",
           },
         },
         "relations": {
@@ -2781,186 +2304,111 @@ def make_config():
       "deb": {
         "fields": [
           {
-            "active": True,
             "name": "auth_mode",
-            "req": False,
             "type": "`$STRING`",
-            "index$": 0,
           },
           {
-            "active": True,
             "name": "auth_secret",
-            "req": False,
             "type": "`$STRING`",
-            "index$": 1,
           },
           {
-            "active": True,
             "name": "auth_username",
-            "req": False,
             "type": "`$STRING`",
-            "index$": 2,
           },
           {
-            "active": True,
             "name": "component",
-            "req": False,
             "type": "`$STRING`",
-            "index$": 3,
           },
           {
-            "active": True,
             "name": "created_at",
-            "req": False,
             "type": "`$STRING`",
-            "index$": 4,
           },
           {
-            "active": True,
             "name": "disable_reason",
-            "req": False,
             "type": "`$STRING`",
-            "index$": 5,
           },
           {
-            "active": True,
             "name": "distro_versions",
             "req": True,
             "type": "`$ARRAY`",
-            "index$": 6,
           },
           {
-            "active": True,
             "name": "extra_header_1",
-            "req": False,
             "type": "`$STRING`",
-            "index$": 7,
           },
           {
-            "active": True,
             "name": "extra_header_2",
-            "req": False,
             "type": "`$STRING`",
-            "index$": 8,
           },
           {
-            "active": True,
             "name": "extra_value_1",
-            "req": False,
             "type": "`$STRING`",
-            "index$": 9,
           },
           {
-            "active": True,
             "name": "extra_value_2",
-            "req": False,
             "type": "`$STRING`",
-            "index$": 10,
           },
           {
-            "active": True,
             "name": "gpg_key_inline",
-            "req": False,
             "type": "`$STRING`",
-            "index$": 11,
           },
           {
-            "active": True,
             "name": "gpg_key_url",
-            "req": False,
             "type": "`$STRING`",
-            "index$": 12,
           },
           {
-            "active": True,
             "name": "gpg_verification",
-            "req": False,
             "type": "`$STRING`",
-            "index$": 13,
           },
           {
-            "active": True,
             "name": "include_sources",
-            "req": False,
             "type": "`$BOOLEAN`",
-            "index$": 14,
           },
           {
-            "active": True,
             "name": "is_active",
-            "req": False,
             "type": "`$BOOLEAN`",
-            "index$": 15,
           },
           {
-            "active": True,
             "name": "mode",
-            "req": False,
             "type": "`$STRING`",
-            "index$": 16,
           },
           {
-            "active": True,
             "name": "name",
             "req": True,
             "type": "`$STRING`",
-            "index$": 17,
           },
           {
-            "active": True,
             "name": "pending_validation",
-            "req": False,
             "type": "`$BOOLEAN`",
-            "index$": 18,
           },
           {
-            "active": True,
             "name": "priority",
-            "req": False,
             "type": "`$INTEGER`",
-            "index$": 19,
           },
           {
-            "active": True,
             "name": "slug_perm",
-            "req": False,
             "type": "`$STRING`",
-            "index$": 20,
           },
           {
-            "active": True,
             "name": "updated_at",
-            "req": False,
             "type": "`$STRING`",
-            "index$": 21,
           },
           {
-            "active": True,
             "name": "upstream_distribution",
-            "req": False,
             "type": "`$STRING`",
-            "index$": 22,
           },
           {
-            "active": True,
             "name": "upstream_url",
             "req": True,
             "type": "`$STRING`",
-            "index$": 23,
           },
           {
-            "active": True,
             "name": "verification_status",
-            "req": False,
             "type": "`$STRING`",
-            "index$": 24,
           },
           {
-            "active": True,
             "name": "verify_ssl",
-            "req": False,
             "type": "`$BOOLEAN`",
-            "index$": 25,
           },
         ],
         "name": "deb",
@@ -2970,35 +2418,28 @@ def make_config():
             "name": "create",
             "points": [
               {
-                "active": True,
                 "args": {
                   "params": [
                     {
-                      "active": True,
                       "kind": "param",
                       "name": "identifier",
                       "orig": "identifier",
                       "reqd": True,
                       "type": "`$ANY`",
-                      "index$": 0,
                     },
                     {
-                      "active": True,
                       "kind": "param",
                       "name": "owner",
                       "orig": "owner",
                       "reqd": True,
                       "type": "`$ANY`",
-                      "index$": 1,
                     },
                   ],
                   "query": [
                     {
-                      "active": True,
                       "kind": "query",
                       "name": "data",
                       "orig": "data",
-                      "reqd": False,
                       "type": "`$OBJECT`",
                     },
                   ],
@@ -3024,53 +2465,42 @@ def make_config():
                   "req": "`reqdata`",
                   "res": "`body`",
                 },
-                "index$": 0,
               },
             ],
-            "key$": "create",
           },
           "list": {
             "input": "data",
             "name": "list",
             "points": [
               {
-                "active": True,
                 "args": {
                   "params": [
                     {
-                      "active": True,
                       "kind": "param",
                       "name": "identifier",
                       "orig": "identifier",
                       "reqd": True,
                       "type": "`$ANY`",
-                      "index$": 0,
                     },
                     {
-                      "active": True,
                       "kind": "param",
                       "name": "owner",
                       "orig": "owner",
                       "reqd": True,
                       "type": "`$ANY`",
-                      "index$": 1,
                     },
                   ],
                   "query": [
                     {
-                      "active": True,
                       "kind": "query",
                       "name": "page",
                       "orig": "page",
-                      "reqd": False,
                       "type": "`$INTEGER`",
                     },
                     {
-                      "active": True,
                       "kind": "query",
                       "name": "page_size",
                       "orig": "page_size",
-                      "reqd": False,
                       "type": "`$INTEGER`",
                     },
                   ],
@@ -3097,45 +2527,36 @@ def make_config():
                   "req": "`reqdata`",
                   "res": "`body`",
                 },
-                "index$": 0,
               },
             ],
-            "key$": "list",
           },
           "load": {
             "input": "data",
             "name": "load",
             "points": [
               {
-                "active": True,
                 "args": {
                   "params": [
                     {
-                      "active": True,
                       "kind": "param",
                       "name": "id",
                       "orig": "slug_perm",
                       "reqd": True,
                       "type": "`$STRING`",
-                      "index$": 0,
                     },
                     {
-                      "active": True,
                       "kind": "param",
                       "name": "identifier",
                       "orig": "identifier",
                       "reqd": True,
                       "type": "`$ANY`",
-                      "index$": 1,
                     },
                     {
-                      "active": True,
                       "kind": "param",
                       "name": "owner",
                       "orig": "owner",
                       "reqd": True,
                       "type": "`$ANY`",
-                      "index$": 2,
                     },
                   ],
                 },
@@ -3166,21 +2587,17 @@ def make_config():
                   "req": "`reqdata`",
                   "res": "`body`",
                 },
-                "index$": 0,
               },
             ],
-            "key$": "load",
           },
           "patch": {
             "input": "data",
             "name": "patch",
             "points": [
               {
-                "active": True,
                 "args": {
                   "params": [
                     {
-                      "active": True,
                       "kind": "param",
                       "name": "id",
                       "orig": "slug_perm",
@@ -3188,7 +2605,6 @@ def make_config():
                       "type": "`$STRING`",
                     },
                     {
-                      "active": True,
                       "kind": "param",
                       "name": "identifier",
                       "orig": "identifier",
@@ -3196,7 +2612,6 @@ def make_config():
                       "type": "`$ANY`",
                     },
                     {
-                      "active": True,
                       "kind": "param",
                       "name": "owner",
                       "orig": "owner",
@@ -3206,11 +2621,9 @@ def make_config():
                   ],
                   "query": [
                     {
-                      "active": True,
                       "kind": "query",
                       "name": "data",
                       "orig": "data",
-                      "reqd": False,
                       "type": "`$OBJECT`",
                     },
                   ],
@@ -3243,54 +2656,43 @@ def make_config():
                   "req": "`reqdata`",
                   "res": "`body`",
                 },
-                "index$": 0,
               },
             ],
-            "key$": "patch",
           },
           "update": {
             "input": "data",
             "name": "update",
             "points": [
               {
-                "active": True,
                 "args": {
                   "params": [
                     {
-                      "active": True,
                       "kind": "param",
                       "name": "id",
                       "orig": "slug_perm",
                       "reqd": True,
                       "type": "`$STRING`",
-                      "index$": 0,
                     },
                     {
-                      "active": True,
                       "kind": "param",
                       "name": "identifier",
                       "orig": "identifier",
                       "reqd": True,
                       "type": "`$ANY`",
-                      "index$": 1,
                     },
                     {
-                      "active": True,
                       "kind": "param",
                       "name": "owner",
                       "orig": "owner",
                       "reqd": True,
                       "type": "`$ANY`",
-                      "index$": 2,
                     },
                   ],
                   "query": [
                     {
-                      "active": True,
                       "kind": "query",
                       "name": "data",
                       "orig": "data",
-                      "reqd": False,
                       "type": "`$OBJECT`",
                     },
                   ],
@@ -3323,10 +2725,8 @@ def make_config():
                   "req": "`reqdata`",
                   "res": "`body`",
                 },
-                "index$": 0,
               },
             ],
-            "key$": "update",
           },
         },
         "relations": {
@@ -3385,53 +2785,33 @@ def make_config():
       "distribution_full": {
         "fields": [
           {
-            "active": True,
             "name": "format",
-            "req": False,
             "type": "`$STRING`",
-            "index$": 0,
           },
           {
-            "active": True,
             "name": "format_url",
-            "req": False,
             "type": "`$STRING`",
-            "index$": 1,
           },
           {
-            "active": True,
             "name": "name",
             "req": True,
             "type": "`$STRING`",
-            "index$": 2,
           },
           {
-            "active": True,
             "name": "self_url",
-            "req": False,
             "type": "`$STRING`",
-            "index$": 3,
           },
           {
-            "active": True,
             "name": "slug",
-            "req": False,
             "type": "`$STRING`",
-            "index$": 4,
           },
           {
-            "active": True,
             "name": "variants",
-            "req": False,
             "type": "`$STRING`",
-            "index$": 5,
           },
           {
-            "active": True,
             "name": "versions",
-            "req": False,
             "type": "`$ARRAY`",
-            "index$": 6,
           },
         ],
         "name": "distribution_full",
@@ -3441,7 +2821,6 @@ def make_config():
             "name": "list",
             "points": [
               {
-                "active": True,
                 "args": {},
                 "kind": "http",
                 "method": "GET",
@@ -3454,27 +2833,22 @@ def make_config():
                   "req": "`reqdata`",
                   "res": "`body`",
                 },
-                "index$": 0,
               },
             ],
-            "key$": "list",
           },
           "load": {
             "input": "data",
             "name": "load",
             "points": [
               {
-                "active": True,
                 "args": {
                   "params": [
                     {
-                      "active": True,
                       "kind": "param",
                       "name": "slug",
                       "orig": "slug",
                       "reqd": True,
                       "type": "`$STRING`",
-                      "index$": 0,
                     },
                   ],
                 },
@@ -3494,10 +2868,8 @@ def make_config():
                   "req": "`reqdata`",
                   "res": "`body`",
                 },
-                "index$": 0,
               },
             ],
-            "key$": "load",
           },
         },
         "relations": {
@@ -3519,130 +2891,78 @@ def make_config():
       "docker": {
         "fields": [
           {
-            "active": True,
             "name": "auth_mode",
-            "req": False,
             "type": "`$STRING`",
-            "index$": 0,
           },
           {
-            "active": True,
             "name": "auth_secret",
-            "req": False,
             "type": "`$STRING`",
-            "index$": 1,
           },
           {
-            "active": True,
             "name": "auth_username",
-            "req": False,
             "type": "`$STRING`",
-            "index$": 2,
           },
           {
-            "active": True,
             "name": "created_at",
-            "req": False,
             "type": "`$STRING`",
-            "index$": 3,
           },
           {
-            "active": True,
             "name": "disable_reason",
-            "req": False,
             "type": "`$STRING`",
-            "index$": 4,
           },
           {
-            "active": True,
             "name": "extra_header_1",
-            "req": False,
             "type": "`$STRING`",
-            "index$": 5,
           },
           {
-            "active": True,
             "name": "extra_header_2",
-            "req": False,
             "type": "`$STRING`",
-            "index$": 6,
           },
           {
-            "active": True,
             "name": "extra_value_1",
-            "req": False,
             "type": "`$STRING`",
-            "index$": 7,
           },
           {
-            "active": True,
             "name": "extra_value_2",
-            "req": False,
             "type": "`$STRING`",
-            "index$": 8,
           },
           {
-            "active": True,
             "name": "is_active",
-            "req": False,
             "type": "`$BOOLEAN`",
-            "index$": 9,
           },
           {
-            "active": True,
             "name": "mode",
-            "req": False,
             "type": "`$STRING`",
-            "index$": 10,
           },
           {
-            "active": True,
             "name": "name",
             "req": True,
             "type": "`$STRING`",
-            "index$": 11,
           },
           {
-            "active": True,
             "name": "pending_validation",
-            "req": False,
             "type": "`$BOOLEAN`",
-            "index$": 12,
           },
           {
-            "active": True,
             "name": "priority",
-            "req": False,
             "type": "`$INTEGER`",
-            "index$": 13,
           },
           {
-            "active": True,
             "name": "slug_perm",
-            "req": False,
             "type": "`$STRING`",
-            "index$": 14,
           },
           {
-            "active": True,
             "name": "updated_at",
-            "req": False,
             "type": "`$STRING`",
-            "index$": 15,
           },
           {
-            "active": True,
             "name": "upstream_url",
             "req": True,
             "type": "`$STRING`",
-            "index$": 16,
           },
           {
-            "active": True,
             "name": "verify_ssl",
-            "req": False,
             "type": "`$BOOLEAN`",
-            "index$": 17,
           },
         ],
         "name": "docker",
@@ -3652,35 +2972,28 @@ def make_config():
             "name": "create",
             "points": [
               {
-                "active": True,
                 "args": {
                   "params": [
                     {
-                      "active": True,
                       "kind": "param",
                       "name": "identifier",
                       "orig": "identifier",
                       "reqd": True,
                       "type": "`$ANY`",
-                      "index$": 0,
                     },
                     {
-                      "active": True,
                       "kind": "param",
                       "name": "owner",
                       "orig": "owner",
                       "reqd": True,
                       "type": "`$ANY`",
-                      "index$": 1,
                     },
                   ],
                   "query": [
                     {
-                      "active": True,
                       "kind": "query",
                       "name": "data",
                       "orig": "data",
-                      "reqd": False,
                       "type": "`$OBJECT`",
                     },
                   ],
@@ -3706,53 +3019,42 @@ def make_config():
                   "req": "`reqdata`",
                   "res": "`body`",
                 },
-                "index$": 0,
               },
             ],
-            "key$": "create",
           },
           "list": {
             "input": "data",
             "name": "list",
             "points": [
               {
-                "active": True,
                 "args": {
                   "params": [
                     {
-                      "active": True,
                       "kind": "param",
                       "name": "identifier",
                       "orig": "identifier",
                       "reqd": True,
                       "type": "`$ANY`",
-                      "index$": 0,
                     },
                     {
-                      "active": True,
                       "kind": "param",
                       "name": "owner",
                       "orig": "owner",
                       "reqd": True,
                       "type": "`$ANY`",
-                      "index$": 1,
                     },
                   ],
                   "query": [
                     {
-                      "active": True,
                       "kind": "query",
                       "name": "page",
                       "orig": "page",
-                      "reqd": False,
                       "type": "`$INTEGER`",
                     },
                     {
-                      "active": True,
                       "kind": "query",
                       "name": "page_size",
                       "orig": "page_size",
-                      "reqd": False,
                       "type": "`$INTEGER`",
                     },
                   ],
@@ -3779,45 +3081,36 @@ def make_config():
                   "req": "`reqdata`",
                   "res": "`body`",
                 },
-                "index$": 0,
               },
             ],
-            "key$": "list",
           },
           "load": {
             "input": "data",
             "name": "load",
             "points": [
               {
-                "active": True,
                 "args": {
                   "params": [
                     {
-                      "active": True,
                       "kind": "param",
                       "name": "id",
                       "orig": "slug_perm",
                       "reqd": True,
                       "type": "`$STRING`",
-                      "index$": 0,
                     },
                     {
-                      "active": True,
                       "kind": "param",
                       "name": "identifier",
                       "orig": "identifier",
                       "reqd": True,
                       "type": "`$ANY`",
-                      "index$": 1,
                     },
                     {
-                      "active": True,
                       "kind": "param",
                       "name": "owner",
                       "orig": "owner",
                       "reqd": True,
                       "type": "`$ANY`",
-                      "index$": 2,
                     },
                   ],
                 },
@@ -3848,21 +3141,17 @@ def make_config():
                   "req": "`reqdata`",
                   "res": "`body`",
                 },
-                "index$": 0,
               },
             ],
-            "key$": "load",
           },
           "patch": {
             "input": "data",
             "name": "patch",
             "points": [
               {
-                "active": True,
                 "args": {
                   "params": [
                     {
-                      "active": True,
                       "kind": "param",
                       "name": "id",
                       "orig": "slug_perm",
@@ -3870,7 +3159,6 @@ def make_config():
                       "type": "`$STRING`",
                     },
                     {
-                      "active": True,
                       "kind": "param",
                       "name": "identifier",
                       "orig": "identifier",
@@ -3878,7 +3166,6 @@ def make_config():
                       "type": "`$ANY`",
                     },
                     {
-                      "active": True,
                       "kind": "param",
                       "name": "owner",
                       "orig": "owner",
@@ -3888,11 +3175,9 @@ def make_config():
                   ],
                   "query": [
                     {
-                      "active": True,
                       "kind": "query",
                       "name": "data",
                       "orig": "data",
-                      "reqd": False,
                       "type": "`$OBJECT`",
                     },
                   ],
@@ -3925,54 +3210,43 @@ def make_config():
                   "req": "`reqdata`",
                   "res": "`body`",
                 },
-                "index$": 0,
               },
             ],
-            "key$": "patch",
           },
           "update": {
             "input": "data",
             "name": "update",
             "points": [
               {
-                "active": True,
                 "args": {
                   "params": [
                     {
-                      "active": True,
                       "kind": "param",
                       "name": "id",
                       "orig": "slug_perm",
                       "reqd": True,
                       "type": "`$STRING`",
-                      "index$": 0,
                     },
                     {
-                      "active": True,
                       "kind": "param",
                       "name": "identifier",
                       "orig": "identifier",
                       "reqd": True,
                       "type": "`$ANY`",
-                      "index$": 1,
                     },
                     {
-                      "active": True,
                       "kind": "param",
                       "name": "owner",
                       "orig": "owner",
                       "reqd": True,
                       "type": "`$ANY`",
-                      "index$": 2,
                     },
                   ],
                   "query": [
                     {
-                      "active": True,
                       "kind": "query",
                       "name": "data",
                       "orig": "data",
-                      "reqd": False,
                       "type": "`$OBJECT`",
                     },
                   ],
@@ -4005,10 +3279,8 @@ def make_config():
                   "req": "`reqdata`",
                   "res": "`body`",
                 },
-                "index$": 0,
               },
             ],
-            "key$": "update",
           },
         },
         "relations": {
@@ -4025,18 +3297,14 @@ def make_config():
       "dynamic_mapping": {
         "fields": [
           {
-            "active": True,
             "name": "claim_value",
             "req": True,
             "type": "`$STRING`",
-            "index$": 0,
           },
           {
-            "active": True,
             "name": "service_account",
             "req": True,
             "type": "`$STRING`",
-            "index$": 1,
           },
         ],
         "name": "dynamic_mapping",
@@ -4046,43 +3314,34 @@ def make_config():
             "name": "list",
             "points": [
               {
-                "active": True,
                 "args": {
                   "params": [
                     {
-                      "active": True,
                       "kind": "param",
                       "name": "org_id",
                       "orig": "org",
                       "reqd": True,
                       "type": "`$STRING`",
-                      "index$": 0,
                     },
                     {
-                      "active": True,
                       "kind": "param",
                       "name": "provider_setting",
                       "orig": "provider_setting",
                       "reqd": True,
                       "type": "`$ANY`",
-                      "index$": 1,
                     },
                   ],
                   "query": [
                     {
-                      "active": True,
                       "kind": "query",
                       "name": "page",
                       "orig": "page",
-                      "reqd": False,
                       "type": "`$INTEGER`",
                     },
                     {
-                      "active": True,
                       "kind": "query",
                       "name": "page_size",
                       "orig": "page_size",
-                      "reqd": False,
                       "type": "`$INTEGER`",
                     },
                   ],
@@ -4114,45 +3373,36 @@ def make_config():
                   "req": "`reqdata`",
                   "res": "`body`",
                 },
-                "index$": 0,
               },
             ],
-            "key$": "list",
           },
           "load": {
             "input": "data",
             "name": "load",
             "points": [
               {
-                "active": True,
                 "args": {
                   "params": [
                     {
-                      "active": True,
                       "kind": "param",
                       "name": "id",
                       "orig": "claim_value",
                       "reqd": True,
                       "type": "`$STRING`",
-                      "index$": 0,
                     },
                     {
-                      "active": True,
                       "kind": "param",
                       "name": "openid_connect_id",
                       "orig": "provider_setting",
                       "reqd": True,
                       "type": "`$STRING`",
-                      "index$": 1,
                     },
                     {
-                      "active": True,
                       "kind": "param",
                       "name": "org_id",
                       "orig": "org",
                       "reqd": True,
                       "type": "`$STRING`",
-                      "index$": 2,
                     },
                   ],
                 },
@@ -4185,10 +3435,8 @@ def make_config():
                   "req": "`reqdata`",
                   "res": "`body`",
                 },
-                "index$": 0,
               },
             ],
-            "key$": "load",
           },
         },
         "relations": {
@@ -4233,39 +3481,26 @@ def make_config():
       "entitlement": {
         "fields": [
           {
-            "active": True,
             "name": "active",
-            "req": False,
             "type": "`$INTEGER`",
-            "index$": 0,
           },
           {
-            "active": True,
             "name": "bandwidth",
             "req": True,
             "type": "`$OBJECT`",
-            "index$": 1,
           },
           {
-            "active": True,
             "name": "downloads",
             "req": True,
             "type": "`$OBJECT`",
-            "index$": 2,
           },
           {
-            "active": True,
             "name": "inactive",
-            "req": False,
             "type": "`$INTEGER`",
-            "index$": 3,
           },
           {
-            "active": True,
             "name": "total",
-            "req": False,
             "type": "`$INTEGER`",
-            "index$": 4,
           },
         ],
         "name": "entitlement",
@@ -4275,44 +3510,35 @@ def make_config():
             "name": "create",
             "points": [
               {
-                "active": True,
                 "args": {
                   "params": [
                     {
-                      "active": True,
                       "kind": "param",
                       "name": "identifier",
                       "orig": "identifier",
                       "reqd": True,
                       "type": "`$ANY`",
-                      "index$": 0,
                     },
                     {
-                      "active": True,
                       "kind": "param",
                       "name": "owner",
                       "orig": "owner",
                       "reqd": True,
                       "type": "`$ANY`",
-                      "index$": 1,
                     },
                     {
-                      "active": True,
                       "kind": "param",
                       "name": "repo",
                       "orig": "repo",
                       "reqd": True,
                       "type": "`$ANY`",
-                      "index$": 2,
                     },
                   ],
                   "query": [
                     {
-                      "active": True,
                       "kind": "query",
                       "name": "show_token",
                       "orig": "show_token",
-                      "reqd": False,
                       "type": "`$ANY`",
                     },
                   ],
@@ -4339,38 +3565,30 @@ def make_config():
                   "req": "`reqdata`",
                   "res": "`body`",
                 },
-                "index$": 0,
               },
               {
-                "active": True,
                 "args": {
                   "params": [
                     {
-                      "active": True,
                       "kind": "param",
                       "name": "identifier",
                       "orig": "identifier",
                       "reqd": True,
                       "type": "`$ANY`",
-                      "index$": 0,
                     },
                     {
-                      "active": True,
                       "kind": "param",
                       "name": "owner",
                       "orig": "owner",
                       "reqd": True,
                       "type": "`$ANY`",
-                      "index$": 1,
                     },
                     {
-                      "active": True,
                       "kind": "param",
                       "name": "repo",
                       "orig": "repo",
                       "reqd": True,
                       "type": "`$ANY`",
-                      "index$": 2,
                     },
                   ],
                 },
@@ -4395,38 +3613,30 @@ def make_config():
                   "req": "`reqdata`",
                   "res": "`body`",
                 },
-                "index$": 1,
               },
               {
-                "active": True,
                 "args": {
                   "params": [
                     {
-                      "active": True,
                       "kind": "param",
                       "name": "identifier",
                       "orig": "identifier",
                       "reqd": True,
                       "type": "`$ANY`",
-                      "index$": 0,
                     },
                     {
-                      "active": True,
                       "kind": "param",
                       "name": "owner",
                       "orig": "owner",
                       "reqd": True,
                       "type": "`$ANY`",
-                      "index$": 1,
                     },
                     {
-                      "active": True,
                       "kind": "param",
                       "name": "repo",
                       "orig": "repo",
                       "reqd": True,
                       "type": "`$ANY`",
-                      "index$": 2,
                     },
                   ],
                 },
@@ -4451,77 +3661,60 @@ def make_config():
                   "req": "`reqdata`",
                   "res": "`body`",
                 },
-                "index$": 2,
               },
             ],
-            "key$": "create",
           },
           "load": {
             "input": "data",
             "name": "load",
             "points": [
               {
-                "active": True,
                 "args": {
                   "params": [
                     {
-                      "active": True,
                       "kind": "param",
                       "name": "owner",
                       "orig": "owner",
                       "reqd": True,
                       "type": "`$ANY`",
-                      "index$": 0,
                     },
                     {
-                      "active": True,
                       "kind": "param",
                       "name": "repo",
                       "orig": "repo",
                       "reqd": True,
                       "type": "`$ANY`",
-                      "index$": 1,
                     },
                   ],
                   "query": [
                     {
-                      "active": True,
                       "kind": "query",
                       "name": "finish",
                       "orig": "finish",
-                      "reqd": False,
                       "type": "`$ANY`",
                     },
                     {
-                      "active": True,
                       "kind": "query",
                       "name": "page",
                       "orig": "page",
-                      "reqd": False,
                       "type": "`$INTEGER`",
                     },
                     {
-                      "active": True,
                       "kind": "query",
                       "name": "page_size",
                       "orig": "page_size",
-                      "reqd": False,
                       "type": "`$INTEGER`",
                     },
                     {
-                      "active": True,
                       "kind": "query",
                       "name": "start",
                       "orig": "start",
-                      "reqd": False,
                       "type": "`$ANY`",
                     },
                     {
-                      "active": True,
                       "kind": "query",
                       "name": "token",
                       "orig": "token",
-                      "reqd": False,
                       "type": "`$STRING`",
                     },
                   ],
@@ -4550,61 +3743,47 @@ def make_config():
                   "req": "`reqdata`",
                   "res": "`body.tokens`",
                 },
-                "index$": 0,
               },
               {
-                "active": True,
                 "args": {
                   "params": [
                     {
-                      "active": True,
                       "kind": "param",
                       "name": "id",
                       "orig": "owner",
                       "reqd": True,
                       "type": "`$STRING`",
-                      "index$": 0,
                     },
                   ],
                   "query": [
                     {
-                      "active": True,
                       "kind": "query",
                       "name": "finish",
                       "orig": "finish",
-                      "reqd": False,
                       "type": "`$ANY`",
                     },
                     {
-                      "active": True,
                       "kind": "query",
                       "name": "page",
                       "orig": "page",
-                      "reqd": False,
                       "type": "`$INTEGER`",
                     },
                     {
-                      "active": True,
                       "kind": "query",
                       "name": "page_size",
                       "orig": "page_size",
-                      "reqd": False,
                       "type": "`$INTEGER`",
                     },
                     {
-                      "active": True,
                       "kind": "query",
                       "name": "start",
                       "orig": "start",
-                      "reqd": False,
                       "type": "`$ANY`",
                     },
                     {
-                      "active": True,
                       "kind": "query",
                       "name": "token",
                       "orig": "token",
-                      "reqd": False,
                       "type": "`$STRING`",
                     },
                   ],
@@ -4636,45 +3815,36 @@ def make_config():
                   "req": "`reqdata`",
                   "res": "`body.tokens`",
                 },
-                "index$": 1,
               },
             ],
-            "key$": "load",
           },
           "remove": {
             "input": "data",
             "name": "remove",
             "points": [
               {
-                "active": True,
                 "args": {
                   "params": [
                     {
-                      "active": True,
                       "kind": "param",
                       "name": "identifier",
                       "orig": "identifier",
                       "reqd": True,
                       "type": "`$ANY`",
-                      "index$": 0,
                     },
                     {
-                      "active": True,
                       "kind": "param",
                       "name": "owner",
                       "orig": "owner",
                       "reqd": True,
                       "type": "`$ANY`",
-                      "index$": 1,
                     },
                     {
-                      "active": True,
                       "kind": "param",
                       "name": "repo",
                       "orig": "repo",
                       "reqd": True,
                       "type": "`$ANY`",
-                      "index$": 2,
                     },
                   ],
                 },
@@ -4698,10 +3868,8 @@ def make_config():
                   "req": "`reqdata`",
                   "res": "`body`",
                 },
-                "index$": 0,
               },
             ],
-            "key$": "remove",
           },
         },
         "relations": {
@@ -4738,44 +3906,35 @@ def make_config():
             "name": "create",
             "points": [
               {
-                "active": True,
                 "args": {
                   "params": [
                     {
-                      "active": True,
                       "kind": "param",
                       "name": "identifier",
                       "orig": "identifier",
                       "reqd": True,
                       "type": "`$ANY`",
-                      "index$": 0,
                     },
                     {
-                      "active": True,
                       "kind": "param",
                       "name": "owner",
                       "orig": "owner",
                       "reqd": True,
                       "type": "`$ANY`",
-                      "index$": 1,
                     },
                     {
-                      "active": True,
                       "kind": "param",
                       "name": "repo",
                       "orig": "repo",
                       "reqd": True,
                       "type": "`$ANY`",
-                      "index$": 2,
                     },
                   ],
                   "query": [
                     {
-                      "active": True,
                       "kind": "query",
                       "name": "data",
                       "orig": "data",
-                      "reqd": False,
                       "type": "`$OBJECT`",
                     },
                   ],
@@ -4802,38 +3961,30 @@ def make_config():
                   "req": "`reqdata`",
                   "res": "`body`",
                 },
-                "index$": 0,
               },
               {
-                "active": True,
                 "args": {
                   "params": [
                     {
-                      "active": True,
                       "kind": "param",
                       "name": "owner",
                       "orig": "owner",
                       "reqd": True,
                       "type": "`$ANY`",
-                      "index$": 0,
                     },
                     {
-                      "active": True,
                       "kind": "param",
                       "name": "repo",
                       "orig": "repo",
                       "reqd": True,
                       "type": "`$ANY`",
-                      "index$": 1,
                     },
                   ],
                   "query": [
                     {
-                      "active": True,
                       "kind": "query",
                       "name": "data",
                       "orig": "data",
-                      "reqd": False,
                       "type": "`$OBJECT`",
                     },
                   ],
@@ -4857,38 +4008,30 @@ def make_config():
                   "req": "`reqdata`",
                   "res": "`body`",
                 },
-                "index$": 1,
               },
               {
-                "active": True,
                 "args": {
                   "params": [
                     {
-                      "active": True,
                       "kind": "param",
                       "name": "owner",
                       "orig": "owner",
                       "reqd": True,
                       "type": "`$ANY`",
-                      "index$": 0,
                     },
                     {
-                      "active": True,
                       "kind": "param",
                       "name": "repo",
                       "orig": "repo",
                       "reqd": True,
                       "type": "`$ANY`",
-                      "index$": 1,
                     },
                   ],
                   "query": [
                     {
-                      "active": True,
                       "kind": "query",
                       "name": "data",
                       "orig": "data",
-                      "reqd": False,
                       "type": "`$OBJECT`",
                     },
                   ],
@@ -4913,10 +4056,8 @@ def make_config():
                   "req": "`reqdata`",
                   "res": "`body`",
                 },
-                "index$": 2,
               },
             ],
-            "key$": "create",
           },
         },
         "relations": {
@@ -4930,67 +4071,46 @@ def make_config():
       "format": {
         "fields": [
           {
-            "active": True,
             "name": "description",
             "req": True,
             "type": "`$STRING`",
-            "index$": 0,
           },
           {
-            "active": True,
             "name": "distributions",
-            "req": False,
             "type": "`$ARRAY`",
-            "index$": 1,
           },
           {
-            "active": True,
             "name": "extensions",
             "req": True,
             "type": "`$ARRAY`",
-            "index$": 2,
           },
           {
-            "active": True,
             "name": "name",
             "req": True,
             "type": "`$STRING`",
-            "index$": 3,
           },
           {
-            "active": True,
             "name": "premium",
             "req": True,
             "type": "`$BOOLEAN`",
-            "index$": 4,
           },
           {
-            "active": True,
             "name": "premium_plan_id",
-            "req": False,
             "type": "`$STRING`",
-            "index$": 5,
           },
           {
-            "active": True,
             "name": "premium_plan_name",
-            "req": False,
             "type": "`$STRING`",
-            "index$": 6,
           },
           {
-            "active": True,
             "name": "slug",
             "req": True,
             "type": "`$STRING`",
-            "index$": 7,
           },
           {
-            "active": True,
             "name": "supports",
             "req": True,
             "type": "`$OBJECT`",
-            "index$": 8,
           },
         ],
         "name": "format",
@@ -5000,7 +4120,6 @@ def make_config():
             "name": "list",
             "points": [
               {
-                "active": True,
                 "args": {},
                 "kind": "http",
                 "method": "GET",
@@ -5013,27 +4132,22 @@ def make_config():
                   "req": "`reqdata`",
                   "res": "`body`",
                 },
-                "index$": 0,
               },
             ],
-            "key$": "list",
           },
           "load": {
             "input": "data",
             "name": "load",
             "points": [
               {
-                "active": True,
                 "args": {
                   "params": [
                     {
-                      "active": True,
                       "kind": "param",
                       "name": "id",
                       "orig": "slug",
                       "reqd": True,
                       "type": "`$STRING`",
-                      "index$": 0,
                     },
                   ],
                 },
@@ -5058,10 +4172,8 @@ def make_config():
                   "req": "`reqdata`",
                   "res": "`body`",
                 },
-                "index$": 0,
               },
             ],
-            "key$": "load",
           },
         },
         "relations": {
@@ -5083,130 +4195,78 @@ def make_config():
       "gon": {
         "fields": [
           {
-            "active": True,
             "name": "auth_mode",
-            "req": False,
             "type": "`$STRING`",
-            "index$": 0,
           },
           {
-            "active": True,
             "name": "auth_secret",
-            "req": False,
             "type": "`$STRING`",
-            "index$": 1,
           },
           {
-            "active": True,
             "name": "auth_username",
-            "req": False,
             "type": "`$STRING`",
-            "index$": 2,
           },
           {
-            "active": True,
             "name": "created_at",
-            "req": False,
             "type": "`$STRING`",
-            "index$": 3,
           },
           {
-            "active": True,
             "name": "disable_reason",
-            "req": False,
             "type": "`$STRING`",
-            "index$": 4,
           },
           {
-            "active": True,
             "name": "extra_header_1",
-            "req": False,
             "type": "`$STRING`",
-            "index$": 5,
           },
           {
-            "active": True,
             "name": "extra_header_2",
-            "req": False,
             "type": "`$STRING`",
-            "index$": 6,
           },
           {
-            "active": True,
             "name": "extra_value_1",
-            "req": False,
             "type": "`$STRING`",
-            "index$": 7,
           },
           {
-            "active": True,
             "name": "extra_value_2",
-            "req": False,
             "type": "`$STRING`",
-            "index$": 8,
           },
           {
-            "active": True,
             "name": "is_active",
-            "req": False,
             "type": "`$BOOLEAN`",
-            "index$": 9,
           },
           {
-            "active": True,
             "name": "mode",
-            "req": False,
             "type": "`$STRING`",
-            "index$": 10,
           },
           {
-            "active": True,
             "name": "name",
             "req": True,
             "type": "`$STRING`",
-            "index$": 11,
           },
           {
-            "active": True,
             "name": "pending_validation",
-            "req": False,
             "type": "`$BOOLEAN`",
-            "index$": 12,
           },
           {
-            "active": True,
             "name": "priority",
-            "req": False,
             "type": "`$INTEGER`",
-            "index$": 13,
           },
           {
-            "active": True,
             "name": "slug_perm",
-            "req": False,
             "type": "`$STRING`",
-            "index$": 14,
           },
           {
-            "active": True,
             "name": "updated_at",
-            "req": False,
             "type": "`$STRING`",
-            "index$": 15,
           },
           {
-            "active": True,
             "name": "upstream_url",
             "req": True,
             "type": "`$STRING`",
-            "index$": 16,
           },
           {
-            "active": True,
             "name": "verify_ssl",
-            "req": False,
             "type": "`$BOOLEAN`",
-            "index$": 17,
           },
         ],
         "name": "gon",
@@ -5216,35 +4276,28 @@ def make_config():
             "name": "create",
             "points": [
               {
-                "active": True,
                 "args": {
                   "params": [
                     {
-                      "active": True,
                       "kind": "param",
                       "name": "identifier",
                       "orig": "identifier",
                       "reqd": True,
                       "type": "`$ANY`",
-                      "index$": 0,
                     },
                     {
-                      "active": True,
                       "kind": "param",
                       "name": "owner",
                       "orig": "owner",
                       "reqd": True,
                       "type": "`$ANY`",
-                      "index$": 1,
                     },
                   ],
                   "query": [
                     {
-                      "active": True,
                       "kind": "query",
                       "name": "data",
                       "orig": "data",
-                      "reqd": False,
                       "type": "`$OBJECT`",
                     },
                   ],
@@ -5270,53 +4323,42 @@ def make_config():
                   "req": "`reqdata`",
                   "res": "`body`",
                 },
-                "index$": 0,
               },
             ],
-            "key$": "create",
           },
           "list": {
             "input": "data",
             "name": "list",
             "points": [
               {
-                "active": True,
                 "args": {
                   "params": [
                     {
-                      "active": True,
                       "kind": "param",
                       "name": "identifier",
                       "orig": "identifier",
                       "reqd": True,
                       "type": "`$ANY`",
-                      "index$": 0,
                     },
                     {
-                      "active": True,
                       "kind": "param",
                       "name": "owner",
                       "orig": "owner",
                       "reqd": True,
                       "type": "`$ANY`",
-                      "index$": 1,
                     },
                   ],
                   "query": [
                     {
-                      "active": True,
                       "kind": "query",
                       "name": "page",
                       "orig": "page",
-                      "reqd": False,
                       "type": "`$INTEGER`",
                     },
                     {
-                      "active": True,
                       "kind": "query",
                       "name": "page_size",
                       "orig": "page_size",
-                      "reqd": False,
                       "type": "`$INTEGER`",
                     },
                   ],
@@ -5343,45 +4385,36 @@ def make_config():
                   "req": "`reqdata`",
                   "res": "`body`",
                 },
-                "index$": 0,
               },
             ],
-            "key$": "list",
           },
           "load": {
             "input": "data",
             "name": "load",
             "points": [
               {
-                "active": True,
                 "args": {
                   "params": [
                     {
-                      "active": True,
                       "kind": "param",
                       "name": "identifier",
                       "orig": "identifier",
                       "reqd": True,
                       "type": "`$ANY`",
-                      "index$": 0,
                     },
                     {
-                      "active": True,
                       "kind": "param",
                       "name": "owner",
                       "orig": "owner",
                       "reqd": True,
                       "type": "`$ANY`",
-                      "index$": 1,
                     },
                     {
-                      "active": True,
                       "kind": "param",
                       "name": "slug_perm",
                       "orig": "slug_perm",
                       "reqd": True,
                       "type": "`$ANY`",
-                      "index$": 2,
                     },
                   ],
                 },
@@ -5407,21 +4440,17 @@ def make_config():
                   "req": "`reqdata`",
                   "res": "`body`",
                 },
-                "index$": 0,
               },
             ],
-            "key$": "load",
           },
           "patch": {
             "input": "data",
             "name": "patch",
             "points": [
               {
-                "active": True,
                 "args": {
                   "params": [
                     {
-                      "active": True,
                       "kind": "param",
                       "name": "identifier",
                       "orig": "identifier",
@@ -5429,7 +4458,6 @@ def make_config():
                       "type": "`$ANY`",
                     },
                     {
-                      "active": True,
                       "kind": "param",
                       "name": "owner",
                       "orig": "owner",
@@ -5437,7 +4465,6 @@ def make_config():
                       "type": "`$ANY`",
                     },
                     {
-                      "active": True,
                       "kind": "param",
                       "name": "slug_perm",
                       "orig": "slug_perm",
@@ -5447,11 +4474,9 @@ def make_config():
                   ],
                   "query": [
                     {
-                      "active": True,
                       "kind": "query",
                       "name": "data",
                       "orig": "data",
-                      "reqd": False,
                       "type": "`$OBJECT`",
                     },
                   ],
@@ -5479,54 +4504,43 @@ def make_config():
                   "req": "`reqdata`",
                   "res": "`body`",
                 },
-                "index$": 0,
               },
             ],
-            "key$": "patch",
           },
           "update": {
             "input": "data",
             "name": "update",
             "points": [
               {
-                "active": True,
                 "args": {
                   "params": [
                     {
-                      "active": True,
                       "kind": "param",
                       "name": "identifier",
                       "orig": "identifier",
                       "reqd": True,
                       "type": "`$ANY`",
-                      "index$": 0,
                     },
                     {
-                      "active": True,
                       "kind": "param",
                       "name": "owner",
                       "orig": "owner",
                       "reqd": True,
                       "type": "`$ANY`",
-                      "index$": 1,
                     },
                     {
-                      "active": True,
                       "kind": "param",
                       "name": "slug_perm",
                       "orig": "slug_perm",
                       "reqd": True,
                       "type": "`$ANY`",
-                      "index$": 2,
                     },
                   ],
                   "query": [
                     {
-                      "active": True,
                       "kind": "query",
                       "name": "data",
                       "orig": "data",
-                      "reqd": False,
                       "type": "`$OBJECT`",
                     },
                   ],
@@ -5554,10 +4568,8 @@ def make_config():
                   "req": "`reqdata`",
                   "res": "`body`",
                 },
-                "index$": 0,
               },
             ],
-            "key$": "update",
           },
         },
         "relations": {
@@ -5602,130 +4614,78 @@ def make_config():
       "helm": {
         "fields": [
           {
-            "active": True,
             "name": "auth_mode",
-            "req": False,
             "type": "`$STRING`",
-            "index$": 0,
           },
           {
-            "active": True,
             "name": "auth_secret",
-            "req": False,
             "type": "`$STRING`",
-            "index$": 1,
           },
           {
-            "active": True,
             "name": "auth_username",
-            "req": False,
             "type": "`$STRING`",
-            "index$": 2,
           },
           {
-            "active": True,
             "name": "created_at",
-            "req": False,
             "type": "`$STRING`",
-            "index$": 3,
           },
           {
-            "active": True,
             "name": "disable_reason",
-            "req": False,
             "type": "`$STRING`",
-            "index$": 4,
           },
           {
-            "active": True,
             "name": "extra_header_1",
-            "req": False,
             "type": "`$STRING`",
-            "index$": 5,
           },
           {
-            "active": True,
             "name": "extra_header_2",
-            "req": False,
             "type": "`$STRING`",
-            "index$": 6,
           },
           {
-            "active": True,
             "name": "extra_value_1",
-            "req": False,
             "type": "`$STRING`",
-            "index$": 7,
           },
           {
-            "active": True,
             "name": "extra_value_2",
-            "req": False,
             "type": "`$STRING`",
-            "index$": 8,
           },
           {
-            "active": True,
             "name": "is_active",
-            "req": False,
             "type": "`$BOOLEAN`",
-            "index$": 9,
           },
           {
-            "active": True,
             "name": "mode",
-            "req": False,
             "type": "`$STRING`",
-            "index$": 10,
           },
           {
-            "active": True,
             "name": "name",
             "req": True,
             "type": "`$STRING`",
-            "index$": 11,
           },
           {
-            "active": True,
             "name": "pending_validation",
-            "req": False,
             "type": "`$BOOLEAN`",
-            "index$": 12,
           },
           {
-            "active": True,
             "name": "priority",
-            "req": False,
             "type": "`$INTEGER`",
-            "index$": 13,
           },
           {
-            "active": True,
             "name": "slug_perm",
-            "req": False,
             "type": "`$STRING`",
-            "index$": 14,
           },
           {
-            "active": True,
             "name": "updated_at",
-            "req": False,
             "type": "`$STRING`",
-            "index$": 15,
           },
           {
-            "active": True,
             "name": "upstream_url",
             "req": True,
             "type": "`$STRING`",
-            "index$": 16,
           },
           {
-            "active": True,
             "name": "verify_ssl",
-            "req": False,
             "type": "`$BOOLEAN`",
-            "index$": 17,
           },
         ],
         "name": "helm",
@@ -5735,35 +4695,28 @@ def make_config():
             "name": "create",
             "points": [
               {
-                "active": True,
                 "args": {
                   "params": [
                     {
-                      "active": True,
                       "kind": "param",
                       "name": "identifier",
                       "orig": "identifier",
                       "reqd": True,
                       "type": "`$ANY`",
-                      "index$": 0,
                     },
                     {
-                      "active": True,
                       "kind": "param",
                       "name": "owner",
                       "orig": "owner",
                       "reqd": True,
                       "type": "`$ANY`",
-                      "index$": 1,
                     },
                   ],
                   "query": [
                     {
-                      "active": True,
                       "kind": "query",
                       "name": "data",
                       "orig": "data",
-                      "reqd": False,
                       "type": "`$OBJECT`",
                     },
                   ],
@@ -5789,53 +4742,42 @@ def make_config():
                   "req": "`reqdata`",
                   "res": "`body`",
                 },
-                "index$": 0,
               },
             ],
-            "key$": "create",
           },
           "list": {
             "input": "data",
             "name": "list",
             "points": [
               {
-                "active": True,
                 "args": {
                   "params": [
                     {
-                      "active": True,
                       "kind": "param",
                       "name": "identifier",
                       "orig": "identifier",
                       "reqd": True,
                       "type": "`$ANY`",
-                      "index$": 0,
                     },
                     {
-                      "active": True,
                       "kind": "param",
                       "name": "owner",
                       "orig": "owner",
                       "reqd": True,
                       "type": "`$ANY`",
-                      "index$": 1,
                     },
                   ],
                   "query": [
                     {
-                      "active": True,
                       "kind": "query",
                       "name": "page",
                       "orig": "page",
-                      "reqd": False,
                       "type": "`$INTEGER`",
                     },
                     {
-                      "active": True,
                       "kind": "query",
                       "name": "page_size",
                       "orig": "page_size",
-                      "reqd": False,
                       "type": "`$INTEGER`",
                     },
                   ],
@@ -5862,45 +4804,36 @@ def make_config():
                   "req": "`reqdata`",
                   "res": "`body`",
                 },
-                "index$": 0,
               },
             ],
-            "key$": "list",
           },
           "load": {
             "input": "data",
             "name": "load",
             "points": [
               {
-                "active": True,
                 "args": {
                   "params": [
                     {
-                      "active": True,
                       "kind": "param",
                       "name": "id",
                       "orig": "slug_perm",
                       "reqd": True,
                       "type": "`$STRING`",
-                      "index$": 0,
                     },
                     {
-                      "active": True,
                       "kind": "param",
                       "name": "identifier",
                       "orig": "identifier",
                       "reqd": True,
                       "type": "`$ANY`",
-                      "index$": 1,
                     },
                     {
-                      "active": True,
                       "kind": "param",
                       "name": "owner",
                       "orig": "owner",
                       "reqd": True,
                       "type": "`$ANY`",
-                      "index$": 2,
                     },
                   ],
                 },
@@ -5931,21 +4864,17 @@ def make_config():
                   "req": "`reqdata`",
                   "res": "`body`",
                 },
-                "index$": 0,
               },
             ],
-            "key$": "load",
           },
           "patch": {
             "input": "data",
             "name": "patch",
             "points": [
               {
-                "active": True,
                 "args": {
                   "params": [
                     {
-                      "active": True,
                       "kind": "param",
                       "name": "id",
                       "orig": "slug_perm",
@@ -5953,7 +4882,6 @@ def make_config():
                       "type": "`$STRING`",
                     },
                     {
-                      "active": True,
                       "kind": "param",
                       "name": "identifier",
                       "orig": "identifier",
@@ -5961,7 +4889,6 @@ def make_config():
                       "type": "`$ANY`",
                     },
                     {
-                      "active": True,
                       "kind": "param",
                       "name": "owner",
                       "orig": "owner",
@@ -5971,11 +4898,9 @@ def make_config():
                   ],
                   "query": [
                     {
-                      "active": True,
                       "kind": "query",
                       "name": "data",
                       "orig": "data",
-                      "reqd": False,
                       "type": "`$OBJECT`",
                     },
                   ],
@@ -6008,54 +4933,43 @@ def make_config():
                   "req": "`reqdata`",
                   "res": "`body`",
                 },
-                "index$": 0,
               },
             ],
-            "key$": "patch",
           },
           "update": {
             "input": "data",
             "name": "update",
             "points": [
               {
-                "active": True,
                 "args": {
                   "params": [
                     {
-                      "active": True,
                       "kind": "param",
                       "name": "id",
                       "orig": "slug_perm",
                       "reqd": True,
                       "type": "`$STRING`",
-                      "index$": 0,
                     },
                     {
-                      "active": True,
                       "kind": "param",
                       "name": "identifier",
                       "orig": "identifier",
                       "reqd": True,
                       "type": "`$ANY`",
-                      "index$": 1,
                     },
                     {
-                      "active": True,
                       "kind": "param",
                       "name": "owner",
                       "orig": "owner",
                       "reqd": True,
                       "type": "`$ANY`",
-                      "index$": 2,
                     },
                   ],
                   "query": [
                     {
-                      "active": True,
                       "kind": "query",
                       "name": "data",
                       "orig": "data",
-                      "reqd": False,
                       "type": "`$OBJECT`",
                     },
                   ],
@@ -6088,10 +5002,8 @@ def make_config():
                   "req": "`reqdata`",
                   "res": "`body`",
                 },
-                "index$": 0,
               },
             ],
-            "key$": "update",
           },
         },
         "relations": {
@@ -6108,130 +5020,78 @@ def make_config():
       "hex": {
         "fields": [
           {
-            "active": True,
             "name": "auth_mode",
-            "req": False,
             "type": "`$STRING`",
-            "index$": 0,
           },
           {
-            "active": True,
             "name": "auth_secret",
-            "req": False,
             "type": "`$STRING`",
-            "index$": 1,
           },
           {
-            "active": True,
             "name": "auth_username",
-            "req": False,
             "type": "`$STRING`",
-            "index$": 2,
           },
           {
-            "active": True,
             "name": "created_at",
-            "req": False,
             "type": "`$STRING`",
-            "index$": 3,
           },
           {
-            "active": True,
             "name": "disable_reason",
-            "req": False,
             "type": "`$STRING`",
-            "index$": 4,
           },
           {
-            "active": True,
             "name": "extra_header_1",
-            "req": False,
             "type": "`$STRING`",
-            "index$": 5,
           },
           {
-            "active": True,
             "name": "extra_header_2",
-            "req": False,
             "type": "`$STRING`",
-            "index$": 6,
           },
           {
-            "active": True,
             "name": "extra_value_1",
-            "req": False,
             "type": "`$STRING`",
-            "index$": 7,
           },
           {
-            "active": True,
             "name": "extra_value_2",
-            "req": False,
             "type": "`$STRING`",
-            "index$": 8,
           },
           {
-            "active": True,
             "name": "is_active",
-            "req": False,
             "type": "`$BOOLEAN`",
-            "index$": 9,
           },
           {
-            "active": True,
             "name": "mode",
-            "req": False,
             "type": "`$STRING`",
-            "index$": 10,
           },
           {
-            "active": True,
             "name": "name",
             "req": True,
             "type": "`$STRING`",
-            "index$": 11,
           },
           {
-            "active": True,
             "name": "pending_validation",
-            "req": False,
             "type": "`$BOOLEAN`",
-            "index$": 12,
           },
           {
-            "active": True,
             "name": "priority",
-            "req": False,
             "type": "`$INTEGER`",
-            "index$": 13,
           },
           {
-            "active": True,
             "name": "slug_perm",
-            "req": False,
             "type": "`$STRING`",
-            "index$": 14,
           },
           {
-            "active": True,
             "name": "updated_at",
-            "req": False,
             "type": "`$STRING`",
-            "index$": 15,
           },
           {
-            "active": True,
             "name": "upstream_url",
             "req": True,
             "type": "`$STRING`",
-            "index$": 16,
           },
           {
-            "active": True,
             "name": "verify_ssl",
-            "req": False,
             "type": "`$BOOLEAN`",
-            "index$": 17,
           },
         ],
         "name": "hex",
@@ -6241,35 +5101,28 @@ def make_config():
             "name": "create",
             "points": [
               {
-                "active": True,
                 "args": {
                   "params": [
                     {
-                      "active": True,
                       "kind": "param",
                       "name": "identifier",
                       "orig": "identifier",
                       "reqd": True,
                       "type": "`$ANY`",
-                      "index$": 0,
                     },
                     {
-                      "active": True,
                       "kind": "param",
                       "name": "owner",
                       "orig": "owner",
                       "reqd": True,
                       "type": "`$ANY`",
-                      "index$": 1,
                     },
                   ],
                   "query": [
                     {
-                      "active": True,
                       "kind": "query",
                       "name": "data",
                       "orig": "data",
-                      "reqd": False,
                       "type": "`$OBJECT`",
                     },
                   ],
@@ -6295,53 +5148,42 @@ def make_config():
                   "req": "`reqdata`",
                   "res": "`body`",
                 },
-                "index$": 0,
               },
             ],
-            "key$": "create",
           },
           "list": {
             "input": "data",
             "name": "list",
             "points": [
               {
-                "active": True,
                 "args": {
                   "params": [
                     {
-                      "active": True,
                       "kind": "param",
                       "name": "identifier",
                       "orig": "identifier",
                       "reqd": True,
                       "type": "`$ANY`",
-                      "index$": 0,
                     },
                     {
-                      "active": True,
                       "kind": "param",
                       "name": "owner",
                       "orig": "owner",
                       "reqd": True,
                       "type": "`$ANY`",
-                      "index$": 1,
                     },
                   ],
                   "query": [
                     {
-                      "active": True,
                       "kind": "query",
                       "name": "page",
                       "orig": "page",
-                      "reqd": False,
                       "type": "`$INTEGER`",
                     },
                     {
-                      "active": True,
                       "kind": "query",
                       "name": "page_size",
                       "orig": "page_size",
-                      "reqd": False,
                       "type": "`$INTEGER`",
                     },
                   ],
@@ -6368,45 +5210,36 @@ def make_config():
                   "req": "`reqdata`",
                   "res": "`body`",
                 },
-                "index$": 0,
               },
             ],
-            "key$": "list",
           },
           "load": {
             "input": "data",
             "name": "load",
             "points": [
               {
-                "active": True,
                 "args": {
                   "params": [
                     {
-                      "active": True,
                       "kind": "param",
                       "name": "id",
                       "orig": "slug_perm",
                       "reqd": True,
                       "type": "`$STRING`",
-                      "index$": 0,
                     },
                     {
-                      "active": True,
                       "kind": "param",
                       "name": "identifier",
                       "orig": "identifier",
                       "reqd": True,
                       "type": "`$ANY`",
-                      "index$": 1,
                     },
                     {
-                      "active": True,
                       "kind": "param",
                       "name": "owner",
                       "orig": "owner",
                       "reqd": True,
                       "type": "`$ANY`",
-                      "index$": 2,
                     },
                   ],
                 },
@@ -6437,21 +5270,17 @@ def make_config():
                   "req": "`reqdata`",
                   "res": "`body`",
                 },
-                "index$": 0,
               },
             ],
-            "key$": "load",
           },
           "patch": {
             "input": "data",
             "name": "patch",
             "points": [
               {
-                "active": True,
                 "args": {
                   "params": [
                     {
-                      "active": True,
                       "kind": "param",
                       "name": "id",
                       "orig": "slug_perm",
@@ -6459,7 +5288,6 @@ def make_config():
                       "type": "`$STRING`",
                     },
                     {
-                      "active": True,
                       "kind": "param",
                       "name": "identifier",
                       "orig": "identifier",
@@ -6467,7 +5295,6 @@ def make_config():
                       "type": "`$ANY`",
                     },
                     {
-                      "active": True,
                       "kind": "param",
                       "name": "owner",
                       "orig": "owner",
@@ -6477,11 +5304,9 @@ def make_config():
                   ],
                   "query": [
                     {
-                      "active": True,
                       "kind": "query",
                       "name": "data",
                       "orig": "data",
-                      "reqd": False,
                       "type": "`$OBJECT`",
                     },
                   ],
@@ -6514,54 +5339,43 @@ def make_config():
                   "req": "`reqdata`",
                   "res": "`body`",
                 },
-                "index$": 0,
               },
             ],
-            "key$": "patch",
           },
           "update": {
             "input": "data",
             "name": "update",
             "points": [
               {
-                "active": True,
                 "args": {
                   "params": [
                     {
-                      "active": True,
                       "kind": "param",
                       "name": "id",
                       "orig": "slug_perm",
                       "reqd": True,
                       "type": "`$STRING`",
-                      "index$": 0,
                     },
                     {
-                      "active": True,
                       "kind": "param",
                       "name": "identifier",
                       "orig": "identifier",
                       "reqd": True,
                       "type": "`$ANY`",
-                      "index$": 1,
                     },
                     {
-                      "active": True,
                       "kind": "param",
                       "name": "owner",
                       "orig": "owner",
                       "reqd": True,
                       "type": "`$ANY`",
-                      "index$": 2,
                     },
                   ],
                   "query": [
                     {
-                      "active": True,
                       "kind": "query",
                       "name": "data",
                       "orig": "data",
-                      "reqd": False,
                       "type": "`$OBJECT`",
                     },
                   ],
@@ -6594,10 +5408,8 @@ def make_config():
                   "req": "`reqdata`",
                   "res": "`body`",
                 },
-                "index$": 0,
               },
             ],
-            "key$": "update",
           },
         },
         "relations": {
@@ -6622,130 +5434,78 @@ def make_config():
       "huggingface": {
         "fields": [
           {
-            "active": True,
             "name": "auth_mode",
-            "req": False,
             "type": "`$STRING`",
-            "index$": 0,
           },
           {
-            "active": True,
             "name": "auth_secret",
-            "req": False,
             "type": "`$STRING`",
-            "index$": 1,
           },
           {
-            "active": True,
             "name": "auth_username",
-            "req": False,
             "type": "`$STRING`",
-            "index$": 2,
           },
           {
-            "active": True,
             "name": "created_at",
-            "req": False,
             "type": "`$STRING`",
-            "index$": 3,
           },
           {
-            "active": True,
             "name": "disable_reason",
-            "req": False,
             "type": "`$STRING`",
-            "index$": 4,
           },
           {
-            "active": True,
             "name": "extra_header_1",
-            "req": False,
             "type": "`$STRING`",
-            "index$": 5,
           },
           {
-            "active": True,
             "name": "extra_header_2",
-            "req": False,
             "type": "`$STRING`",
-            "index$": 6,
           },
           {
-            "active": True,
             "name": "extra_value_1",
-            "req": False,
             "type": "`$STRING`",
-            "index$": 7,
           },
           {
-            "active": True,
             "name": "extra_value_2",
-            "req": False,
             "type": "`$STRING`",
-            "index$": 8,
           },
           {
-            "active": True,
             "name": "is_active",
-            "req": False,
             "type": "`$BOOLEAN`",
-            "index$": 9,
           },
           {
-            "active": True,
             "name": "mode",
-            "req": False,
             "type": "`$STRING`",
-            "index$": 10,
           },
           {
-            "active": True,
             "name": "name",
             "req": True,
             "type": "`$STRING`",
-            "index$": 11,
           },
           {
-            "active": True,
             "name": "pending_validation",
-            "req": False,
             "type": "`$BOOLEAN`",
-            "index$": 12,
           },
           {
-            "active": True,
             "name": "priority",
-            "req": False,
             "type": "`$INTEGER`",
-            "index$": 13,
           },
           {
-            "active": True,
             "name": "slug_perm",
-            "req": False,
             "type": "`$STRING`",
-            "index$": 14,
           },
           {
-            "active": True,
             "name": "updated_at",
-            "req": False,
             "type": "`$STRING`",
-            "index$": 15,
           },
           {
-            "active": True,
             "name": "upstream_url",
             "req": True,
             "type": "`$STRING`",
-            "index$": 16,
           },
           {
-            "active": True,
             "name": "verify_ssl",
-            "req": False,
             "type": "`$BOOLEAN`",
-            "index$": 17,
           },
         ],
         "name": "huggingface",
@@ -6755,35 +5515,28 @@ def make_config():
             "name": "create",
             "points": [
               {
-                "active": True,
                 "args": {
                   "params": [
                     {
-                      "active": True,
                       "kind": "param",
                       "name": "identifier",
                       "orig": "identifier",
                       "reqd": True,
                       "type": "`$ANY`",
-                      "index$": 0,
                     },
                     {
-                      "active": True,
                       "kind": "param",
                       "name": "owner",
                       "orig": "owner",
                       "reqd": True,
                       "type": "`$ANY`",
-                      "index$": 1,
                     },
                   ],
                   "query": [
                     {
-                      "active": True,
                       "kind": "query",
                       "name": "data",
                       "orig": "data",
-                      "reqd": False,
                       "type": "`$OBJECT`",
                     },
                   ],
@@ -6809,53 +5562,42 @@ def make_config():
                   "req": "`reqdata`",
                   "res": "`body`",
                 },
-                "index$": 0,
               },
             ],
-            "key$": "create",
           },
           "list": {
             "input": "data",
             "name": "list",
             "points": [
               {
-                "active": True,
                 "args": {
                   "params": [
                     {
-                      "active": True,
                       "kind": "param",
                       "name": "identifier",
                       "orig": "identifier",
                       "reqd": True,
                       "type": "`$ANY`",
-                      "index$": 0,
                     },
                     {
-                      "active": True,
                       "kind": "param",
                       "name": "owner",
                       "orig": "owner",
                       "reqd": True,
                       "type": "`$ANY`",
-                      "index$": 1,
                     },
                   ],
                   "query": [
                     {
-                      "active": True,
                       "kind": "query",
                       "name": "page",
                       "orig": "page",
-                      "reqd": False,
                       "type": "`$INTEGER`",
                     },
                     {
-                      "active": True,
                       "kind": "query",
                       "name": "page_size",
                       "orig": "page_size",
-                      "reqd": False,
                       "type": "`$INTEGER`",
                     },
                   ],
@@ -6882,45 +5624,36 @@ def make_config():
                   "req": "`reqdata`",
                   "res": "`body`",
                 },
-                "index$": 0,
               },
             ],
-            "key$": "list",
           },
           "load": {
             "input": "data",
             "name": "load",
             "points": [
               {
-                "active": True,
                 "args": {
                   "params": [
                     {
-                      "active": True,
                       "kind": "param",
                       "name": "id",
                       "orig": "slug_perm",
                       "reqd": True,
                       "type": "`$STRING`",
-                      "index$": 0,
                     },
                     {
-                      "active": True,
                       "kind": "param",
                       "name": "identifier",
                       "orig": "identifier",
                       "reqd": True,
                       "type": "`$ANY`",
-                      "index$": 1,
                     },
                     {
-                      "active": True,
                       "kind": "param",
                       "name": "owner",
                       "orig": "owner",
                       "reqd": True,
                       "type": "`$ANY`",
-                      "index$": 2,
                     },
                   ],
                 },
@@ -6951,21 +5684,17 @@ def make_config():
                   "req": "`reqdata`",
                   "res": "`body`",
                 },
-                "index$": 0,
               },
             ],
-            "key$": "load",
           },
           "patch": {
             "input": "data",
             "name": "patch",
             "points": [
               {
-                "active": True,
                 "args": {
                   "params": [
                     {
-                      "active": True,
                       "kind": "param",
                       "name": "id",
                       "orig": "slug_perm",
@@ -6973,7 +5702,6 @@ def make_config():
                       "type": "`$STRING`",
                     },
                     {
-                      "active": True,
                       "kind": "param",
                       "name": "identifier",
                       "orig": "identifier",
@@ -6981,7 +5709,6 @@ def make_config():
                       "type": "`$ANY`",
                     },
                     {
-                      "active": True,
                       "kind": "param",
                       "name": "owner",
                       "orig": "owner",
@@ -6991,11 +5718,9 @@ def make_config():
                   ],
                   "query": [
                     {
-                      "active": True,
                       "kind": "query",
                       "name": "data",
                       "orig": "data",
-                      "reqd": False,
                       "type": "`$OBJECT`",
                     },
                   ],
@@ -7028,54 +5753,43 @@ def make_config():
                   "req": "`reqdata`",
                   "res": "`body`",
                 },
-                "index$": 0,
               },
             ],
-            "key$": "patch",
           },
           "update": {
             "input": "data",
             "name": "update",
             "points": [
               {
-                "active": True,
                 "args": {
                   "params": [
                     {
-                      "active": True,
                       "kind": "param",
                       "name": "id",
                       "orig": "slug_perm",
                       "reqd": True,
                       "type": "`$STRING`",
-                      "index$": 0,
                     },
                     {
-                      "active": True,
                       "kind": "param",
                       "name": "identifier",
                       "orig": "identifier",
                       "reqd": True,
                       "type": "`$ANY`",
-                      "index$": 1,
                     },
                     {
-                      "active": True,
                       "kind": "param",
                       "name": "owner",
                       "orig": "owner",
                       "reqd": True,
                       "type": "`$ANY`",
-                      "index$": 2,
                     },
                   ],
                   "query": [
                     {
-                      "active": True,
                       "kind": "query",
                       "name": "data",
                       "orig": "data",
-                      "reqd": False,
                       "type": "`$OBJECT`",
                     },
                   ],
@@ -7108,10 +5822,8 @@ def make_config():
                   "req": "`reqdata`",
                   "res": "`body`",
                 },
-                "index$": 0,
               },
             ],
-            "key$": "update",
           },
         },
         "relations": {
@@ -7192,158 +5904,94 @@ def make_config():
       "maven": {
         "fields": [
           {
-            "active": True,
             "name": "auth_mode",
-            "req": False,
             "type": "`$STRING`",
-            "index$": 0,
           },
           {
-            "active": True,
             "name": "auth_secret",
-            "req": False,
             "type": "`$STRING`",
-            "index$": 1,
           },
           {
-            "active": True,
             "name": "auth_username",
-            "req": False,
             "type": "`$STRING`",
-            "index$": 2,
           },
           {
-            "active": True,
             "name": "created_at",
-            "req": False,
             "type": "`$STRING`",
-            "index$": 3,
           },
           {
-            "active": True,
             "name": "disable_reason",
-            "req": False,
             "type": "`$STRING`",
-            "index$": 4,
           },
           {
-            "active": True,
             "name": "extra_header_1",
-            "req": False,
             "type": "`$STRING`",
-            "index$": 5,
           },
           {
-            "active": True,
             "name": "extra_header_2",
-            "req": False,
             "type": "`$STRING`",
-            "index$": 6,
           },
           {
-            "active": True,
             "name": "extra_value_1",
-            "req": False,
             "type": "`$STRING`",
-            "index$": 7,
           },
           {
-            "active": True,
             "name": "extra_value_2",
-            "req": False,
             "type": "`$STRING`",
-            "index$": 8,
           },
           {
-            "active": True,
             "name": "gpg_key_inline",
-            "req": False,
             "type": "`$STRING`",
-            "index$": 9,
           },
           {
-            "active": True,
             "name": "gpg_key_url",
-            "req": False,
             "type": "`$STRING`",
-            "index$": 10,
           },
           {
-            "active": True,
             "name": "gpg_verification",
-            "req": False,
             "type": "`$STRING`",
-            "index$": 11,
           },
           {
-            "active": True,
             "name": "is_active",
-            "req": False,
             "type": "`$BOOLEAN`",
-            "index$": 12,
           },
           {
-            "active": True,
             "name": "mode",
-            "req": False,
             "type": "`$STRING`",
-            "index$": 13,
           },
           {
-            "active": True,
             "name": "name",
             "req": True,
             "type": "`$STRING`",
-            "index$": 14,
           },
           {
-            "active": True,
             "name": "pending_validation",
-            "req": False,
             "type": "`$BOOLEAN`",
-            "index$": 15,
           },
           {
-            "active": True,
             "name": "priority",
-            "req": False,
             "type": "`$INTEGER`",
-            "index$": 16,
           },
           {
-            "active": True,
             "name": "slug_perm",
-            "req": False,
             "type": "`$STRING`",
-            "index$": 17,
           },
           {
-            "active": True,
             "name": "updated_at",
-            "req": False,
             "type": "`$STRING`",
-            "index$": 18,
           },
           {
-            "active": True,
             "name": "upstream_url",
             "req": True,
             "type": "`$STRING`",
-            "index$": 19,
           },
           {
-            "active": True,
             "name": "verification_status",
-            "req": False,
             "type": "`$STRING`",
-            "index$": 20,
           },
           {
-            "active": True,
             "name": "verify_ssl",
-            "req": False,
             "type": "`$BOOLEAN`",
-            "index$": 21,
           },
         ],
         "name": "maven",
@@ -7353,35 +6001,28 @@ def make_config():
             "name": "create",
             "points": [
               {
-                "active": True,
                 "args": {
                   "params": [
                     {
-                      "active": True,
                       "kind": "param",
                       "name": "identifier",
                       "orig": "identifier",
                       "reqd": True,
                       "type": "`$ANY`",
-                      "index$": 0,
                     },
                     {
-                      "active": True,
                       "kind": "param",
                       "name": "owner",
                       "orig": "owner",
                       "reqd": True,
                       "type": "`$ANY`",
-                      "index$": 1,
                     },
                   ],
                   "query": [
                     {
-                      "active": True,
                       "kind": "query",
                       "name": "data",
                       "orig": "data",
-                      "reqd": False,
                       "type": "`$OBJECT`",
                     },
                   ],
@@ -7407,53 +6048,42 @@ def make_config():
                   "req": "`reqdata`",
                   "res": "`body`",
                 },
-                "index$": 0,
               },
             ],
-            "key$": "create",
           },
           "list": {
             "input": "data",
             "name": "list",
             "points": [
               {
-                "active": True,
                 "args": {
                   "params": [
                     {
-                      "active": True,
                       "kind": "param",
                       "name": "identifier",
                       "orig": "identifier",
                       "reqd": True,
                       "type": "`$ANY`",
-                      "index$": 0,
                     },
                     {
-                      "active": True,
                       "kind": "param",
                       "name": "owner",
                       "orig": "owner",
                       "reqd": True,
                       "type": "`$ANY`",
-                      "index$": 1,
                     },
                   ],
                   "query": [
                     {
-                      "active": True,
                       "kind": "query",
                       "name": "page",
                       "orig": "page",
-                      "reqd": False,
                       "type": "`$INTEGER`",
                     },
                     {
-                      "active": True,
                       "kind": "query",
                       "name": "page_size",
                       "orig": "page_size",
-                      "reqd": False,
                       "type": "`$INTEGER`",
                     },
                   ],
@@ -7480,45 +6110,36 @@ def make_config():
                   "req": "`reqdata`",
                   "res": "`body`",
                 },
-                "index$": 0,
               },
             ],
-            "key$": "list",
           },
           "load": {
             "input": "data",
             "name": "load",
             "points": [
               {
-                "active": True,
                 "args": {
                   "params": [
                     {
-                      "active": True,
                       "kind": "param",
                       "name": "id",
                       "orig": "slug_perm",
                       "reqd": True,
                       "type": "`$STRING`",
-                      "index$": 0,
                     },
                     {
-                      "active": True,
                       "kind": "param",
                       "name": "identifier",
                       "orig": "identifier",
                       "reqd": True,
                       "type": "`$ANY`",
-                      "index$": 1,
                     },
                     {
-                      "active": True,
                       "kind": "param",
                       "name": "owner",
                       "orig": "owner",
                       "reqd": True,
                       "type": "`$ANY`",
-                      "index$": 2,
                     },
                   ],
                 },
@@ -7549,21 +6170,17 @@ def make_config():
                   "req": "`reqdata`",
                   "res": "`body`",
                 },
-                "index$": 0,
               },
             ],
-            "key$": "load",
           },
           "patch": {
             "input": "data",
             "name": "patch",
             "points": [
               {
-                "active": True,
                 "args": {
                   "params": [
                     {
-                      "active": True,
                       "kind": "param",
                       "name": "id",
                       "orig": "slug_perm",
@@ -7571,7 +6188,6 @@ def make_config():
                       "type": "`$STRING`",
                     },
                     {
-                      "active": True,
                       "kind": "param",
                       "name": "identifier",
                       "orig": "identifier",
@@ -7579,7 +6195,6 @@ def make_config():
                       "type": "`$ANY`",
                     },
                     {
-                      "active": True,
                       "kind": "param",
                       "name": "owner",
                       "orig": "owner",
@@ -7589,11 +6204,9 @@ def make_config():
                   ],
                   "query": [
                     {
-                      "active": True,
                       "kind": "query",
                       "name": "data",
                       "orig": "data",
-                      "reqd": False,
                       "type": "`$OBJECT`",
                     },
                   ],
@@ -7626,54 +6239,43 @@ def make_config():
                   "req": "`reqdata`",
                   "res": "`body`",
                 },
-                "index$": 0,
               },
             ],
-            "key$": "patch",
           },
           "update": {
             "input": "data",
             "name": "update",
             "points": [
               {
-                "active": True,
                 "args": {
                   "params": [
                     {
-                      "active": True,
                       "kind": "param",
                       "name": "id",
                       "orig": "slug_perm",
                       "reqd": True,
                       "type": "`$STRING`",
-                      "index$": 0,
                     },
                     {
-                      "active": True,
                       "kind": "param",
                       "name": "identifier",
                       "orig": "identifier",
                       "reqd": True,
                       "type": "`$ANY`",
-                      "index$": 1,
                     },
                     {
-                      "active": True,
                       "kind": "param",
                       "name": "owner",
                       "orig": "owner",
                       "reqd": True,
                       "type": "`$ANY`",
-                      "index$": 2,
                     },
                   ],
                   "query": [
                     {
-                      "active": True,
                       "kind": "query",
                       "name": "data",
                       "orig": "data",
-                      "reqd": False,
                       "type": "`$OBJECT`",
                     },
                   ],
@@ -7706,10 +6308,8 @@ def make_config():
                   "req": "`reqdata`",
                   "res": "`body`",
                 },
-                "index$": 0,
               },
             ],
-            "key$": "update",
           },
         },
         "relations": {
@@ -7750,32 +6350,20 @@ def make_config():
       "namespace": {
         "fields": [
           {
-            "active": True,
             "name": "name",
-            "req": False,
             "type": "`$STRING`",
-            "index$": 0,
           },
           {
-            "active": True,
             "name": "slug",
-            "req": False,
             "type": "`$STRING`",
-            "index$": 1,
           },
           {
-            "active": True,
             "name": "slug_perm",
-            "req": False,
             "type": "`$STRING`",
-            "index$": 2,
           },
           {
-            "active": True,
             "name": "type_name",
-            "req": False,
             "type": "`$STRING`",
-            "index$": 3,
           },
         ],
         "name": "namespace",
@@ -7785,23 +6373,18 @@ def make_config():
             "name": "list",
             "points": [
               {
-                "active": True,
                 "args": {
                   "query": [
                     {
-                      "active": True,
                       "kind": "query",
                       "name": "page",
                       "orig": "page",
-                      "reqd": False,
                       "type": "`$INTEGER`",
                     },
                     {
-                      "active": True,
                       "kind": "query",
                       "name": "page_size",
                       "orig": "page_size",
-                      "reqd": False,
                       "type": "`$INTEGER`",
                     },
                   ],
@@ -7822,27 +6405,22 @@ def make_config():
                   "req": "`reqdata`",
                   "res": "`body`",
                 },
-                "index$": 0,
               },
             ],
-            "key$": "list",
           },
           "load": {
             "input": "data",
             "name": "load",
             "points": [
               {
-                "active": True,
                 "args": {
                   "params": [
                     {
-                      "active": True,
                       "kind": "param",
                       "name": "id",
                       "orig": "slug",
                       "reqd": True,
                       "type": "`$STRING`",
-                      "index$": 0,
                     },
                   ],
                 },
@@ -7867,10 +6445,8 @@ def make_config():
                   "req": "`reqdata`",
                   "res": "`body`",
                 },
-                "index$": 0,
               },
             ],
-            "key$": "load",
           },
         },
         "relations": {
@@ -7880,116 +6456,80 @@ def make_config():
       "namespace_audit_log": {
         "fields": [
           {
-            "active": True,
             "name": "actor",
             "req": True,
             "type": "`$STRING`",
-            "index$": 0,
           },
           {
-            "active": True,
             "name": "actor_ip_address",
             "req": True,
             "type": "`$STRING`",
-            "index$": 1,
           },
           {
-            "active": True,
             "name": "actor_kind",
-            "req": False,
             "type": "`$STRING`",
-            "index$": 2,
           },
           {
-            "active": True,
             "name": "actor_location",
             "req": True,
             "type": "`$OBJECT`",
-            "index$": 3,
           },
           {
-            "active": True,
             "name": "actor_slug_perm",
             "req": True,
             "type": "`$STRING`",
-            "index$": 4,
           },
           {
-            "active": True,
             "name": "actor_url",
-            "req": False,
             "type": "`$STRING`",
-            "index$": 5,
           },
           {
-            "active": True,
             "name": "context",
             "req": True,
             "type": "`$STRING`",
-            "index$": 6,
           },
           {
-            "active": True,
             "name": "event",
             "req": True,
             "type": "`$STRING`",
-            "index$": 7,
           },
           {
-            "active": True,
             "name": "event_at",
             "req": True,
             "type": "`$STRING`",
-            "index$": 8,
           },
           {
-            "active": True,
             "name": "object",
             "req": True,
             "type": "`$STRING`",
-            "index$": 9,
           },
           {
-            "active": True,
             "name": "object_kind",
             "req": True,
             "type": "`$STRING`",
-            "index$": 10,
           },
           {
-            "active": True,
             "name": "object_slug_perm",
             "req": True,
             "type": "`$STRING`",
-            "index$": 11,
           },
           {
-            "active": True,
             "name": "target",
             "req": True,
             "type": "`$STRING`",
-            "index$": 12,
           },
           {
-            "active": True,
             "name": "target_kind",
             "req": True,
             "type": "`$STRING`",
-            "index$": 13,
           },
           {
-            "active": True,
             "name": "target_slug_perm",
-            "req": False,
             "type": "`$STRING`",
-            "index$": 14,
           },
           {
-            "active": True,
             "name": "uuid",
-            "req": False,
             "type": "`$STRING`",
-            "index$": 15,
           },
         ],
         "name": "namespace_audit_log",
@@ -7999,42 +6539,33 @@ def make_config():
             "name": "load",
             "points": [
               {
-                "active": True,
                 "args": {
                   "params": [
                     {
-                      "active": True,
                       "kind": "param",
                       "name": "id",
                       "orig": "owner",
                       "reqd": True,
                       "type": "`$STRING`",
-                      "index$": 0,
                     },
                   ],
                   "query": [
                     {
-                      "active": True,
                       "kind": "query",
                       "name": "page",
                       "orig": "page",
-                      "reqd": False,
                       "type": "`$INTEGER`",
                     },
                     {
-                      "active": True,
                       "kind": "query",
                       "name": "page_size",
                       "orig": "page_size",
-                      "reqd": False,
                       "type": "`$INTEGER`",
                     },
                     {
-                      "active": True,
                       "kind": "query",
                       "name": "query",
                       "orig": "query",
-                      "reqd": False,
                       "type": "`$ANY`",
                     },
                   ],
@@ -8063,10 +6594,8 @@ def make_config():
                   "req": "`reqdata`",
                   "res": "`body`",
                 },
-                "index$": 0,
               },
             ],
-            "key$": "load",
           },
         },
         "relations": {
@@ -8076,130 +6605,78 @@ def make_config():
       "npm": {
         "fields": [
           {
-            "active": True,
             "name": "auth_mode",
-            "req": False,
             "type": "`$STRING`",
-            "index$": 0,
           },
           {
-            "active": True,
             "name": "auth_secret",
-            "req": False,
             "type": "`$STRING`",
-            "index$": 1,
           },
           {
-            "active": True,
             "name": "auth_username",
-            "req": False,
             "type": "`$STRING`",
-            "index$": 2,
           },
           {
-            "active": True,
             "name": "created_at",
-            "req": False,
             "type": "`$STRING`",
-            "index$": 3,
           },
           {
-            "active": True,
             "name": "disable_reason",
-            "req": False,
             "type": "`$STRING`",
-            "index$": 4,
           },
           {
-            "active": True,
             "name": "extra_header_1",
-            "req": False,
             "type": "`$STRING`",
-            "index$": 5,
           },
           {
-            "active": True,
             "name": "extra_header_2",
-            "req": False,
             "type": "`$STRING`",
-            "index$": 6,
           },
           {
-            "active": True,
             "name": "extra_value_1",
-            "req": False,
             "type": "`$STRING`",
-            "index$": 7,
           },
           {
-            "active": True,
             "name": "extra_value_2",
-            "req": False,
             "type": "`$STRING`",
-            "index$": 8,
           },
           {
-            "active": True,
             "name": "is_active",
-            "req": False,
             "type": "`$BOOLEAN`",
-            "index$": 9,
           },
           {
-            "active": True,
             "name": "mode",
-            "req": False,
             "type": "`$STRING`",
-            "index$": 10,
           },
           {
-            "active": True,
             "name": "name",
             "req": True,
             "type": "`$STRING`",
-            "index$": 11,
           },
           {
-            "active": True,
             "name": "pending_validation",
-            "req": False,
             "type": "`$BOOLEAN`",
-            "index$": 12,
           },
           {
-            "active": True,
             "name": "priority",
-            "req": False,
             "type": "`$INTEGER`",
-            "index$": 13,
           },
           {
-            "active": True,
             "name": "slug_perm",
-            "req": False,
             "type": "`$STRING`",
-            "index$": 14,
           },
           {
-            "active": True,
             "name": "updated_at",
-            "req": False,
             "type": "`$STRING`",
-            "index$": 15,
           },
           {
-            "active": True,
             "name": "upstream_url",
             "req": True,
             "type": "`$STRING`",
-            "index$": 16,
           },
           {
-            "active": True,
             "name": "verify_ssl",
-            "req": False,
             "type": "`$BOOLEAN`",
-            "index$": 17,
           },
         ],
         "name": "npm",
@@ -8209,35 +6686,28 @@ def make_config():
             "name": "create",
             "points": [
               {
-                "active": True,
                 "args": {
                   "params": [
                     {
-                      "active": True,
                       "kind": "param",
                       "name": "identifier",
                       "orig": "identifier",
                       "reqd": True,
                       "type": "`$ANY`",
-                      "index$": 0,
                     },
                     {
-                      "active": True,
                       "kind": "param",
                       "name": "owner",
                       "orig": "owner",
                       "reqd": True,
                       "type": "`$ANY`",
-                      "index$": 1,
                     },
                   ],
                   "query": [
                     {
-                      "active": True,
                       "kind": "query",
                       "name": "data",
                       "orig": "data",
-                      "reqd": False,
                       "type": "`$OBJECT`",
                     },
                   ],
@@ -8263,53 +6733,42 @@ def make_config():
                   "req": "`reqdata`",
                   "res": "`body`",
                 },
-                "index$": 0,
               },
             ],
-            "key$": "create",
           },
           "list": {
             "input": "data",
             "name": "list",
             "points": [
               {
-                "active": True,
                 "args": {
                   "params": [
                     {
-                      "active": True,
                       "kind": "param",
                       "name": "identifier",
                       "orig": "identifier",
                       "reqd": True,
                       "type": "`$ANY`",
-                      "index$": 0,
                     },
                     {
-                      "active": True,
                       "kind": "param",
                       "name": "owner",
                       "orig": "owner",
                       "reqd": True,
                       "type": "`$ANY`",
-                      "index$": 1,
                     },
                   ],
                   "query": [
                     {
-                      "active": True,
                       "kind": "query",
                       "name": "page",
                       "orig": "page",
-                      "reqd": False,
                       "type": "`$INTEGER`",
                     },
                     {
-                      "active": True,
                       "kind": "query",
                       "name": "page_size",
                       "orig": "page_size",
-                      "reqd": False,
                       "type": "`$INTEGER`",
                     },
                   ],
@@ -8336,45 +6795,36 @@ def make_config():
                   "req": "`reqdata`",
                   "res": "`body`",
                 },
-                "index$": 0,
               },
             ],
-            "key$": "list",
           },
           "load": {
             "input": "data",
             "name": "load",
             "points": [
               {
-                "active": True,
                 "args": {
                   "params": [
                     {
-                      "active": True,
                       "kind": "param",
                       "name": "id",
                       "orig": "slug_perm",
                       "reqd": True,
                       "type": "`$STRING`",
-                      "index$": 0,
                     },
                     {
-                      "active": True,
                       "kind": "param",
                       "name": "identifier",
                       "orig": "identifier",
                       "reqd": True,
                       "type": "`$ANY`",
-                      "index$": 1,
                     },
                     {
-                      "active": True,
                       "kind": "param",
                       "name": "owner",
                       "orig": "owner",
                       "reqd": True,
                       "type": "`$ANY`",
-                      "index$": 2,
                     },
                   ],
                 },
@@ -8405,21 +6855,17 @@ def make_config():
                   "req": "`reqdata`",
                   "res": "`body`",
                 },
-                "index$": 0,
               },
             ],
-            "key$": "load",
           },
           "patch": {
             "input": "data",
             "name": "patch",
             "points": [
               {
-                "active": True,
                 "args": {
                   "params": [
                     {
-                      "active": True,
                       "kind": "param",
                       "name": "id",
                       "orig": "slug_perm",
@@ -8427,7 +6873,6 @@ def make_config():
                       "type": "`$STRING`",
                     },
                     {
-                      "active": True,
                       "kind": "param",
                       "name": "identifier",
                       "orig": "identifier",
@@ -8435,7 +6880,6 @@ def make_config():
                       "type": "`$ANY`",
                     },
                     {
-                      "active": True,
                       "kind": "param",
                       "name": "owner",
                       "orig": "owner",
@@ -8445,11 +6889,9 @@ def make_config():
                   ],
                   "query": [
                     {
-                      "active": True,
                       "kind": "query",
                       "name": "data",
                       "orig": "data",
-                      "reqd": False,
                       "type": "`$OBJECT`",
                     },
                   ],
@@ -8482,54 +6924,43 @@ def make_config():
                   "req": "`reqdata`",
                   "res": "`body`",
                 },
-                "index$": 0,
               },
             ],
-            "key$": "patch",
           },
           "update": {
             "input": "data",
             "name": "update",
             "points": [
               {
-                "active": True,
                 "args": {
                   "params": [
                     {
-                      "active": True,
                       "kind": "param",
                       "name": "id",
                       "orig": "slug_perm",
                       "reqd": True,
                       "type": "`$STRING`",
-                      "index$": 0,
                     },
                     {
-                      "active": True,
                       "kind": "param",
                       "name": "identifier",
                       "orig": "identifier",
                       "reqd": True,
                       "type": "`$ANY`",
-                      "index$": 1,
                     },
                     {
-                      "active": True,
                       "kind": "param",
                       "name": "owner",
                       "orig": "owner",
                       "reqd": True,
                       "type": "`$ANY`",
-                      "index$": 2,
                     },
                   ],
                   "query": [
                     {
-                      "active": True,
                       "kind": "query",
                       "name": "data",
                       "orig": "data",
-                      "reqd": False,
                       "type": "`$OBJECT`",
                     },
                   ],
@@ -8562,10 +6993,8 @@ def make_config():
                   "req": "`reqdata`",
                   "res": "`body`",
                 },
-                "index$": 0,
               },
             ],
-            "key$": "update",
           },
         },
         "relations": {
@@ -8582,130 +7011,78 @@ def make_config():
       "nuget": {
         "fields": [
           {
-            "active": True,
             "name": "auth_mode",
-            "req": False,
             "type": "`$STRING`",
-            "index$": 0,
           },
           {
-            "active": True,
             "name": "auth_secret",
-            "req": False,
             "type": "`$STRING`",
-            "index$": 1,
           },
           {
-            "active": True,
             "name": "auth_username",
-            "req": False,
             "type": "`$STRING`",
-            "index$": 2,
           },
           {
-            "active": True,
             "name": "created_at",
-            "req": False,
             "type": "`$STRING`",
-            "index$": 3,
           },
           {
-            "active": True,
             "name": "disable_reason",
-            "req": False,
             "type": "`$STRING`",
-            "index$": 4,
           },
           {
-            "active": True,
             "name": "extra_header_1",
-            "req": False,
             "type": "`$STRING`",
-            "index$": 5,
           },
           {
-            "active": True,
             "name": "extra_header_2",
-            "req": False,
             "type": "`$STRING`",
-            "index$": 6,
           },
           {
-            "active": True,
             "name": "extra_value_1",
-            "req": False,
             "type": "`$STRING`",
-            "index$": 7,
           },
           {
-            "active": True,
             "name": "extra_value_2",
-            "req": False,
             "type": "`$STRING`",
-            "index$": 8,
           },
           {
-            "active": True,
             "name": "is_active",
-            "req": False,
             "type": "`$BOOLEAN`",
-            "index$": 9,
           },
           {
-            "active": True,
             "name": "mode",
-            "req": False,
             "type": "`$STRING`",
-            "index$": 10,
           },
           {
-            "active": True,
             "name": "name",
             "req": True,
             "type": "`$STRING`",
-            "index$": 11,
           },
           {
-            "active": True,
             "name": "pending_validation",
-            "req": False,
             "type": "`$BOOLEAN`",
-            "index$": 12,
           },
           {
-            "active": True,
             "name": "priority",
-            "req": False,
             "type": "`$INTEGER`",
-            "index$": 13,
           },
           {
-            "active": True,
             "name": "slug_perm",
-            "req": False,
             "type": "`$STRING`",
-            "index$": 14,
           },
           {
-            "active": True,
             "name": "updated_at",
-            "req": False,
             "type": "`$STRING`",
-            "index$": 15,
           },
           {
-            "active": True,
             "name": "upstream_url",
             "req": True,
             "type": "`$STRING`",
-            "index$": 16,
           },
           {
-            "active": True,
             "name": "verify_ssl",
-            "req": False,
             "type": "`$BOOLEAN`",
-            "index$": 17,
           },
         ],
         "name": "nuget",
@@ -8715,35 +7092,28 @@ def make_config():
             "name": "create",
             "points": [
               {
-                "active": True,
                 "args": {
                   "params": [
                     {
-                      "active": True,
                       "kind": "param",
                       "name": "identifier",
                       "orig": "identifier",
                       "reqd": True,
                       "type": "`$ANY`",
-                      "index$": 0,
                     },
                     {
-                      "active": True,
                       "kind": "param",
                       "name": "owner",
                       "orig": "owner",
                       "reqd": True,
                       "type": "`$ANY`",
-                      "index$": 1,
                     },
                   ],
                   "query": [
                     {
-                      "active": True,
                       "kind": "query",
                       "name": "data",
                       "orig": "data",
-                      "reqd": False,
                       "type": "`$OBJECT`",
                     },
                   ],
@@ -8769,53 +7139,42 @@ def make_config():
                   "req": "`reqdata`",
                   "res": "`body`",
                 },
-                "index$": 0,
               },
             ],
-            "key$": "create",
           },
           "list": {
             "input": "data",
             "name": "list",
             "points": [
               {
-                "active": True,
                 "args": {
                   "params": [
                     {
-                      "active": True,
                       "kind": "param",
                       "name": "identifier",
                       "orig": "identifier",
                       "reqd": True,
                       "type": "`$ANY`",
-                      "index$": 0,
                     },
                     {
-                      "active": True,
                       "kind": "param",
                       "name": "owner",
                       "orig": "owner",
                       "reqd": True,
                       "type": "`$ANY`",
-                      "index$": 1,
                     },
                   ],
                   "query": [
                     {
-                      "active": True,
                       "kind": "query",
                       "name": "page",
                       "orig": "page",
-                      "reqd": False,
                       "type": "`$INTEGER`",
                     },
                     {
-                      "active": True,
                       "kind": "query",
                       "name": "page_size",
                       "orig": "page_size",
-                      "reqd": False,
                       "type": "`$INTEGER`",
                     },
                   ],
@@ -8842,45 +7201,36 @@ def make_config():
                   "req": "`reqdata`",
                   "res": "`body`",
                 },
-                "index$": 0,
               },
             ],
-            "key$": "list",
           },
           "load": {
             "input": "data",
             "name": "load",
             "points": [
               {
-                "active": True,
                 "args": {
                   "params": [
                     {
-                      "active": True,
                       "kind": "param",
                       "name": "id",
                       "orig": "slug_perm",
                       "reqd": True,
                       "type": "`$STRING`",
-                      "index$": 0,
                     },
                     {
-                      "active": True,
                       "kind": "param",
                       "name": "identifier",
                       "orig": "identifier",
                       "reqd": True,
                       "type": "`$ANY`",
-                      "index$": 1,
                     },
                     {
-                      "active": True,
                       "kind": "param",
                       "name": "owner",
                       "orig": "owner",
                       "reqd": True,
                       "type": "`$ANY`",
-                      "index$": 2,
                     },
                   ],
                 },
@@ -8911,21 +7261,17 @@ def make_config():
                   "req": "`reqdata`",
                   "res": "`body`",
                 },
-                "index$": 0,
               },
             ],
-            "key$": "load",
           },
           "patch": {
             "input": "data",
             "name": "patch",
             "points": [
               {
-                "active": True,
                 "args": {
                   "params": [
                     {
-                      "active": True,
                       "kind": "param",
                       "name": "id",
                       "orig": "slug_perm",
@@ -8933,7 +7279,6 @@ def make_config():
                       "type": "`$STRING`",
                     },
                     {
-                      "active": True,
                       "kind": "param",
                       "name": "identifier",
                       "orig": "identifier",
@@ -8941,7 +7286,6 @@ def make_config():
                       "type": "`$ANY`",
                     },
                     {
-                      "active": True,
                       "kind": "param",
                       "name": "owner",
                       "orig": "owner",
@@ -8951,11 +7295,9 @@ def make_config():
                   ],
                   "query": [
                     {
-                      "active": True,
                       "kind": "query",
                       "name": "data",
                       "orig": "data",
-                      "reqd": False,
                       "type": "`$OBJECT`",
                     },
                   ],
@@ -8988,54 +7330,43 @@ def make_config():
                   "req": "`reqdata`",
                   "res": "`body`",
                 },
-                "index$": 0,
               },
             ],
-            "key$": "patch",
           },
           "update": {
             "input": "data",
             "name": "update",
             "points": [
               {
-                "active": True,
                 "args": {
                   "params": [
                     {
-                      "active": True,
                       "kind": "param",
                       "name": "id",
                       "orig": "slug_perm",
                       "reqd": True,
                       "type": "`$STRING`",
-                      "index$": 0,
                     },
                     {
-                      "active": True,
                       "kind": "param",
                       "name": "identifier",
                       "orig": "identifier",
                       "reqd": True,
                       "type": "`$ANY`",
-                      "index$": 1,
                     },
                     {
-                      "active": True,
                       "kind": "param",
                       "name": "owner",
                       "orig": "owner",
                       "reqd": True,
                       "type": "`$ANY`",
-                      "index$": 2,
                     },
                   ],
                   "query": [
                     {
-                      "active": True,
                       "kind": "query",
                       "name": "data",
                       "orig": "data",
-                      "reqd": False,
                       "type": "`$OBJECT`",
                     },
                   ],
@@ -9068,10 +7399,8 @@ def make_config():
                   "req": "`reqdata`",
                   "res": "`body`",
                 },
-                "index$": 0,
               },
             ],
-            "key$": "update",
           },
         },
         "relations": {
@@ -9104,88 +7433,57 @@ def make_config():
       "org": {
         "fields": [
           {
-            "active": True,
             "name": "country",
-            "req": False,
             "type": "`$STRING`",
-            "index$": 0,
           },
           {
-            "active": True,
             "name": "created_at",
-            "req": False,
             "type": "`$STRING`",
-            "index$": 1,
           },
           {
-            "active": True,
             "name": "event_at",
-            "req": False,
             "type": "`$STRING`",
-            "index$": 2,
           },
           {
-            "active": True,
             "name": "location",
-            "req": False,
             "type": "`$STRING`",
-            "index$": 3,
           },
           {
-            "active": True,
             "name": "name",
             "req": True,
             "type": "`$STRING`",
-            "index$": 4,
           },
           {
-            "active": True,
             "name": "package",
             "req": True,
             "type": "`$OBJECT`",
-            "index$": 5,
           },
           {
-            "active": True,
             "name": "policy",
             "req": True,
             "type": "`$OBJECT`",
-            "index$": 6,
           },
           {
-            "active": True,
             "name": "reasons",
             "req": True,
             "type": "`$ARRAY`",
-            "index$": 7,
           },
           {
-            "active": True,
             "name": "slug",
-            "req": False,
             "type": "`$STRING`",
-            "index$": 8,
           },
           {
-            "active": True,
             "name": "slug_perm",
-            "req": False,
             "type": "`$STRING`",
-            "index$": 9,
           },
           {
-            "active": True,
             "name": "tagline",
-            "req": False,
             "type": "`$STRING`",
-            "index$": 10,
           },
           {
-            "active": True,
             "name": "vulnerability_scan_results",
             "req": True,
             "type": "`$OBJECT`",
-            "index$": 11,
           },
         ],
         "name": "org",
@@ -9195,26 +7493,21 @@ def make_config():
             "name": "create",
             "points": [
               {
-                "active": True,
                 "args": {
                   "params": [
                     {
-                      "active": True,
                       "kind": "param",
                       "name": "id",
                       "orig": "org",
                       "reqd": True,
                       "type": "`$STRING`",
-                      "index$": 0,
                     },
                     {
-                      "active": True,
                       "kind": "param",
                       "name": "member_id",
                       "orig": "member",
                       "reqd": True,
                       "type": "`$STRING`",
-                      "index$": 1,
                     },
                   ],
                 },
@@ -9244,20 +7537,16 @@ def make_config():
                   "req": "`reqdata`",
                   "res": "`body`",
                 },
-                "index$": 0,
               },
               {
-                "active": True,
                 "args": {
                   "params": [
                     {
-                      "active": True,
                       "kind": "param",
                       "name": "id",
                       "orig": "org",
                       "reqd": True,
                       "type": "`$STRING`",
-                      "index$": 0,
                     },
                   ],
                 },
@@ -9284,20 +7573,16 @@ def make_config():
                   "req": "`reqdata`",
                   "res": "`body`",
                 },
-                "index$": 1,
               },
               {
-                "active": True,
                 "args": {
                   "params": [
                     {
-                      "active": True,
                       "kind": "param",
                       "name": "id",
                       "orig": "org",
                       "reqd": True,
                       "type": "`$STRING`",
-                      "index$": 0,
                     },
                   ],
                 },
@@ -9324,21 +7609,17 @@ def make_config():
                   "req": "`reqdata`",
                   "res": "`body`",
                 },
-                "index$": 2,
               },
             ],
-            "key$": "create",
           },
           "list": {
             "input": "data",
             "name": "list",
             "points": [
               {
-                "active": True,
                 "args": {
                   "params": [
                     {
-                      "active": True,
                       "kind": "param",
                       "name": "id",
                       "orig": "org",
@@ -9348,19 +7629,15 @@ def make_config():
                   ],
                   "query": [
                     {
-                      "active": True,
                       "kind": "query",
                       "name": "cursor",
                       "orig": "cursor",
-                      "reqd": False,
                       "type": "`$ANY`",
                     },
                     {
-                      "active": True,
                       "kind": "query",
                       "name": "page_size",
                       "orig": "page_size",
-                      "reqd": False,
                       "type": "`$INTEGER`",
                     },
                   ],
@@ -9390,14 +7667,11 @@ def make_config():
                   "req": "`reqdata`",
                   "res": "`body.results`",
                 },
-                "index$": 0,
               },
               {
-                "active": True,
                 "args": {
                   "params": [
                     {
-                      "active": True,
                       "kind": "param",
                       "name": "id",
                       "orig": "org",
@@ -9407,19 +7681,15 @@ def make_config():
                   ],
                   "query": [
                     {
-                      "active": True,
                       "kind": "query",
                       "name": "cursor",
                       "orig": "cursor",
-                      "reqd": False,
                       "type": "`$ANY`",
                     },
                     {
-                      "active": True,
                       "kind": "query",
                       "name": "page_size",
                       "orig": "page_size",
-                      "reqd": False,
                       "type": "`$INTEGER`",
                     },
                   ],
@@ -9449,26 +7719,20 @@ def make_config():
                   "req": "`reqdata`",
                   "res": "`body.results`",
                 },
-                "index$": 1,
               },
               {
-                "active": True,
                 "args": {
                   "query": [
                     {
-                      "active": True,
                       "kind": "query",
                       "name": "page",
                       "orig": "page",
-                      "reqd": False,
                       "type": "`$INTEGER`",
                     },
                     {
-                      "active": True,
                       "kind": "query",
                       "name": "page_size",
                       "orig": "page_size",
-                      "reqd": False,
                       "type": "`$INTEGER`",
                     },
                   ],
@@ -9489,36 +7753,29 @@ def make_config():
                   "req": "`reqdata`",
                   "res": "`body`",
                 },
-                "index$": 2,
               },
             ],
-            "key$": "list",
           },
           "load": {
             "input": "data",
             "name": "load",
             "points": [
               {
-                "active": True,
                 "args": {
                   "params": [
                     {
-                      "active": True,
                       "kind": "param",
                       "name": "id",
                       "orig": "org",
                       "reqd": True,
                       "type": "`$STRING`",
-                      "index$": 0,
                     },
                     {
-                      "active": True,
                       "kind": "param",
                       "name": "member_id",
                       "orig": "member",
                       "reqd": True,
                       "type": "`$STRING`",
-                      "index$": 1,
                     },
                   ],
                 },
@@ -9548,20 +7805,16 @@ def make_config():
                   "req": "`reqdata`",
                   "res": "`body`",
                 },
-                "index$": 0,
               },
               {
-                "active": True,
                 "args": {
                   "params": [
                     {
-                      "active": True,
                       "kind": "param",
                       "name": "id",
                       "orig": "org",
                       "reqd": True,
                       "type": "`$STRING`",
-                      "index$": 0,
                     },
                   ],
                 },
@@ -9586,36 +7839,29 @@ def make_config():
                   "req": "`reqdata`",
                   "res": "`body`",
                 },
-                "index$": 1,
               },
             ],
-            "key$": "load",
           },
           "remove": {
             "input": "data",
             "name": "remove",
             "points": [
               {
-                "active": True,
                 "args": {
                   "params": [
                     {
-                      "active": True,
                       "kind": "param",
                       "name": "id",
                       "orig": "org",
                       "reqd": True,
                       "type": "`$STRING`",
-                      "index$": 0,
                     },
                     {
-                      "active": True,
                       "kind": "param",
                       "name": "member",
                       "orig": "member",
                       "reqd": True,
                       "type": "`$ANY`",
-                      "index$": 1,
                     },
                   ],
                 },
@@ -9643,29 +7889,23 @@ def make_config():
                   "req": "`reqdata`",
                   "res": "`body`",
                 },
-                "index$": 0,
               },
               {
-                "active": True,
                 "args": {
                   "params": [
                     {
-                      "active": True,
                       "kind": "param",
                       "name": "id",
                       "orig": "org",
                       "reqd": True,
                       "type": "`$STRING`",
-                      "index$": 0,
                     },
                     {
-                      "active": True,
                       "kind": "param",
                       "name": "service",
                       "orig": "service",
                       "reqd": True,
                       "type": "`$ANY`",
-                      "index$": 1,
                     },
                   ],
                 },
@@ -9693,29 +7933,23 @@ def make_config():
                   "req": "`reqdata`",
                   "res": "`body`",
                 },
-                "index$": 1,
               },
               {
-                "active": True,
                 "args": {
                   "params": [
                     {
-                      "active": True,
                       "kind": "param",
                       "name": "id",
                       "orig": "org",
                       "reqd": True,
                       "type": "`$STRING`",
-                      "index$": 0,
                     },
                     {
-                      "active": True,
                       "kind": "param",
                       "name": "slug_perm",
                       "orig": "slug_perm",
                       "reqd": True,
                       "type": "`$ANY`",
-                      "index$": 1,
                     },
                   ],
                 },
@@ -9743,29 +7977,23 @@ def make_config():
                   "req": "`reqdata`",
                   "res": "`body`",
                 },
-                "index$": 2,
               },
               {
-                "active": True,
                 "args": {
                   "params": [
                     {
-                      "active": True,
                       "kind": "param",
                       "name": "id",
                       "orig": "org",
                       "reqd": True,
                       "type": "`$STRING`",
-                      "index$": 0,
                     },
                     {
-                      "active": True,
                       "kind": "param",
                       "name": "slug_perm",
                       "orig": "slug_perm",
                       "reqd": True,
                       "type": "`$ANY`",
-                      "index$": 1,
                     },
                   ],
                 },
@@ -9793,29 +8021,23 @@ def make_config():
                   "req": "`reqdata`",
                   "res": "`body`",
                 },
-                "index$": 3,
               },
               {
-                "active": True,
                 "args": {
                   "params": [
                     {
-                      "active": True,
                       "kind": "param",
                       "name": "id",
                       "orig": "org",
                       "reqd": True,
                       "type": "`$STRING`",
-                      "index$": 0,
                     },
                     {
-                      "active": True,
                       "kind": "param",
                       "name": "slug_perm",
                       "orig": "slug_perm",
                       "reqd": True,
                       "type": "`$ANY`",
-                      "index$": 1,
                     },
                   ],
                 },
@@ -9843,29 +8065,23 @@ def make_config():
                   "req": "`reqdata`",
                   "res": "`body`",
                 },
-                "index$": 4,
               },
               {
-                "active": True,
                 "args": {
                   "params": [
                     {
-                      "active": True,
                       "kind": "param",
                       "name": "id",
                       "orig": "org",
                       "reqd": True,
                       "type": "`$STRING`",
-                      "index$": 0,
                     },
                     {
-                      "active": True,
                       "kind": "param",
                       "name": "slug_perm",
                       "orig": "slug_perm",
                       "reqd": True,
                       "type": "`$ANY`",
-                      "index$": 1,
                     },
                   ],
                 },
@@ -9893,29 +8109,23 @@ def make_config():
                   "req": "`reqdata`",
                   "res": "`body`",
                 },
-                "index$": 5,
               },
               {
-                "active": True,
                 "args": {
                   "params": [
                     {
-                      "active": True,
                       "kind": "param",
                       "name": "id",
                       "orig": "org",
                       "reqd": True,
                       "type": "`$STRING`",
-                      "index$": 0,
                     },
                     {
-                      "active": True,
                       "kind": "param",
                       "name": "slug_perm",
                       "orig": "slug_perm",
                       "reqd": True,
                       "type": "`$ANY`",
-                      "index$": 1,
                     },
                   ],
                 },
@@ -9943,29 +8153,23 @@ def make_config():
                   "req": "`reqdata`",
                   "res": "`body`",
                 },
-                "index$": 6,
               },
               {
-                "active": True,
                 "args": {
                   "params": [
                     {
-                      "active": True,
                       "kind": "param",
                       "name": "id",
                       "orig": "org",
                       "reqd": True,
                       "type": "`$STRING`",
-                      "index$": 0,
                     },
                     {
-                      "active": True,
                       "kind": "param",
                       "name": "slug_perm",
                       "orig": "slug_perm",
                       "reqd": True,
                       "type": "`$ANY`",
-                      "index$": 1,
                     },
                   ],
                 },
@@ -9993,29 +8197,23 @@ def make_config():
                   "req": "`reqdata`",
                   "res": "`body`",
                 },
-                "index$": 7,
               },
               {
-                "active": True,
                 "args": {
                   "params": [
                     {
-                      "active": True,
                       "kind": "param",
                       "name": "id",
                       "orig": "org",
                       "reqd": True,
                       "type": "`$STRING`",
-                      "index$": 0,
                     },
                     {
-                      "active": True,
                       "kind": "param",
                       "name": "team",
                       "orig": "team",
                       "reqd": True,
                       "type": "`$ANY`",
-                      "index$": 1,
                     },
                   ],
                 },
@@ -10043,20 +8241,16 @@ def make_config():
                   "req": "`reqdata`",
                   "res": "`body`",
                 },
-                "index$": 8,
               },
               {
-                "active": True,
                 "args": {
                   "params": [
                     {
-                      "active": True,
                       "kind": "param",
                       "name": "id",
                       "orig": "org",
                       "reqd": True,
                       "type": "`$STRING`",
-                      "index$": 0,
                     },
                   ],
                 },
@@ -10081,45 +8275,36 @@ def make_config():
                   "req": "`reqdata`",
                   "res": "`body`",
                 },
-                "index$": 9,
               },
             ],
-            "key$": "remove",
           },
           "update": {
             "input": "data",
             "name": "update",
             "points": [
               {
-                "active": True,
                 "args": {
                   "params": [
                     {
-                      "active": True,
                       "kind": "param",
                       "name": "id",
                       "orig": "org",
                       "reqd": True,
                       "type": "`$STRING`",
-                      "index$": 0,
                     },
                     {
-                      "active": True,
                       "kind": "param",
                       "name": "team_id",
                       "orig": "team",
                       "reqd": True,
                       "type": "`$STRING`",
-                      "index$": 1,
                     },
                   ],
                   "query": [
                     {
-                      "active": True,
                       "kind": "query",
                       "name": "data",
                       "orig": "data",
-                      "reqd": False,
                       "type": "`$OBJECT`",
                     },
                   ],
@@ -10151,10 +8336,8 @@ def make_config():
                   "req": "`reqdata`",
                   "res": "`body`",
                 },
-                "index$": 0,
               },
             ],
-            "key$": "update",
           },
         },
         "relations": {
@@ -10192,39 +8375,27 @@ def make_config():
       "organization_group_sync": {
         "fields": [
           {
-            "active": True,
             "name": "idp_key",
             "req": True,
             "type": "`$STRING`",
-            "index$": 0,
           },
           {
-            "active": True,
             "name": "idp_value",
             "req": True,
             "type": "`$STRING`",
-            "index$": 1,
           },
           {
-            "active": True,
             "name": "role",
-            "req": False,
             "type": "`$STRING`",
-            "index$": 2,
           },
           {
-            "active": True,
             "name": "slug_perm",
-            "req": False,
             "type": "`$STRING`",
-            "index$": 3,
           },
           {
-            "active": True,
             "name": "team",
             "req": True,
             "type": "`$STRING`",
-            "index$": 4,
           },
         ],
         "name": "organization_group_sync",
@@ -10234,26 +8405,21 @@ def make_config():
             "name": "create",
             "points": [
               {
-                "active": True,
                 "args": {
                   "params": [
                     {
-                      "active": True,
                       "kind": "param",
                       "name": "org_id",
                       "orig": "org",
                       "reqd": True,
                       "type": "`$STRING`",
-                      "index$": 0,
                     },
                   ],
                   "query": [
                     {
-                      "active": True,
                       "kind": "query",
                       "name": "data",
                       "orig": "data",
-                      "reqd": False,
                       "type": "`$OBJECT`",
                     },
                   ],
@@ -10281,44 +8447,35 @@ def make_config():
                   "req": "`reqdata`",
                   "res": "`body`",
                 },
-                "index$": 0,
               },
             ],
-            "key$": "create",
           },
           "list": {
             "input": "data",
             "name": "list",
             "points": [
               {
-                "active": True,
                 "args": {
                   "params": [
                     {
-                      "active": True,
                       "kind": "param",
                       "name": "org_id",
                       "orig": "org",
                       "reqd": True,
                       "type": "`$STRING`",
-                      "index$": 0,
                     },
                   ],
                   "query": [
                     {
-                      "active": True,
                       "kind": "query",
                       "name": "page",
                       "orig": "page",
-                      "reqd": False,
                       "type": "`$INTEGER`",
                     },
                     {
-                      "active": True,
                       "kind": "query",
                       "name": "page_size",
                       "orig": "page_size",
-                      "reqd": False,
                       "type": "`$INTEGER`",
                     },
                   ],
@@ -10347,10 +8504,8 @@ def make_config():
                   "req": "`reqdata`",
                   "res": "`body`",
                 },
-                "index$": 0,
               },
             ],
-            "key$": "list",
           },
         },
         "relations": {
@@ -10364,11 +8519,8 @@ def make_config():
       "organization_group_sync_status": {
         "fields": [
           {
-            "active": True,
             "name": "saml_group_sync_status",
-            "req": False,
             "type": "`$BOOLEAN`",
-            "index$": 0,
           },
         ],
         "name": "organization_group_sync_status",
@@ -10378,17 +8530,14 @@ def make_config():
             "name": "load",
             "points": [
               {
-                "active": True,
                 "args": {
                   "params": [
                     {
-                      "active": True,
                       "kind": "param",
                       "name": "org_id",
                       "orig": "org",
                       "reqd": True,
                       "type": "`$STRING`",
-                      "index$": 0,
                     },
                   ],
                 },
@@ -10415,10 +8564,8 @@ def make_config():
                   "req": "`reqdata`",
                   "res": "`body`",
                 },
-                "index$": 0,
               },
             ],
-            "key$": "load",
           },
         },
         "relations": {
@@ -10432,74 +8579,44 @@ def make_config():
       "organization_invite": {
         "fields": [
           {
-            "active": True,
             "name": "email",
-            "req": False,
             "type": "`$STRING`",
-            "index$": 0,
           },
           {
-            "active": True,
             "name": "expires_at",
-            "req": False,
             "type": "`$STRING`",
-            "index$": 1,
           },
           {
-            "active": True,
             "name": "inviter",
-            "req": False,
             "type": "`$STRING`",
-            "index$": 2,
           },
           {
-            "active": True,
             "name": "inviter_url",
-            "req": False,
             "type": "`$STRING`",
-            "index$": 3,
           },
           {
-            "active": True,
             "name": "org",
-            "req": False,
             "type": "`$STRING`",
-            "index$": 4,
           },
           {
-            "active": True,
             "name": "role",
-            "req": False,
             "type": "`$STRING`",
-            "index$": 5,
           },
           {
-            "active": True,
             "name": "slug_perm",
-            "req": False,
             "type": "`$STRING`",
-            "index$": 6,
           },
           {
-            "active": True,
             "name": "teams",
-            "req": False,
             "type": "`$ARRAY`",
-            "index$": 7,
           },
           {
-            "active": True,
             "name": "user",
-            "req": False,
             "type": "`$STRING`",
-            "index$": 8,
           },
           {
-            "active": True,
             "name": "user_url",
-            "req": False,
             "type": "`$STRING`",
-            "index$": 9,
           },
         ],
         "name": "organization_invite",
@@ -10509,26 +8626,21 @@ def make_config():
             "name": "create",
             "points": [
               {
-                "active": True,
                 "args": {
                   "params": [
                     {
-                      "active": True,
                       "kind": "param",
                       "name": "org_id",
                       "orig": "org",
                       "reqd": True,
                       "type": "`$STRING`",
-                      "index$": 0,
                     },
                   ],
                   "query": [
                     {
-                      "active": True,
                       "kind": "query",
                       "name": "data",
                       "orig": "data",
-                      "reqd": False,
                       "type": "`$OBJECT`",
                     },
                   ],
@@ -10556,44 +8668,35 @@ def make_config():
                   "req": "`reqdata`",
                   "res": "`body`",
                 },
-                "index$": 0,
               },
             ],
-            "key$": "create",
           },
           "list": {
             "input": "data",
             "name": "list",
             "points": [
               {
-                "active": True,
                 "args": {
                   "params": [
                     {
-                      "active": True,
                       "kind": "param",
                       "name": "org_id",
                       "orig": "org",
                       "reqd": True,
                       "type": "`$STRING`",
-                      "index$": 0,
                     },
                   ],
                   "query": [
                     {
-                      "active": True,
                       "kind": "query",
                       "name": "page",
                       "orig": "page",
-                      "reqd": False,
                       "type": "`$INTEGER`",
                     },
                     {
-                      "active": True,
                       "kind": "query",
                       "name": "page_size",
                       "orig": "page_size",
-                      "reqd": False,
                       "type": "`$INTEGER`",
                     },
                   ],
@@ -10622,45 +8725,36 @@ def make_config():
                   "req": "`reqdata`",
                   "res": "`body`",
                 },
-                "index$": 0,
               },
             ],
-            "key$": "list",
           },
           "update": {
             "input": "data",
             "name": "update",
             "points": [
               {
-                "active": True,
                 "args": {
                   "params": [
                     {
-                      "active": True,
                       "kind": "param",
                       "name": "id",
                       "orig": "slug_perm",
                       "reqd": True,
                       "type": "`$STRING`",
-                      "index$": 0,
                     },
                     {
-                      "active": True,
                       "kind": "param",
                       "name": "org_id",
                       "orig": "org",
                       "reqd": True,
                       "type": "`$STRING`",
-                      "index$": 1,
                     },
                   ],
                   "query": [
                     {
-                      "active": True,
                       "kind": "query",
                       "name": "data",
                       "orig": "data",
-                      "reqd": False,
                       "type": "`$OBJECT`",
                     },
                   ],
@@ -10691,10 +8785,8 @@ def make_config():
                   "req": "`reqdata`",
                   "res": "`body`",
                 },
-                "index$": 0,
               },
             ],
-            "key$": "update",
           },
         },
         "relations": {
@@ -10708,74 +8800,44 @@ def make_config():
       "organization_invite_extend": {
         "fields": [
           {
-            "active": True,
             "name": "email",
-            "req": False,
             "type": "`$STRING`",
-            "index$": 0,
           },
           {
-            "active": True,
             "name": "expires_at",
-            "req": False,
             "type": "`$STRING`",
-            "index$": 1,
           },
           {
-            "active": True,
             "name": "inviter",
-            "req": False,
             "type": "`$STRING`",
-            "index$": 2,
           },
           {
-            "active": True,
             "name": "inviter_url",
-            "req": False,
             "type": "`$STRING`",
-            "index$": 3,
           },
           {
-            "active": True,
             "name": "org",
-            "req": False,
             "type": "`$STRING`",
-            "index$": 4,
           },
           {
-            "active": True,
             "name": "role",
-            "req": False,
             "type": "`$STRING`",
-            "index$": 5,
           },
           {
-            "active": True,
             "name": "slug_perm",
-            "req": False,
             "type": "`$STRING`",
-            "index$": 6,
           },
           {
-            "active": True,
             "name": "teams",
-            "req": False,
             "type": "`$ARRAY`",
-            "index$": 7,
           },
           {
-            "active": True,
             "name": "user",
-            "req": False,
             "type": "`$STRING`",
-            "index$": 8,
           },
           {
-            "active": True,
             "name": "user_url",
-            "req": False,
             "type": "`$STRING`",
-            "index$": 9,
           },
         ],
         "name": "organization_invite_extend",
@@ -10785,26 +8847,21 @@ def make_config():
             "name": "create",
             "points": [
               {
-                "active": True,
                 "args": {
                   "params": [
                     {
-                      "active": True,
                       "kind": "param",
                       "name": "org_id",
                       "orig": "org",
                       "reqd": True,
                       "type": "`$STRING`",
-                      "index$": 0,
                     },
                     {
-                      "active": True,
                       "kind": "param",
                       "name": "slug_perm",
                       "orig": "slug_perm",
                       "reqd": True,
                       "type": "`$ANY`",
-                      "index$": 1,
                     },
                   ],
                 },
@@ -10833,29 +8890,23 @@ def make_config():
                   "req": "`reqdata`",
                   "res": "`body`",
                 },
-                "index$": 0,
               },
               {
-                "active": True,
                 "args": {
                   "params": [
                     {
-                      "active": True,
                       "kind": "param",
                       "name": "org_id",
                       "orig": "org",
                       "reqd": True,
                       "type": "`$STRING`",
-                      "index$": 0,
                     },
                     {
-                      "active": True,
                       "kind": "param",
                       "name": "slug_perm",
                       "orig": "slug_perm",
                       "reqd": True,
                       "type": "`$ANY`",
-                      "index$": 1,
                     },
                   ],
                 },
@@ -10884,10 +8935,8 @@ def make_config():
                   "req": "`reqdata`",
                   "res": "`body`",
                 },
-                "index$": 1,
               },
             ],
-            "key$": "create",
           },
         },
         "relations": {
@@ -10902,88 +8951,52 @@ def make_config():
       "organization_membership": {
         "fields": [
           {
-            "active": True,
             "name": "email",
-            "req": False,
             "type": "`$STRING`",
-            "index$": 0,
           },
           {
-            "active": True,
             "name": "has_two_factor",
-            "req": False,
             "type": "`$BOOLEAN`",
-            "index$": 1,
           },
           {
-            "active": True,
             "name": "is_active",
-            "req": False,
             "type": "`$BOOLEAN`",
-            "index$": 2,
           },
           {
-            "active": True,
             "name": "joined_at",
-            "req": False,
             "type": "`$STRING`",
-            "index$": 3,
           },
           {
-            "active": True,
             "name": "last_login_at",
-            "req": False,
             "type": "`$STRING`",
-            "index$": 4,
           },
           {
-            "active": True,
             "name": "last_login_method",
-            "req": False,
             "type": "`$STRING`",
-            "index$": 5,
           },
           {
-            "active": True,
             "name": "role",
-            "req": False,
             "type": "`$STRING`",
-            "index$": 6,
           },
           {
-            "active": True,
             "name": "user",
-            "req": False,
             "type": "`$STRING`",
-            "index$": 7,
           },
           {
-            "active": True,
             "name": "user_id",
-            "req": False,
             "type": "`$STRING`",
-            "index$": 8,
           },
           {
-            "active": True,
             "name": "user_name",
-            "req": False,
             "type": "`$STRING`",
-            "index$": 9,
           },
           {
-            "active": True,
             "name": "user_url",
-            "req": False,
             "type": "`$STRING`",
-            "index$": 10,
           },
           {
-            "active": True,
             "name": "visibility",
-            "req": False,
             "type": "`$STRING`",
-            "index$": 11,
           },
         ],
         "name": "organization_membership",
@@ -10993,58 +9006,45 @@ def make_config():
             "name": "list",
             "points": [
               {
-                "active": True,
                 "args": {
                   "params": [
                     {
-                      "active": True,
                       "kind": "param",
                       "name": "org_id",
                       "orig": "org",
                       "reqd": True,
                       "type": "`$STRING`",
-                      "index$": 0,
                     },
                   ],
                   "query": [
                     {
-                      "active": True,
                       "kind": "query",
                       "name": "is_active",
                       "orig": "is_active",
-                      "reqd": False,
                       "type": "`$BOOLEAN`",
                     },
                     {
-                      "active": True,
                       "kind": "query",
                       "name": "page",
                       "orig": "page",
-                      "reqd": False,
                       "type": "`$INTEGER`",
                     },
                     {
-                      "active": True,
                       "kind": "query",
                       "name": "page_size",
                       "orig": "page_size",
-                      "reqd": False,
                       "type": "`$INTEGER`",
                     },
                     {
-                      "active": True,
                       "kind": "query",
                       "name": "query",
                       "orig": "query",
-                      "reqd": False,
                       "type": "`$ANY`",
                     },
                     {
-                      "active": True,
                       "kind": "query",
                       "name": "sort",
                       "orig": "sort",
-                      "reqd": False,
                       "type": "`$ANY`",
                     },
                   ],
@@ -11076,36 +9076,29 @@ def make_config():
                   "req": "`reqdata`",
                   "res": "`body`",
                 },
-                "index$": 0,
               },
             ],
-            "key$": "list",
           },
           "load": {
             "input": "data",
             "name": "load",
             "points": [
               {
-                "active": True,
                 "args": {
                   "params": [
                     {
-                      "active": True,
                       "kind": "param",
                       "name": "member",
                       "orig": "member",
                       "reqd": True,
                       "type": "`$ANY`",
-                      "index$": 0,
                     },
                     {
-                      "active": True,
                       "kind": "param",
                       "name": "org_id",
                       "orig": "org",
                       "reqd": True,
                       "type": "`$STRING`",
-                      "index$": 1,
                     },
                   ],
                 },
@@ -11133,45 +9126,36 @@ def make_config():
                   "req": "`reqdata`",
                   "res": "`body`",
                 },
-                "index$": 0,
               },
             ],
-            "key$": "load",
           },
           "update": {
             "input": "data",
             "name": "update",
             "points": [
               {
-                "active": True,
                 "args": {
                   "params": [
                     {
-                      "active": True,
                       "kind": "param",
                       "name": "member",
                       "orig": "member",
                       "reqd": True,
                       "type": "`$ANY`",
-                      "index$": 0,
                     },
                     {
-                      "active": True,
                       "kind": "param",
                       "name": "org_id",
                       "orig": "org",
                       "reqd": True,
                       "type": "`$STRING`",
-                      "index$": 1,
                     },
                   ],
                   "query": [
                     {
-                      "active": True,
                       "kind": "query",
                       "name": "data",
                       "orig": "data",
-                      "reqd": False,
                       "type": "`$OBJECT`",
                     },
                   ],
@@ -11201,10 +9185,8 @@ def make_config():
                   "req": "`reqdata`",
                   "res": "`body`",
                 },
-                "index$": 0,
               },
             ],
-            "key$": "update",
           },
         },
         "relations": {
@@ -11222,81 +9204,48 @@ def make_config():
       "organization_membership_role_update": {
         "fields": [
           {
-            "active": True,
             "name": "email",
-            "req": False,
             "type": "`$STRING`",
-            "index$": 0,
           },
           {
-            "active": True,
             "name": "has_two_factor",
-            "req": False,
             "type": "`$BOOLEAN`",
-            "index$": 1,
           },
           {
-            "active": True,
             "name": "joined_at",
-            "req": False,
             "type": "`$STRING`",
-            "index$": 2,
           },
           {
-            "active": True,
             "name": "last_login_at",
-            "req": False,
             "type": "`$STRING`",
-            "index$": 3,
           },
           {
-            "active": True,
             "name": "last_login_method",
-            "req": False,
             "type": "`$STRING`",
-            "index$": 4,
           },
           {
-            "active": True,
             "name": "role",
-            "req": False,
             "type": "`$STRING`",
-            "index$": 5,
           },
           {
-            "active": True,
             "name": "user",
-            "req": False,
             "type": "`$STRING`",
-            "index$": 6,
           },
           {
-            "active": True,
             "name": "user_id",
-            "req": False,
             "type": "`$STRING`",
-            "index$": 7,
           },
           {
-            "active": True,
             "name": "user_name",
-            "req": False,
             "type": "`$STRING`",
-            "index$": 8,
           },
           {
-            "active": True,
             "name": "user_url",
-            "req": False,
             "type": "`$STRING`",
-            "index$": 9,
           },
           {
-            "active": True,
             "name": "visibility",
-            "req": False,
             "type": "`$STRING`",
-            "index$": 10,
           },
         ],
         "name": "organization_membership_role_update",
@@ -11306,35 +9255,28 @@ def make_config():
             "name": "update",
             "points": [
               {
-                "active": True,
                 "args": {
                   "params": [
                     {
-                      "active": True,
                       "kind": "param",
                       "name": "member_id",
                       "orig": "member",
                       "reqd": True,
                       "type": "`$STRING`",
-                      "index$": 0,
                     },
                     {
-                      "active": True,
                       "kind": "param",
                       "name": "org_id",
                       "orig": "org",
                       "reqd": True,
                       "type": "`$STRING`",
-                      "index$": 1,
                     },
                   ],
                   "query": [
                     {
-                      "active": True,
                       "kind": "query",
                       "name": "data",
                       "orig": "data",
-                      "reqd": False,
                       "type": "`$OBJECT`",
                     },
                   ],
@@ -11366,10 +9308,8 @@ def make_config():
                   "req": "`reqdata`",
                   "res": "`body`",
                 },
-                "index$": 0,
               },
             ],
-            "key$": "update",
           },
         },
         "relations": {
@@ -11384,81 +9324,48 @@ def make_config():
       "organization_membership_visibility_update": {
         "fields": [
           {
-            "active": True,
             "name": "email",
-            "req": False,
             "type": "`$STRING`",
-            "index$": 0,
           },
           {
-            "active": True,
             "name": "has_two_factor",
-            "req": False,
             "type": "`$BOOLEAN`",
-            "index$": 1,
           },
           {
-            "active": True,
             "name": "joined_at",
-            "req": False,
             "type": "`$STRING`",
-            "index$": 2,
           },
           {
-            "active": True,
             "name": "last_login_at",
-            "req": False,
             "type": "`$STRING`",
-            "index$": 3,
           },
           {
-            "active": True,
             "name": "last_login_method",
-            "req": False,
             "type": "`$STRING`",
-            "index$": 4,
           },
           {
-            "active": True,
             "name": "role",
-            "req": False,
             "type": "`$STRING`",
-            "index$": 5,
           },
           {
-            "active": True,
             "name": "user",
-            "req": False,
             "type": "`$STRING`",
-            "index$": 6,
           },
           {
-            "active": True,
             "name": "user_id",
-            "req": False,
             "type": "`$STRING`",
-            "index$": 7,
           },
           {
-            "active": True,
             "name": "user_name",
-            "req": False,
             "type": "`$STRING`",
-            "index$": 8,
           },
           {
-            "active": True,
             "name": "user_url",
-            "req": False,
             "type": "`$STRING`",
-            "index$": 9,
           },
           {
-            "active": True,
             "name": "visibility",
-            "req": False,
             "type": "`$STRING`",
-            "index$": 10,
           },
         ],
         "name": "organization_membership_visibility_update",
@@ -11468,35 +9375,28 @@ def make_config():
             "name": "update",
             "points": [
               {
-                "active": True,
                 "args": {
                   "params": [
                     {
-                      "active": True,
                       "kind": "param",
                       "name": "member_id",
                       "orig": "member",
                       "reqd": True,
                       "type": "`$STRING`",
-                      "index$": 0,
                     },
                     {
-                      "active": True,
                       "kind": "param",
                       "name": "org_id",
                       "orig": "org",
                       "reqd": True,
                       "type": "`$STRING`",
-                      "index$": 1,
                     },
                   ],
                   "query": [
                     {
-                      "active": True,
                       "kind": "query",
                       "name": "data",
                       "orig": "data",
-                      "reqd": False,
                       "type": "`$OBJECT`",
                     },
                   ],
@@ -11528,10 +9428,8 @@ def make_config():
                   "req": "`reqdata`",
                   "res": "`body`",
                 },
-                "index$": 0,
               },
             ],
-            "key$": "update",
           },
         },
         "relations": {
@@ -11546,67 +9444,42 @@ def make_config():
       "organization_package_license_policy": {
         "fields": [
           {
-            "active": True,
             "name": "allow_unknown_licenses",
-            "req": False,
             "type": "`$BOOLEAN`",
-            "index$": 0,
           },
           {
-            "active": True,
             "name": "created_at",
-            "req": False,
             "type": "`$STRING`",
-            "index$": 1,
           },
           {
-            "active": True,
             "name": "description",
-            "req": False,
             "type": "`$STRING`",
-            "index$": 2,
           },
           {
-            "active": True,
             "name": "name",
             "req": True,
             "type": "`$STRING`",
-            "index$": 3,
           },
           {
-            "active": True,
             "name": "on_violation_quarantine",
-            "req": False,
             "type": "`$BOOLEAN`",
-            "index$": 4,
           },
           {
-            "active": True,
             "name": "package_query_string",
-            "req": False,
             "type": "`$STRING`",
-            "index$": 5,
           },
           {
-            "active": True,
             "name": "slug_perm",
-            "req": False,
             "type": "`$STRING`",
-            "index$": 6,
           },
           {
-            "active": True,
             "name": "spdx_identifiers",
             "req": True,
             "type": "`$ARRAY`",
-            "index$": 7,
           },
           {
-            "active": True,
             "name": "updated_at",
-            "req": False,
             "type": "`$STRING`",
-            "index$": 8,
           },
         ],
         "name": "organization_package_license_policy",
@@ -11616,26 +9489,21 @@ def make_config():
             "name": "create",
             "points": [
               {
-                "active": True,
                 "args": {
                   "params": [
                     {
-                      "active": True,
                       "kind": "param",
                       "name": "org_id",
                       "orig": "org",
                       "reqd": True,
                       "type": "`$STRING`",
-                      "index$": 0,
                     },
                   ],
                   "query": [
                     {
-                      "active": True,
                       "kind": "query",
                       "name": "data",
                       "orig": "data",
-                      "reqd": False,
                       "type": "`$OBJECT`",
                     },
                   ],
@@ -11663,44 +9531,35 @@ def make_config():
                   "req": "`reqdata`",
                   "res": "`body`",
                 },
-                "index$": 0,
               },
             ],
-            "key$": "create",
           },
           "list": {
             "input": "data",
             "name": "list",
             "points": [
               {
-                "active": True,
                 "args": {
                   "params": [
                     {
-                      "active": True,
                       "kind": "param",
                       "name": "org_id",
                       "orig": "org",
                       "reqd": True,
                       "type": "`$STRING`",
-                      "index$": 0,
                     },
                   ],
                   "query": [
                     {
-                      "active": True,
                       "kind": "query",
                       "name": "page",
                       "orig": "page",
-                      "reqd": False,
                       "type": "`$INTEGER`",
                     },
                     {
-                      "active": True,
                       "kind": "query",
                       "name": "page_size",
                       "orig": "page_size",
-                      "reqd": False,
                       "type": "`$INTEGER`",
                     },
                   ],
@@ -11729,36 +9588,29 @@ def make_config():
                   "req": "`reqdata`",
                   "res": "`body`",
                 },
-                "index$": 0,
               },
             ],
-            "key$": "list",
           },
           "load": {
             "input": "data",
             "name": "load",
             "points": [
               {
-                "active": True,
                 "args": {
                   "params": [
                     {
-                      "active": True,
                       "kind": "param",
                       "name": "id",
                       "orig": "slug_perm",
                       "reqd": True,
                       "type": "`$STRING`",
-                      "index$": 0,
                     },
                     {
-                      "active": True,
                       "kind": "param",
                       "name": "org_id",
                       "orig": "org",
                       "reqd": True,
                       "type": "`$STRING`",
-                      "index$": 1,
                     },
                   ],
                 },
@@ -11787,21 +9639,17 @@ def make_config():
                   "req": "`reqdata`",
                   "res": "`body`",
                 },
-                "index$": 0,
               },
             ],
-            "key$": "load",
           },
           "patch": {
             "input": "data",
             "name": "patch",
             "points": [
               {
-                "active": True,
                 "args": {
                   "params": [
                     {
-                      "active": True,
                       "kind": "param",
                       "name": "id",
                       "orig": "slug_perm",
@@ -11809,7 +9657,6 @@ def make_config():
                       "type": "`$STRING`",
                     },
                     {
-                      "active": True,
                       "kind": "param",
                       "name": "org_id",
                       "orig": "org",
@@ -11819,11 +9666,9 @@ def make_config():
                   ],
                   "query": [
                     {
-                      "active": True,
                       "kind": "query",
                       "name": "data",
                       "orig": "data",
-                      "reqd": False,
                       "type": "`$OBJECT`",
                     },
                   ],
@@ -11854,45 +9699,36 @@ def make_config():
                   "req": "`reqdata`",
                   "res": "`body`",
                 },
-                "index$": 0,
               },
             ],
-            "key$": "patch",
           },
           "update": {
             "input": "data",
             "name": "update",
             "points": [
               {
-                "active": True,
                 "args": {
                   "params": [
                     {
-                      "active": True,
                       "kind": "param",
                       "name": "id",
                       "orig": "slug_perm",
                       "reqd": True,
                       "type": "`$STRING`",
-                      "index$": 0,
                     },
                     {
-                      "active": True,
                       "kind": "param",
                       "name": "org_id",
                       "orig": "org",
                       "reqd": True,
                       "type": "`$STRING`",
-                      "index$": 1,
                     },
                   ],
                   "query": [
                     {
-                      "active": True,
                       "kind": "query",
                       "name": "data",
                       "orig": "data",
-                      "reqd": False,
                       "type": "`$OBJECT`",
                     },
                   ],
@@ -11923,10 +9759,8 @@ def make_config():
                   "req": "`reqdata`",
                   "res": "`body`",
                 },
-                "index$": 0,
               },
             ],
-            "key$": "update",
           },
         },
         "relations": {
@@ -11940,67 +9774,41 @@ def make_config():
       "organization_package_vulnerability_policy": {
         "fields": [
           {
-            "active": True,
             "name": "allow_unknown_severity",
-            "req": False,
             "type": "`$BOOLEAN`",
-            "index$": 0,
           },
           {
-            "active": True,
             "name": "created_at",
-            "req": False,
             "type": "`$STRING`",
-            "index$": 1,
           },
           {
-            "active": True,
             "name": "description",
-            "req": False,
             "type": "`$STRING`",
-            "index$": 2,
           },
           {
-            "active": True,
             "name": "min_severity",
-            "req": False,
             "type": "`$STRING`",
-            "index$": 3,
           },
           {
-            "active": True,
             "name": "name",
             "req": True,
             "type": "`$STRING`",
-            "index$": 4,
           },
           {
-            "active": True,
             "name": "on_violation_quarantine",
-            "req": False,
             "type": "`$BOOLEAN`",
-            "index$": 5,
           },
           {
-            "active": True,
             "name": "package_query_string",
-            "req": False,
             "type": "`$STRING`",
-            "index$": 6,
           },
           {
-            "active": True,
             "name": "slug_perm",
-            "req": False,
             "type": "`$STRING`",
-            "index$": 7,
           },
           {
-            "active": True,
             "name": "updated_at",
-            "req": False,
             "type": "`$STRING`",
-            "index$": 8,
           },
         ],
         "name": "organization_package_vulnerability_policy",
@@ -12010,26 +9818,21 @@ def make_config():
             "name": "create",
             "points": [
               {
-                "active": True,
                 "args": {
                   "params": [
                     {
-                      "active": True,
                       "kind": "param",
                       "name": "org_id",
                       "orig": "org",
                       "reqd": True,
                       "type": "`$STRING`",
-                      "index$": 0,
                     },
                   ],
                   "query": [
                     {
-                      "active": True,
                       "kind": "query",
                       "name": "data",
                       "orig": "data",
-                      "reqd": False,
                       "type": "`$OBJECT`",
                     },
                   ],
@@ -12057,44 +9860,35 @@ def make_config():
                   "req": "`reqdata`",
                   "res": "`body`",
                 },
-                "index$": 0,
               },
             ],
-            "key$": "create",
           },
           "list": {
             "input": "data",
             "name": "list",
             "points": [
               {
-                "active": True,
                 "args": {
                   "params": [
                     {
-                      "active": True,
                       "kind": "param",
                       "name": "org_id",
                       "orig": "org",
                       "reqd": True,
                       "type": "`$STRING`",
-                      "index$": 0,
                     },
                   ],
                   "query": [
                     {
-                      "active": True,
                       "kind": "query",
                       "name": "page",
                       "orig": "page",
-                      "reqd": False,
                       "type": "`$INTEGER`",
                     },
                     {
-                      "active": True,
                       "kind": "query",
                       "name": "page_size",
                       "orig": "page_size",
-                      "reqd": False,
                       "type": "`$INTEGER`",
                     },
                   ],
@@ -12123,36 +9917,29 @@ def make_config():
                   "req": "`reqdata`",
                   "res": "`body`",
                 },
-                "index$": 0,
               },
             ],
-            "key$": "list",
           },
           "load": {
             "input": "data",
             "name": "load",
             "points": [
               {
-                "active": True,
                 "args": {
                   "params": [
                     {
-                      "active": True,
                       "kind": "param",
                       "name": "id",
                       "orig": "slug_perm",
                       "reqd": True,
                       "type": "`$STRING`",
-                      "index$": 0,
                     },
                     {
-                      "active": True,
                       "kind": "param",
                       "name": "org_id",
                       "orig": "org",
                       "reqd": True,
                       "type": "`$STRING`",
-                      "index$": 1,
                     },
                   ],
                 },
@@ -12181,21 +9968,17 @@ def make_config():
                   "req": "`reqdata`",
                   "res": "`body`",
                 },
-                "index$": 0,
               },
             ],
-            "key$": "load",
           },
           "patch": {
             "input": "data",
             "name": "patch",
             "points": [
               {
-                "active": True,
                 "args": {
                   "params": [
                     {
-                      "active": True,
                       "kind": "param",
                       "name": "id",
                       "orig": "slug_perm",
@@ -12203,7 +9986,6 @@ def make_config():
                       "type": "`$STRING`",
                     },
                     {
-                      "active": True,
                       "kind": "param",
                       "name": "org_id",
                       "orig": "org",
@@ -12213,11 +9995,9 @@ def make_config():
                   ],
                   "query": [
                     {
-                      "active": True,
                       "kind": "query",
                       "name": "data",
                       "orig": "data",
-                      "reqd": False,
                       "type": "`$OBJECT`",
                     },
                   ],
@@ -12248,45 +10028,36 @@ def make_config():
                   "req": "`reqdata`",
                   "res": "`body`",
                 },
-                "index$": 0,
               },
             ],
-            "key$": "patch",
           },
           "update": {
             "input": "data",
             "name": "update",
             "points": [
               {
-                "active": True,
                 "args": {
                   "params": [
                     {
-                      "active": True,
                       "kind": "param",
                       "name": "id",
                       "orig": "slug_perm",
                       "reqd": True,
                       "type": "`$STRING`",
-                      "index$": 0,
                     },
                     {
-                      "active": True,
                       "kind": "param",
                       "name": "org_id",
                       "orig": "org",
                       "reqd": True,
                       "type": "`$STRING`",
-                      "index$": 1,
                     },
                   ],
                   "query": [
                     {
-                      "active": True,
                       "kind": "query",
                       "name": "data",
                       "orig": "data",
-                      "reqd": False,
                       "type": "`$OBJECT`",
                     },
                   ],
@@ -12317,10 +10088,8 @@ def make_config():
                   "req": "`reqdata`",
                   "res": "`body`",
                 },
-                "index$": 0,
               },
             ],
-            "key$": "update",
           },
         },
         "relations": {
@@ -12334,32 +10103,22 @@ def make_config():
       "organization_saml_auth": {
         "fields": [
           {
-            "active": True,
             "name": "saml_auth_enabled",
             "req": True,
             "type": "`$BOOLEAN`",
-            "index$": 0,
           },
           {
-            "active": True,
             "name": "saml_auth_enforced",
             "req": True,
             "type": "`$BOOLEAN`",
-            "index$": 1,
           },
           {
-            "active": True,
             "name": "saml_metadata_inline",
-            "req": False,
             "type": "`$STRING`",
-            "index$": 2,
           },
           {
-            "active": True,
             "name": "saml_metadata_url",
-            "req": False,
             "type": "`$STRING`",
-            "index$": 3,
           },
         ],
         "name": "organization_saml_auth",
@@ -12369,17 +10128,14 @@ def make_config():
             "name": "load",
             "points": [
               {
-                "active": True,
                 "args": {
                   "params": [
                     {
-                      "active": True,
                       "kind": "param",
                       "name": "org_id",
                       "orig": "org",
                       "reqd": True,
                       "type": "`$STRING`",
-                      "index$": 0,
                     },
                   ],
                 },
@@ -12405,36 +10161,29 @@ def make_config():
                   "req": "`reqdata`",
                   "res": "`body`",
                 },
-                "index$": 0,
               },
             ],
-            "key$": "load",
           },
           "update": {
             "input": "data",
             "name": "update",
             "points": [
               {
-                "active": True,
                 "args": {
                   "params": [
                     {
-                      "active": True,
                       "kind": "param",
                       "name": "org_id",
                       "orig": "org",
                       "reqd": True,
                       "type": "`$STRING`",
-                      "index$": 0,
                     },
                   ],
                   "query": [
                     {
-                      "active": True,
                       "kind": "query",
                       "name": "data",
                       "orig": "data",
-                      "reqd": False,
                       "type": "`$OBJECT`",
                     },
                   ],
@@ -12462,10 +10211,8 @@ def make_config():
                   "req": "`reqdata`",
                   "res": "`body`",
                 },
-                "index$": 0,
               },
             ],
-            "key$": "update",
           },
         },
         "relations": {
@@ -12479,39 +10226,25 @@ def make_config():
       "organization_team": {
         "fields": [
           {
-            "active": True,
             "name": "description",
-            "req": False,
             "type": "`$STRING`",
-            "index$": 0,
           },
           {
-            "active": True,
             "name": "name",
             "req": True,
             "type": "`$STRING`",
-            "index$": 1,
           },
           {
-            "active": True,
             "name": "slug",
-            "req": False,
             "type": "`$STRING`",
-            "index$": 2,
           },
           {
-            "active": True,
             "name": "slug_perm",
-            "req": False,
             "type": "`$STRING`",
-            "index$": 3,
           },
           {
-            "active": True,
             "name": "visibility",
-            "req": False,
             "type": "`$STRING`",
-            "index$": 4,
           },
         ],
         "name": "organization_team",
@@ -12521,26 +10254,21 @@ def make_config():
             "name": "create",
             "points": [
               {
-                "active": True,
                 "args": {
                   "params": [
                     {
-                      "active": True,
                       "kind": "param",
                       "name": "org_id",
                       "orig": "org",
                       "reqd": True,
                       "type": "`$STRING`",
-                      "index$": 0,
                     },
                   ],
                   "query": [
                     {
-                      "active": True,
                       "kind": "query",
                       "name": "data",
                       "orig": "data",
-                      "reqd": False,
                       "type": "`$OBJECT`",
                     },
                   ],
@@ -12568,68 +10296,53 @@ def make_config():
                   "req": "`reqdata`",
                   "res": "`body`",
                 },
-                "index$": 0,
               },
             ],
-            "key$": "create",
           },
           "list": {
             "input": "data",
             "name": "list",
             "points": [
               {
-                "active": True,
                 "args": {
                   "params": [
                     {
-                      "active": True,
                       "kind": "param",
                       "name": "org_id",
                       "orig": "org",
                       "reqd": True,
                       "type": "`$STRING`",
-                      "index$": 0,
                     },
                   ],
                   "query": [
                     {
-                      "active": True,
                       "kind": "query",
                       "name": "for_user",
                       "orig": "for_user",
-                      "reqd": False,
                       "type": "`$ANY`",
                     },
                     {
-                      "active": True,
                       "kind": "query",
                       "name": "page",
                       "orig": "page",
-                      "reqd": False,
                       "type": "`$INTEGER`",
                     },
                     {
-                      "active": True,
                       "kind": "query",
                       "name": "page_size",
                       "orig": "page_size",
-                      "reqd": False,
                       "type": "`$INTEGER`",
                     },
                     {
-                      "active": True,
                       "kind": "query",
                       "name": "query",
                       "orig": "query",
-                      "reqd": False,
                       "type": "`$ANY`",
                     },
                     {
-                      "active": True,
                       "kind": "query",
                       "name": "sort",
                       "orig": "sort",
-                      "reqd": False,
                       "type": "`$ANY`",
                     },
                   ],
@@ -12661,36 +10374,29 @@ def make_config():
                   "req": "`reqdata`",
                   "res": "`body`",
                 },
-                "index$": 0,
               },
             ],
-            "key$": "list",
           },
           "load": {
             "input": "data",
             "name": "load",
             "points": [
               {
-                "active": True,
                 "args": {
                   "params": [
                     {
-                      "active": True,
                       "kind": "param",
                       "name": "id",
                       "orig": "team",
                       "reqd": True,
                       "type": "`$STRING`",
-                      "index$": 0,
                     },
                     {
-                      "active": True,
                       "kind": "param",
                       "name": "org_id",
                       "orig": "org",
                       "reqd": True,
                       "type": "`$STRING`",
-                      "index$": 1,
                     },
                   ],
                 },
@@ -12719,45 +10425,36 @@ def make_config():
                   "req": "`reqdata`",
                   "res": "`body`",
                 },
-                "index$": 0,
               },
             ],
-            "key$": "load",
           },
           "update": {
             "input": "data",
             "name": "update",
             "points": [
               {
-                "active": True,
                 "args": {
                   "params": [
                     {
-                      "active": True,
                       "kind": "param",
                       "name": "id",
                       "orig": "team",
                       "reqd": True,
                       "type": "`$STRING`",
-                      "index$": 0,
                     },
                     {
-                      "active": True,
                       "kind": "param",
                       "name": "org_id",
                       "orig": "org",
                       "reqd": True,
                       "type": "`$STRING`",
-                      "index$": 1,
                     },
                   ],
                   "query": [
                     {
-                      "active": True,
                       "kind": "query",
                       "name": "data",
                       "orig": "data",
-                      "reqd": False,
                       "type": "`$OBJECT`",
                     },
                   ],
@@ -12788,10 +10485,8 @@ def make_config():
                   "req": "`reqdata`",
                   "res": "`body`",
                 },
-                "index$": 0,
               },
             ],
-            "key$": "update",
           },
         },
         "relations": {
@@ -12805,18 +10500,14 @@ def make_config():
       "organization_team_member": {
         "fields": [
           {
-            "active": True,
             "name": "role",
             "req": True,
             "type": "`$STRING`",
-            "index$": 0,
           },
           {
-            "active": True,
             "name": "user",
             "req": True,
             "type": "`$STRING`",
-            "index$": 1,
           },
         ],
         "name": "organization_team_member",
@@ -12826,35 +10517,28 @@ def make_config():
             "name": "create",
             "points": [
               {
-                "active": True,
                 "args": {
                   "params": [
                     {
-                      "active": True,
                       "kind": "param",
                       "name": "org_id",
                       "orig": "org",
                       "reqd": True,
                       "type": "`$STRING`",
-                      "index$": 0,
                     },
                     {
-                      "active": True,
                       "kind": "param",
                       "name": "team_id",
                       "orig": "team",
                       "reqd": True,
                       "type": "`$STRING`",
-                      "index$": 1,
                     },
                   ],
                   "query": [
                     {
-                      "active": True,
                       "kind": "query",
                       "name": "data",
                       "orig": "data",
-                      "reqd": False,
                       "type": "`$OBJECT`",
                     },
                   ],
@@ -12886,36 +10570,29 @@ def make_config():
                   "req": "`reqdata`",
                   "res": "`body`",
                 },
-                "index$": 0,
               },
             ],
-            "key$": "create",
           },
           "list": {
             "input": "data",
             "name": "list",
             "points": [
               {
-                "active": True,
                 "args": {
                   "params": [
                     {
-                      "active": True,
                       "kind": "param",
                       "name": "org_id",
                       "orig": "org",
                       "reqd": True,
                       "type": "`$STRING`",
-                      "index$": 0,
                     },
                     {
-                      "active": True,
                       "kind": "param",
                       "name": "team_id",
                       "orig": "team",
                       "reqd": True,
                       "type": "`$STRING`",
-                      "index$": 1,
                     },
                   ],
                 },
@@ -12945,10 +10622,8 @@ def make_config():
                   "req": "`reqdata`",
                   "res": "`body.members`",
                 },
-                "index$": 0,
               },
             ],
-            "key$": "list",
           },
         },
         "relations": {
@@ -12983,479 +10658,284 @@ def make_config():
       "package": {
         "fields": [
           {
-            "active": True,
             "name": "active",
-            "req": False,
             "type": "`$INTEGER`",
-            "index$": 0,
           },
           {
-            "active": True,
             "name": "architectures",
-            "req": False,
             "type": "`$ARRAY`",
-            "index$": 1,
           },
           {
-            "active": True,
             "name": "backend_kind",
-            "req": False,
             "type": "`$INTEGER`",
-            "index$": 2,
           },
           {
-            "active": True,
             "name": "bandwidth",
             "req": True,
             "type": "`$OBJECT`",
-            "index$": 3,
           },
           {
-            "active": True,
             "name": "cdn_url",
-            "req": False,
             "type": "`$STRING`",
-            "index$": 4,
           },
           {
-            "active": True,
             "name": "checksum_md5",
-            "req": False,
             "type": "`$STRING`",
-            "index$": 5,
           },
           {
-            "active": True,
             "name": "checksum_sha1",
-            "req": False,
             "type": "`$STRING`",
-            "index$": 6,
           },
           {
-            "active": True,
             "name": "checksum_sha256",
-            "req": False,
             "type": "`$STRING`",
-            "index$": 7,
           },
           {
-            "active": True,
             "name": "checksum_sha512",
-            "req": False,
             "type": "`$STRING`",
-            "index$": 8,
           },
           {
-            "active": True,
             "name": "count",
             "req": True,
             "type": "`$INTEGER`",
-            "index$": 9,
           },
           {
-            "active": True,
             "name": "dep_type",
-            "req": False,
             "type": "`$STRING`",
-            "index$": 10,
           },
           {
-            "active": True,
             "name": "dependencies_checksum_md5",
-            "req": False,
             "type": "`$STRING`",
-            "index$": 11,
           },
           {
-            "active": True,
             "name": "dependencies_url",
-            "req": False,
             "type": "`$STRING`",
-            "index$": 12,
           },
           {
-            "active": True,
             "name": "description",
-            "req": False,
             "type": "`$STRING`",
-            "index$": 13,
           },
           {
-            "active": True,
             "name": "display_name",
-            "req": False,
             "type": "`$STRING`",
-            "index$": 14,
           },
           {
-            "active": True,
             "name": "distro",
             "req": True,
             "type": "`$OBJECT`",
-            "index$": 15,
           },
           {
-            "active": True,
             "name": "distro_version",
-            "req": False,
             "type": "`$OBJECT`",
-            "index$": 16,
           },
           {
-            "active": True,
             "name": "downloads",
             "op": {
               "create": {
-                "req": False,
                 "type": "`$INTEGER`",
               },
               "list": {
-                "req": False,
                 "type": "`$INTEGER`",
               },
             },
             "req": True,
             "type": "`$OBJECT`",
-            "index$": 17,
           },
           {
-            "active": True,
             "name": "epoch",
-            "req": False,
             "type": "`$INTEGER`",
-            "index$": 18,
           },
           {
-            "active": True,
             "name": "extension",
-            "req": False,
             "type": "`$STRING`",
-            "index$": 19,
           },
           {
-            "active": True,
             "name": "filename",
-            "req": False,
             "type": "`$STRING`",
-            "index$": 20,
           },
           {
-            "active": True,
             "name": "files",
-            "req": False,
             "type": "`$ARRAY`",
-            "index$": 21,
           },
           {
-            "active": True,
             "name": "format",
-            "req": False,
             "type": "`$STRING`",
-            "index$": 22,
           },
           {
-            "active": True,
             "name": "format_url",
-            "req": False,
             "type": "`$STRING`",
-            "index$": 23,
           },
           {
-            "active": True,
             "name": "freeable_storage",
-            "req": False,
             "type": "`$INTEGER`",
-            "index$": 24,
           },
           {
-            "active": True,
             "name": "fully_qualified_name",
-            "req": False,
             "type": "`$STRING`",
-            "index$": 25,
           },
           {
-            "active": True,
             "name": "identifier_perm",
-            "req": False,
             "type": "`$STRING`",
-            "index$": 26,
           },
           {
-            "active": True,
             "name": "identifiers",
-            "req": False,
             "type": "`$OBJECT`",
-            "index$": 27,
           },
           {
-            "active": True,
             "name": "inactive",
-            "req": False,
             "type": "`$INTEGER`",
-            "index$": 28,
           },
           {
-            "active": True,
             "name": "indexed",
-            "req": False,
             "type": "`$BOOLEAN`",
-            "index$": 29,
           },
           {
-            "active": True,
             "name": "is_cancellable",
-            "req": False,
             "type": "`$BOOLEAN`",
-            "index$": 30,
           },
           {
-            "active": True,
             "name": "is_copyable",
-            "req": False,
             "type": "`$BOOLEAN`",
-            "index$": 31,
           },
           {
-            "active": True,
             "name": "is_deleteable",
-            "req": False,
             "type": "`$BOOLEAN`",
-            "index$": 32,
           },
           {
-            "active": True,
             "name": "is_downloadable",
-            "req": False,
             "type": "`$BOOLEAN`",
-            "index$": 33,
           },
           {
-            "active": True,
             "name": "is_moveable",
-            "req": False,
             "type": "`$BOOLEAN`",
-            "index$": 34,
           },
           {
-            "active": True,
             "name": "is_quarantinable",
-            "req": False,
             "type": "`$BOOLEAN`",
-            "index$": 35,
           },
           {
-            "active": True,
             "name": "is_quarantined",
-            "req": False,
             "type": "`$BOOLEAN`",
-            "index$": 36,
           },
           {
-            "active": True,
             "name": "is_resyncable",
-            "req": False,
             "type": "`$BOOLEAN`",
-            "index$": 37,
           },
           {
-            "active": True,
             "name": "is_security_scannable",
-            "req": False,
             "type": "`$BOOLEAN`",
-            "index$": 38,
           },
           {
-            "active": True,
             "name": "is_sync_awaiting",
-            "req": False,
             "type": "`$BOOLEAN`",
-            "index$": 39,
           },
           {
-            "active": True,
             "name": "is_sync_completed",
-            "req": False,
             "type": "`$BOOLEAN`",
-            "index$": 40,
           },
           {
-            "active": True,
             "name": "is_sync_failed",
-            "req": False,
             "type": "`$BOOLEAN`",
-            "index$": 41,
           },
           {
-            "active": True,
             "name": "is_sync_in_flight",
-            "req": False,
             "type": "`$BOOLEAN`",
-            "index$": 42,
           },
           {
-            "active": True,
             "name": "is_sync_in_progress",
-            "req": False,
             "type": "`$BOOLEAN`",
-            "index$": 43,
           },
           {
-            "active": True,
             "name": "last_push",
             "req": True,
             "type": "`$STRING`",
-            "index$": 44,
           },
           {
-            "active": True,
             "name": "license",
-            "req": False,
             "type": "`$STRING`",
-            "index$": 45,
           },
           {
-            "active": True,
             "name": "name",
-            "req": False,
             "type": "`$STRING`",
-            "index$": 46,
           },
           {
-            "active": True,
             "name": "namespace",
-            "req": False,
             "type": "`$STRING`",
-            "index$": 47,
           },
           {
-            "active": True,
             "name": "namespace_url",
-            "req": False,
             "type": "`$STRING`",
-            "index$": 48,
           },
           {
-            "active": True,
             "name": "num_downloads",
             "req": True,
             "type": "`$INTEGER`",
-            "index$": 49,
           },
           {
-            "active": True,
             "name": "num_files",
-            "req": False,
             "type": "`$INTEGER`",
-            "index$": 50,
           },
           {
-            "active": True,
             "name": "operator",
-            "req": False,
             "type": "`$STRING`",
-            "index$": 51,
           },
           {
-            "active": True,
             "name": "origin_repository",
-            "req": False,
             "type": "`$STRING`",
-            "index$": 52,
           },
           {
-            "active": True,
             "name": "origin_repository_url",
-            "req": False,
             "type": "`$STRING`",
-            "index$": 53,
           },
           {
-            "active": True,
             "name": "package_type",
-            "req": False,
             "type": "`$INTEGER`",
-            "index$": 54,
           },
           {
-            "active": True,
             "name": "policy_violated",
-            "req": False,
             "type": "`$BOOLEAN`",
-            "index$": 55,
           },
           {
-            "active": True,
             "name": "release",
-            "req": False,
             "type": "`$STRING`",
-            "index$": 56,
           },
           {
-            "active": True,
             "name": "repository",
-            "req": False,
             "type": "`$STRING`",
-            "index$": 57,
           },
           {
-            "active": True,
             "name": "repository_url",
-            "req": False,
             "type": "`$STRING`",
-            "index$": 58,
           },
           {
-            "active": True,
             "name": "security_scan_completed_at",
-            "req": False,
             "type": "`$STRING`",
-            "index$": 59,
           },
           {
-            "active": True,
             "name": "security_scan_started_at",
-            "req": False,
             "type": "`$STRING`",
-            "index$": 60,
           },
           {
-            "active": True,
             "name": "security_scan_status",
-            "req": False,
             "type": "`$STRING`",
-            "index$": 61,
           },
           {
-            "active": True,
             "name": "security_scan_status_updated_at",
-            "req": False,
             "type": "`$STRING`",
-            "index$": 62,
           },
           {
-            "active": True,
             "name": "self_html_url",
-            "req": False,
             "type": "`$STRING`",
-            "index$": 63,
           },
           {
-            "active": True,
             "name": "self_url",
-            "req": False,
             "type": "`$STRING`",
-            "index$": 64,
           },
           {
-            "active": True,
             "name": "signature_url",
-            "req": False,
             "type": "`$STRING`",
-            "index$": 65,
           },
           {
-            "active": True,
             "name": "size",
             "op": {
               "list": {
@@ -13463,177 +10943,103 @@ def make_config():
                 "type": "`$INTEGER`",
               },
             },
-            "req": False,
             "type": "`$INTEGER`",
-            "index$": 66,
           },
           {
-            "active": True,
             "name": "slug",
-            "req": False,
             "type": "`$STRING`",
-            "index$": 67,
           },
           {
-            "active": True,
             "name": "slug_perm",
-            "req": False,
             "type": "`$STRING`",
-            "index$": 68,
           },
           {
-            "active": True,
             "name": "stage",
-            "req": False,
             "type": "`$INTEGER`",
-            "index$": 69,
           },
           {
-            "active": True,
             "name": "stage_str",
-            "req": False,
             "type": "`$STRING`",
-            "index$": 70,
           },
           {
-            "active": True,
             "name": "stage_updated_at",
-            "req": False,
             "type": "`$STRING`",
-            "index$": 71,
           },
           {
-            "active": True,
             "name": "status",
-            "req": False,
             "type": "`$INTEGER`",
-            "index$": 72,
           },
           {
-            "active": True,
             "name": "status_reason",
-            "req": False,
             "type": "`$STRING`",
-            "index$": 73,
           },
           {
-            "active": True,
             "name": "status_str",
-            "req": False,
             "type": "`$STRING`",
-            "index$": 74,
           },
           {
-            "active": True,
             "name": "status_updated_at",
-            "req": False,
             "type": "`$STRING`",
-            "index$": 75,
           },
           {
-            "active": True,
             "name": "status_url",
-            "req": False,
             "type": "`$STRING`",
-            "index$": 76,
           },
           {
-            "active": True,
             "name": "subtype",
-            "req": False,
             "type": "`$STRING`",
-            "index$": 77,
           },
           {
-            "active": True,
             "name": "summary",
-            "req": False,
             "type": "`$STRING`",
-            "index$": 78,
           },
           {
-            "active": True,
             "name": "sync_finished_at",
-            "req": False,
             "type": "`$STRING`",
-            "index$": 79,
           },
           {
-            "active": True,
             "name": "sync_progress",
-            "req": False,
             "type": "`$INTEGER`",
-            "index$": 80,
           },
           {
-            "active": True,
             "name": "tags",
-            "req": False,
             "type": "`$OBJECT`",
-            "index$": 81,
           },
           {
-            "active": True,
             "name": "tags_immutable",
-            "req": False,
             "type": "`$OBJECT`",
-            "index$": 82,
           },
           {
-            "active": True,
             "name": "total",
-            "req": False,
             "type": "`$INTEGER`",
-            "index$": 83,
           },
           {
-            "active": True,
             "name": "type_display",
-            "req": False,
             "type": "`$STRING`",
-            "index$": 84,
           },
           {
-            "active": True,
             "name": "uploaded_at",
-            "req": False,
             "type": "`$STRING`",
-            "index$": 85,
           },
           {
-            "active": True,
             "name": "uploader",
-            "req": False,
             "type": "`$STRING`",
-            "index$": 86,
           },
           {
-            "active": True,
             "name": "uploader_url",
-            "req": False,
             "type": "`$STRING`",
-            "index$": 87,
           },
           {
-            "active": True,
             "name": "version",
-            "req": False,
             "type": "`$STRING`",
-            "index$": 88,
           },
           {
-            "active": True,
             "name": "version_orig",
-            "req": False,
             "type": "`$STRING`",
-            "index$": 89,
           },
           {
-            "active": True,
             "name": "vulnerability_scan_results_url",
-            "req": False,
             "type": "`$STRING`",
-            "index$": 90,
           },
         ],
         "name": "package",
@@ -13643,44 +11049,35 @@ def make_config():
             "name": "create",
             "points": [
               {
-                "active": True,
                 "args": {
                   "params": [
                     {
-                      "active": True,
                       "kind": "param",
                       "name": "identifier",
                       "orig": "identifier",
                       "reqd": True,
                       "type": "`$ANY`",
-                      "index$": 0,
                     },
                     {
-                      "active": True,
                       "kind": "param",
                       "name": "owner",
                       "orig": "owner",
                       "reqd": True,
                       "type": "`$ANY`",
-                      "index$": 1,
                     },
                     {
-                      "active": True,
                       "kind": "param",
                       "name": "repo",
                       "orig": "repo",
                       "reqd": True,
                       "type": "`$ANY`",
-                      "index$": 2,
                     },
                   ],
                   "query": [
                     {
-                      "active": True,
                       "kind": "query",
                       "name": "data",
                       "orig": "data",
-                      "reqd": False,
                       "type": "`$OBJECT`",
                     },
                   ],
@@ -13707,47 +11104,37 @@ def make_config():
                   "req": "`reqdata`",
                   "res": "`body`",
                 },
-                "index$": 0,
               },
               {
-                "active": True,
                 "args": {
                   "params": [
                     {
-                      "active": True,
                       "kind": "param",
                       "name": "identifier",
                       "orig": "identifier",
                       "reqd": True,
                       "type": "`$ANY`",
-                      "index$": 0,
                     },
                     {
-                      "active": True,
                       "kind": "param",
                       "name": "owner",
                       "orig": "owner",
                       "reqd": True,
                       "type": "`$ANY`",
-                      "index$": 1,
                     },
                     {
-                      "active": True,
                       "kind": "param",
                       "name": "repo",
                       "orig": "repo",
                       "reqd": True,
                       "type": "`$ANY`",
-                      "index$": 2,
                     },
                   ],
                   "query": [
                     {
-                      "active": True,
                       "kind": "query",
                       "name": "data",
                       "orig": "data",
-                      "reqd": False,
                       "type": "`$OBJECT`",
                     },
                   ],
@@ -13774,47 +11161,37 @@ def make_config():
                   "req": "`reqdata`",
                   "res": "`body`",
                 },
-                "index$": 1,
               },
               {
-                "active": True,
                 "args": {
                   "params": [
                     {
-                      "active": True,
                       "kind": "param",
                       "name": "identifier",
                       "orig": "identifier",
                       "reqd": True,
                       "type": "`$ANY`",
-                      "index$": 0,
                     },
                     {
-                      "active": True,
                       "kind": "param",
                       "name": "owner",
                       "orig": "owner",
                       "reqd": True,
                       "type": "`$ANY`",
-                      "index$": 1,
                     },
                     {
-                      "active": True,
                       "kind": "param",
                       "name": "repo",
                       "orig": "repo",
                       "reqd": True,
                       "type": "`$ANY`",
-                      "index$": 2,
                     },
                   ],
                   "query": [
                     {
-                      "active": True,
                       "kind": "query",
                       "name": "data",
                       "orig": "data",
-                      "reqd": False,
                       "type": "`$OBJECT`",
                     },
                   ],
@@ -13841,47 +11218,37 @@ def make_config():
                   "req": "`reqdata`",
                   "res": "`body`",
                 },
-                "index$": 2,
               },
               {
-                "active": True,
                 "args": {
                   "params": [
                     {
-                      "active": True,
                       "kind": "param",
                       "name": "identifier",
                       "orig": "identifier",
                       "reqd": True,
                       "type": "`$ANY`",
-                      "index$": 0,
                     },
                     {
-                      "active": True,
                       "kind": "param",
                       "name": "owner",
                       "orig": "owner",
                       "reqd": True,
                       "type": "`$ANY`",
-                      "index$": 1,
                     },
                     {
-                      "active": True,
                       "kind": "param",
                       "name": "repo",
                       "orig": "repo",
                       "reqd": True,
                       "type": "`$ANY`",
-                      "index$": 2,
                     },
                   ],
                   "query": [
                     {
-                      "active": True,
                       "kind": "query",
                       "name": "data",
                       "orig": "data",
-                      "reqd": False,
                       "type": "`$OBJECT`",
                     },
                   ],
@@ -13908,38 +11275,30 @@ def make_config():
                   "req": "`reqdata`",
                   "res": "`body`",
                 },
-                "index$": 3,
               },
               {
-                "active": True,
                 "args": {
                   "params": [
                     {
-                      "active": True,
                       "kind": "param",
                       "name": "owner",
                       "orig": "owner",
                       "reqd": True,
                       "type": "`$ANY`",
-                      "index$": 0,
                     },
                     {
-                      "active": True,
                       "kind": "param",
                       "name": "repo",
                       "orig": "repo",
                       "reqd": True,
                       "type": "`$ANY`",
-                      "index$": 1,
                     },
                   ],
                   "query": [
                     {
-                      "active": True,
                       "kind": "query",
                       "name": "data",
                       "orig": "data",
-                      "reqd": False,
                       "type": "`$OBJECT`",
                     },
                   ],
@@ -13965,38 +11324,30 @@ def make_config():
                   "req": "`reqdata`",
                   "res": "`body`",
                 },
-                "index$": 4,
               },
               {
-                "active": True,
                 "args": {
                   "params": [
                     {
-                      "active": True,
                       "kind": "param",
                       "name": "owner",
                       "orig": "owner",
                       "reqd": True,
                       "type": "`$ANY`",
-                      "index$": 0,
                     },
                     {
-                      "active": True,
                       "kind": "param",
                       "name": "repo",
                       "orig": "repo",
                       "reqd": True,
                       "type": "`$ANY`",
-                      "index$": 1,
                     },
                   ],
                   "query": [
                     {
-                      "active": True,
                       "kind": "query",
                       "name": "data",
                       "orig": "data",
-                      "reqd": False,
                       "type": "`$OBJECT`",
                     },
                   ],
@@ -14022,38 +11373,30 @@ def make_config():
                   "req": "`reqdata`",
                   "res": "`body`",
                 },
-                "index$": 5,
               },
               {
-                "active": True,
                 "args": {
                   "params": [
                     {
-                      "active": True,
                       "kind": "param",
                       "name": "owner",
                       "orig": "owner",
                       "reqd": True,
                       "type": "`$ANY`",
-                      "index$": 0,
                     },
                     {
-                      "active": True,
                       "kind": "param",
                       "name": "repo",
                       "orig": "repo",
                       "reqd": True,
                       "type": "`$ANY`",
-                      "index$": 1,
                     },
                   ],
                   "query": [
                     {
-                      "active": True,
                       "kind": "query",
                       "name": "data",
                       "orig": "data",
-                      "reqd": False,
                       "type": "`$OBJECT`",
                     },
                   ],
@@ -14079,38 +11422,30 @@ def make_config():
                   "req": "`reqdata`",
                   "res": "`body`",
                 },
-                "index$": 6,
               },
               {
-                "active": True,
                 "args": {
                   "params": [
                     {
-                      "active": True,
                       "kind": "param",
                       "name": "owner",
                       "orig": "owner",
                       "reqd": True,
                       "type": "`$ANY`",
-                      "index$": 0,
                     },
                     {
-                      "active": True,
                       "kind": "param",
                       "name": "repo",
                       "orig": "repo",
                       "reqd": True,
                       "type": "`$ANY`",
-                      "index$": 1,
                     },
                   ],
                   "query": [
                     {
-                      "active": True,
                       "kind": "query",
                       "name": "data",
                       "orig": "data",
-                      "reqd": False,
                       "type": "`$OBJECT`",
                     },
                   ],
@@ -14136,38 +11471,30 @@ def make_config():
                   "req": "`reqdata`",
                   "res": "`body`",
                 },
-                "index$": 7,
               },
               {
-                "active": True,
                 "args": {
                   "params": [
                     {
-                      "active": True,
                       "kind": "param",
                       "name": "owner",
                       "orig": "owner",
                       "reqd": True,
                       "type": "`$ANY`",
-                      "index$": 0,
                     },
                     {
-                      "active": True,
                       "kind": "param",
                       "name": "repo",
                       "orig": "repo",
                       "reqd": True,
                       "type": "`$ANY`",
-                      "index$": 1,
                     },
                   ],
                   "query": [
                     {
-                      "active": True,
                       "kind": "query",
                       "name": "data",
                       "orig": "data",
-                      "reqd": False,
                       "type": "`$OBJECT`",
                     },
                   ],
@@ -14193,38 +11520,30 @@ def make_config():
                   "req": "`reqdata`",
                   "res": "`body`",
                 },
-                "index$": 8,
               },
               {
-                "active": True,
                 "args": {
                   "params": [
                     {
-                      "active": True,
                       "kind": "param",
                       "name": "owner",
                       "orig": "owner",
                       "reqd": True,
                       "type": "`$ANY`",
-                      "index$": 0,
                     },
                     {
-                      "active": True,
                       "kind": "param",
                       "name": "repo",
                       "orig": "repo",
                       "reqd": True,
                       "type": "`$ANY`",
-                      "index$": 1,
                     },
                   ],
                   "query": [
                     {
-                      "active": True,
                       "kind": "query",
                       "name": "data",
                       "orig": "data",
-                      "reqd": False,
                       "type": "`$OBJECT`",
                     },
                   ],
@@ -14250,38 +11569,30 @@ def make_config():
                   "req": "`reqdata`",
                   "res": "`body`",
                 },
-                "index$": 9,
               },
               {
-                "active": True,
                 "args": {
                   "params": [
                     {
-                      "active": True,
                       "kind": "param",
                       "name": "owner",
                       "orig": "owner",
                       "reqd": True,
                       "type": "`$ANY`",
-                      "index$": 0,
                     },
                     {
-                      "active": True,
                       "kind": "param",
                       "name": "repo",
                       "orig": "repo",
                       "reqd": True,
                       "type": "`$ANY`",
-                      "index$": 1,
                     },
                   ],
                   "query": [
                     {
-                      "active": True,
                       "kind": "query",
                       "name": "data",
                       "orig": "data",
-                      "reqd": False,
                       "type": "`$OBJECT`",
                     },
                   ],
@@ -14307,38 +11618,30 @@ def make_config():
                   "req": "`reqdata`",
                   "res": "`body`",
                 },
-                "index$": 10,
               },
               {
-                "active": True,
                 "args": {
                   "params": [
                     {
-                      "active": True,
                       "kind": "param",
                       "name": "owner",
                       "orig": "owner",
                       "reqd": True,
                       "type": "`$ANY`",
-                      "index$": 0,
                     },
                     {
-                      "active": True,
                       "kind": "param",
                       "name": "repo",
                       "orig": "repo",
                       "reqd": True,
                       "type": "`$ANY`",
-                      "index$": 1,
                     },
                   ],
                   "query": [
                     {
-                      "active": True,
                       "kind": "query",
                       "name": "data",
                       "orig": "data",
-                      "reqd": False,
                       "type": "`$OBJECT`",
                     },
                   ],
@@ -14364,38 +11667,30 @@ def make_config():
                   "req": "`reqdata`",
                   "res": "`body`",
                 },
-                "index$": 11,
               },
               {
-                "active": True,
                 "args": {
                   "params": [
                     {
-                      "active": True,
                       "kind": "param",
                       "name": "owner",
                       "orig": "owner",
                       "reqd": True,
                       "type": "`$ANY`",
-                      "index$": 0,
                     },
                     {
-                      "active": True,
                       "kind": "param",
                       "name": "repo",
                       "orig": "repo",
                       "reqd": True,
                       "type": "`$ANY`",
-                      "index$": 1,
                     },
                   ],
                   "query": [
                     {
-                      "active": True,
                       "kind": "query",
                       "name": "data",
                       "orig": "data",
-                      "reqd": False,
                       "type": "`$OBJECT`",
                     },
                   ],
@@ -14421,38 +11716,30 @@ def make_config():
                   "req": "`reqdata`",
                   "res": "`body`",
                 },
-                "index$": 12,
               },
               {
-                "active": True,
                 "args": {
                   "params": [
                     {
-                      "active": True,
                       "kind": "param",
                       "name": "owner",
                       "orig": "owner",
                       "reqd": True,
                       "type": "`$ANY`",
-                      "index$": 0,
                     },
                     {
-                      "active": True,
                       "kind": "param",
                       "name": "repo",
                       "orig": "repo",
                       "reqd": True,
                       "type": "`$ANY`",
-                      "index$": 1,
                     },
                   ],
                   "query": [
                     {
-                      "active": True,
                       "kind": "query",
                       "name": "data",
                       "orig": "data",
-                      "reqd": False,
                       "type": "`$OBJECT`",
                     },
                   ],
@@ -14478,38 +11765,30 @@ def make_config():
                   "req": "`reqdata`",
                   "res": "`body`",
                 },
-                "index$": 13,
               },
               {
-                "active": True,
                 "args": {
                   "params": [
                     {
-                      "active": True,
                       "kind": "param",
                       "name": "owner",
                       "orig": "owner",
                       "reqd": True,
                       "type": "`$ANY`",
-                      "index$": 0,
                     },
                     {
-                      "active": True,
                       "kind": "param",
                       "name": "repo",
                       "orig": "repo",
                       "reqd": True,
                       "type": "`$ANY`",
-                      "index$": 1,
                     },
                   ],
                   "query": [
                     {
-                      "active": True,
                       "kind": "query",
                       "name": "data",
                       "orig": "data",
-                      "reqd": False,
                       "type": "`$OBJECT`",
                     },
                   ],
@@ -14535,38 +11814,30 @@ def make_config():
                   "req": "`reqdata`",
                   "res": "`body`",
                 },
-                "index$": 14,
               },
               {
-                "active": True,
                 "args": {
                   "params": [
                     {
-                      "active": True,
                       "kind": "param",
                       "name": "owner",
                       "orig": "owner",
                       "reqd": True,
                       "type": "`$ANY`",
-                      "index$": 0,
                     },
                     {
-                      "active": True,
                       "kind": "param",
                       "name": "repo",
                       "orig": "repo",
                       "reqd": True,
                       "type": "`$ANY`",
-                      "index$": 1,
                     },
                   ],
                   "query": [
                     {
-                      "active": True,
                       "kind": "query",
                       "name": "data",
                       "orig": "data",
-                      "reqd": False,
                       "type": "`$OBJECT`",
                     },
                   ],
@@ -14592,38 +11863,30 @@ def make_config():
                   "req": "`reqdata`",
                   "res": "`body`",
                 },
-                "index$": 15,
               },
               {
-                "active": True,
                 "args": {
                   "params": [
                     {
-                      "active": True,
                       "kind": "param",
                       "name": "owner",
                       "orig": "owner",
                       "reqd": True,
                       "type": "`$ANY`",
-                      "index$": 0,
                     },
                     {
-                      "active": True,
                       "kind": "param",
                       "name": "repo",
                       "orig": "repo",
                       "reqd": True,
                       "type": "`$ANY`",
-                      "index$": 1,
                     },
                   ],
                   "query": [
                     {
-                      "active": True,
                       "kind": "query",
                       "name": "data",
                       "orig": "data",
-                      "reqd": False,
                       "type": "`$OBJECT`",
                     },
                   ],
@@ -14649,38 +11912,30 @@ def make_config():
                   "req": "`reqdata`",
                   "res": "`body`",
                 },
-                "index$": 16,
               },
               {
-                "active": True,
                 "args": {
                   "params": [
                     {
-                      "active": True,
                       "kind": "param",
                       "name": "owner",
                       "orig": "owner",
                       "reqd": True,
                       "type": "`$ANY`",
-                      "index$": 0,
                     },
                     {
-                      "active": True,
                       "kind": "param",
                       "name": "repo",
                       "orig": "repo",
                       "reqd": True,
                       "type": "`$ANY`",
-                      "index$": 1,
                     },
                   ],
                   "query": [
                     {
-                      "active": True,
                       "kind": "query",
                       "name": "data",
                       "orig": "data",
-                      "reqd": False,
                       "type": "`$OBJECT`",
                     },
                   ],
@@ -14706,38 +11961,30 @@ def make_config():
                   "req": "`reqdata`",
                   "res": "`body`",
                 },
-                "index$": 17,
               },
               {
-                "active": True,
                 "args": {
                   "params": [
                     {
-                      "active": True,
                       "kind": "param",
                       "name": "owner",
                       "orig": "owner",
                       "reqd": True,
                       "type": "`$ANY`",
-                      "index$": 0,
                     },
                     {
-                      "active": True,
                       "kind": "param",
                       "name": "repo",
                       "orig": "repo",
                       "reqd": True,
                       "type": "`$ANY`",
-                      "index$": 1,
                     },
                   ],
                   "query": [
                     {
-                      "active": True,
                       "kind": "query",
                       "name": "data",
                       "orig": "data",
-                      "reqd": False,
                       "type": "`$OBJECT`",
                     },
                   ],
@@ -14763,38 +12010,30 @@ def make_config():
                   "req": "`reqdata`",
                   "res": "`body`",
                 },
-                "index$": 18,
               },
               {
-                "active": True,
                 "args": {
                   "params": [
                     {
-                      "active": True,
                       "kind": "param",
                       "name": "owner",
                       "orig": "owner",
                       "reqd": True,
                       "type": "`$ANY`",
-                      "index$": 0,
                     },
                     {
-                      "active": True,
                       "kind": "param",
                       "name": "repo",
                       "orig": "repo",
                       "reqd": True,
                       "type": "`$ANY`",
-                      "index$": 1,
                     },
                   ],
                   "query": [
                     {
-                      "active": True,
                       "kind": "query",
                       "name": "data",
                       "orig": "data",
-                      "reqd": False,
                       "type": "`$OBJECT`",
                     },
                   ],
@@ -14820,38 +12059,30 @@ def make_config():
                   "req": "`reqdata`",
                   "res": "`body`",
                 },
-                "index$": 19,
               },
               {
-                "active": True,
                 "args": {
                   "params": [
                     {
-                      "active": True,
                       "kind": "param",
                       "name": "owner",
                       "orig": "owner",
                       "reqd": True,
                       "type": "`$ANY`",
-                      "index$": 0,
                     },
                     {
-                      "active": True,
                       "kind": "param",
                       "name": "repo",
                       "orig": "repo",
                       "reqd": True,
                       "type": "`$ANY`",
-                      "index$": 1,
                     },
                   ],
                   "query": [
                     {
-                      "active": True,
                       "kind": "query",
                       "name": "data",
                       "orig": "data",
-                      "reqd": False,
                       "type": "`$OBJECT`",
                     },
                   ],
@@ -14877,38 +12108,30 @@ def make_config():
                   "req": "`reqdata`",
                   "res": "`body`",
                 },
-                "index$": 20,
               },
               {
-                "active": True,
                 "args": {
                   "params": [
                     {
-                      "active": True,
                       "kind": "param",
                       "name": "owner",
                       "orig": "owner",
                       "reqd": True,
                       "type": "`$ANY`",
-                      "index$": 0,
                     },
                     {
-                      "active": True,
                       "kind": "param",
                       "name": "repo",
                       "orig": "repo",
                       "reqd": True,
                       "type": "`$ANY`",
-                      "index$": 1,
                     },
                   ],
                   "query": [
                     {
-                      "active": True,
                       "kind": "query",
                       "name": "data",
                       "orig": "data",
-                      "reqd": False,
                       "type": "`$OBJECT`",
                     },
                   ],
@@ -14934,38 +12157,30 @@ def make_config():
                   "req": "`reqdata`",
                   "res": "`body`",
                 },
-                "index$": 21,
               },
               {
-                "active": True,
                 "args": {
                   "params": [
                     {
-                      "active": True,
                       "kind": "param",
                       "name": "owner",
                       "orig": "owner",
                       "reqd": True,
                       "type": "`$ANY`",
-                      "index$": 0,
                     },
                     {
-                      "active": True,
                       "kind": "param",
                       "name": "repo",
                       "orig": "repo",
                       "reqd": True,
                       "type": "`$ANY`",
-                      "index$": 1,
                     },
                   ],
                   "query": [
                     {
-                      "active": True,
                       "kind": "query",
                       "name": "data",
                       "orig": "data",
-                      "reqd": False,
                       "type": "`$OBJECT`",
                     },
                   ],
@@ -14991,38 +12206,30 @@ def make_config():
                   "req": "`reqdata`",
                   "res": "`body`",
                 },
-                "index$": 22,
               },
               {
-                "active": True,
                 "args": {
                   "params": [
                     {
-                      "active": True,
                       "kind": "param",
                       "name": "owner",
                       "orig": "owner",
                       "reqd": True,
                       "type": "`$ANY`",
-                      "index$": 0,
                     },
                     {
-                      "active": True,
                       "kind": "param",
                       "name": "repo",
                       "orig": "repo",
                       "reqd": True,
                       "type": "`$ANY`",
-                      "index$": 1,
                     },
                   ],
                   "query": [
                     {
-                      "active": True,
                       "kind": "query",
                       "name": "data",
                       "orig": "data",
-                      "reqd": False,
                       "type": "`$OBJECT`",
                     },
                   ],
@@ -15048,38 +12255,30 @@ def make_config():
                   "req": "`reqdata`",
                   "res": "`body`",
                 },
-                "index$": 23,
               },
               {
-                "active": True,
                 "args": {
                   "params": [
                     {
-                      "active": True,
                       "kind": "param",
                       "name": "owner",
                       "orig": "owner",
                       "reqd": True,
                       "type": "`$ANY`",
-                      "index$": 0,
                     },
                     {
-                      "active": True,
                       "kind": "param",
                       "name": "repo",
                       "orig": "repo",
                       "reqd": True,
                       "type": "`$ANY`",
-                      "index$": 1,
                     },
                   ],
                   "query": [
                     {
-                      "active": True,
                       "kind": "query",
                       "name": "data",
                       "orig": "data",
-                      "reqd": False,
                       "type": "`$OBJECT`",
                     },
                   ],
@@ -15105,38 +12304,30 @@ def make_config():
                   "req": "`reqdata`",
                   "res": "`body`",
                 },
-                "index$": 24,
               },
               {
-                "active": True,
                 "args": {
                   "params": [
                     {
-                      "active": True,
                       "kind": "param",
                       "name": "owner",
                       "orig": "owner",
                       "reqd": True,
                       "type": "`$ANY`",
-                      "index$": 0,
                     },
                     {
-                      "active": True,
                       "kind": "param",
                       "name": "repo",
                       "orig": "repo",
                       "reqd": True,
                       "type": "`$ANY`",
-                      "index$": 1,
                     },
                   ],
                   "query": [
                     {
-                      "active": True,
                       "kind": "query",
                       "name": "data",
                       "orig": "data",
-                      "reqd": False,
                       "type": "`$OBJECT`",
                     },
                   ],
@@ -15162,38 +12353,30 @@ def make_config():
                   "req": "`reqdata`",
                   "res": "`body`",
                 },
-                "index$": 25,
               },
               {
-                "active": True,
                 "args": {
                   "params": [
                     {
-                      "active": True,
                       "kind": "param",
                       "name": "owner",
                       "orig": "owner",
                       "reqd": True,
                       "type": "`$ANY`",
-                      "index$": 0,
                     },
                     {
-                      "active": True,
                       "kind": "param",
                       "name": "repo",
                       "orig": "repo",
                       "reqd": True,
                       "type": "`$ANY`",
-                      "index$": 1,
                     },
                   ],
                   "query": [
                     {
-                      "active": True,
                       "kind": "query",
                       "name": "data",
                       "orig": "data",
-                      "reqd": False,
                       "type": "`$OBJECT`",
                     },
                   ],
@@ -15219,38 +12402,30 @@ def make_config():
                   "req": "`reqdata`",
                   "res": "`body`",
                 },
-                "index$": 26,
               },
               {
-                "active": True,
                 "args": {
                   "params": [
                     {
-                      "active": True,
                       "kind": "param",
                       "name": "owner",
                       "orig": "owner",
                       "reqd": True,
                       "type": "`$ANY`",
-                      "index$": 0,
                     },
                     {
-                      "active": True,
                       "kind": "param",
                       "name": "repo",
                       "orig": "repo",
                       "reqd": True,
                       "type": "`$ANY`",
-                      "index$": 1,
                     },
                   ],
                   "query": [
                     {
-                      "active": True,
                       "kind": "query",
                       "name": "data",
                       "orig": "data",
-                      "reqd": False,
                       "type": "`$OBJECT`",
                     },
                   ],
@@ -15276,38 +12451,30 @@ def make_config():
                   "req": "`reqdata`",
                   "res": "`body`",
                 },
-                "index$": 27,
               },
               {
-                "active": True,
                 "args": {
                   "params": [
                     {
-                      "active": True,
                       "kind": "param",
                       "name": "owner",
                       "orig": "owner",
                       "reqd": True,
                       "type": "`$ANY`",
-                      "index$": 0,
                     },
                     {
-                      "active": True,
                       "kind": "param",
                       "name": "repo",
                       "orig": "repo",
                       "reqd": True,
                       "type": "`$ANY`",
-                      "index$": 1,
                     },
                   ],
                   "query": [
                     {
-                      "active": True,
                       "kind": "query",
                       "name": "data",
                       "orig": "data",
-                      "reqd": False,
                       "type": "`$OBJECT`",
                     },
                   ],
@@ -15333,38 +12500,30 @@ def make_config():
                   "req": "`reqdata`",
                   "res": "`body`",
                 },
-                "index$": 28,
               },
               {
-                "active": True,
                 "args": {
                   "params": [
                     {
-                      "active": True,
                       "kind": "param",
                       "name": "owner",
                       "orig": "owner",
                       "reqd": True,
                       "type": "`$ANY`",
-                      "index$": 0,
                     },
                     {
-                      "active": True,
                       "kind": "param",
                       "name": "repo",
                       "orig": "repo",
                       "reqd": True,
                       "type": "`$ANY`",
-                      "index$": 1,
                     },
                   ],
                   "query": [
                     {
-                      "active": True,
                       "kind": "query",
                       "name": "data",
                       "orig": "data",
-                      "reqd": False,
                       "type": "`$OBJECT`",
                     },
                   ],
@@ -15390,38 +12549,30 @@ def make_config():
                   "req": "`reqdata`",
                   "res": "`body`",
                 },
-                "index$": 29,
               },
               {
-                "active": True,
                 "args": {
                   "params": [
                     {
-                      "active": True,
                       "kind": "param",
                       "name": "owner",
                       "orig": "owner",
                       "reqd": True,
                       "type": "`$ANY`",
-                      "index$": 0,
                     },
                     {
-                      "active": True,
                       "kind": "param",
                       "name": "repo",
                       "orig": "repo",
                       "reqd": True,
                       "type": "`$ANY`",
-                      "index$": 1,
                     },
                   ],
                   "query": [
                     {
-                      "active": True,
                       "kind": "query",
                       "name": "data",
                       "orig": "data",
-                      "reqd": False,
                       "type": "`$OBJECT`",
                     },
                   ],
@@ -15447,38 +12598,30 @@ def make_config():
                   "req": "`reqdata`",
                   "res": "`body`",
                 },
-                "index$": 30,
               },
               {
-                "active": True,
                 "args": {
                   "params": [
                     {
-                      "active": True,
                       "kind": "param",
                       "name": "owner",
                       "orig": "owner",
                       "reqd": True,
                       "type": "`$ANY`",
-                      "index$": 0,
                     },
                     {
-                      "active": True,
                       "kind": "param",
                       "name": "repo",
                       "orig": "repo",
                       "reqd": True,
                       "type": "`$ANY`",
-                      "index$": 1,
                     },
                   ],
                   "query": [
                     {
-                      "active": True,
                       "kind": "query",
                       "name": "data",
                       "orig": "data",
-                      "reqd": False,
                       "type": "`$OBJECT`",
                     },
                   ],
@@ -15504,38 +12647,30 @@ def make_config():
                   "req": "`reqdata`",
                   "res": "`body`",
                 },
-                "index$": 31,
               },
               {
-                "active": True,
                 "args": {
                   "params": [
                     {
-                      "active": True,
                       "kind": "param",
                       "name": "owner",
                       "orig": "owner",
                       "reqd": True,
                       "type": "`$ANY`",
-                      "index$": 0,
                     },
                     {
-                      "active": True,
                       "kind": "param",
                       "name": "repo",
                       "orig": "repo",
                       "reqd": True,
                       "type": "`$ANY`",
-                      "index$": 1,
                     },
                   ],
                   "query": [
                     {
-                      "active": True,
                       "kind": "query",
                       "name": "data",
                       "orig": "data",
-                      "reqd": False,
                       "type": "`$OBJECT`",
                     },
                   ],
@@ -15561,38 +12696,30 @@ def make_config():
                   "req": "`reqdata`",
                   "res": "`body`",
                 },
-                "index$": 32,
               },
               {
-                "active": True,
                 "args": {
                   "params": [
                     {
-                      "active": True,
                       "kind": "param",
                       "name": "owner",
                       "orig": "owner",
                       "reqd": True,
                       "type": "`$ANY`",
-                      "index$": 0,
                     },
                     {
-                      "active": True,
                       "kind": "param",
                       "name": "repo",
                       "orig": "repo",
                       "reqd": True,
                       "type": "`$ANY`",
-                      "index$": 1,
                     },
                   ],
                   "query": [
                     {
-                      "active": True,
                       "kind": "query",
                       "name": "data",
                       "orig": "data",
-                      "reqd": False,
                       "type": "`$OBJECT`",
                     },
                   ],
@@ -15618,38 +12745,30 @@ def make_config():
                   "req": "`reqdata`",
                   "res": "`body`",
                 },
-                "index$": 33,
               },
               {
-                "active": True,
                 "args": {
                   "params": [
                     {
-                      "active": True,
                       "kind": "param",
                       "name": "owner",
                       "orig": "owner",
                       "reqd": True,
                       "type": "`$ANY`",
-                      "index$": 0,
                     },
                     {
-                      "active": True,
                       "kind": "param",
                       "name": "repo",
                       "orig": "repo",
                       "reqd": True,
                       "type": "`$ANY`",
-                      "index$": 1,
                     },
                   ],
                   "query": [
                     {
-                      "active": True,
                       "kind": "query",
                       "name": "data",
                       "orig": "data",
-                      "reqd": False,
                       "type": "`$OBJECT`",
                     },
                   ],
@@ -15675,38 +12794,30 @@ def make_config():
                   "req": "`reqdata`",
                   "res": "`body`",
                 },
-                "index$": 34,
               },
               {
-                "active": True,
                 "args": {
                   "params": [
                     {
-                      "active": True,
                       "kind": "param",
                       "name": "owner",
                       "orig": "owner",
                       "reqd": True,
                       "type": "`$ANY`",
-                      "index$": 0,
                     },
                     {
-                      "active": True,
                       "kind": "param",
                       "name": "repo",
                       "orig": "repo",
                       "reqd": True,
                       "type": "`$ANY`",
-                      "index$": 1,
                     },
                   ],
                   "query": [
                     {
-                      "active": True,
                       "kind": "query",
                       "name": "data",
                       "orig": "data",
-                      "reqd": False,
                       "type": "`$OBJECT`",
                     },
                   ],
@@ -15732,38 +12843,30 @@ def make_config():
                   "req": "`reqdata`",
                   "res": "`body`",
                 },
-                "index$": 35,
               },
               {
-                "active": True,
                 "args": {
                   "params": [
                     {
-                      "active": True,
                       "kind": "param",
                       "name": "owner",
                       "orig": "owner",
                       "reqd": True,
                       "type": "`$ANY`",
-                      "index$": 0,
                     },
                     {
-                      "active": True,
                       "kind": "param",
                       "name": "repo",
                       "orig": "repo",
                       "reqd": True,
                       "type": "`$ANY`",
-                      "index$": 1,
                     },
                   ],
                   "query": [
                     {
-                      "active": True,
                       "kind": "query",
                       "name": "data",
                       "orig": "data",
-                      "reqd": False,
                       "type": "`$OBJECT`",
                     },
                   ],
@@ -15789,38 +12892,30 @@ def make_config():
                   "req": "`reqdata`",
                   "res": "`body`",
                 },
-                "index$": 36,
               },
               {
-                "active": True,
                 "args": {
                   "params": [
                     {
-                      "active": True,
                       "kind": "param",
                       "name": "owner",
                       "orig": "owner",
                       "reqd": True,
                       "type": "`$ANY`",
-                      "index$": 0,
                     },
                     {
-                      "active": True,
                       "kind": "param",
                       "name": "repo",
                       "orig": "repo",
                       "reqd": True,
                       "type": "`$ANY`",
-                      "index$": 1,
                     },
                   ],
                   "query": [
                     {
-                      "active": True,
                       "kind": "query",
                       "name": "data",
                       "orig": "data",
-                      "reqd": False,
                       "type": "`$OBJECT`",
                     },
                   ],
@@ -15846,38 +12941,30 @@ def make_config():
                   "req": "`reqdata`",
                   "res": "`body`",
                 },
-                "index$": 37,
               },
               {
-                "active": True,
                 "args": {
                   "params": [
                     {
-                      "active": True,
                       "kind": "param",
                       "name": "owner",
                       "orig": "owner",
                       "reqd": True,
                       "type": "`$ANY`",
-                      "index$": 0,
                     },
                     {
-                      "active": True,
                       "kind": "param",
                       "name": "repo",
                       "orig": "repo",
                       "reqd": True,
                       "type": "`$ANY`",
-                      "index$": 1,
                     },
                   ],
                   "query": [
                     {
-                      "active": True,
                       "kind": "query",
                       "name": "data",
                       "orig": "data",
-                      "reqd": False,
                       "type": "`$OBJECT`",
                     },
                   ],
@@ -15903,38 +12990,30 @@ def make_config():
                   "req": "`reqdata`",
                   "res": "`body`",
                 },
-                "index$": 38,
               },
               {
-                "active": True,
                 "args": {
                   "params": [
                     {
-                      "active": True,
                       "kind": "param",
                       "name": "owner",
                       "orig": "owner",
                       "reqd": True,
                       "type": "`$ANY`",
-                      "index$": 0,
                     },
                     {
-                      "active": True,
                       "kind": "param",
                       "name": "repo",
                       "orig": "repo",
                       "reqd": True,
                       "type": "`$ANY`",
-                      "index$": 1,
                     },
                   ],
                   "query": [
                     {
-                      "active": True,
                       "kind": "query",
                       "name": "data",
                       "orig": "data",
-                      "reqd": False,
                       "type": "`$OBJECT`",
                     },
                   ],
@@ -15960,38 +13039,30 @@ def make_config():
                   "req": "`reqdata`",
                   "res": "`body`",
                 },
-                "index$": 39,
               },
               {
-                "active": True,
                 "args": {
                   "params": [
                     {
-                      "active": True,
                       "kind": "param",
                       "name": "owner",
                       "orig": "owner",
                       "reqd": True,
                       "type": "`$ANY`",
-                      "index$": 0,
                     },
                     {
-                      "active": True,
                       "kind": "param",
                       "name": "repo",
                       "orig": "repo",
                       "reqd": True,
                       "type": "`$ANY`",
-                      "index$": 1,
                     },
                   ],
                   "query": [
                     {
-                      "active": True,
                       "kind": "query",
                       "name": "data",
                       "orig": "data",
-                      "reqd": False,
                       "type": "`$OBJECT`",
                     },
                   ],
@@ -16017,38 +13088,30 @@ def make_config():
                   "req": "`reqdata`",
                   "res": "`body`",
                 },
-                "index$": 40,
               },
               {
-                "active": True,
                 "args": {
                   "params": [
                     {
-                      "active": True,
                       "kind": "param",
                       "name": "owner",
                       "orig": "owner",
                       "reqd": True,
                       "type": "`$ANY`",
-                      "index$": 0,
                     },
                     {
-                      "active": True,
                       "kind": "param",
                       "name": "repo",
                       "orig": "repo",
                       "reqd": True,
                       "type": "`$ANY`",
-                      "index$": 1,
                     },
                   ],
                   "query": [
                     {
-                      "active": True,
                       "kind": "query",
                       "name": "data",
                       "orig": "data",
-                      "reqd": False,
                       "type": "`$OBJECT`",
                     },
                   ],
@@ -16074,38 +13137,30 @@ def make_config():
                   "req": "`reqdata`",
                   "res": "`body`",
                 },
-                "index$": 41,
               },
               {
-                "active": True,
                 "args": {
                   "params": [
                     {
-                      "active": True,
                       "kind": "param",
                       "name": "owner",
                       "orig": "owner",
                       "reqd": True,
                       "type": "`$ANY`",
-                      "index$": 0,
                     },
                     {
-                      "active": True,
                       "kind": "param",
                       "name": "repo",
                       "orig": "repo",
                       "reqd": True,
                       "type": "`$ANY`",
-                      "index$": 1,
                     },
                   ],
                   "query": [
                     {
-                      "active": True,
                       "kind": "query",
                       "name": "data",
                       "orig": "data",
-                      "reqd": False,
                       "type": "`$OBJECT`",
                     },
                   ],
@@ -16131,38 +13186,30 @@ def make_config():
                   "req": "`reqdata`",
                   "res": "`body`",
                 },
-                "index$": 42,
               },
               {
-                "active": True,
                 "args": {
                   "params": [
                     {
-                      "active": True,
                       "kind": "param",
                       "name": "owner",
                       "orig": "owner",
                       "reqd": True,
                       "type": "`$ANY`",
-                      "index$": 0,
                     },
                     {
-                      "active": True,
                       "kind": "param",
                       "name": "repo",
                       "orig": "repo",
                       "reqd": True,
                       "type": "`$ANY`",
-                      "index$": 1,
                     },
                   ],
                   "query": [
                     {
-                      "active": True,
                       "kind": "query",
                       "name": "data",
                       "orig": "data",
-                      "reqd": False,
                       "type": "`$OBJECT`",
                     },
                   ],
@@ -16188,38 +13235,30 @@ def make_config():
                   "req": "`reqdata`",
                   "res": "`body`",
                 },
-                "index$": 43,
               },
               {
-                "active": True,
                 "args": {
                   "params": [
                     {
-                      "active": True,
                       "kind": "param",
                       "name": "owner",
                       "orig": "owner",
                       "reqd": True,
                       "type": "`$ANY`",
-                      "index$": 0,
                     },
                     {
-                      "active": True,
                       "kind": "param",
                       "name": "repo",
                       "orig": "repo",
                       "reqd": True,
                       "type": "`$ANY`",
-                      "index$": 1,
                     },
                   ],
                   "query": [
                     {
-                      "active": True,
                       "kind": "query",
                       "name": "data",
                       "orig": "data",
-                      "reqd": False,
                       "type": "`$OBJECT`",
                     },
                   ],
@@ -16245,38 +13284,30 @@ def make_config():
                   "req": "`reqdata`",
                   "res": "`body`",
                 },
-                "index$": 44,
               },
               {
-                "active": True,
                 "args": {
                   "params": [
                     {
-                      "active": True,
                       "kind": "param",
                       "name": "owner",
                       "orig": "owner",
                       "reqd": True,
                       "type": "`$ANY`",
-                      "index$": 0,
                     },
                     {
-                      "active": True,
                       "kind": "param",
                       "name": "repo",
                       "orig": "repo",
                       "reqd": True,
                       "type": "`$ANY`",
-                      "index$": 1,
                     },
                   ],
                   "query": [
                     {
-                      "active": True,
                       "kind": "query",
                       "name": "data",
                       "orig": "data",
-                      "reqd": False,
                       "type": "`$OBJECT`",
                     },
                   ],
@@ -16302,38 +13333,30 @@ def make_config():
                   "req": "`reqdata`",
                   "res": "`body`",
                 },
-                "index$": 45,
               },
               {
-                "active": True,
                 "args": {
                   "params": [
                     {
-                      "active": True,
                       "kind": "param",
                       "name": "owner",
                       "orig": "owner",
                       "reqd": True,
                       "type": "`$ANY`",
-                      "index$": 0,
                     },
                     {
-                      "active": True,
                       "kind": "param",
                       "name": "repo",
                       "orig": "repo",
                       "reqd": True,
                       "type": "`$ANY`",
-                      "index$": 1,
                     },
                   ],
                   "query": [
                     {
-                      "active": True,
                       "kind": "query",
                       "name": "data",
                       "orig": "data",
-                      "reqd": False,
                       "type": "`$OBJECT`",
                     },
                   ],
@@ -16359,38 +13382,30 @@ def make_config():
                   "req": "`reqdata`",
                   "res": "`body`",
                 },
-                "index$": 46,
               },
               {
-                "active": True,
                 "args": {
                   "params": [
                     {
-                      "active": True,
                       "kind": "param",
                       "name": "owner",
                       "orig": "owner",
                       "reqd": True,
                       "type": "`$ANY`",
-                      "index$": 0,
                     },
                     {
-                      "active": True,
                       "kind": "param",
                       "name": "repo",
                       "orig": "repo",
                       "reqd": True,
                       "type": "`$ANY`",
-                      "index$": 1,
                     },
                   ],
                   "query": [
                     {
-                      "active": True,
                       "kind": "query",
                       "name": "data",
                       "orig": "data",
-                      "reqd": False,
                       "type": "`$OBJECT`",
                     },
                   ],
@@ -16416,38 +13431,30 @@ def make_config():
                   "req": "`reqdata`",
                   "res": "`body`",
                 },
-                "index$": 47,
               },
               {
-                "active": True,
                 "args": {
                   "params": [
                     {
-                      "active": True,
                       "kind": "param",
                       "name": "owner",
                       "orig": "owner",
                       "reqd": True,
                       "type": "`$ANY`",
-                      "index$": 0,
                     },
                     {
-                      "active": True,
                       "kind": "param",
                       "name": "repo",
                       "orig": "repo",
                       "reqd": True,
                       "type": "`$ANY`",
-                      "index$": 1,
                     },
                   ],
                   "query": [
                     {
-                      "active": True,
                       "kind": "query",
                       "name": "data",
                       "orig": "data",
-                      "reqd": False,
                       "type": "`$OBJECT`",
                     },
                   ],
@@ -16473,38 +13480,30 @@ def make_config():
                   "req": "`reqdata`",
                   "res": "`body`",
                 },
-                "index$": 48,
               },
               {
-                "active": True,
                 "args": {
                   "params": [
                     {
-                      "active": True,
                       "kind": "param",
                       "name": "owner",
                       "orig": "owner",
                       "reqd": True,
                       "type": "`$ANY`",
-                      "index$": 0,
                     },
                     {
-                      "active": True,
                       "kind": "param",
                       "name": "repo",
                       "orig": "repo",
                       "reqd": True,
                       "type": "`$ANY`",
-                      "index$": 1,
                     },
                   ],
                   "query": [
                     {
-                      "active": True,
                       "kind": "query",
                       "name": "data",
                       "orig": "data",
-                      "reqd": False,
                       "type": "`$OBJECT`",
                     },
                   ],
@@ -16530,38 +13529,30 @@ def make_config():
                   "req": "`reqdata`",
                   "res": "`body`",
                 },
-                "index$": 49,
               },
               {
-                "active": True,
                 "args": {
                   "params": [
                     {
-                      "active": True,
                       "kind": "param",
                       "name": "owner",
                       "orig": "owner",
                       "reqd": True,
                       "type": "`$ANY`",
-                      "index$": 0,
                     },
                     {
-                      "active": True,
                       "kind": "param",
                       "name": "repo",
                       "orig": "repo",
                       "reqd": True,
                       "type": "`$ANY`",
-                      "index$": 1,
                     },
                   ],
                   "query": [
                     {
-                      "active": True,
                       "kind": "query",
                       "name": "data",
                       "orig": "data",
-                      "reqd": False,
                       "type": "`$OBJECT`",
                     },
                   ],
@@ -16587,38 +13578,30 @@ def make_config():
                   "req": "`reqdata`",
                   "res": "`body`",
                 },
-                "index$": 50,
               },
               {
-                "active": True,
                 "args": {
                   "params": [
                     {
-                      "active": True,
                       "kind": "param",
                       "name": "owner",
                       "orig": "owner",
                       "reqd": True,
                       "type": "`$ANY`",
-                      "index$": 0,
                     },
                     {
-                      "active": True,
                       "kind": "param",
                       "name": "repo",
                       "orig": "repo",
                       "reqd": True,
                       "type": "`$ANY`",
-                      "index$": 1,
                     },
                   ],
                   "query": [
                     {
-                      "active": True,
                       "kind": "query",
                       "name": "data",
                       "orig": "data",
-                      "reqd": False,
                       "type": "`$OBJECT`",
                     },
                   ],
@@ -16644,38 +13627,30 @@ def make_config():
                   "req": "`reqdata`",
                   "res": "`body`",
                 },
-                "index$": 51,
               },
               {
-                "active": True,
                 "args": {
                   "params": [
                     {
-                      "active": True,
                       "kind": "param",
                       "name": "owner",
                       "orig": "owner",
                       "reqd": True,
                       "type": "`$ANY`",
-                      "index$": 0,
                     },
                     {
-                      "active": True,
                       "kind": "param",
                       "name": "repo",
                       "orig": "repo",
                       "reqd": True,
                       "type": "`$ANY`",
-                      "index$": 1,
                     },
                   ],
                   "query": [
                     {
-                      "active": True,
                       "kind": "query",
                       "name": "data",
                       "orig": "data",
-                      "reqd": False,
                       "type": "`$OBJECT`",
                     },
                   ],
@@ -16701,38 +13676,30 @@ def make_config():
                   "req": "`reqdata`",
                   "res": "`body`",
                 },
-                "index$": 52,
               },
               {
-                "active": True,
                 "args": {
                   "params": [
                     {
-                      "active": True,
                       "kind": "param",
                       "name": "owner",
                       "orig": "owner",
                       "reqd": True,
                       "type": "`$ANY`",
-                      "index$": 0,
                     },
                     {
-                      "active": True,
                       "kind": "param",
                       "name": "repo",
                       "orig": "repo",
                       "reqd": True,
                       "type": "`$ANY`",
-                      "index$": 1,
                     },
                   ],
                   "query": [
                     {
-                      "active": True,
                       "kind": "query",
                       "name": "data",
                       "orig": "data",
-                      "reqd": False,
                       "type": "`$OBJECT`",
                     },
                   ],
@@ -16758,38 +13725,30 @@ def make_config():
                   "req": "`reqdata`",
                   "res": "`body`",
                 },
-                "index$": 53,
               },
               {
-                "active": True,
                 "args": {
                   "params": [
                     {
-                      "active": True,
                       "kind": "param",
                       "name": "owner",
                       "orig": "owner",
                       "reqd": True,
                       "type": "`$ANY`",
-                      "index$": 0,
                     },
                     {
-                      "active": True,
                       "kind": "param",
                       "name": "repo",
                       "orig": "repo",
                       "reqd": True,
                       "type": "`$ANY`",
-                      "index$": 1,
                     },
                   ],
                   "query": [
                     {
-                      "active": True,
                       "kind": "query",
                       "name": "data",
                       "orig": "data",
-                      "reqd": False,
                       "type": "`$OBJECT`",
                     },
                   ],
@@ -16815,38 +13774,30 @@ def make_config():
                   "req": "`reqdata`",
                   "res": "`body`",
                 },
-                "index$": 54,
               },
               {
-                "active": True,
                 "args": {
                   "params": [
                     {
-                      "active": True,
                       "kind": "param",
                       "name": "owner",
                       "orig": "owner",
                       "reqd": True,
                       "type": "`$ANY`",
-                      "index$": 0,
                     },
                     {
-                      "active": True,
                       "kind": "param",
                       "name": "repo",
                       "orig": "repo",
                       "reqd": True,
                       "type": "`$ANY`",
-                      "index$": 1,
                     },
                   ],
                   "query": [
                     {
-                      "active": True,
                       "kind": "query",
                       "name": "data",
                       "orig": "data",
-                      "reqd": False,
                       "type": "`$OBJECT`",
                     },
                   ],
@@ -16872,38 +13823,30 @@ def make_config():
                   "req": "`reqdata`",
                   "res": "`body`",
                 },
-                "index$": 55,
               },
               {
-                "active": True,
                 "args": {
                   "params": [
                     {
-                      "active": True,
                       "kind": "param",
                       "name": "identifier",
                       "orig": "identifier",
                       "reqd": True,
                       "type": "`$ANY`",
-                      "index$": 0,
                     },
                     {
-                      "active": True,
                       "kind": "param",
                       "name": "owner",
                       "orig": "owner",
                       "reqd": True,
                       "type": "`$ANY`",
-                      "index$": 1,
                     },
                     {
-                      "active": True,
                       "kind": "param",
                       "name": "repo",
                       "orig": "repo",
                       "reqd": True,
                       "type": "`$ANY`",
-                      "index$": 2,
                     },
                   ],
                 },
@@ -16928,38 +13871,30 @@ def make_config():
                   "req": "`reqdata`",
                   "res": "`body`",
                 },
-                "index$": 56,
               },
               {
-                "active": True,
                 "args": {
                   "params": [
                     {
-                      "active": True,
                       "kind": "param",
                       "name": "identifier",
                       "orig": "identifier",
                       "reqd": True,
                       "type": "`$ANY`",
-                      "index$": 0,
                     },
                     {
-                      "active": True,
                       "kind": "param",
                       "name": "owner",
                       "orig": "owner",
                       "reqd": True,
                       "type": "`$ANY`",
-                      "index$": 1,
                     },
                     {
-                      "active": True,
                       "kind": "param",
                       "name": "repo",
                       "orig": "repo",
                       "reqd": True,
                       "type": "`$ANY`",
-                      "index$": 2,
                     },
                   ],
                 },
@@ -16984,77 +13919,60 @@ def make_config():
                   "req": "`reqdata`",
                   "res": "`body`",
                 },
-                "index$": 57,
               },
             ],
-            "key$": "create",
           },
           "list": {
             "input": "data",
             "name": "list",
             "points": [
               {
-                "active": True,
                 "args": {
                   "params": [
                     {
-                      "active": True,
                       "kind": "param",
                       "name": "owner",
                       "orig": "owner",
                       "reqd": True,
                       "type": "`$ANY`",
-                      "index$": 0,
                     },
                     {
-                      "active": True,
                       "kind": "param",
                       "name": "repo",
                       "orig": "repo",
                       "reqd": True,
                       "type": "`$ANY`",
-                      "index$": 1,
                     },
                   ],
                   "query": [
                     {
-                      "active": True,
                       "kind": "query",
                       "name": "group_by",
                       "orig": "group_by",
-                      "reqd": False,
                       "type": "`$ANY`",
                     },
                     {
-                      "active": True,
                       "kind": "query",
                       "name": "page",
                       "orig": "page",
-                      "reqd": False,
                       "type": "`$INTEGER`",
                     },
                     {
-                      "active": True,
                       "kind": "query",
                       "name": "page_size",
                       "orig": "page_size",
-                      "reqd": False,
                       "type": "`$INTEGER`",
                     },
                     {
-                      "active": True,
                       "kind": "query",
                       "name": "query",
                       "orig": "query",
-                      "reqd": False,
                       "type": "`$ANY`",
                     },
                     {
-                      "active": True,
                       "kind": "query",
                       "name": "sort",
                       "orig": "sort",
-                      "reqd": False,
                       "type": "`$ANY`",
                     },
                   ],
@@ -17083,62 +14001,48 @@ def make_config():
                   "req": "`reqdata`",
                   "res": "`body.results`",
                 },
-                "index$": 0,
               },
               {
-                "active": True,
                 "args": {
                   "params": [
                     {
-                      "active": True,
                       "kind": "param",
                       "name": "owner",
                       "orig": "owner",
                       "reqd": True,
                       "type": "`$ANY`",
-                      "index$": 0,
                     },
                     {
-                      "active": True,
                       "kind": "param",
                       "name": "repo",
                       "orig": "repo",
                       "reqd": True,
                       "type": "`$ANY`",
-                      "index$": 1,
                     },
                   ],
                   "query": [
                     {
-                      "active": True,
                       "kind": "query",
                       "name": "page",
                       "orig": "page",
-                      "reqd": False,
                       "type": "`$INTEGER`",
                     },
                     {
-                      "active": True,
                       "kind": "query",
                       "name": "page_size",
                       "orig": "page_size",
-                      "reqd": False,
                       "type": "`$INTEGER`",
                     },
                     {
-                      "active": True,
                       "kind": "query",
                       "name": "query",
                       "orig": "query",
-                      "reqd": False,
                       "type": "`$ANY`",
                     },
                     {
-                      "active": True,
                       "kind": "query",
                       "name": "sort",
                       "orig": "sort",
-                      "reqd": False,
                       "type": "`$ANY`",
                     },
                   ],
@@ -17165,38 +14069,30 @@ def make_config():
                   "req": "`reqdata`",
                   "res": "`body`",
                 },
-                "index$": 1,
               },
               {
-                "active": True,
                 "args": {
                   "params": [
                     {
-                      "active": True,
                       "kind": "param",
                       "name": "identifier",
                       "orig": "identifier",
                       "reqd": True,
                       "type": "`$ANY`",
-                      "index$": 0,
                     },
                     {
-                      "active": True,
                       "kind": "param",
                       "name": "owner",
                       "orig": "owner",
                       "reqd": True,
                       "type": "`$ANY`",
-                      "index$": 1,
                     },
                     {
-                      "active": True,
                       "kind": "param",
                       "name": "repo",
                       "orig": "repo",
                       "reqd": True,
                       "type": "`$ANY`",
-                      "index$": 2,
                     },
                   ],
                 },
@@ -17220,38 +14116,30 @@ def make_config():
                   "req": "`reqdata`",
                   "res": "`body`",
                 },
-                "index$": 2,
               },
               {
-                "active": True,
                 "args": {
                   "params": [
                     {
-                      "active": True,
                       "kind": "param",
                       "name": "identifier",
                       "orig": "identifier",
                       "reqd": True,
                       "type": "`$ANY`",
-                      "index$": 0,
                     },
                     {
-                      "active": True,
                       "kind": "param",
                       "name": "owner",
                       "orig": "owner",
                       "reqd": True,
                       "type": "`$ANY`",
-                      "index$": 1,
                     },
                     {
-                      "active": True,
                       "kind": "param",
                       "name": "repo",
                       "orig": "repo",
                       "reqd": True,
                       "type": "`$ANY`",
-                      "index$": 2,
                     },
                   ],
                 },
@@ -17276,77 +14164,60 @@ def make_config():
                   "req": "`reqdata`",
                   "res": "`body.dependencies`",
                 },
-                "index$": 3,
               },
             ],
-            "key$": "list",
           },
           "load": {
             "input": "data",
             "name": "load",
             "points": [
               {
-                "active": True,
                 "args": {
                   "params": [
                     {
-                      "active": True,
                       "kind": "param",
                       "name": "owner",
                       "orig": "owner",
                       "reqd": True,
                       "type": "`$ANY`",
-                      "index$": 0,
                     },
                     {
-                      "active": True,
                       "kind": "param",
                       "name": "repo",
                       "orig": "repo",
                       "reqd": True,
                       "type": "`$ANY`",
-                      "index$": 1,
                     },
                   ],
                   "query": [
                     {
-                      "active": True,
                       "kind": "query",
                       "name": "finish",
                       "orig": "finish",
-                      "reqd": False,
                       "type": "`$ANY`",
                     },
                     {
-                      "active": True,
                       "kind": "query",
                       "name": "package",
                       "orig": "package",
-                      "reqd": False,
                       "type": "`$ANY`",
                     },
                     {
-                      "active": True,
                       "kind": "query",
                       "name": "page",
                       "orig": "page",
-                      "reqd": False,
                       "type": "`$INTEGER`",
                     },
                     {
-                      "active": True,
                       "kind": "query",
                       "name": "page_size",
                       "orig": "page_size",
-                      "reqd": False,
                       "type": "`$INTEGER`",
                     },
                     {
-                      "active": True,
                       "kind": "query",
                       "name": "start",
                       "orig": "start",
-                      "reqd": False,
                       "type": "`$ANY`",
                     },
                   ],
@@ -17375,38 +14246,30 @@ def make_config():
                   "req": "`reqdata`",
                   "res": "`body.packages`",
                 },
-                "index$": 0,
               },
               {
-                "active": True,
                 "args": {
                   "params": [
                     {
-                      "active": True,
                       "kind": "param",
                       "name": "identifier",
                       "orig": "identifier",
                       "reqd": True,
                       "type": "`$ANY`",
-                      "index$": 0,
                     },
                     {
-                      "active": True,
                       "kind": "param",
                       "name": "owner",
                       "orig": "owner",
                       "reqd": True,
                       "type": "`$ANY`",
-                      "index$": 1,
                     },
                     {
-                      "active": True,
                       "kind": "param",
                       "name": "repo",
                       "orig": "repo",
                       "reqd": True,
                       "type": "`$ANY`",
-                      "index$": 2,
                     },
                   ],
                 },
@@ -17431,45 +14294,36 @@ def make_config():
                   "req": "`reqdata`",
                   "res": "`body`",
                 },
-                "index$": 1,
               },
             ],
-            "key$": "load",
           },
           "remove": {
             "input": "data",
             "name": "remove",
             "points": [
               {
-                "active": True,
                 "args": {
                   "params": [
                     {
-                      "active": True,
                       "kind": "param",
                       "name": "identifier",
                       "orig": "identifier",
                       "reqd": True,
                       "type": "`$ANY`",
-                      "index$": 0,
                     },
                     {
-                      "active": True,
                       "kind": "param",
                       "name": "owner",
                       "orig": "owner",
                       "reqd": True,
                       "type": "`$ANY`",
-                      "index$": 1,
                     },
                     {
-                      "active": True,
                       "kind": "param",
                       "name": "repo",
                       "orig": "repo",
                       "reqd": True,
                       "type": "`$ANY`",
-                      "index$": 2,
                     },
                   ],
                 },
@@ -17493,10 +14347,8 @@ def make_config():
                   "req": "`reqdata`",
                   "res": "`body`",
                 },
-                "index$": 0,
               },
             ],
-            "key$": "remove",
           },
         },
         "relations": {
@@ -17510,67 +14362,41 @@ def make_config():
       "package_deny_policy": {
         "fields": [
           {
-            "active": True,
             "name": "action",
-            "req": False,
             "type": "`$STRING`",
-            "index$": 0,
           },
           {
-            "active": True,
             "name": "created_at",
-            "req": False,
             "type": "`$STRING`",
-            "index$": 1,
           },
           {
-            "active": True,
             "name": "description",
-            "req": False,
             "type": "`$STRING`",
-            "index$": 2,
           },
           {
-            "active": True,
             "name": "enabled",
-            "req": False,
             "type": "`$BOOLEAN`",
-            "index$": 3,
           },
           {
-            "active": True,
             "name": "name",
-            "req": False,
             "type": "`$STRING`",
-            "index$": 4,
           },
           {
-            "active": True,
             "name": "package_query_string",
             "req": True,
             "type": "`$STRING`",
-            "index$": 5,
           },
           {
-            "active": True,
             "name": "slug_perm",
-            "req": False,
             "type": "`$STRING`",
-            "index$": 6,
           },
           {
-            "active": True,
             "name": "status",
-            "req": False,
             "type": "`$STRING`",
-            "index$": 7,
           },
           {
-            "active": True,
             "name": "updated_at",
-            "req": False,
             "type": "`$STRING`",
-            "index$": 8,
           },
         ],
         "name": "package_deny_policy",
@@ -17580,26 +14406,21 @@ def make_config():
             "name": "create",
             "points": [
               {
-                "active": True,
                 "args": {
                   "params": [
                     {
-                      "active": True,
                       "kind": "param",
                       "name": "org_id",
                       "orig": "org",
                       "reqd": True,
                       "type": "`$STRING`",
-                      "index$": 0,
                     },
                   ],
                   "query": [
                     {
-                      "active": True,
                       "kind": "query",
                       "name": "data",
                       "orig": "data",
-                      "reqd": False,
                       "type": "`$OBJECT`",
                     },
                   ],
@@ -17627,44 +14448,35 @@ def make_config():
                   "req": "`reqdata`",
                   "res": "`body`",
                 },
-                "index$": 0,
               },
             ],
-            "key$": "create",
           },
           "list": {
             "input": "data",
             "name": "list",
             "points": [
               {
-                "active": True,
                 "args": {
                   "params": [
                     {
-                      "active": True,
                       "kind": "param",
                       "name": "org_id",
                       "orig": "org",
                       "reqd": True,
                       "type": "`$STRING`",
-                      "index$": 0,
                     },
                   ],
                   "query": [
                     {
-                      "active": True,
                       "kind": "query",
                       "name": "page",
                       "orig": "page",
-                      "reqd": False,
                       "type": "`$INTEGER`",
                     },
                     {
-                      "active": True,
                       "kind": "query",
                       "name": "page_size",
                       "orig": "page_size",
-                      "reqd": False,
                       "type": "`$INTEGER`",
                     },
                   ],
@@ -17693,36 +14505,29 @@ def make_config():
                   "req": "`reqdata`",
                   "res": "`body`",
                 },
-                "index$": 0,
               },
             ],
-            "key$": "list",
           },
           "load": {
             "input": "data",
             "name": "load",
             "points": [
               {
-                "active": True,
                 "args": {
                   "params": [
                     {
-                      "active": True,
                       "kind": "param",
                       "name": "id",
                       "orig": "slug_perm",
                       "reqd": True,
                       "type": "`$STRING`",
-                      "index$": 0,
                     },
                     {
-                      "active": True,
                       "kind": "param",
                       "name": "org_id",
                       "orig": "org",
                       "reqd": True,
                       "type": "`$STRING`",
-                      "index$": 1,
                     },
                   ],
                 },
@@ -17751,21 +14556,17 @@ def make_config():
                   "req": "`reqdata`",
                   "res": "`body`",
                 },
-                "index$": 0,
               },
             ],
-            "key$": "load",
           },
           "patch": {
             "input": "data",
             "name": "patch",
             "points": [
               {
-                "active": True,
                 "args": {
                   "params": [
                     {
-                      "active": True,
                       "kind": "param",
                       "name": "id",
                       "orig": "slug_perm",
@@ -17773,7 +14574,6 @@ def make_config():
                       "type": "`$STRING`",
                     },
                     {
-                      "active": True,
                       "kind": "param",
                       "name": "org_id",
                       "orig": "org",
@@ -17783,11 +14583,9 @@ def make_config():
                   ],
                   "query": [
                     {
-                      "active": True,
                       "kind": "query",
                       "name": "data",
                       "orig": "data",
-                      "reqd": False,
                       "type": "`$OBJECT`",
                     },
                   ],
@@ -17818,45 +14616,36 @@ def make_config():
                   "req": "`reqdata`",
                   "res": "`body`",
                 },
-                "index$": 0,
               },
             ],
-            "key$": "patch",
           },
           "update": {
             "input": "data",
             "name": "update",
             "points": [
               {
-                "active": True,
                 "args": {
                   "params": [
                     {
-                      "active": True,
                       "kind": "param",
                       "name": "id",
                       "orig": "slug_perm",
                       "reqd": True,
                       "type": "`$STRING`",
-                      "index$": 0,
                     },
                     {
-                      "active": True,
                       "kind": "param",
                       "name": "org_id",
                       "orig": "org",
                       "reqd": True,
                       "type": "`$STRING`",
-                      "index$": 1,
                     },
                   ],
                   "query": [
                     {
-                      "active": True,
                       "kind": "query",
                       "name": "data",
                       "orig": "data",
-                      "reqd": False,
                       "type": "`$OBJECT`",
                     },
                   ],
@@ -17887,10 +14676,8 @@ def make_config():
                   "req": "`reqdata`",
                   "res": "`body`",
                 },
-                "index$": 0,
               },
             ],
-            "key$": "update",
           },
         },
         "relations": {
@@ -17904,25 +14691,16 @@ def make_config():
       "package_file_parts_upload": {
         "fields": [
           {
-            "active": True,
             "name": "identifier",
-            "req": False,
             "type": "`$STRING`",
-            "index$": 0,
           },
           {
-            "active": True,
             "name": "upload_querystring",
-            "req": False,
             "type": "`$STRING`",
-            "index$": 1,
           },
           {
-            "active": True,
             "name": "upload_url",
-            "req": False,
             "type": "`$STRING`",
-            "index$": 2,
           },
         ],
         "name": "package_file_parts_upload",
@@ -17932,40 +14710,32 @@ def make_config():
             "name": "load",
             "points": [
               {
-                "active": True,
                 "args": {
                   "params": [
                     {
-                      "active": True,
                       "kind": "param",
                       "name": "identifier",
                       "orig": "identifier",
                       "reqd": True,
                       "type": "`$ANY`",
-                      "index$": 0,
                     },
                     {
-                      "active": True,
                       "kind": "param",
                       "name": "owner",
                       "orig": "owner",
                       "reqd": True,
                       "type": "`$ANY`",
-                      "index$": 1,
                     },
                     {
-                      "active": True,
                       "kind": "param",
                       "name": "repo",
                       "orig": "repo",
                       "reqd": True,
                       "type": "`$ANY`",
-                      "index$": 2,
                     },
                   ],
                   "query": [
                     {
-                      "active": True,
                       "kind": "query",
                       "name": "filename",
                       "orig": "filename",
@@ -17973,11 +14743,9 @@ def make_config():
                       "type": "`$ANY`",
                     },
                     {
-                      "active": True,
                       "kind": "query",
                       "name": "part_number",
                       "orig": "part_number",
-                      "reqd": False,
                       "type": "`$INTEGER`",
                     },
                   ],
@@ -18005,10 +14773,8 @@ def make_config():
                   "req": "`reqdata`",
                   "res": "`body`",
                 },
-                "index$": 0,
               },
             ],
-            "key$": "load",
           },
         },
         "relations": {
@@ -18028,44 +14794,35 @@ def make_config():
             "name": "create",
             "points": [
               {
-                "active": True,
                 "args": {
                   "params": [
                     {
-                      "active": True,
                       "kind": "param",
                       "name": "identifier",
                       "orig": "identifier",
                       "reqd": True,
                       "type": "`$ANY`",
-                      "index$": 0,
                     },
                     {
-                      "active": True,
                       "kind": "param",
                       "name": "owner",
                       "orig": "owner",
                       "reqd": True,
                       "type": "`$ANY`",
-                      "index$": 1,
                     },
                     {
-                      "active": True,
                       "kind": "param",
                       "name": "repo",
                       "orig": "repo",
                       "reqd": True,
                       "type": "`$ANY`",
-                      "index$": 2,
                     },
                   ],
                   "query": [
                     {
-                      "active": True,
                       "kind": "query",
                       "name": "data",
                       "orig": "data",
-                      "reqd": False,
                       "type": "`$OBJECT`",
                     },
                   ],
@@ -18092,10 +14849,8 @@ def make_config():
                   "req": "`reqdata`",
                   "res": "`body`",
                 },
-                "index$": 0,
               },
             ],
-            "key$": "create",
           },
         },
         "relations": {
@@ -18109,102 +14864,62 @@ def make_config():
       "package_license_policy_evaluation": {
         "fields": [
           {
-            "active": True,
             "name": "allow_unknown_licenses",
-            "req": False,
             "type": "`$BOOLEAN`",
-            "index$": 0,
           },
           {
-            "active": True,
             "name": "created_at",
-            "req": False,
             "type": "`$STRING`",
-            "index$": 1,
           },
           {
-            "active": True,
             "name": "description",
-            "req": False,
             "type": "`$STRING`",
-            "index$": 2,
           },
           {
-            "active": True,
             "name": "evaluation_count",
-            "req": False,
             "type": "`$INTEGER`",
-            "index$": 3,
           },
           {
-            "active": True,
             "name": "name",
-            "req": False,
             "type": "`$STRING`",
-            "index$": 4,
           },
           {
-            "active": True,
             "name": "on_violation_quarantine",
-            "req": False,
             "type": "`$BOOLEAN`",
-            "index$": 5,
           },
           {
-            "active": True,
             "name": "package_query_string",
-            "req": False,
             "type": "`$STRING`",
-            "index$": 6,
           },
           {
-            "active": True,
             "name": "policy",
             "req": True,
             "type": "`$OBJECT`",
-            "index$": 7,
           },
           {
-            "active": True,
             "name": "slug_perm",
-            "req": False,
             "type": "`$STRING`",
-            "index$": 8,
           },
           {
-            "active": True,
             "name": "spdx_identifiers",
             "req": True,
             "type": "`$ARRAY`",
-            "index$": 9,
           },
           {
-            "active": True,
             "name": "status",
-            "req": False,
             "type": "`$STRING`",
-            "index$": 10,
           },
           {
-            "active": True,
             "name": "updated_at",
-            "req": False,
             "type": "`$STRING`",
-            "index$": 11,
           },
           {
-            "active": True,
             "name": "url",
-            "req": False,
             "type": "`$STRING`",
-            "index$": 12,
           },
           {
-            "active": True,
             "name": "violation_count",
-            "req": False,
             "type": "`$INTEGER`",
-            "index$": 13,
           },
         ],
         "name": "package_license_policy_evaluation",
@@ -18214,35 +14929,28 @@ def make_config():
             "name": "create",
             "points": [
               {
-                "active": True,
                 "args": {
                   "params": [
                     {
-                      "active": True,
                       "kind": "param",
                       "name": "org_id",
                       "orig": "org",
                       "reqd": True,
                       "type": "`$STRING`",
-                      "index$": 0,
                     },
                     {
-                      "active": True,
                       "kind": "param",
                       "name": "policy_slug_perm",
                       "orig": "policy_slug_perm",
                       "reqd": True,
                       "type": "`$ANY`",
-                      "index$": 1,
                     },
                   ],
                   "query": [
                     {
-                      "active": True,
                       "kind": "query",
                       "name": "data",
                       "orig": "data",
-                      "reqd": False,
                       "type": "`$OBJECT`",
                     },
                   ],
@@ -18273,53 +14981,42 @@ def make_config():
                   "req": "`reqdata`",
                   "res": "`body.policy`",
                 },
-                "index$": 0,
               },
             ],
-            "key$": "create",
           },
           "list": {
             "input": "data",
             "name": "list",
             "points": [
               {
-                "active": True,
                 "args": {
                   "params": [
                     {
-                      "active": True,
                       "kind": "param",
                       "name": "org_id",
                       "orig": "org",
                       "reqd": True,
                       "type": "`$STRING`",
-                      "index$": 0,
                     },
                     {
-                      "active": True,
                       "kind": "param",
                       "name": "policy_slug_perm",
                       "orig": "policy_slug_perm",
                       "reqd": True,
                       "type": "`$ANY`",
-                      "index$": 1,
                     },
                   ],
                   "query": [
                     {
-                      "active": True,
                       "kind": "query",
                       "name": "page",
                       "orig": "page",
-                      "reqd": False,
                       "type": "`$INTEGER`",
                     },
                     {
-                      "active": True,
                       "kind": "query",
                       "name": "page_size",
                       "orig": "page_size",
-                      "reqd": False,
                       "type": "`$INTEGER`",
                     },
                   ],
@@ -18351,45 +15048,36 @@ def make_config():
                   "req": "`reqdata`",
                   "res": "`body`",
                 },
-                "index$": 0,
               },
             ],
-            "key$": "list",
           },
           "load": {
             "input": "data",
             "name": "load",
             "points": [
               {
-                "active": True,
                 "args": {
                   "params": [
                     {
-                      "active": True,
                       "kind": "param",
                       "name": "id",
                       "orig": "slug_perm",
                       "reqd": True,
                       "type": "`$STRING`",
-                      "index$": 0,
                     },
                     {
-                      "active": True,
                       "kind": "param",
                       "name": "license_policy_id",
                       "orig": "policy_slug_perm",
                       "reqd": True,
                       "type": "`$STRING`",
-                      "index$": 1,
                     },
                     {
-                      "active": True,
                       "kind": "param",
                       "name": "org_id",
                       "orig": "org",
                       "reqd": True,
                       "type": "`$STRING`",
-                      "index$": 2,
                     },
                   ],
                 },
@@ -18422,10 +15110,8 @@ def make_config():
                   "req": "`reqdata`",
                   "res": "`body.policy`",
                 },
-                "index$": 0,
               },
             ],
-            "key$": "load",
           },
         },
         "relations": {
@@ -18446,151 +15132,116 @@ def make_config():
             "name": "load",
             "points": [
               {
-                "active": True,
                 "args": {
                   "params": [
                     {
-                      "active": True,
                       "kind": "param",
                       "name": "owner",
                       "orig": "owner",
                       "reqd": True,
                       "type": "`$ANY`",
-                      "index$": 0,
                     },
                     {
-                      "active": True,
                       "kind": "param",
                       "name": "package_format",
                       "orig": "package_format",
                       "reqd": True,
                       "type": "`$ANY`",
-                      "index$": 1,
                     },
                     {
-                      "active": True,
                       "kind": "param",
                       "name": "package_identifier",
                       "orig": "package_identifier",
                       "reqd": True,
                       "type": "`$ANY`",
-                      "index$": 2,
                     },
                     {
-                      "active": True,
                       "kind": "param",
                       "name": "package_name",
                       "orig": "package_name",
                       "reqd": True,
                       "type": "`$ANY`",
-                      "index$": 3,
                     },
                     {
-                      "active": True,
                       "kind": "param",
                       "name": "package_version",
                       "orig": "package_version",
                       "reqd": True,
                       "type": "`$ANY`",
-                      "index$": 4,
                     },
                     {
-                      "active": True,
                       "kind": "param",
                       "name": "repo",
                       "orig": "repo",
                       "reqd": True,
                       "type": "`$ANY`",
-                      "index$": 5,
                     },
                   ],
                   "query": [
                     {
-                      "active": True,
                       "kind": "query",
                       "name": "badge_token",
                       "orig": "badge_token",
-                      "reqd": False,
                       "type": "`$ANY`",
                     },
                     {
-                      "active": True,
                       "kind": "query",
                       "name": "cache_second",
                       "orig": "cache_second",
-                      "reqd": False,
                       "type": "`$ANY`",
                     },
                     {
-                      "active": True,
                       "kind": "query",
                       "name": "color",
                       "orig": "color",
-                      "reqd": False,
                       "type": "`$ANY`",
                     },
                     {
-                      "active": True,
                       "kind": "query",
                       "name": "label",
                       "orig": "label",
-                      "reqd": False,
                       "type": "`$STRING`",
                     },
                     {
-                      "active": True,
                       "kind": "query",
                       "name": "label_color",
                       "orig": "label_color",
-                      "reqd": False,
                       "type": "`$ANY`",
                     },
                     {
-                      "active": True,
                       "kind": "query",
                       "name": "logo_color",
                       "orig": "logo_color",
-                      "reqd": False,
                       "type": "`$ANY`",
                     },
                     {
-                      "active": True,
                       "kind": "query",
                       "name": "logo_width",
                       "orig": "logo_width",
-                      "reqd": False,
                       "type": "`$ANY`",
                     },
                     {
-                      "active": True,
                       "kind": "query",
                       "name": "render",
                       "orig": "render",
-                      "reqd": False,
                       "type": "`$ANY`",
                     },
                     {
-                      "active": True,
                       "kind": "query",
                       "name": "shield",
                       "orig": "shield",
-                      "reqd": False,
                       "type": "`$ANY`",
                     },
                     {
-                      "active": True,
                       "kind": "query",
                       "name": "show_latest",
                       "orig": "show_latest",
-                      "reqd": False,
                       "type": "`$ANY`",
                     },
                     {
-                      "active": True,
                       "kind": "query",
                       "name": "style",
                       "orig": "style",
-                      "reqd": False,
                       "type": "`$ANY`",
                     },
                   ],
@@ -18638,10 +15289,8 @@ def make_config():
                   "req": "`reqdata`",
                   "res": "`body`",
                 },
-                "index$": 0,
               },
             ],
-            "key$": "load",
           },
         },
         "relations": {
@@ -18655,102 +15304,60 @@ def make_config():
       "package_vulnerability_policy_evaluation": {
         "fields": [
           {
-            "active": True,
             "name": "allow_unknown_severity",
-            "req": False,
             "type": "`$BOOLEAN`",
-            "index$": 0,
           },
           {
-            "active": True,
             "name": "created_at",
-            "req": False,
             "type": "`$STRING`",
-            "index$": 1,
           },
           {
-            "active": True,
             "name": "description",
-            "req": False,
             "type": "`$STRING`",
-            "index$": 2,
           },
           {
-            "active": True,
             "name": "evaluation_count",
-            "req": False,
             "type": "`$INTEGER`",
-            "index$": 3,
           },
           {
-            "active": True,
             "name": "min_severity",
-            "req": False,
             "type": "`$STRING`",
-            "index$": 4,
           },
           {
-            "active": True,
             "name": "name",
-            "req": False,
             "type": "`$STRING`",
-            "index$": 5,
           },
           {
-            "active": True,
             "name": "on_violation_quarantine",
-            "req": False,
             "type": "`$BOOLEAN`",
-            "index$": 6,
           },
           {
-            "active": True,
             "name": "package_query_string",
-            "req": False,
             "type": "`$STRING`",
-            "index$": 7,
           },
           {
-            "active": True,
             "name": "policy",
-            "req": False,
             "type": "`$OBJECT`",
-            "index$": 8,
           },
           {
-            "active": True,
             "name": "slug_perm",
-            "req": False,
             "type": "`$STRING`",
-            "index$": 9,
           },
           {
-            "active": True,
             "name": "status",
-            "req": False,
             "type": "`$STRING`",
-            "index$": 10,
           },
           {
-            "active": True,
             "name": "updated_at",
-            "req": False,
             "type": "`$STRING`",
-            "index$": 11,
           },
           {
-            "active": True,
             "name": "url",
-            "req": False,
             "type": "`$STRING`",
-            "index$": 12,
           },
           {
-            "active": True,
             "name": "violation_count",
-            "req": False,
             "type": "`$INTEGER`",
-            "index$": 13,
           },
         ],
         "name": "package_vulnerability_policy_evaluation",
@@ -18760,35 +15367,28 @@ def make_config():
             "name": "create",
             "points": [
               {
-                "active": True,
                 "args": {
                   "params": [
                     {
-                      "active": True,
                       "kind": "param",
                       "name": "org_id",
                       "orig": "org",
                       "reqd": True,
                       "type": "`$STRING`",
-                      "index$": 0,
                     },
                     {
-                      "active": True,
                       "kind": "param",
                       "name": "policy_slug_perm",
                       "orig": "policy_slug_perm",
                       "reqd": True,
                       "type": "`$ANY`",
-                      "index$": 1,
                     },
                   ],
                   "query": [
                     {
-                      "active": True,
                       "kind": "query",
                       "name": "data",
                       "orig": "data",
-                      "reqd": False,
                       "type": "`$OBJECT`",
                     },
                   ],
@@ -18819,53 +15419,42 @@ def make_config():
                   "req": "`reqdata`",
                   "res": "`body.policy`",
                 },
-                "index$": 0,
               },
             ],
-            "key$": "create",
           },
           "list": {
             "input": "data",
             "name": "list",
             "points": [
               {
-                "active": True,
                 "args": {
                   "params": [
                     {
-                      "active": True,
                       "kind": "param",
                       "name": "org_id",
                       "orig": "org",
                       "reqd": True,
                       "type": "`$STRING`",
-                      "index$": 0,
                     },
                     {
-                      "active": True,
                       "kind": "param",
                       "name": "policy_slug_perm",
                       "orig": "policy_slug_perm",
                       "reqd": True,
                       "type": "`$ANY`",
-                      "index$": 1,
                     },
                   ],
                   "query": [
                     {
-                      "active": True,
                       "kind": "query",
                       "name": "page",
                       "orig": "page",
-                      "reqd": False,
                       "type": "`$INTEGER`",
                     },
                     {
-                      "active": True,
                       "kind": "query",
                       "name": "page_size",
                       "orig": "page_size",
-                      "reqd": False,
                       "type": "`$INTEGER`",
                     },
                   ],
@@ -18897,45 +15486,36 @@ def make_config():
                   "req": "`reqdata`",
                   "res": "`body`",
                 },
-                "index$": 0,
               },
             ],
-            "key$": "list",
           },
           "load": {
             "input": "data",
             "name": "load",
             "points": [
               {
-                "active": True,
                 "args": {
                   "params": [
                     {
-                      "active": True,
                       "kind": "param",
                       "name": "id",
                       "orig": "slug_perm",
                       "reqd": True,
                       "type": "`$STRING`",
-                      "index$": 0,
                     },
                     {
-                      "active": True,
                       "kind": "param",
                       "name": "org_id",
                       "orig": "org",
                       "reqd": True,
                       "type": "`$STRING`",
-                      "index$": 1,
                     },
                     {
-                      "active": True,
                       "kind": "param",
                       "name": "vulnerability_policy_id",
                       "orig": "policy_slug_perm",
                       "reqd": True,
                       "type": "`$STRING`",
-                      "index$": 2,
                     },
                   ],
                 },
@@ -18968,10 +15548,8 @@ def make_config():
                   "req": "`reqdata`",
                   "res": "`body.policy`",
                 },
-                "index$": 0,
               },
             ],
-            "key$": "load",
           },
         },
         "relations": {
@@ -19006,60 +15584,40 @@ def make_config():
       "provider_setting": {
         "fields": [
           {
-            "active": True,
             "name": "claims",
             "req": True,
             "type": "`$OBJECT`",
-            "index$": 0,
           },
           {
-            "active": True,
             "name": "enabled",
             "req": True,
             "type": "`$BOOLEAN`",
-            "index$": 1,
           },
           {
-            "active": True,
             "name": "mapping_claim",
-            "req": False,
             "type": "`$STRING`",
-            "index$": 2,
           },
           {
-            "active": True,
             "name": "name",
             "req": True,
             "type": "`$STRING`",
-            "index$": 3,
           },
           {
-            "active": True,
             "name": "provider_url",
             "req": True,
             "type": "`$STRING`",
-            "index$": 4,
           },
           {
-            "active": True,
             "name": "service_accounts",
-            "req": False,
             "type": "`$ARRAY`",
-            "index$": 5,
           },
           {
-            "active": True,
             "name": "slug",
-            "req": False,
             "type": "`$STRING`",
-            "index$": 6,
           },
           {
-            "active": True,
             "name": "slug_perm",
-            "req": False,
             "type": "`$STRING`",
-            "index$": 7,
           },
         ],
         "name": "provider_setting",
@@ -19069,50 +15627,39 @@ def make_config():
             "name": "list",
             "points": [
               {
-                "active": True,
                 "args": {
                   "params": [
                     {
-                      "active": True,
                       "kind": "param",
                       "name": "org_id",
                       "orig": "org",
                       "reqd": True,
                       "type": "`$STRING`",
-                      "index$": 0,
                     },
                   ],
                   "query": [
                     {
-                      "active": True,
                       "kind": "query",
                       "name": "page",
                       "orig": "page",
-                      "reqd": False,
                       "type": "`$INTEGER`",
                     },
                     {
-                      "active": True,
                       "kind": "query",
                       "name": "page_size",
                       "orig": "page_size",
-                      "reqd": False,
                       "type": "`$INTEGER`",
                     },
                     {
-                      "active": True,
                       "kind": "query",
                       "name": "query",
                       "orig": "query",
-                      "reqd": False,
                       "type": "`$ANY`",
                     },
                     {
-                      "active": True,
                       "kind": "query",
                       "name": "sort",
                       "orig": "sort",
-                      "reqd": False,
                       "type": "`$ANY`",
                     },
                   ],
@@ -19143,36 +15690,29 @@ def make_config():
                   "req": "`reqdata`",
                   "res": "`body`",
                 },
-                "index$": 0,
               },
             ],
-            "key$": "list",
           },
           "load": {
             "input": "data",
             "name": "load",
             "points": [
               {
-                "active": True,
                 "args": {
                   "params": [
                     {
-                      "active": True,
                       "kind": "param",
                       "name": "org_id",
                       "orig": "org",
                       "reqd": True,
                       "type": "`$STRING`",
-                      "index$": 0,
                     },
                     {
-                      "active": True,
                       "kind": "param",
                       "name": "slug_perm",
                       "orig": "slug_perm",
                       "reqd": True,
                       "type": "`$ANY`",
-                      "index$": 1,
                     },
                   ],
                 },
@@ -19200,10 +15740,8 @@ def make_config():
                   "req": "`reqdata`",
                   "res": "`body`",
                 },
-                "index$": 0,
               },
             ],
-            "key$": "load",
           },
         },
         "relations": {
@@ -19221,67 +15759,44 @@ def make_config():
       "provider_settings_write": {
         "fields": [
           {
-            "active": True,
             "name": "claims",
             "req": True,
             "type": "`$OBJECT`",
-            "index$": 0,
           },
           {
-            "active": True,
             "name": "dynamic_mappings",
-            "req": False,
             "type": "`$ARRAY`",
-            "index$": 1,
           },
           {
-            "active": True,
             "name": "enabled",
             "req": True,
             "type": "`$BOOLEAN`",
-            "index$": 2,
           },
           {
-            "active": True,
             "name": "mapping_claim",
-            "req": False,
             "type": "`$STRING`",
-            "index$": 3,
           },
           {
-            "active": True,
             "name": "name",
             "req": True,
             "type": "`$STRING`",
-            "index$": 4,
           },
           {
-            "active": True,
             "name": "provider_url",
             "req": True,
             "type": "`$STRING`",
-            "index$": 5,
           },
           {
-            "active": True,
             "name": "service_accounts",
-            "req": False,
             "type": "`$ARRAY`",
-            "index$": 6,
           },
           {
-            "active": True,
             "name": "slug",
-            "req": False,
             "type": "`$STRING`",
-            "index$": 7,
           },
           {
-            "active": True,
             "name": "slug_perm",
-            "req": False,
             "type": "`$STRING`",
-            "index$": 8,
           },
         ],
         "name": "provider_settings_write",
@@ -19291,26 +15806,21 @@ def make_config():
             "name": "create",
             "points": [
               {
-                "active": True,
                 "args": {
                   "params": [
                     {
-                      "active": True,
                       "kind": "param",
                       "name": "org_id",
                       "orig": "org",
                       "reqd": True,
                       "type": "`$STRING`",
-                      "index$": 0,
                     },
                   ],
                   "query": [
                     {
-                      "active": True,
                       "kind": "query",
                       "name": "data",
                       "orig": "data",
-                      "reqd": False,
                       "type": "`$OBJECT`",
                     },
                   ],
@@ -19338,21 +15848,17 @@ def make_config():
                   "req": "`reqdata`",
                   "res": "`body`",
                 },
-                "index$": 0,
               },
             ],
-            "key$": "create",
           },
           "patch": {
             "input": "data",
             "name": "patch",
             "points": [
               {
-                "active": True,
                 "args": {
                   "params": [
                     {
-                      "active": True,
                       "kind": "param",
                       "name": "org_id",
                       "orig": "org",
@@ -19360,7 +15866,6 @@ def make_config():
                       "type": "`$STRING`",
                     },
                     {
-                      "active": True,
                       "kind": "param",
                       "name": "slug_perm",
                       "orig": "slug_perm",
@@ -19370,11 +15875,9 @@ def make_config():
                   ],
                   "query": [
                     {
-                      "active": True,
                       "kind": "query",
                       "name": "data",
                       "orig": "data",
-                      "reqd": False,
                       "type": "`$OBJECT`",
                     },
                   ],
@@ -19404,45 +15907,36 @@ def make_config():
                   "req": "`reqdata`",
                   "res": "`body`",
                 },
-                "index$": 0,
               },
             ],
-            "key$": "patch",
           },
           "update": {
             "input": "data",
             "name": "update",
             "points": [
               {
-                "active": True,
                 "args": {
                   "params": [
                     {
-                      "active": True,
                       "kind": "param",
                       "name": "org_id",
                       "orig": "org",
                       "reqd": True,
                       "type": "`$STRING`",
-                      "index$": 0,
                     },
                     {
-                      "active": True,
                       "kind": "param",
                       "name": "slug_perm",
                       "orig": "slug_perm",
                       "reqd": True,
                       "type": "`$ANY`",
-                      "index$": 1,
                     },
                   ],
                   "query": [
                     {
-                      "active": True,
                       "kind": "query",
                       "name": "data",
                       "orig": "data",
-                      "reqd": False,
                       "type": "`$OBJECT`",
                     },
                   ],
@@ -19472,10 +15966,8 @@ def make_config():
                   "req": "`reqdata`",
                   "res": "`body`",
                 },
-                "index$": 0,
               },
             ],
-            "key$": "update",
           },
         },
         "relations": {
@@ -19493,130 +15985,78 @@ def make_config():
       "python": {
         "fields": [
           {
-            "active": True,
             "name": "auth_mode",
-            "req": False,
             "type": "`$STRING`",
-            "index$": 0,
           },
           {
-            "active": True,
             "name": "auth_secret",
-            "req": False,
             "type": "`$STRING`",
-            "index$": 1,
           },
           {
-            "active": True,
             "name": "auth_username",
-            "req": False,
             "type": "`$STRING`",
-            "index$": 2,
           },
           {
-            "active": True,
             "name": "created_at",
-            "req": False,
             "type": "`$STRING`",
-            "index$": 3,
           },
           {
-            "active": True,
             "name": "disable_reason",
-            "req": False,
             "type": "`$STRING`",
-            "index$": 4,
           },
           {
-            "active": True,
             "name": "extra_header_1",
-            "req": False,
             "type": "`$STRING`",
-            "index$": 5,
           },
           {
-            "active": True,
             "name": "extra_header_2",
-            "req": False,
             "type": "`$STRING`",
-            "index$": 6,
           },
           {
-            "active": True,
             "name": "extra_value_1",
-            "req": False,
             "type": "`$STRING`",
-            "index$": 7,
           },
           {
-            "active": True,
             "name": "extra_value_2",
-            "req": False,
             "type": "`$STRING`",
-            "index$": 8,
           },
           {
-            "active": True,
             "name": "is_active",
-            "req": False,
             "type": "`$BOOLEAN`",
-            "index$": 9,
           },
           {
-            "active": True,
             "name": "mode",
-            "req": False,
             "type": "`$STRING`",
-            "index$": 10,
           },
           {
-            "active": True,
             "name": "name",
             "req": True,
             "type": "`$STRING`",
-            "index$": 11,
           },
           {
-            "active": True,
             "name": "pending_validation",
-            "req": False,
             "type": "`$BOOLEAN`",
-            "index$": 12,
           },
           {
-            "active": True,
             "name": "priority",
-            "req": False,
             "type": "`$INTEGER`",
-            "index$": 13,
           },
           {
-            "active": True,
             "name": "slug_perm",
-            "req": False,
             "type": "`$STRING`",
-            "index$": 14,
           },
           {
-            "active": True,
             "name": "updated_at",
-            "req": False,
             "type": "`$STRING`",
-            "index$": 15,
           },
           {
-            "active": True,
             "name": "upstream_url",
             "req": True,
             "type": "`$STRING`",
-            "index$": 16,
           },
           {
-            "active": True,
             "name": "verify_ssl",
-            "req": False,
             "type": "`$BOOLEAN`",
-            "index$": 17,
           },
         ],
         "name": "python",
@@ -19626,35 +16066,28 @@ def make_config():
             "name": "create",
             "points": [
               {
-                "active": True,
                 "args": {
                   "params": [
                     {
-                      "active": True,
                       "kind": "param",
                       "name": "identifier",
                       "orig": "identifier",
                       "reqd": True,
                       "type": "`$ANY`",
-                      "index$": 0,
                     },
                     {
-                      "active": True,
                       "kind": "param",
                       "name": "owner",
                       "orig": "owner",
                       "reqd": True,
                       "type": "`$ANY`",
-                      "index$": 1,
                     },
                   ],
                   "query": [
                     {
-                      "active": True,
                       "kind": "query",
                       "name": "data",
                       "orig": "data",
-                      "reqd": False,
                       "type": "`$OBJECT`",
                     },
                   ],
@@ -19680,53 +16113,42 @@ def make_config():
                   "req": "`reqdata`",
                   "res": "`body`",
                 },
-                "index$": 0,
               },
             ],
-            "key$": "create",
           },
           "list": {
             "input": "data",
             "name": "list",
             "points": [
               {
-                "active": True,
                 "args": {
                   "params": [
                     {
-                      "active": True,
                       "kind": "param",
                       "name": "identifier",
                       "orig": "identifier",
                       "reqd": True,
                       "type": "`$ANY`",
-                      "index$": 0,
                     },
                     {
-                      "active": True,
                       "kind": "param",
                       "name": "owner",
                       "orig": "owner",
                       "reqd": True,
                       "type": "`$ANY`",
-                      "index$": 1,
                     },
                   ],
                   "query": [
                     {
-                      "active": True,
                       "kind": "query",
                       "name": "page",
                       "orig": "page",
-                      "reqd": False,
                       "type": "`$INTEGER`",
                     },
                     {
-                      "active": True,
                       "kind": "query",
                       "name": "page_size",
                       "orig": "page_size",
-                      "reqd": False,
                       "type": "`$INTEGER`",
                     },
                   ],
@@ -19753,45 +16175,36 @@ def make_config():
                   "req": "`reqdata`",
                   "res": "`body`",
                 },
-                "index$": 0,
               },
             ],
-            "key$": "list",
           },
           "load": {
             "input": "data",
             "name": "load",
             "points": [
               {
-                "active": True,
                 "args": {
                   "params": [
                     {
-                      "active": True,
                       "kind": "param",
                       "name": "id",
                       "orig": "slug_perm",
                       "reqd": True,
                       "type": "`$STRING`",
-                      "index$": 0,
                     },
                     {
-                      "active": True,
                       "kind": "param",
                       "name": "identifier",
                       "orig": "identifier",
                       "reqd": True,
                       "type": "`$ANY`",
-                      "index$": 1,
                     },
                     {
-                      "active": True,
                       "kind": "param",
                       "name": "owner",
                       "orig": "owner",
                       "reqd": True,
                       "type": "`$ANY`",
-                      "index$": 2,
                     },
                   ],
                 },
@@ -19822,21 +16235,17 @@ def make_config():
                   "req": "`reqdata`",
                   "res": "`body`",
                 },
-                "index$": 0,
               },
             ],
-            "key$": "load",
           },
           "patch": {
             "input": "data",
             "name": "patch",
             "points": [
               {
-                "active": True,
                 "args": {
                   "params": [
                     {
-                      "active": True,
                       "kind": "param",
                       "name": "id",
                       "orig": "slug_perm",
@@ -19844,7 +16253,6 @@ def make_config():
                       "type": "`$STRING`",
                     },
                     {
-                      "active": True,
                       "kind": "param",
                       "name": "identifier",
                       "orig": "identifier",
@@ -19852,7 +16260,6 @@ def make_config():
                       "type": "`$ANY`",
                     },
                     {
-                      "active": True,
                       "kind": "param",
                       "name": "owner",
                       "orig": "owner",
@@ -19862,11 +16269,9 @@ def make_config():
                   ],
                   "query": [
                     {
-                      "active": True,
                       "kind": "query",
                       "name": "data",
                       "orig": "data",
-                      "reqd": False,
                       "type": "`$OBJECT`",
                     },
                   ],
@@ -19899,54 +16304,43 @@ def make_config():
                   "req": "`reqdata`",
                   "res": "`body`",
                 },
-                "index$": 0,
               },
             ],
-            "key$": "patch",
           },
           "update": {
             "input": "data",
             "name": "update",
             "points": [
               {
-                "active": True,
                 "args": {
                   "params": [
                     {
-                      "active": True,
                       "kind": "param",
                       "name": "id",
                       "orig": "slug_perm",
                       "reqd": True,
                       "type": "`$STRING`",
-                      "index$": 0,
                     },
                     {
-                      "active": True,
                       "kind": "param",
                       "name": "identifier",
                       "orig": "identifier",
                       "reqd": True,
                       "type": "`$ANY`",
-                      "index$": 1,
                     },
                     {
-                      "active": True,
                       "kind": "param",
                       "name": "owner",
                       "orig": "owner",
                       "reqd": True,
                       "type": "`$ANY`",
-                      "index$": 2,
                     },
                   ],
                   "query": [
                     {
-                      "active": True,
                       "kind": "query",
                       "name": "data",
                       "orig": "data",
-                      "reqd": False,
                       "type": "`$OBJECT`",
                     },
                   ],
@@ -19979,10 +16373,8 @@ def make_config():
                   "req": "`reqdata`",
                   "res": "`body`",
                 },
-                "index$": 0,
               },
             ],
-            "key$": "update",
           },
         },
         "relations": {
@@ -20011,25 +16403,19 @@ def make_config():
       "quota": {
         "fields": [
           {
-            "active": True,
             "name": "display",
             "req": True,
             "type": "`$OBJECT`",
-            "index$": 0,
           },
           {
-            "active": True,
             "name": "history",
             "req": True,
             "type": "`$ARRAY`",
-            "index$": 1,
           },
           {
-            "active": True,
             "name": "raw",
             "req": True,
             "type": "`$OBJECT`",
-            "index$": 2,
           },
         ],
         "name": "quota",
@@ -20039,17 +16425,14 @@ def make_config():
             "name": "load",
             "points": [
               {
-                "active": True,
                 "args": {
                   "params": [
                     {
-                      "active": True,
                       "kind": "param",
                       "name": "id",
                       "orig": "owner",
                       "reqd": True,
                       "type": "`$STRING`",
-                      "index$": 0,
                     },
                   ],
                 },
@@ -20074,20 +16457,16 @@ def make_config():
                   "req": "`reqdata`",
                   "res": "`body.usage`",
                 },
-                "index$": 0,
               },
               {
-                "active": True,
                 "args": {
                   "params": [
                     {
-                      "active": True,
                       "kind": "param",
                       "name": "owner",
                       "orig": "owner",
                       "reqd": True,
                       "type": "`$ANY`",
-                      "index$": 0,
                     },
                   ],
                 },
@@ -20108,20 +16487,16 @@ def make_config():
                   "req": "`reqdata`",
                   "res": "`body`",
                 },
-                "index$": 1,
               },
               {
-                "active": True,
                 "args": {
                   "params": [
                     {
-                      "active": True,
                       "kind": "param",
                       "name": "owner",
                       "orig": "owner",
                       "reqd": True,
                       "type": "`$ANY`",
-                      "index$": 0,
                     },
                   ],
                 },
@@ -20143,20 +16518,16 @@ def make_config():
                   "req": "`reqdata`",
                   "res": "`body`",
                 },
-                "index$": 2,
               },
               {
-                "active": True,
                 "args": {
                   "params": [
                     {
-                      "active": True,
                       "kind": "param",
                       "name": "owner",
                       "orig": "owner",
                       "reqd": True,
                       "type": "`$ANY`",
-                      "index$": 0,
                     },
                   ],
                 },
@@ -20177,10 +16548,8 @@ def make_config():
                   "req": "`reqdata`",
                   "res": "`body.usage`",
                 },
-                "index$": 3,
               },
             ],
-            "key$": "load",
           },
         },
         "relations": {
@@ -20233,459 +16602,265 @@ def make_config():
       "repo": {
         "fields": [
           {
-            "active": True,
             "name": "cdn_url",
-            "req": False,
             "type": "`$STRING`",
-            "index$": 0,
           },
           {
-            "active": True,
             "name": "content_kind",
-            "req": False,
             "type": "`$STRING`",
-            "index$": 1,
           },
           {
-            "active": True,
             "name": "contextual_auth_realm",
-            "req": False,
             "type": "`$BOOLEAN`",
-            "index$": 2,
           },
           {
-            "active": True,
             "name": "copy_own",
-            "req": False,
             "type": "`$BOOLEAN`",
-            "index$": 3,
           },
           {
-            "active": True,
             "name": "copy_packages",
-            "req": False,
             "type": "`$STRING`",
-            "index$": 4,
           },
           {
-            "active": True,
             "name": "cosign_signing_enabled",
-            "req": False,
             "type": "`$BOOLEAN`",
-            "index$": 5,
           },
           {
-            "active": True,
             "name": "created_at",
-            "req": False,
             "type": "`$STRING`",
-            "index$": 6,
           },
           {
-            "active": True,
             "name": "default_privilege",
-            "req": False,
             "type": "`$STRING`",
-            "index$": 7,
           },
           {
-            "active": True,
             "name": "delete_own",
-            "req": False,
             "type": "`$BOOLEAN`",
-            "index$": 8,
           },
           {
-            "active": True,
             "name": "delete_packages",
-            "req": False,
             "type": "`$STRING`",
-            "index$": 9,
           },
           {
-            "active": True,
             "name": "deleted_at",
-            "req": False,
             "type": "`$STRING`",
-            "index$": 10,
           },
           {
-            "active": True,
             "name": "description",
-            "req": False,
             "type": "`$STRING`",
-            "index$": 11,
           },
           {
-            "active": True,
             "name": "distributes",
-            "req": False,
             "type": "`$ARRAY`",
-            "index$": 12,
           },
           {
-            "active": True,
             "name": "docker_refresh_tokens_enabled",
-            "req": False,
             "type": "`$BOOLEAN`",
-            "index$": 13,
           },
           {
-            "active": True,
             "name": "ecdsa_keys",
-            "req": False,
             "type": "`$ARRAY`",
-            "index$": 14,
           },
           {
-            "active": True,
             "name": "enforce_eula",
-            "req": False,
             "type": "`$BOOLEAN`",
-            "index$": 15,
           },
           {
-            "active": True,
             "name": "gpg_keys",
-            "req": False,
             "type": "`$ARRAY`",
-            "index$": 16,
           },
           {
-            "active": True,
             "name": "index_files",
-            "req": False,
             "type": "`$BOOLEAN`",
-            "index$": 17,
           },
           {
-            "active": True,
             "name": "is_open_source",
-            "req": False,
             "type": "`$BOOLEAN`",
-            "index$": 18,
           },
           {
-            "active": True,
             "name": "is_private",
-            "req": False,
             "type": "`$BOOLEAN`",
-            "index$": 19,
           },
           {
-            "active": True,
             "name": "is_public",
-            "req": False,
             "type": "`$BOOLEAN`",
-            "index$": 20,
           },
           {
-            "active": True,
             "name": "manage_entitlements_privilege",
-            "req": False,
             "type": "`$STRING`",
-            "index$": 21,
           },
           {
-            "active": True,
             "name": "move_own",
-            "req": False,
             "type": "`$BOOLEAN`",
-            "index$": 22,
           },
           {
-            "active": True,
             "name": "move_packages",
-            "req": False,
             "type": "`$STRING`",
-            "index$": 23,
           },
           {
-            "active": True,
             "name": "name",
             "req": True,
             "type": "`$STRING`",
-            "index$": 24,
           },
           {
-            "active": True,
             "name": "namespace",
-            "req": False,
             "type": "`$STRING`",
-            "index$": 25,
           },
           {
-            "active": True,
             "name": "namespace_url",
-            "req": False,
             "type": "`$STRING`",
-            "index$": 26,
           },
           {
-            "active": True,
             "name": "nuget_native_signing_enabled",
-            "req": False,
             "type": "`$BOOLEAN`",
-            "index$": 27,
           },
           {
-            "active": True,
             "name": "num_downloads",
-            "req": False,
             "type": "`$INTEGER`",
-            "index$": 28,
           },
           {
-            "active": True,
             "name": "num_policy_violated_packages",
-            "req": False,
             "type": "`$INTEGER`",
-            "index$": 29,
           },
           {
-            "active": True,
             "name": "num_quarantined_packages",
-            "req": False,
             "type": "`$INTEGER`",
-            "index$": 30,
           },
           {
-            "active": True,
             "name": "open_source_license",
-            "req": False,
             "type": "`$STRING`",
-            "index$": 31,
           },
           {
-            "active": True,
             "name": "open_source_project_url",
-            "req": False,
             "type": "`$STRING`",
-            "index$": 32,
           },
           {
-            "active": True,
             "name": "package_count",
-            "req": False,
             "type": "`$INTEGER`",
-            "index$": 33,
           },
           {
-            "active": True,
             "name": "package_group_count",
-            "req": False,
             "type": "`$INTEGER`",
-            "index$": 34,
           },
           {
-            "active": True,
             "name": "proxy_npmjs",
-            "req": False,
             "type": "`$BOOLEAN`",
-            "index$": 35,
           },
           {
-            "active": True,
             "name": "proxy_pypi",
-            "req": False,
             "type": "`$BOOLEAN`",
-            "index$": 36,
           },
           {
-            "active": True,
             "name": "raw_package_index_enabled",
-            "req": False,
             "type": "`$BOOLEAN`",
-            "index$": 37,
           },
           {
-            "active": True,
             "name": "raw_package_index_signatures_enabled",
-            "req": False,
             "type": "`$BOOLEAN`",
-            "index$": 38,
           },
           {
-            "active": True,
             "name": "replace_packages",
-            "req": False,
             "type": "`$STRING`",
-            "index$": 39,
           },
           {
-            "active": True,
             "name": "replace_packages_by_default",
-            "req": False,
             "type": "`$BOOLEAN`",
-            "index$": 40,
           },
           {
-            "active": True,
             "name": "repository_type",
-            "req": False,
             "type": "`$INTEGER`",
-            "index$": 41,
           },
           {
-            "active": True,
             "name": "repository_type_str",
-            "req": False,
             "type": "`$STRING`",
-            "index$": 42,
           },
           {
-            "active": True,
             "name": "resync_own",
-            "req": False,
             "type": "`$BOOLEAN`",
-            "index$": 43,
           },
           {
-            "active": True,
             "name": "resync_packages",
-            "req": False,
             "type": "`$STRING`",
-            "index$": 44,
           },
           {
-            "active": True,
             "name": "scan_own",
-            "req": False,
             "type": "`$BOOLEAN`",
-            "index$": 45,
           },
           {
-            "active": True,
             "name": "scan_packages",
-            "req": False,
             "type": "`$STRING`",
-            "index$": 46,
           },
           {
-            "active": True,
             "name": "self_html_url",
-            "req": False,
             "type": "`$STRING`",
-            "index$": 47,
           },
           {
-            "active": True,
             "name": "self_url",
-            "req": False,
             "type": "`$STRING`",
-            "index$": 48,
           },
           {
-            "active": True,
             "name": "show_setup_all",
-            "req": False,
             "type": "`$BOOLEAN`",
-            "index$": 49,
           },
           {
-            "active": True,
             "name": "size",
-            "req": False,
             "type": "`$INTEGER`",
-            "index$": 50,
           },
           {
-            "active": True,
             "name": "size_str",
-            "req": False,
             "type": "`$STRING`",
-            "index$": 51,
           },
           {
-            "active": True,
             "name": "slug",
-            "req": False,
             "type": "`$STRING`",
-            "index$": 52,
           },
           {
-            "active": True,
             "name": "slug_perm",
-            "req": False,
             "type": "`$STRING`",
-            "index$": 53,
           },
           {
-            "active": True,
             "name": "storage_region",
-            "req": False,
             "type": "`$STRING`",
-            "index$": 54,
           },
           {
-            "active": True,
             "name": "strict_npm_validation",
-            "req": False,
             "type": "`$BOOLEAN`",
-            "index$": 55,
           },
           {
-            "active": True,
             "name": "tag_pre_releases_as_latest",
-            "req": False,
             "type": "`$BOOLEAN`",
-            "index$": 56,
           },
           {
-            "active": True,
             "name": "use_debian_labels",
-            "req": False,
             "type": "`$BOOLEAN`",
-            "index$": 57,
           },
           {
-            "active": True,
             "name": "use_default_cargo_upstream",
-            "req": False,
             "type": "`$BOOLEAN`",
-            "index$": 58,
           },
           {
-            "active": True,
             "name": "use_entitlements_privilege",
-            "req": False,
             "type": "`$STRING`",
-            "index$": 59,
           },
           {
-            "active": True,
             "name": "use_noarch_packages",
-            "req": False,
             "type": "`$BOOLEAN`",
-            "index$": 60,
           },
           {
-            "active": True,
             "name": "use_source_packages",
-            "req": False,
             "type": "`$BOOLEAN`",
-            "index$": 61,
           },
           {
-            "active": True,
             "name": "use_vulnerability_scanning",
-            "req": False,
             "type": "`$BOOLEAN`",
-            "index$": 62,
           },
           {
-            "active": True,
             "name": "user_entitlements_enabled",
-            "req": False,
             "type": "`$BOOLEAN`",
-            "index$": 63,
           },
           {
-            "active": True,
             "name": "view_statistics",
-            "req": False,
             "type": "`$STRING`",
-            "index$": 64,
           },
         ],
         "name": "repo",
@@ -20695,35 +16870,28 @@ def make_config():
             "name": "create",
             "points": [
               {
-                "active": True,
                 "args": {
                   "params": [
                     {
-                      "active": True,
                       "kind": "param",
                       "name": "identifier",
                       "orig": "identifier",
                       "reqd": True,
                       "type": "`$ANY`",
-                      "index$": 0,
                     },
                     {
-                      "active": True,
                       "kind": "param",
                       "name": "owner",
                       "orig": "owner",
                       "reqd": True,
                       "type": "`$ANY`",
-                      "index$": 1,
                     },
                   ],
                   "query": [
                     {
-                      "active": True,
                       "kind": "query",
                       "name": "data",
                       "orig": "data",
-                      "reqd": False,
                       "type": "`$OBJECT`",
                     },
                   ],
@@ -20749,38 +16917,30 @@ def make_config():
                   "req": "`reqdata`",
                   "res": "`body`",
                 },
-                "index$": 0,
               },
               {
-                "active": True,
                 "args": {
                   "params": [
                     {
-                      "active": True,
                       "kind": "param",
                       "name": "identifier",
                       "orig": "identifier",
                       "reqd": True,
                       "type": "`$ANY`",
-                      "index$": 0,
                     },
                     {
-                      "active": True,
                       "kind": "param",
                       "name": "owner",
                       "orig": "owner",
                       "reqd": True,
                       "type": "`$ANY`",
-                      "index$": 1,
                     },
                   ],
                   "query": [
                     {
-                      "active": True,
                       "kind": "query",
                       "name": "data",
                       "orig": "data",
-                      "reqd": False,
                       "type": "`$OBJECT`",
                     },
                   ],
@@ -20806,38 +16966,30 @@ def make_config():
                   "req": "`reqdata`",
                   "res": "`body`",
                 },
-                "index$": 1,
               },
               {
-                "active": True,
                 "args": {
                   "params": [
                     {
-                      "active": True,
                       "kind": "param",
                       "name": "owner",
                       "orig": "owner",
                       "reqd": True,
                       "type": "`$ANY`",
-                      "index$": 0,
                     },
                     {
-                      "active": True,
                       "kind": "param",
                       "name": "repo",
                       "orig": "repo",
                       "reqd": True,
                       "type": "`$ANY`",
-                      "index$": 1,
                     },
                   ],
                   "query": [
                     {
-                      "active": True,
                       "kind": "query",
                       "name": "data",
                       "orig": "data",
-                      "reqd": False,
                       "type": "`$OBJECT`",
                     },
                   ],
@@ -20863,29 +17015,23 @@ def make_config():
                   "req": "`reqdata`",
                   "res": "`body`",
                 },
-                "index$": 2,
               },
               {
-                "active": True,
                 "args": {
                   "params": [
                     {
-                      "active": True,
                       "kind": "param",
                       "name": "id",
                       "orig": "owner",
                       "reqd": True,
                       "type": "`$STRING`",
-                      "index$": 0,
                     },
                   ],
                   "query": [
                     {
-                      "active": True,
                       "kind": "query",
                       "name": "data",
                       "orig": "data",
-                      "reqd": False,
                       "type": "`$OBJECT`",
                     },
                   ],
@@ -20912,36 +17058,29 @@ def make_config():
                   "req": "`reqdata`",
                   "res": "`body`",
                 },
-                "index$": 3,
               },
             ],
-            "key$": "create",
           },
           "list": {
             "input": "data",
             "name": "list",
             "points": [
               {
-                "active": True,
                 "args": {
                   "params": [
                     {
-                      "active": True,
                       "kind": "param",
                       "name": "identifier",
                       "orig": "identifier",
                       "reqd": True,
                       "type": "`$ANY`",
-                      "index$": 0,
                     },
                     {
-                      "active": True,
                       "kind": "param",
                       "name": "owner",
                       "orig": "owner",
                       "reqd": True,
                       "type": "`$ANY`",
-                      "index$": 1,
                     },
                   ],
                 },
@@ -20963,26 +17102,20 @@ def make_config():
                   "req": "`reqdata`",
                   "res": "`body`",
                 },
-                "index$": 0,
               },
               {
-                "active": True,
                 "args": {
                   "query": [
                     {
-                      "active": True,
                       "kind": "query",
                       "name": "page",
                       "orig": "page",
-                      "reqd": False,
                       "type": "`$INTEGER`",
                     },
                     {
-                      "active": True,
                       "kind": "query",
                       "name": "page_size",
                       "orig": "page_size",
-                      "reqd": False,
                       "type": "`$INTEGER`",
                     },
                   ],
@@ -21003,44 +17136,35 @@ def make_config():
                   "req": "`reqdata`",
                   "res": "`body`",
                 },
-                "index$": 1,
               },
             ],
-            "key$": "list",
           },
           "load": {
             "input": "data",
             "name": "load",
             "points": [
               {
-                "active": True,
                 "args": {
                   "params": [
                     {
-                      "active": True,
                       "kind": "param",
                       "name": "id",
                       "orig": "owner",
                       "reqd": True,
                       "type": "`$STRING`",
-                      "index$": 0,
                     },
                   ],
                   "query": [
                     {
-                      "active": True,
                       "kind": "query",
                       "name": "page",
                       "orig": "page",
-                      "reqd": False,
                       "type": "`$INTEGER`",
                     },
                     {
-                      "active": True,
                       "kind": "query",
                       "name": "page_size",
                       "orig": "page_size",
-                      "reqd": False,
                       "type": "`$INTEGER`",
                     },
                   ],
@@ -21068,21 +17192,17 @@ def make_config():
                   "req": "`reqdata`",
                   "res": "`body`",
                 },
-                "index$": 0,
               },
             ],
-            "key$": "load",
           },
           "patch": {
             "input": "data",
             "name": "patch",
             "points": [
               {
-                "active": True,
                 "args": {
                   "params": [
                     {
-                      "active": True,
                       "kind": "param",
                       "name": "identifier",
                       "orig": "identifier",
@@ -21090,7 +17210,6 @@ def make_config():
                       "type": "`$ANY`",
                     },
                     {
-                      "active": True,
                       "kind": "param",
                       "name": "owner",
                       "orig": "owner",
@@ -21100,11 +17219,9 @@ def make_config():
                   ],
                   "query": [
                     {
-                      "active": True,
                       "kind": "query",
                       "name": "data",
                       "orig": "data",
-                      "reqd": False,
                       "type": "`$OBJECT`",
                     },
                   ],
@@ -21128,14 +17245,11 @@ def make_config():
                   "req": "`reqdata`",
                   "res": "`body`",
                 },
-                "index$": 0,
               },
               {
-                "active": True,
                 "args": {
                   "params": [
                     {
-                      "active": True,
                       "kind": "param",
                       "name": "identifier",
                       "orig": "identifier",
@@ -21143,7 +17257,6 @@ def make_config():
                       "type": "`$ANY`",
                     },
                     {
-                      "active": True,
                       "kind": "param",
                       "name": "owner",
                       "orig": "owner",
@@ -21153,11 +17266,9 @@ def make_config():
                   ],
                   "query": [
                     {
-                      "active": True,
                       "kind": "query",
                       "name": "data",
                       "orig": "data",
-                      "reqd": False,
                       "type": "`$OBJECT`",
                     },
                   ],
@@ -21182,45 +17293,36 @@ def make_config():
                   "req": "`reqdata`",
                   "res": "`body`",
                 },
-                "index$": 1,
               },
             ],
-            "key$": "patch",
           },
           "remove": {
             "input": "data",
             "name": "remove",
             "points": [
               {
-                "active": True,
                 "args": {
                   "params": [
                     {
-                      "active": True,
                       "kind": "param",
                       "name": "identifier",
                       "orig": "identifier",
                       "reqd": True,
                       "type": "`$ANY`",
-                      "index$": 0,
                     },
                     {
-                      "active": True,
                       "kind": "param",
                       "name": "owner",
                       "orig": "owner",
                       "reqd": True,
                       "type": "`$ANY`",
-                      "index$": 1,
                     },
                     {
-                      "active": True,
                       "kind": "param",
                       "name": "slug_perm",
                       "orig": "slug_perm",
                       "reqd": True,
                       "type": "`$ANY`",
-                      "index$": 2,
                     },
                   ],
                 },
@@ -21246,38 +17348,30 @@ def make_config():
                   "req": "`reqdata`",
                   "res": "`body`",
                 },
-                "index$": 0,
               },
               {
-                "active": True,
                 "args": {
                   "params": [
                     {
-                      "active": True,
                       "kind": "param",
                       "name": "identifier",
                       "orig": "identifier",
                       "reqd": True,
                       "type": "`$ANY`",
-                      "index$": 0,
                     },
                     {
-                      "active": True,
                       "kind": "param",
                       "name": "owner",
                       "orig": "owner",
                       "reqd": True,
                       "type": "`$ANY`",
-                      "index$": 1,
                     },
                     {
-                      "active": True,
                       "kind": "param",
                       "name": "slug_perm",
                       "orig": "slug_perm",
                       "reqd": True,
                       "type": "`$ANY`",
-                      "index$": 2,
                     },
                   ],
                 },
@@ -21303,38 +17397,30 @@ def make_config():
                   "req": "`reqdata`",
                   "res": "`body`",
                 },
-                "index$": 1,
               },
               {
-                "active": True,
                 "args": {
                   "params": [
                     {
-                      "active": True,
                       "kind": "param",
                       "name": "identifier",
                       "orig": "identifier",
                       "reqd": True,
                       "type": "`$ANY`",
-                      "index$": 0,
                     },
                     {
-                      "active": True,
                       "kind": "param",
                       "name": "owner",
                       "orig": "owner",
                       "reqd": True,
                       "type": "`$ANY`",
-                      "index$": 1,
                     },
                     {
-                      "active": True,
                       "kind": "param",
                       "name": "slug_perm",
                       "orig": "slug_perm",
                       "reqd": True,
                       "type": "`$ANY`",
-                      "index$": 2,
                     },
                   ],
                 },
@@ -21360,38 +17446,30 @@ def make_config():
                   "req": "`reqdata`",
                   "res": "`body`",
                 },
-                "index$": 2,
               },
               {
-                "active": True,
                 "args": {
                   "params": [
                     {
-                      "active": True,
                       "kind": "param",
                       "name": "identifier",
                       "orig": "identifier",
                       "reqd": True,
                       "type": "`$ANY`",
-                      "index$": 0,
                     },
                     {
-                      "active": True,
                       "kind": "param",
                       "name": "owner",
                       "orig": "owner",
                       "reqd": True,
                       "type": "`$ANY`",
-                      "index$": 1,
                     },
                     {
-                      "active": True,
                       "kind": "param",
                       "name": "slug_perm",
                       "orig": "slug_perm",
                       "reqd": True,
                       "type": "`$ANY`",
-                      "index$": 2,
                     },
                   ],
                 },
@@ -21417,38 +17495,30 @@ def make_config():
                   "req": "`reqdata`",
                   "res": "`body`",
                 },
-                "index$": 3,
               },
               {
-                "active": True,
                 "args": {
                   "params": [
                     {
-                      "active": True,
                       "kind": "param",
                       "name": "identifier",
                       "orig": "identifier",
                       "reqd": True,
                       "type": "`$ANY`",
-                      "index$": 0,
                     },
                     {
-                      "active": True,
                       "kind": "param",
                       "name": "owner",
                       "orig": "owner",
                       "reqd": True,
                       "type": "`$ANY`",
-                      "index$": 1,
                     },
                     {
-                      "active": True,
                       "kind": "param",
                       "name": "slug_perm",
                       "orig": "slug_perm",
                       "reqd": True,
                       "type": "`$ANY`",
-                      "index$": 2,
                     },
                   ],
                 },
@@ -21474,38 +17544,30 @@ def make_config():
                   "req": "`reqdata`",
                   "res": "`body`",
                 },
-                "index$": 4,
               },
               {
-                "active": True,
                 "args": {
                   "params": [
                     {
-                      "active": True,
                       "kind": "param",
                       "name": "identifier",
                       "orig": "identifier",
                       "reqd": True,
                       "type": "`$ANY`",
-                      "index$": 0,
                     },
                     {
-                      "active": True,
                       "kind": "param",
                       "name": "owner",
                       "orig": "owner",
                       "reqd": True,
                       "type": "`$ANY`",
-                      "index$": 1,
                     },
                     {
-                      "active": True,
                       "kind": "param",
                       "name": "slug_perm",
                       "orig": "slug_perm",
                       "reqd": True,
                       "type": "`$ANY`",
-                      "index$": 2,
                     },
                   ],
                 },
@@ -21531,38 +17593,30 @@ def make_config():
                   "req": "`reqdata`",
                   "res": "`body`",
                 },
-                "index$": 5,
               },
               {
-                "active": True,
                 "args": {
                   "params": [
                     {
-                      "active": True,
                       "kind": "param",
                       "name": "identifier",
                       "orig": "identifier",
                       "reqd": True,
                       "type": "`$ANY`",
-                      "index$": 0,
                     },
                     {
-                      "active": True,
                       "kind": "param",
                       "name": "owner",
                       "orig": "owner",
                       "reqd": True,
                       "type": "`$ANY`",
-                      "index$": 1,
                     },
                     {
-                      "active": True,
                       "kind": "param",
                       "name": "slug_perm",
                       "orig": "slug_perm",
                       "reqd": True,
                       "type": "`$ANY`",
-                      "index$": 2,
                     },
                   ],
                 },
@@ -21588,38 +17642,30 @@ def make_config():
                   "req": "`reqdata`",
                   "res": "`body`",
                 },
-                "index$": 6,
               },
               {
-                "active": True,
                 "args": {
                   "params": [
                     {
-                      "active": True,
                       "kind": "param",
                       "name": "identifier",
                       "orig": "identifier",
                       "reqd": True,
                       "type": "`$ANY`",
-                      "index$": 0,
                     },
                     {
-                      "active": True,
                       "kind": "param",
                       "name": "owner",
                       "orig": "owner",
                       "reqd": True,
                       "type": "`$ANY`",
-                      "index$": 1,
                     },
                     {
-                      "active": True,
                       "kind": "param",
                       "name": "slug_perm",
                       "orig": "slug_perm",
                       "reqd": True,
                       "type": "`$ANY`",
-                      "index$": 2,
                     },
                   ],
                 },
@@ -21645,38 +17691,30 @@ def make_config():
                   "req": "`reqdata`",
                   "res": "`body`",
                 },
-                "index$": 7,
               },
               {
-                "active": True,
                 "args": {
                   "params": [
                     {
-                      "active": True,
                       "kind": "param",
                       "name": "identifier",
                       "orig": "identifier",
                       "reqd": True,
                       "type": "`$ANY`",
-                      "index$": 0,
                     },
                     {
-                      "active": True,
                       "kind": "param",
                       "name": "owner",
                       "orig": "owner",
                       "reqd": True,
                       "type": "`$ANY`",
-                      "index$": 1,
                     },
                     {
-                      "active": True,
                       "kind": "param",
                       "name": "slug_perm",
                       "orig": "slug_perm",
                       "reqd": True,
                       "type": "`$ANY`",
-                      "index$": 2,
                     },
                   ],
                 },
@@ -21702,38 +17740,30 @@ def make_config():
                   "req": "`reqdata`",
                   "res": "`body`",
                 },
-                "index$": 8,
               },
               {
-                "active": True,
                 "args": {
                   "params": [
                     {
-                      "active": True,
                       "kind": "param",
                       "name": "identifier",
                       "orig": "identifier",
                       "reqd": True,
                       "type": "`$ANY`",
-                      "index$": 0,
                     },
                     {
-                      "active": True,
                       "kind": "param",
                       "name": "owner",
                       "orig": "owner",
                       "reqd": True,
                       "type": "`$ANY`",
-                      "index$": 1,
                     },
                     {
-                      "active": True,
                       "kind": "param",
                       "name": "slug_perm",
                       "orig": "slug_perm",
                       "reqd": True,
                       "type": "`$ANY`",
-                      "index$": 2,
                     },
                   ],
                 },
@@ -21759,38 +17789,30 @@ def make_config():
                   "req": "`reqdata`",
                   "res": "`body`",
                 },
-                "index$": 9,
               },
               {
-                "active": True,
                 "args": {
                   "params": [
                     {
-                      "active": True,
                       "kind": "param",
                       "name": "identifier",
                       "orig": "identifier",
                       "reqd": True,
                       "type": "`$ANY`",
-                      "index$": 0,
                     },
                     {
-                      "active": True,
                       "kind": "param",
                       "name": "owner",
                       "orig": "owner",
                       "reqd": True,
                       "type": "`$ANY`",
-                      "index$": 1,
                     },
                     {
-                      "active": True,
                       "kind": "param",
                       "name": "slug_perm",
                       "orig": "slug_perm",
                       "reqd": True,
                       "type": "`$ANY`",
-                      "index$": 2,
                     },
                   ],
                 },
@@ -21816,38 +17838,30 @@ def make_config():
                   "req": "`reqdata`",
                   "res": "`body`",
                 },
-                "index$": 10,
               },
               {
-                "active": True,
                 "args": {
                   "params": [
                     {
-                      "active": True,
                       "kind": "param",
                       "name": "identifier",
                       "orig": "identifier",
                       "reqd": True,
                       "type": "`$ANY`",
-                      "index$": 0,
                     },
                     {
-                      "active": True,
                       "kind": "param",
                       "name": "owner",
                       "orig": "owner",
                       "reqd": True,
                       "type": "`$ANY`",
-                      "index$": 1,
                     },
                     {
-                      "active": True,
                       "kind": "param",
                       "name": "slug_perm",
                       "orig": "slug_perm",
                       "reqd": True,
                       "type": "`$ANY`",
-                      "index$": 2,
                     },
                   ],
                 },
@@ -21873,38 +17887,30 @@ def make_config():
                   "req": "`reqdata`",
                   "res": "`body`",
                 },
-                "index$": 11,
               },
               {
-                "active": True,
                 "args": {
                   "params": [
                     {
-                      "active": True,
                       "kind": "param",
                       "name": "identifier",
                       "orig": "identifier",
                       "reqd": True,
                       "type": "`$ANY`",
-                      "index$": 0,
                     },
                     {
-                      "active": True,
                       "kind": "param",
                       "name": "owner",
                       "orig": "owner",
                       "reqd": True,
                       "type": "`$ANY`",
-                      "index$": 1,
                     },
                     {
-                      "active": True,
                       "kind": "param",
                       "name": "slug_perm",
                       "orig": "slug_perm",
                       "reqd": True,
                       "type": "`$ANY`",
-                      "index$": 2,
                     },
                   ],
                 },
@@ -21930,38 +17936,30 @@ def make_config():
                   "req": "`reqdata`",
                   "res": "`body`",
                 },
-                "index$": 12,
               },
               {
-                "active": True,
                 "args": {
                   "params": [
                     {
-                      "active": True,
                       "kind": "param",
                       "name": "identifier",
                       "orig": "identifier",
                       "reqd": True,
                       "type": "`$ANY`",
-                      "index$": 0,
                     },
                     {
-                      "active": True,
                       "kind": "param",
                       "name": "owner",
                       "orig": "owner",
                       "reqd": True,
                       "type": "`$ANY`",
-                      "index$": 1,
                     },
                     {
-                      "active": True,
                       "kind": "param",
                       "name": "slug_perm",
                       "orig": "slug_perm",
                       "reqd": True,
                       "type": "`$ANY`",
-                      "index$": 2,
                     },
                   ],
                 },
@@ -21987,38 +17985,30 @@ def make_config():
                   "req": "`reqdata`",
                   "res": "`body`",
                 },
-                "index$": 13,
               },
               {
-                "active": True,
                 "args": {
                   "params": [
                     {
-                      "active": True,
                       "kind": "param",
                       "name": "identifier",
                       "orig": "identifier",
                       "reqd": True,
                       "type": "`$ANY`",
-                      "index$": 0,
                     },
                     {
-                      "active": True,
                       "kind": "param",
                       "name": "owner",
                       "orig": "owner",
                       "reqd": True,
                       "type": "`$ANY`",
-                      "index$": 1,
                     },
                     {
-                      "active": True,
                       "kind": "param",
                       "name": "slug_perm",
                       "orig": "slug_perm",
                       "reqd": True,
                       "type": "`$ANY`",
-                      "index$": 2,
                     },
                   ],
                 },
@@ -22044,38 +18034,30 @@ def make_config():
                   "req": "`reqdata`",
                   "res": "`body`",
                 },
-                "index$": 14,
               },
               {
-                "active": True,
                 "args": {
                   "params": [
                     {
-                      "active": True,
                       "kind": "param",
                       "name": "identifier",
                       "orig": "identifier",
                       "reqd": True,
                       "type": "`$ANY`",
-                      "index$": 0,
                     },
                     {
-                      "active": True,
                       "kind": "param",
                       "name": "owner",
                       "orig": "owner",
                       "reqd": True,
                       "type": "`$ANY`",
-                      "index$": 1,
                     },
                     {
-                      "active": True,
                       "kind": "param",
                       "name": "slug_perm",
                       "orig": "slug_perm",
                       "reqd": True,
                       "type": "`$ANY`",
-                      "index$": 2,
                     },
                   ],
                 },
@@ -22101,38 +18083,30 @@ def make_config():
                   "req": "`reqdata`",
                   "res": "`body`",
                 },
-                "index$": 15,
               },
               {
-                "active": True,
                 "args": {
                   "params": [
                     {
-                      "active": True,
                       "kind": "param",
                       "name": "identifier",
                       "orig": "identifier",
                       "reqd": True,
                       "type": "`$ANY`",
-                      "index$": 0,
                     },
                     {
-                      "active": True,
                       "kind": "param",
                       "name": "owner",
                       "orig": "owner",
                       "reqd": True,
                       "type": "`$ANY`",
-                      "index$": 1,
                     },
                     {
-                      "active": True,
                       "kind": "param",
                       "name": "slug_perm",
                       "orig": "slug_perm",
                       "reqd": True,
                       "type": "`$ANY`",
-                      "index$": 2,
                     },
                   ],
                 },
@@ -22158,38 +18132,30 @@ def make_config():
                   "req": "`reqdata`",
                   "res": "`body`",
                 },
-                "index$": 16,
               },
               {
-                "active": True,
                 "args": {
                   "params": [
                     {
-                      "active": True,
                       "kind": "param",
                       "name": "identifier",
                       "orig": "identifier",
                       "reqd": True,
                       "type": "`$ANY`",
-                      "index$": 0,
                     },
                     {
-                      "active": True,
                       "kind": "param",
                       "name": "owner",
                       "orig": "owner",
                       "reqd": True,
                       "type": "`$ANY`",
-                      "index$": 1,
                     },
                     {
-                      "active": True,
                       "kind": "param",
                       "name": "slug_perm",
                       "orig": "slug_perm",
                       "reqd": True,
                       "type": "`$ANY`",
-                      "index$": 2,
                     },
                   ],
                 },
@@ -22215,29 +18181,23 @@ def make_config():
                   "req": "`reqdata`",
                   "res": "`body`",
                 },
-                "index$": 17,
               },
               {
-                "active": True,
                 "args": {
                   "params": [
                     {
-                      "active": True,
                       "kind": "param",
                       "name": "identifier",
                       "orig": "identifier",
                       "reqd": True,
                       "type": "`$ANY`",
-                      "index$": 0,
                     },
                     {
-                      "active": True,
                       "kind": "param",
                       "name": "owner",
                       "orig": "owner",
                       "reqd": True,
                       "type": "`$ANY`",
-                      "index$": 1,
                     },
                   ],
                 },
@@ -22259,45 +18219,36 @@ def make_config():
                   "req": "`reqdata`",
                   "res": "`body`",
                 },
-                "index$": 18,
               },
             ],
-            "key$": "remove",
           },
           "update": {
             "input": "data",
             "name": "update",
             "points": [
               {
-                "active": True,
                 "args": {
                   "params": [
                     {
-                      "active": True,
                       "kind": "param",
                       "name": "identifier",
                       "orig": "identifier",
                       "reqd": True,
                       "type": "`$ANY`",
-                      "index$": 0,
                     },
                     {
-                      "active": True,
                       "kind": "param",
                       "name": "owner",
                       "orig": "owner",
                       "reqd": True,
                       "type": "`$ANY`",
-                      "index$": 1,
                     },
                   ],
                   "query": [
                     {
-                      "active": True,
                       "kind": "query",
                       "name": "data",
                       "orig": "data",
-                      "reqd": False,
                       "type": "`$OBJECT`",
                     },
                   ],
@@ -22322,10 +18273,8 @@ def make_config():
                   "req": "`reqdata`",
                   "res": "`body`",
                 },
-                "index$": 0,
               },
             ],
-            "key$": "update",
           },
         },
         "relations": {
@@ -22411,95 +18360,66 @@ def make_config():
       "repository_audit_log": {
         "fields": [
           {
-            "active": True,
             "name": "actor",
             "req": True,
             "type": "`$STRING`",
-            "index$": 0,
           },
           {
-            "active": True,
             "name": "actor_ip_address",
             "req": True,
             "type": "`$STRING`",
-            "index$": 1,
           },
           {
-            "active": True,
             "name": "actor_kind",
-            "req": False,
             "type": "`$STRING`",
-            "index$": 2,
           },
           {
-            "active": True,
             "name": "actor_location",
             "req": True,
             "type": "`$OBJECT`",
-            "index$": 3,
           },
           {
-            "active": True,
             "name": "actor_slug_perm",
             "req": True,
             "type": "`$STRING`",
-            "index$": 4,
           },
           {
-            "active": True,
             "name": "actor_url",
-            "req": False,
             "type": "`$STRING`",
-            "index$": 5,
           },
           {
-            "active": True,
             "name": "context",
             "req": True,
             "type": "`$STRING`",
-            "index$": 6,
           },
           {
-            "active": True,
             "name": "event",
             "req": True,
             "type": "`$STRING`",
-            "index$": 7,
           },
           {
-            "active": True,
             "name": "event_at",
             "req": True,
             "type": "`$STRING`",
-            "index$": 8,
           },
           {
-            "active": True,
             "name": "object",
             "req": True,
             "type": "`$STRING`",
-            "index$": 9,
           },
           {
-            "active": True,
             "name": "object_kind",
             "req": True,
             "type": "`$STRING`",
-            "index$": 10,
           },
           {
-            "active": True,
             "name": "object_slug_perm",
             "req": True,
             "type": "`$STRING`",
-            "index$": 11,
           },
           {
-            "active": True,
             "name": "uuid",
-            "req": False,
             "type": "`$STRING`",
-            "index$": 12,
           },
         ],
         "name": "repository_audit_log",
@@ -22509,51 +18429,40 @@ def make_config():
             "name": "list",
             "points": [
               {
-                "active": True,
                 "args": {
                   "params": [
                     {
-                      "active": True,
                       "kind": "param",
                       "name": "owner",
                       "orig": "owner",
                       "reqd": True,
                       "type": "`$ANY`",
-                      "index$": 0,
                     },
                     {
-                      "active": True,
                       "kind": "param",
                       "name": "repo",
                       "orig": "repo",
                       "reqd": True,
                       "type": "`$ANY`",
-                      "index$": 1,
                     },
                   ],
                   "query": [
                     {
-                      "active": True,
                       "kind": "query",
                       "name": "page",
                       "orig": "page",
-                      "reqd": False,
                       "type": "`$INTEGER`",
                     },
                     {
-                      "active": True,
                       "kind": "query",
                       "name": "page_size",
                       "orig": "page_size",
-                      "reqd": False,
                       "type": "`$INTEGER`",
                     },
                     {
-                      "active": True,
                       "kind": "query",
                       "name": "query",
                       "orig": "query",
-                      "reqd": False,
                       "type": "`$ANY`",
                     },
                   ],
@@ -22579,10 +18488,8 @@ def make_config():
                   "req": "`reqdata`",
                   "res": "`body`",
                 },
-                "index$": 0,
               },
             ],
-            "key$": "list",
           },
         },
         "relations": {
@@ -22596,53 +18503,32 @@ def make_config():
       "repository_ecdsa_key": {
         "fields": [
           {
-            "active": True,
             "name": "active",
-            "req": False,
             "type": "`$BOOLEAN`",
-            "index$": 0,
           },
           {
-            "active": True,
             "name": "created_at",
-            "req": False,
             "type": "`$STRING`",
-            "index$": 1,
           },
           {
-            "active": True,
             "name": "default",
-            "req": False,
             "type": "`$BOOLEAN`",
-            "index$": 2,
           },
           {
-            "active": True,
             "name": "fingerprint",
-            "req": False,
             "type": "`$STRING`",
-            "index$": 3,
           },
           {
-            "active": True,
             "name": "fingerprint_short",
-            "req": False,
             "type": "`$STRING`",
-            "index$": 4,
           },
           {
-            "active": True,
             "name": "public_key",
-            "req": False,
             "type": "`$STRING`",
-            "index$": 5,
           },
           {
-            "active": True,
             "name": "ssh_fingerprint",
-            "req": False,
             "type": "`$STRING`",
-            "index$": 6,
           },
         ],
         "name": "repository_ecdsa_key",
@@ -22652,35 +18538,28 @@ def make_config():
             "name": "create",
             "points": [
               {
-                "active": True,
                 "args": {
                   "params": [
                     {
-                      "active": True,
                       "kind": "param",
                       "name": "identifier",
                       "orig": "identifier",
                       "reqd": True,
                       "type": "`$ANY`",
-                      "index$": 0,
                     },
                     {
-                      "active": True,
                       "kind": "param",
                       "name": "owner",
                       "orig": "owner",
                       "reqd": True,
                       "type": "`$ANY`",
-                      "index$": 1,
                     },
                   ],
                   "query": [
                     {
-                      "active": True,
                       "kind": "query",
                       "name": "data",
                       "orig": "data",
-                      "reqd": False,
                       "type": "`$OBJECT`",
                     },
                   ],
@@ -22705,29 +18584,23 @@ def make_config():
                   "req": "`reqdata`",
                   "res": "`body`",
                 },
-                "index$": 0,
               },
               {
-                "active": True,
                 "args": {
                   "params": [
                     {
-                      "active": True,
                       "kind": "param",
                       "name": "identifier",
                       "orig": "identifier",
                       "reqd": True,
                       "type": "`$ANY`",
-                      "index$": 0,
                     },
                     {
-                      "active": True,
                       "kind": "param",
                       "name": "owner",
                       "orig": "owner",
                       "reqd": True,
                       "type": "`$ANY`",
-                      "index$": 1,
                     },
                   ],
                 },
@@ -22751,36 +18624,29 @@ def make_config():
                   "req": "`reqdata`",
                   "res": "`body`",
                 },
-                "index$": 1,
               },
             ],
-            "key$": "create",
           },
           "load": {
             "input": "data",
             "name": "load",
             "points": [
               {
-                "active": True,
                 "args": {
                   "params": [
                     {
-                      "active": True,
                       "kind": "param",
                       "name": "identifier",
                       "orig": "identifier",
                       "reqd": True,
                       "type": "`$ANY`",
-                      "index$": 0,
                     },
                     {
-                      "active": True,
                       "kind": "param",
                       "name": "owner",
                       "orig": "owner",
                       "reqd": True,
                       "type": "`$ANY`",
-                      "index$": 1,
                     },
                   ],
                 },
@@ -22803,10 +18669,8 @@ def make_config():
                   "req": "`reqdata`",
                   "res": "`body`",
                 },
-                "index$": 0,
               },
             ],
-            "key$": "load",
           },
         },
         "relations": {
@@ -22820,18 +18684,14 @@ def make_config():
       "repository_geo_ip_rule": {
         "fields": [
           {
-            "active": True,
             "name": "cidr",
             "req": True,
             "type": "`$OBJECT`",
-            "index$": 0,
           },
           {
-            "active": True,
             "name": "country_code",
             "req": True,
             "type": "`$OBJECT`",
-            "index$": 1,
           },
         ],
         "name": "repository_geo_ip_rule",
@@ -22841,26 +18701,21 @@ def make_config():
             "name": "load",
             "points": [
               {
-                "active": True,
                 "args": {
                   "params": [
                     {
-                      "active": True,
                       "kind": "param",
                       "name": "identifier",
                       "orig": "identifier",
                       "reqd": True,
                       "type": "`$ANY`",
-                      "index$": 0,
                     },
                     {
-                      "active": True,
                       "kind": "param",
                       "name": "owner",
                       "orig": "owner",
                       "reqd": True,
                       "type": "`$ANY`",
-                      "index$": 1,
                     },
                   ],
                 },
@@ -22883,21 +18738,17 @@ def make_config():
                   "req": "`reqdata`",
                   "res": "`body`",
                 },
-                "index$": 0,
               },
             ],
-            "key$": "load",
           },
           "patch": {
             "input": "data",
             "name": "patch",
             "points": [
               {
-                "active": True,
                 "args": {
                   "params": [
                     {
-                      "active": True,
                       "kind": "param",
                       "name": "identifier",
                       "orig": "identifier",
@@ -22905,7 +18756,6 @@ def make_config():
                       "type": "`$ANY`",
                     },
                     {
-                      "active": True,
                       "kind": "param",
                       "name": "owner",
                       "orig": "owner",
@@ -22915,11 +18765,9 @@ def make_config():
                   ],
                   "query": [
                     {
-                      "active": True,
                       "kind": "query",
                       "name": "data",
                       "orig": "data",
-                      "reqd": False,
                       "type": "`$OBJECT`",
                     },
                   ],
@@ -22944,45 +18792,36 @@ def make_config():
                   "req": "`reqdata`",
                   "res": "`body`",
                 },
-                "index$": 0,
               },
             ],
-            "key$": "patch",
           },
           "update": {
             "input": "data",
             "name": "update",
             "points": [
               {
-                "active": True,
                 "args": {
                   "params": [
                     {
-                      "active": True,
                       "kind": "param",
                       "name": "identifier",
                       "orig": "identifier",
                       "reqd": True,
                       "type": "`$ANY`",
-                      "index$": 0,
                     },
                     {
-                      "active": True,
                       "kind": "param",
                       "name": "owner",
                       "orig": "owner",
                       "reqd": True,
                       "type": "`$ANY`",
-                      "index$": 1,
                     },
                   ],
                   "query": [
                     {
-                      "active": True,
                       "kind": "query",
                       "name": "data",
                       "orig": "data",
-                      "reqd": False,
                       "type": "`$OBJECT`",
                     },
                   ],
@@ -23007,10 +18846,8 @@ def make_config():
                   "req": "`reqdata`",
                   "res": "`body`",
                 },
-                "index$": 0,
               },
             ],
-            "key$": "update",
           },
         },
         "relations": {
@@ -23024,11 +18861,8 @@ def make_config():
       "repository_geo_ip_status": {
         "fields": [
           {
-            "active": True,
             "name": "geoip_enabled",
-            "req": False,
             "type": "`$BOOLEAN`",
-            "index$": 0,
           },
         ],
         "name": "repository_geo_ip_status",
@@ -23038,26 +18872,21 @@ def make_config():
             "name": "load",
             "points": [
               {
-                "active": True,
                 "args": {
                   "params": [
                     {
-                      "active": True,
                       "kind": "param",
                       "name": "identifier",
                       "orig": "identifier",
                       "reqd": True,
                       "type": "`$ANY`",
-                      "index$": 0,
                     },
                     {
-                      "active": True,
                       "kind": "param",
                       "name": "owner",
                       "orig": "owner",
                       "reqd": True,
                       "type": "`$ANY`",
-                      "index$": 1,
                     },
                   ],
                 },
@@ -23081,10 +18910,8 @@ def make_config():
                   "req": "`reqdata`",
                   "res": "`body`",
                 },
-                "index$": 0,
               },
             ],
-            "key$": "load",
           },
         },
         "relations": {
@@ -23104,35 +18931,28 @@ def make_config():
             "name": "create",
             "points": [
               {
-                "active": True,
                 "args": {
                   "params": [
                     {
-                      "active": True,
                       "kind": "param",
                       "name": "identifier",
                       "orig": "identifier",
                       "reqd": True,
                       "type": "`$ANY`",
-                      "index$": 0,
                     },
                     {
-                      "active": True,
                       "kind": "param",
                       "name": "owner",
                       "orig": "owner",
                       "reqd": True,
                       "type": "`$ANY`",
-                      "index$": 1,
                     },
                   ],
                   "query": [
                     {
-                      "active": True,
                       "kind": "query",
                       "name": "data",
                       "orig": "data",
-                      "reqd": False,
                       "type": "`$OBJECT`",
                     },
                   ],
@@ -23158,10 +18978,8 @@ def make_config():
                   "req": "`reqdata`",
                   "res": "`body`",
                 },
-                "index$": 0,
               },
             ],
-            "key$": "create",
           },
         },
         "relations": {
@@ -23175,53 +18993,33 @@ def make_config():
       "repository_gpg_key": {
         "fields": [
           {
-            "active": True,
             "name": "active",
-            "req": False,
             "type": "`$BOOLEAN`",
-            "index$": 0,
           },
           {
-            "active": True,
             "name": "comment",
             "req": True,
             "type": "`$STRING`",
-            "index$": 1,
           },
           {
-            "active": True,
             "name": "created_at",
-            "req": False,
             "type": "`$STRING`",
-            "index$": 2,
           },
           {
-            "active": True,
             "name": "default",
-            "req": False,
             "type": "`$BOOLEAN`",
-            "index$": 3,
           },
           {
-            "active": True,
             "name": "fingerprint",
-            "req": False,
             "type": "`$STRING`",
-            "index$": 4,
           },
           {
-            "active": True,
             "name": "fingerprint_short",
-            "req": False,
             "type": "`$STRING`",
-            "index$": 5,
           },
           {
-            "active": True,
             "name": "public_key",
-            "req": False,
             "type": "`$STRING`",
-            "index$": 6,
           },
         ],
         "name": "repository_gpg_key",
@@ -23231,35 +19029,28 @@ def make_config():
             "name": "create",
             "points": [
               {
-                "active": True,
                 "args": {
                   "params": [
                     {
-                      "active": True,
                       "kind": "param",
                       "name": "identifier",
                       "orig": "identifier",
                       "reqd": True,
                       "type": "`$ANY`",
-                      "index$": 0,
                     },
                     {
-                      "active": True,
                       "kind": "param",
                       "name": "owner",
                       "orig": "owner",
                       "reqd": True,
                       "type": "`$ANY`",
-                      "index$": 1,
                     },
                   ],
                   "query": [
                     {
-                      "active": True,
                       "kind": "query",
                       "name": "data",
                       "orig": "data",
-                      "reqd": False,
                       "type": "`$OBJECT`",
                     },
                   ],
@@ -23284,29 +19075,23 @@ def make_config():
                   "req": "`reqdata`",
                   "res": "`body`",
                 },
-                "index$": 0,
               },
               {
-                "active": True,
                 "args": {
                   "params": [
                     {
-                      "active": True,
                       "kind": "param",
                       "name": "identifier",
                       "orig": "identifier",
                       "reqd": True,
                       "type": "`$ANY`",
-                      "index$": 0,
                     },
                     {
-                      "active": True,
                       "kind": "param",
                       "name": "owner",
                       "orig": "owner",
                       "reqd": True,
                       "type": "`$ANY`",
-                      "index$": 1,
                     },
                   ],
                 },
@@ -23330,36 +19115,29 @@ def make_config():
                   "req": "`reqdata`",
                   "res": "`body`",
                 },
-                "index$": 1,
               },
             ],
-            "key$": "create",
           },
           "load": {
             "input": "data",
             "name": "load",
             "points": [
               {
-                "active": True,
                 "args": {
                   "params": [
                     {
-                      "active": True,
                       "kind": "param",
                       "name": "identifier",
                       "orig": "identifier",
                       "reqd": True,
                       "type": "`$ANY`",
-                      "index$": 0,
                     },
                     {
-                      "active": True,
                       "kind": "param",
                       "name": "owner",
                       "orig": "owner",
                       "reqd": True,
                       "type": "`$ANY`",
-                      "index$": 1,
                     },
                   ],
                 },
@@ -23382,10 +19160,8 @@ def make_config():
                   "req": "`reqdata`",
                   "res": "`body`",
                 },
-                "index$": 0,
               },
             ],
-            "key$": "load",
           },
         },
         "relations": {
@@ -23399,32 +19175,21 @@ def make_config():
       "repository_privilege_input": {
         "fields": [
           {
-            "active": True,
             "name": "privilege",
             "req": True,
             "type": "`$STRING`",
-            "index$": 0,
           },
           {
-            "active": True,
             "name": "service",
-            "req": False,
             "type": "`$STRING`",
-            "index$": 1,
           },
           {
-            "active": True,
             "name": "team",
-            "req": False,
             "type": "`$STRING`",
-            "index$": 2,
           },
           {
-            "active": True,
             "name": "user",
-            "req": False,
             "type": "`$STRING`",
-            "index$": 3,
           },
         ],
         "name": "repository_privilege_input",
@@ -23434,43 +19199,34 @@ def make_config():
             "name": "list",
             "points": [
               {
-                "active": True,
                 "args": {
                   "params": [
                     {
-                      "active": True,
                       "kind": "param",
                       "name": "identifier",
                       "orig": "identifier",
                       "reqd": True,
                       "type": "`$ANY`",
-                      "index$": 0,
                     },
                     {
-                      "active": True,
                       "kind": "param",
                       "name": "owner",
                       "orig": "owner",
                       "reqd": True,
                       "type": "`$ANY`",
-                      "index$": 1,
                     },
                   ],
                   "query": [
                     {
-                      "active": True,
                       "kind": "query",
                       "name": "page",
                       "orig": "page",
-                      "reqd": False,
                       "type": "`$INTEGER`",
                     },
                     {
-                      "active": True,
                       "kind": "query",
                       "name": "page_size",
                       "orig": "page_size",
-                      "reqd": False,
                       "type": "`$INTEGER`",
                     },
                   ],
@@ -23496,10 +19252,8 @@ def make_config():
                   "req": "`reqdata`",
                   "res": "`body.privileges`",
                 },
-                "index$": 0,
               },
             ],
-            "key$": "list",
           },
         },
         "relations": {
@@ -23513,60 +19267,36 @@ def make_config():
       "repository_retention_rule": {
         "fields": [
           {
-            "active": True,
             "name": "retention_count_limit",
-            "req": False,
             "type": "`$INTEGER`",
-            "index$": 0,
           },
           {
-            "active": True,
             "name": "retention_days_limit",
-            "req": False,
             "type": "`$INTEGER`",
-            "index$": 1,
           },
           {
-            "active": True,
             "name": "retention_enabled",
-            "req": False,
             "type": "`$BOOLEAN`",
-            "index$": 2,
           },
           {
-            "active": True,
             "name": "retention_group_by_format",
-            "req": False,
             "type": "`$BOOLEAN`",
-            "index$": 3,
           },
           {
-            "active": True,
             "name": "retention_group_by_name",
-            "req": False,
             "type": "`$BOOLEAN`",
-            "index$": 4,
           },
           {
-            "active": True,
             "name": "retention_group_by_package_type",
-            "req": False,
             "type": "`$BOOLEAN`",
-            "index$": 5,
           },
           {
-            "active": True,
             "name": "retention_package_query_string",
-            "req": False,
             "type": "`$STRING`",
-            "index$": 6,
           },
           {
-            "active": True,
             "name": "retention_size_limit",
-            "req": False,
             "type": "`$INTEGER`",
-            "index$": 7,
           },
         ],
         "name": "repository_retention_rule",
@@ -23576,26 +19306,21 @@ def make_config():
             "name": "load",
             "points": [
               {
-                "active": True,
                 "args": {
                   "params": [
                     {
-                      "active": True,
                       "kind": "param",
                       "name": "owner",
                       "orig": "owner",
                       "reqd": True,
                       "type": "`$ANY`",
-                      "index$": 0,
                     },
                     {
-                      "active": True,
                       "kind": "param",
                       "name": "repo",
                       "orig": "repo",
                       "reqd": True,
                       "type": "`$ANY`",
-                      "index$": 1,
                     },
                   ],
                 },
@@ -23618,45 +19343,36 @@ def make_config():
                   "req": "`reqdata`",
                   "res": "`body`",
                 },
-                "index$": 0,
               },
             ],
-            "key$": "load",
           },
           "update": {
             "input": "data",
             "name": "update",
             "points": [
               {
-                "active": True,
                 "args": {
                   "params": [
                     {
-                      "active": True,
                       "kind": "param",
                       "name": "owner",
                       "orig": "owner",
                       "reqd": True,
                       "type": "`$ANY`",
-                      "index$": 0,
                     },
                     {
-                      "active": True,
                       "kind": "param",
                       "name": "repo",
                       "orig": "repo",
                       "reqd": True,
                       "type": "`$ANY`",
-                      "index$": 1,
                     },
                   ],
                   "query": [
                     {
-                      "active": True,
                       "kind": "query",
                       "name": "data",
                       "orig": "data",
-                      "reqd": False,
                       "type": "`$OBJECT`",
                     },
                   ],
@@ -23681,10 +19397,8 @@ def make_config():
                   "req": "`reqdata`",
                   "res": "`body`",
                 },
-                "index$": 0,
               },
             ],
-            "key$": "update",
           },
         },
         "relations": {
@@ -23698,53 +19412,32 @@ def make_config():
       "repository_rsa_key": {
         "fields": [
           {
-            "active": True,
             "name": "active",
-            "req": False,
             "type": "`$BOOLEAN`",
-            "index$": 0,
           },
           {
-            "active": True,
             "name": "created_at",
-            "req": False,
             "type": "`$STRING`",
-            "index$": 1,
           },
           {
-            "active": True,
             "name": "default",
-            "req": False,
             "type": "`$BOOLEAN`",
-            "index$": 2,
           },
           {
-            "active": True,
             "name": "fingerprint",
-            "req": False,
             "type": "`$STRING`",
-            "index$": 3,
           },
           {
-            "active": True,
             "name": "fingerprint_short",
-            "req": False,
             "type": "`$STRING`",
-            "index$": 4,
           },
           {
-            "active": True,
             "name": "public_key",
-            "req": False,
             "type": "`$STRING`",
-            "index$": 5,
           },
           {
-            "active": True,
             "name": "ssh_fingerprint",
-            "req": False,
             "type": "`$STRING`",
-            "index$": 6,
           },
         ],
         "name": "repository_rsa_key",
@@ -23754,35 +19447,28 @@ def make_config():
             "name": "create",
             "points": [
               {
-                "active": True,
                 "args": {
                   "params": [
                     {
-                      "active": True,
                       "kind": "param",
                       "name": "identifier",
                       "orig": "identifier",
                       "reqd": True,
                       "type": "`$ANY`",
-                      "index$": 0,
                     },
                     {
-                      "active": True,
                       "kind": "param",
                       "name": "owner",
                       "orig": "owner",
                       "reqd": True,
                       "type": "`$ANY`",
-                      "index$": 1,
                     },
                   ],
                   "query": [
                     {
-                      "active": True,
                       "kind": "query",
                       "name": "data",
                       "orig": "data",
-                      "reqd": False,
                       "type": "`$OBJECT`",
                     },
                   ],
@@ -23807,29 +19493,23 @@ def make_config():
                   "req": "`reqdata`",
                   "res": "`body`",
                 },
-                "index$": 0,
               },
               {
-                "active": True,
                 "args": {
                   "params": [
                     {
-                      "active": True,
                       "kind": "param",
                       "name": "identifier",
                       "orig": "identifier",
                       "reqd": True,
                       "type": "`$ANY`",
-                      "index$": 0,
                     },
                     {
-                      "active": True,
                       "kind": "param",
                       "name": "owner",
                       "orig": "owner",
                       "reqd": True,
                       "type": "`$ANY`",
-                      "index$": 1,
                     },
                   ],
                 },
@@ -23853,36 +19533,29 @@ def make_config():
                   "req": "`reqdata`",
                   "res": "`body`",
                 },
-                "index$": 1,
               },
             ],
-            "key$": "create",
           },
           "load": {
             "input": "data",
             "name": "load",
             "points": [
               {
-                "active": True,
                 "args": {
                   "params": [
                     {
-                      "active": True,
                       "kind": "param",
                       "name": "identifier",
                       "orig": "identifier",
                       "reqd": True,
                       "type": "`$ANY`",
-                      "index$": 0,
                     },
                     {
-                      "active": True,
                       "kind": "param",
                       "name": "owner",
                       "orig": "owner",
                       "reqd": True,
                       "type": "`$ANY`",
-                      "index$": 1,
                     },
                   ],
                 },
@@ -23905,10 +19578,8 @@ def make_config():
                   "req": "`reqdata`",
                   "res": "`body`",
                 },
-                "index$": 0,
               },
             ],
-            "key$": "load",
           },
         },
         "relations": {
@@ -23922,277 +19593,161 @@ def make_config():
       "repository_token": {
         "fields": [
           {
-            "active": True,
             "name": "clients",
-            "req": False,
             "type": "`$INTEGER`",
-            "index$": 0,
           },
           {
-            "active": True,
             "name": "created_at",
-            "req": False,
             "type": "`$STRING`",
-            "index$": 1,
           },
           {
-            "active": True,
             "name": "created_by",
-            "req": False,
             "type": "`$STRING`",
-            "index$": 2,
           },
           {
-            "active": True,
             "name": "created_by_url",
-            "req": False,
             "type": "`$STRING`",
-            "index$": 3,
           },
           {
-            "active": True,
             "name": "default",
-            "req": False,
             "type": "`$BOOLEAN`",
-            "index$": 4,
           },
           {
-            "active": True,
             "name": "disable_url",
-            "req": False,
             "type": "`$STRING`",
-            "index$": 5,
           },
           {
-            "active": True,
             "name": "downloads",
-            "req": False,
             "type": "`$INTEGER`",
-            "index$": 6,
           },
           {
-            "active": True,
             "name": "enable_url",
-            "req": False,
             "type": "`$STRING`",
-            "index$": 7,
           },
           {
-            "active": True,
             "name": "eula_accepted",
-            "req": False,
             "type": "`$OBJECT`",
-            "index$": 8,
           },
           {
-            "active": True,
             "name": "eula_accepted_at",
-            "req": False,
             "type": "`$STRING`",
-            "index$": 9,
           },
           {
-            "active": True,
             "name": "eula_accepted_from",
-            "req": False,
             "type": "`$STRING`",
-            "index$": 10,
           },
           {
-            "active": True,
             "name": "eula_required",
-            "req": False,
             "type": "`$BOOLEAN`",
-            "index$": 11,
           },
           {
-            "active": True,
             "name": "has_limits",
-            "req": False,
             "type": "`$BOOLEAN`",
-            "index$": 12,
           },
           {
-            "active": True,
             "name": "identifier",
-            "req": False,
             "type": "`$INTEGER`",
-            "index$": 13,
           },
           {
-            "active": True,
             "name": "is_active",
-            "req": False,
             "type": "`$BOOLEAN`",
-            "index$": 14,
           },
           {
-            "active": True,
             "name": "is_limited",
-            "req": False,
             "type": "`$BOOLEAN`",
-            "index$": 15,
           },
           {
-            "active": True,
             "name": "limit_bandwidth",
-            "req": False,
             "type": "`$INTEGER`",
-            "index$": 16,
           },
           {
-            "active": True,
             "name": "limit_bandwidth_unit",
-            "req": False,
             "type": "`$STRING`",
-            "index$": 17,
           },
           {
-            "active": True,
             "name": "limit_date_range_from",
-            "req": False,
             "type": "`$STRING`",
-            "index$": 18,
           },
           {
-            "active": True,
             "name": "limit_date_range_to",
-            "req": False,
             "type": "`$STRING`",
-            "index$": 19,
           },
           {
-            "active": True,
             "name": "limit_num_clients",
-            "req": False,
             "type": "`$INTEGER`",
-            "index$": 20,
           },
           {
-            "active": True,
             "name": "limit_num_downloads",
-            "req": False,
             "type": "`$INTEGER`",
-            "index$": 21,
           },
           {
-            "active": True,
             "name": "limit_package_query",
-            "req": False,
             "type": "`$STRING`",
-            "index$": 22,
           },
           {
-            "active": True,
             "name": "limit_path_query",
-            "req": False,
             "type": "`$STRING`",
-            "index$": 23,
           },
           {
-            "active": True,
             "name": "metadata",
-            "req": False,
             "type": "`$OBJECT`",
-            "index$": 24,
           },
           {
-            "active": True,
             "name": "name",
             "req": True,
             "type": "`$STRING`",
-            "index$": 25,
           },
           {
-            "active": True,
             "name": "refresh_url",
-            "req": False,
             "type": "`$STRING`",
-            "index$": 26,
           },
           {
-            "active": True,
             "name": "reset_url",
-            "req": False,
             "type": "`$STRING`",
-            "index$": 27,
           },
           {
-            "active": True,
             "name": "scheduled_reset_at",
-            "req": False,
             "type": "`$STRING`",
-            "index$": 28,
           },
           {
-            "active": True,
             "name": "scheduled_reset_period",
-            "req": False,
             "type": "`$STRING`",
-            "index$": 29,
           },
           {
-            "active": True,
             "name": "self_url",
-            "req": False,
             "type": "`$STRING`",
-            "index$": 30,
           },
           {
-            "active": True,
             "name": "slug_perm",
-            "req": False,
             "type": "`$STRING`",
-            "index$": 31,
           },
           {
-            "active": True,
             "name": "token",
-            "req": False,
             "type": "`$STRING`",
-            "index$": 32,
           },
           {
-            "active": True,
             "name": "updated_at",
-            "req": False,
             "type": "`$STRING`",
-            "index$": 33,
           },
           {
-            "active": True,
             "name": "updated_by",
-            "req": False,
             "type": "`$STRING`",
-            "index$": 34,
           },
           {
-            "active": True,
             "name": "updated_by_url",
-            "req": False,
             "type": "`$STRING`",
-            "index$": 35,
           },
           {
-            "active": True,
             "name": "usage",
-            "req": False,
             "type": "`$STRING`",
-            "index$": 36,
           },
           {
-            "active": True,
             "name": "user",
-            "req": False,
             "type": "`$STRING`",
-            "index$": 37,
           },
           {
-            "active": True,
             "name": "user_url",
-            "req": False,
             "type": "`$STRING`",
-            "index$": 38,
           },
         ],
         "name": "repository_token",
@@ -24202,43 +19757,34 @@ def make_config():
             "name": "create",
             "points": [
               {
-                "active": True,
                 "args": {
                   "params": [
                     {
-                      "active": True,
                       "kind": "param",
                       "name": "owner",
                       "orig": "owner",
                       "reqd": True,
                       "type": "`$ANY`",
-                      "index$": 0,
                     },
                     {
-                      "active": True,
                       "kind": "param",
                       "name": "repo",
                       "orig": "repo",
                       "reqd": True,
                       "type": "`$ANY`",
-                      "index$": 1,
                     },
                   ],
                   "query": [
                     {
-                      "active": True,
                       "kind": "query",
                       "name": "data",
                       "orig": "data",
-                      "reqd": False,
                       "type": "`$OBJECT`",
                     },
                     {
-                      "active": True,
                       "kind": "query",
                       "name": "show_token",
                       "orig": "show_token",
-                      "reqd": False,
                       "type": "`$ANY`",
                     },
                   ],
@@ -24263,85 +19809,66 @@ def make_config():
                   "req": "`reqdata`",
                   "res": "`body`",
                 },
-                "index$": 0,
               },
             ],
-            "key$": "create",
           },
           "list": {
             "input": "data",
             "name": "list",
             "points": [
               {
-                "active": True,
                 "args": {
                   "params": [
                     {
-                      "active": True,
                       "kind": "param",
                       "name": "owner",
                       "orig": "owner",
                       "reqd": True,
                       "type": "`$ANY`",
-                      "index$": 0,
                     },
                     {
-                      "active": True,
                       "kind": "param",
                       "name": "repo",
                       "orig": "repo",
                       "reqd": True,
                       "type": "`$ANY`",
-                      "index$": 1,
                     },
                   ],
                   "query": [
                     {
-                      "active": True,
                       "kind": "query",
                       "name": "active",
                       "orig": "active",
-                      "reqd": False,
                       "type": "`$BOOLEAN`",
                     },
                     {
-                      "active": True,
                       "kind": "query",
                       "name": "page",
                       "orig": "page",
-                      "reqd": False,
                       "type": "`$INTEGER`",
                     },
                     {
-                      "active": True,
                       "kind": "query",
                       "name": "page_size",
                       "orig": "page_size",
-                      "reqd": False,
                       "type": "`$INTEGER`",
                     },
                     {
-                      "active": True,
                       "kind": "query",
                       "name": "query",
                       "orig": "query",
-                      "reqd": False,
                       "type": "`$ANY`",
                     },
                     {
-                      "active": True,
                       "kind": "query",
                       "name": "show_token",
                       "orig": "show_token",
-                      "reqd": False,
                       "type": "`$ANY`",
                     },
                     {
-                      "active": True,
                       "kind": "query",
                       "name": "sort",
                       "orig": "sort",
-                      "reqd": False,
                       "type": "`$ANY`",
                     },
                   ],
@@ -24370,62 +19897,49 @@ def make_config():
                   "req": "`reqdata`",
                   "res": "`body`",
                 },
-                "index$": 0,
               },
             ],
-            "key$": "list",
           },
           "load": {
             "input": "data",
             "name": "load",
             "points": [
               {
-                "active": True,
                 "args": {
                   "params": [
                     {
-                      "active": True,
                       "kind": "param",
                       "name": "identifier",
                       "orig": "identifier",
                       "reqd": True,
                       "type": "`$ANY`",
-                      "index$": 0,
                     },
                     {
-                      "active": True,
                       "kind": "param",
                       "name": "owner",
                       "orig": "owner",
                       "reqd": True,
                       "type": "`$ANY`",
-                      "index$": 1,
                     },
                     {
-                      "active": True,
                       "kind": "param",
                       "name": "repo",
                       "orig": "repo",
                       "reqd": True,
                       "type": "`$ANY`",
-                      "index$": 2,
                     },
                   ],
                   "query": [
                     {
-                      "active": True,
                       "kind": "query",
                       "name": "fuzzy",
                       "orig": "fuzzy",
-                      "reqd": False,
                       "type": "`$ANY`",
                     },
                     {
-                      "active": True,
                       "kind": "query",
                       "name": "show_token",
                       "orig": "show_token",
-                      "reqd": False,
                       "type": "`$ANY`",
                     },
                   ],
@@ -24452,62 +19966,49 @@ def make_config():
                   "req": "`reqdata`",
                   "res": "`body`",
                 },
-                "index$": 0,
               },
             ],
-            "key$": "load",
           },
           "update": {
             "input": "data",
             "name": "update",
             "points": [
               {
-                "active": True,
                 "args": {
                   "params": [
                     {
-                      "active": True,
                       "kind": "param",
                       "name": "identifier",
                       "orig": "identifier",
                       "reqd": True,
                       "type": "`$ANY`",
-                      "index$": 0,
                     },
                     {
-                      "active": True,
                       "kind": "param",
                       "name": "owner",
                       "orig": "owner",
                       "reqd": True,
                       "type": "`$ANY`",
-                      "index$": 1,
                     },
                     {
-                      "active": True,
                       "kind": "param",
                       "name": "repo",
                       "orig": "repo",
                       "reqd": True,
                       "type": "`$ANY`",
-                      "index$": 2,
                     },
                   ],
                   "query": [
                     {
-                      "active": True,
                       "kind": "query",
                       "name": "data",
                       "orig": "data",
-                      "reqd": False,
                       "type": "`$OBJECT`",
                     },
                     {
-                      "active": True,
                       "kind": "query",
                       "name": "show_token",
                       "orig": "show_token",
-                      "reqd": False,
                       "type": "`$ANY`",
                     },
                   ],
@@ -24534,10 +20035,8 @@ def make_config():
                   "req": "`reqdata`",
                   "res": "`body`",
                 },
-                "index$": 0,
               },
             ],
-            "key$": "update",
           },
         },
         "relations": {
@@ -24551,277 +20050,160 @@ def make_config():
       "repository_token_refresh": {
         "fields": [
           {
-            "active": True,
             "name": "clients",
-            "req": False,
             "type": "`$INTEGER`",
-            "index$": 0,
           },
           {
-            "active": True,
             "name": "created_at",
-            "req": False,
             "type": "`$STRING`",
-            "index$": 1,
           },
           {
-            "active": True,
             "name": "created_by",
-            "req": False,
             "type": "`$STRING`",
-            "index$": 2,
           },
           {
-            "active": True,
             "name": "created_by_url",
-            "req": False,
             "type": "`$STRING`",
-            "index$": 3,
           },
           {
-            "active": True,
             "name": "default",
-            "req": False,
             "type": "`$BOOLEAN`",
-            "index$": 4,
           },
           {
-            "active": True,
             "name": "disable_url",
-            "req": False,
             "type": "`$STRING`",
-            "index$": 5,
           },
           {
-            "active": True,
             "name": "downloads",
-            "req": False,
             "type": "`$INTEGER`",
-            "index$": 6,
           },
           {
-            "active": True,
             "name": "enable_url",
-            "req": False,
             "type": "`$STRING`",
-            "index$": 7,
           },
           {
-            "active": True,
             "name": "eula_accepted",
-            "req": False,
             "type": "`$OBJECT`",
-            "index$": 8,
           },
           {
-            "active": True,
             "name": "eula_accepted_at",
-            "req": False,
             "type": "`$STRING`",
-            "index$": 9,
           },
           {
-            "active": True,
             "name": "eula_accepted_from",
-            "req": False,
             "type": "`$STRING`",
-            "index$": 10,
           },
           {
-            "active": True,
             "name": "eula_required",
-            "req": False,
             "type": "`$BOOLEAN`",
-            "index$": 11,
           },
           {
-            "active": True,
             "name": "has_limits",
-            "req": False,
             "type": "`$BOOLEAN`",
-            "index$": 12,
           },
           {
-            "active": True,
             "name": "identifier",
-            "req": False,
             "type": "`$INTEGER`",
-            "index$": 13,
           },
           {
-            "active": True,
             "name": "is_active",
-            "req": False,
             "type": "`$BOOLEAN`",
-            "index$": 14,
           },
           {
-            "active": True,
             "name": "is_limited",
-            "req": False,
             "type": "`$BOOLEAN`",
-            "index$": 15,
           },
           {
-            "active": True,
             "name": "limit_bandwidth",
-            "req": False,
             "type": "`$INTEGER`",
-            "index$": 16,
           },
           {
-            "active": True,
             "name": "limit_bandwidth_unit",
-            "req": False,
             "type": "`$STRING`",
-            "index$": 17,
           },
           {
-            "active": True,
             "name": "limit_date_range_from",
-            "req": False,
             "type": "`$STRING`",
-            "index$": 18,
           },
           {
-            "active": True,
             "name": "limit_date_range_to",
-            "req": False,
             "type": "`$STRING`",
-            "index$": 19,
           },
           {
-            "active": True,
             "name": "limit_num_clients",
-            "req": False,
             "type": "`$INTEGER`",
-            "index$": 20,
           },
           {
-            "active": True,
             "name": "limit_num_downloads",
-            "req": False,
             "type": "`$INTEGER`",
-            "index$": 21,
           },
           {
-            "active": True,
             "name": "limit_package_query",
-            "req": False,
             "type": "`$STRING`",
-            "index$": 22,
           },
           {
-            "active": True,
             "name": "limit_path_query",
-            "req": False,
             "type": "`$STRING`",
-            "index$": 23,
           },
           {
-            "active": True,
             "name": "metadata",
-            "req": False,
             "type": "`$OBJECT`",
-            "index$": 24,
           },
           {
-            "active": True,
             "name": "name",
-            "req": False,
             "type": "`$STRING`",
-            "index$": 25,
           },
           {
-            "active": True,
             "name": "refresh_url",
-            "req": False,
             "type": "`$STRING`",
-            "index$": 26,
           },
           {
-            "active": True,
             "name": "reset_url",
-            "req": False,
             "type": "`$STRING`",
-            "index$": 27,
           },
           {
-            "active": True,
             "name": "scheduled_reset_at",
-            "req": False,
             "type": "`$STRING`",
-            "index$": 28,
           },
           {
-            "active": True,
             "name": "scheduled_reset_period",
-            "req": False,
             "type": "`$STRING`",
-            "index$": 29,
           },
           {
-            "active": True,
             "name": "self_url",
-            "req": False,
             "type": "`$STRING`",
-            "index$": 30,
           },
           {
-            "active": True,
             "name": "slug_perm",
-            "req": False,
             "type": "`$STRING`",
-            "index$": 31,
           },
           {
-            "active": True,
             "name": "token",
-            "req": False,
             "type": "`$STRING`",
-            "index$": 32,
           },
           {
-            "active": True,
             "name": "updated_at",
-            "req": False,
             "type": "`$STRING`",
-            "index$": 33,
           },
           {
-            "active": True,
             "name": "updated_by",
-            "req": False,
             "type": "`$STRING`",
-            "index$": 34,
           },
           {
-            "active": True,
             "name": "updated_by_url",
-            "req": False,
             "type": "`$STRING`",
-            "index$": 35,
           },
           {
-            "active": True,
             "name": "usage",
-            "req": False,
             "type": "`$STRING`",
-            "index$": 36,
           },
           {
-            "active": True,
             "name": "user",
-            "req": False,
             "type": "`$STRING`",
-            "index$": 37,
           },
           {
-            "active": True,
             "name": "user_url",
-            "req": False,
             "type": "`$STRING`",
-            "index$": 38,
           },
         ],
         "name": "repository_token_refresh",
@@ -24831,52 +20213,41 @@ def make_config():
             "name": "create",
             "points": [
               {
-                "active": True,
                 "args": {
                   "params": [
                     {
-                      "active": True,
                       "kind": "param",
                       "name": "identifier",
                       "orig": "identifier",
                       "reqd": True,
                       "type": "`$ANY`",
-                      "index$": 0,
                     },
                     {
-                      "active": True,
                       "kind": "param",
                       "name": "owner",
                       "orig": "owner",
                       "reqd": True,
                       "type": "`$ANY`",
-                      "index$": 1,
                     },
                     {
-                      "active": True,
                       "kind": "param",
                       "name": "repo",
                       "orig": "repo",
                       "reqd": True,
                       "type": "`$ANY`",
-                      "index$": 2,
                     },
                   ],
                   "query": [
                     {
-                      "active": True,
                       "kind": "query",
                       "name": "data",
                       "orig": "data",
-                      "reqd": False,
                       "type": "`$OBJECT`",
                     },
                     {
-                      "active": True,
                       "kind": "query",
                       "name": "show_token",
                       "orig": "show_token",
-                      "reqd": False,
                       "type": "`$ANY`",
                     },
                   ],
@@ -24904,10 +20275,8 @@ def make_config():
                   "req": "`reqdata`",
                   "res": "`body`",
                 },
-                "index$": 0,
               },
             ],
-            "key$": "create",
           },
         },
         "relations": {
@@ -24921,11 +20290,8 @@ def make_config():
       "repository_token_sync": {
         "fields": [
           {
-            "active": True,
             "name": "tokens",
-            "req": False,
             "type": "`$ARRAY`",
-            "index$": 0,
           },
         ],
         "name": "repository_token_sync",
@@ -24935,43 +20301,34 @@ def make_config():
             "name": "create",
             "points": [
               {
-                "active": True,
                 "args": {
                   "params": [
                     {
-                      "active": True,
                       "kind": "param",
                       "name": "owner",
                       "orig": "owner",
                       "reqd": True,
                       "type": "`$ANY`",
-                      "index$": 0,
                     },
                     {
-                      "active": True,
                       "kind": "param",
                       "name": "repo",
                       "orig": "repo",
                       "reqd": True,
                       "type": "`$ANY`",
-                      "index$": 1,
                     },
                   ],
                   "query": [
                     {
-                      "active": True,
                       "kind": "query",
                       "name": "data",
                       "orig": "data",
-                      "reqd": False,
                       "type": "`$OBJECT`",
                     },
                     {
-                      "active": True,
                       "kind": "query",
                       "name": "show_token",
                       "orig": "show_token",
-                      "reqd": False,
                       "type": "`$ANY`",
                     },
                   ],
@@ -24997,10 +20354,8 @@ def make_config():
                   "req": "`reqdata`",
                   "res": "`body`",
                 },
-                "index$": 0,
               },
             ],
-            "key$": "create",
           },
         },
         "relations": {
@@ -25014,207 +20369,124 @@ def make_config():
       "repository_webhook": {
         "fields": [
           {
-            "active": True,
             "name": "created_at",
-            "req": False,
             "type": "`$STRING`",
-            "index$": 0,
           },
           {
-            "active": True,
             "name": "created_by",
-            "req": False,
             "type": "`$STRING`",
-            "index$": 1,
           },
           {
-            "active": True,
             "name": "created_by_url",
-            "req": False,
             "type": "`$STRING`",
-            "index$": 2,
           },
           {
-            "active": True,
             "name": "disable_reason",
-            "req": False,
             "type": "`$INTEGER`",
-            "index$": 3,
           },
           {
-            "active": True,
             "name": "disable_reason_str",
-            "req": False,
             "type": "`$STRING`",
-            "index$": 4,
           },
           {
-            "active": True,
             "name": "event",
             "req": True,
             "type": "`$STRING`",
-            "index$": 5,
           },
           {
-            "active": True,
             "name": "events",
             "req": True,
             "type": "`$ARRAY`",
-            "index$": 6,
           },
           {
-            "active": True,
             "name": "identifier",
-            "req": False,
             "type": "`$INTEGER`",
-            "index$": 7,
           },
           {
-            "active": True,
             "name": "is_active",
-            "req": False,
             "type": "`$BOOLEAN`",
-            "index$": 8,
           },
           {
-            "active": True,
             "name": "is_last_response_bad",
-            "req": False,
             "type": "`$BOOLEAN`",
-            "index$": 9,
           },
           {
-            "active": True,
             "name": "last_response_status",
-            "req": False,
             "type": "`$INTEGER`",
-            "index$": 10,
           },
           {
-            "active": True,
             "name": "last_response_status_str",
-            "req": False,
             "type": "`$STRING`",
-            "index$": 11,
           },
           {
-            "active": True,
             "name": "num_sent",
-            "req": False,
             "type": "`$INTEGER`",
-            "index$": 12,
           },
           {
-            "active": True,
             "name": "package_query",
-            "req": False,
             "type": "`$STRING`",
-            "index$": 13,
           },
           {
-            "active": True,
             "name": "request_body_format",
-            "req": False,
             "type": "`$INTEGER`",
-            "index$": 14,
           },
           {
-            "active": True,
             "name": "request_body_format_str",
-            "req": False,
             "type": "`$STRING`",
-            "index$": 15,
           },
           {
-            "active": True,
             "name": "request_body_template_format",
-            "req": False,
             "type": "`$INTEGER`",
-            "index$": 16,
           },
           {
-            "active": True,
             "name": "request_body_template_format_str",
-            "req": False,
             "type": "`$STRING`",
-            "index$": 17,
           },
           {
-            "active": True,
             "name": "request_content_type",
-            "req": False,
             "type": "`$STRING`",
-            "index$": 18,
           },
           {
-            "active": True,
             "name": "secret_header",
-            "req": False,
             "type": "`$STRING`",
-            "index$": 19,
           },
           {
-            "active": True,
             "name": "self_url",
-            "req": False,
             "type": "`$STRING`",
-            "index$": 20,
           },
           {
-            "active": True,
             "name": "slug_perm",
-            "req": False,
             "type": "`$STRING`",
-            "index$": 21,
           },
           {
-            "active": True,
             "name": "target_url",
             "req": True,
             "type": "`$STRING`",
-            "index$": 22,
           },
           {
-            "active": True,
             "name": "template",
-            "req": False,
             "type": "`$STRING`",
-            "index$": 23,
           },
           {
-            "active": True,
             "name": "templates",
             "req": True,
             "type": "`$ARRAY`",
-            "index$": 24,
           },
           {
-            "active": True,
             "name": "updated_at",
-            "req": False,
             "type": "`$STRING`",
-            "index$": 25,
           },
           {
-            "active": True,
             "name": "updated_by",
-            "req": False,
             "type": "`$STRING`",
-            "index$": 26,
           },
           {
-            "active": True,
             "name": "updated_by_url",
-            "req": False,
             "type": "`$STRING`",
-            "index$": 27,
           },
           {
-            "active": True,
             "name": "verify_ssl",
-            "req": False,
             "type": "`$BOOLEAN`",
-            "index$": 28,
           },
         ],
         "name": "repository_webhook",
@@ -25224,35 +20496,28 @@ def make_config():
             "name": "create",
             "points": [
               {
-                "active": True,
                 "args": {
                   "params": [
                     {
-                      "active": True,
                       "kind": "param",
                       "name": "owner",
                       "orig": "owner",
                       "reqd": True,
                       "type": "`$ANY`",
-                      "index$": 0,
                     },
                     {
-                      "active": True,
                       "kind": "param",
                       "name": "repo",
                       "orig": "repo",
                       "reqd": True,
                       "type": "`$ANY`",
-                      "index$": 1,
                     },
                   ],
                   "query": [
                     {
-                      "active": True,
                       "kind": "query",
                       "name": "data",
                       "orig": "data",
-                      "reqd": False,
                       "type": "`$OBJECT`",
                     },
                   ],
@@ -25276,53 +20541,42 @@ def make_config():
                   "req": "`reqdata`",
                   "res": "`body`",
                 },
-                "index$": 0,
               },
             ],
-            "key$": "create",
           },
           "list": {
             "input": "data",
             "name": "list",
             "points": [
               {
-                "active": True,
                 "args": {
                   "params": [
                     {
-                      "active": True,
                       "kind": "param",
                       "name": "owner",
                       "orig": "owner",
                       "reqd": True,
                       "type": "`$ANY`",
-                      "index$": 0,
                     },
                     {
-                      "active": True,
                       "kind": "param",
                       "name": "repo",
                       "orig": "repo",
                       "reqd": True,
                       "type": "`$ANY`",
-                      "index$": 1,
                     },
                   ],
                   "query": [
                     {
-                      "active": True,
                       "kind": "query",
                       "name": "page",
                       "orig": "page",
-                      "reqd": False,
                       "type": "`$INTEGER`",
                     },
                     {
-                      "active": True,
                       "kind": "query",
                       "name": "page_size",
                       "orig": "page_size",
-                      "reqd": False,
                       "type": "`$INTEGER`",
                     },
                   ],
@@ -25347,38 +20601,30 @@ def make_config():
                   "req": "`reqdata`",
                   "res": "`body`",
                 },
-                "index$": 0,
               },
               {
-                "active": True,
                 "args": {
                   "params": [
                     {
-                      "active": True,
                       "kind": "param",
                       "name": "identifier",
                       "orig": "identifier",
                       "reqd": True,
                       "type": "`$ANY`",
-                      "index$": 0,
                     },
                     {
-                      "active": True,
                       "kind": "param",
                       "name": "owner",
                       "orig": "owner",
                       "reqd": True,
                       "type": "`$ANY`",
-                      "index$": 1,
                     },
                     {
-                      "active": True,
                       "kind": "param",
                       "name": "repo",
                       "orig": "repo",
                       "reqd": True,
                       "type": "`$ANY`",
-                      "index$": 2,
                     },
                   ],
                 },
@@ -25402,54 +20648,43 @@ def make_config():
                   "req": "`reqdata`",
                   "res": "`body`",
                 },
-                "index$": 1,
               },
             ],
-            "key$": "list",
           },
           "update": {
             "input": "data",
             "name": "update",
             "points": [
               {
-                "active": True,
                 "args": {
                   "params": [
                     {
-                      "active": True,
                       "kind": "param",
                       "name": "identifier",
                       "orig": "identifier",
                       "reqd": True,
                       "type": "`$ANY`",
-                      "index$": 0,
                     },
                     {
-                      "active": True,
                       "kind": "param",
                       "name": "owner",
                       "orig": "owner",
                       "reqd": True,
                       "type": "`$ANY`",
-                      "index$": 1,
                     },
                     {
-                      "active": True,
                       "kind": "param",
                       "name": "repo",
                       "orig": "repo",
                       "reqd": True,
                       "type": "`$ANY`",
-                      "index$": 2,
                     },
                   ],
                   "query": [
                     {
-                      "active": True,
                       "kind": "query",
                       "name": "data",
                       "orig": "data",
-                      "reqd": False,
                       "type": "`$OBJECT`",
                     },
                   ],
@@ -25475,10 +20710,8 @@ def make_config():
                   "req": "`reqdata`",
                   "res": "`body`",
                 },
-                "index$": 0,
               },
             ],
-            "key$": "update",
           },
         },
         "relations": {
@@ -25492,74 +20725,44 @@ def make_config():
       "repository_x509_ecdsa_certificate": {
         "fields": [
           {
-            "active": True,
             "name": "active",
-            "req": False,
             "type": "`$BOOLEAN`",
-            "index$": 0,
           },
           {
-            "active": True,
             "name": "certificate",
-            "req": False,
             "type": "`$STRING`",
-            "index$": 1,
           },
           {
-            "active": True,
             "name": "certificate_chain",
-            "req": False,
             "type": "`$STRING`",
-            "index$": 2,
           },
           {
-            "active": True,
             "name": "certificate_chain_fingerprint",
-            "req": False,
             "type": "`$STRING`",
-            "index$": 3,
           },
           {
-            "active": True,
             "name": "certificate_chain_fingerprint_short",
-            "req": False,
             "type": "`$STRING`",
-            "index$": 4,
           },
           {
-            "active": True,
             "name": "certificate_fingerprint",
-            "req": False,
             "type": "`$STRING`",
-            "index$": 5,
           },
           {
-            "active": True,
             "name": "certificate_fingerprint_short",
-            "req": False,
             "type": "`$STRING`",
-            "index$": 6,
           },
           {
-            "active": True,
             "name": "created_at",
-            "req": False,
             "type": "`$STRING`",
-            "index$": 7,
           },
           {
-            "active": True,
             "name": "default",
-            "req": False,
             "type": "`$BOOLEAN`",
-            "index$": 8,
           },
           {
-            "active": True,
             "name": "issuing_status",
-            "req": False,
             "type": "`$STRING`",
-            "index$": 9,
           },
         ],
         "name": "repository_x509_ecdsa_certificate",
@@ -25569,26 +20772,21 @@ def make_config():
             "name": "load",
             "points": [
               {
-                "active": True,
                 "args": {
                   "params": [
                     {
-                      "active": True,
                       "kind": "param",
                       "name": "identifier",
                       "orig": "identifier",
                       "reqd": True,
                       "type": "`$ANY`",
-                      "index$": 0,
                     },
                     {
-                      "active": True,
                       "kind": "param",
                       "name": "owner",
                       "orig": "owner",
                       "reqd": True,
                       "type": "`$ANY`",
-                      "index$": 1,
                     },
                   ],
                 },
@@ -25611,10 +20809,8 @@ def make_config():
                   "req": "`reqdata`",
                   "res": "`body`",
                 },
-                "index$": 0,
               },
             ],
-            "key$": "load",
           },
         },
         "relations": {
@@ -25628,74 +20824,44 @@ def make_config():
       "repository_x509_rsa_certificate": {
         "fields": [
           {
-            "active": True,
             "name": "active",
-            "req": False,
             "type": "`$BOOLEAN`",
-            "index$": 0,
           },
           {
-            "active": True,
             "name": "certificate",
-            "req": False,
             "type": "`$STRING`",
-            "index$": 1,
           },
           {
-            "active": True,
             "name": "certificate_chain",
-            "req": False,
             "type": "`$STRING`",
-            "index$": 2,
           },
           {
-            "active": True,
             "name": "certificate_chain_fingerprint",
-            "req": False,
             "type": "`$STRING`",
-            "index$": 3,
           },
           {
-            "active": True,
             "name": "certificate_chain_fingerprint_short",
-            "req": False,
             "type": "`$STRING`",
-            "index$": 4,
           },
           {
-            "active": True,
             "name": "certificate_fingerprint",
-            "req": False,
             "type": "`$STRING`",
-            "index$": 5,
           },
           {
-            "active": True,
             "name": "certificate_fingerprint_short",
-            "req": False,
             "type": "`$STRING`",
-            "index$": 6,
           },
           {
-            "active": True,
             "name": "created_at",
-            "req": False,
             "type": "`$STRING`",
-            "index$": 7,
           },
           {
-            "active": True,
             "name": "default",
-            "req": False,
             "type": "`$BOOLEAN`",
-            "index$": 8,
           },
           {
-            "active": True,
             "name": "issuing_status",
-            "req": False,
             "type": "`$STRING`",
-            "index$": 9,
           },
         ],
         "name": "repository_x509_rsa_certificate",
@@ -25705,26 +20871,21 @@ def make_config():
             "name": "load",
             "points": [
               {
-                "active": True,
                 "args": {
                   "params": [
                     {
-                      "active": True,
                       "kind": "param",
                       "name": "identifier",
                       "orig": "identifier",
                       "reqd": True,
                       "type": "`$ANY`",
-                      "index$": 0,
                     },
                     {
-                      "active": True,
                       "kind": "param",
                       "name": "owner",
                       "orig": "owner",
                       "reqd": True,
                       "type": "`$ANY`",
-                      "index$": 1,
                     },
                   ],
                 },
@@ -25747,10 +20908,8 @@ def make_config():
                   "req": "`reqdata`",
                   "res": "`body`",
                 },
-                "index$": 0,
               },
             ],
-            "key$": "load",
           },
         },
         "relations": {
@@ -25776,46 +20935,28 @@ def make_config():
       "resources_rate_check": {
         "fields": [
           {
-            "active": True,
             "name": "interval",
-            "req": False,
             "type": "`$NUMBER`",
-            "index$": 0,
           },
           {
-            "active": True,
             "name": "limit",
-            "req": False,
             "type": "`$INTEGER`",
-            "index$": 1,
           },
           {
-            "active": True,
             "name": "remaining",
-            "req": False,
             "type": "`$INTEGER`",
-            "index$": 2,
           },
           {
-            "active": True,
             "name": "reset",
-            "req": False,
             "type": "`$INTEGER`",
-            "index$": 3,
           },
           {
-            "active": True,
             "name": "reset_iso_8601",
-            "req": False,
             "type": "`$STRING`",
-            "index$": 4,
           },
           {
-            "active": True,
             "name": "throttled",
-            "req": False,
             "type": "`$BOOLEAN`",
-            "index$": 5,
           },
         ],
         "name": "resources_rate_check",
@@ -25825,7 +20966,6 @@ def make_config():
             "name": "load",
             "points": [
               {
-                "active": True,
                 "args": {},
                 "kind": "http",
                 "method": "GET",
@@ -25839,10 +20979,8 @@ def make_config():
                   "req": "`reqdata`",
                   "res": "`body.resources`",
                 },
-                "index$": 0,
               },
             ],
-            "key$": "load",
           },
         },
         "relations": {
@@ -25876,172 +21014,103 @@ def make_config():
       "rpm": {
         "fields": [
           {
-            "active": True,
             "name": "auth_mode",
-            "req": False,
             "type": "`$STRING`",
-            "index$": 0,
           },
           {
-            "active": True,
             "name": "auth_secret",
-            "req": False,
             "type": "`$STRING`",
-            "index$": 1,
           },
           {
-            "active": True,
             "name": "auth_username",
-            "req": False,
             "type": "`$STRING`",
-            "index$": 2,
           },
           {
-            "active": True,
             "name": "created_at",
-            "req": False,
             "type": "`$STRING`",
-            "index$": 3,
           },
           {
-            "active": True,
             "name": "disable_reason",
-            "req": False,
             "type": "`$STRING`",
-            "index$": 4,
           },
           {
-            "active": True,
             "name": "distro_version",
             "req": True,
             "type": "`$STRING`",
-            "index$": 5,
           },
           {
-            "active": True,
             "name": "extra_header_1",
-            "req": False,
             "type": "`$STRING`",
-            "index$": 6,
           },
           {
-            "active": True,
             "name": "extra_header_2",
-            "req": False,
             "type": "`$STRING`",
-            "index$": 7,
           },
           {
-            "active": True,
             "name": "extra_value_1",
-            "req": False,
             "type": "`$STRING`",
-            "index$": 8,
           },
           {
-            "active": True,
             "name": "extra_value_2",
-            "req": False,
             "type": "`$STRING`",
-            "index$": 9,
           },
           {
-            "active": True,
             "name": "gpg_key_inline",
-            "req": False,
             "type": "`$STRING`",
-            "index$": 10,
           },
           {
-            "active": True,
             "name": "gpg_key_url",
-            "req": False,
             "type": "`$STRING`",
-            "index$": 11,
           },
           {
-            "active": True,
             "name": "gpg_verification",
-            "req": False,
             "type": "`$STRING`",
-            "index$": 12,
           },
           {
-            "active": True,
             "name": "include_sources",
-            "req": False,
             "type": "`$BOOLEAN`",
-            "index$": 13,
           },
           {
-            "active": True,
             "name": "is_active",
-            "req": False,
             "type": "`$BOOLEAN`",
-            "index$": 14,
           },
           {
-            "active": True,
             "name": "mode",
-            "req": False,
             "type": "`$STRING`",
-            "index$": 15,
           },
           {
-            "active": True,
             "name": "name",
             "req": True,
             "type": "`$STRING`",
-            "index$": 16,
           },
           {
-            "active": True,
             "name": "pending_validation",
-            "req": False,
             "type": "`$BOOLEAN`",
-            "index$": 17,
           },
           {
-            "active": True,
             "name": "priority",
-            "req": False,
             "type": "`$INTEGER`",
-            "index$": 18,
           },
           {
-            "active": True,
             "name": "slug_perm",
-            "req": False,
             "type": "`$STRING`",
-            "index$": 19,
           },
           {
-            "active": True,
             "name": "updated_at",
-            "req": False,
             "type": "`$STRING`",
-            "index$": 20,
           },
           {
-            "active": True,
             "name": "upstream_url",
             "req": True,
             "type": "`$STRING`",
-            "index$": 21,
           },
           {
-            "active": True,
             "name": "verification_status",
-            "req": False,
             "type": "`$STRING`",
-            "index$": 22,
           },
           {
-            "active": True,
             "name": "verify_ssl",
-            "req": False,
             "type": "`$BOOLEAN`",
-            "index$": 23,
           },
         ],
         "name": "rpm",
@@ -26051,35 +21120,28 @@ def make_config():
             "name": "create",
             "points": [
               {
-                "active": True,
                 "args": {
                   "params": [
                     {
-                      "active": True,
                       "kind": "param",
                       "name": "identifier",
                       "orig": "identifier",
                       "reqd": True,
                       "type": "`$ANY`",
-                      "index$": 0,
                     },
                     {
-                      "active": True,
                       "kind": "param",
                       "name": "owner",
                       "orig": "owner",
                       "reqd": True,
                       "type": "`$ANY`",
-                      "index$": 1,
                     },
                   ],
                   "query": [
                     {
-                      "active": True,
                       "kind": "query",
                       "name": "data",
                       "orig": "data",
-                      "reqd": False,
                       "type": "`$OBJECT`",
                     },
                   ],
@@ -26105,53 +21167,42 @@ def make_config():
                   "req": "`reqdata`",
                   "res": "`body`",
                 },
-                "index$": 0,
               },
             ],
-            "key$": "create",
           },
           "list": {
             "input": "data",
             "name": "list",
             "points": [
               {
-                "active": True,
                 "args": {
                   "params": [
                     {
-                      "active": True,
                       "kind": "param",
                       "name": "identifier",
                       "orig": "identifier",
                       "reqd": True,
                       "type": "`$ANY`",
-                      "index$": 0,
                     },
                     {
-                      "active": True,
                       "kind": "param",
                       "name": "owner",
                       "orig": "owner",
                       "reqd": True,
                       "type": "`$ANY`",
-                      "index$": 1,
                     },
                   ],
                   "query": [
                     {
-                      "active": True,
                       "kind": "query",
                       "name": "page",
                       "orig": "page",
-                      "reqd": False,
                       "type": "`$INTEGER`",
                     },
                     {
-                      "active": True,
                       "kind": "query",
                       "name": "page_size",
                       "orig": "page_size",
-                      "reqd": False,
                       "type": "`$INTEGER`",
                     },
                   ],
@@ -26178,45 +21229,36 @@ def make_config():
                   "req": "`reqdata`",
                   "res": "`body`",
                 },
-                "index$": 0,
               },
             ],
-            "key$": "list",
           },
           "load": {
             "input": "data",
             "name": "load",
             "points": [
               {
-                "active": True,
                 "args": {
                   "params": [
                     {
-                      "active": True,
                       "kind": "param",
                       "name": "id",
                       "orig": "slug_perm",
                       "reqd": True,
                       "type": "`$STRING`",
-                      "index$": 0,
                     },
                     {
-                      "active": True,
                       "kind": "param",
                       "name": "identifier",
                       "orig": "identifier",
                       "reqd": True,
                       "type": "`$ANY`",
-                      "index$": 1,
                     },
                     {
-                      "active": True,
                       "kind": "param",
                       "name": "owner",
                       "orig": "owner",
                       "reqd": True,
                       "type": "`$ANY`",
-                      "index$": 2,
                     },
                   ],
                 },
@@ -26247,21 +21289,17 @@ def make_config():
                   "req": "`reqdata`",
                   "res": "`body`",
                 },
-                "index$": 0,
               },
             ],
-            "key$": "load",
           },
           "patch": {
             "input": "data",
             "name": "patch",
             "points": [
               {
-                "active": True,
                 "args": {
                   "params": [
                     {
-                      "active": True,
                       "kind": "param",
                       "name": "id",
                       "orig": "slug_perm",
@@ -26269,7 +21307,6 @@ def make_config():
                       "type": "`$STRING`",
                     },
                     {
-                      "active": True,
                       "kind": "param",
                       "name": "identifier",
                       "orig": "identifier",
@@ -26277,7 +21314,6 @@ def make_config():
                       "type": "`$ANY`",
                     },
                     {
-                      "active": True,
                       "kind": "param",
                       "name": "owner",
                       "orig": "owner",
@@ -26287,11 +21323,9 @@ def make_config():
                   ],
                   "query": [
                     {
-                      "active": True,
                       "kind": "query",
                       "name": "data",
                       "orig": "data",
-                      "reqd": False,
                       "type": "`$OBJECT`",
                     },
                   ],
@@ -26324,54 +21358,43 @@ def make_config():
                   "req": "`reqdata`",
                   "res": "`body`",
                 },
-                "index$": 0,
               },
             ],
-            "key$": "patch",
           },
           "update": {
             "input": "data",
             "name": "update",
             "points": [
               {
-                "active": True,
                 "args": {
                   "params": [
                     {
-                      "active": True,
                       "kind": "param",
                       "name": "id",
                       "orig": "slug_perm",
                       "reqd": True,
                       "type": "`$STRING`",
-                      "index$": 0,
                     },
                     {
-                      "active": True,
                       "kind": "param",
                       "name": "identifier",
                       "orig": "identifier",
                       "reqd": True,
                       "type": "`$ANY`",
-                      "index$": 1,
                     },
                     {
-                      "active": True,
                       "kind": "param",
                       "name": "owner",
                       "orig": "owner",
                       "reqd": True,
                       "type": "`$ANY`",
-                      "index$": 2,
                     },
                   ],
                   "query": [
                     {
-                      "active": True,
                       "kind": "query",
                       "name": "data",
                       "orig": "data",
-                      "reqd": False,
                       "type": "`$OBJECT`",
                     },
                   ],
@@ -26404,10 +21427,8 @@ def make_config():
                   "req": "`reqdata`",
                   "res": "`body`",
                 },
-                "index$": 0,
               },
             ],
-            "key$": "update",
           },
         },
         "relations": {
@@ -26436,130 +21457,78 @@ def make_config():
       "ruby": {
         "fields": [
           {
-            "active": True,
             "name": "auth_mode",
-            "req": False,
             "type": "`$STRING`",
-            "index$": 0,
           },
           {
-            "active": True,
             "name": "auth_secret",
-            "req": False,
             "type": "`$STRING`",
-            "index$": 1,
           },
           {
-            "active": True,
             "name": "auth_username",
-            "req": False,
             "type": "`$STRING`",
-            "index$": 2,
           },
           {
-            "active": True,
             "name": "created_at",
-            "req": False,
             "type": "`$STRING`",
-            "index$": 3,
           },
           {
-            "active": True,
             "name": "disable_reason",
-            "req": False,
             "type": "`$STRING`",
-            "index$": 4,
           },
           {
-            "active": True,
             "name": "extra_header_1",
-            "req": False,
             "type": "`$STRING`",
-            "index$": 5,
           },
           {
-            "active": True,
             "name": "extra_header_2",
-            "req": False,
             "type": "`$STRING`",
-            "index$": 6,
           },
           {
-            "active": True,
             "name": "extra_value_1",
-            "req": False,
             "type": "`$STRING`",
-            "index$": 7,
           },
           {
-            "active": True,
             "name": "extra_value_2",
-            "req": False,
             "type": "`$STRING`",
-            "index$": 8,
           },
           {
-            "active": True,
             "name": "is_active",
-            "req": False,
             "type": "`$BOOLEAN`",
-            "index$": 9,
           },
           {
-            "active": True,
             "name": "mode",
-            "req": False,
             "type": "`$STRING`",
-            "index$": 10,
           },
           {
-            "active": True,
             "name": "name",
             "req": True,
             "type": "`$STRING`",
-            "index$": 11,
           },
           {
-            "active": True,
             "name": "pending_validation",
-            "req": False,
             "type": "`$BOOLEAN`",
-            "index$": 12,
           },
           {
-            "active": True,
             "name": "priority",
-            "req": False,
             "type": "`$INTEGER`",
-            "index$": 13,
           },
           {
-            "active": True,
             "name": "slug_perm",
-            "req": False,
             "type": "`$STRING`",
-            "index$": 14,
           },
           {
-            "active": True,
             "name": "updated_at",
-            "req": False,
             "type": "`$STRING`",
-            "index$": 15,
           },
           {
-            "active": True,
             "name": "upstream_url",
             "req": True,
             "type": "`$STRING`",
-            "index$": 16,
           },
           {
-            "active": True,
             "name": "verify_ssl",
-            "req": False,
             "type": "`$BOOLEAN`",
-            "index$": 17,
           },
         ],
         "name": "ruby",
@@ -26569,35 +21538,28 @@ def make_config():
             "name": "create",
             "points": [
               {
-                "active": True,
                 "args": {
                   "params": [
                     {
-                      "active": True,
                       "kind": "param",
                       "name": "identifier",
                       "orig": "identifier",
                       "reqd": True,
                       "type": "`$ANY`",
-                      "index$": 0,
                     },
                     {
-                      "active": True,
                       "kind": "param",
                       "name": "owner",
                       "orig": "owner",
                       "reqd": True,
                       "type": "`$ANY`",
-                      "index$": 1,
                     },
                   ],
                   "query": [
                     {
-                      "active": True,
                       "kind": "query",
                       "name": "data",
                       "orig": "data",
-                      "reqd": False,
                       "type": "`$OBJECT`",
                     },
                   ],
@@ -26623,53 +21585,42 @@ def make_config():
                   "req": "`reqdata`",
                   "res": "`body`",
                 },
-                "index$": 0,
               },
             ],
-            "key$": "create",
           },
           "list": {
             "input": "data",
             "name": "list",
             "points": [
               {
-                "active": True,
                 "args": {
                   "params": [
                     {
-                      "active": True,
                       "kind": "param",
                       "name": "identifier",
                       "orig": "identifier",
                       "reqd": True,
                       "type": "`$ANY`",
-                      "index$": 0,
                     },
                     {
-                      "active": True,
                       "kind": "param",
                       "name": "owner",
                       "orig": "owner",
                       "reqd": True,
                       "type": "`$ANY`",
-                      "index$": 1,
                     },
                   ],
                   "query": [
                     {
-                      "active": True,
                       "kind": "query",
                       "name": "page",
                       "orig": "page",
-                      "reqd": False,
                       "type": "`$INTEGER`",
                     },
                     {
-                      "active": True,
                       "kind": "query",
                       "name": "page_size",
                       "orig": "page_size",
-                      "reqd": False,
                       "type": "`$INTEGER`",
                     },
                   ],
@@ -26696,45 +21647,36 @@ def make_config():
                   "req": "`reqdata`",
                   "res": "`body`",
                 },
-                "index$": 0,
               },
             ],
-            "key$": "list",
           },
           "load": {
             "input": "data",
             "name": "load",
             "points": [
               {
-                "active": True,
                 "args": {
                   "params": [
                     {
-                      "active": True,
                       "kind": "param",
                       "name": "id",
                       "orig": "slug_perm",
                       "reqd": True,
                       "type": "`$STRING`",
-                      "index$": 0,
                     },
                     {
-                      "active": True,
                       "kind": "param",
                       "name": "identifier",
                       "orig": "identifier",
                       "reqd": True,
                       "type": "`$ANY`",
-                      "index$": 1,
                     },
                     {
-                      "active": True,
                       "kind": "param",
                       "name": "owner",
                       "orig": "owner",
                       "reqd": True,
                       "type": "`$ANY`",
-                      "index$": 2,
                     },
                   ],
                 },
@@ -26765,21 +21707,17 @@ def make_config():
                   "req": "`reqdata`",
                   "res": "`body`",
                 },
-                "index$": 0,
               },
             ],
-            "key$": "load",
           },
           "patch": {
             "input": "data",
             "name": "patch",
             "points": [
               {
-                "active": True,
                 "args": {
                   "params": [
                     {
-                      "active": True,
                       "kind": "param",
                       "name": "id",
                       "orig": "slug_perm",
@@ -26787,7 +21725,6 @@ def make_config():
                       "type": "`$STRING`",
                     },
                     {
-                      "active": True,
                       "kind": "param",
                       "name": "identifier",
                       "orig": "identifier",
@@ -26795,7 +21732,6 @@ def make_config():
                       "type": "`$ANY`",
                     },
                     {
-                      "active": True,
                       "kind": "param",
                       "name": "owner",
                       "orig": "owner",
@@ -26805,11 +21741,9 @@ def make_config():
                   ],
                   "query": [
                     {
-                      "active": True,
                       "kind": "query",
                       "name": "data",
                       "orig": "data",
-                      "reqd": False,
                       "type": "`$OBJECT`",
                     },
                   ],
@@ -26842,54 +21776,43 @@ def make_config():
                   "req": "`reqdata`",
                   "res": "`body`",
                 },
-                "index$": 0,
               },
             ],
-            "key$": "patch",
           },
           "update": {
             "input": "data",
             "name": "update",
             "points": [
               {
-                "active": True,
                 "args": {
                   "params": [
                     {
-                      "active": True,
                       "kind": "param",
                       "name": "id",
                       "orig": "slug_perm",
                       "reqd": True,
                       "type": "`$STRING`",
-                      "index$": 0,
                     },
                     {
-                      "active": True,
                       "kind": "param",
                       "name": "identifier",
                       "orig": "identifier",
                       "reqd": True,
                       "type": "`$ANY`",
-                      "index$": 1,
                     },
                     {
-                      "active": True,
                       "kind": "param",
                       "name": "owner",
                       "orig": "owner",
                       "reqd": True,
                       "type": "`$ANY`",
-                      "index$": 2,
                     },
                   ],
                   "query": [
                     {
-                      "active": True,
                       "kind": "query",
                       "name": "data",
                       "orig": "data",
-                      "reqd": False,
                       "type": "`$OBJECT`",
                     },
                   ],
@@ -26922,10 +21845,8 @@ def make_config():
                   "req": "`reqdata`",
                   "res": "`body`",
                 },
-                "index$": 0,
               },
             ],
-            "key$": "update",
           },
         },
         "relations": {
@@ -26974,74 +21895,45 @@ def make_config():
       "service": {
         "fields": [
           {
-            "active": True,
             "name": "created_at",
-            "req": False,
             "type": "`$STRING`",
-            "index$": 0,
           },
           {
-            "active": True,
             "name": "created_by",
-            "req": False,
             "type": "`$STRING`",
-            "index$": 1,
           },
           {
-            "active": True,
             "name": "created_by_url",
-            "req": False,
             "type": "`$STRING`",
-            "index$": 2,
           },
           {
-            "active": True,
             "name": "description",
-            "req": False,
             "type": "`$STRING`",
-            "index$": 3,
           },
           {
-            "active": True,
             "name": "key",
-            "req": False,
             "type": "`$STRING`",
-            "index$": 4,
           },
           {
-            "active": True,
             "name": "key_expires_at",
-            "req": False,
             "type": "`$STRING`",
-            "index$": 5,
           },
           {
-            "active": True,
             "name": "name",
             "req": True,
             "type": "`$STRING`",
-            "index$": 6,
           },
           {
-            "active": True,
             "name": "role",
-            "req": False,
             "type": "`$STRING`",
-            "index$": 7,
           },
           {
-            "active": True,
             "name": "slug",
-            "req": False,
             "type": "`$STRING`",
-            "index$": 8,
           },
           {
-            "active": True,
             "name": "teams",
-            "req": False,
             "type": "`$ARRAY`",
-            "index$": 9,
           },
         ],
         "name": "service",
@@ -27051,26 +21943,21 @@ def make_config():
             "name": "create",
             "points": [
               {
-                "active": True,
                 "args": {
                   "params": [
                     {
-                      "active": True,
                       "kind": "param",
                       "name": "org_id",
                       "orig": "org",
                       "reqd": True,
                       "type": "`$STRING`",
-                      "index$": 0,
                     },
                   ],
                   "query": [
                     {
-                      "active": True,
                       "kind": "query",
                       "name": "data",
                       "orig": "data",
-                      "reqd": False,
                       "type": "`$OBJECT`",
                     },
                   ],
@@ -27098,29 +21985,23 @@ def make_config():
                   "req": "`reqdata`",
                   "res": "`body`",
                 },
-                "index$": 0,
               },
               {
-                "active": True,
                 "args": {
                   "params": [
                     {
-                      "active": True,
                       "kind": "param",
                       "name": "id",
                       "orig": "service",
                       "reqd": True,
                       "type": "`$STRING`",
-                      "index$": 0,
                     },
                     {
-                      "active": True,
                       "kind": "param",
                       "name": "org_id",
                       "orig": "org",
                       "reqd": True,
                       "type": "`$STRING`",
-                      "index$": 1,
                     },
                   ],
                 },
@@ -27151,60 +22032,47 @@ def make_config():
                   "req": "`reqdata`",
                   "res": "`body`",
                 },
-                "index$": 1,
               },
             ],
-            "key$": "create",
           },
           "list": {
             "input": "data",
             "name": "list",
             "points": [
               {
-                "active": True,
                 "args": {
                   "params": [
                     {
-                      "active": True,
                       "kind": "param",
                       "name": "org_id",
                       "orig": "org",
                       "reqd": True,
                       "type": "`$STRING`",
-                      "index$": 0,
                     },
                   ],
                   "query": [
                     {
-                      "active": True,
                       "kind": "query",
                       "name": "page",
                       "orig": "page",
-                      "reqd": False,
                       "type": "`$INTEGER`",
                     },
                     {
-                      "active": True,
                       "kind": "query",
                       "name": "page_size",
                       "orig": "page_size",
-                      "reqd": False,
                       "type": "`$INTEGER`",
                     },
                     {
-                      "active": True,
                       "kind": "query",
                       "name": "query",
                       "orig": "query",
-                      "reqd": False,
                       "type": "`$ANY`",
                     },
                     {
-                      "active": True,
                       "kind": "query",
                       "name": "sort",
                       "orig": "sort",
-                      "reqd": False,
                       "type": "`$ANY`",
                     },
                   ],
@@ -27235,36 +22103,29 @@ def make_config():
                   "req": "`reqdata`",
                   "res": "`body`",
                 },
-                "index$": 0,
               },
             ],
-            "key$": "list",
           },
           "load": {
             "input": "data",
             "name": "load",
             "points": [
               {
-                "active": True,
                 "args": {
                   "params": [
                     {
-                      "active": True,
                       "kind": "param",
                       "name": "id",
                       "orig": "service",
                       "reqd": True,
                       "type": "`$STRING`",
-                      "index$": 0,
                     },
                     {
-                      "active": True,
                       "kind": "param",
                       "name": "org_id",
                       "orig": "org",
                       "reqd": True,
                       "type": "`$STRING`",
-                      "index$": 1,
                     },
                   ],
                 },
@@ -27293,45 +22154,36 @@ def make_config():
                   "req": "`reqdata`",
                   "res": "`body`",
                 },
-                "index$": 0,
               },
             ],
-            "key$": "load",
           },
           "update": {
             "input": "data",
             "name": "update",
             "points": [
               {
-                "active": True,
                 "args": {
                   "params": [
                     {
-                      "active": True,
                       "kind": "param",
                       "name": "id",
                       "orig": "service",
                       "reqd": True,
                       "type": "`$STRING`",
-                      "index$": 0,
                     },
                     {
-                      "active": True,
                       "kind": "param",
                       "name": "org_id",
                       "orig": "org",
                       "reqd": True,
                       "type": "`$STRING`",
-                      "index$": 1,
                     },
                   ],
                   "query": [
                     {
-                      "active": True,
                       "kind": "query",
                       "name": "data",
                       "orig": "data",
-                      "reqd": False,
                       "type": "`$OBJECT`",
                     },
                   ],
@@ -27362,10 +22214,8 @@ def make_config():
                   "req": "`reqdata`",
                   "res": "`body`",
                 },
-                "index$": 0,
               },
             ],
-            "key$": "update",
           },
         },
         "relations": {
@@ -27397,18 +22247,12 @@ def make_config():
       "status_basic": {
         "fields": [
           {
-            "active": True,
             "name": "detail",
-            "req": False,
             "type": "`$STRING`",
-            "index$": 0,
           },
           {
-            "active": True,
             "name": "version",
-            "req": False,
             "type": "`$STRING`",
-            "index$": 1,
           },
         ],
         "name": "status_basic",
@@ -27418,7 +22262,6 @@ def make_config():
             "name": "load",
             "points": [
               {
-                "active": True,
                 "args": {},
                 "kind": "http",
                 "method": "GET",
@@ -27433,10 +22276,8 @@ def make_config():
                   "req": "`reqdata`",
                   "res": "`body`",
                 },
-                "index$": 0,
               },
             ],
-            "key$": "load",
           },
         },
         "relations": {
@@ -27446,18 +22287,14 @@ def make_config():
       "storage_region": {
         "fields": [
           {
-            "active": True,
             "name": "label",
             "req": True,
             "type": "`$STRING`",
-            "index$": 0,
           },
           {
-            "active": True,
             "name": "slug",
             "req": True,
             "type": "`$STRING`",
-            "index$": 1,
           },
         ],
         "name": "storage_region",
@@ -27467,7 +22304,6 @@ def make_config():
             "name": "list",
             "points": [
               {
-                "active": True,
                 "args": {},
                 "kind": "http",
                 "method": "GET",
@@ -27480,27 +22316,22 @@ def make_config():
                   "req": "`reqdata`",
                   "res": "`body`",
                 },
-                "index$": 0,
               },
             ],
-            "key$": "list",
           },
           "load": {
             "input": "data",
             "name": "load",
             "points": [
               {
-                "active": True,
                 "args": {
                   "params": [
                     {
-                      "active": True,
                       "kind": "param",
                       "name": "id",
                       "orig": "slug",
                       "reqd": True,
                       "type": "`$STRING`",
-                      "index$": 0,
                     },
                   ],
                 },
@@ -27525,10 +22356,8 @@ def make_config():
                   "req": "`reqdata`",
                   "res": "`body`",
                 },
-                "index$": 0,
               },
             ],
-            "key$": "load",
           },
         },
         "relations": {
@@ -27538,130 +22367,78 @@ def make_config():
       "swift": {
         "fields": [
           {
-            "active": True,
             "name": "auth_mode",
-            "req": False,
             "type": "`$STRING`",
-            "index$": 0,
           },
           {
-            "active": True,
             "name": "auth_secret",
-            "req": False,
             "type": "`$STRING`",
-            "index$": 1,
           },
           {
-            "active": True,
             "name": "auth_username",
-            "req": False,
             "type": "`$STRING`",
-            "index$": 2,
           },
           {
-            "active": True,
             "name": "created_at",
-            "req": False,
             "type": "`$STRING`",
-            "index$": 3,
           },
           {
-            "active": True,
             "name": "disable_reason",
-            "req": False,
             "type": "`$STRING`",
-            "index$": 4,
           },
           {
-            "active": True,
             "name": "extra_header_1",
-            "req": False,
             "type": "`$STRING`",
-            "index$": 5,
           },
           {
-            "active": True,
             "name": "extra_header_2",
-            "req": False,
             "type": "`$STRING`",
-            "index$": 6,
           },
           {
-            "active": True,
             "name": "extra_value_1",
-            "req": False,
             "type": "`$STRING`",
-            "index$": 7,
           },
           {
-            "active": True,
             "name": "extra_value_2",
-            "req": False,
             "type": "`$STRING`",
-            "index$": 8,
           },
           {
-            "active": True,
             "name": "is_active",
-            "req": False,
             "type": "`$BOOLEAN`",
-            "index$": 9,
           },
           {
-            "active": True,
             "name": "mode",
-            "req": False,
             "type": "`$STRING`",
-            "index$": 10,
           },
           {
-            "active": True,
             "name": "name",
             "req": True,
             "type": "`$STRING`",
-            "index$": 11,
           },
           {
-            "active": True,
             "name": "pending_validation",
-            "req": False,
             "type": "`$BOOLEAN`",
-            "index$": 12,
           },
           {
-            "active": True,
             "name": "priority",
-            "req": False,
             "type": "`$INTEGER`",
-            "index$": 13,
           },
           {
-            "active": True,
             "name": "slug_perm",
-            "req": False,
             "type": "`$STRING`",
-            "index$": 14,
           },
           {
-            "active": True,
             "name": "updated_at",
-            "req": False,
             "type": "`$STRING`",
-            "index$": 15,
           },
           {
-            "active": True,
             "name": "upstream_url",
             "req": True,
             "type": "`$STRING`",
-            "index$": 16,
           },
           {
-            "active": True,
             "name": "verify_ssl",
-            "req": False,
             "type": "`$BOOLEAN`",
-            "index$": 17,
           },
         ],
         "name": "swift",
@@ -27671,35 +22448,28 @@ def make_config():
             "name": "create",
             "points": [
               {
-                "active": True,
                 "args": {
                   "params": [
                     {
-                      "active": True,
                       "kind": "param",
                       "name": "identifier",
                       "orig": "identifier",
                       "reqd": True,
                       "type": "`$ANY`",
-                      "index$": 0,
                     },
                     {
-                      "active": True,
                       "kind": "param",
                       "name": "owner",
                       "orig": "owner",
                       "reqd": True,
                       "type": "`$ANY`",
-                      "index$": 1,
                     },
                   ],
                   "query": [
                     {
-                      "active": True,
                       "kind": "query",
                       "name": "data",
                       "orig": "data",
-                      "reqd": False,
                       "type": "`$OBJECT`",
                     },
                   ],
@@ -27725,53 +22495,42 @@ def make_config():
                   "req": "`reqdata`",
                   "res": "`body`",
                 },
-                "index$": 0,
               },
             ],
-            "key$": "create",
           },
           "list": {
             "input": "data",
             "name": "list",
             "points": [
               {
-                "active": True,
                 "args": {
                   "params": [
                     {
-                      "active": True,
                       "kind": "param",
                       "name": "identifier",
                       "orig": "identifier",
                       "reqd": True,
                       "type": "`$ANY`",
-                      "index$": 0,
                     },
                     {
-                      "active": True,
                       "kind": "param",
                       "name": "owner",
                       "orig": "owner",
                       "reqd": True,
                       "type": "`$ANY`",
-                      "index$": 1,
                     },
                   ],
                   "query": [
                     {
-                      "active": True,
                       "kind": "query",
                       "name": "page",
                       "orig": "page",
-                      "reqd": False,
                       "type": "`$INTEGER`",
                     },
                     {
-                      "active": True,
                       "kind": "query",
                       "name": "page_size",
                       "orig": "page_size",
-                      "reqd": False,
                       "type": "`$INTEGER`",
                     },
                   ],
@@ -27798,45 +22557,36 @@ def make_config():
                   "req": "`reqdata`",
                   "res": "`body`",
                 },
-                "index$": 0,
               },
             ],
-            "key$": "list",
           },
           "load": {
             "input": "data",
             "name": "load",
             "points": [
               {
-                "active": True,
                 "args": {
                   "params": [
                     {
-                      "active": True,
                       "kind": "param",
                       "name": "id",
                       "orig": "slug_perm",
                       "reqd": True,
                       "type": "`$STRING`",
-                      "index$": 0,
                     },
                     {
-                      "active": True,
                       "kind": "param",
                       "name": "identifier",
                       "orig": "identifier",
                       "reqd": True,
                       "type": "`$ANY`",
-                      "index$": 1,
                     },
                     {
-                      "active": True,
                       "kind": "param",
                       "name": "owner",
                       "orig": "owner",
                       "reqd": True,
                       "type": "`$ANY`",
-                      "index$": 2,
                     },
                   ],
                 },
@@ -27867,21 +22617,17 @@ def make_config():
                   "req": "`reqdata`",
                   "res": "`body`",
                 },
-                "index$": 0,
               },
             ],
-            "key$": "load",
           },
           "patch": {
             "input": "data",
             "name": "patch",
             "points": [
               {
-                "active": True,
                 "args": {
                   "params": [
                     {
-                      "active": True,
                       "kind": "param",
                       "name": "id",
                       "orig": "slug_perm",
@@ -27889,7 +22635,6 @@ def make_config():
                       "type": "`$STRING`",
                     },
                     {
-                      "active": True,
                       "kind": "param",
                       "name": "identifier",
                       "orig": "identifier",
@@ -27897,7 +22642,6 @@ def make_config():
                       "type": "`$ANY`",
                     },
                     {
-                      "active": True,
                       "kind": "param",
                       "name": "owner",
                       "orig": "owner",
@@ -27907,11 +22651,9 @@ def make_config():
                   ],
                   "query": [
                     {
-                      "active": True,
                       "kind": "query",
                       "name": "data",
                       "orig": "data",
-                      "reqd": False,
                       "type": "`$OBJECT`",
                     },
                   ],
@@ -27944,54 +22686,43 @@ def make_config():
                   "req": "`reqdata`",
                   "res": "`body`",
                 },
-                "index$": 0,
               },
             ],
-            "key$": "patch",
           },
           "update": {
             "input": "data",
             "name": "update",
             "points": [
               {
-                "active": True,
                 "args": {
                   "params": [
                     {
-                      "active": True,
                       "kind": "param",
                       "name": "id",
                       "orig": "slug_perm",
                       "reqd": True,
                       "type": "`$STRING`",
-                      "index$": 0,
                     },
                     {
-                      "active": True,
                       "kind": "param",
                       "name": "identifier",
                       "orig": "identifier",
                       "reqd": True,
                       "type": "`$ANY`",
-                      "index$": 1,
                     },
                     {
-                      "active": True,
                       "kind": "param",
                       "name": "owner",
                       "orig": "owner",
                       "reqd": True,
                       "type": "`$ANY`",
-                      "index$": 2,
                     },
                   ],
                   "query": [
                     {
-                      "active": True,
                       "kind": "query",
                       "name": "data",
                       "orig": "data",
-                      "reqd": False,
                       "type": "`$OBJECT`",
                     },
                   ],
@@ -28024,10 +22755,8 @@ def make_config():
                   "req": "`reqdata`",
                   "res": "`body`",
                 },
-                "index$": 0,
               },
             ],
-            "key$": "update",
           },
         },
         "relations": {
@@ -28128,25 +22857,16 @@ def make_config():
       "user": {
         "fields": [
           {
-            "active": True,
             "name": "created",
-            "req": False,
             "type": "`$STRING`",
-            "index$": 0,
           },
           {
-            "active": True,
             "name": "key",
-            "req": False,
             "type": "`$STRING`",
-            "index$": 1,
           },
           {
-            "active": True,
             "name": "slug_perm",
-            "req": False,
             "type": "`$STRING`",
-            "index$": 2,
           },
         ],
         "name": "user",
@@ -28156,23 +22876,18 @@ def make_config():
             "name": "list",
             "points": [
               {
-                "active": True,
                 "args": {
                   "query": [
                     {
-                      "active": True,
                       "kind": "query",
                       "name": "page",
                       "orig": "page",
-                      "reqd": False,
                       "type": "`$INTEGER`",
                     },
                     {
-                      "active": True,
                       "kind": "query",
                       "name": "page_size",
                       "orig": "page_size",
-                      "reqd": False,
                       "type": "`$INTEGER`",
                     },
                   ],
@@ -28195,10 +22910,8 @@ def make_config():
                   "req": "`reqdata`",
                   "res": "`body.results`",
                 },
-                "index$": 0,
               },
             ],
-            "key$": "list",
           },
         },
         "relations": {
@@ -28214,15 +22927,12 @@ def make_config():
             "name": "create",
             "points": [
               {
-                "active": True,
                 "args": {
                   "query": [
                     {
-                      "active": True,
                       "kind": "query",
                       "name": "data",
                       "orig": "data",
-                      "reqd": False,
                       "type": "`$OBJECT`",
                     },
                   ],
@@ -28243,10 +22953,8 @@ def make_config():
                   "req": "`reqdata`",
                   "res": "`body`",
                 },
-                "index$": 0,
               },
             ],
-            "key$": "create",
           },
         },
         "relations": {
@@ -28256,25 +22964,16 @@ def make_config():
       "user_authentication_token": {
         "fields": [
           {
-            "active": True,
             "name": "created",
-            "req": False,
             "type": "`$STRING`",
-            "index$": 0,
           },
           {
-            "active": True,
             "name": "key",
-            "req": False,
             "type": "`$STRING`",
-            "index$": 1,
           },
           {
-            "active": True,
             "name": "slug_perm",
-            "req": False,
             "type": "`$STRING`",
-            "index$": 2,
           },
         ],
         "name": "user_authentication_token",
@@ -28284,7 +22983,6 @@ def make_config():
             "name": "create",
             "points": [
               {
-                "active": True,
                 "args": {},
                 "kind": "http",
                 "method": "POST",
@@ -28298,27 +22996,22 @@ def make_config():
                   "req": "`reqdata`",
                   "res": "`body`",
                 },
-                "index$": 0,
               },
             ],
-            "key$": "create",
           },
           "update": {
             "input": "data",
             "name": "update",
             "points": [
               {
-                "active": True,
                 "args": {
                   "params": [
                     {
-                      "active": True,
                       "kind": "param",
                       "name": "slug_perm",
                       "orig": "slug_perm",
                       "reqd": True,
                       "type": "`$ANY`",
-                      "index$": 0,
                     },
                   ],
                 },
@@ -28340,10 +23033,8 @@ def make_config():
                   "req": "`reqdata`",
                   "res": "`body`",
                 },
-                "index$": 0,
               },
             ],
-            "key$": "update",
           },
         },
         "relations": {
@@ -28357,53 +23048,32 @@ def make_config():
       "user_brief": {
         "fields": [
           {
-            "active": True,
             "name": "authenticated",
-            "req": False,
             "type": "`$BOOLEAN`",
-            "index$": 0,
           },
           {
-            "active": True,
             "name": "email",
-            "req": False,
             "type": "`$STRING`",
-            "index$": 1,
           },
           {
-            "active": True,
             "name": "name",
-            "req": False,
             "type": "`$STRING`",
-            "index$": 2,
           },
           {
-            "active": True,
             "name": "profile_url",
-            "req": False,
             "type": "`$STRING`",
-            "index$": 3,
           },
           {
-            "active": True,
             "name": "self_url",
-            "req": False,
             "type": "`$STRING`",
-            "index$": 4,
           },
           {
-            "active": True,
             "name": "slug",
-            "req": False,
             "type": "`$STRING`",
-            "index$": 5,
           },
           {
-            "active": True,
             "name": "slug_perm",
-            "req": False,
             "type": "`$STRING`",
-            "index$": 6,
           },
         ],
         "name": "user_brief",
@@ -28413,7 +23083,6 @@ def make_config():
             "name": "load",
             "points": [
               {
-                "active": True,
                 "args": {},
                 "kind": "http",
                 "method": "GET",
@@ -28427,10 +23096,8 @@ def make_config():
                   "req": "`reqdata`",
                   "res": "`body`",
                 },
-                "index$": 0,
               },
             ],
-            "key$": "load",
           },
         },
         "relations": {
@@ -28440,74 +23107,46 @@ def make_config():
       "user_profile": {
         "fields": [
           {
-            "active": True,
             "name": "company",
-            "req": False,
             "type": "`$STRING`",
-            "index$": 0,
           },
           {
-            "active": True,
             "name": "first_name",
             "req": True,
             "type": "`$STRING`",
-            "index$": 1,
           },
           {
-            "active": True,
             "name": "job_title",
-            "req": False,
             "type": "`$STRING`",
-            "index$": 2,
           },
           {
-            "active": True,
             "name": "joined_at",
-            "req": False,
             "type": "`$STRING`",
-            "index$": 3,
           },
           {
-            "active": True,
             "name": "last_name",
             "req": True,
             "type": "`$STRING`",
-            "index$": 4,
           },
           {
-            "active": True,
             "name": "name",
-            "req": False,
             "type": "`$STRING`",
-            "index$": 5,
           },
           {
-            "active": True,
             "name": "slug",
-            "req": False,
             "type": "`$STRING`",
-            "index$": 6,
           },
           {
-            "active": True,
             "name": "slug_perm",
-            "req": False,
             "type": "`$STRING`",
-            "index$": 7,
           },
           {
-            "active": True,
             "name": "tagline",
-            "req": False,
             "type": "`$STRING`",
-            "index$": 8,
           },
           {
-            "active": True,
             "name": "url",
-            "req": False,
             "type": "`$STRING`",
-            "index$": 9,
           },
         ],
         "name": "user_profile",
@@ -28517,17 +23156,14 @@ def make_config():
             "name": "load",
             "points": [
               {
-                "active": True,
                 "args": {
                   "params": [
                     {
-                      "active": True,
                       "kind": "param",
                       "name": "id",
                       "orig": "slug",
                       "reqd": True,
                       "type": "`$STRING`",
-                      "index$": 0,
                     },
                   ],
                 },
@@ -28553,10 +23189,8 @@ def make_config():
                   "req": "`reqdata`",
                   "res": "`body`",
                 },
-                "index$": 0,
               },
             ],
-            "key$": "load",
           },
         },
         "relations": {
@@ -28602,74 +23236,50 @@ def make_config():
       "vulnerability": {
         "fields": [
           {
-            "active": True,
             "name": "created_at",
-            "req": False,
             "type": "`$STRING`",
-            "index$": 0,
           },
           {
-            "active": True,
             "name": "has_vulnerabilities",
-            "req": False,
             "type": "`$BOOLEAN`",
-            "index$": 1,
           },
           {
-            "active": True,
             "name": "identifier",
             "req": True,
             "type": "`$STRING`",
-            "index$": 2,
           },
           {
-            "active": True,
             "name": "max_severity",
-            "req": False,
             "type": "`$STRING`",
-            "index$": 3,
           },
           {
-            "active": True,
             "name": "num_vulnerabilities",
-            "req": False,
             "type": "`$INTEGER`",
-            "index$": 4,
           },
           {
-            "active": True,
             "name": "package",
             "req": True,
             "type": "`$OBJECT`",
-            "index$": 5,
           },
           {
-            "active": True,
             "name": "results",
             "req": True,
             "type": "`$ARRAY`",
-            "index$": 6,
           },
           {
-            "active": True,
             "name": "scan_id",
             "req": True,
             "type": "`$INTEGER`",
-            "index$": 7,
           },
           {
-            "active": True,
             "name": "target",
             "req": True,
             "type": "`$STRING`",
-            "index$": 8,
           },
           {
-            "active": True,
             "name": "type",
             "req": True,
             "type": "`$STRING`",
-            "index$": 9,
           },
         ],
         "name": "vulnerability",
@@ -28679,52 +23289,41 @@ def make_config():
             "name": "list",
             "points": [
               {
-                "active": True,
                 "args": {
                   "params": [
                     {
-                      "active": True,
                       "kind": "param",
                       "name": "owner",
                       "orig": "owner",
                       "reqd": True,
                       "type": "`$ANY`",
-                      "index$": 0,
                     },
                     {
-                      "active": True,
                       "kind": "param",
                       "name": "package",
                       "orig": "package",
                       "reqd": True,
                       "type": "`$ANY`",
-                      "index$": 1,
                     },
                     {
-                      "active": True,
                       "kind": "param",
                       "name": "repo",
                       "orig": "repo",
                       "reqd": True,
                       "type": "`$ANY`",
-                      "index$": 2,
                     },
                   ],
                   "query": [
                     {
-                      "active": True,
                       "kind": "query",
                       "name": "page",
                       "orig": "page",
-                      "reqd": False,
                       "type": "`$INTEGER`",
                     },
                     {
-                      "active": True,
                       "kind": "query",
                       "name": "page_size",
                       "orig": "page_size",
-                      "reqd": False,
                       "type": "`$INTEGER`",
                     },
                   ],
@@ -28751,47 +23350,37 @@ def make_config():
                   "req": "`reqdata`",
                   "res": "`body`",
                 },
-                "index$": 0,
               },
               {
-                "active": True,
                 "args": {
                   "params": [
                     {
-                      "active": True,
                       "kind": "param",
                       "name": "identifier",
                       "orig": "identifier",
                       "reqd": True,
                       "type": "`$ANY`",
-                      "index$": 0,
                     },
                     {
-                      "active": True,
                       "kind": "param",
                       "name": "owner",
                       "orig": "owner",
                       "reqd": True,
                       "type": "`$ANY`",
-                      "index$": 1,
                     },
                     {
-                      "active": True,
                       "kind": "param",
                       "name": "package",
                       "orig": "package",
                       "reqd": True,
                       "type": "`$ANY`",
-                      "index$": 2,
                     },
                     {
-                      "active": True,
                       "kind": "param",
                       "name": "repo",
                       "orig": "repo",
                       "reqd": True,
                       "type": "`$ANY`",
-                      "index$": 3,
                     },
                   ],
                 },
@@ -28817,46 +23406,36 @@ def make_config():
                   "req": "`reqdata`",
                   "res": "`body`",
                 },
-                "index$": 1,
               },
               {
-                "active": True,
                 "args": {
                   "params": [
                     {
-                      "active": True,
                       "kind": "param",
                       "name": "owner",
                       "orig": "owner",
                       "reqd": True,
                       "type": "`$ANY`",
-                      "index$": 0,
                     },
                     {
-                      "active": True,
                       "kind": "param",
                       "name": "repo",
                       "orig": "repo",
                       "reqd": True,
                       "type": "`$ANY`",
-                      "index$": 1,
                     },
                   ],
                   "query": [
                     {
-                      "active": True,
                       "kind": "query",
                       "name": "page",
                       "orig": "page",
-                      "reqd": False,
                       "type": "`$INTEGER`",
                     },
                     {
-                      "active": True,
                       "kind": "query",
                       "name": "page_size",
                       "orig": "page_size",
-                      "reqd": False,
                       "type": "`$INTEGER`",
                     },
                   ],
@@ -28881,44 +23460,35 @@ def make_config():
                   "req": "`reqdata`",
                   "res": "`body`",
                 },
-                "index$": 2,
               },
             ],
-            "key$": "list",
           },
           "load": {
             "input": "data",
             "name": "load",
             "points": [
               {
-                "active": True,
                 "args": {
                   "params": [
                     {
-                      "active": True,
                       "kind": "param",
                       "name": "id",
                       "orig": "owner",
                       "reqd": True,
                       "type": "`$STRING`",
-                      "index$": 0,
                     },
                   ],
                   "query": [
                     {
-                      "active": True,
                       "kind": "query",
                       "name": "page",
                       "orig": "page",
-                      "reqd": False,
                       "type": "`$INTEGER`",
                     },
                     {
-                      "active": True,
                       "kind": "query",
                       "name": "page_size",
                       "orig": "page_size",
-                      "reqd": False,
                       "type": "`$INTEGER`",
                     },
                   ],
@@ -28946,10 +23516,8 @@ def make_config():
                   "req": "`reqdata`",
                   "res": "`body`",
                 },
-                "index$": 0,
               },
             ],
-            "key$": "load",
           },
         },
         "relations": {
@@ -28985,35 +23553,28 @@ def make_config():
             "name": "remove",
             "points": [
               {
-                "active": True,
                 "args": {
                   "params": [
                     {
-                      "active": True,
                       "kind": "param",
                       "name": "identifier",
                       "orig": "identifier",
                       "reqd": True,
                       "type": "`$ANY`",
-                      "index$": 0,
                     },
                     {
-                      "active": True,
                       "kind": "param",
                       "name": "owner",
                       "orig": "owner",
                       "reqd": True,
                       "type": "`$ANY`",
-                      "index$": 1,
                     },
                     {
-                      "active": True,
                       "kind": "param",
                       "name": "repo",
                       "orig": "repo",
                       "reqd": True,
                       "type": "`$ANY`",
-                      "index$": 2,
                     },
                   ],
                 },
@@ -29037,10 +23598,8 @@ def make_config():
                   "req": "`reqdata`",
                   "res": "`body`",
                 },
-                "index$": 0,
               },
             ],
-            "key$": "remove",
           },
         },
         "relations": {

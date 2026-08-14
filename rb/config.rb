@@ -1,6 +1,20 @@
 # Cloudsmith SDK configuration
 
 module CloudsmithConfig
+  # Return the process-wide config, built once on first use. The SDK reads
+  # the config on every request and never writes to it, so one instance is
+  # shared by every client rather than rebuilt per client.
+  #
+  # The returned hash is shared: treat it as read-only. Callers that need to
+  # mutate should use make_config, which always returns a fresh copy.
+  def self.shared_config
+    @shared_config ||= make_config
+  end
+
+
+  # Build a fresh, fully materialised config hash. Every call rebuilds the
+  # whole structure, so prefer shared_config unless you need a private copy
+  # you intend to mutate.
   def self.make_config
     {
       "main" => {
@@ -203,130 +217,78 @@ module CloudsmithConfig
         "cargo" => {
           "fields" => [
             {
-              "active" => true,
               "name" => "auth_mode",
-              "req" => false,
               "type" => "`$STRING`",
-              "index$" => 0,
             },
             {
-              "active" => true,
               "name" => "auth_secret",
-              "req" => false,
               "type" => "`$STRING`",
-              "index$" => 1,
             },
             {
-              "active" => true,
               "name" => "auth_username",
-              "req" => false,
               "type" => "`$STRING`",
-              "index$" => 2,
             },
             {
-              "active" => true,
               "name" => "created_at",
-              "req" => false,
               "type" => "`$STRING`",
-              "index$" => 3,
             },
             {
-              "active" => true,
               "name" => "disable_reason",
-              "req" => false,
               "type" => "`$STRING`",
-              "index$" => 4,
             },
             {
-              "active" => true,
               "name" => "extra_header_1",
-              "req" => false,
               "type" => "`$STRING`",
-              "index$" => 5,
             },
             {
-              "active" => true,
               "name" => "extra_header_2",
-              "req" => false,
               "type" => "`$STRING`",
-              "index$" => 6,
             },
             {
-              "active" => true,
               "name" => "extra_value_1",
-              "req" => false,
               "type" => "`$STRING`",
-              "index$" => 7,
             },
             {
-              "active" => true,
               "name" => "extra_value_2",
-              "req" => false,
               "type" => "`$STRING`",
-              "index$" => 8,
             },
             {
-              "active" => true,
               "name" => "is_active",
-              "req" => false,
               "type" => "`$BOOLEAN`",
-              "index$" => 9,
             },
             {
-              "active" => true,
               "name" => "mode",
-              "req" => false,
               "type" => "`$STRING`",
-              "index$" => 10,
             },
             {
-              "active" => true,
               "name" => "name",
               "req" => true,
               "type" => "`$STRING`",
-              "index$" => 11,
             },
             {
-              "active" => true,
               "name" => "pending_validation",
-              "req" => false,
               "type" => "`$BOOLEAN`",
-              "index$" => 12,
             },
             {
-              "active" => true,
               "name" => "priority",
-              "req" => false,
               "type" => "`$INTEGER`",
-              "index$" => 13,
             },
             {
-              "active" => true,
               "name" => "slug_perm",
-              "req" => false,
               "type" => "`$STRING`",
-              "index$" => 14,
             },
             {
-              "active" => true,
               "name" => "updated_at",
-              "req" => false,
               "type" => "`$STRING`",
-              "index$" => 15,
             },
             {
-              "active" => true,
               "name" => "upstream_url",
               "req" => true,
               "type" => "`$STRING`",
-              "index$" => 16,
             },
             {
-              "active" => true,
               "name" => "verify_ssl",
-              "req" => false,
               "type" => "`$BOOLEAN`",
-              "index$" => 17,
             },
           ],
           "name" => "cargo",
@@ -336,35 +298,28 @@ module CloudsmithConfig
               "name" => "create",
               "points" => [
                 {
-                  "active" => true,
                   "args" => {
                     "params" => [
                       {
-                        "active" => true,
                         "kind" => "param",
                         "name" => "identifier",
                         "orig" => "identifier",
                         "reqd" => true,
                         "type" => "`$ANY`",
-                        "index$" => 0,
                       },
                       {
-                        "active" => true,
                         "kind" => "param",
                         "name" => "owner",
                         "orig" => "owner",
                         "reqd" => true,
                         "type" => "`$ANY`",
-                        "index$" => 1,
                       },
                     ],
                     "query" => [
                       {
-                        "active" => true,
                         "kind" => "query",
                         "name" => "data",
                         "orig" => "data",
-                        "reqd" => false,
                         "type" => "`$OBJECT`",
                       },
                     ],
@@ -390,53 +345,42 @@ module CloudsmithConfig
                     "req" => "`reqdata`",
                     "res" => "`body`",
                   },
-                  "index$" => 0,
                 },
               ],
-              "key$" => "create",
             },
             "list" => {
               "input" => "data",
               "name" => "list",
               "points" => [
                 {
-                  "active" => true,
                   "args" => {
                     "params" => [
                       {
-                        "active" => true,
                         "kind" => "param",
                         "name" => "identifier",
                         "orig" => "identifier",
                         "reqd" => true,
                         "type" => "`$ANY`",
-                        "index$" => 0,
                       },
                       {
-                        "active" => true,
                         "kind" => "param",
                         "name" => "owner",
                         "orig" => "owner",
                         "reqd" => true,
                         "type" => "`$ANY`",
-                        "index$" => 1,
                       },
                     ],
                     "query" => [
                       {
-                        "active" => true,
                         "kind" => "query",
                         "name" => "page",
                         "orig" => "page",
-                        "reqd" => false,
                         "type" => "`$INTEGER`",
                       },
                       {
-                        "active" => true,
                         "kind" => "query",
                         "name" => "page_size",
                         "orig" => "page_size",
-                        "reqd" => false,
                         "type" => "`$INTEGER`",
                       },
                     ],
@@ -463,45 +407,36 @@ module CloudsmithConfig
                     "req" => "`reqdata`",
                     "res" => "`body`",
                   },
-                  "index$" => 0,
                 },
               ],
-              "key$" => "list",
             },
             "load" => {
               "input" => "data",
               "name" => "load",
               "points" => [
                 {
-                  "active" => true,
                   "args" => {
                     "params" => [
                       {
-                        "active" => true,
                         "kind" => "param",
                         "name" => "id",
                         "orig" => "slug_perm",
                         "reqd" => true,
                         "type" => "`$STRING`",
-                        "index$" => 0,
                       },
                       {
-                        "active" => true,
                         "kind" => "param",
                         "name" => "identifier",
                         "orig" => "identifier",
                         "reqd" => true,
                         "type" => "`$ANY`",
-                        "index$" => 1,
                       },
                       {
-                        "active" => true,
                         "kind" => "param",
                         "name" => "owner",
                         "orig" => "owner",
                         "reqd" => true,
                         "type" => "`$ANY`",
-                        "index$" => 2,
                       },
                     ],
                   },
@@ -532,21 +467,17 @@ module CloudsmithConfig
                     "req" => "`reqdata`",
                     "res" => "`body`",
                   },
-                  "index$" => 0,
                 },
               ],
-              "key$" => "load",
             },
             "patch" => {
               "input" => "data",
               "name" => "patch",
               "points" => [
                 {
-                  "active" => true,
                   "args" => {
                     "params" => [
                       {
-                        "active" => true,
                         "kind" => "param",
                         "name" => "id",
                         "orig" => "slug_perm",
@@ -554,7 +485,6 @@ module CloudsmithConfig
                         "type" => "`$STRING`",
                       },
                       {
-                        "active" => true,
                         "kind" => "param",
                         "name" => "identifier",
                         "orig" => "identifier",
@@ -562,7 +492,6 @@ module CloudsmithConfig
                         "type" => "`$ANY`",
                       },
                       {
-                        "active" => true,
                         "kind" => "param",
                         "name" => "owner",
                         "orig" => "owner",
@@ -572,11 +501,9 @@ module CloudsmithConfig
                     ],
                     "query" => [
                       {
-                        "active" => true,
                         "kind" => "query",
                         "name" => "data",
                         "orig" => "data",
-                        "reqd" => false,
                         "type" => "`$OBJECT`",
                       },
                     ],
@@ -609,54 +536,43 @@ module CloudsmithConfig
                     "req" => "`reqdata`",
                     "res" => "`body`",
                   },
-                  "index$" => 0,
                 },
               ],
-              "key$" => "patch",
             },
             "update" => {
               "input" => "data",
               "name" => "update",
               "points" => [
                 {
-                  "active" => true,
                   "args" => {
                     "params" => [
                       {
-                        "active" => true,
                         "kind" => "param",
                         "name" => "id",
                         "orig" => "slug_perm",
                         "reqd" => true,
                         "type" => "`$STRING`",
-                        "index$" => 0,
                       },
                       {
-                        "active" => true,
                         "kind" => "param",
                         "name" => "identifier",
                         "orig" => "identifier",
                         "reqd" => true,
                         "type" => "`$ANY`",
-                        "index$" => 1,
                       },
                       {
-                        "active" => true,
                         "kind" => "param",
                         "name" => "owner",
                         "orig" => "owner",
                         "reqd" => true,
                         "type" => "`$ANY`",
-                        "index$" => 2,
                       },
                     ],
                     "query" => [
                       {
-                        "active" => true,
                         "kind" => "query",
                         "name" => "data",
                         "orig" => "data",
-                        "reqd" => false,
                         "type" => "`$OBJECT`",
                       },
                     ],
@@ -689,10 +605,8 @@ module CloudsmithConfig
                     "req" => "`reqdata`",
                     "res" => "`body`",
                   },
-                  "index$" => 0,
                 },
               ],
-              "key$" => "update",
             },
           },
           "relations" => {
@@ -733,130 +647,78 @@ module CloudsmithConfig
         "composer" => {
           "fields" => [
             {
-              "active" => true,
               "name" => "auth_mode",
-              "req" => false,
               "type" => "`$STRING`",
-              "index$" => 0,
             },
             {
-              "active" => true,
               "name" => "auth_secret",
-              "req" => false,
               "type" => "`$STRING`",
-              "index$" => 1,
             },
             {
-              "active" => true,
               "name" => "auth_username",
-              "req" => false,
               "type" => "`$STRING`",
-              "index$" => 2,
             },
             {
-              "active" => true,
               "name" => "created_at",
-              "req" => false,
               "type" => "`$STRING`",
-              "index$" => 3,
             },
             {
-              "active" => true,
               "name" => "disable_reason",
-              "req" => false,
               "type" => "`$STRING`",
-              "index$" => 4,
             },
             {
-              "active" => true,
               "name" => "extra_header_1",
-              "req" => false,
               "type" => "`$STRING`",
-              "index$" => 5,
             },
             {
-              "active" => true,
               "name" => "extra_header_2",
-              "req" => false,
               "type" => "`$STRING`",
-              "index$" => 6,
             },
             {
-              "active" => true,
               "name" => "extra_value_1",
-              "req" => false,
               "type" => "`$STRING`",
-              "index$" => 7,
             },
             {
-              "active" => true,
               "name" => "extra_value_2",
-              "req" => false,
               "type" => "`$STRING`",
-              "index$" => 8,
             },
             {
-              "active" => true,
               "name" => "is_active",
-              "req" => false,
               "type" => "`$BOOLEAN`",
-              "index$" => 9,
             },
             {
-              "active" => true,
               "name" => "mode",
-              "req" => false,
               "type" => "`$STRING`",
-              "index$" => 10,
             },
             {
-              "active" => true,
               "name" => "name",
               "req" => true,
               "type" => "`$STRING`",
-              "index$" => 11,
             },
             {
-              "active" => true,
               "name" => "pending_validation",
-              "req" => false,
               "type" => "`$BOOLEAN`",
-              "index$" => 12,
             },
             {
-              "active" => true,
               "name" => "priority",
-              "req" => false,
               "type" => "`$INTEGER`",
-              "index$" => 13,
             },
             {
-              "active" => true,
               "name" => "slug_perm",
-              "req" => false,
               "type" => "`$STRING`",
-              "index$" => 14,
             },
             {
-              "active" => true,
               "name" => "updated_at",
-              "req" => false,
               "type" => "`$STRING`",
-              "index$" => 15,
             },
             {
-              "active" => true,
               "name" => "upstream_url",
               "req" => true,
               "type" => "`$STRING`",
-              "index$" => 16,
             },
             {
-              "active" => true,
               "name" => "verify_ssl",
-              "req" => false,
               "type" => "`$BOOLEAN`",
-              "index$" => 17,
             },
           ],
           "name" => "composer",
@@ -866,35 +728,28 @@ module CloudsmithConfig
               "name" => "create",
               "points" => [
                 {
-                  "active" => true,
                   "args" => {
                     "params" => [
                       {
-                        "active" => true,
                         "kind" => "param",
                         "name" => "identifier",
                         "orig" => "identifier",
                         "reqd" => true,
                         "type" => "`$ANY`",
-                        "index$" => 0,
                       },
                       {
-                        "active" => true,
                         "kind" => "param",
                         "name" => "owner",
                         "orig" => "owner",
                         "reqd" => true,
                         "type" => "`$ANY`",
-                        "index$" => 1,
                       },
                     ],
                     "query" => [
                       {
-                        "active" => true,
                         "kind" => "query",
                         "name" => "data",
                         "orig" => "data",
-                        "reqd" => false,
                         "type" => "`$OBJECT`",
                       },
                     ],
@@ -920,53 +775,42 @@ module CloudsmithConfig
                     "req" => "`reqdata`",
                     "res" => "`body`",
                   },
-                  "index$" => 0,
                 },
               ],
-              "key$" => "create",
             },
             "list" => {
               "input" => "data",
               "name" => "list",
               "points" => [
                 {
-                  "active" => true,
                   "args" => {
                     "params" => [
                       {
-                        "active" => true,
                         "kind" => "param",
                         "name" => "identifier",
                         "orig" => "identifier",
                         "reqd" => true,
                         "type" => "`$ANY`",
-                        "index$" => 0,
                       },
                       {
-                        "active" => true,
                         "kind" => "param",
                         "name" => "owner",
                         "orig" => "owner",
                         "reqd" => true,
                         "type" => "`$ANY`",
-                        "index$" => 1,
                       },
                     ],
                     "query" => [
                       {
-                        "active" => true,
                         "kind" => "query",
                         "name" => "page",
                         "orig" => "page",
-                        "reqd" => false,
                         "type" => "`$INTEGER`",
                       },
                       {
-                        "active" => true,
                         "kind" => "query",
                         "name" => "page_size",
                         "orig" => "page_size",
-                        "reqd" => false,
                         "type" => "`$INTEGER`",
                       },
                     ],
@@ -993,45 +837,36 @@ module CloudsmithConfig
                     "req" => "`reqdata`",
                     "res" => "`body`",
                   },
-                  "index$" => 0,
                 },
               ],
-              "key$" => "list",
             },
             "load" => {
               "input" => "data",
               "name" => "load",
               "points" => [
                 {
-                  "active" => true,
                   "args" => {
                     "params" => [
                       {
-                        "active" => true,
                         "kind" => "param",
                         "name" => "id",
                         "orig" => "slug_perm",
                         "reqd" => true,
                         "type" => "`$STRING`",
-                        "index$" => 0,
                       },
                       {
-                        "active" => true,
                         "kind" => "param",
                         "name" => "identifier",
                         "orig" => "identifier",
                         "reqd" => true,
                         "type" => "`$ANY`",
-                        "index$" => 1,
                       },
                       {
-                        "active" => true,
                         "kind" => "param",
                         "name" => "owner",
                         "orig" => "owner",
                         "reqd" => true,
                         "type" => "`$ANY`",
-                        "index$" => 2,
                       },
                     ],
                   },
@@ -1062,21 +897,17 @@ module CloudsmithConfig
                     "req" => "`reqdata`",
                     "res" => "`body`",
                   },
-                  "index$" => 0,
                 },
               ],
-              "key$" => "load",
             },
             "patch" => {
               "input" => "data",
               "name" => "patch",
               "points" => [
                 {
-                  "active" => true,
                   "args" => {
                     "params" => [
                       {
-                        "active" => true,
                         "kind" => "param",
                         "name" => "id",
                         "orig" => "slug_perm",
@@ -1084,7 +915,6 @@ module CloudsmithConfig
                         "type" => "`$STRING`",
                       },
                       {
-                        "active" => true,
                         "kind" => "param",
                         "name" => "identifier",
                         "orig" => "identifier",
@@ -1092,7 +922,6 @@ module CloudsmithConfig
                         "type" => "`$ANY`",
                       },
                       {
-                        "active" => true,
                         "kind" => "param",
                         "name" => "owner",
                         "orig" => "owner",
@@ -1102,11 +931,9 @@ module CloudsmithConfig
                     ],
                     "query" => [
                       {
-                        "active" => true,
                         "kind" => "query",
                         "name" => "data",
                         "orig" => "data",
-                        "reqd" => false,
                         "type" => "`$OBJECT`",
                       },
                     ],
@@ -1139,54 +966,43 @@ module CloudsmithConfig
                     "req" => "`reqdata`",
                     "res" => "`body`",
                   },
-                  "index$" => 0,
                 },
               ],
-              "key$" => "patch",
             },
             "update" => {
               "input" => "data",
               "name" => "update",
               "points" => [
                 {
-                  "active" => true,
                   "args" => {
                     "params" => [
                       {
-                        "active" => true,
                         "kind" => "param",
                         "name" => "id",
                         "orig" => "slug_perm",
                         "reqd" => true,
                         "type" => "`$STRING`",
-                        "index$" => 0,
                       },
                       {
-                        "active" => true,
                         "kind" => "param",
                         "name" => "identifier",
                         "orig" => "identifier",
                         "reqd" => true,
                         "type" => "`$ANY`",
-                        "index$" => 1,
                       },
                       {
-                        "active" => true,
                         "kind" => "param",
                         "name" => "owner",
                         "orig" => "owner",
                         "reqd" => true,
                         "type" => "`$ANY`",
-                        "index$" => 2,
                       },
                     ],
                     "query" => [
                       {
-                        "active" => true,
                         "kind" => "query",
                         "name" => "data",
                         "orig" => "data",
-                        "reqd" => false,
                         "type" => "`$OBJECT`",
                       },
                     ],
@@ -1219,10 +1035,8 @@ module CloudsmithConfig
                     "req" => "`reqdata`",
                     "res" => "`body`",
                   },
-                  "index$" => 0,
                 },
               ],
-              "key$" => "update",
             },
           },
           "relations" => {
@@ -1251,130 +1065,78 @@ module CloudsmithConfig
         "conda" => {
           "fields" => [
             {
-              "active" => true,
               "name" => "auth_mode",
-              "req" => false,
               "type" => "`$STRING`",
-              "index$" => 0,
             },
             {
-              "active" => true,
               "name" => "auth_secret",
-              "req" => false,
               "type" => "`$STRING`",
-              "index$" => 1,
             },
             {
-              "active" => true,
               "name" => "auth_username",
-              "req" => false,
               "type" => "`$STRING`",
-              "index$" => 2,
             },
             {
-              "active" => true,
               "name" => "created_at",
-              "req" => false,
               "type" => "`$STRING`",
-              "index$" => 3,
             },
             {
-              "active" => true,
               "name" => "disable_reason",
-              "req" => false,
               "type" => "`$STRING`",
-              "index$" => 4,
             },
             {
-              "active" => true,
               "name" => "extra_header_1",
-              "req" => false,
               "type" => "`$STRING`",
-              "index$" => 5,
             },
             {
-              "active" => true,
               "name" => "extra_header_2",
-              "req" => false,
               "type" => "`$STRING`",
-              "index$" => 6,
             },
             {
-              "active" => true,
               "name" => "extra_value_1",
-              "req" => false,
               "type" => "`$STRING`",
-              "index$" => 7,
             },
             {
-              "active" => true,
               "name" => "extra_value_2",
-              "req" => false,
               "type" => "`$STRING`",
-              "index$" => 8,
             },
             {
-              "active" => true,
               "name" => "is_active",
-              "req" => false,
               "type" => "`$BOOLEAN`",
-              "index$" => 9,
             },
             {
-              "active" => true,
               "name" => "mode",
-              "req" => false,
               "type" => "`$STRING`",
-              "index$" => 10,
             },
             {
-              "active" => true,
               "name" => "name",
               "req" => true,
               "type" => "`$STRING`",
-              "index$" => 11,
             },
             {
-              "active" => true,
               "name" => "pending_validation",
-              "req" => false,
               "type" => "`$BOOLEAN`",
-              "index$" => 12,
             },
             {
-              "active" => true,
               "name" => "priority",
-              "req" => false,
               "type" => "`$INTEGER`",
-              "index$" => 13,
             },
             {
-              "active" => true,
               "name" => "slug_perm",
-              "req" => false,
               "type" => "`$STRING`",
-              "index$" => 14,
             },
             {
-              "active" => true,
               "name" => "updated_at",
-              "req" => false,
               "type" => "`$STRING`",
-              "index$" => 15,
             },
             {
-              "active" => true,
               "name" => "upstream_url",
               "req" => true,
               "type" => "`$STRING`",
-              "index$" => 16,
             },
             {
-              "active" => true,
               "name" => "verify_ssl",
-              "req" => false,
               "type" => "`$BOOLEAN`",
-              "index$" => 17,
             },
           ],
           "name" => "conda",
@@ -1384,35 +1146,28 @@ module CloudsmithConfig
               "name" => "create",
               "points" => [
                 {
-                  "active" => true,
                   "args" => {
                     "params" => [
                       {
-                        "active" => true,
                         "kind" => "param",
                         "name" => "identifier",
                         "orig" => "identifier",
                         "reqd" => true,
                         "type" => "`$ANY`",
-                        "index$" => 0,
                       },
                       {
-                        "active" => true,
                         "kind" => "param",
                         "name" => "owner",
                         "orig" => "owner",
                         "reqd" => true,
                         "type" => "`$ANY`",
-                        "index$" => 1,
                       },
                     ],
                     "query" => [
                       {
-                        "active" => true,
                         "kind" => "query",
                         "name" => "data",
                         "orig" => "data",
-                        "reqd" => false,
                         "type" => "`$OBJECT`",
                       },
                     ],
@@ -1438,53 +1193,42 @@ module CloudsmithConfig
                     "req" => "`reqdata`",
                     "res" => "`body`",
                   },
-                  "index$" => 0,
                 },
               ],
-              "key$" => "create",
             },
             "list" => {
               "input" => "data",
               "name" => "list",
               "points" => [
                 {
-                  "active" => true,
                   "args" => {
                     "params" => [
                       {
-                        "active" => true,
                         "kind" => "param",
                         "name" => "identifier",
                         "orig" => "identifier",
                         "reqd" => true,
                         "type" => "`$ANY`",
-                        "index$" => 0,
                       },
                       {
-                        "active" => true,
                         "kind" => "param",
                         "name" => "owner",
                         "orig" => "owner",
                         "reqd" => true,
                         "type" => "`$ANY`",
-                        "index$" => 1,
                       },
                     ],
                     "query" => [
                       {
-                        "active" => true,
                         "kind" => "query",
                         "name" => "page",
                         "orig" => "page",
-                        "reqd" => false,
                         "type" => "`$INTEGER`",
                       },
                       {
-                        "active" => true,
                         "kind" => "query",
                         "name" => "page_size",
                         "orig" => "page_size",
-                        "reqd" => false,
                         "type" => "`$INTEGER`",
                       },
                     ],
@@ -1511,45 +1255,36 @@ module CloudsmithConfig
                     "req" => "`reqdata`",
                     "res" => "`body`",
                   },
-                  "index$" => 0,
                 },
               ],
-              "key$" => "list",
             },
             "load" => {
               "input" => "data",
               "name" => "load",
               "points" => [
                 {
-                  "active" => true,
                   "args" => {
                     "params" => [
                       {
-                        "active" => true,
                         "kind" => "param",
                         "name" => "id",
                         "orig" => "slug_perm",
                         "reqd" => true,
                         "type" => "`$STRING`",
-                        "index$" => 0,
                       },
                       {
-                        "active" => true,
                         "kind" => "param",
                         "name" => "identifier",
                         "orig" => "identifier",
                         "reqd" => true,
                         "type" => "`$ANY`",
-                        "index$" => 1,
                       },
                       {
-                        "active" => true,
                         "kind" => "param",
                         "name" => "owner",
                         "orig" => "owner",
                         "reqd" => true,
                         "type" => "`$ANY`",
-                        "index$" => 2,
                       },
                     ],
                   },
@@ -1580,21 +1315,17 @@ module CloudsmithConfig
                     "req" => "`reqdata`",
                     "res" => "`body`",
                   },
-                  "index$" => 0,
                 },
               ],
-              "key$" => "load",
             },
             "patch" => {
               "input" => "data",
               "name" => "patch",
               "points" => [
                 {
-                  "active" => true,
                   "args" => {
                     "params" => [
                       {
-                        "active" => true,
                         "kind" => "param",
                         "name" => "id",
                         "orig" => "slug_perm",
@@ -1602,7 +1333,6 @@ module CloudsmithConfig
                         "type" => "`$STRING`",
                       },
                       {
-                        "active" => true,
                         "kind" => "param",
                         "name" => "identifier",
                         "orig" => "identifier",
@@ -1610,7 +1340,6 @@ module CloudsmithConfig
                         "type" => "`$ANY`",
                       },
                       {
-                        "active" => true,
                         "kind" => "param",
                         "name" => "owner",
                         "orig" => "owner",
@@ -1620,11 +1349,9 @@ module CloudsmithConfig
                     ],
                     "query" => [
                       {
-                        "active" => true,
                         "kind" => "query",
                         "name" => "data",
                         "orig" => "data",
-                        "reqd" => false,
                         "type" => "`$OBJECT`",
                       },
                     ],
@@ -1657,54 +1384,43 @@ module CloudsmithConfig
                     "req" => "`reqdata`",
                     "res" => "`body`",
                   },
-                  "index$" => 0,
                 },
               ],
-              "key$" => "patch",
             },
             "update" => {
               "input" => "data",
               "name" => "update",
               "points" => [
                 {
-                  "active" => true,
                   "args" => {
                     "params" => [
                       {
-                        "active" => true,
                         "kind" => "param",
                         "name" => "id",
                         "orig" => "slug_perm",
                         "reqd" => true,
                         "type" => "`$STRING`",
-                        "index$" => 0,
                       },
                       {
-                        "active" => true,
                         "kind" => "param",
                         "name" => "identifier",
                         "orig" => "identifier",
                         "reqd" => true,
                         "type" => "`$ANY`",
-                        "index$" => 1,
                       },
                       {
-                        "active" => true,
                         "kind" => "param",
                         "name" => "owner",
                         "orig" => "owner",
                         "reqd" => true,
                         "type" => "`$ANY`",
-                        "index$" => 2,
                       },
                     ],
                     "query" => [
                       {
-                        "active" => true,
                         "kind" => "query",
                         "name" => "data",
                         "orig" => "data",
-                        "reqd" => false,
                         "type" => "`$OBJECT`",
                       },
                     ],
@@ -1737,10 +1453,8 @@ module CloudsmithConfig
                     "req" => "`reqdata`",
                     "res" => "`body`",
                   },
-                  "index$" => 0,
                 },
               ],
-              "key$" => "update",
             },
           },
           "relations" => {
@@ -1769,130 +1483,78 @@ module CloudsmithConfig
         "cran" => {
           "fields" => [
             {
-              "active" => true,
               "name" => "auth_mode",
-              "req" => false,
               "type" => "`$STRING`",
-              "index$" => 0,
             },
             {
-              "active" => true,
               "name" => "auth_secret",
-              "req" => false,
               "type" => "`$STRING`",
-              "index$" => 1,
             },
             {
-              "active" => true,
               "name" => "auth_username",
-              "req" => false,
               "type" => "`$STRING`",
-              "index$" => 2,
             },
             {
-              "active" => true,
               "name" => "created_at",
-              "req" => false,
               "type" => "`$STRING`",
-              "index$" => 3,
             },
             {
-              "active" => true,
               "name" => "disable_reason",
-              "req" => false,
               "type" => "`$STRING`",
-              "index$" => 4,
             },
             {
-              "active" => true,
               "name" => "extra_header_1",
-              "req" => false,
               "type" => "`$STRING`",
-              "index$" => 5,
             },
             {
-              "active" => true,
               "name" => "extra_header_2",
-              "req" => false,
               "type" => "`$STRING`",
-              "index$" => 6,
             },
             {
-              "active" => true,
               "name" => "extra_value_1",
-              "req" => false,
               "type" => "`$STRING`",
-              "index$" => 7,
             },
             {
-              "active" => true,
               "name" => "extra_value_2",
-              "req" => false,
               "type" => "`$STRING`",
-              "index$" => 8,
             },
             {
-              "active" => true,
               "name" => "is_active",
-              "req" => false,
               "type" => "`$BOOLEAN`",
-              "index$" => 9,
             },
             {
-              "active" => true,
               "name" => "mode",
-              "req" => false,
               "type" => "`$STRING`",
-              "index$" => 10,
             },
             {
-              "active" => true,
               "name" => "name",
               "req" => true,
               "type" => "`$STRING`",
-              "index$" => 11,
             },
             {
-              "active" => true,
               "name" => "pending_validation",
-              "req" => false,
               "type" => "`$BOOLEAN`",
-              "index$" => 12,
             },
             {
-              "active" => true,
               "name" => "priority",
-              "req" => false,
               "type" => "`$INTEGER`",
-              "index$" => 13,
             },
             {
-              "active" => true,
               "name" => "slug_perm",
-              "req" => false,
               "type" => "`$STRING`",
-              "index$" => 14,
             },
             {
-              "active" => true,
               "name" => "updated_at",
-              "req" => false,
               "type" => "`$STRING`",
-              "index$" => 15,
             },
             {
-              "active" => true,
               "name" => "upstream_url",
               "req" => true,
               "type" => "`$STRING`",
-              "index$" => 16,
             },
             {
-              "active" => true,
               "name" => "verify_ssl",
-              "req" => false,
               "type" => "`$BOOLEAN`",
-              "index$" => 17,
             },
           ],
           "name" => "cran",
@@ -1902,35 +1564,28 @@ module CloudsmithConfig
               "name" => "create",
               "points" => [
                 {
-                  "active" => true,
                   "args" => {
                     "params" => [
                       {
-                        "active" => true,
                         "kind" => "param",
                         "name" => "identifier",
                         "orig" => "identifier",
                         "reqd" => true,
                         "type" => "`$ANY`",
-                        "index$" => 0,
                       },
                       {
-                        "active" => true,
                         "kind" => "param",
                         "name" => "owner",
                         "orig" => "owner",
                         "reqd" => true,
                         "type" => "`$ANY`",
-                        "index$" => 1,
                       },
                     ],
                     "query" => [
                       {
-                        "active" => true,
                         "kind" => "query",
                         "name" => "data",
                         "orig" => "data",
-                        "reqd" => false,
                         "type" => "`$OBJECT`",
                       },
                     ],
@@ -1956,53 +1611,42 @@ module CloudsmithConfig
                     "req" => "`reqdata`",
                     "res" => "`body`",
                   },
-                  "index$" => 0,
                 },
               ],
-              "key$" => "create",
             },
             "list" => {
               "input" => "data",
               "name" => "list",
               "points" => [
                 {
-                  "active" => true,
                   "args" => {
                     "params" => [
                       {
-                        "active" => true,
                         "kind" => "param",
                         "name" => "identifier",
                         "orig" => "identifier",
                         "reqd" => true,
                         "type" => "`$ANY`",
-                        "index$" => 0,
                       },
                       {
-                        "active" => true,
                         "kind" => "param",
                         "name" => "owner",
                         "orig" => "owner",
                         "reqd" => true,
                         "type" => "`$ANY`",
-                        "index$" => 1,
                       },
                     ],
                     "query" => [
                       {
-                        "active" => true,
                         "kind" => "query",
                         "name" => "page",
                         "orig" => "page",
-                        "reqd" => false,
                         "type" => "`$INTEGER`",
                       },
                       {
-                        "active" => true,
                         "kind" => "query",
                         "name" => "page_size",
                         "orig" => "page_size",
-                        "reqd" => false,
                         "type" => "`$INTEGER`",
                       },
                     ],
@@ -2029,45 +1673,36 @@ module CloudsmithConfig
                     "req" => "`reqdata`",
                     "res" => "`body`",
                   },
-                  "index$" => 0,
                 },
               ],
-              "key$" => "list",
             },
             "load" => {
               "input" => "data",
               "name" => "load",
               "points" => [
                 {
-                  "active" => true,
                   "args" => {
                     "params" => [
                       {
-                        "active" => true,
                         "kind" => "param",
                         "name" => "id",
                         "orig" => "slug_perm",
                         "reqd" => true,
                         "type" => "`$STRING`",
-                        "index$" => 0,
                       },
                       {
-                        "active" => true,
                         "kind" => "param",
                         "name" => "identifier",
                         "orig" => "identifier",
                         "reqd" => true,
                         "type" => "`$ANY`",
-                        "index$" => 1,
                       },
                       {
-                        "active" => true,
                         "kind" => "param",
                         "name" => "owner",
                         "orig" => "owner",
                         "reqd" => true,
                         "type" => "`$ANY`",
-                        "index$" => 2,
                       },
                     ],
                   },
@@ -2098,21 +1733,17 @@ module CloudsmithConfig
                     "req" => "`reqdata`",
                     "res" => "`body`",
                   },
-                  "index$" => 0,
                 },
               ],
-              "key$" => "load",
             },
             "patch" => {
               "input" => "data",
               "name" => "patch",
               "points" => [
                 {
-                  "active" => true,
                   "args" => {
                     "params" => [
                       {
-                        "active" => true,
                         "kind" => "param",
                         "name" => "id",
                         "orig" => "slug_perm",
@@ -2120,7 +1751,6 @@ module CloudsmithConfig
                         "type" => "`$STRING`",
                       },
                       {
-                        "active" => true,
                         "kind" => "param",
                         "name" => "identifier",
                         "orig" => "identifier",
@@ -2128,7 +1758,6 @@ module CloudsmithConfig
                         "type" => "`$ANY`",
                       },
                       {
-                        "active" => true,
                         "kind" => "param",
                         "name" => "owner",
                         "orig" => "owner",
@@ -2138,11 +1767,9 @@ module CloudsmithConfig
                     ],
                     "query" => [
                       {
-                        "active" => true,
                         "kind" => "query",
                         "name" => "data",
                         "orig" => "data",
-                        "reqd" => false,
                         "type" => "`$OBJECT`",
                       },
                     ],
@@ -2175,54 +1802,43 @@ module CloudsmithConfig
                     "req" => "`reqdata`",
                     "res" => "`body`",
                   },
-                  "index$" => 0,
                 },
               ],
-              "key$" => "patch",
             },
             "update" => {
               "input" => "data",
               "name" => "update",
               "points" => [
                 {
-                  "active" => true,
                   "args" => {
                     "params" => [
                       {
-                        "active" => true,
                         "kind" => "param",
                         "name" => "id",
                         "orig" => "slug_perm",
                         "reqd" => true,
                         "type" => "`$STRING`",
-                        "index$" => 0,
                       },
                       {
-                        "active" => true,
                         "kind" => "param",
                         "name" => "identifier",
                         "orig" => "identifier",
                         "reqd" => true,
                         "type" => "`$ANY`",
-                        "index$" => 1,
                       },
                       {
-                        "active" => true,
                         "kind" => "param",
                         "name" => "owner",
                         "orig" => "owner",
                         "reqd" => true,
                         "type" => "`$ANY`",
-                        "index$" => 2,
                       },
                     ],
                     "query" => [
                       {
-                        "active" => true,
                         "kind" => "query",
                         "name" => "data",
                         "orig" => "data",
-                        "reqd" => false,
                         "type" => "`$OBJECT`",
                       },
                     ],
@@ -2255,10 +1871,8 @@ module CloudsmithConfig
                     "req" => "`reqdata`",
                     "res" => "`body`",
                   },
-                  "index$" => 0,
                 },
               ],
-              "key$" => "update",
             },
           },
           "relations" => {
@@ -2275,130 +1889,78 @@ module CloudsmithConfig
         "dart" => {
           "fields" => [
             {
-              "active" => true,
               "name" => "auth_mode",
-              "req" => false,
               "type" => "`$STRING`",
-              "index$" => 0,
             },
             {
-              "active" => true,
               "name" => "auth_secret",
-              "req" => false,
               "type" => "`$STRING`",
-              "index$" => 1,
             },
             {
-              "active" => true,
               "name" => "auth_username",
-              "req" => false,
               "type" => "`$STRING`",
-              "index$" => 2,
             },
             {
-              "active" => true,
               "name" => "created_at",
-              "req" => false,
               "type" => "`$STRING`",
-              "index$" => 3,
             },
             {
-              "active" => true,
               "name" => "disable_reason",
-              "req" => false,
               "type" => "`$STRING`",
-              "index$" => 4,
             },
             {
-              "active" => true,
               "name" => "extra_header_1",
-              "req" => false,
               "type" => "`$STRING`",
-              "index$" => 5,
             },
             {
-              "active" => true,
               "name" => "extra_header_2",
-              "req" => false,
               "type" => "`$STRING`",
-              "index$" => 6,
             },
             {
-              "active" => true,
               "name" => "extra_value_1",
-              "req" => false,
               "type" => "`$STRING`",
-              "index$" => 7,
             },
             {
-              "active" => true,
               "name" => "extra_value_2",
-              "req" => false,
               "type" => "`$STRING`",
-              "index$" => 8,
             },
             {
-              "active" => true,
               "name" => "is_active",
-              "req" => false,
               "type" => "`$BOOLEAN`",
-              "index$" => 9,
             },
             {
-              "active" => true,
               "name" => "mode",
-              "req" => false,
               "type" => "`$STRING`",
-              "index$" => 10,
             },
             {
-              "active" => true,
               "name" => "name",
               "req" => true,
               "type" => "`$STRING`",
-              "index$" => 11,
             },
             {
-              "active" => true,
               "name" => "pending_validation",
-              "req" => false,
               "type" => "`$BOOLEAN`",
-              "index$" => 12,
             },
             {
-              "active" => true,
               "name" => "priority",
-              "req" => false,
               "type" => "`$INTEGER`",
-              "index$" => 13,
             },
             {
-              "active" => true,
               "name" => "slug_perm",
-              "req" => false,
               "type" => "`$STRING`",
-              "index$" => 14,
             },
             {
-              "active" => true,
               "name" => "updated_at",
-              "req" => false,
               "type" => "`$STRING`",
-              "index$" => 15,
             },
             {
-              "active" => true,
               "name" => "upstream_url",
               "req" => true,
               "type" => "`$STRING`",
-              "index$" => 16,
             },
             {
-              "active" => true,
               "name" => "verify_ssl",
-              "req" => false,
               "type" => "`$BOOLEAN`",
-              "index$" => 17,
             },
           ],
           "name" => "dart",
@@ -2408,35 +1970,28 @@ module CloudsmithConfig
               "name" => "create",
               "points" => [
                 {
-                  "active" => true,
                   "args" => {
                     "params" => [
                       {
-                        "active" => true,
                         "kind" => "param",
                         "name" => "identifier",
                         "orig" => "identifier",
                         "reqd" => true,
                         "type" => "`$ANY`",
-                        "index$" => 0,
                       },
                       {
-                        "active" => true,
                         "kind" => "param",
                         "name" => "owner",
                         "orig" => "owner",
                         "reqd" => true,
                         "type" => "`$ANY`",
-                        "index$" => 1,
                       },
                     ],
                     "query" => [
                       {
-                        "active" => true,
                         "kind" => "query",
                         "name" => "data",
                         "orig" => "data",
-                        "reqd" => false,
                         "type" => "`$OBJECT`",
                       },
                     ],
@@ -2462,53 +2017,42 @@ module CloudsmithConfig
                     "req" => "`reqdata`",
                     "res" => "`body`",
                   },
-                  "index$" => 0,
                 },
               ],
-              "key$" => "create",
             },
             "list" => {
               "input" => "data",
               "name" => "list",
               "points" => [
                 {
-                  "active" => true,
                   "args" => {
                     "params" => [
                       {
-                        "active" => true,
                         "kind" => "param",
                         "name" => "identifier",
                         "orig" => "identifier",
                         "reqd" => true,
                         "type" => "`$ANY`",
-                        "index$" => 0,
                       },
                       {
-                        "active" => true,
                         "kind" => "param",
                         "name" => "owner",
                         "orig" => "owner",
                         "reqd" => true,
                         "type" => "`$ANY`",
-                        "index$" => 1,
                       },
                     ],
                     "query" => [
                       {
-                        "active" => true,
                         "kind" => "query",
                         "name" => "page",
                         "orig" => "page",
-                        "reqd" => false,
                         "type" => "`$INTEGER`",
                       },
                       {
-                        "active" => true,
                         "kind" => "query",
                         "name" => "page_size",
                         "orig" => "page_size",
-                        "reqd" => false,
                         "type" => "`$INTEGER`",
                       },
                     ],
@@ -2535,45 +2079,36 @@ module CloudsmithConfig
                     "req" => "`reqdata`",
                     "res" => "`body`",
                   },
-                  "index$" => 0,
                 },
               ],
-              "key$" => "list",
             },
             "load" => {
               "input" => "data",
               "name" => "load",
               "points" => [
                 {
-                  "active" => true,
                   "args" => {
                     "params" => [
                       {
-                        "active" => true,
                         "kind" => "param",
                         "name" => "id",
                         "orig" => "slug_perm",
                         "reqd" => true,
                         "type" => "`$STRING`",
-                        "index$" => 0,
                       },
                       {
-                        "active" => true,
                         "kind" => "param",
                         "name" => "identifier",
                         "orig" => "identifier",
                         "reqd" => true,
                         "type" => "`$ANY`",
-                        "index$" => 1,
                       },
                       {
-                        "active" => true,
                         "kind" => "param",
                         "name" => "owner",
                         "orig" => "owner",
                         "reqd" => true,
                         "type" => "`$ANY`",
-                        "index$" => 2,
                       },
                     ],
                   },
@@ -2604,21 +2139,17 @@ module CloudsmithConfig
                     "req" => "`reqdata`",
                     "res" => "`body`",
                   },
-                  "index$" => 0,
                 },
               ],
-              "key$" => "load",
             },
             "patch" => {
               "input" => "data",
               "name" => "patch",
               "points" => [
                 {
-                  "active" => true,
                   "args" => {
                     "params" => [
                       {
-                        "active" => true,
                         "kind" => "param",
                         "name" => "id",
                         "orig" => "slug_perm",
@@ -2626,7 +2157,6 @@ module CloudsmithConfig
                         "type" => "`$STRING`",
                       },
                       {
-                        "active" => true,
                         "kind" => "param",
                         "name" => "identifier",
                         "orig" => "identifier",
@@ -2634,7 +2164,6 @@ module CloudsmithConfig
                         "type" => "`$ANY`",
                       },
                       {
-                        "active" => true,
                         "kind" => "param",
                         "name" => "owner",
                         "orig" => "owner",
@@ -2644,11 +2173,9 @@ module CloudsmithConfig
                     ],
                     "query" => [
                       {
-                        "active" => true,
                         "kind" => "query",
                         "name" => "data",
                         "orig" => "data",
-                        "reqd" => false,
                         "type" => "`$OBJECT`",
                       },
                     ],
@@ -2681,54 +2208,43 @@ module CloudsmithConfig
                     "req" => "`reqdata`",
                     "res" => "`body`",
                   },
-                  "index$" => 0,
                 },
               ],
-              "key$" => "patch",
             },
             "update" => {
               "input" => "data",
               "name" => "update",
               "points" => [
                 {
-                  "active" => true,
                   "args" => {
                     "params" => [
                       {
-                        "active" => true,
                         "kind" => "param",
                         "name" => "id",
                         "orig" => "slug_perm",
                         "reqd" => true,
                         "type" => "`$STRING`",
-                        "index$" => 0,
                       },
                       {
-                        "active" => true,
                         "kind" => "param",
                         "name" => "identifier",
                         "orig" => "identifier",
                         "reqd" => true,
                         "type" => "`$ANY`",
-                        "index$" => 1,
                       },
                       {
-                        "active" => true,
                         "kind" => "param",
                         "name" => "owner",
                         "orig" => "owner",
                         "reqd" => true,
                         "type" => "`$ANY`",
-                        "index$" => 2,
                       },
                     ],
                     "query" => [
                       {
-                        "active" => true,
                         "kind" => "query",
                         "name" => "data",
                         "orig" => "data",
-                        "reqd" => false,
                         "type" => "`$OBJECT`",
                       },
                     ],
@@ -2761,10 +2277,8 @@ module CloudsmithConfig
                     "req" => "`reqdata`",
                     "res" => "`body`",
                   },
-                  "index$" => 0,
                 },
               ],
-              "key$" => "update",
             },
           },
           "relations" => {
@@ -2781,186 +2295,111 @@ module CloudsmithConfig
         "deb" => {
           "fields" => [
             {
-              "active" => true,
               "name" => "auth_mode",
-              "req" => false,
               "type" => "`$STRING`",
-              "index$" => 0,
             },
             {
-              "active" => true,
               "name" => "auth_secret",
-              "req" => false,
               "type" => "`$STRING`",
-              "index$" => 1,
             },
             {
-              "active" => true,
               "name" => "auth_username",
-              "req" => false,
               "type" => "`$STRING`",
-              "index$" => 2,
             },
             {
-              "active" => true,
               "name" => "component",
-              "req" => false,
               "type" => "`$STRING`",
-              "index$" => 3,
             },
             {
-              "active" => true,
               "name" => "created_at",
-              "req" => false,
               "type" => "`$STRING`",
-              "index$" => 4,
             },
             {
-              "active" => true,
               "name" => "disable_reason",
-              "req" => false,
               "type" => "`$STRING`",
-              "index$" => 5,
             },
             {
-              "active" => true,
               "name" => "distro_versions",
               "req" => true,
               "type" => "`$ARRAY`",
-              "index$" => 6,
             },
             {
-              "active" => true,
               "name" => "extra_header_1",
-              "req" => false,
               "type" => "`$STRING`",
-              "index$" => 7,
             },
             {
-              "active" => true,
               "name" => "extra_header_2",
-              "req" => false,
               "type" => "`$STRING`",
-              "index$" => 8,
             },
             {
-              "active" => true,
               "name" => "extra_value_1",
-              "req" => false,
               "type" => "`$STRING`",
-              "index$" => 9,
             },
             {
-              "active" => true,
               "name" => "extra_value_2",
-              "req" => false,
               "type" => "`$STRING`",
-              "index$" => 10,
             },
             {
-              "active" => true,
               "name" => "gpg_key_inline",
-              "req" => false,
               "type" => "`$STRING`",
-              "index$" => 11,
             },
             {
-              "active" => true,
               "name" => "gpg_key_url",
-              "req" => false,
               "type" => "`$STRING`",
-              "index$" => 12,
             },
             {
-              "active" => true,
               "name" => "gpg_verification",
-              "req" => false,
               "type" => "`$STRING`",
-              "index$" => 13,
             },
             {
-              "active" => true,
               "name" => "include_sources",
-              "req" => false,
               "type" => "`$BOOLEAN`",
-              "index$" => 14,
             },
             {
-              "active" => true,
               "name" => "is_active",
-              "req" => false,
               "type" => "`$BOOLEAN`",
-              "index$" => 15,
             },
             {
-              "active" => true,
               "name" => "mode",
-              "req" => false,
               "type" => "`$STRING`",
-              "index$" => 16,
             },
             {
-              "active" => true,
               "name" => "name",
               "req" => true,
               "type" => "`$STRING`",
-              "index$" => 17,
             },
             {
-              "active" => true,
               "name" => "pending_validation",
-              "req" => false,
               "type" => "`$BOOLEAN`",
-              "index$" => 18,
             },
             {
-              "active" => true,
               "name" => "priority",
-              "req" => false,
               "type" => "`$INTEGER`",
-              "index$" => 19,
             },
             {
-              "active" => true,
               "name" => "slug_perm",
-              "req" => false,
               "type" => "`$STRING`",
-              "index$" => 20,
             },
             {
-              "active" => true,
               "name" => "updated_at",
-              "req" => false,
               "type" => "`$STRING`",
-              "index$" => 21,
             },
             {
-              "active" => true,
               "name" => "upstream_distribution",
-              "req" => false,
               "type" => "`$STRING`",
-              "index$" => 22,
             },
             {
-              "active" => true,
               "name" => "upstream_url",
               "req" => true,
               "type" => "`$STRING`",
-              "index$" => 23,
             },
             {
-              "active" => true,
               "name" => "verification_status",
-              "req" => false,
               "type" => "`$STRING`",
-              "index$" => 24,
             },
             {
-              "active" => true,
               "name" => "verify_ssl",
-              "req" => false,
               "type" => "`$BOOLEAN`",
-              "index$" => 25,
             },
           ],
           "name" => "deb",
@@ -2970,35 +2409,28 @@ module CloudsmithConfig
               "name" => "create",
               "points" => [
                 {
-                  "active" => true,
                   "args" => {
                     "params" => [
                       {
-                        "active" => true,
                         "kind" => "param",
                         "name" => "identifier",
                         "orig" => "identifier",
                         "reqd" => true,
                         "type" => "`$ANY`",
-                        "index$" => 0,
                       },
                       {
-                        "active" => true,
                         "kind" => "param",
                         "name" => "owner",
                         "orig" => "owner",
                         "reqd" => true,
                         "type" => "`$ANY`",
-                        "index$" => 1,
                       },
                     ],
                     "query" => [
                       {
-                        "active" => true,
                         "kind" => "query",
                         "name" => "data",
                         "orig" => "data",
-                        "reqd" => false,
                         "type" => "`$OBJECT`",
                       },
                     ],
@@ -3024,53 +2456,42 @@ module CloudsmithConfig
                     "req" => "`reqdata`",
                     "res" => "`body`",
                   },
-                  "index$" => 0,
                 },
               ],
-              "key$" => "create",
             },
             "list" => {
               "input" => "data",
               "name" => "list",
               "points" => [
                 {
-                  "active" => true,
                   "args" => {
                     "params" => [
                       {
-                        "active" => true,
                         "kind" => "param",
                         "name" => "identifier",
                         "orig" => "identifier",
                         "reqd" => true,
                         "type" => "`$ANY`",
-                        "index$" => 0,
                       },
                       {
-                        "active" => true,
                         "kind" => "param",
                         "name" => "owner",
                         "orig" => "owner",
                         "reqd" => true,
                         "type" => "`$ANY`",
-                        "index$" => 1,
                       },
                     ],
                     "query" => [
                       {
-                        "active" => true,
                         "kind" => "query",
                         "name" => "page",
                         "orig" => "page",
-                        "reqd" => false,
                         "type" => "`$INTEGER`",
                       },
                       {
-                        "active" => true,
                         "kind" => "query",
                         "name" => "page_size",
                         "orig" => "page_size",
-                        "reqd" => false,
                         "type" => "`$INTEGER`",
                       },
                     ],
@@ -3097,45 +2518,36 @@ module CloudsmithConfig
                     "req" => "`reqdata`",
                     "res" => "`body`",
                   },
-                  "index$" => 0,
                 },
               ],
-              "key$" => "list",
             },
             "load" => {
               "input" => "data",
               "name" => "load",
               "points" => [
                 {
-                  "active" => true,
                   "args" => {
                     "params" => [
                       {
-                        "active" => true,
                         "kind" => "param",
                         "name" => "id",
                         "orig" => "slug_perm",
                         "reqd" => true,
                         "type" => "`$STRING`",
-                        "index$" => 0,
                       },
                       {
-                        "active" => true,
                         "kind" => "param",
                         "name" => "identifier",
                         "orig" => "identifier",
                         "reqd" => true,
                         "type" => "`$ANY`",
-                        "index$" => 1,
                       },
                       {
-                        "active" => true,
                         "kind" => "param",
                         "name" => "owner",
                         "orig" => "owner",
                         "reqd" => true,
                         "type" => "`$ANY`",
-                        "index$" => 2,
                       },
                     ],
                   },
@@ -3166,21 +2578,17 @@ module CloudsmithConfig
                     "req" => "`reqdata`",
                     "res" => "`body`",
                   },
-                  "index$" => 0,
                 },
               ],
-              "key$" => "load",
             },
             "patch" => {
               "input" => "data",
               "name" => "patch",
               "points" => [
                 {
-                  "active" => true,
                   "args" => {
                     "params" => [
                       {
-                        "active" => true,
                         "kind" => "param",
                         "name" => "id",
                         "orig" => "slug_perm",
@@ -3188,7 +2596,6 @@ module CloudsmithConfig
                         "type" => "`$STRING`",
                       },
                       {
-                        "active" => true,
                         "kind" => "param",
                         "name" => "identifier",
                         "orig" => "identifier",
@@ -3196,7 +2603,6 @@ module CloudsmithConfig
                         "type" => "`$ANY`",
                       },
                       {
-                        "active" => true,
                         "kind" => "param",
                         "name" => "owner",
                         "orig" => "owner",
@@ -3206,11 +2612,9 @@ module CloudsmithConfig
                     ],
                     "query" => [
                       {
-                        "active" => true,
                         "kind" => "query",
                         "name" => "data",
                         "orig" => "data",
-                        "reqd" => false,
                         "type" => "`$OBJECT`",
                       },
                     ],
@@ -3243,54 +2647,43 @@ module CloudsmithConfig
                     "req" => "`reqdata`",
                     "res" => "`body`",
                   },
-                  "index$" => 0,
                 },
               ],
-              "key$" => "patch",
             },
             "update" => {
               "input" => "data",
               "name" => "update",
               "points" => [
                 {
-                  "active" => true,
                   "args" => {
                     "params" => [
                       {
-                        "active" => true,
                         "kind" => "param",
                         "name" => "id",
                         "orig" => "slug_perm",
                         "reqd" => true,
                         "type" => "`$STRING`",
-                        "index$" => 0,
                       },
                       {
-                        "active" => true,
                         "kind" => "param",
                         "name" => "identifier",
                         "orig" => "identifier",
                         "reqd" => true,
                         "type" => "`$ANY`",
-                        "index$" => 1,
                       },
                       {
-                        "active" => true,
                         "kind" => "param",
                         "name" => "owner",
                         "orig" => "owner",
                         "reqd" => true,
                         "type" => "`$ANY`",
-                        "index$" => 2,
                       },
                     ],
                     "query" => [
                       {
-                        "active" => true,
                         "kind" => "query",
                         "name" => "data",
                         "orig" => "data",
-                        "reqd" => false,
                         "type" => "`$OBJECT`",
                       },
                     ],
@@ -3323,10 +2716,8 @@ module CloudsmithConfig
                     "req" => "`reqdata`",
                     "res" => "`body`",
                   },
-                  "index$" => 0,
                 },
               ],
-              "key$" => "update",
             },
           },
           "relations" => {
@@ -3385,53 +2776,33 @@ module CloudsmithConfig
         "distribution_full" => {
           "fields" => [
             {
-              "active" => true,
               "name" => "format",
-              "req" => false,
               "type" => "`$STRING`",
-              "index$" => 0,
             },
             {
-              "active" => true,
               "name" => "format_url",
-              "req" => false,
               "type" => "`$STRING`",
-              "index$" => 1,
             },
             {
-              "active" => true,
               "name" => "name",
               "req" => true,
               "type" => "`$STRING`",
-              "index$" => 2,
             },
             {
-              "active" => true,
               "name" => "self_url",
-              "req" => false,
               "type" => "`$STRING`",
-              "index$" => 3,
             },
             {
-              "active" => true,
               "name" => "slug",
-              "req" => false,
               "type" => "`$STRING`",
-              "index$" => 4,
             },
             {
-              "active" => true,
               "name" => "variants",
-              "req" => false,
               "type" => "`$STRING`",
-              "index$" => 5,
             },
             {
-              "active" => true,
               "name" => "versions",
-              "req" => false,
               "type" => "`$ARRAY`",
-              "index$" => 6,
             },
           ],
           "name" => "distribution_full",
@@ -3441,7 +2812,6 @@ module CloudsmithConfig
               "name" => "list",
               "points" => [
                 {
-                  "active" => true,
                   "args" => {},
                   "kind" => "http",
                   "method" => "GET",
@@ -3454,27 +2824,22 @@ module CloudsmithConfig
                     "req" => "`reqdata`",
                     "res" => "`body`",
                   },
-                  "index$" => 0,
                 },
               ],
-              "key$" => "list",
             },
             "load" => {
               "input" => "data",
               "name" => "load",
               "points" => [
                 {
-                  "active" => true,
                   "args" => {
                     "params" => [
                       {
-                        "active" => true,
                         "kind" => "param",
                         "name" => "slug",
                         "orig" => "slug",
                         "reqd" => true,
                         "type" => "`$STRING`",
-                        "index$" => 0,
                       },
                     ],
                   },
@@ -3494,10 +2859,8 @@ module CloudsmithConfig
                     "req" => "`reqdata`",
                     "res" => "`body`",
                   },
-                  "index$" => 0,
                 },
               ],
-              "key$" => "load",
             },
           },
           "relations" => {
@@ -3519,130 +2882,78 @@ module CloudsmithConfig
         "docker" => {
           "fields" => [
             {
-              "active" => true,
               "name" => "auth_mode",
-              "req" => false,
               "type" => "`$STRING`",
-              "index$" => 0,
             },
             {
-              "active" => true,
               "name" => "auth_secret",
-              "req" => false,
               "type" => "`$STRING`",
-              "index$" => 1,
             },
             {
-              "active" => true,
               "name" => "auth_username",
-              "req" => false,
               "type" => "`$STRING`",
-              "index$" => 2,
             },
             {
-              "active" => true,
               "name" => "created_at",
-              "req" => false,
               "type" => "`$STRING`",
-              "index$" => 3,
             },
             {
-              "active" => true,
               "name" => "disable_reason",
-              "req" => false,
               "type" => "`$STRING`",
-              "index$" => 4,
             },
             {
-              "active" => true,
               "name" => "extra_header_1",
-              "req" => false,
               "type" => "`$STRING`",
-              "index$" => 5,
             },
             {
-              "active" => true,
               "name" => "extra_header_2",
-              "req" => false,
               "type" => "`$STRING`",
-              "index$" => 6,
             },
             {
-              "active" => true,
               "name" => "extra_value_1",
-              "req" => false,
               "type" => "`$STRING`",
-              "index$" => 7,
             },
             {
-              "active" => true,
               "name" => "extra_value_2",
-              "req" => false,
               "type" => "`$STRING`",
-              "index$" => 8,
             },
             {
-              "active" => true,
               "name" => "is_active",
-              "req" => false,
               "type" => "`$BOOLEAN`",
-              "index$" => 9,
             },
             {
-              "active" => true,
               "name" => "mode",
-              "req" => false,
               "type" => "`$STRING`",
-              "index$" => 10,
             },
             {
-              "active" => true,
               "name" => "name",
               "req" => true,
               "type" => "`$STRING`",
-              "index$" => 11,
             },
             {
-              "active" => true,
               "name" => "pending_validation",
-              "req" => false,
               "type" => "`$BOOLEAN`",
-              "index$" => 12,
             },
             {
-              "active" => true,
               "name" => "priority",
-              "req" => false,
               "type" => "`$INTEGER`",
-              "index$" => 13,
             },
             {
-              "active" => true,
               "name" => "slug_perm",
-              "req" => false,
               "type" => "`$STRING`",
-              "index$" => 14,
             },
             {
-              "active" => true,
               "name" => "updated_at",
-              "req" => false,
               "type" => "`$STRING`",
-              "index$" => 15,
             },
             {
-              "active" => true,
               "name" => "upstream_url",
               "req" => true,
               "type" => "`$STRING`",
-              "index$" => 16,
             },
             {
-              "active" => true,
               "name" => "verify_ssl",
-              "req" => false,
               "type" => "`$BOOLEAN`",
-              "index$" => 17,
             },
           ],
           "name" => "docker",
@@ -3652,35 +2963,28 @@ module CloudsmithConfig
               "name" => "create",
               "points" => [
                 {
-                  "active" => true,
                   "args" => {
                     "params" => [
                       {
-                        "active" => true,
                         "kind" => "param",
                         "name" => "identifier",
                         "orig" => "identifier",
                         "reqd" => true,
                         "type" => "`$ANY`",
-                        "index$" => 0,
                       },
                       {
-                        "active" => true,
                         "kind" => "param",
                         "name" => "owner",
                         "orig" => "owner",
                         "reqd" => true,
                         "type" => "`$ANY`",
-                        "index$" => 1,
                       },
                     ],
                     "query" => [
                       {
-                        "active" => true,
                         "kind" => "query",
                         "name" => "data",
                         "orig" => "data",
-                        "reqd" => false,
                         "type" => "`$OBJECT`",
                       },
                     ],
@@ -3706,53 +3010,42 @@ module CloudsmithConfig
                     "req" => "`reqdata`",
                     "res" => "`body`",
                   },
-                  "index$" => 0,
                 },
               ],
-              "key$" => "create",
             },
             "list" => {
               "input" => "data",
               "name" => "list",
               "points" => [
                 {
-                  "active" => true,
                   "args" => {
                     "params" => [
                       {
-                        "active" => true,
                         "kind" => "param",
                         "name" => "identifier",
                         "orig" => "identifier",
                         "reqd" => true,
                         "type" => "`$ANY`",
-                        "index$" => 0,
                       },
                       {
-                        "active" => true,
                         "kind" => "param",
                         "name" => "owner",
                         "orig" => "owner",
                         "reqd" => true,
                         "type" => "`$ANY`",
-                        "index$" => 1,
                       },
                     ],
                     "query" => [
                       {
-                        "active" => true,
                         "kind" => "query",
                         "name" => "page",
                         "orig" => "page",
-                        "reqd" => false,
                         "type" => "`$INTEGER`",
                       },
                       {
-                        "active" => true,
                         "kind" => "query",
                         "name" => "page_size",
                         "orig" => "page_size",
-                        "reqd" => false,
                         "type" => "`$INTEGER`",
                       },
                     ],
@@ -3779,45 +3072,36 @@ module CloudsmithConfig
                     "req" => "`reqdata`",
                     "res" => "`body`",
                   },
-                  "index$" => 0,
                 },
               ],
-              "key$" => "list",
             },
             "load" => {
               "input" => "data",
               "name" => "load",
               "points" => [
                 {
-                  "active" => true,
                   "args" => {
                     "params" => [
                       {
-                        "active" => true,
                         "kind" => "param",
                         "name" => "id",
                         "orig" => "slug_perm",
                         "reqd" => true,
                         "type" => "`$STRING`",
-                        "index$" => 0,
                       },
                       {
-                        "active" => true,
                         "kind" => "param",
                         "name" => "identifier",
                         "orig" => "identifier",
                         "reqd" => true,
                         "type" => "`$ANY`",
-                        "index$" => 1,
                       },
                       {
-                        "active" => true,
                         "kind" => "param",
                         "name" => "owner",
                         "orig" => "owner",
                         "reqd" => true,
                         "type" => "`$ANY`",
-                        "index$" => 2,
                       },
                     ],
                   },
@@ -3848,21 +3132,17 @@ module CloudsmithConfig
                     "req" => "`reqdata`",
                     "res" => "`body`",
                   },
-                  "index$" => 0,
                 },
               ],
-              "key$" => "load",
             },
             "patch" => {
               "input" => "data",
               "name" => "patch",
               "points" => [
                 {
-                  "active" => true,
                   "args" => {
                     "params" => [
                       {
-                        "active" => true,
                         "kind" => "param",
                         "name" => "id",
                         "orig" => "slug_perm",
@@ -3870,7 +3150,6 @@ module CloudsmithConfig
                         "type" => "`$STRING`",
                       },
                       {
-                        "active" => true,
                         "kind" => "param",
                         "name" => "identifier",
                         "orig" => "identifier",
@@ -3878,7 +3157,6 @@ module CloudsmithConfig
                         "type" => "`$ANY`",
                       },
                       {
-                        "active" => true,
                         "kind" => "param",
                         "name" => "owner",
                         "orig" => "owner",
@@ -3888,11 +3166,9 @@ module CloudsmithConfig
                     ],
                     "query" => [
                       {
-                        "active" => true,
                         "kind" => "query",
                         "name" => "data",
                         "orig" => "data",
-                        "reqd" => false,
                         "type" => "`$OBJECT`",
                       },
                     ],
@@ -3925,54 +3201,43 @@ module CloudsmithConfig
                     "req" => "`reqdata`",
                     "res" => "`body`",
                   },
-                  "index$" => 0,
                 },
               ],
-              "key$" => "patch",
             },
             "update" => {
               "input" => "data",
               "name" => "update",
               "points" => [
                 {
-                  "active" => true,
                   "args" => {
                     "params" => [
                       {
-                        "active" => true,
                         "kind" => "param",
                         "name" => "id",
                         "orig" => "slug_perm",
                         "reqd" => true,
                         "type" => "`$STRING`",
-                        "index$" => 0,
                       },
                       {
-                        "active" => true,
                         "kind" => "param",
                         "name" => "identifier",
                         "orig" => "identifier",
                         "reqd" => true,
                         "type" => "`$ANY`",
-                        "index$" => 1,
                       },
                       {
-                        "active" => true,
                         "kind" => "param",
                         "name" => "owner",
                         "orig" => "owner",
                         "reqd" => true,
                         "type" => "`$ANY`",
-                        "index$" => 2,
                       },
                     ],
                     "query" => [
                       {
-                        "active" => true,
                         "kind" => "query",
                         "name" => "data",
                         "orig" => "data",
-                        "reqd" => false,
                         "type" => "`$OBJECT`",
                       },
                     ],
@@ -4005,10 +3270,8 @@ module CloudsmithConfig
                     "req" => "`reqdata`",
                     "res" => "`body`",
                   },
-                  "index$" => 0,
                 },
               ],
-              "key$" => "update",
             },
           },
           "relations" => {
@@ -4025,18 +3288,14 @@ module CloudsmithConfig
         "dynamic_mapping" => {
           "fields" => [
             {
-              "active" => true,
               "name" => "claim_value",
               "req" => true,
               "type" => "`$STRING`",
-              "index$" => 0,
             },
             {
-              "active" => true,
               "name" => "service_account",
               "req" => true,
               "type" => "`$STRING`",
-              "index$" => 1,
             },
           ],
           "name" => "dynamic_mapping",
@@ -4046,43 +3305,34 @@ module CloudsmithConfig
               "name" => "list",
               "points" => [
                 {
-                  "active" => true,
                   "args" => {
                     "params" => [
                       {
-                        "active" => true,
                         "kind" => "param",
                         "name" => "org_id",
                         "orig" => "org",
                         "reqd" => true,
                         "type" => "`$STRING`",
-                        "index$" => 0,
                       },
                       {
-                        "active" => true,
                         "kind" => "param",
                         "name" => "provider_setting",
                         "orig" => "provider_setting",
                         "reqd" => true,
                         "type" => "`$ANY`",
-                        "index$" => 1,
                       },
                     ],
                     "query" => [
                       {
-                        "active" => true,
                         "kind" => "query",
                         "name" => "page",
                         "orig" => "page",
-                        "reqd" => false,
                         "type" => "`$INTEGER`",
                       },
                       {
-                        "active" => true,
                         "kind" => "query",
                         "name" => "page_size",
                         "orig" => "page_size",
-                        "reqd" => false,
                         "type" => "`$INTEGER`",
                       },
                     ],
@@ -4114,45 +3364,36 @@ module CloudsmithConfig
                     "req" => "`reqdata`",
                     "res" => "`body`",
                   },
-                  "index$" => 0,
                 },
               ],
-              "key$" => "list",
             },
             "load" => {
               "input" => "data",
               "name" => "load",
               "points" => [
                 {
-                  "active" => true,
                   "args" => {
                     "params" => [
                       {
-                        "active" => true,
                         "kind" => "param",
                         "name" => "id",
                         "orig" => "claim_value",
                         "reqd" => true,
                         "type" => "`$STRING`",
-                        "index$" => 0,
                       },
                       {
-                        "active" => true,
                         "kind" => "param",
                         "name" => "openid_connect_id",
                         "orig" => "provider_setting",
                         "reqd" => true,
                         "type" => "`$STRING`",
-                        "index$" => 1,
                       },
                       {
-                        "active" => true,
                         "kind" => "param",
                         "name" => "org_id",
                         "orig" => "org",
                         "reqd" => true,
                         "type" => "`$STRING`",
-                        "index$" => 2,
                       },
                     ],
                   },
@@ -4185,10 +3426,8 @@ module CloudsmithConfig
                     "req" => "`reqdata`",
                     "res" => "`body`",
                   },
-                  "index$" => 0,
                 },
               ],
-              "key$" => "load",
             },
           },
           "relations" => {
@@ -4233,39 +3472,26 @@ module CloudsmithConfig
         "entitlement" => {
           "fields" => [
             {
-              "active" => true,
               "name" => "active",
-              "req" => false,
               "type" => "`$INTEGER`",
-              "index$" => 0,
             },
             {
-              "active" => true,
               "name" => "bandwidth",
               "req" => true,
               "type" => "`$OBJECT`",
-              "index$" => 1,
             },
             {
-              "active" => true,
               "name" => "downloads",
               "req" => true,
               "type" => "`$OBJECT`",
-              "index$" => 2,
             },
             {
-              "active" => true,
               "name" => "inactive",
-              "req" => false,
               "type" => "`$INTEGER`",
-              "index$" => 3,
             },
             {
-              "active" => true,
               "name" => "total",
-              "req" => false,
               "type" => "`$INTEGER`",
-              "index$" => 4,
             },
           ],
           "name" => "entitlement",
@@ -4275,44 +3501,35 @@ module CloudsmithConfig
               "name" => "create",
               "points" => [
                 {
-                  "active" => true,
                   "args" => {
                     "params" => [
                       {
-                        "active" => true,
                         "kind" => "param",
                         "name" => "identifier",
                         "orig" => "identifier",
                         "reqd" => true,
                         "type" => "`$ANY`",
-                        "index$" => 0,
                       },
                       {
-                        "active" => true,
                         "kind" => "param",
                         "name" => "owner",
                         "orig" => "owner",
                         "reqd" => true,
                         "type" => "`$ANY`",
-                        "index$" => 1,
                       },
                       {
-                        "active" => true,
                         "kind" => "param",
                         "name" => "repo",
                         "orig" => "repo",
                         "reqd" => true,
                         "type" => "`$ANY`",
-                        "index$" => 2,
                       },
                     ],
                     "query" => [
                       {
-                        "active" => true,
                         "kind" => "query",
                         "name" => "show_token",
                         "orig" => "show_token",
-                        "reqd" => false,
                         "type" => "`$ANY`",
                       },
                     ],
@@ -4339,38 +3556,30 @@ module CloudsmithConfig
                     "req" => "`reqdata`",
                     "res" => "`body`",
                   },
-                  "index$" => 0,
                 },
                 {
-                  "active" => true,
                   "args" => {
                     "params" => [
                       {
-                        "active" => true,
                         "kind" => "param",
                         "name" => "identifier",
                         "orig" => "identifier",
                         "reqd" => true,
                         "type" => "`$ANY`",
-                        "index$" => 0,
                       },
                       {
-                        "active" => true,
                         "kind" => "param",
                         "name" => "owner",
                         "orig" => "owner",
                         "reqd" => true,
                         "type" => "`$ANY`",
-                        "index$" => 1,
                       },
                       {
-                        "active" => true,
                         "kind" => "param",
                         "name" => "repo",
                         "orig" => "repo",
                         "reqd" => true,
                         "type" => "`$ANY`",
-                        "index$" => 2,
                       },
                     ],
                   },
@@ -4395,38 +3604,30 @@ module CloudsmithConfig
                     "req" => "`reqdata`",
                     "res" => "`body`",
                   },
-                  "index$" => 1,
                 },
                 {
-                  "active" => true,
                   "args" => {
                     "params" => [
                       {
-                        "active" => true,
                         "kind" => "param",
                         "name" => "identifier",
                         "orig" => "identifier",
                         "reqd" => true,
                         "type" => "`$ANY`",
-                        "index$" => 0,
                       },
                       {
-                        "active" => true,
                         "kind" => "param",
                         "name" => "owner",
                         "orig" => "owner",
                         "reqd" => true,
                         "type" => "`$ANY`",
-                        "index$" => 1,
                       },
                       {
-                        "active" => true,
                         "kind" => "param",
                         "name" => "repo",
                         "orig" => "repo",
                         "reqd" => true,
                         "type" => "`$ANY`",
-                        "index$" => 2,
                       },
                     ],
                   },
@@ -4451,77 +3652,60 @@ module CloudsmithConfig
                     "req" => "`reqdata`",
                     "res" => "`body`",
                   },
-                  "index$" => 2,
                 },
               ],
-              "key$" => "create",
             },
             "load" => {
               "input" => "data",
               "name" => "load",
               "points" => [
                 {
-                  "active" => true,
                   "args" => {
                     "params" => [
                       {
-                        "active" => true,
                         "kind" => "param",
                         "name" => "owner",
                         "orig" => "owner",
                         "reqd" => true,
                         "type" => "`$ANY`",
-                        "index$" => 0,
                       },
                       {
-                        "active" => true,
                         "kind" => "param",
                         "name" => "repo",
                         "orig" => "repo",
                         "reqd" => true,
                         "type" => "`$ANY`",
-                        "index$" => 1,
                       },
                     ],
                     "query" => [
                       {
-                        "active" => true,
                         "kind" => "query",
                         "name" => "finish",
                         "orig" => "finish",
-                        "reqd" => false,
                         "type" => "`$ANY`",
                       },
                       {
-                        "active" => true,
                         "kind" => "query",
                         "name" => "page",
                         "orig" => "page",
-                        "reqd" => false,
                         "type" => "`$INTEGER`",
                       },
                       {
-                        "active" => true,
                         "kind" => "query",
                         "name" => "page_size",
                         "orig" => "page_size",
-                        "reqd" => false,
                         "type" => "`$INTEGER`",
                       },
                       {
-                        "active" => true,
                         "kind" => "query",
                         "name" => "start",
                         "orig" => "start",
-                        "reqd" => false,
                         "type" => "`$ANY`",
                       },
                       {
-                        "active" => true,
                         "kind" => "query",
                         "name" => "token",
                         "orig" => "token",
-                        "reqd" => false,
                         "type" => "`$STRING`",
                       },
                     ],
@@ -4550,61 +3734,47 @@ module CloudsmithConfig
                     "req" => "`reqdata`",
                     "res" => "`body.tokens`",
                   },
-                  "index$" => 0,
                 },
                 {
-                  "active" => true,
                   "args" => {
                     "params" => [
                       {
-                        "active" => true,
                         "kind" => "param",
                         "name" => "id",
                         "orig" => "owner",
                         "reqd" => true,
                         "type" => "`$STRING`",
-                        "index$" => 0,
                       },
                     ],
                     "query" => [
                       {
-                        "active" => true,
                         "kind" => "query",
                         "name" => "finish",
                         "orig" => "finish",
-                        "reqd" => false,
                         "type" => "`$ANY`",
                       },
                       {
-                        "active" => true,
                         "kind" => "query",
                         "name" => "page",
                         "orig" => "page",
-                        "reqd" => false,
                         "type" => "`$INTEGER`",
                       },
                       {
-                        "active" => true,
                         "kind" => "query",
                         "name" => "page_size",
                         "orig" => "page_size",
-                        "reqd" => false,
                         "type" => "`$INTEGER`",
                       },
                       {
-                        "active" => true,
                         "kind" => "query",
                         "name" => "start",
                         "orig" => "start",
-                        "reqd" => false,
                         "type" => "`$ANY`",
                       },
                       {
-                        "active" => true,
                         "kind" => "query",
                         "name" => "token",
                         "orig" => "token",
-                        "reqd" => false,
                         "type" => "`$STRING`",
                       },
                     ],
@@ -4636,45 +3806,36 @@ module CloudsmithConfig
                     "req" => "`reqdata`",
                     "res" => "`body.tokens`",
                   },
-                  "index$" => 1,
                 },
               ],
-              "key$" => "load",
             },
             "remove" => {
               "input" => "data",
               "name" => "remove",
               "points" => [
                 {
-                  "active" => true,
                   "args" => {
                     "params" => [
                       {
-                        "active" => true,
                         "kind" => "param",
                         "name" => "identifier",
                         "orig" => "identifier",
                         "reqd" => true,
                         "type" => "`$ANY`",
-                        "index$" => 0,
                       },
                       {
-                        "active" => true,
                         "kind" => "param",
                         "name" => "owner",
                         "orig" => "owner",
                         "reqd" => true,
                         "type" => "`$ANY`",
-                        "index$" => 1,
                       },
                       {
-                        "active" => true,
                         "kind" => "param",
                         "name" => "repo",
                         "orig" => "repo",
                         "reqd" => true,
                         "type" => "`$ANY`",
-                        "index$" => 2,
                       },
                     ],
                   },
@@ -4698,10 +3859,8 @@ module CloudsmithConfig
                     "req" => "`reqdata`",
                     "res" => "`body`",
                   },
-                  "index$" => 0,
                 },
               ],
-              "key$" => "remove",
             },
           },
           "relations" => {
@@ -4738,44 +3897,35 @@ module CloudsmithConfig
               "name" => "create",
               "points" => [
                 {
-                  "active" => true,
                   "args" => {
                     "params" => [
                       {
-                        "active" => true,
                         "kind" => "param",
                         "name" => "identifier",
                         "orig" => "identifier",
                         "reqd" => true,
                         "type" => "`$ANY`",
-                        "index$" => 0,
                       },
                       {
-                        "active" => true,
                         "kind" => "param",
                         "name" => "owner",
                         "orig" => "owner",
                         "reqd" => true,
                         "type" => "`$ANY`",
-                        "index$" => 1,
                       },
                       {
-                        "active" => true,
                         "kind" => "param",
                         "name" => "repo",
                         "orig" => "repo",
                         "reqd" => true,
                         "type" => "`$ANY`",
-                        "index$" => 2,
                       },
                     ],
                     "query" => [
                       {
-                        "active" => true,
                         "kind" => "query",
                         "name" => "data",
                         "orig" => "data",
-                        "reqd" => false,
                         "type" => "`$OBJECT`",
                       },
                     ],
@@ -4802,38 +3952,30 @@ module CloudsmithConfig
                     "req" => "`reqdata`",
                     "res" => "`body`",
                   },
-                  "index$" => 0,
                 },
                 {
-                  "active" => true,
                   "args" => {
                     "params" => [
                       {
-                        "active" => true,
                         "kind" => "param",
                         "name" => "owner",
                         "orig" => "owner",
                         "reqd" => true,
                         "type" => "`$ANY`",
-                        "index$" => 0,
                       },
                       {
-                        "active" => true,
                         "kind" => "param",
                         "name" => "repo",
                         "orig" => "repo",
                         "reqd" => true,
                         "type" => "`$ANY`",
-                        "index$" => 1,
                       },
                     ],
                     "query" => [
                       {
-                        "active" => true,
                         "kind" => "query",
                         "name" => "data",
                         "orig" => "data",
-                        "reqd" => false,
                         "type" => "`$OBJECT`",
                       },
                     ],
@@ -4857,38 +3999,30 @@ module CloudsmithConfig
                     "req" => "`reqdata`",
                     "res" => "`body`",
                   },
-                  "index$" => 1,
                 },
                 {
-                  "active" => true,
                   "args" => {
                     "params" => [
                       {
-                        "active" => true,
                         "kind" => "param",
                         "name" => "owner",
                         "orig" => "owner",
                         "reqd" => true,
                         "type" => "`$ANY`",
-                        "index$" => 0,
                       },
                       {
-                        "active" => true,
                         "kind" => "param",
                         "name" => "repo",
                         "orig" => "repo",
                         "reqd" => true,
                         "type" => "`$ANY`",
-                        "index$" => 1,
                       },
                     ],
                     "query" => [
                       {
-                        "active" => true,
                         "kind" => "query",
                         "name" => "data",
                         "orig" => "data",
-                        "reqd" => false,
                         "type" => "`$OBJECT`",
                       },
                     ],
@@ -4913,10 +4047,8 @@ module CloudsmithConfig
                     "req" => "`reqdata`",
                     "res" => "`body`",
                   },
-                  "index$" => 2,
                 },
               ],
-              "key$" => "create",
             },
           },
           "relations" => {
@@ -4930,67 +4062,46 @@ module CloudsmithConfig
         "format" => {
           "fields" => [
             {
-              "active" => true,
               "name" => "description",
               "req" => true,
               "type" => "`$STRING`",
-              "index$" => 0,
             },
             {
-              "active" => true,
               "name" => "distributions",
-              "req" => false,
               "type" => "`$ARRAY`",
-              "index$" => 1,
             },
             {
-              "active" => true,
               "name" => "extensions",
               "req" => true,
               "type" => "`$ARRAY`",
-              "index$" => 2,
             },
             {
-              "active" => true,
               "name" => "name",
               "req" => true,
               "type" => "`$STRING`",
-              "index$" => 3,
             },
             {
-              "active" => true,
               "name" => "premium",
               "req" => true,
               "type" => "`$BOOLEAN`",
-              "index$" => 4,
             },
             {
-              "active" => true,
               "name" => "premium_plan_id",
-              "req" => false,
               "type" => "`$STRING`",
-              "index$" => 5,
             },
             {
-              "active" => true,
               "name" => "premium_plan_name",
-              "req" => false,
               "type" => "`$STRING`",
-              "index$" => 6,
             },
             {
-              "active" => true,
               "name" => "slug",
               "req" => true,
               "type" => "`$STRING`",
-              "index$" => 7,
             },
             {
-              "active" => true,
               "name" => "supports",
               "req" => true,
               "type" => "`$OBJECT`",
-              "index$" => 8,
             },
           ],
           "name" => "format",
@@ -5000,7 +4111,6 @@ module CloudsmithConfig
               "name" => "list",
               "points" => [
                 {
-                  "active" => true,
                   "args" => {},
                   "kind" => "http",
                   "method" => "GET",
@@ -5013,27 +4123,22 @@ module CloudsmithConfig
                     "req" => "`reqdata`",
                     "res" => "`body`",
                   },
-                  "index$" => 0,
                 },
               ],
-              "key$" => "list",
             },
             "load" => {
               "input" => "data",
               "name" => "load",
               "points" => [
                 {
-                  "active" => true,
                   "args" => {
                     "params" => [
                       {
-                        "active" => true,
                         "kind" => "param",
                         "name" => "id",
                         "orig" => "slug",
                         "reqd" => true,
                         "type" => "`$STRING`",
-                        "index$" => 0,
                       },
                     ],
                   },
@@ -5058,10 +4163,8 @@ module CloudsmithConfig
                     "req" => "`reqdata`",
                     "res" => "`body`",
                   },
-                  "index$" => 0,
                 },
               ],
-              "key$" => "load",
             },
           },
           "relations" => {
@@ -5083,130 +4186,78 @@ module CloudsmithConfig
         "gon" => {
           "fields" => [
             {
-              "active" => true,
               "name" => "auth_mode",
-              "req" => false,
               "type" => "`$STRING`",
-              "index$" => 0,
             },
             {
-              "active" => true,
               "name" => "auth_secret",
-              "req" => false,
               "type" => "`$STRING`",
-              "index$" => 1,
             },
             {
-              "active" => true,
               "name" => "auth_username",
-              "req" => false,
               "type" => "`$STRING`",
-              "index$" => 2,
             },
             {
-              "active" => true,
               "name" => "created_at",
-              "req" => false,
               "type" => "`$STRING`",
-              "index$" => 3,
             },
             {
-              "active" => true,
               "name" => "disable_reason",
-              "req" => false,
               "type" => "`$STRING`",
-              "index$" => 4,
             },
             {
-              "active" => true,
               "name" => "extra_header_1",
-              "req" => false,
               "type" => "`$STRING`",
-              "index$" => 5,
             },
             {
-              "active" => true,
               "name" => "extra_header_2",
-              "req" => false,
               "type" => "`$STRING`",
-              "index$" => 6,
             },
             {
-              "active" => true,
               "name" => "extra_value_1",
-              "req" => false,
               "type" => "`$STRING`",
-              "index$" => 7,
             },
             {
-              "active" => true,
               "name" => "extra_value_2",
-              "req" => false,
               "type" => "`$STRING`",
-              "index$" => 8,
             },
             {
-              "active" => true,
               "name" => "is_active",
-              "req" => false,
               "type" => "`$BOOLEAN`",
-              "index$" => 9,
             },
             {
-              "active" => true,
               "name" => "mode",
-              "req" => false,
               "type" => "`$STRING`",
-              "index$" => 10,
             },
             {
-              "active" => true,
               "name" => "name",
               "req" => true,
               "type" => "`$STRING`",
-              "index$" => 11,
             },
             {
-              "active" => true,
               "name" => "pending_validation",
-              "req" => false,
               "type" => "`$BOOLEAN`",
-              "index$" => 12,
             },
             {
-              "active" => true,
               "name" => "priority",
-              "req" => false,
               "type" => "`$INTEGER`",
-              "index$" => 13,
             },
             {
-              "active" => true,
               "name" => "slug_perm",
-              "req" => false,
               "type" => "`$STRING`",
-              "index$" => 14,
             },
             {
-              "active" => true,
               "name" => "updated_at",
-              "req" => false,
               "type" => "`$STRING`",
-              "index$" => 15,
             },
             {
-              "active" => true,
               "name" => "upstream_url",
               "req" => true,
               "type" => "`$STRING`",
-              "index$" => 16,
             },
             {
-              "active" => true,
               "name" => "verify_ssl",
-              "req" => false,
               "type" => "`$BOOLEAN`",
-              "index$" => 17,
             },
           ],
           "name" => "gon",
@@ -5216,35 +4267,28 @@ module CloudsmithConfig
               "name" => "create",
               "points" => [
                 {
-                  "active" => true,
                   "args" => {
                     "params" => [
                       {
-                        "active" => true,
                         "kind" => "param",
                         "name" => "identifier",
                         "orig" => "identifier",
                         "reqd" => true,
                         "type" => "`$ANY`",
-                        "index$" => 0,
                       },
                       {
-                        "active" => true,
                         "kind" => "param",
                         "name" => "owner",
                         "orig" => "owner",
                         "reqd" => true,
                         "type" => "`$ANY`",
-                        "index$" => 1,
                       },
                     ],
                     "query" => [
                       {
-                        "active" => true,
                         "kind" => "query",
                         "name" => "data",
                         "orig" => "data",
-                        "reqd" => false,
                         "type" => "`$OBJECT`",
                       },
                     ],
@@ -5270,53 +4314,42 @@ module CloudsmithConfig
                     "req" => "`reqdata`",
                     "res" => "`body`",
                   },
-                  "index$" => 0,
                 },
               ],
-              "key$" => "create",
             },
             "list" => {
               "input" => "data",
               "name" => "list",
               "points" => [
                 {
-                  "active" => true,
                   "args" => {
                     "params" => [
                       {
-                        "active" => true,
                         "kind" => "param",
                         "name" => "identifier",
                         "orig" => "identifier",
                         "reqd" => true,
                         "type" => "`$ANY`",
-                        "index$" => 0,
                       },
                       {
-                        "active" => true,
                         "kind" => "param",
                         "name" => "owner",
                         "orig" => "owner",
                         "reqd" => true,
                         "type" => "`$ANY`",
-                        "index$" => 1,
                       },
                     ],
                     "query" => [
                       {
-                        "active" => true,
                         "kind" => "query",
                         "name" => "page",
                         "orig" => "page",
-                        "reqd" => false,
                         "type" => "`$INTEGER`",
                       },
                       {
-                        "active" => true,
                         "kind" => "query",
                         "name" => "page_size",
                         "orig" => "page_size",
-                        "reqd" => false,
                         "type" => "`$INTEGER`",
                       },
                     ],
@@ -5343,45 +4376,36 @@ module CloudsmithConfig
                     "req" => "`reqdata`",
                     "res" => "`body`",
                   },
-                  "index$" => 0,
                 },
               ],
-              "key$" => "list",
             },
             "load" => {
               "input" => "data",
               "name" => "load",
               "points" => [
                 {
-                  "active" => true,
                   "args" => {
                     "params" => [
                       {
-                        "active" => true,
                         "kind" => "param",
                         "name" => "identifier",
                         "orig" => "identifier",
                         "reqd" => true,
                         "type" => "`$ANY`",
-                        "index$" => 0,
                       },
                       {
-                        "active" => true,
                         "kind" => "param",
                         "name" => "owner",
                         "orig" => "owner",
                         "reqd" => true,
                         "type" => "`$ANY`",
-                        "index$" => 1,
                       },
                       {
-                        "active" => true,
                         "kind" => "param",
                         "name" => "slug_perm",
                         "orig" => "slug_perm",
                         "reqd" => true,
                         "type" => "`$ANY`",
-                        "index$" => 2,
                       },
                     ],
                   },
@@ -5407,21 +4431,17 @@ module CloudsmithConfig
                     "req" => "`reqdata`",
                     "res" => "`body`",
                   },
-                  "index$" => 0,
                 },
               ],
-              "key$" => "load",
             },
             "patch" => {
               "input" => "data",
               "name" => "patch",
               "points" => [
                 {
-                  "active" => true,
                   "args" => {
                     "params" => [
                       {
-                        "active" => true,
                         "kind" => "param",
                         "name" => "identifier",
                         "orig" => "identifier",
@@ -5429,7 +4449,6 @@ module CloudsmithConfig
                         "type" => "`$ANY`",
                       },
                       {
-                        "active" => true,
                         "kind" => "param",
                         "name" => "owner",
                         "orig" => "owner",
@@ -5437,7 +4456,6 @@ module CloudsmithConfig
                         "type" => "`$ANY`",
                       },
                       {
-                        "active" => true,
                         "kind" => "param",
                         "name" => "slug_perm",
                         "orig" => "slug_perm",
@@ -5447,11 +4465,9 @@ module CloudsmithConfig
                     ],
                     "query" => [
                       {
-                        "active" => true,
                         "kind" => "query",
                         "name" => "data",
                         "orig" => "data",
-                        "reqd" => false,
                         "type" => "`$OBJECT`",
                       },
                     ],
@@ -5479,54 +4495,43 @@ module CloudsmithConfig
                     "req" => "`reqdata`",
                     "res" => "`body`",
                   },
-                  "index$" => 0,
                 },
               ],
-              "key$" => "patch",
             },
             "update" => {
               "input" => "data",
               "name" => "update",
               "points" => [
                 {
-                  "active" => true,
                   "args" => {
                     "params" => [
                       {
-                        "active" => true,
                         "kind" => "param",
                         "name" => "identifier",
                         "orig" => "identifier",
                         "reqd" => true,
                         "type" => "`$ANY`",
-                        "index$" => 0,
                       },
                       {
-                        "active" => true,
                         "kind" => "param",
                         "name" => "owner",
                         "orig" => "owner",
                         "reqd" => true,
                         "type" => "`$ANY`",
-                        "index$" => 1,
                       },
                       {
-                        "active" => true,
                         "kind" => "param",
                         "name" => "slug_perm",
                         "orig" => "slug_perm",
                         "reqd" => true,
                         "type" => "`$ANY`",
-                        "index$" => 2,
                       },
                     ],
                     "query" => [
                       {
-                        "active" => true,
                         "kind" => "query",
                         "name" => "data",
                         "orig" => "data",
-                        "reqd" => false,
                         "type" => "`$OBJECT`",
                       },
                     ],
@@ -5554,10 +4559,8 @@ module CloudsmithConfig
                     "req" => "`reqdata`",
                     "res" => "`body`",
                   },
-                  "index$" => 0,
                 },
               ],
-              "key$" => "update",
             },
           },
           "relations" => {
@@ -5602,130 +4605,78 @@ module CloudsmithConfig
         "helm" => {
           "fields" => [
             {
-              "active" => true,
               "name" => "auth_mode",
-              "req" => false,
               "type" => "`$STRING`",
-              "index$" => 0,
             },
             {
-              "active" => true,
               "name" => "auth_secret",
-              "req" => false,
               "type" => "`$STRING`",
-              "index$" => 1,
             },
             {
-              "active" => true,
               "name" => "auth_username",
-              "req" => false,
               "type" => "`$STRING`",
-              "index$" => 2,
             },
             {
-              "active" => true,
               "name" => "created_at",
-              "req" => false,
               "type" => "`$STRING`",
-              "index$" => 3,
             },
             {
-              "active" => true,
               "name" => "disable_reason",
-              "req" => false,
               "type" => "`$STRING`",
-              "index$" => 4,
             },
             {
-              "active" => true,
               "name" => "extra_header_1",
-              "req" => false,
               "type" => "`$STRING`",
-              "index$" => 5,
             },
             {
-              "active" => true,
               "name" => "extra_header_2",
-              "req" => false,
               "type" => "`$STRING`",
-              "index$" => 6,
             },
             {
-              "active" => true,
               "name" => "extra_value_1",
-              "req" => false,
               "type" => "`$STRING`",
-              "index$" => 7,
             },
             {
-              "active" => true,
               "name" => "extra_value_2",
-              "req" => false,
               "type" => "`$STRING`",
-              "index$" => 8,
             },
             {
-              "active" => true,
               "name" => "is_active",
-              "req" => false,
               "type" => "`$BOOLEAN`",
-              "index$" => 9,
             },
             {
-              "active" => true,
               "name" => "mode",
-              "req" => false,
               "type" => "`$STRING`",
-              "index$" => 10,
             },
             {
-              "active" => true,
               "name" => "name",
               "req" => true,
               "type" => "`$STRING`",
-              "index$" => 11,
             },
             {
-              "active" => true,
               "name" => "pending_validation",
-              "req" => false,
               "type" => "`$BOOLEAN`",
-              "index$" => 12,
             },
             {
-              "active" => true,
               "name" => "priority",
-              "req" => false,
               "type" => "`$INTEGER`",
-              "index$" => 13,
             },
             {
-              "active" => true,
               "name" => "slug_perm",
-              "req" => false,
               "type" => "`$STRING`",
-              "index$" => 14,
             },
             {
-              "active" => true,
               "name" => "updated_at",
-              "req" => false,
               "type" => "`$STRING`",
-              "index$" => 15,
             },
             {
-              "active" => true,
               "name" => "upstream_url",
               "req" => true,
               "type" => "`$STRING`",
-              "index$" => 16,
             },
             {
-              "active" => true,
               "name" => "verify_ssl",
-              "req" => false,
               "type" => "`$BOOLEAN`",
-              "index$" => 17,
             },
           ],
           "name" => "helm",
@@ -5735,35 +4686,28 @@ module CloudsmithConfig
               "name" => "create",
               "points" => [
                 {
-                  "active" => true,
                   "args" => {
                     "params" => [
                       {
-                        "active" => true,
                         "kind" => "param",
                         "name" => "identifier",
                         "orig" => "identifier",
                         "reqd" => true,
                         "type" => "`$ANY`",
-                        "index$" => 0,
                       },
                       {
-                        "active" => true,
                         "kind" => "param",
                         "name" => "owner",
                         "orig" => "owner",
                         "reqd" => true,
                         "type" => "`$ANY`",
-                        "index$" => 1,
                       },
                     ],
                     "query" => [
                       {
-                        "active" => true,
                         "kind" => "query",
                         "name" => "data",
                         "orig" => "data",
-                        "reqd" => false,
                         "type" => "`$OBJECT`",
                       },
                     ],
@@ -5789,53 +4733,42 @@ module CloudsmithConfig
                     "req" => "`reqdata`",
                     "res" => "`body`",
                   },
-                  "index$" => 0,
                 },
               ],
-              "key$" => "create",
             },
             "list" => {
               "input" => "data",
               "name" => "list",
               "points" => [
                 {
-                  "active" => true,
                   "args" => {
                     "params" => [
                       {
-                        "active" => true,
                         "kind" => "param",
                         "name" => "identifier",
                         "orig" => "identifier",
                         "reqd" => true,
                         "type" => "`$ANY`",
-                        "index$" => 0,
                       },
                       {
-                        "active" => true,
                         "kind" => "param",
                         "name" => "owner",
                         "orig" => "owner",
                         "reqd" => true,
                         "type" => "`$ANY`",
-                        "index$" => 1,
                       },
                     ],
                     "query" => [
                       {
-                        "active" => true,
                         "kind" => "query",
                         "name" => "page",
                         "orig" => "page",
-                        "reqd" => false,
                         "type" => "`$INTEGER`",
                       },
                       {
-                        "active" => true,
                         "kind" => "query",
                         "name" => "page_size",
                         "orig" => "page_size",
-                        "reqd" => false,
                         "type" => "`$INTEGER`",
                       },
                     ],
@@ -5862,45 +4795,36 @@ module CloudsmithConfig
                     "req" => "`reqdata`",
                     "res" => "`body`",
                   },
-                  "index$" => 0,
                 },
               ],
-              "key$" => "list",
             },
             "load" => {
               "input" => "data",
               "name" => "load",
               "points" => [
                 {
-                  "active" => true,
                   "args" => {
                     "params" => [
                       {
-                        "active" => true,
                         "kind" => "param",
                         "name" => "id",
                         "orig" => "slug_perm",
                         "reqd" => true,
                         "type" => "`$STRING`",
-                        "index$" => 0,
                       },
                       {
-                        "active" => true,
                         "kind" => "param",
                         "name" => "identifier",
                         "orig" => "identifier",
                         "reqd" => true,
                         "type" => "`$ANY`",
-                        "index$" => 1,
                       },
                       {
-                        "active" => true,
                         "kind" => "param",
                         "name" => "owner",
                         "orig" => "owner",
                         "reqd" => true,
                         "type" => "`$ANY`",
-                        "index$" => 2,
                       },
                     ],
                   },
@@ -5931,21 +4855,17 @@ module CloudsmithConfig
                     "req" => "`reqdata`",
                     "res" => "`body`",
                   },
-                  "index$" => 0,
                 },
               ],
-              "key$" => "load",
             },
             "patch" => {
               "input" => "data",
               "name" => "patch",
               "points" => [
                 {
-                  "active" => true,
                   "args" => {
                     "params" => [
                       {
-                        "active" => true,
                         "kind" => "param",
                         "name" => "id",
                         "orig" => "slug_perm",
@@ -5953,7 +4873,6 @@ module CloudsmithConfig
                         "type" => "`$STRING`",
                       },
                       {
-                        "active" => true,
                         "kind" => "param",
                         "name" => "identifier",
                         "orig" => "identifier",
@@ -5961,7 +4880,6 @@ module CloudsmithConfig
                         "type" => "`$ANY`",
                       },
                       {
-                        "active" => true,
                         "kind" => "param",
                         "name" => "owner",
                         "orig" => "owner",
@@ -5971,11 +4889,9 @@ module CloudsmithConfig
                     ],
                     "query" => [
                       {
-                        "active" => true,
                         "kind" => "query",
                         "name" => "data",
                         "orig" => "data",
-                        "reqd" => false,
                         "type" => "`$OBJECT`",
                       },
                     ],
@@ -6008,54 +4924,43 @@ module CloudsmithConfig
                     "req" => "`reqdata`",
                     "res" => "`body`",
                   },
-                  "index$" => 0,
                 },
               ],
-              "key$" => "patch",
             },
             "update" => {
               "input" => "data",
               "name" => "update",
               "points" => [
                 {
-                  "active" => true,
                   "args" => {
                     "params" => [
                       {
-                        "active" => true,
                         "kind" => "param",
                         "name" => "id",
                         "orig" => "slug_perm",
                         "reqd" => true,
                         "type" => "`$STRING`",
-                        "index$" => 0,
                       },
                       {
-                        "active" => true,
                         "kind" => "param",
                         "name" => "identifier",
                         "orig" => "identifier",
                         "reqd" => true,
                         "type" => "`$ANY`",
-                        "index$" => 1,
                       },
                       {
-                        "active" => true,
                         "kind" => "param",
                         "name" => "owner",
                         "orig" => "owner",
                         "reqd" => true,
                         "type" => "`$ANY`",
-                        "index$" => 2,
                       },
                     ],
                     "query" => [
                       {
-                        "active" => true,
                         "kind" => "query",
                         "name" => "data",
                         "orig" => "data",
-                        "reqd" => false,
                         "type" => "`$OBJECT`",
                       },
                     ],
@@ -6088,10 +4993,8 @@ module CloudsmithConfig
                     "req" => "`reqdata`",
                     "res" => "`body`",
                   },
-                  "index$" => 0,
                 },
               ],
-              "key$" => "update",
             },
           },
           "relations" => {
@@ -6108,130 +5011,78 @@ module CloudsmithConfig
         "hex" => {
           "fields" => [
             {
-              "active" => true,
               "name" => "auth_mode",
-              "req" => false,
               "type" => "`$STRING`",
-              "index$" => 0,
             },
             {
-              "active" => true,
               "name" => "auth_secret",
-              "req" => false,
               "type" => "`$STRING`",
-              "index$" => 1,
             },
             {
-              "active" => true,
               "name" => "auth_username",
-              "req" => false,
               "type" => "`$STRING`",
-              "index$" => 2,
             },
             {
-              "active" => true,
               "name" => "created_at",
-              "req" => false,
               "type" => "`$STRING`",
-              "index$" => 3,
             },
             {
-              "active" => true,
               "name" => "disable_reason",
-              "req" => false,
               "type" => "`$STRING`",
-              "index$" => 4,
             },
             {
-              "active" => true,
               "name" => "extra_header_1",
-              "req" => false,
               "type" => "`$STRING`",
-              "index$" => 5,
             },
             {
-              "active" => true,
               "name" => "extra_header_2",
-              "req" => false,
               "type" => "`$STRING`",
-              "index$" => 6,
             },
             {
-              "active" => true,
               "name" => "extra_value_1",
-              "req" => false,
               "type" => "`$STRING`",
-              "index$" => 7,
             },
             {
-              "active" => true,
               "name" => "extra_value_2",
-              "req" => false,
               "type" => "`$STRING`",
-              "index$" => 8,
             },
             {
-              "active" => true,
               "name" => "is_active",
-              "req" => false,
               "type" => "`$BOOLEAN`",
-              "index$" => 9,
             },
             {
-              "active" => true,
               "name" => "mode",
-              "req" => false,
               "type" => "`$STRING`",
-              "index$" => 10,
             },
             {
-              "active" => true,
               "name" => "name",
               "req" => true,
               "type" => "`$STRING`",
-              "index$" => 11,
             },
             {
-              "active" => true,
               "name" => "pending_validation",
-              "req" => false,
               "type" => "`$BOOLEAN`",
-              "index$" => 12,
             },
             {
-              "active" => true,
               "name" => "priority",
-              "req" => false,
               "type" => "`$INTEGER`",
-              "index$" => 13,
             },
             {
-              "active" => true,
               "name" => "slug_perm",
-              "req" => false,
               "type" => "`$STRING`",
-              "index$" => 14,
             },
             {
-              "active" => true,
               "name" => "updated_at",
-              "req" => false,
               "type" => "`$STRING`",
-              "index$" => 15,
             },
             {
-              "active" => true,
               "name" => "upstream_url",
               "req" => true,
               "type" => "`$STRING`",
-              "index$" => 16,
             },
             {
-              "active" => true,
               "name" => "verify_ssl",
-              "req" => false,
               "type" => "`$BOOLEAN`",
-              "index$" => 17,
             },
           ],
           "name" => "hex",
@@ -6241,35 +5092,28 @@ module CloudsmithConfig
               "name" => "create",
               "points" => [
                 {
-                  "active" => true,
                   "args" => {
                     "params" => [
                       {
-                        "active" => true,
                         "kind" => "param",
                         "name" => "identifier",
                         "orig" => "identifier",
                         "reqd" => true,
                         "type" => "`$ANY`",
-                        "index$" => 0,
                       },
                       {
-                        "active" => true,
                         "kind" => "param",
                         "name" => "owner",
                         "orig" => "owner",
                         "reqd" => true,
                         "type" => "`$ANY`",
-                        "index$" => 1,
                       },
                     ],
                     "query" => [
                       {
-                        "active" => true,
                         "kind" => "query",
                         "name" => "data",
                         "orig" => "data",
-                        "reqd" => false,
                         "type" => "`$OBJECT`",
                       },
                     ],
@@ -6295,53 +5139,42 @@ module CloudsmithConfig
                     "req" => "`reqdata`",
                     "res" => "`body`",
                   },
-                  "index$" => 0,
                 },
               ],
-              "key$" => "create",
             },
             "list" => {
               "input" => "data",
               "name" => "list",
               "points" => [
                 {
-                  "active" => true,
                   "args" => {
                     "params" => [
                       {
-                        "active" => true,
                         "kind" => "param",
                         "name" => "identifier",
                         "orig" => "identifier",
                         "reqd" => true,
                         "type" => "`$ANY`",
-                        "index$" => 0,
                       },
                       {
-                        "active" => true,
                         "kind" => "param",
                         "name" => "owner",
                         "orig" => "owner",
                         "reqd" => true,
                         "type" => "`$ANY`",
-                        "index$" => 1,
                       },
                     ],
                     "query" => [
                       {
-                        "active" => true,
                         "kind" => "query",
                         "name" => "page",
                         "orig" => "page",
-                        "reqd" => false,
                         "type" => "`$INTEGER`",
                       },
                       {
-                        "active" => true,
                         "kind" => "query",
                         "name" => "page_size",
                         "orig" => "page_size",
-                        "reqd" => false,
                         "type" => "`$INTEGER`",
                       },
                     ],
@@ -6368,45 +5201,36 @@ module CloudsmithConfig
                     "req" => "`reqdata`",
                     "res" => "`body`",
                   },
-                  "index$" => 0,
                 },
               ],
-              "key$" => "list",
             },
             "load" => {
               "input" => "data",
               "name" => "load",
               "points" => [
                 {
-                  "active" => true,
                   "args" => {
                     "params" => [
                       {
-                        "active" => true,
                         "kind" => "param",
                         "name" => "id",
                         "orig" => "slug_perm",
                         "reqd" => true,
                         "type" => "`$STRING`",
-                        "index$" => 0,
                       },
                       {
-                        "active" => true,
                         "kind" => "param",
                         "name" => "identifier",
                         "orig" => "identifier",
                         "reqd" => true,
                         "type" => "`$ANY`",
-                        "index$" => 1,
                       },
                       {
-                        "active" => true,
                         "kind" => "param",
                         "name" => "owner",
                         "orig" => "owner",
                         "reqd" => true,
                         "type" => "`$ANY`",
-                        "index$" => 2,
                       },
                     ],
                   },
@@ -6437,21 +5261,17 @@ module CloudsmithConfig
                     "req" => "`reqdata`",
                     "res" => "`body`",
                   },
-                  "index$" => 0,
                 },
               ],
-              "key$" => "load",
             },
             "patch" => {
               "input" => "data",
               "name" => "patch",
               "points" => [
                 {
-                  "active" => true,
                   "args" => {
                     "params" => [
                       {
-                        "active" => true,
                         "kind" => "param",
                         "name" => "id",
                         "orig" => "slug_perm",
@@ -6459,7 +5279,6 @@ module CloudsmithConfig
                         "type" => "`$STRING`",
                       },
                       {
-                        "active" => true,
                         "kind" => "param",
                         "name" => "identifier",
                         "orig" => "identifier",
@@ -6467,7 +5286,6 @@ module CloudsmithConfig
                         "type" => "`$ANY`",
                       },
                       {
-                        "active" => true,
                         "kind" => "param",
                         "name" => "owner",
                         "orig" => "owner",
@@ -6477,11 +5295,9 @@ module CloudsmithConfig
                     ],
                     "query" => [
                       {
-                        "active" => true,
                         "kind" => "query",
                         "name" => "data",
                         "orig" => "data",
-                        "reqd" => false,
                         "type" => "`$OBJECT`",
                       },
                     ],
@@ -6514,54 +5330,43 @@ module CloudsmithConfig
                     "req" => "`reqdata`",
                     "res" => "`body`",
                   },
-                  "index$" => 0,
                 },
               ],
-              "key$" => "patch",
             },
             "update" => {
               "input" => "data",
               "name" => "update",
               "points" => [
                 {
-                  "active" => true,
                   "args" => {
                     "params" => [
                       {
-                        "active" => true,
                         "kind" => "param",
                         "name" => "id",
                         "orig" => "slug_perm",
                         "reqd" => true,
                         "type" => "`$STRING`",
-                        "index$" => 0,
                       },
                       {
-                        "active" => true,
                         "kind" => "param",
                         "name" => "identifier",
                         "orig" => "identifier",
                         "reqd" => true,
                         "type" => "`$ANY`",
-                        "index$" => 1,
                       },
                       {
-                        "active" => true,
                         "kind" => "param",
                         "name" => "owner",
                         "orig" => "owner",
                         "reqd" => true,
                         "type" => "`$ANY`",
-                        "index$" => 2,
                       },
                     ],
                     "query" => [
                       {
-                        "active" => true,
                         "kind" => "query",
                         "name" => "data",
                         "orig" => "data",
-                        "reqd" => false,
                         "type" => "`$OBJECT`",
                       },
                     ],
@@ -6594,10 +5399,8 @@ module CloudsmithConfig
                     "req" => "`reqdata`",
                     "res" => "`body`",
                   },
-                  "index$" => 0,
                 },
               ],
-              "key$" => "update",
             },
           },
           "relations" => {
@@ -6622,130 +5425,78 @@ module CloudsmithConfig
         "huggingface" => {
           "fields" => [
             {
-              "active" => true,
               "name" => "auth_mode",
-              "req" => false,
               "type" => "`$STRING`",
-              "index$" => 0,
             },
             {
-              "active" => true,
               "name" => "auth_secret",
-              "req" => false,
               "type" => "`$STRING`",
-              "index$" => 1,
             },
             {
-              "active" => true,
               "name" => "auth_username",
-              "req" => false,
               "type" => "`$STRING`",
-              "index$" => 2,
             },
             {
-              "active" => true,
               "name" => "created_at",
-              "req" => false,
               "type" => "`$STRING`",
-              "index$" => 3,
             },
             {
-              "active" => true,
               "name" => "disable_reason",
-              "req" => false,
               "type" => "`$STRING`",
-              "index$" => 4,
             },
             {
-              "active" => true,
               "name" => "extra_header_1",
-              "req" => false,
               "type" => "`$STRING`",
-              "index$" => 5,
             },
             {
-              "active" => true,
               "name" => "extra_header_2",
-              "req" => false,
               "type" => "`$STRING`",
-              "index$" => 6,
             },
             {
-              "active" => true,
               "name" => "extra_value_1",
-              "req" => false,
               "type" => "`$STRING`",
-              "index$" => 7,
             },
             {
-              "active" => true,
               "name" => "extra_value_2",
-              "req" => false,
               "type" => "`$STRING`",
-              "index$" => 8,
             },
             {
-              "active" => true,
               "name" => "is_active",
-              "req" => false,
               "type" => "`$BOOLEAN`",
-              "index$" => 9,
             },
             {
-              "active" => true,
               "name" => "mode",
-              "req" => false,
               "type" => "`$STRING`",
-              "index$" => 10,
             },
             {
-              "active" => true,
               "name" => "name",
               "req" => true,
               "type" => "`$STRING`",
-              "index$" => 11,
             },
             {
-              "active" => true,
               "name" => "pending_validation",
-              "req" => false,
               "type" => "`$BOOLEAN`",
-              "index$" => 12,
             },
             {
-              "active" => true,
               "name" => "priority",
-              "req" => false,
               "type" => "`$INTEGER`",
-              "index$" => 13,
             },
             {
-              "active" => true,
               "name" => "slug_perm",
-              "req" => false,
               "type" => "`$STRING`",
-              "index$" => 14,
             },
             {
-              "active" => true,
               "name" => "updated_at",
-              "req" => false,
               "type" => "`$STRING`",
-              "index$" => 15,
             },
             {
-              "active" => true,
               "name" => "upstream_url",
               "req" => true,
               "type" => "`$STRING`",
-              "index$" => 16,
             },
             {
-              "active" => true,
               "name" => "verify_ssl",
-              "req" => false,
               "type" => "`$BOOLEAN`",
-              "index$" => 17,
             },
           ],
           "name" => "huggingface",
@@ -6755,35 +5506,28 @@ module CloudsmithConfig
               "name" => "create",
               "points" => [
                 {
-                  "active" => true,
                   "args" => {
                     "params" => [
                       {
-                        "active" => true,
                         "kind" => "param",
                         "name" => "identifier",
                         "orig" => "identifier",
                         "reqd" => true,
                         "type" => "`$ANY`",
-                        "index$" => 0,
                       },
                       {
-                        "active" => true,
                         "kind" => "param",
                         "name" => "owner",
                         "orig" => "owner",
                         "reqd" => true,
                         "type" => "`$ANY`",
-                        "index$" => 1,
                       },
                     ],
                     "query" => [
                       {
-                        "active" => true,
                         "kind" => "query",
                         "name" => "data",
                         "orig" => "data",
-                        "reqd" => false,
                         "type" => "`$OBJECT`",
                       },
                     ],
@@ -6809,53 +5553,42 @@ module CloudsmithConfig
                     "req" => "`reqdata`",
                     "res" => "`body`",
                   },
-                  "index$" => 0,
                 },
               ],
-              "key$" => "create",
             },
             "list" => {
               "input" => "data",
               "name" => "list",
               "points" => [
                 {
-                  "active" => true,
                   "args" => {
                     "params" => [
                       {
-                        "active" => true,
                         "kind" => "param",
                         "name" => "identifier",
                         "orig" => "identifier",
                         "reqd" => true,
                         "type" => "`$ANY`",
-                        "index$" => 0,
                       },
                       {
-                        "active" => true,
                         "kind" => "param",
                         "name" => "owner",
                         "orig" => "owner",
                         "reqd" => true,
                         "type" => "`$ANY`",
-                        "index$" => 1,
                       },
                     ],
                     "query" => [
                       {
-                        "active" => true,
                         "kind" => "query",
                         "name" => "page",
                         "orig" => "page",
-                        "reqd" => false,
                         "type" => "`$INTEGER`",
                       },
                       {
-                        "active" => true,
                         "kind" => "query",
                         "name" => "page_size",
                         "orig" => "page_size",
-                        "reqd" => false,
                         "type" => "`$INTEGER`",
                       },
                     ],
@@ -6882,45 +5615,36 @@ module CloudsmithConfig
                     "req" => "`reqdata`",
                     "res" => "`body`",
                   },
-                  "index$" => 0,
                 },
               ],
-              "key$" => "list",
             },
             "load" => {
               "input" => "data",
               "name" => "load",
               "points" => [
                 {
-                  "active" => true,
                   "args" => {
                     "params" => [
                       {
-                        "active" => true,
                         "kind" => "param",
                         "name" => "id",
                         "orig" => "slug_perm",
                         "reqd" => true,
                         "type" => "`$STRING`",
-                        "index$" => 0,
                       },
                       {
-                        "active" => true,
                         "kind" => "param",
                         "name" => "identifier",
                         "orig" => "identifier",
                         "reqd" => true,
                         "type" => "`$ANY`",
-                        "index$" => 1,
                       },
                       {
-                        "active" => true,
                         "kind" => "param",
                         "name" => "owner",
                         "orig" => "owner",
                         "reqd" => true,
                         "type" => "`$ANY`",
-                        "index$" => 2,
                       },
                     ],
                   },
@@ -6951,21 +5675,17 @@ module CloudsmithConfig
                     "req" => "`reqdata`",
                     "res" => "`body`",
                   },
-                  "index$" => 0,
                 },
               ],
-              "key$" => "load",
             },
             "patch" => {
               "input" => "data",
               "name" => "patch",
               "points" => [
                 {
-                  "active" => true,
                   "args" => {
                     "params" => [
                       {
-                        "active" => true,
                         "kind" => "param",
                         "name" => "id",
                         "orig" => "slug_perm",
@@ -6973,7 +5693,6 @@ module CloudsmithConfig
                         "type" => "`$STRING`",
                       },
                       {
-                        "active" => true,
                         "kind" => "param",
                         "name" => "identifier",
                         "orig" => "identifier",
@@ -6981,7 +5700,6 @@ module CloudsmithConfig
                         "type" => "`$ANY`",
                       },
                       {
-                        "active" => true,
                         "kind" => "param",
                         "name" => "owner",
                         "orig" => "owner",
@@ -6991,11 +5709,9 @@ module CloudsmithConfig
                     ],
                     "query" => [
                       {
-                        "active" => true,
                         "kind" => "query",
                         "name" => "data",
                         "orig" => "data",
-                        "reqd" => false,
                         "type" => "`$OBJECT`",
                       },
                     ],
@@ -7028,54 +5744,43 @@ module CloudsmithConfig
                     "req" => "`reqdata`",
                     "res" => "`body`",
                   },
-                  "index$" => 0,
                 },
               ],
-              "key$" => "patch",
             },
             "update" => {
               "input" => "data",
               "name" => "update",
               "points" => [
                 {
-                  "active" => true,
                   "args" => {
                     "params" => [
                       {
-                        "active" => true,
                         "kind" => "param",
                         "name" => "id",
                         "orig" => "slug_perm",
                         "reqd" => true,
                         "type" => "`$STRING`",
-                        "index$" => 0,
                       },
                       {
-                        "active" => true,
                         "kind" => "param",
                         "name" => "identifier",
                         "orig" => "identifier",
                         "reqd" => true,
                         "type" => "`$ANY`",
-                        "index$" => 1,
                       },
                       {
-                        "active" => true,
                         "kind" => "param",
                         "name" => "owner",
                         "orig" => "owner",
                         "reqd" => true,
                         "type" => "`$ANY`",
-                        "index$" => 2,
                       },
                     ],
                     "query" => [
                       {
-                        "active" => true,
                         "kind" => "query",
                         "name" => "data",
                         "orig" => "data",
-                        "reqd" => false,
                         "type" => "`$OBJECT`",
                       },
                     ],
@@ -7108,10 +5813,8 @@ module CloudsmithConfig
                     "req" => "`reqdata`",
                     "res" => "`body`",
                   },
-                  "index$" => 0,
                 },
               ],
-              "key$" => "update",
             },
           },
           "relations" => {
@@ -7192,158 +5895,94 @@ module CloudsmithConfig
         "maven" => {
           "fields" => [
             {
-              "active" => true,
               "name" => "auth_mode",
-              "req" => false,
               "type" => "`$STRING`",
-              "index$" => 0,
             },
             {
-              "active" => true,
               "name" => "auth_secret",
-              "req" => false,
               "type" => "`$STRING`",
-              "index$" => 1,
             },
             {
-              "active" => true,
               "name" => "auth_username",
-              "req" => false,
               "type" => "`$STRING`",
-              "index$" => 2,
             },
             {
-              "active" => true,
               "name" => "created_at",
-              "req" => false,
               "type" => "`$STRING`",
-              "index$" => 3,
             },
             {
-              "active" => true,
               "name" => "disable_reason",
-              "req" => false,
               "type" => "`$STRING`",
-              "index$" => 4,
             },
             {
-              "active" => true,
               "name" => "extra_header_1",
-              "req" => false,
               "type" => "`$STRING`",
-              "index$" => 5,
             },
             {
-              "active" => true,
               "name" => "extra_header_2",
-              "req" => false,
               "type" => "`$STRING`",
-              "index$" => 6,
             },
             {
-              "active" => true,
               "name" => "extra_value_1",
-              "req" => false,
               "type" => "`$STRING`",
-              "index$" => 7,
             },
             {
-              "active" => true,
               "name" => "extra_value_2",
-              "req" => false,
               "type" => "`$STRING`",
-              "index$" => 8,
             },
             {
-              "active" => true,
               "name" => "gpg_key_inline",
-              "req" => false,
               "type" => "`$STRING`",
-              "index$" => 9,
             },
             {
-              "active" => true,
               "name" => "gpg_key_url",
-              "req" => false,
               "type" => "`$STRING`",
-              "index$" => 10,
             },
             {
-              "active" => true,
               "name" => "gpg_verification",
-              "req" => false,
               "type" => "`$STRING`",
-              "index$" => 11,
             },
             {
-              "active" => true,
               "name" => "is_active",
-              "req" => false,
               "type" => "`$BOOLEAN`",
-              "index$" => 12,
             },
             {
-              "active" => true,
               "name" => "mode",
-              "req" => false,
               "type" => "`$STRING`",
-              "index$" => 13,
             },
             {
-              "active" => true,
               "name" => "name",
               "req" => true,
               "type" => "`$STRING`",
-              "index$" => 14,
             },
             {
-              "active" => true,
               "name" => "pending_validation",
-              "req" => false,
               "type" => "`$BOOLEAN`",
-              "index$" => 15,
             },
             {
-              "active" => true,
               "name" => "priority",
-              "req" => false,
               "type" => "`$INTEGER`",
-              "index$" => 16,
             },
             {
-              "active" => true,
               "name" => "slug_perm",
-              "req" => false,
               "type" => "`$STRING`",
-              "index$" => 17,
             },
             {
-              "active" => true,
               "name" => "updated_at",
-              "req" => false,
               "type" => "`$STRING`",
-              "index$" => 18,
             },
             {
-              "active" => true,
               "name" => "upstream_url",
               "req" => true,
               "type" => "`$STRING`",
-              "index$" => 19,
             },
             {
-              "active" => true,
               "name" => "verification_status",
-              "req" => false,
               "type" => "`$STRING`",
-              "index$" => 20,
             },
             {
-              "active" => true,
               "name" => "verify_ssl",
-              "req" => false,
               "type" => "`$BOOLEAN`",
-              "index$" => 21,
             },
           ],
           "name" => "maven",
@@ -7353,35 +5992,28 @@ module CloudsmithConfig
               "name" => "create",
               "points" => [
                 {
-                  "active" => true,
                   "args" => {
                     "params" => [
                       {
-                        "active" => true,
                         "kind" => "param",
                         "name" => "identifier",
                         "orig" => "identifier",
                         "reqd" => true,
                         "type" => "`$ANY`",
-                        "index$" => 0,
                       },
                       {
-                        "active" => true,
                         "kind" => "param",
                         "name" => "owner",
                         "orig" => "owner",
                         "reqd" => true,
                         "type" => "`$ANY`",
-                        "index$" => 1,
                       },
                     ],
                     "query" => [
                       {
-                        "active" => true,
                         "kind" => "query",
                         "name" => "data",
                         "orig" => "data",
-                        "reqd" => false,
                         "type" => "`$OBJECT`",
                       },
                     ],
@@ -7407,53 +6039,42 @@ module CloudsmithConfig
                     "req" => "`reqdata`",
                     "res" => "`body`",
                   },
-                  "index$" => 0,
                 },
               ],
-              "key$" => "create",
             },
             "list" => {
               "input" => "data",
               "name" => "list",
               "points" => [
                 {
-                  "active" => true,
                   "args" => {
                     "params" => [
                       {
-                        "active" => true,
                         "kind" => "param",
                         "name" => "identifier",
                         "orig" => "identifier",
                         "reqd" => true,
                         "type" => "`$ANY`",
-                        "index$" => 0,
                       },
                       {
-                        "active" => true,
                         "kind" => "param",
                         "name" => "owner",
                         "orig" => "owner",
                         "reqd" => true,
                         "type" => "`$ANY`",
-                        "index$" => 1,
                       },
                     ],
                     "query" => [
                       {
-                        "active" => true,
                         "kind" => "query",
                         "name" => "page",
                         "orig" => "page",
-                        "reqd" => false,
                         "type" => "`$INTEGER`",
                       },
                       {
-                        "active" => true,
                         "kind" => "query",
                         "name" => "page_size",
                         "orig" => "page_size",
-                        "reqd" => false,
                         "type" => "`$INTEGER`",
                       },
                     ],
@@ -7480,45 +6101,36 @@ module CloudsmithConfig
                     "req" => "`reqdata`",
                     "res" => "`body`",
                   },
-                  "index$" => 0,
                 },
               ],
-              "key$" => "list",
             },
             "load" => {
               "input" => "data",
               "name" => "load",
               "points" => [
                 {
-                  "active" => true,
                   "args" => {
                     "params" => [
                       {
-                        "active" => true,
                         "kind" => "param",
                         "name" => "id",
                         "orig" => "slug_perm",
                         "reqd" => true,
                         "type" => "`$STRING`",
-                        "index$" => 0,
                       },
                       {
-                        "active" => true,
                         "kind" => "param",
                         "name" => "identifier",
                         "orig" => "identifier",
                         "reqd" => true,
                         "type" => "`$ANY`",
-                        "index$" => 1,
                       },
                       {
-                        "active" => true,
                         "kind" => "param",
                         "name" => "owner",
                         "orig" => "owner",
                         "reqd" => true,
                         "type" => "`$ANY`",
-                        "index$" => 2,
                       },
                     ],
                   },
@@ -7549,21 +6161,17 @@ module CloudsmithConfig
                     "req" => "`reqdata`",
                     "res" => "`body`",
                   },
-                  "index$" => 0,
                 },
               ],
-              "key$" => "load",
             },
             "patch" => {
               "input" => "data",
               "name" => "patch",
               "points" => [
                 {
-                  "active" => true,
                   "args" => {
                     "params" => [
                       {
-                        "active" => true,
                         "kind" => "param",
                         "name" => "id",
                         "orig" => "slug_perm",
@@ -7571,7 +6179,6 @@ module CloudsmithConfig
                         "type" => "`$STRING`",
                       },
                       {
-                        "active" => true,
                         "kind" => "param",
                         "name" => "identifier",
                         "orig" => "identifier",
@@ -7579,7 +6186,6 @@ module CloudsmithConfig
                         "type" => "`$ANY`",
                       },
                       {
-                        "active" => true,
                         "kind" => "param",
                         "name" => "owner",
                         "orig" => "owner",
@@ -7589,11 +6195,9 @@ module CloudsmithConfig
                     ],
                     "query" => [
                       {
-                        "active" => true,
                         "kind" => "query",
                         "name" => "data",
                         "orig" => "data",
-                        "reqd" => false,
                         "type" => "`$OBJECT`",
                       },
                     ],
@@ -7626,54 +6230,43 @@ module CloudsmithConfig
                     "req" => "`reqdata`",
                     "res" => "`body`",
                   },
-                  "index$" => 0,
                 },
               ],
-              "key$" => "patch",
             },
             "update" => {
               "input" => "data",
               "name" => "update",
               "points" => [
                 {
-                  "active" => true,
                   "args" => {
                     "params" => [
                       {
-                        "active" => true,
                         "kind" => "param",
                         "name" => "id",
                         "orig" => "slug_perm",
                         "reqd" => true,
                         "type" => "`$STRING`",
-                        "index$" => 0,
                       },
                       {
-                        "active" => true,
                         "kind" => "param",
                         "name" => "identifier",
                         "orig" => "identifier",
                         "reqd" => true,
                         "type" => "`$ANY`",
-                        "index$" => 1,
                       },
                       {
-                        "active" => true,
                         "kind" => "param",
                         "name" => "owner",
                         "orig" => "owner",
                         "reqd" => true,
                         "type" => "`$ANY`",
-                        "index$" => 2,
                       },
                     ],
                     "query" => [
                       {
-                        "active" => true,
                         "kind" => "query",
                         "name" => "data",
                         "orig" => "data",
-                        "reqd" => false,
                         "type" => "`$OBJECT`",
                       },
                     ],
@@ -7706,10 +6299,8 @@ module CloudsmithConfig
                     "req" => "`reqdata`",
                     "res" => "`body`",
                   },
-                  "index$" => 0,
                 },
               ],
-              "key$" => "update",
             },
           },
           "relations" => {
@@ -7750,32 +6341,20 @@ module CloudsmithConfig
         "namespace" => {
           "fields" => [
             {
-              "active" => true,
               "name" => "name",
-              "req" => false,
               "type" => "`$STRING`",
-              "index$" => 0,
             },
             {
-              "active" => true,
               "name" => "slug",
-              "req" => false,
               "type" => "`$STRING`",
-              "index$" => 1,
             },
             {
-              "active" => true,
               "name" => "slug_perm",
-              "req" => false,
               "type" => "`$STRING`",
-              "index$" => 2,
             },
             {
-              "active" => true,
               "name" => "type_name",
-              "req" => false,
               "type" => "`$STRING`",
-              "index$" => 3,
             },
           ],
           "name" => "namespace",
@@ -7785,23 +6364,18 @@ module CloudsmithConfig
               "name" => "list",
               "points" => [
                 {
-                  "active" => true,
                   "args" => {
                     "query" => [
                       {
-                        "active" => true,
                         "kind" => "query",
                         "name" => "page",
                         "orig" => "page",
-                        "reqd" => false,
                         "type" => "`$INTEGER`",
                       },
                       {
-                        "active" => true,
                         "kind" => "query",
                         "name" => "page_size",
                         "orig" => "page_size",
-                        "reqd" => false,
                         "type" => "`$INTEGER`",
                       },
                     ],
@@ -7822,27 +6396,22 @@ module CloudsmithConfig
                     "req" => "`reqdata`",
                     "res" => "`body`",
                   },
-                  "index$" => 0,
                 },
               ],
-              "key$" => "list",
             },
             "load" => {
               "input" => "data",
               "name" => "load",
               "points" => [
                 {
-                  "active" => true,
                   "args" => {
                     "params" => [
                       {
-                        "active" => true,
                         "kind" => "param",
                         "name" => "id",
                         "orig" => "slug",
                         "reqd" => true,
                         "type" => "`$STRING`",
-                        "index$" => 0,
                       },
                     ],
                   },
@@ -7867,10 +6436,8 @@ module CloudsmithConfig
                     "req" => "`reqdata`",
                     "res" => "`body`",
                   },
-                  "index$" => 0,
                 },
               ],
-              "key$" => "load",
             },
           },
           "relations" => {
@@ -7880,116 +6447,80 @@ module CloudsmithConfig
         "namespace_audit_log" => {
           "fields" => [
             {
-              "active" => true,
               "name" => "actor",
               "req" => true,
               "type" => "`$STRING`",
-              "index$" => 0,
             },
             {
-              "active" => true,
               "name" => "actor_ip_address",
               "req" => true,
               "type" => "`$STRING`",
-              "index$" => 1,
             },
             {
-              "active" => true,
               "name" => "actor_kind",
-              "req" => false,
               "type" => "`$STRING`",
-              "index$" => 2,
             },
             {
-              "active" => true,
               "name" => "actor_location",
               "req" => true,
               "type" => "`$OBJECT`",
-              "index$" => 3,
             },
             {
-              "active" => true,
               "name" => "actor_slug_perm",
               "req" => true,
               "type" => "`$STRING`",
-              "index$" => 4,
             },
             {
-              "active" => true,
               "name" => "actor_url",
-              "req" => false,
               "type" => "`$STRING`",
-              "index$" => 5,
             },
             {
-              "active" => true,
               "name" => "context",
               "req" => true,
               "type" => "`$STRING`",
-              "index$" => 6,
             },
             {
-              "active" => true,
               "name" => "event",
               "req" => true,
               "type" => "`$STRING`",
-              "index$" => 7,
             },
             {
-              "active" => true,
               "name" => "event_at",
               "req" => true,
               "type" => "`$STRING`",
-              "index$" => 8,
             },
             {
-              "active" => true,
               "name" => "object",
               "req" => true,
               "type" => "`$STRING`",
-              "index$" => 9,
             },
             {
-              "active" => true,
               "name" => "object_kind",
               "req" => true,
               "type" => "`$STRING`",
-              "index$" => 10,
             },
             {
-              "active" => true,
               "name" => "object_slug_perm",
               "req" => true,
               "type" => "`$STRING`",
-              "index$" => 11,
             },
             {
-              "active" => true,
               "name" => "target",
               "req" => true,
               "type" => "`$STRING`",
-              "index$" => 12,
             },
             {
-              "active" => true,
               "name" => "target_kind",
               "req" => true,
               "type" => "`$STRING`",
-              "index$" => 13,
             },
             {
-              "active" => true,
               "name" => "target_slug_perm",
-              "req" => false,
               "type" => "`$STRING`",
-              "index$" => 14,
             },
             {
-              "active" => true,
               "name" => "uuid",
-              "req" => false,
               "type" => "`$STRING`",
-              "index$" => 15,
             },
           ],
           "name" => "namespace_audit_log",
@@ -7999,42 +6530,33 @@ module CloudsmithConfig
               "name" => "load",
               "points" => [
                 {
-                  "active" => true,
                   "args" => {
                     "params" => [
                       {
-                        "active" => true,
                         "kind" => "param",
                         "name" => "id",
                         "orig" => "owner",
                         "reqd" => true,
                         "type" => "`$STRING`",
-                        "index$" => 0,
                       },
                     ],
                     "query" => [
                       {
-                        "active" => true,
                         "kind" => "query",
                         "name" => "page",
                         "orig" => "page",
-                        "reqd" => false,
                         "type" => "`$INTEGER`",
                       },
                       {
-                        "active" => true,
                         "kind" => "query",
                         "name" => "page_size",
                         "orig" => "page_size",
-                        "reqd" => false,
                         "type" => "`$INTEGER`",
                       },
                       {
-                        "active" => true,
                         "kind" => "query",
                         "name" => "query",
                         "orig" => "query",
-                        "reqd" => false,
                         "type" => "`$ANY`",
                       },
                     ],
@@ -8063,10 +6585,8 @@ module CloudsmithConfig
                     "req" => "`reqdata`",
                     "res" => "`body`",
                   },
-                  "index$" => 0,
                 },
               ],
-              "key$" => "load",
             },
           },
           "relations" => {
@@ -8076,130 +6596,78 @@ module CloudsmithConfig
         "npm" => {
           "fields" => [
             {
-              "active" => true,
               "name" => "auth_mode",
-              "req" => false,
               "type" => "`$STRING`",
-              "index$" => 0,
             },
             {
-              "active" => true,
               "name" => "auth_secret",
-              "req" => false,
               "type" => "`$STRING`",
-              "index$" => 1,
             },
             {
-              "active" => true,
               "name" => "auth_username",
-              "req" => false,
               "type" => "`$STRING`",
-              "index$" => 2,
             },
             {
-              "active" => true,
               "name" => "created_at",
-              "req" => false,
               "type" => "`$STRING`",
-              "index$" => 3,
             },
             {
-              "active" => true,
               "name" => "disable_reason",
-              "req" => false,
               "type" => "`$STRING`",
-              "index$" => 4,
             },
             {
-              "active" => true,
               "name" => "extra_header_1",
-              "req" => false,
               "type" => "`$STRING`",
-              "index$" => 5,
             },
             {
-              "active" => true,
               "name" => "extra_header_2",
-              "req" => false,
               "type" => "`$STRING`",
-              "index$" => 6,
             },
             {
-              "active" => true,
               "name" => "extra_value_1",
-              "req" => false,
               "type" => "`$STRING`",
-              "index$" => 7,
             },
             {
-              "active" => true,
               "name" => "extra_value_2",
-              "req" => false,
               "type" => "`$STRING`",
-              "index$" => 8,
             },
             {
-              "active" => true,
               "name" => "is_active",
-              "req" => false,
               "type" => "`$BOOLEAN`",
-              "index$" => 9,
             },
             {
-              "active" => true,
               "name" => "mode",
-              "req" => false,
               "type" => "`$STRING`",
-              "index$" => 10,
             },
             {
-              "active" => true,
               "name" => "name",
               "req" => true,
               "type" => "`$STRING`",
-              "index$" => 11,
             },
             {
-              "active" => true,
               "name" => "pending_validation",
-              "req" => false,
               "type" => "`$BOOLEAN`",
-              "index$" => 12,
             },
             {
-              "active" => true,
               "name" => "priority",
-              "req" => false,
               "type" => "`$INTEGER`",
-              "index$" => 13,
             },
             {
-              "active" => true,
               "name" => "slug_perm",
-              "req" => false,
               "type" => "`$STRING`",
-              "index$" => 14,
             },
             {
-              "active" => true,
               "name" => "updated_at",
-              "req" => false,
               "type" => "`$STRING`",
-              "index$" => 15,
             },
             {
-              "active" => true,
               "name" => "upstream_url",
               "req" => true,
               "type" => "`$STRING`",
-              "index$" => 16,
             },
             {
-              "active" => true,
               "name" => "verify_ssl",
-              "req" => false,
               "type" => "`$BOOLEAN`",
-              "index$" => 17,
             },
           ],
           "name" => "npm",
@@ -8209,35 +6677,28 @@ module CloudsmithConfig
               "name" => "create",
               "points" => [
                 {
-                  "active" => true,
                   "args" => {
                     "params" => [
                       {
-                        "active" => true,
                         "kind" => "param",
                         "name" => "identifier",
                         "orig" => "identifier",
                         "reqd" => true,
                         "type" => "`$ANY`",
-                        "index$" => 0,
                       },
                       {
-                        "active" => true,
                         "kind" => "param",
                         "name" => "owner",
                         "orig" => "owner",
                         "reqd" => true,
                         "type" => "`$ANY`",
-                        "index$" => 1,
                       },
                     ],
                     "query" => [
                       {
-                        "active" => true,
                         "kind" => "query",
                         "name" => "data",
                         "orig" => "data",
-                        "reqd" => false,
                         "type" => "`$OBJECT`",
                       },
                     ],
@@ -8263,53 +6724,42 @@ module CloudsmithConfig
                     "req" => "`reqdata`",
                     "res" => "`body`",
                   },
-                  "index$" => 0,
                 },
               ],
-              "key$" => "create",
             },
             "list" => {
               "input" => "data",
               "name" => "list",
               "points" => [
                 {
-                  "active" => true,
                   "args" => {
                     "params" => [
                       {
-                        "active" => true,
                         "kind" => "param",
                         "name" => "identifier",
                         "orig" => "identifier",
                         "reqd" => true,
                         "type" => "`$ANY`",
-                        "index$" => 0,
                       },
                       {
-                        "active" => true,
                         "kind" => "param",
                         "name" => "owner",
                         "orig" => "owner",
                         "reqd" => true,
                         "type" => "`$ANY`",
-                        "index$" => 1,
                       },
                     ],
                     "query" => [
                       {
-                        "active" => true,
                         "kind" => "query",
                         "name" => "page",
                         "orig" => "page",
-                        "reqd" => false,
                         "type" => "`$INTEGER`",
                       },
                       {
-                        "active" => true,
                         "kind" => "query",
                         "name" => "page_size",
                         "orig" => "page_size",
-                        "reqd" => false,
                         "type" => "`$INTEGER`",
                       },
                     ],
@@ -8336,45 +6786,36 @@ module CloudsmithConfig
                     "req" => "`reqdata`",
                     "res" => "`body`",
                   },
-                  "index$" => 0,
                 },
               ],
-              "key$" => "list",
             },
             "load" => {
               "input" => "data",
               "name" => "load",
               "points" => [
                 {
-                  "active" => true,
                   "args" => {
                     "params" => [
                       {
-                        "active" => true,
                         "kind" => "param",
                         "name" => "id",
                         "orig" => "slug_perm",
                         "reqd" => true,
                         "type" => "`$STRING`",
-                        "index$" => 0,
                       },
                       {
-                        "active" => true,
                         "kind" => "param",
                         "name" => "identifier",
                         "orig" => "identifier",
                         "reqd" => true,
                         "type" => "`$ANY`",
-                        "index$" => 1,
                       },
                       {
-                        "active" => true,
                         "kind" => "param",
                         "name" => "owner",
                         "orig" => "owner",
                         "reqd" => true,
                         "type" => "`$ANY`",
-                        "index$" => 2,
                       },
                     ],
                   },
@@ -8405,21 +6846,17 @@ module CloudsmithConfig
                     "req" => "`reqdata`",
                     "res" => "`body`",
                   },
-                  "index$" => 0,
                 },
               ],
-              "key$" => "load",
             },
             "patch" => {
               "input" => "data",
               "name" => "patch",
               "points" => [
                 {
-                  "active" => true,
                   "args" => {
                     "params" => [
                       {
-                        "active" => true,
                         "kind" => "param",
                         "name" => "id",
                         "orig" => "slug_perm",
@@ -8427,7 +6864,6 @@ module CloudsmithConfig
                         "type" => "`$STRING`",
                       },
                       {
-                        "active" => true,
                         "kind" => "param",
                         "name" => "identifier",
                         "orig" => "identifier",
@@ -8435,7 +6871,6 @@ module CloudsmithConfig
                         "type" => "`$ANY`",
                       },
                       {
-                        "active" => true,
                         "kind" => "param",
                         "name" => "owner",
                         "orig" => "owner",
@@ -8445,11 +6880,9 @@ module CloudsmithConfig
                     ],
                     "query" => [
                       {
-                        "active" => true,
                         "kind" => "query",
                         "name" => "data",
                         "orig" => "data",
-                        "reqd" => false,
                         "type" => "`$OBJECT`",
                       },
                     ],
@@ -8482,54 +6915,43 @@ module CloudsmithConfig
                     "req" => "`reqdata`",
                     "res" => "`body`",
                   },
-                  "index$" => 0,
                 },
               ],
-              "key$" => "patch",
             },
             "update" => {
               "input" => "data",
               "name" => "update",
               "points" => [
                 {
-                  "active" => true,
                   "args" => {
                     "params" => [
                       {
-                        "active" => true,
                         "kind" => "param",
                         "name" => "id",
                         "orig" => "slug_perm",
                         "reqd" => true,
                         "type" => "`$STRING`",
-                        "index$" => 0,
                       },
                       {
-                        "active" => true,
                         "kind" => "param",
                         "name" => "identifier",
                         "orig" => "identifier",
                         "reqd" => true,
                         "type" => "`$ANY`",
-                        "index$" => 1,
                       },
                       {
-                        "active" => true,
                         "kind" => "param",
                         "name" => "owner",
                         "orig" => "owner",
                         "reqd" => true,
                         "type" => "`$ANY`",
-                        "index$" => 2,
                       },
                     ],
                     "query" => [
                       {
-                        "active" => true,
                         "kind" => "query",
                         "name" => "data",
                         "orig" => "data",
-                        "reqd" => false,
                         "type" => "`$OBJECT`",
                       },
                     ],
@@ -8562,10 +6984,8 @@ module CloudsmithConfig
                     "req" => "`reqdata`",
                     "res" => "`body`",
                   },
-                  "index$" => 0,
                 },
               ],
-              "key$" => "update",
             },
           },
           "relations" => {
@@ -8582,130 +7002,78 @@ module CloudsmithConfig
         "nuget" => {
           "fields" => [
             {
-              "active" => true,
               "name" => "auth_mode",
-              "req" => false,
               "type" => "`$STRING`",
-              "index$" => 0,
             },
             {
-              "active" => true,
               "name" => "auth_secret",
-              "req" => false,
               "type" => "`$STRING`",
-              "index$" => 1,
             },
             {
-              "active" => true,
               "name" => "auth_username",
-              "req" => false,
               "type" => "`$STRING`",
-              "index$" => 2,
             },
             {
-              "active" => true,
               "name" => "created_at",
-              "req" => false,
               "type" => "`$STRING`",
-              "index$" => 3,
             },
             {
-              "active" => true,
               "name" => "disable_reason",
-              "req" => false,
               "type" => "`$STRING`",
-              "index$" => 4,
             },
             {
-              "active" => true,
               "name" => "extra_header_1",
-              "req" => false,
               "type" => "`$STRING`",
-              "index$" => 5,
             },
             {
-              "active" => true,
               "name" => "extra_header_2",
-              "req" => false,
               "type" => "`$STRING`",
-              "index$" => 6,
             },
             {
-              "active" => true,
               "name" => "extra_value_1",
-              "req" => false,
               "type" => "`$STRING`",
-              "index$" => 7,
             },
             {
-              "active" => true,
               "name" => "extra_value_2",
-              "req" => false,
               "type" => "`$STRING`",
-              "index$" => 8,
             },
             {
-              "active" => true,
               "name" => "is_active",
-              "req" => false,
               "type" => "`$BOOLEAN`",
-              "index$" => 9,
             },
             {
-              "active" => true,
               "name" => "mode",
-              "req" => false,
               "type" => "`$STRING`",
-              "index$" => 10,
             },
             {
-              "active" => true,
               "name" => "name",
               "req" => true,
               "type" => "`$STRING`",
-              "index$" => 11,
             },
             {
-              "active" => true,
               "name" => "pending_validation",
-              "req" => false,
               "type" => "`$BOOLEAN`",
-              "index$" => 12,
             },
             {
-              "active" => true,
               "name" => "priority",
-              "req" => false,
               "type" => "`$INTEGER`",
-              "index$" => 13,
             },
             {
-              "active" => true,
               "name" => "slug_perm",
-              "req" => false,
               "type" => "`$STRING`",
-              "index$" => 14,
             },
             {
-              "active" => true,
               "name" => "updated_at",
-              "req" => false,
               "type" => "`$STRING`",
-              "index$" => 15,
             },
             {
-              "active" => true,
               "name" => "upstream_url",
               "req" => true,
               "type" => "`$STRING`",
-              "index$" => 16,
             },
             {
-              "active" => true,
               "name" => "verify_ssl",
-              "req" => false,
               "type" => "`$BOOLEAN`",
-              "index$" => 17,
             },
           ],
           "name" => "nuget",
@@ -8715,35 +7083,28 @@ module CloudsmithConfig
               "name" => "create",
               "points" => [
                 {
-                  "active" => true,
                   "args" => {
                     "params" => [
                       {
-                        "active" => true,
                         "kind" => "param",
                         "name" => "identifier",
                         "orig" => "identifier",
                         "reqd" => true,
                         "type" => "`$ANY`",
-                        "index$" => 0,
                       },
                       {
-                        "active" => true,
                         "kind" => "param",
                         "name" => "owner",
                         "orig" => "owner",
                         "reqd" => true,
                         "type" => "`$ANY`",
-                        "index$" => 1,
                       },
                     ],
                     "query" => [
                       {
-                        "active" => true,
                         "kind" => "query",
                         "name" => "data",
                         "orig" => "data",
-                        "reqd" => false,
                         "type" => "`$OBJECT`",
                       },
                     ],
@@ -8769,53 +7130,42 @@ module CloudsmithConfig
                     "req" => "`reqdata`",
                     "res" => "`body`",
                   },
-                  "index$" => 0,
                 },
               ],
-              "key$" => "create",
             },
             "list" => {
               "input" => "data",
               "name" => "list",
               "points" => [
                 {
-                  "active" => true,
                   "args" => {
                     "params" => [
                       {
-                        "active" => true,
                         "kind" => "param",
                         "name" => "identifier",
                         "orig" => "identifier",
                         "reqd" => true,
                         "type" => "`$ANY`",
-                        "index$" => 0,
                       },
                       {
-                        "active" => true,
                         "kind" => "param",
                         "name" => "owner",
                         "orig" => "owner",
                         "reqd" => true,
                         "type" => "`$ANY`",
-                        "index$" => 1,
                       },
                     ],
                     "query" => [
                       {
-                        "active" => true,
                         "kind" => "query",
                         "name" => "page",
                         "orig" => "page",
-                        "reqd" => false,
                         "type" => "`$INTEGER`",
                       },
                       {
-                        "active" => true,
                         "kind" => "query",
                         "name" => "page_size",
                         "orig" => "page_size",
-                        "reqd" => false,
                         "type" => "`$INTEGER`",
                       },
                     ],
@@ -8842,45 +7192,36 @@ module CloudsmithConfig
                     "req" => "`reqdata`",
                     "res" => "`body`",
                   },
-                  "index$" => 0,
                 },
               ],
-              "key$" => "list",
             },
             "load" => {
               "input" => "data",
               "name" => "load",
               "points" => [
                 {
-                  "active" => true,
                   "args" => {
                     "params" => [
                       {
-                        "active" => true,
                         "kind" => "param",
                         "name" => "id",
                         "orig" => "slug_perm",
                         "reqd" => true,
                         "type" => "`$STRING`",
-                        "index$" => 0,
                       },
                       {
-                        "active" => true,
                         "kind" => "param",
                         "name" => "identifier",
                         "orig" => "identifier",
                         "reqd" => true,
                         "type" => "`$ANY`",
-                        "index$" => 1,
                       },
                       {
-                        "active" => true,
                         "kind" => "param",
                         "name" => "owner",
                         "orig" => "owner",
                         "reqd" => true,
                         "type" => "`$ANY`",
-                        "index$" => 2,
                       },
                     ],
                   },
@@ -8911,21 +7252,17 @@ module CloudsmithConfig
                     "req" => "`reqdata`",
                     "res" => "`body`",
                   },
-                  "index$" => 0,
                 },
               ],
-              "key$" => "load",
             },
             "patch" => {
               "input" => "data",
               "name" => "patch",
               "points" => [
                 {
-                  "active" => true,
                   "args" => {
                     "params" => [
                       {
-                        "active" => true,
                         "kind" => "param",
                         "name" => "id",
                         "orig" => "slug_perm",
@@ -8933,7 +7270,6 @@ module CloudsmithConfig
                         "type" => "`$STRING`",
                       },
                       {
-                        "active" => true,
                         "kind" => "param",
                         "name" => "identifier",
                         "orig" => "identifier",
@@ -8941,7 +7277,6 @@ module CloudsmithConfig
                         "type" => "`$ANY`",
                       },
                       {
-                        "active" => true,
                         "kind" => "param",
                         "name" => "owner",
                         "orig" => "owner",
@@ -8951,11 +7286,9 @@ module CloudsmithConfig
                     ],
                     "query" => [
                       {
-                        "active" => true,
                         "kind" => "query",
                         "name" => "data",
                         "orig" => "data",
-                        "reqd" => false,
                         "type" => "`$OBJECT`",
                       },
                     ],
@@ -8988,54 +7321,43 @@ module CloudsmithConfig
                     "req" => "`reqdata`",
                     "res" => "`body`",
                   },
-                  "index$" => 0,
                 },
               ],
-              "key$" => "patch",
             },
             "update" => {
               "input" => "data",
               "name" => "update",
               "points" => [
                 {
-                  "active" => true,
                   "args" => {
                     "params" => [
                       {
-                        "active" => true,
                         "kind" => "param",
                         "name" => "id",
                         "orig" => "slug_perm",
                         "reqd" => true,
                         "type" => "`$STRING`",
-                        "index$" => 0,
                       },
                       {
-                        "active" => true,
                         "kind" => "param",
                         "name" => "identifier",
                         "orig" => "identifier",
                         "reqd" => true,
                         "type" => "`$ANY`",
-                        "index$" => 1,
                       },
                       {
-                        "active" => true,
                         "kind" => "param",
                         "name" => "owner",
                         "orig" => "owner",
                         "reqd" => true,
                         "type" => "`$ANY`",
-                        "index$" => 2,
                       },
                     ],
                     "query" => [
                       {
-                        "active" => true,
                         "kind" => "query",
                         "name" => "data",
                         "orig" => "data",
-                        "reqd" => false,
                         "type" => "`$OBJECT`",
                       },
                     ],
@@ -9068,10 +7390,8 @@ module CloudsmithConfig
                     "req" => "`reqdata`",
                     "res" => "`body`",
                   },
-                  "index$" => 0,
                 },
               ],
-              "key$" => "update",
             },
           },
           "relations" => {
@@ -9104,88 +7424,57 @@ module CloudsmithConfig
         "org" => {
           "fields" => [
             {
-              "active" => true,
               "name" => "country",
-              "req" => false,
               "type" => "`$STRING`",
-              "index$" => 0,
             },
             {
-              "active" => true,
               "name" => "created_at",
-              "req" => false,
               "type" => "`$STRING`",
-              "index$" => 1,
             },
             {
-              "active" => true,
               "name" => "event_at",
-              "req" => false,
               "type" => "`$STRING`",
-              "index$" => 2,
             },
             {
-              "active" => true,
               "name" => "location",
-              "req" => false,
               "type" => "`$STRING`",
-              "index$" => 3,
             },
             {
-              "active" => true,
               "name" => "name",
               "req" => true,
               "type" => "`$STRING`",
-              "index$" => 4,
             },
             {
-              "active" => true,
               "name" => "package",
               "req" => true,
               "type" => "`$OBJECT`",
-              "index$" => 5,
             },
             {
-              "active" => true,
               "name" => "policy",
               "req" => true,
               "type" => "`$OBJECT`",
-              "index$" => 6,
             },
             {
-              "active" => true,
               "name" => "reasons",
               "req" => true,
               "type" => "`$ARRAY`",
-              "index$" => 7,
             },
             {
-              "active" => true,
               "name" => "slug",
-              "req" => false,
               "type" => "`$STRING`",
-              "index$" => 8,
             },
             {
-              "active" => true,
               "name" => "slug_perm",
-              "req" => false,
               "type" => "`$STRING`",
-              "index$" => 9,
             },
             {
-              "active" => true,
               "name" => "tagline",
-              "req" => false,
               "type" => "`$STRING`",
-              "index$" => 10,
             },
             {
-              "active" => true,
               "name" => "vulnerability_scan_results",
               "req" => true,
               "type" => "`$OBJECT`",
-              "index$" => 11,
             },
           ],
           "name" => "org",
@@ -9195,26 +7484,21 @@ module CloudsmithConfig
               "name" => "create",
               "points" => [
                 {
-                  "active" => true,
                   "args" => {
                     "params" => [
                       {
-                        "active" => true,
                         "kind" => "param",
                         "name" => "id",
                         "orig" => "org",
                         "reqd" => true,
                         "type" => "`$STRING`",
-                        "index$" => 0,
                       },
                       {
-                        "active" => true,
                         "kind" => "param",
                         "name" => "member_id",
                         "orig" => "member",
                         "reqd" => true,
                         "type" => "`$STRING`",
-                        "index$" => 1,
                       },
                     ],
                   },
@@ -9244,20 +7528,16 @@ module CloudsmithConfig
                     "req" => "`reqdata`",
                     "res" => "`body`",
                   },
-                  "index$" => 0,
                 },
                 {
-                  "active" => true,
                   "args" => {
                     "params" => [
                       {
-                        "active" => true,
                         "kind" => "param",
                         "name" => "id",
                         "orig" => "org",
                         "reqd" => true,
                         "type" => "`$STRING`",
-                        "index$" => 0,
                       },
                     ],
                   },
@@ -9284,20 +7564,16 @@ module CloudsmithConfig
                     "req" => "`reqdata`",
                     "res" => "`body`",
                   },
-                  "index$" => 1,
                 },
                 {
-                  "active" => true,
                   "args" => {
                     "params" => [
                       {
-                        "active" => true,
                         "kind" => "param",
                         "name" => "id",
                         "orig" => "org",
                         "reqd" => true,
                         "type" => "`$STRING`",
-                        "index$" => 0,
                       },
                     ],
                   },
@@ -9324,21 +7600,17 @@ module CloudsmithConfig
                     "req" => "`reqdata`",
                     "res" => "`body`",
                   },
-                  "index$" => 2,
                 },
               ],
-              "key$" => "create",
             },
             "list" => {
               "input" => "data",
               "name" => "list",
               "points" => [
                 {
-                  "active" => true,
                   "args" => {
                     "params" => [
                       {
-                        "active" => true,
                         "kind" => "param",
                         "name" => "id",
                         "orig" => "org",
@@ -9348,19 +7620,15 @@ module CloudsmithConfig
                     ],
                     "query" => [
                       {
-                        "active" => true,
                         "kind" => "query",
                         "name" => "cursor",
                         "orig" => "cursor",
-                        "reqd" => false,
                         "type" => "`$ANY`",
                       },
                       {
-                        "active" => true,
                         "kind" => "query",
                         "name" => "page_size",
                         "orig" => "page_size",
-                        "reqd" => false,
                         "type" => "`$INTEGER`",
                       },
                     ],
@@ -9390,14 +7658,11 @@ module CloudsmithConfig
                     "req" => "`reqdata`",
                     "res" => "`body.results`",
                   },
-                  "index$" => 0,
                 },
                 {
-                  "active" => true,
                   "args" => {
                     "params" => [
                       {
-                        "active" => true,
                         "kind" => "param",
                         "name" => "id",
                         "orig" => "org",
@@ -9407,19 +7672,15 @@ module CloudsmithConfig
                     ],
                     "query" => [
                       {
-                        "active" => true,
                         "kind" => "query",
                         "name" => "cursor",
                         "orig" => "cursor",
-                        "reqd" => false,
                         "type" => "`$ANY`",
                       },
                       {
-                        "active" => true,
                         "kind" => "query",
                         "name" => "page_size",
                         "orig" => "page_size",
-                        "reqd" => false,
                         "type" => "`$INTEGER`",
                       },
                     ],
@@ -9449,26 +7710,20 @@ module CloudsmithConfig
                     "req" => "`reqdata`",
                     "res" => "`body.results`",
                   },
-                  "index$" => 1,
                 },
                 {
-                  "active" => true,
                   "args" => {
                     "query" => [
                       {
-                        "active" => true,
                         "kind" => "query",
                         "name" => "page",
                         "orig" => "page",
-                        "reqd" => false,
                         "type" => "`$INTEGER`",
                       },
                       {
-                        "active" => true,
                         "kind" => "query",
                         "name" => "page_size",
                         "orig" => "page_size",
-                        "reqd" => false,
                         "type" => "`$INTEGER`",
                       },
                     ],
@@ -9489,36 +7744,29 @@ module CloudsmithConfig
                     "req" => "`reqdata`",
                     "res" => "`body`",
                   },
-                  "index$" => 2,
                 },
               ],
-              "key$" => "list",
             },
             "load" => {
               "input" => "data",
               "name" => "load",
               "points" => [
                 {
-                  "active" => true,
                   "args" => {
                     "params" => [
                       {
-                        "active" => true,
                         "kind" => "param",
                         "name" => "id",
                         "orig" => "org",
                         "reqd" => true,
                         "type" => "`$STRING`",
-                        "index$" => 0,
                       },
                       {
-                        "active" => true,
                         "kind" => "param",
                         "name" => "member_id",
                         "orig" => "member",
                         "reqd" => true,
                         "type" => "`$STRING`",
-                        "index$" => 1,
                       },
                     ],
                   },
@@ -9548,20 +7796,16 @@ module CloudsmithConfig
                     "req" => "`reqdata`",
                     "res" => "`body`",
                   },
-                  "index$" => 0,
                 },
                 {
-                  "active" => true,
                   "args" => {
                     "params" => [
                       {
-                        "active" => true,
                         "kind" => "param",
                         "name" => "id",
                         "orig" => "org",
                         "reqd" => true,
                         "type" => "`$STRING`",
-                        "index$" => 0,
                       },
                     ],
                   },
@@ -9586,36 +7830,29 @@ module CloudsmithConfig
                     "req" => "`reqdata`",
                     "res" => "`body`",
                   },
-                  "index$" => 1,
                 },
               ],
-              "key$" => "load",
             },
             "remove" => {
               "input" => "data",
               "name" => "remove",
               "points" => [
                 {
-                  "active" => true,
                   "args" => {
                     "params" => [
                       {
-                        "active" => true,
                         "kind" => "param",
                         "name" => "id",
                         "orig" => "org",
                         "reqd" => true,
                         "type" => "`$STRING`",
-                        "index$" => 0,
                       },
                       {
-                        "active" => true,
                         "kind" => "param",
                         "name" => "member",
                         "orig" => "member",
                         "reqd" => true,
                         "type" => "`$ANY`",
-                        "index$" => 1,
                       },
                     ],
                   },
@@ -9643,29 +7880,23 @@ module CloudsmithConfig
                     "req" => "`reqdata`",
                     "res" => "`body`",
                   },
-                  "index$" => 0,
                 },
                 {
-                  "active" => true,
                   "args" => {
                     "params" => [
                       {
-                        "active" => true,
                         "kind" => "param",
                         "name" => "id",
                         "orig" => "org",
                         "reqd" => true,
                         "type" => "`$STRING`",
-                        "index$" => 0,
                       },
                       {
-                        "active" => true,
                         "kind" => "param",
                         "name" => "service",
                         "orig" => "service",
                         "reqd" => true,
                         "type" => "`$ANY`",
-                        "index$" => 1,
                       },
                     ],
                   },
@@ -9693,29 +7924,23 @@ module CloudsmithConfig
                     "req" => "`reqdata`",
                     "res" => "`body`",
                   },
-                  "index$" => 1,
                 },
                 {
-                  "active" => true,
                   "args" => {
                     "params" => [
                       {
-                        "active" => true,
                         "kind" => "param",
                         "name" => "id",
                         "orig" => "org",
                         "reqd" => true,
                         "type" => "`$STRING`",
-                        "index$" => 0,
                       },
                       {
-                        "active" => true,
                         "kind" => "param",
                         "name" => "slug_perm",
                         "orig" => "slug_perm",
                         "reqd" => true,
                         "type" => "`$ANY`",
-                        "index$" => 1,
                       },
                     ],
                   },
@@ -9743,29 +7968,23 @@ module CloudsmithConfig
                     "req" => "`reqdata`",
                     "res" => "`body`",
                   },
-                  "index$" => 2,
                 },
                 {
-                  "active" => true,
                   "args" => {
                     "params" => [
                       {
-                        "active" => true,
                         "kind" => "param",
                         "name" => "id",
                         "orig" => "org",
                         "reqd" => true,
                         "type" => "`$STRING`",
-                        "index$" => 0,
                       },
                       {
-                        "active" => true,
                         "kind" => "param",
                         "name" => "slug_perm",
                         "orig" => "slug_perm",
                         "reqd" => true,
                         "type" => "`$ANY`",
-                        "index$" => 1,
                       },
                     ],
                   },
@@ -9793,29 +8012,23 @@ module CloudsmithConfig
                     "req" => "`reqdata`",
                     "res" => "`body`",
                   },
-                  "index$" => 3,
                 },
                 {
-                  "active" => true,
                   "args" => {
                     "params" => [
                       {
-                        "active" => true,
                         "kind" => "param",
                         "name" => "id",
                         "orig" => "org",
                         "reqd" => true,
                         "type" => "`$STRING`",
-                        "index$" => 0,
                       },
                       {
-                        "active" => true,
                         "kind" => "param",
                         "name" => "slug_perm",
                         "orig" => "slug_perm",
                         "reqd" => true,
                         "type" => "`$ANY`",
-                        "index$" => 1,
                       },
                     ],
                   },
@@ -9843,29 +8056,23 @@ module CloudsmithConfig
                     "req" => "`reqdata`",
                     "res" => "`body`",
                   },
-                  "index$" => 4,
                 },
                 {
-                  "active" => true,
                   "args" => {
                     "params" => [
                       {
-                        "active" => true,
                         "kind" => "param",
                         "name" => "id",
                         "orig" => "org",
                         "reqd" => true,
                         "type" => "`$STRING`",
-                        "index$" => 0,
                       },
                       {
-                        "active" => true,
                         "kind" => "param",
                         "name" => "slug_perm",
                         "orig" => "slug_perm",
                         "reqd" => true,
                         "type" => "`$ANY`",
-                        "index$" => 1,
                       },
                     ],
                   },
@@ -9893,29 +8100,23 @@ module CloudsmithConfig
                     "req" => "`reqdata`",
                     "res" => "`body`",
                   },
-                  "index$" => 5,
                 },
                 {
-                  "active" => true,
                   "args" => {
                     "params" => [
                       {
-                        "active" => true,
                         "kind" => "param",
                         "name" => "id",
                         "orig" => "org",
                         "reqd" => true,
                         "type" => "`$STRING`",
-                        "index$" => 0,
                       },
                       {
-                        "active" => true,
                         "kind" => "param",
                         "name" => "slug_perm",
                         "orig" => "slug_perm",
                         "reqd" => true,
                         "type" => "`$ANY`",
-                        "index$" => 1,
                       },
                     ],
                   },
@@ -9943,29 +8144,23 @@ module CloudsmithConfig
                     "req" => "`reqdata`",
                     "res" => "`body`",
                   },
-                  "index$" => 6,
                 },
                 {
-                  "active" => true,
                   "args" => {
                     "params" => [
                       {
-                        "active" => true,
                         "kind" => "param",
                         "name" => "id",
                         "orig" => "org",
                         "reqd" => true,
                         "type" => "`$STRING`",
-                        "index$" => 0,
                       },
                       {
-                        "active" => true,
                         "kind" => "param",
                         "name" => "slug_perm",
                         "orig" => "slug_perm",
                         "reqd" => true,
                         "type" => "`$ANY`",
-                        "index$" => 1,
                       },
                     ],
                   },
@@ -9993,29 +8188,23 @@ module CloudsmithConfig
                     "req" => "`reqdata`",
                     "res" => "`body`",
                   },
-                  "index$" => 7,
                 },
                 {
-                  "active" => true,
                   "args" => {
                     "params" => [
                       {
-                        "active" => true,
                         "kind" => "param",
                         "name" => "id",
                         "orig" => "org",
                         "reqd" => true,
                         "type" => "`$STRING`",
-                        "index$" => 0,
                       },
                       {
-                        "active" => true,
                         "kind" => "param",
                         "name" => "team",
                         "orig" => "team",
                         "reqd" => true,
                         "type" => "`$ANY`",
-                        "index$" => 1,
                       },
                     ],
                   },
@@ -10043,20 +8232,16 @@ module CloudsmithConfig
                     "req" => "`reqdata`",
                     "res" => "`body`",
                   },
-                  "index$" => 8,
                 },
                 {
-                  "active" => true,
                   "args" => {
                     "params" => [
                       {
-                        "active" => true,
                         "kind" => "param",
                         "name" => "id",
                         "orig" => "org",
                         "reqd" => true,
                         "type" => "`$STRING`",
-                        "index$" => 0,
                       },
                     ],
                   },
@@ -10081,45 +8266,36 @@ module CloudsmithConfig
                     "req" => "`reqdata`",
                     "res" => "`body`",
                   },
-                  "index$" => 9,
                 },
               ],
-              "key$" => "remove",
             },
             "update" => {
               "input" => "data",
               "name" => "update",
               "points" => [
                 {
-                  "active" => true,
                   "args" => {
                     "params" => [
                       {
-                        "active" => true,
                         "kind" => "param",
                         "name" => "id",
                         "orig" => "org",
                         "reqd" => true,
                         "type" => "`$STRING`",
-                        "index$" => 0,
                       },
                       {
-                        "active" => true,
                         "kind" => "param",
                         "name" => "team_id",
                         "orig" => "team",
                         "reqd" => true,
                         "type" => "`$STRING`",
-                        "index$" => 1,
                       },
                     ],
                     "query" => [
                       {
-                        "active" => true,
                         "kind" => "query",
                         "name" => "data",
                         "orig" => "data",
-                        "reqd" => false,
                         "type" => "`$OBJECT`",
                       },
                     ],
@@ -10151,10 +8327,8 @@ module CloudsmithConfig
                     "req" => "`reqdata`",
                     "res" => "`body`",
                   },
-                  "index$" => 0,
                 },
               ],
-              "key$" => "update",
             },
           },
           "relations" => {
@@ -10192,39 +8366,27 @@ module CloudsmithConfig
         "organization_group_sync" => {
           "fields" => [
             {
-              "active" => true,
               "name" => "idp_key",
               "req" => true,
               "type" => "`$STRING`",
-              "index$" => 0,
             },
             {
-              "active" => true,
               "name" => "idp_value",
               "req" => true,
               "type" => "`$STRING`",
-              "index$" => 1,
             },
             {
-              "active" => true,
               "name" => "role",
-              "req" => false,
               "type" => "`$STRING`",
-              "index$" => 2,
             },
             {
-              "active" => true,
               "name" => "slug_perm",
-              "req" => false,
               "type" => "`$STRING`",
-              "index$" => 3,
             },
             {
-              "active" => true,
               "name" => "team",
               "req" => true,
               "type" => "`$STRING`",
-              "index$" => 4,
             },
           ],
           "name" => "organization_group_sync",
@@ -10234,26 +8396,21 @@ module CloudsmithConfig
               "name" => "create",
               "points" => [
                 {
-                  "active" => true,
                   "args" => {
                     "params" => [
                       {
-                        "active" => true,
                         "kind" => "param",
                         "name" => "org_id",
                         "orig" => "org",
                         "reqd" => true,
                         "type" => "`$STRING`",
-                        "index$" => 0,
                       },
                     ],
                     "query" => [
                       {
-                        "active" => true,
                         "kind" => "query",
                         "name" => "data",
                         "orig" => "data",
-                        "reqd" => false,
                         "type" => "`$OBJECT`",
                       },
                     ],
@@ -10281,44 +8438,35 @@ module CloudsmithConfig
                     "req" => "`reqdata`",
                     "res" => "`body`",
                   },
-                  "index$" => 0,
                 },
               ],
-              "key$" => "create",
             },
             "list" => {
               "input" => "data",
               "name" => "list",
               "points" => [
                 {
-                  "active" => true,
                   "args" => {
                     "params" => [
                       {
-                        "active" => true,
                         "kind" => "param",
                         "name" => "org_id",
                         "orig" => "org",
                         "reqd" => true,
                         "type" => "`$STRING`",
-                        "index$" => 0,
                       },
                     ],
                     "query" => [
                       {
-                        "active" => true,
                         "kind" => "query",
                         "name" => "page",
                         "orig" => "page",
-                        "reqd" => false,
                         "type" => "`$INTEGER`",
                       },
                       {
-                        "active" => true,
                         "kind" => "query",
                         "name" => "page_size",
                         "orig" => "page_size",
-                        "reqd" => false,
                         "type" => "`$INTEGER`",
                       },
                     ],
@@ -10347,10 +8495,8 @@ module CloudsmithConfig
                     "req" => "`reqdata`",
                     "res" => "`body`",
                   },
-                  "index$" => 0,
                 },
               ],
-              "key$" => "list",
             },
           },
           "relations" => {
@@ -10364,11 +8510,8 @@ module CloudsmithConfig
         "organization_group_sync_status" => {
           "fields" => [
             {
-              "active" => true,
               "name" => "saml_group_sync_status",
-              "req" => false,
               "type" => "`$BOOLEAN`",
-              "index$" => 0,
             },
           ],
           "name" => "organization_group_sync_status",
@@ -10378,17 +8521,14 @@ module CloudsmithConfig
               "name" => "load",
               "points" => [
                 {
-                  "active" => true,
                   "args" => {
                     "params" => [
                       {
-                        "active" => true,
                         "kind" => "param",
                         "name" => "org_id",
                         "orig" => "org",
                         "reqd" => true,
                         "type" => "`$STRING`",
-                        "index$" => 0,
                       },
                     ],
                   },
@@ -10415,10 +8555,8 @@ module CloudsmithConfig
                     "req" => "`reqdata`",
                     "res" => "`body`",
                   },
-                  "index$" => 0,
                 },
               ],
-              "key$" => "load",
             },
           },
           "relations" => {
@@ -10432,74 +8570,44 @@ module CloudsmithConfig
         "organization_invite" => {
           "fields" => [
             {
-              "active" => true,
               "name" => "email",
-              "req" => false,
               "type" => "`$STRING`",
-              "index$" => 0,
             },
             {
-              "active" => true,
               "name" => "expires_at",
-              "req" => false,
               "type" => "`$STRING`",
-              "index$" => 1,
             },
             {
-              "active" => true,
               "name" => "inviter",
-              "req" => false,
               "type" => "`$STRING`",
-              "index$" => 2,
             },
             {
-              "active" => true,
               "name" => "inviter_url",
-              "req" => false,
               "type" => "`$STRING`",
-              "index$" => 3,
             },
             {
-              "active" => true,
               "name" => "org",
-              "req" => false,
               "type" => "`$STRING`",
-              "index$" => 4,
             },
             {
-              "active" => true,
               "name" => "role",
-              "req" => false,
               "type" => "`$STRING`",
-              "index$" => 5,
             },
             {
-              "active" => true,
               "name" => "slug_perm",
-              "req" => false,
               "type" => "`$STRING`",
-              "index$" => 6,
             },
             {
-              "active" => true,
               "name" => "teams",
-              "req" => false,
               "type" => "`$ARRAY`",
-              "index$" => 7,
             },
             {
-              "active" => true,
               "name" => "user",
-              "req" => false,
               "type" => "`$STRING`",
-              "index$" => 8,
             },
             {
-              "active" => true,
               "name" => "user_url",
-              "req" => false,
               "type" => "`$STRING`",
-              "index$" => 9,
             },
           ],
           "name" => "organization_invite",
@@ -10509,26 +8617,21 @@ module CloudsmithConfig
               "name" => "create",
               "points" => [
                 {
-                  "active" => true,
                   "args" => {
                     "params" => [
                       {
-                        "active" => true,
                         "kind" => "param",
                         "name" => "org_id",
                         "orig" => "org",
                         "reqd" => true,
                         "type" => "`$STRING`",
-                        "index$" => 0,
                       },
                     ],
                     "query" => [
                       {
-                        "active" => true,
                         "kind" => "query",
                         "name" => "data",
                         "orig" => "data",
-                        "reqd" => false,
                         "type" => "`$OBJECT`",
                       },
                     ],
@@ -10556,44 +8659,35 @@ module CloudsmithConfig
                     "req" => "`reqdata`",
                     "res" => "`body`",
                   },
-                  "index$" => 0,
                 },
               ],
-              "key$" => "create",
             },
             "list" => {
               "input" => "data",
               "name" => "list",
               "points" => [
                 {
-                  "active" => true,
                   "args" => {
                     "params" => [
                       {
-                        "active" => true,
                         "kind" => "param",
                         "name" => "org_id",
                         "orig" => "org",
                         "reqd" => true,
                         "type" => "`$STRING`",
-                        "index$" => 0,
                       },
                     ],
                     "query" => [
                       {
-                        "active" => true,
                         "kind" => "query",
                         "name" => "page",
                         "orig" => "page",
-                        "reqd" => false,
                         "type" => "`$INTEGER`",
                       },
                       {
-                        "active" => true,
                         "kind" => "query",
                         "name" => "page_size",
                         "orig" => "page_size",
-                        "reqd" => false,
                         "type" => "`$INTEGER`",
                       },
                     ],
@@ -10622,45 +8716,36 @@ module CloudsmithConfig
                     "req" => "`reqdata`",
                     "res" => "`body`",
                   },
-                  "index$" => 0,
                 },
               ],
-              "key$" => "list",
             },
             "update" => {
               "input" => "data",
               "name" => "update",
               "points" => [
                 {
-                  "active" => true,
                   "args" => {
                     "params" => [
                       {
-                        "active" => true,
                         "kind" => "param",
                         "name" => "id",
                         "orig" => "slug_perm",
                         "reqd" => true,
                         "type" => "`$STRING`",
-                        "index$" => 0,
                       },
                       {
-                        "active" => true,
                         "kind" => "param",
                         "name" => "org_id",
                         "orig" => "org",
                         "reqd" => true,
                         "type" => "`$STRING`",
-                        "index$" => 1,
                       },
                     ],
                     "query" => [
                       {
-                        "active" => true,
                         "kind" => "query",
                         "name" => "data",
                         "orig" => "data",
-                        "reqd" => false,
                         "type" => "`$OBJECT`",
                       },
                     ],
@@ -10691,10 +8776,8 @@ module CloudsmithConfig
                     "req" => "`reqdata`",
                     "res" => "`body`",
                   },
-                  "index$" => 0,
                 },
               ],
-              "key$" => "update",
             },
           },
           "relations" => {
@@ -10708,74 +8791,44 @@ module CloudsmithConfig
         "organization_invite_extend" => {
           "fields" => [
             {
-              "active" => true,
               "name" => "email",
-              "req" => false,
               "type" => "`$STRING`",
-              "index$" => 0,
             },
             {
-              "active" => true,
               "name" => "expires_at",
-              "req" => false,
               "type" => "`$STRING`",
-              "index$" => 1,
             },
             {
-              "active" => true,
               "name" => "inviter",
-              "req" => false,
               "type" => "`$STRING`",
-              "index$" => 2,
             },
             {
-              "active" => true,
               "name" => "inviter_url",
-              "req" => false,
               "type" => "`$STRING`",
-              "index$" => 3,
             },
             {
-              "active" => true,
               "name" => "org",
-              "req" => false,
               "type" => "`$STRING`",
-              "index$" => 4,
             },
             {
-              "active" => true,
               "name" => "role",
-              "req" => false,
               "type" => "`$STRING`",
-              "index$" => 5,
             },
             {
-              "active" => true,
               "name" => "slug_perm",
-              "req" => false,
               "type" => "`$STRING`",
-              "index$" => 6,
             },
             {
-              "active" => true,
               "name" => "teams",
-              "req" => false,
               "type" => "`$ARRAY`",
-              "index$" => 7,
             },
             {
-              "active" => true,
               "name" => "user",
-              "req" => false,
               "type" => "`$STRING`",
-              "index$" => 8,
             },
             {
-              "active" => true,
               "name" => "user_url",
-              "req" => false,
               "type" => "`$STRING`",
-              "index$" => 9,
             },
           ],
           "name" => "organization_invite_extend",
@@ -10785,26 +8838,21 @@ module CloudsmithConfig
               "name" => "create",
               "points" => [
                 {
-                  "active" => true,
                   "args" => {
                     "params" => [
                       {
-                        "active" => true,
                         "kind" => "param",
                         "name" => "org_id",
                         "orig" => "org",
                         "reqd" => true,
                         "type" => "`$STRING`",
-                        "index$" => 0,
                       },
                       {
-                        "active" => true,
                         "kind" => "param",
                         "name" => "slug_perm",
                         "orig" => "slug_perm",
                         "reqd" => true,
                         "type" => "`$ANY`",
-                        "index$" => 1,
                       },
                     ],
                   },
@@ -10833,29 +8881,23 @@ module CloudsmithConfig
                     "req" => "`reqdata`",
                     "res" => "`body`",
                   },
-                  "index$" => 0,
                 },
                 {
-                  "active" => true,
                   "args" => {
                     "params" => [
                       {
-                        "active" => true,
                         "kind" => "param",
                         "name" => "org_id",
                         "orig" => "org",
                         "reqd" => true,
                         "type" => "`$STRING`",
-                        "index$" => 0,
                       },
                       {
-                        "active" => true,
                         "kind" => "param",
                         "name" => "slug_perm",
                         "orig" => "slug_perm",
                         "reqd" => true,
                         "type" => "`$ANY`",
-                        "index$" => 1,
                       },
                     ],
                   },
@@ -10884,10 +8926,8 @@ module CloudsmithConfig
                     "req" => "`reqdata`",
                     "res" => "`body`",
                   },
-                  "index$" => 1,
                 },
               ],
-              "key$" => "create",
             },
           },
           "relations" => {
@@ -10902,88 +8942,52 @@ module CloudsmithConfig
         "organization_membership" => {
           "fields" => [
             {
-              "active" => true,
               "name" => "email",
-              "req" => false,
               "type" => "`$STRING`",
-              "index$" => 0,
             },
             {
-              "active" => true,
               "name" => "has_two_factor",
-              "req" => false,
               "type" => "`$BOOLEAN`",
-              "index$" => 1,
             },
             {
-              "active" => true,
               "name" => "is_active",
-              "req" => false,
               "type" => "`$BOOLEAN`",
-              "index$" => 2,
             },
             {
-              "active" => true,
               "name" => "joined_at",
-              "req" => false,
               "type" => "`$STRING`",
-              "index$" => 3,
             },
             {
-              "active" => true,
               "name" => "last_login_at",
-              "req" => false,
               "type" => "`$STRING`",
-              "index$" => 4,
             },
             {
-              "active" => true,
               "name" => "last_login_method",
-              "req" => false,
               "type" => "`$STRING`",
-              "index$" => 5,
             },
             {
-              "active" => true,
               "name" => "role",
-              "req" => false,
               "type" => "`$STRING`",
-              "index$" => 6,
             },
             {
-              "active" => true,
               "name" => "user",
-              "req" => false,
               "type" => "`$STRING`",
-              "index$" => 7,
             },
             {
-              "active" => true,
               "name" => "user_id",
-              "req" => false,
               "type" => "`$STRING`",
-              "index$" => 8,
             },
             {
-              "active" => true,
               "name" => "user_name",
-              "req" => false,
               "type" => "`$STRING`",
-              "index$" => 9,
             },
             {
-              "active" => true,
               "name" => "user_url",
-              "req" => false,
               "type" => "`$STRING`",
-              "index$" => 10,
             },
             {
-              "active" => true,
               "name" => "visibility",
-              "req" => false,
               "type" => "`$STRING`",
-              "index$" => 11,
             },
           ],
           "name" => "organization_membership",
@@ -10993,58 +8997,45 @@ module CloudsmithConfig
               "name" => "list",
               "points" => [
                 {
-                  "active" => true,
                   "args" => {
                     "params" => [
                       {
-                        "active" => true,
                         "kind" => "param",
                         "name" => "org_id",
                         "orig" => "org",
                         "reqd" => true,
                         "type" => "`$STRING`",
-                        "index$" => 0,
                       },
                     ],
                     "query" => [
                       {
-                        "active" => true,
                         "kind" => "query",
                         "name" => "is_active",
                         "orig" => "is_active",
-                        "reqd" => false,
                         "type" => "`$BOOLEAN`",
                       },
                       {
-                        "active" => true,
                         "kind" => "query",
                         "name" => "page",
                         "orig" => "page",
-                        "reqd" => false,
                         "type" => "`$INTEGER`",
                       },
                       {
-                        "active" => true,
                         "kind" => "query",
                         "name" => "page_size",
                         "orig" => "page_size",
-                        "reqd" => false,
                         "type" => "`$INTEGER`",
                       },
                       {
-                        "active" => true,
                         "kind" => "query",
                         "name" => "query",
                         "orig" => "query",
-                        "reqd" => false,
                         "type" => "`$ANY`",
                       },
                       {
-                        "active" => true,
                         "kind" => "query",
                         "name" => "sort",
                         "orig" => "sort",
-                        "reqd" => false,
                         "type" => "`$ANY`",
                       },
                     ],
@@ -11076,36 +9067,29 @@ module CloudsmithConfig
                     "req" => "`reqdata`",
                     "res" => "`body`",
                   },
-                  "index$" => 0,
                 },
               ],
-              "key$" => "list",
             },
             "load" => {
               "input" => "data",
               "name" => "load",
               "points" => [
                 {
-                  "active" => true,
                   "args" => {
                     "params" => [
                       {
-                        "active" => true,
                         "kind" => "param",
                         "name" => "member",
                         "orig" => "member",
                         "reqd" => true,
                         "type" => "`$ANY`",
-                        "index$" => 0,
                       },
                       {
-                        "active" => true,
                         "kind" => "param",
                         "name" => "org_id",
                         "orig" => "org",
                         "reqd" => true,
                         "type" => "`$STRING`",
-                        "index$" => 1,
                       },
                     ],
                   },
@@ -11133,45 +9117,36 @@ module CloudsmithConfig
                     "req" => "`reqdata`",
                     "res" => "`body`",
                   },
-                  "index$" => 0,
                 },
               ],
-              "key$" => "load",
             },
             "update" => {
               "input" => "data",
               "name" => "update",
               "points" => [
                 {
-                  "active" => true,
                   "args" => {
                     "params" => [
                       {
-                        "active" => true,
                         "kind" => "param",
                         "name" => "member",
                         "orig" => "member",
                         "reqd" => true,
                         "type" => "`$ANY`",
-                        "index$" => 0,
                       },
                       {
-                        "active" => true,
                         "kind" => "param",
                         "name" => "org_id",
                         "orig" => "org",
                         "reqd" => true,
                         "type" => "`$STRING`",
-                        "index$" => 1,
                       },
                     ],
                     "query" => [
                       {
-                        "active" => true,
                         "kind" => "query",
                         "name" => "data",
                         "orig" => "data",
-                        "reqd" => false,
                         "type" => "`$OBJECT`",
                       },
                     ],
@@ -11201,10 +9176,8 @@ module CloudsmithConfig
                     "req" => "`reqdata`",
                     "res" => "`body`",
                   },
-                  "index$" => 0,
                 },
               ],
-              "key$" => "update",
             },
           },
           "relations" => {
@@ -11222,81 +9195,48 @@ module CloudsmithConfig
         "organization_membership_role_update" => {
           "fields" => [
             {
-              "active" => true,
               "name" => "email",
-              "req" => false,
               "type" => "`$STRING`",
-              "index$" => 0,
             },
             {
-              "active" => true,
               "name" => "has_two_factor",
-              "req" => false,
               "type" => "`$BOOLEAN`",
-              "index$" => 1,
             },
             {
-              "active" => true,
               "name" => "joined_at",
-              "req" => false,
               "type" => "`$STRING`",
-              "index$" => 2,
             },
             {
-              "active" => true,
               "name" => "last_login_at",
-              "req" => false,
               "type" => "`$STRING`",
-              "index$" => 3,
             },
             {
-              "active" => true,
               "name" => "last_login_method",
-              "req" => false,
               "type" => "`$STRING`",
-              "index$" => 4,
             },
             {
-              "active" => true,
               "name" => "role",
-              "req" => false,
               "type" => "`$STRING`",
-              "index$" => 5,
             },
             {
-              "active" => true,
               "name" => "user",
-              "req" => false,
               "type" => "`$STRING`",
-              "index$" => 6,
             },
             {
-              "active" => true,
               "name" => "user_id",
-              "req" => false,
               "type" => "`$STRING`",
-              "index$" => 7,
             },
             {
-              "active" => true,
               "name" => "user_name",
-              "req" => false,
               "type" => "`$STRING`",
-              "index$" => 8,
             },
             {
-              "active" => true,
               "name" => "user_url",
-              "req" => false,
               "type" => "`$STRING`",
-              "index$" => 9,
             },
             {
-              "active" => true,
               "name" => "visibility",
-              "req" => false,
               "type" => "`$STRING`",
-              "index$" => 10,
             },
           ],
           "name" => "organization_membership_role_update",
@@ -11306,35 +9246,28 @@ module CloudsmithConfig
               "name" => "update",
               "points" => [
                 {
-                  "active" => true,
                   "args" => {
                     "params" => [
                       {
-                        "active" => true,
                         "kind" => "param",
                         "name" => "member_id",
                         "orig" => "member",
                         "reqd" => true,
                         "type" => "`$STRING`",
-                        "index$" => 0,
                       },
                       {
-                        "active" => true,
                         "kind" => "param",
                         "name" => "org_id",
                         "orig" => "org",
                         "reqd" => true,
                         "type" => "`$STRING`",
-                        "index$" => 1,
                       },
                     ],
                     "query" => [
                       {
-                        "active" => true,
                         "kind" => "query",
                         "name" => "data",
                         "orig" => "data",
-                        "reqd" => false,
                         "type" => "`$OBJECT`",
                       },
                     ],
@@ -11366,10 +9299,8 @@ module CloudsmithConfig
                     "req" => "`reqdata`",
                     "res" => "`body`",
                   },
-                  "index$" => 0,
                 },
               ],
-              "key$" => "update",
             },
           },
           "relations" => {
@@ -11384,81 +9315,48 @@ module CloudsmithConfig
         "organization_membership_visibility_update" => {
           "fields" => [
             {
-              "active" => true,
               "name" => "email",
-              "req" => false,
               "type" => "`$STRING`",
-              "index$" => 0,
             },
             {
-              "active" => true,
               "name" => "has_two_factor",
-              "req" => false,
               "type" => "`$BOOLEAN`",
-              "index$" => 1,
             },
             {
-              "active" => true,
               "name" => "joined_at",
-              "req" => false,
               "type" => "`$STRING`",
-              "index$" => 2,
             },
             {
-              "active" => true,
               "name" => "last_login_at",
-              "req" => false,
               "type" => "`$STRING`",
-              "index$" => 3,
             },
             {
-              "active" => true,
               "name" => "last_login_method",
-              "req" => false,
               "type" => "`$STRING`",
-              "index$" => 4,
             },
             {
-              "active" => true,
               "name" => "role",
-              "req" => false,
               "type" => "`$STRING`",
-              "index$" => 5,
             },
             {
-              "active" => true,
               "name" => "user",
-              "req" => false,
               "type" => "`$STRING`",
-              "index$" => 6,
             },
             {
-              "active" => true,
               "name" => "user_id",
-              "req" => false,
               "type" => "`$STRING`",
-              "index$" => 7,
             },
             {
-              "active" => true,
               "name" => "user_name",
-              "req" => false,
               "type" => "`$STRING`",
-              "index$" => 8,
             },
             {
-              "active" => true,
               "name" => "user_url",
-              "req" => false,
               "type" => "`$STRING`",
-              "index$" => 9,
             },
             {
-              "active" => true,
               "name" => "visibility",
-              "req" => false,
               "type" => "`$STRING`",
-              "index$" => 10,
             },
           ],
           "name" => "organization_membership_visibility_update",
@@ -11468,35 +9366,28 @@ module CloudsmithConfig
               "name" => "update",
               "points" => [
                 {
-                  "active" => true,
                   "args" => {
                     "params" => [
                       {
-                        "active" => true,
                         "kind" => "param",
                         "name" => "member_id",
                         "orig" => "member",
                         "reqd" => true,
                         "type" => "`$STRING`",
-                        "index$" => 0,
                       },
                       {
-                        "active" => true,
                         "kind" => "param",
                         "name" => "org_id",
                         "orig" => "org",
                         "reqd" => true,
                         "type" => "`$STRING`",
-                        "index$" => 1,
                       },
                     ],
                     "query" => [
                       {
-                        "active" => true,
                         "kind" => "query",
                         "name" => "data",
                         "orig" => "data",
-                        "reqd" => false,
                         "type" => "`$OBJECT`",
                       },
                     ],
@@ -11528,10 +9419,8 @@ module CloudsmithConfig
                     "req" => "`reqdata`",
                     "res" => "`body`",
                   },
-                  "index$" => 0,
                 },
               ],
-              "key$" => "update",
             },
           },
           "relations" => {
@@ -11546,67 +9435,42 @@ module CloudsmithConfig
         "organization_package_license_policy" => {
           "fields" => [
             {
-              "active" => true,
               "name" => "allow_unknown_licenses",
-              "req" => false,
               "type" => "`$BOOLEAN`",
-              "index$" => 0,
             },
             {
-              "active" => true,
               "name" => "created_at",
-              "req" => false,
               "type" => "`$STRING`",
-              "index$" => 1,
             },
             {
-              "active" => true,
               "name" => "description",
-              "req" => false,
               "type" => "`$STRING`",
-              "index$" => 2,
             },
             {
-              "active" => true,
               "name" => "name",
               "req" => true,
               "type" => "`$STRING`",
-              "index$" => 3,
             },
             {
-              "active" => true,
               "name" => "on_violation_quarantine",
-              "req" => false,
               "type" => "`$BOOLEAN`",
-              "index$" => 4,
             },
             {
-              "active" => true,
               "name" => "package_query_string",
-              "req" => false,
               "type" => "`$STRING`",
-              "index$" => 5,
             },
             {
-              "active" => true,
               "name" => "slug_perm",
-              "req" => false,
               "type" => "`$STRING`",
-              "index$" => 6,
             },
             {
-              "active" => true,
               "name" => "spdx_identifiers",
               "req" => true,
               "type" => "`$ARRAY`",
-              "index$" => 7,
             },
             {
-              "active" => true,
               "name" => "updated_at",
-              "req" => false,
               "type" => "`$STRING`",
-              "index$" => 8,
             },
           ],
           "name" => "organization_package_license_policy",
@@ -11616,26 +9480,21 @@ module CloudsmithConfig
               "name" => "create",
               "points" => [
                 {
-                  "active" => true,
                   "args" => {
                     "params" => [
                       {
-                        "active" => true,
                         "kind" => "param",
                         "name" => "org_id",
                         "orig" => "org",
                         "reqd" => true,
                         "type" => "`$STRING`",
-                        "index$" => 0,
                       },
                     ],
                     "query" => [
                       {
-                        "active" => true,
                         "kind" => "query",
                         "name" => "data",
                         "orig" => "data",
-                        "reqd" => false,
                         "type" => "`$OBJECT`",
                       },
                     ],
@@ -11663,44 +9522,35 @@ module CloudsmithConfig
                     "req" => "`reqdata`",
                     "res" => "`body`",
                   },
-                  "index$" => 0,
                 },
               ],
-              "key$" => "create",
             },
             "list" => {
               "input" => "data",
               "name" => "list",
               "points" => [
                 {
-                  "active" => true,
                   "args" => {
                     "params" => [
                       {
-                        "active" => true,
                         "kind" => "param",
                         "name" => "org_id",
                         "orig" => "org",
                         "reqd" => true,
                         "type" => "`$STRING`",
-                        "index$" => 0,
                       },
                     ],
                     "query" => [
                       {
-                        "active" => true,
                         "kind" => "query",
                         "name" => "page",
                         "orig" => "page",
-                        "reqd" => false,
                         "type" => "`$INTEGER`",
                       },
                       {
-                        "active" => true,
                         "kind" => "query",
                         "name" => "page_size",
                         "orig" => "page_size",
-                        "reqd" => false,
                         "type" => "`$INTEGER`",
                       },
                     ],
@@ -11729,36 +9579,29 @@ module CloudsmithConfig
                     "req" => "`reqdata`",
                     "res" => "`body`",
                   },
-                  "index$" => 0,
                 },
               ],
-              "key$" => "list",
             },
             "load" => {
               "input" => "data",
               "name" => "load",
               "points" => [
                 {
-                  "active" => true,
                   "args" => {
                     "params" => [
                       {
-                        "active" => true,
                         "kind" => "param",
                         "name" => "id",
                         "orig" => "slug_perm",
                         "reqd" => true,
                         "type" => "`$STRING`",
-                        "index$" => 0,
                       },
                       {
-                        "active" => true,
                         "kind" => "param",
                         "name" => "org_id",
                         "orig" => "org",
                         "reqd" => true,
                         "type" => "`$STRING`",
-                        "index$" => 1,
                       },
                     ],
                   },
@@ -11787,21 +9630,17 @@ module CloudsmithConfig
                     "req" => "`reqdata`",
                     "res" => "`body`",
                   },
-                  "index$" => 0,
                 },
               ],
-              "key$" => "load",
             },
             "patch" => {
               "input" => "data",
               "name" => "patch",
               "points" => [
                 {
-                  "active" => true,
                   "args" => {
                     "params" => [
                       {
-                        "active" => true,
                         "kind" => "param",
                         "name" => "id",
                         "orig" => "slug_perm",
@@ -11809,7 +9648,6 @@ module CloudsmithConfig
                         "type" => "`$STRING`",
                       },
                       {
-                        "active" => true,
                         "kind" => "param",
                         "name" => "org_id",
                         "orig" => "org",
@@ -11819,11 +9657,9 @@ module CloudsmithConfig
                     ],
                     "query" => [
                       {
-                        "active" => true,
                         "kind" => "query",
                         "name" => "data",
                         "orig" => "data",
-                        "reqd" => false,
                         "type" => "`$OBJECT`",
                       },
                     ],
@@ -11854,45 +9690,36 @@ module CloudsmithConfig
                     "req" => "`reqdata`",
                     "res" => "`body`",
                   },
-                  "index$" => 0,
                 },
               ],
-              "key$" => "patch",
             },
             "update" => {
               "input" => "data",
               "name" => "update",
               "points" => [
                 {
-                  "active" => true,
                   "args" => {
                     "params" => [
                       {
-                        "active" => true,
                         "kind" => "param",
                         "name" => "id",
                         "orig" => "slug_perm",
                         "reqd" => true,
                         "type" => "`$STRING`",
-                        "index$" => 0,
                       },
                       {
-                        "active" => true,
                         "kind" => "param",
                         "name" => "org_id",
                         "orig" => "org",
                         "reqd" => true,
                         "type" => "`$STRING`",
-                        "index$" => 1,
                       },
                     ],
                     "query" => [
                       {
-                        "active" => true,
                         "kind" => "query",
                         "name" => "data",
                         "orig" => "data",
-                        "reqd" => false,
                         "type" => "`$OBJECT`",
                       },
                     ],
@@ -11923,10 +9750,8 @@ module CloudsmithConfig
                     "req" => "`reqdata`",
                     "res" => "`body`",
                   },
-                  "index$" => 0,
                 },
               ],
-              "key$" => "update",
             },
           },
           "relations" => {
@@ -11940,67 +9765,41 @@ module CloudsmithConfig
         "organization_package_vulnerability_policy" => {
           "fields" => [
             {
-              "active" => true,
               "name" => "allow_unknown_severity",
-              "req" => false,
               "type" => "`$BOOLEAN`",
-              "index$" => 0,
             },
             {
-              "active" => true,
               "name" => "created_at",
-              "req" => false,
               "type" => "`$STRING`",
-              "index$" => 1,
             },
             {
-              "active" => true,
               "name" => "description",
-              "req" => false,
               "type" => "`$STRING`",
-              "index$" => 2,
             },
             {
-              "active" => true,
               "name" => "min_severity",
-              "req" => false,
               "type" => "`$STRING`",
-              "index$" => 3,
             },
             {
-              "active" => true,
               "name" => "name",
               "req" => true,
               "type" => "`$STRING`",
-              "index$" => 4,
             },
             {
-              "active" => true,
               "name" => "on_violation_quarantine",
-              "req" => false,
               "type" => "`$BOOLEAN`",
-              "index$" => 5,
             },
             {
-              "active" => true,
               "name" => "package_query_string",
-              "req" => false,
               "type" => "`$STRING`",
-              "index$" => 6,
             },
             {
-              "active" => true,
               "name" => "slug_perm",
-              "req" => false,
               "type" => "`$STRING`",
-              "index$" => 7,
             },
             {
-              "active" => true,
               "name" => "updated_at",
-              "req" => false,
               "type" => "`$STRING`",
-              "index$" => 8,
             },
           ],
           "name" => "organization_package_vulnerability_policy",
@@ -12010,26 +9809,21 @@ module CloudsmithConfig
               "name" => "create",
               "points" => [
                 {
-                  "active" => true,
                   "args" => {
                     "params" => [
                       {
-                        "active" => true,
                         "kind" => "param",
                         "name" => "org_id",
                         "orig" => "org",
                         "reqd" => true,
                         "type" => "`$STRING`",
-                        "index$" => 0,
                       },
                     ],
                     "query" => [
                       {
-                        "active" => true,
                         "kind" => "query",
                         "name" => "data",
                         "orig" => "data",
-                        "reqd" => false,
                         "type" => "`$OBJECT`",
                       },
                     ],
@@ -12057,44 +9851,35 @@ module CloudsmithConfig
                     "req" => "`reqdata`",
                     "res" => "`body`",
                   },
-                  "index$" => 0,
                 },
               ],
-              "key$" => "create",
             },
             "list" => {
               "input" => "data",
               "name" => "list",
               "points" => [
                 {
-                  "active" => true,
                   "args" => {
                     "params" => [
                       {
-                        "active" => true,
                         "kind" => "param",
                         "name" => "org_id",
                         "orig" => "org",
                         "reqd" => true,
                         "type" => "`$STRING`",
-                        "index$" => 0,
                       },
                     ],
                     "query" => [
                       {
-                        "active" => true,
                         "kind" => "query",
                         "name" => "page",
                         "orig" => "page",
-                        "reqd" => false,
                         "type" => "`$INTEGER`",
                       },
                       {
-                        "active" => true,
                         "kind" => "query",
                         "name" => "page_size",
                         "orig" => "page_size",
-                        "reqd" => false,
                         "type" => "`$INTEGER`",
                       },
                     ],
@@ -12123,36 +9908,29 @@ module CloudsmithConfig
                     "req" => "`reqdata`",
                     "res" => "`body`",
                   },
-                  "index$" => 0,
                 },
               ],
-              "key$" => "list",
             },
             "load" => {
               "input" => "data",
               "name" => "load",
               "points" => [
                 {
-                  "active" => true,
                   "args" => {
                     "params" => [
                       {
-                        "active" => true,
                         "kind" => "param",
                         "name" => "id",
                         "orig" => "slug_perm",
                         "reqd" => true,
                         "type" => "`$STRING`",
-                        "index$" => 0,
                       },
                       {
-                        "active" => true,
                         "kind" => "param",
                         "name" => "org_id",
                         "orig" => "org",
                         "reqd" => true,
                         "type" => "`$STRING`",
-                        "index$" => 1,
                       },
                     ],
                   },
@@ -12181,21 +9959,17 @@ module CloudsmithConfig
                     "req" => "`reqdata`",
                     "res" => "`body`",
                   },
-                  "index$" => 0,
                 },
               ],
-              "key$" => "load",
             },
             "patch" => {
               "input" => "data",
               "name" => "patch",
               "points" => [
                 {
-                  "active" => true,
                   "args" => {
                     "params" => [
                       {
-                        "active" => true,
                         "kind" => "param",
                         "name" => "id",
                         "orig" => "slug_perm",
@@ -12203,7 +9977,6 @@ module CloudsmithConfig
                         "type" => "`$STRING`",
                       },
                       {
-                        "active" => true,
                         "kind" => "param",
                         "name" => "org_id",
                         "orig" => "org",
@@ -12213,11 +9986,9 @@ module CloudsmithConfig
                     ],
                     "query" => [
                       {
-                        "active" => true,
                         "kind" => "query",
                         "name" => "data",
                         "orig" => "data",
-                        "reqd" => false,
                         "type" => "`$OBJECT`",
                       },
                     ],
@@ -12248,45 +10019,36 @@ module CloudsmithConfig
                     "req" => "`reqdata`",
                     "res" => "`body`",
                   },
-                  "index$" => 0,
                 },
               ],
-              "key$" => "patch",
             },
             "update" => {
               "input" => "data",
               "name" => "update",
               "points" => [
                 {
-                  "active" => true,
                   "args" => {
                     "params" => [
                       {
-                        "active" => true,
                         "kind" => "param",
                         "name" => "id",
                         "orig" => "slug_perm",
                         "reqd" => true,
                         "type" => "`$STRING`",
-                        "index$" => 0,
                       },
                       {
-                        "active" => true,
                         "kind" => "param",
                         "name" => "org_id",
                         "orig" => "org",
                         "reqd" => true,
                         "type" => "`$STRING`",
-                        "index$" => 1,
                       },
                     ],
                     "query" => [
                       {
-                        "active" => true,
                         "kind" => "query",
                         "name" => "data",
                         "orig" => "data",
-                        "reqd" => false,
                         "type" => "`$OBJECT`",
                       },
                     ],
@@ -12317,10 +10079,8 @@ module CloudsmithConfig
                     "req" => "`reqdata`",
                     "res" => "`body`",
                   },
-                  "index$" => 0,
                 },
               ],
-              "key$" => "update",
             },
           },
           "relations" => {
@@ -12334,32 +10094,22 @@ module CloudsmithConfig
         "organization_saml_auth" => {
           "fields" => [
             {
-              "active" => true,
               "name" => "saml_auth_enabled",
               "req" => true,
               "type" => "`$BOOLEAN`",
-              "index$" => 0,
             },
             {
-              "active" => true,
               "name" => "saml_auth_enforced",
               "req" => true,
               "type" => "`$BOOLEAN`",
-              "index$" => 1,
             },
             {
-              "active" => true,
               "name" => "saml_metadata_inline",
-              "req" => false,
               "type" => "`$STRING`",
-              "index$" => 2,
             },
             {
-              "active" => true,
               "name" => "saml_metadata_url",
-              "req" => false,
               "type" => "`$STRING`",
-              "index$" => 3,
             },
           ],
           "name" => "organization_saml_auth",
@@ -12369,17 +10119,14 @@ module CloudsmithConfig
               "name" => "load",
               "points" => [
                 {
-                  "active" => true,
                   "args" => {
                     "params" => [
                       {
-                        "active" => true,
                         "kind" => "param",
                         "name" => "org_id",
                         "orig" => "org",
                         "reqd" => true,
                         "type" => "`$STRING`",
-                        "index$" => 0,
                       },
                     ],
                   },
@@ -12405,36 +10152,29 @@ module CloudsmithConfig
                     "req" => "`reqdata`",
                     "res" => "`body`",
                   },
-                  "index$" => 0,
                 },
               ],
-              "key$" => "load",
             },
             "update" => {
               "input" => "data",
               "name" => "update",
               "points" => [
                 {
-                  "active" => true,
                   "args" => {
                     "params" => [
                       {
-                        "active" => true,
                         "kind" => "param",
                         "name" => "org_id",
                         "orig" => "org",
                         "reqd" => true,
                         "type" => "`$STRING`",
-                        "index$" => 0,
                       },
                     ],
                     "query" => [
                       {
-                        "active" => true,
                         "kind" => "query",
                         "name" => "data",
                         "orig" => "data",
-                        "reqd" => false,
                         "type" => "`$OBJECT`",
                       },
                     ],
@@ -12462,10 +10202,8 @@ module CloudsmithConfig
                     "req" => "`reqdata`",
                     "res" => "`body`",
                   },
-                  "index$" => 0,
                 },
               ],
-              "key$" => "update",
             },
           },
           "relations" => {
@@ -12479,39 +10217,25 @@ module CloudsmithConfig
         "organization_team" => {
           "fields" => [
             {
-              "active" => true,
               "name" => "description",
-              "req" => false,
               "type" => "`$STRING`",
-              "index$" => 0,
             },
             {
-              "active" => true,
               "name" => "name",
               "req" => true,
               "type" => "`$STRING`",
-              "index$" => 1,
             },
             {
-              "active" => true,
               "name" => "slug",
-              "req" => false,
               "type" => "`$STRING`",
-              "index$" => 2,
             },
             {
-              "active" => true,
               "name" => "slug_perm",
-              "req" => false,
               "type" => "`$STRING`",
-              "index$" => 3,
             },
             {
-              "active" => true,
               "name" => "visibility",
-              "req" => false,
               "type" => "`$STRING`",
-              "index$" => 4,
             },
           ],
           "name" => "organization_team",
@@ -12521,26 +10245,21 @@ module CloudsmithConfig
               "name" => "create",
               "points" => [
                 {
-                  "active" => true,
                   "args" => {
                     "params" => [
                       {
-                        "active" => true,
                         "kind" => "param",
                         "name" => "org_id",
                         "orig" => "org",
                         "reqd" => true,
                         "type" => "`$STRING`",
-                        "index$" => 0,
                       },
                     ],
                     "query" => [
                       {
-                        "active" => true,
                         "kind" => "query",
                         "name" => "data",
                         "orig" => "data",
-                        "reqd" => false,
                         "type" => "`$OBJECT`",
                       },
                     ],
@@ -12568,68 +10287,53 @@ module CloudsmithConfig
                     "req" => "`reqdata`",
                     "res" => "`body`",
                   },
-                  "index$" => 0,
                 },
               ],
-              "key$" => "create",
             },
             "list" => {
               "input" => "data",
               "name" => "list",
               "points" => [
                 {
-                  "active" => true,
                   "args" => {
                     "params" => [
                       {
-                        "active" => true,
                         "kind" => "param",
                         "name" => "org_id",
                         "orig" => "org",
                         "reqd" => true,
                         "type" => "`$STRING`",
-                        "index$" => 0,
                       },
                     ],
                     "query" => [
                       {
-                        "active" => true,
                         "kind" => "query",
                         "name" => "for_user",
                         "orig" => "for_user",
-                        "reqd" => false,
                         "type" => "`$ANY`",
                       },
                       {
-                        "active" => true,
                         "kind" => "query",
                         "name" => "page",
                         "orig" => "page",
-                        "reqd" => false,
                         "type" => "`$INTEGER`",
                       },
                       {
-                        "active" => true,
                         "kind" => "query",
                         "name" => "page_size",
                         "orig" => "page_size",
-                        "reqd" => false,
                         "type" => "`$INTEGER`",
                       },
                       {
-                        "active" => true,
                         "kind" => "query",
                         "name" => "query",
                         "orig" => "query",
-                        "reqd" => false,
                         "type" => "`$ANY`",
                       },
                       {
-                        "active" => true,
                         "kind" => "query",
                         "name" => "sort",
                         "orig" => "sort",
-                        "reqd" => false,
                         "type" => "`$ANY`",
                       },
                     ],
@@ -12661,36 +10365,29 @@ module CloudsmithConfig
                     "req" => "`reqdata`",
                     "res" => "`body`",
                   },
-                  "index$" => 0,
                 },
               ],
-              "key$" => "list",
             },
             "load" => {
               "input" => "data",
               "name" => "load",
               "points" => [
                 {
-                  "active" => true,
                   "args" => {
                     "params" => [
                       {
-                        "active" => true,
                         "kind" => "param",
                         "name" => "id",
                         "orig" => "team",
                         "reqd" => true,
                         "type" => "`$STRING`",
-                        "index$" => 0,
                       },
                       {
-                        "active" => true,
                         "kind" => "param",
                         "name" => "org_id",
                         "orig" => "org",
                         "reqd" => true,
                         "type" => "`$STRING`",
-                        "index$" => 1,
                       },
                     ],
                   },
@@ -12719,45 +10416,36 @@ module CloudsmithConfig
                     "req" => "`reqdata`",
                     "res" => "`body`",
                   },
-                  "index$" => 0,
                 },
               ],
-              "key$" => "load",
             },
             "update" => {
               "input" => "data",
               "name" => "update",
               "points" => [
                 {
-                  "active" => true,
                   "args" => {
                     "params" => [
                       {
-                        "active" => true,
                         "kind" => "param",
                         "name" => "id",
                         "orig" => "team",
                         "reqd" => true,
                         "type" => "`$STRING`",
-                        "index$" => 0,
                       },
                       {
-                        "active" => true,
                         "kind" => "param",
                         "name" => "org_id",
                         "orig" => "org",
                         "reqd" => true,
                         "type" => "`$STRING`",
-                        "index$" => 1,
                       },
                     ],
                     "query" => [
                       {
-                        "active" => true,
                         "kind" => "query",
                         "name" => "data",
                         "orig" => "data",
-                        "reqd" => false,
                         "type" => "`$OBJECT`",
                       },
                     ],
@@ -12788,10 +10476,8 @@ module CloudsmithConfig
                     "req" => "`reqdata`",
                     "res" => "`body`",
                   },
-                  "index$" => 0,
                 },
               ],
-              "key$" => "update",
             },
           },
           "relations" => {
@@ -12805,18 +10491,14 @@ module CloudsmithConfig
         "organization_team_member" => {
           "fields" => [
             {
-              "active" => true,
               "name" => "role",
               "req" => true,
               "type" => "`$STRING`",
-              "index$" => 0,
             },
             {
-              "active" => true,
               "name" => "user",
               "req" => true,
               "type" => "`$STRING`",
-              "index$" => 1,
             },
           ],
           "name" => "organization_team_member",
@@ -12826,35 +10508,28 @@ module CloudsmithConfig
               "name" => "create",
               "points" => [
                 {
-                  "active" => true,
                   "args" => {
                     "params" => [
                       {
-                        "active" => true,
                         "kind" => "param",
                         "name" => "org_id",
                         "orig" => "org",
                         "reqd" => true,
                         "type" => "`$STRING`",
-                        "index$" => 0,
                       },
                       {
-                        "active" => true,
                         "kind" => "param",
                         "name" => "team_id",
                         "orig" => "team",
                         "reqd" => true,
                         "type" => "`$STRING`",
-                        "index$" => 1,
                       },
                     ],
                     "query" => [
                       {
-                        "active" => true,
                         "kind" => "query",
                         "name" => "data",
                         "orig" => "data",
-                        "reqd" => false,
                         "type" => "`$OBJECT`",
                       },
                     ],
@@ -12886,36 +10561,29 @@ module CloudsmithConfig
                     "req" => "`reqdata`",
                     "res" => "`body`",
                   },
-                  "index$" => 0,
                 },
               ],
-              "key$" => "create",
             },
             "list" => {
               "input" => "data",
               "name" => "list",
               "points" => [
                 {
-                  "active" => true,
                   "args" => {
                     "params" => [
                       {
-                        "active" => true,
                         "kind" => "param",
                         "name" => "org_id",
                         "orig" => "org",
                         "reqd" => true,
                         "type" => "`$STRING`",
-                        "index$" => 0,
                       },
                       {
-                        "active" => true,
                         "kind" => "param",
                         "name" => "team_id",
                         "orig" => "team",
                         "reqd" => true,
                         "type" => "`$STRING`",
-                        "index$" => 1,
                       },
                     ],
                   },
@@ -12945,10 +10613,8 @@ module CloudsmithConfig
                     "req" => "`reqdata`",
                     "res" => "`body.members`",
                   },
-                  "index$" => 0,
                 },
               ],
-              "key$" => "list",
             },
           },
           "relations" => {
@@ -12983,479 +10649,284 @@ module CloudsmithConfig
         "package" => {
           "fields" => [
             {
-              "active" => true,
               "name" => "active",
-              "req" => false,
               "type" => "`$INTEGER`",
-              "index$" => 0,
             },
             {
-              "active" => true,
               "name" => "architectures",
-              "req" => false,
               "type" => "`$ARRAY`",
-              "index$" => 1,
             },
             {
-              "active" => true,
               "name" => "backend_kind",
-              "req" => false,
               "type" => "`$INTEGER`",
-              "index$" => 2,
             },
             {
-              "active" => true,
               "name" => "bandwidth",
               "req" => true,
               "type" => "`$OBJECT`",
-              "index$" => 3,
             },
             {
-              "active" => true,
               "name" => "cdn_url",
-              "req" => false,
               "type" => "`$STRING`",
-              "index$" => 4,
             },
             {
-              "active" => true,
               "name" => "checksum_md5",
-              "req" => false,
               "type" => "`$STRING`",
-              "index$" => 5,
             },
             {
-              "active" => true,
               "name" => "checksum_sha1",
-              "req" => false,
               "type" => "`$STRING`",
-              "index$" => 6,
             },
             {
-              "active" => true,
               "name" => "checksum_sha256",
-              "req" => false,
               "type" => "`$STRING`",
-              "index$" => 7,
             },
             {
-              "active" => true,
               "name" => "checksum_sha512",
-              "req" => false,
               "type" => "`$STRING`",
-              "index$" => 8,
             },
             {
-              "active" => true,
               "name" => "count",
               "req" => true,
               "type" => "`$INTEGER`",
-              "index$" => 9,
             },
             {
-              "active" => true,
               "name" => "dep_type",
-              "req" => false,
               "type" => "`$STRING`",
-              "index$" => 10,
             },
             {
-              "active" => true,
               "name" => "dependencies_checksum_md5",
-              "req" => false,
               "type" => "`$STRING`",
-              "index$" => 11,
             },
             {
-              "active" => true,
               "name" => "dependencies_url",
-              "req" => false,
               "type" => "`$STRING`",
-              "index$" => 12,
             },
             {
-              "active" => true,
               "name" => "description",
-              "req" => false,
               "type" => "`$STRING`",
-              "index$" => 13,
             },
             {
-              "active" => true,
               "name" => "display_name",
-              "req" => false,
               "type" => "`$STRING`",
-              "index$" => 14,
             },
             {
-              "active" => true,
               "name" => "distro",
               "req" => true,
               "type" => "`$OBJECT`",
-              "index$" => 15,
             },
             {
-              "active" => true,
               "name" => "distro_version",
-              "req" => false,
               "type" => "`$OBJECT`",
-              "index$" => 16,
             },
             {
-              "active" => true,
               "name" => "downloads",
               "op" => {
                 "create" => {
-                  "req" => false,
                   "type" => "`$INTEGER`",
                 },
                 "list" => {
-                  "req" => false,
                   "type" => "`$INTEGER`",
                 },
               },
               "req" => true,
               "type" => "`$OBJECT`",
-              "index$" => 17,
             },
             {
-              "active" => true,
               "name" => "epoch",
-              "req" => false,
               "type" => "`$INTEGER`",
-              "index$" => 18,
             },
             {
-              "active" => true,
               "name" => "extension",
-              "req" => false,
               "type" => "`$STRING`",
-              "index$" => 19,
             },
             {
-              "active" => true,
               "name" => "filename",
-              "req" => false,
               "type" => "`$STRING`",
-              "index$" => 20,
             },
             {
-              "active" => true,
               "name" => "files",
-              "req" => false,
               "type" => "`$ARRAY`",
-              "index$" => 21,
             },
             {
-              "active" => true,
               "name" => "format",
-              "req" => false,
               "type" => "`$STRING`",
-              "index$" => 22,
             },
             {
-              "active" => true,
               "name" => "format_url",
-              "req" => false,
               "type" => "`$STRING`",
-              "index$" => 23,
             },
             {
-              "active" => true,
               "name" => "freeable_storage",
-              "req" => false,
               "type" => "`$INTEGER`",
-              "index$" => 24,
             },
             {
-              "active" => true,
               "name" => "fully_qualified_name",
-              "req" => false,
               "type" => "`$STRING`",
-              "index$" => 25,
             },
             {
-              "active" => true,
               "name" => "identifier_perm",
-              "req" => false,
               "type" => "`$STRING`",
-              "index$" => 26,
             },
             {
-              "active" => true,
               "name" => "identifiers",
-              "req" => false,
               "type" => "`$OBJECT`",
-              "index$" => 27,
             },
             {
-              "active" => true,
               "name" => "inactive",
-              "req" => false,
               "type" => "`$INTEGER`",
-              "index$" => 28,
             },
             {
-              "active" => true,
               "name" => "indexed",
-              "req" => false,
               "type" => "`$BOOLEAN`",
-              "index$" => 29,
             },
             {
-              "active" => true,
               "name" => "is_cancellable",
-              "req" => false,
               "type" => "`$BOOLEAN`",
-              "index$" => 30,
             },
             {
-              "active" => true,
               "name" => "is_copyable",
-              "req" => false,
               "type" => "`$BOOLEAN`",
-              "index$" => 31,
             },
             {
-              "active" => true,
               "name" => "is_deleteable",
-              "req" => false,
               "type" => "`$BOOLEAN`",
-              "index$" => 32,
             },
             {
-              "active" => true,
               "name" => "is_downloadable",
-              "req" => false,
               "type" => "`$BOOLEAN`",
-              "index$" => 33,
             },
             {
-              "active" => true,
               "name" => "is_moveable",
-              "req" => false,
               "type" => "`$BOOLEAN`",
-              "index$" => 34,
             },
             {
-              "active" => true,
               "name" => "is_quarantinable",
-              "req" => false,
               "type" => "`$BOOLEAN`",
-              "index$" => 35,
             },
             {
-              "active" => true,
               "name" => "is_quarantined",
-              "req" => false,
               "type" => "`$BOOLEAN`",
-              "index$" => 36,
             },
             {
-              "active" => true,
               "name" => "is_resyncable",
-              "req" => false,
               "type" => "`$BOOLEAN`",
-              "index$" => 37,
             },
             {
-              "active" => true,
               "name" => "is_security_scannable",
-              "req" => false,
               "type" => "`$BOOLEAN`",
-              "index$" => 38,
             },
             {
-              "active" => true,
               "name" => "is_sync_awaiting",
-              "req" => false,
               "type" => "`$BOOLEAN`",
-              "index$" => 39,
             },
             {
-              "active" => true,
               "name" => "is_sync_completed",
-              "req" => false,
               "type" => "`$BOOLEAN`",
-              "index$" => 40,
             },
             {
-              "active" => true,
               "name" => "is_sync_failed",
-              "req" => false,
               "type" => "`$BOOLEAN`",
-              "index$" => 41,
             },
             {
-              "active" => true,
               "name" => "is_sync_in_flight",
-              "req" => false,
               "type" => "`$BOOLEAN`",
-              "index$" => 42,
             },
             {
-              "active" => true,
               "name" => "is_sync_in_progress",
-              "req" => false,
               "type" => "`$BOOLEAN`",
-              "index$" => 43,
             },
             {
-              "active" => true,
               "name" => "last_push",
               "req" => true,
               "type" => "`$STRING`",
-              "index$" => 44,
             },
             {
-              "active" => true,
               "name" => "license",
-              "req" => false,
               "type" => "`$STRING`",
-              "index$" => 45,
             },
             {
-              "active" => true,
               "name" => "name",
-              "req" => false,
               "type" => "`$STRING`",
-              "index$" => 46,
             },
             {
-              "active" => true,
               "name" => "namespace",
-              "req" => false,
               "type" => "`$STRING`",
-              "index$" => 47,
             },
             {
-              "active" => true,
               "name" => "namespace_url",
-              "req" => false,
               "type" => "`$STRING`",
-              "index$" => 48,
             },
             {
-              "active" => true,
               "name" => "num_downloads",
               "req" => true,
               "type" => "`$INTEGER`",
-              "index$" => 49,
             },
             {
-              "active" => true,
               "name" => "num_files",
-              "req" => false,
               "type" => "`$INTEGER`",
-              "index$" => 50,
             },
             {
-              "active" => true,
               "name" => "operator",
-              "req" => false,
               "type" => "`$STRING`",
-              "index$" => 51,
             },
             {
-              "active" => true,
               "name" => "origin_repository",
-              "req" => false,
               "type" => "`$STRING`",
-              "index$" => 52,
             },
             {
-              "active" => true,
               "name" => "origin_repository_url",
-              "req" => false,
               "type" => "`$STRING`",
-              "index$" => 53,
             },
             {
-              "active" => true,
               "name" => "package_type",
-              "req" => false,
               "type" => "`$INTEGER`",
-              "index$" => 54,
             },
             {
-              "active" => true,
               "name" => "policy_violated",
-              "req" => false,
               "type" => "`$BOOLEAN`",
-              "index$" => 55,
             },
             {
-              "active" => true,
               "name" => "release",
-              "req" => false,
               "type" => "`$STRING`",
-              "index$" => 56,
             },
             {
-              "active" => true,
               "name" => "repository",
-              "req" => false,
               "type" => "`$STRING`",
-              "index$" => 57,
             },
             {
-              "active" => true,
               "name" => "repository_url",
-              "req" => false,
               "type" => "`$STRING`",
-              "index$" => 58,
             },
             {
-              "active" => true,
               "name" => "security_scan_completed_at",
-              "req" => false,
               "type" => "`$STRING`",
-              "index$" => 59,
             },
             {
-              "active" => true,
               "name" => "security_scan_started_at",
-              "req" => false,
               "type" => "`$STRING`",
-              "index$" => 60,
             },
             {
-              "active" => true,
               "name" => "security_scan_status",
-              "req" => false,
               "type" => "`$STRING`",
-              "index$" => 61,
             },
             {
-              "active" => true,
               "name" => "security_scan_status_updated_at",
-              "req" => false,
               "type" => "`$STRING`",
-              "index$" => 62,
             },
             {
-              "active" => true,
               "name" => "self_html_url",
-              "req" => false,
               "type" => "`$STRING`",
-              "index$" => 63,
             },
             {
-              "active" => true,
               "name" => "self_url",
-              "req" => false,
               "type" => "`$STRING`",
-              "index$" => 64,
             },
             {
-              "active" => true,
               "name" => "signature_url",
-              "req" => false,
               "type" => "`$STRING`",
-              "index$" => 65,
             },
             {
-              "active" => true,
               "name" => "size",
               "op" => {
                 "list" => {
@@ -13463,177 +10934,103 @@ module CloudsmithConfig
                   "type" => "`$INTEGER`",
                 },
               },
-              "req" => false,
               "type" => "`$INTEGER`",
-              "index$" => 66,
             },
             {
-              "active" => true,
               "name" => "slug",
-              "req" => false,
               "type" => "`$STRING`",
-              "index$" => 67,
             },
             {
-              "active" => true,
               "name" => "slug_perm",
-              "req" => false,
               "type" => "`$STRING`",
-              "index$" => 68,
             },
             {
-              "active" => true,
               "name" => "stage",
-              "req" => false,
               "type" => "`$INTEGER`",
-              "index$" => 69,
             },
             {
-              "active" => true,
               "name" => "stage_str",
-              "req" => false,
               "type" => "`$STRING`",
-              "index$" => 70,
             },
             {
-              "active" => true,
               "name" => "stage_updated_at",
-              "req" => false,
               "type" => "`$STRING`",
-              "index$" => 71,
             },
             {
-              "active" => true,
               "name" => "status",
-              "req" => false,
               "type" => "`$INTEGER`",
-              "index$" => 72,
             },
             {
-              "active" => true,
               "name" => "status_reason",
-              "req" => false,
               "type" => "`$STRING`",
-              "index$" => 73,
             },
             {
-              "active" => true,
               "name" => "status_str",
-              "req" => false,
               "type" => "`$STRING`",
-              "index$" => 74,
             },
             {
-              "active" => true,
               "name" => "status_updated_at",
-              "req" => false,
               "type" => "`$STRING`",
-              "index$" => 75,
             },
             {
-              "active" => true,
               "name" => "status_url",
-              "req" => false,
               "type" => "`$STRING`",
-              "index$" => 76,
             },
             {
-              "active" => true,
               "name" => "subtype",
-              "req" => false,
               "type" => "`$STRING`",
-              "index$" => 77,
             },
             {
-              "active" => true,
               "name" => "summary",
-              "req" => false,
               "type" => "`$STRING`",
-              "index$" => 78,
             },
             {
-              "active" => true,
               "name" => "sync_finished_at",
-              "req" => false,
               "type" => "`$STRING`",
-              "index$" => 79,
             },
             {
-              "active" => true,
               "name" => "sync_progress",
-              "req" => false,
               "type" => "`$INTEGER`",
-              "index$" => 80,
             },
             {
-              "active" => true,
               "name" => "tags",
-              "req" => false,
               "type" => "`$OBJECT`",
-              "index$" => 81,
             },
             {
-              "active" => true,
               "name" => "tags_immutable",
-              "req" => false,
               "type" => "`$OBJECT`",
-              "index$" => 82,
             },
             {
-              "active" => true,
               "name" => "total",
-              "req" => false,
               "type" => "`$INTEGER`",
-              "index$" => 83,
             },
             {
-              "active" => true,
               "name" => "type_display",
-              "req" => false,
               "type" => "`$STRING`",
-              "index$" => 84,
             },
             {
-              "active" => true,
               "name" => "uploaded_at",
-              "req" => false,
               "type" => "`$STRING`",
-              "index$" => 85,
             },
             {
-              "active" => true,
               "name" => "uploader",
-              "req" => false,
               "type" => "`$STRING`",
-              "index$" => 86,
             },
             {
-              "active" => true,
               "name" => "uploader_url",
-              "req" => false,
               "type" => "`$STRING`",
-              "index$" => 87,
             },
             {
-              "active" => true,
               "name" => "version",
-              "req" => false,
               "type" => "`$STRING`",
-              "index$" => 88,
             },
             {
-              "active" => true,
               "name" => "version_orig",
-              "req" => false,
               "type" => "`$STRING`",
-              "index$" => 89,
             },
             {
-              "active" => true,
               "name" => "vulnerability_scan_results_url",
-              "req" => false,
               "type" => "`$STRING`",
-              "index$" => 90,
             },
           ],
           "name" => "package",
@@ -13643,44 +11040,35 @@ module CloudsmithConfig
               "name" => "create",
               "points" => [
                 {
-                  "active" => true,
                   "args" => {
                     "params" => [
                       {
-                        "active" => true,
                         "kind" => "param",
                         "name" => "identifier",
                         "orig" => "identifier",
                         "reqd" => true,
                         "type" => "`$ANY`",
-                        "index$" => 0,
                       },
                       {
-                        "active" => true,
                         "kind" => "param",
                         "name" => "owner",
                         "orig" => "owner",
                         "reqd" => true,
                         "type" => "`$ANY`",
-                        "index$" => 1,
                       },
                       {
-                        "active" => true,
                         "kind" => "param",
                         "name" => "repo",
                         "orig" => "repo",
                         "reqd" => true,
                         "type" => "`$ANY`",
-                        "index$" => 2,
                       },
                     ],
                     "query" => [
                       {
-                        "active" => true,
                         "kind" => "query",
                         "name" => "data",
                         "orig" => "data",
-                        "reqd" => false,
                         "type" => "`$OBJECT`",
                       },
                     ],
@@ -13707,47 +11095,37 @@ module CloudsmithConfig
                     "req" => "`reqdata`",
                     "res" => "`body`",
                   },
-                  "index$" => 0,
                 },
                 {
-                  "active" => true,
                   "args" => {
                     "params" => [
                       {
-                        "active" => true,
                         "kind" => "param",
                         "name" => "identifier",
                         "orig" => "identifier",
                         "reqd" => true,
                         "type" => "`$ANY`",
-                        "index$" => 0,
                       },
                       {
-                        "active" => true,
                         "kind" => "param",
                         "name" => "owner",
                         "orig" => "owner",
                         "reqd" => true,
                         "type" => "`$ANY`",
-                        "index$" => 1,
                       },
                       {
-                        "active" => true,
                         "kind" => "param",
                         "name" => "repo",
                         "orig" => "repo",
                         "reqd" => true,
                         "type" => "`$ANY`",
-                        "index$" => 2,
                       },
                     ],
                     "query" => [
                       {
-                        "active" => true,
                         "kind" => "query",
                         "name" => "data",
                         "orig" => "data",
-                        "reqd" => false,
                         "type" => "`$OBJECT`",
                       },
                     ],
@@ -13774,47 +11152,37 @@ module CloudsmithConfig
                     "req" => "`reqdata`",
                     "res" => "`body`",
                   },
-                  "index$" => 1,
                 },
                 {
-                  "active" => true,
                   "args" => {
                     "params" => [
                       {
-                        "active" => true,
                         "kind" => "param",
                         "name" => "identifier",
                         "orig" => "identifier",
                         "reqd" => true,
                         "type" => "`$ANY`",
-                        "index$" => 0,
                       },
                       {
-                        "active" => true,
                         "kind" => "param",
                         "name" => "owner",
                         "orig" => "owner",
                         "reqd" => true,
                         "type" => "`$ANY`",
-                        "index$" => 1,
                       },
                       {
-                        "active" => true,
                         "kind" => "param",
                         "name" => "repo",
                         "orig" => "repo",
                         "reqd" => true,
                         "type" => "`$ANY`",
-                        "index$" => 2,
                       },
                     ],
                     "query" => [
                       {
-                        "active" => true,
                         "kind" => "query",
                         "name" => "data",
                         "orig" => "data",
-                        "reqd" => false,
                         "type" => "`$OBJECT`",
                       },
                     ],
@@ -13841,47 +11209,37 @@ module CloudsmithConfig
                     "req" => "`reqdata`",
                     "res" => "`body`",
                   },
-                  "index$" => 2,
                 },
                 {
-                  "active" => true,
                   "args" => {
                     "params" => [
                       {
-                        "active" => true,
                         "kind" => "param",
                         "name" => "identifier",
                         "orig" => "identifier",
                         "reqd" => true,
                         "type" => "`$ANY`",
-                        "index$" => 0,
                       },
                       {
-                        "active" => true,
                         "kind" => "param",
                         "name" => "owner",
                         "orig" => "owner",
                         "reqd" => true,
                         "type" => "`$ANY`",
-                        "index$" => 1,
                       },
                       {
-                        "active" => true,
                         "kind" => "param",
                         "name" => "repo",
                         "orig" => "repo",
                         "reqd" => true,
                         "type" => "`$ANY`",
-                        "index$" => 2,
                       },
                     ],
                     "query" => [
                       {
-                        "active" => true,
                         "kind" => "query",
                         "name" => "data",
                         "orig" => "data",
-                        "reqd" => false,
                         "type" => "`$OBJECT`",
                       },
                     ],
@@ -13908,38 +11266,30 @@ module CloudsmithConfig
                     "req" => "`reqdata`",
                     "res" => "`body`",
                   },
-                  "index$" => 3,
                 },
                 {
-                  "active" => true,
                   "args" => {
                     "params" => [
                       {
-                        "active" => true,
                         "kind" => "param",
                         "name" => "owner",
                         "orig" => "owner",
                         "reqd" => true,
                         "type" => "`$ANY`",
-                        "index$" => 0,
                       },
                       {
-                        "active" => true,
                         "kind" => "param",
                         "name" => "repo",
                         "orig" => "repo",
                         "reqd" => true,
                         "type" => "`$ANY`",
-                        "index$" => 1,
                       },
                     ],
                     "query" => [
                       {
-                        "active" => true,
                         "kind" => "query",
                         "name" => "data",
                         "orig" => "data",
-                        "reqd" => false,
                         "type" => "`$OBJECT`",
                       },
                     ],
@@ -13965,38 +11315,30 @@ module CloudsmithConfig
                     "req" => "`reqdata`",
                     "res" => "`body`",
                   },
-                  "index$" => 4,
                 },
                 {
-                  "active" => true,
                   "args" => {
                     "params" => [
                       {
-                        "active" => true,
                         "kind" => "param",
                         "name" => "owner",
                         "orig" => "owner",
                         "reqd" => true,
                         "type" => "`$ANY`",
-                        "index$" => 0,
                       },
                       {
-                        "active" => true,
                         "kind" => "param",
                         "name" => "repo",
                         "orig" => "repo",
                         "reqd" => true,
                         "type" => "`$ANY`",
-                        "index$" => 1,
                       },
                     ],
                     "query" => [
                       {
-                        "active" => true,
                         "kind" => "query",
                         "name" => "data",
                         "orig" => "data",
-                        "reqd" => false,
                         "type" => "`$OBJECT`",
                       },
                     ],
@@ -14022,38 +11364,30 @@ module CloudsmithConfig
                     "req" => "`reqdata`",
                     "res" => "`body`",
                   },
-                  "index$" => 5,
                 },
                 {
-                  "active" => true,
                   "args" => {
                     "params" => [
                       {
-                        "active" => true,
                         "kind" => "param",
                         "name" => "owner",
                         "orig" => "owner",
                         "reqd" => true,
                         "type" => "`$ANY`",
-                        "index$" => 0,
                       },
                       {
-                        "active" => true,
                         "kind" => "param",
                         "name" => "repo",
                         "orig" => "repo",
                         "reqd" => true,
                         "type" => "`$ANY`",
-                        "index$" => 1,
                       },
                     ],
                     "query" => [
                       {
-                        "active" => true,
                         "kind" => "query",
                         "name" => "data",
                         "orig" => "data",
-                        "reqd" => false,
                         "type" => "`$OBJECT`",
                       },
                     ],
@@ -14079,38 +11413,30 @@ module CloudsmithConfig
                     "req" => "`reqdata`",
                     "res" => "`body`",
                   },
-                  "index$" => 6,
                 },
                 {
-                  "active" => true,
                   "args" => {
                     "params" => [
                       {
-                        "active" => true,
                         "kind" => "param",
                         "name" => "owner",
                         "orig" => "owner",
                         "reqd" => true,
                         "type" => "`$ANY`",
-                        "index$" => 0,
                       },
                       {
-                        "active" => true,
                         "kind" => "param",
                         "name" => "repo",
                         "orig" => "repo",
                         "reqd" => true,
                         "type" => "`$ANY`",
-                        "index$" => 1,
                       },
                     ],
                     "query" => [
                       {
-                        "active" => true,
                         "kind" => "query",
                         "name" => "data",
                         "orig" => "data",
-                        "reqd" => false,
                         "type" => "`$OBJECT`",
                       },
                     ],
@@ -14136,38 +11462,30 @@ module CloudsmithConfig
                     "req" => "`reqdata`",
                     "res" => "`body`",
                   },
-                  "index$" => 7,
                 },
                 {
-                  "active" => true,
                   "args" => {
                     "params" => [
                       {
-                        "active" => true,
                         "kind" => "param",
                         "name" => "owner",
                         "orig" => "owner",
                         "reqd" => true,
                         "type" => "`$ANY`",
-                        "index$" => 0,
                       },
                       {
-                        "active" => true,
                         "kind" => "param",
                         "name" => "repo",
                         "orig" => "repo",
                         "reqd" => true,
                         "type" => "`$ANY`",
-                        "index$" => 1,
                       },
                     ],
                     "query" => [
                       {
-                        "active" => true,
                         "kind" => "query",
                         "name" => "data",
                         "orig" => "data",
-                        "reqd" => false,
                         "type" => "`$OBJECT`",
                       },
                     ],
@@ -14193,38 +11511,30 @@ module CloudsmithConfig
                     "req" => "`reqdata`",
                     "res" => "`body`",
                   },
-                  "index$" => 8,
                 },
                 {
-                  "active" => true,
                   "args" => {
                     "params" => [
                       {
-                        "active" => true,
                         "kind" => "param",
                         "name" => "owner",
                         "orig" => "owner",
                         "reqd" => true,
                         "type" => "`$ANY`",
-                        "index$" => 0,
                       },
                       {
-                        "active" => true,
                         "kind" => "param",
                         "name" => "repo",
                         "orig" => "repo",
                         "reqd" => true,
                         "type" => "`$ANY`",
-                        "index$" => 1,
                       },
                     ],
                     "query" => [
                       {
-                        "active" => true,
                         "kind" => "query",
                         "name" => "data",
                         "orig" => "data",
-                        "reqd" => false,
                         "type" => "`$OBJECT`",
                       },
                     ],
@@ -14250,38 +11560,30 @@ module CloudsmithConfig
                     "req" => "`reqdata`",
                     "res" => "`body`",
                   },
-                  "index$" => 9,
                 },
                 {
-                  "active" => true,
                   "args" => {
                     "params" => [
                       {
-                        "active" => true,
                         "kind" => "param",
                         "name" => "owner",
                         "orig" => "owner",
                         "reqd" => true,
                         "type" => "`$ANY`",
-                        "index$" => 0,
                       },
                       {
-                        "active" => true,
                         "kind" => "param",
                         "name" => "repo",
                         "orig" => "repo",
                         "reqd" => true,
                         "type" => "`$ANY`",
-                        "index$" => 1,
                       },
                     ],
                     "query" => [
                       {
-                        "active" => true,
                         "kind" => "query",
                         "name" => "data",
                         "orig" => "data",
-                        "reqd" => false,
                         "type" => "`$OBJECT`",
                       },
                     ],
@@ -14307,38 +11609,30 @@ module CloudsmithConfig
                     "req" => "`reqdata`",
                     "res" => "`body`",
                   },
-                  "index$" => 10,
                 },
                 {
-                  "active" => true,
                   "args" => {
                     "params" => [
                       {
-                        "active" => true,
                         "kind" => "param",
                         "name" => "owner",
                         "orig" => "owner",
                         "reqd" => true,
                         "type" => "`$ANY`",
-                        "index$" => 0,
                       },
                       {
-                        "active" => true,
                         "kind" => "param",
                         "name" => "repo",
                         "orig" => "repo",
                         "reqd" => true,
                         "type" => "`$ANY`",
-                        "index$" => 1,
                       },
                     ],
                     "query" => [
                       {
-                        "active" => true,
                         "kind" => "query",
                         "name" => "data",
                         "orig" => "data",
-                        "reqd" => false,
                         "type" => "`$OBJECT`",
                       },
                     ],
@@ -14364,38 +11658,30 @@ module CloudsmithConfig
                     "req" => "`reqdata`",
                     "res" => "`body`",
                   },
-                  "index$" => 11,
                 },
                 {
-                  "active" => true,
                   "args" => {
                     "params" => [
                       {
-                        "active" => true,
                         "kind" => "param",
                         "name" => "owner",
                         "orig" => "owner",
                         "reqd" => true,
                         "type" => "`$ANY`",
-                        "index$" => 0,
                       },
                       {
-                        "active" => true,
                         "kind" => "param",
                         "name" => "repo",
                         "orig" => "repo",
                         "reqd" => true,
                         "type" => "`$ANY`",
-                        "index$" => 1,
                       },
                     ],
                     "query" => [
                       {
-                        "active" => true,
                         "kind" => "query",
                         "name" => "data",
                         "orig" => "data",
-                        "reqd" => false,
                         "type" => "`$OBJECT`",
                       },
                     ],
@@ -14421,38 +11707,30 @@ module CloudsmithConfig
                     "req" => "`reqdata`",
                     "res" => "`body`",
                   },
-                  "index$" => 12,
                 },
                 {
-                  "active" => true,
                   "args" => {
                     "params" => [
                       {
-                        "active" => true,
                         "kind" => "param",
                         "name" => "owner",
                         "orig" => "owner",
                         "reqd" => true,
                         "type" => "`$ANY`",
-                        "index$" => 0,
                       },
                       {
-                        "active" => true,
                         "kind" => "param",
                         "name" => "repo",
                         "orig" => "repo",
                         "reqd" => true,
                         "type" => "`$ANY`",
-                        "index$" => 1,
                       },
                     ],
                     "query" => [
                       {
-                        "active" => true,
                         "kind" => "query",
                         "name" => "data",
                         "orig" => "data",
-                        "reqd" => false,
                         "type" => "`$OBJECT`",
                       },
                     ],
@@ -14478,38 +11756,30 @@ module CloudsmithConfig
                     "req" => "`reqdata`",
                     "res" => "`body`",
                   },
-                  "index$" => 13,
                 },
                 {
-                  "active" => true,
                   "args" => {
                     "params" => [
                       {
-                        "active" => true,
                         "kind" => "param",
                         "name" => "owner",
                         "orig" => "owner",
                         "reqd" => true,
                         "type" => "`$ANY`",
-                        "index$" => 0,
                       },
                       {
-                        "active" => true,
                         "kind" => "param",
                         "name" => "repo",
                         "orig" => "repo",
                         "reqd" => true,
                         "type" => "`$ANY`",
-                        "index$" => 1,
                       },
                     ],
                     "query" => [
                       {
-                        "active" => true,
                         "kind" => "query",
                         "name" => "data",
                         "orig" => "data",
-                        "reqd" => false,
                         "type" => "`$OBJECT`",
                       },
                     ],
@@ -14535,38 +11805,30 @@ module CloudsmithConfig
                     "req" => "`reqdata`",
                     "res" => "`body`",
                   },
-                  "index$" => 14,
                 },
                 {
-                  "active" => true,
                   "args" => {
                     "params" => [
                       {
-                        "active" => true,
                         "kind" => "param",
                         "name" => "owner",
                         "orig" => "owner",
                         "reqd" => true,
                         "type" => "`$ANY`",
-                        "index$" => 0,
                       },
                       {
-                        "active" => true,
                         "kind" => "param",
                         "name" => "repo",
                         "orig" => "repo",
                         "reqd" => true,
                         "type" => "`$ANY`",
-                        "index$" => 1,
                       },
                     ],
                     "query" => [
                       {
-                        "active" => true,
                         "kind" => "query",
                         "name" => "data",
                         "orig" => "data",
-                        "reqd" => false,
                         "type" => "`$OBJECT`",
                       },
                     ],
@@ -14592,38 +11854,30 @@ module CloudsmithConfig
                     "req" => "`reqdata`",
                     "res" => "`body`",
                   },
-                  "index$" => 15,
                 },
                 {
-                  "active" => true,
                   "args" => {
                     "params" => [
                       {
-                        "active" => true,
                         "kind" => "param",
                         "name" => "owner",
                         "orig" => "owner",
                         "reqd" => true,
                         "type" => "`$ANY`",
-                        "index$" => 0,
                       },
                       {
-                        "active" => true,
                         "kind" => "param",
                         "name" => "repo",
                         "orig" => "repo",
                         "reqd" => true,
                         "type" => "`$ANY`",
-                        "index$" => 1,
                       },
                     ],
                     "query" => [
                       {
-                        "active" => true,
                         "kind" => "query",
                         "name" => "data",
                         "orig" => "data",
-                        "reqd" => false,
                         "type" => "`$OBJECT`",
                       },
                     ],
@@ -14649,38 +11903,30 @@ module CloudsmithConfig
                     "req" => "`reqdata`",
                     "res" => "`body`",
                   },
-                  "index$" => 16,
                 },
                 {
-                  "active" => true,
                   "args" => {
                     "params" => [
                       {
-                        "active" => true,
                         "kind" => "param",
                         "name" => "owner",
                         "orig" => "owner",
                         "reqd" => true,
                         "type" => "`$ANY`",
-                        "index$" => 0,
                       },
                       {
-                        "active" => true,
                         "kind" => "param",
                         "name" => "repo",
                         "orig" => "repo",
                         "reqd" => true,
                         "type" => "`$ANY`",
-                        "index$" => 1,
                       },
                     ],
                     "query" => [
                       {
-                        "active" => true,
                         "kind" => "query",
                         "name" => "data",
                         "orig" => "data",
-                        "reqd" => false,
                         "type" => "`$OBJECT`",
                       },
                     ],
@@ -14706,38 +11952,30 @@ module CloudsmithConfig
                     "req" => "`reqdata`",
                     "res" => "`body`",
                   },
-                  "index$" => 17,
                 },
                 {
-                  "active" => true,
                   "args" => {
                     "params" => [
                       {
-                        "active" => true,
                         "kind" => "param",
                         "name" => "owner",
                         "orig" => "owner",
                         "reqd" => true,
                         "type" => "`$ANY`",
-                        "index$" => 0,
                       },
                       {
-                        "active" => true,
                         "kind" => "param",
                         "name" => "repo",
                         "orig" => "repo",
                         "reqd" => true,
                         "type" => "`$ANY`",
-                        "index$" => 1,
                       },
                     ],
                     "query" => [
                       {
-                        "active" => true,
                         "kind" => "query",
                         "name" => "data",
                         "orig" => "data",
-                        "reqd" => false,
                         "type" => "`$OBJECT`",
                       },
                     ],
@@ -14763,38 +12001,30 @@ module CloudsmithConfig
                     "req" => "`reqdata`",
                     "res" => "`body`",
                   },
-                  "index$" => 18,
                 },
                 {
-                  "active" => true,
                   "args" => {
                     "params" => [
                       {
-                        "active" => true,
                         "kind" => "param",
                         "name" => "owner",
                         "orig" => "owner",
                         "reqd" => true,
                         "type" => "`$ANY`",
-                        "index$" => 0,
                       },
                       {
-                        "active" => true,
                         "kind" => "param",
                         "name" => "repo",
                         "orig" => "repo",
                         "reqd" => true,
                         "type" => "`$ANY`",
-                        "index$" => 1,
                       },
                     ],
                     "query" => [
                       {
-                        "active" => true,
                         "kind" => "query",
                         "name" => "data",
                         "orig" => "data",
-                        "reqd" => false,
                         "type" => "`$OBJECT`",
                       },
                     ],
@@ -14820,38 +12050,30 @@ module CloudsmithConfig
                     "req" => "`reqdata`",
                     "res" => "`body`",
                   },
-                  "index$" => 19,
                 },
                 {
-                  "active" => true,
                   "args" => {
                     "params" => [
                       {
-                        "active" => true,
                         "kind" => "param",
                         "name" => "owner",
                         "orig" => "owner",
                         "reqd" => true,
                         "type" => "`$ANY`",
-                        "index$" => 0,
                       },
                       {
-                        "active" => true,
                         "kind" => "param",
                         "name" => "repo",
                         "orig" => "repo",
                         "reqd" => true,
                         "type" => "`$ANY`",
-                        "index$" => 1,
                       },
                     ],
                     "query" => [
                       {
-                        "active" => true,
                         "kind" => "query",
                         "name" => "data",
                         "orig" => "data",
-                        "reqd" => false,
                         "type" => "`$OBJECT`",
                       },
                     ],
@@ -14877,38 +12099,30 @@ module CloudsmithConfig
                     "req" => "`reqdata`",
                     "res" => "`body`",
                   },
-                  "index$" => 20,
                 },
                 {
-                  "active" => true,
                   "args" => {
                     "params" => [
                       {
-                        "active" => true,
                         "kind" => "param",
                         "name" => "owner",
                         "orig" => "owner",
                         "reqd" => true,
                         "type" => "`$ANY`",
-                        "index$" => 0,
                       },
                       {
-                        "active" => true,
                         "kind" => "param",
                         "name" => "repo",
                         "orig" => "repo",
                         "reqd" => true,
                         "type" => "`$ANY`",
-                        "index$" => 1,
                       },
                     ],
                     "query" => [
                       {
-                        "active" => true,
                         "kind" => "query",
                         "name" => "data",
                         "orig" => "data",
-                        "reqd" => false,
                         "type" => "`$OBJECT`",
                       },
                     ],
@@ -14934,38 +12148,30 @@ module CloudsmithConfig
                     "req" => "`reqdata`",
                     "res" => "`body`",
                   },
-                  "index$" => 21,
                 },
                 {
-                  "active" => true,
                   "args" => {
                     "params" => [
                       {
-                        "active" => true,
                         "kind" => "param",
                         "name" => "owner",
                         "orig" => "owner",
                         "reqd" => true,
                         "type" => "`$ANY`",
-                        "index$" => 0,
                       },
                       {
-                        "active" => true,
                         "kind" => "param",
                         "name" => "repo",
                         "orig" => "repo",
                         "reqd" => true,
                         "type" => "`$ANY`",
-                        "index$" => 1,
                       },
                     ],
                     "query" => [
                       {
-                        "active" => true,
                         "kind" => "query",
                         "name" => "data",
                         "orig" => "data",
-                        "reqd" => false,
                         "type" => "`$OBJECT`",
                       },
                     ],
@@ -14991,38 +12197,30 @@ module CloudsmithConfig
                     "req" => "`reqdata`",
                     "res" => "`body`",
                   },
-                  "index$" => 22,
                 },
                 {
-                  "active" => true,
                   "args" => {
                     "params" => [
                       {
-                        "active" => true,
                         "kind" => "param",
                         "name" => "owner",
                         "orig" => "owner",
                         "reqd" => true,
                         "type" => "`$ANY`",
-                        "index$" => 0,
                       },
                       {
-                        "active" => true,
                         "kind" => "param",
                         "name" => "repo",
                         "orig" => "repo",
                         "reqd" => true,
                         "type" => "`$ANY`",
-                        "index$" => 1,
                       },
                     ],
                     "query" => [
                       {
-                        "active" => true,
                         "kind" => "query",
                         "name" => "data",
                         "orig" => "data",
-                        "reqd" => false,
                         "type" => "`$OBJECT`",
                       },
                     ],
@@ -15048,38 +12246,30 @@ module CloudsmithConfig
                     "req" => "`reqdata`",
                     "res" => "`body`",
                   },
-                  "index$" => 23,
                 },
                 {
-                  "active" => true,
                   "args" => {
                     "params" => [
                       {
-                        "active" => true,
                         "kind" => "param",
                         "name" => "owner",
                         "orig" => "owner",
                         "reqd" => true,
                         "type" => "`$ANY`",
-                        "index$" => 0,
                       },
                       {
-                        "active" => true,
                         "kind" => "param",
                         "name" => "repo",
                         "orig" => "repo",
                         "reqd" => true,
                         "type" => "`$ANY`",
-                        "index$" => 1,
                       },
                     ],
                     "query" => [
                       {
-                        "active" => true,
                         "kind" => "query",
                         "name" => "data",
                         "orig" => "data",
-                        "reqd" => false,
                         "type" => "`$OBJECT`",
                       },
                     ],
@@ -15105,38 +12295,30 @@ module CloudsmithConfig
                     "req" => "`reqdata`",
                     "res" => "`body`",
                   },
-                  "index$" => 24,
                 },
                 {
-                  "active" => true,
                   "args" => {
                     "params" => [
                       {
-                        "active" => true,
                         "kind" => "param",
                         "name" => "owner",
                         "orig" => "owner",
                         "reqd" => true,
                         "type" => "`$ANY`",
-                        "index$" => 0,
                       },
                       {
-                        "active" => true,
                         "kind" => "param",
                         "name" => "repo",
                         "orig" => "repo",
                         "reqd" => true,
                         "type" => "`$ANY`",
-                        "index$" => 1,
                       },
                     ],
                     "query" => [
                       {
-                        "active" => true,
                         "kind" => "query",
                         "name" => "data",
                         "orig" => "data",
-                        "reqd" => false,
                         "type" => "`$OBJECT`",
                       },
                     ],
@@ -15162,38 +12344,30 @@ module CloudsmithConfig
                     "req" => "`reqdata`",
                     "res" => "`body`",
                   },
-                  "index$" => 25,
                 },
                 {
-                  "active" => true,
                   "args" => {
                     "params" => [
                       {
-                        "active" => true,
                         "kind" => "param",
                         "name" => "owner",
                         "orig" => "owner",
                         "reqd" => true,
                         "type" => "`$ANY`",
-                        "index$" => 0,
                       },
                       {
-                        "active" => true,
                         "kind" => "param",
                         "name" => "repo",
                         "orig" => "repo",
                         "reqd" => true,
                         "type" => "`$ANY`",
-                        "index$" => 1,
                       },
                     ],
                     "query" => [
                       {
-                        "active" => true,
                         "kind" => "query",
                         "name" => "data",
                         "orig" => "data",
-                        "reqd" => false,
                         "type" => "`$OBJECT`",
                       },
                     ],
@@ -15219,38 +12393,30 @@ module CloudsmithConfig
                     "req" => "`reqdata`",
                     "res" => "`body`",
                   },
-                  "index$" => 26,
                 },
                 {
-                  "active" => true,
                   "args" => {
                     "params" => [
                       {
-                        "active" => true,
                         "kind" => "param",
                         "name" => "owner",
                         "orig" => "owner",
                         "reqd" => true,
                         "type" => "`$ANY`",
-                        "index$" => 0,
                       },
                       {
-                        "active" => true,
                         "kind" => "param",
                         "name" => "repo",
                         "orig" => "repo",
                         "reqd" => true,
                         "type" => "`$ANY`",
-                        "index$" => 1,
                       },
                     ],
                     "query" => [
                       {
-                        "active" => true,
                         "kind" => "query",
                         "name" => "data",
                         "orig" => "data",
-                        "reqd" => false,
                         "type" => "`$OBJECT`",
                       },
                     ],
@@ -15276,38 +12442,30 @@ module CloudsmithConfig
                     "req" => "`reqdata`",
                     "res" => "`body`",
                   },
-                  "index$" => 27,
                 },
                 {
-                  "active" => true,
                   "args" => {
                     "params" => [
                       {
-                        "active" => true,
                         "kind" => "param",
                         "name" => "owner",
                         "orig" => "owner",
                         "reqd" => true,
                         "type" => "`$ANY`",
-                        "index$" => 0,
                       },
                       {
-                        "active" => true,
                         "kind" => "param",
                         "name" => "repo",
                         "orig" => "repo",
                         "reqd" => true,
                         "type" => "`$ANY`",
-                        "index$" => 1,
                       },
                     ],
                     "query" => [
                       {
-                        "active" => true,
                         "kind" => "query",
                         "name" => "data",
                         "orig" => "data",
-                        "reqd" => false,
                         "type" => "`$OBJECT`",
                       },
                     ],
@@ -15333,38 +12491,30 @@ module CloudsmithConfig
                     "req" => "`reqdata`",
                     "res" => "`body`",
                   },
-                  "index$" => 28,
                 },
                 {
-                  "active" => true,
                   "args" => {
                     "params" => [
                       {
-                        "active" => true,
                         "kind" => "param",
                         "name" => "owner",
                         "orig" => "owner",
                         "reqd" => true,
                         "type" => "`$ANY`",
-                        "index$" => 0,
                       },
                       {
-                        "active" => true,
                         "kind" => "param",
                         "name" => "repo",
                         "orig" => "repo",
                         "reqd" => true,
                         "type" => "`$ANY`",
-                        "index$" => 1,
                       },
                     ],
                     "query" => [
                       {
-                        "active" => true,
                         "kind" => "query",
                         "name" => "data",
                         "orig" => "data",
-                        "reqd" => false,
                         "type" => "`$OBJECT`",
                       },
                     ],
@@ -15390,38 +12540,30 @@ module CloudsmithConfig
                     "req" => "`reqdata`",
                     "res" => "`body`",
                   },
-                  "index$" => 29,
                 },
                 {
-                  "active" => true,
                   "args" => {
                     "params" => [
                       {
-                        "active" => true,
                         "kind" => "param",
                         "name" => "owner",
                         "orig" => "owner",
                         "reqd" => true,
                         "type" => "`$ANY`",
-                        "index$" => 0,
                       },
                       {
-                        "active" => true,
                         "kind" => "param",
                         "name" => "repo",
                         "orig" => "repo",
                         "reqd" => true,
                         "type" => "`$ANY`",
-                        "index$" => 1,
                       },
                     ],
                     "query" => [
                       {
-                        "active" => true,
                         "kind" => "query",
                         "name" => "data",
                         "orig" => "data",
-                        "reqd" => false,
                         "type" => "`$OBJECT`",
                       },
                     ],
@@ -15447,38 +12589,30 @@ module CloudsmithConfig
                     "req" => "`reqdata`",
                     "res" => "`body`",
                   },
-                  "index$" => 30,
                 },
                 {
-                  "active" => true,
                   "args" => {
                     "params" => [
                       {
-                        "active" => true,
                         "kind" => "param",
                         "name" => "owner",
                         "orig" => "owner",
                         "reqd" => true,
                         "type" => "`$ANY`",
-                        "index$" => 0,
                       },
                       {
-                        "active" => true,
                         "kind" => "param",
                         "name" => "repo",
                         "orig" => "repo",
                         "reqd" => true,
                         "type" => "`$ANY`",
-                        "index$" => 1,
                       },
                     ],
                     "query" => [
                       {
-                        "active" => true,
                         "kind" => "query",
                         "name" => "data",
                         "orig" => "data",
-                        "reqd" => false,
                         "type" => "`$OBJECT`",
                       },
                     ],
@@ -15504,38 +12638,30 @@ module CloudsmithConfig
                     "req" => "`reqdata`",
                     "res" => "`body`",
                   },
-                  "index$" => 31,
                 },
                 {
-                  "active" => true,
                   "args" => {
                     "params" => [
                       {
-                        "active" => true,
                         "kind" => "param",
                         "name" => "owner",
                         "orig" => "owner",
                         "reqd" => true,
                         "type" => "`$ANY`",
-                        "index$" => 0,
                       },
                       {
-                        "active" => true,
                         "kind" => "param",
                         "name" => "repo",
                         "orig" => "repo",
                         "reqd" => true,
                         "type" => "`$ANY`",
-                        "index$" => 1,
                       },
                     ],
                     "query" => [
                       {
-                        "active" => true,
                         "kind" => "query",
                         "name" => "data",
                         "orig" => "data",
-                        "reqd" => false,
                         "type" => "`$OBJECT`",
                       },
                     ],
@@ -15561,38 +12687,30 @@ module CloudsmithConfig
                     "req" => "`reqdata`",
                     "res" => "`body`",
                   },
-                  "index$" => 32,
                 },
                 {
-                  "active" => true,
                   "args" => {
                     "params" => [
                       {
-                        "active" => true,
                         "kind" => "param",
                         "name" => "owner",
                         "orig" => "owner",
                         "reqd" => true,
                         "type" => "`$ANY`",
-                        "index$" => 0,
                       },
                       {
-                        "active" => true,
                         "kind" => "param",
                         "name" => "repo",
                         "orig" => "repo",
                         "reqd" => true,
                         "type" => "`$ANY`",
-                        "index$" => 1,
                       },
                     ],
                     "query" => [
                       {
-                        "active" => true,
                         "kind" => "query",
                         "name" => "data",
                         "orig" => "data",
-                        "reqd" => false,
                         "type" => "`$OBJECT`",
                       },
                     ],
@@ -15618,38 +12736,30 @@ module CloudsmithConfig
                     "req" => "`reqdata`",
                     "res" => "`body`",
                   },
-                  "index$" => 33,
                 },
                 {
-                  "active" => true,
                   "args" => {
                     "params" => [
                       {
-                        "active" => true,
                         "kind" => "param",
                         "name" => "owner",
                         "orig" => "owner",
                         "reqd" => true,
                         "type" => "`$ANY`",
-                        "index$" => 0,
                       },
                       {
-                        "active" => true,
                         "kind" => "param",
                         "name" => "repo",
                         "orig" => "repo",
                         "reqd" => true,
                         "type" => "`$ANY`",
-                        "index$" => 1,
                       },
                     ],
                     "query" => [
                       {
-                        "active" => true,
                         "kind" => "query",
                         "name" => "data",
                         "orig" => "data",
-                        "reqd" => false,
                         "type" => "`$OBJECT`",
                       },
                     ],
@@ -15675,38 +12785,30 @@ module CloudsmithConfig
                     "req" => "`reqdata`",
                     "res" => "`body`",
                   },
-                  "index$" => 34,
                 },
                 {
-                  "active" => true,
                   "args" => {
                     "params" => [
                       {
-                        "active" => true,
                         "kind" => "param",
                         "name" => "owner",
                         "orig" => "owner",
                         "reqd" => true,
                         "type" => "`$ANY`",
-                        "index$" => 0,
                       },
                       {
-                        "active" => true,
                         "kind" => "param",
                         "name" => "repo",
                         "orig" => "repo",
                         "reqd" => true,
                         "type" => "`$ANY`",
-                        "index$" => 1,
                       },
                     ],
                     "query" => [
                       {
-                        "active" => true,
                         "kind" => "query",
                         "name" => "data",
                         "orig" => "data",
-                        "reqd" => false,
                         "type" => "`$OBJECT`",
                       },
                     ],
@@ -15732,38 +12834,30 @@ module CloudsmithConfig
                     "req" => "`reqdata`",
                     "res" => "`body`",
                   },
-                  "index$" => 35,
                 },
                 {
-                  "active" => true,
                   "args" => {
                     "params" => [
                       {
-                        "active" => true,
                         "kind" => "param",
                         "name" => "owner",
                         "orig" => "owner",
                         "reqd" => true,
                         "type" => "`$ANY`",
-                        "index$" => 0,
                       },
                       {
-                        "active" => true,
                         "kind" => "param",
                         "name" => "repo",
                         "orig" => "repo",
                         "reqd" => true,
                         "type" => "`$ANY`",
-                        "index$" => 1,
                       },
                     ],
                     "query" => [
                       {
-                        "active" => true,
                         "kind" => "query",
                         "name" => "data",
                         "orig" => "data",
-                        "reqd" => false,
                         "type" => "`$OBJECT`",
                       },
                     ],
@@ -15789,38 +12883,30 @@ module CloudsmithConfig
                     "req" => "`reqdata`",
                     "res" => "`body`",
                   },
-                  "index$" => 36,
                 },
                 {
-                  "active" => true,
                   "args" => {
                     "params" => [
                       {
-                        "active" => true,
                         "kind" => "param",
                         "name" => "owner",
                         "orig" => "owner",
                         "reqd" => true,
                         "type" => "`$ANY`",
-                        "index$" => 0,
                       },
                       {
-                        "active" => true,
                         "kind" => "param",
                         "name" => "repo",
                         "orig" => "repo",
                         "reqd" => true,
                         "type" => "`$ANY`",
-                        "index$" => 1,
                       },
                     ],
                     "query" => [
                       {
-                        "active" => true,
                         "kind" => "query",
                         "name" => "data",
                         "orig" => "data",
-                        "reqd" => false,
                         "type" => "`$OBJECT`",
                       },
                     ],
@@ -15846,38 +12932,30 @@ module CloudsmithConfig
                     "req" => "`reqdata`",
                     "res" => "`body`",
                   },
-                  "index$" => 37,
                 },
                 {
-                  "active" => true,
                   "args" => {
                     "params" => [
                       {
-                        "active" => true,
                         "kind" => "param",
                         "name" => "owner",
                         "orig" => "owner",
                         "reqd" => true,
                         "type" => "`$ANY`",
-                        "index$" => 0,
                       },
                       {
-                        "active" => true,
                         "kind" => "param",
                         "name" => "repo",
                         "orig" => "repo",
                         "reqd" => true,
                         "type" => "`$ANY`",
-                        "index$" => 1,
                       },
                     ],
                     "query" => [
                       {
-                        "active" => true,
                         "kind" => "query",
                         "name" => "data",
                         "orig" => "data",
-                        "reqd" => false,
                         "type" => "`$OBJECT`",
                       },
                     ],
@@ -15903,38 +12981,30 @@ module CloudsmithConfig
                     "req" => "`reqdata`",
                     "res" => "`body`",
                   },
-                  "index$" => 38,
                 },
                 {
-                  "active" => true,
                   "args" => {
                     "params" => [
                       {
-                        "active" => true,
                         "kind" => "param",
                         "name" => "owner",
                         "orig" => "owner",
                         "reqd" => true,
                         "type" => "`$ANY`",
-                        "index$" => 0,
                       },
                       {
-                        "active" => true,
                         "kind" => "param",
                         "name" => "repo",
                         "orig" => "repo",
                         "reqd" => true,
                         "type" => "`$ANY`",
-                        "index$" => 1,
                       },
                     ],
                     "query" => [
                       {
-                        "active" => true,
                         "kind" => "query",
                         "name" => "data",
                         "orig" => "data",
-                        "reqd" => false,
                         "type" => "`$OBJECT`",
                       },
                     ],
@@ -15960,38 +13030,30 @@ module CloudsmithConfig
                     "req" => "`reqdata`",
                     "res" => "`body`",
                   },
-                  "index$" => 39,
                 },
                 {
-                  "active" => true,
                   "args" => {
                     "params" => [
                       {
-                        "active" => true,
                         "kind" => "param",
                         "name" => "owner",
                         "orig" => "owner",
                         "reqd" => true,
                         "type" => "`$ANY`",
-                        "index$" => 0,
                       },
                       {
-                        "active" => true,
                         "kind" => "param",
                         "name" => "repo",
                         "orig" => "repo",
                         "reqd" => true,
                         "type" => "`$ANY`",
-                        "index$" => 1,
                       },
                     ],
                     "query" => [
                       {
-                        "active" => true,
                         "kind" => "query",
                         "name" => "data",
                         "orig" => "data",
-                        "reqd" => false,
                         "type" => "`$OBJECT`",
                       },
                     ],
@@ -16017,38 +13079,30 @@ module CloudsmithConfig
                     "req" => "`reqdata`",
                     "res" => "`body`",
                   },
-                  "index$" => 40,
                 },
                 {
-                  "active" => true,
                   "args" => {
                     "params" => [
                       {
-                        "active" => true,
                         "kind" => "param",
                         "name" => "owner",
                         "orig" => "owner",
                         "reqd" => true,
                         "type" => "`$ANY`",
-                        "index$" => 0,
                       },
                       {
-                        "active" => true,
                         "kind" => "param",
                         "name" => "repo",
                         "orig" => "repo",
                         "reqd" => true,
                         "type" => "`$ANY`",
-                        "index$" => 1,
                       },
                     ],
                     "query" => [
                       {
-                        "active" => true,
                         "kind" => "query",
                         "name" => "data",
                         "orig" => "data",
-                        "reqd" => false,
                         "type" => "`$OBJECT`",
                       },
                     ],
@@ -16074,38 +13128,30 @@ module CloudsmithConfig
                     "req" => "`reqdata`",
                     "res" => "`body`",
                   },
-                  "index$" => 41,
                 },
                 {
-                  "active" => true,
                   "args" => {
                     "params" => [
                       {
-                        "active" => true,
                         "kind" => "param",
                         "name" => "owner",
                         "orig" => "owner",
                         "reqd" => true,
                         "type" => "`$ANY`",
-                        "index$" => 0,
                       },
                       {
-                        "active" => true,
                         "kind" => "param",
                         "name" => "repo",
                         "orig" => "repo",
                         "reqd" => true,
                         "type" => "`$ANY`",
-                        "index$" => 1,
                       },
                     ],
                     "query" => [
                       {
-                        "active" => true,
                         "kind" => "query",
                         "name" => "data",
                         "orig" => "data",
-                        "reqd" => false,
                         "type" => "`$OBJECT`",
                       },
                     ],
@@ -16131,38 +13177,30 @@ module CloudsmithConfig
                     "req" => "`reqdata`",
                     "res" => "`body`",
                   },
-                  "index$" => 42,
                 },
                 {
-                  "active" => true,
                   "args" => {
                     "params" => [
                       {
-                        "active" => true,
                         "kind" => "param",
                         "name" => "owner",
                         "orig" => "owner",
                         "reqd" => true,
                         "type" => "`$ANY`",
-                        "index$" => 0,
                       },
                       {
-                        "active" => true,
                         "kind" => "param",
                         "name" => "repo",
                         "orig" => "repo",
                         "reqd" => true,
                         "type" => "`$ANY`",
-                        "index$" => 1,
                       },
                     ],
                     "query" => [
                       {
-                        "active" => true,
                         "kind" => "query",
                         "name" => "data",
                         "orig" => "data",
-                        "reqd" => false,
                         "type" => "`$OBJECT`",
                       },
                     ],
@@ -16188,38 +13226,30 @@ module CloudsmithConfig
                     "req" => "`reqdata`",
                     "res" => "`body`",
                   },
-                  "index$" => 43,
                 },
                 {
-                  "active" => true,
                   "args" => {
                     "params" => [
                       {
-                        "active" => true,
                         "kind" => "param",
                         "name" => "owner",
                         "orig" => "owner",
                         "reqd" => true,
                         "type" => "`$ANY`",
-                        "index$" => 0,
                       },
                       {
-                        "active" => true,
                         "kind" => "param",
                         "name" => "repo",
                         "orig" => "repo",
                         "reqd" => true,
                         "type" => "`$ANY`",
-                        "index$" => 1,
                       },
                     ],
                     "query" => [
                       {
-                        "active" => true,
                         "kind" => "query",
                         "name" => "data",
                         "orig" => "data",
-                        "reqd" => false,
                         "type" => "`$OBJECT`",
                       },
                     ],
@@ -16245,38 +13275,30 @@ module CloudsmithConfig
                     "req" => "`reqdata`",
                     "res" => "`body`",
                   },
-                  "index$" => 44,
                 },
                 {
-                  "active" => true,
                   "args" => {
                     "params" => [
                       {
-                        "active" => true,
                         "kind" => "param",
                         "name" => "owner",
                         "orig" => "owner",
                         "reqd" => true,
                         "type" => "`$ANY`",
-                        "index$" => 0,
                       },
                       {
-                        "active" => true,
                         "kind" => "param",
                         "name" => "repo",
                         "orig" => "repo",
                         "reqd" => true,
                         "type" => "`$ANY`",
-                        "index$" => 1,
                       },
                     ],
                     "query" => [
                       {
-                        "active" => true,
                         "kind" => "query",
                         "name" => "data",
                         "orig" => "data",
-                        "reqd" => false,
                         "type" => "`$OBJECT`",
                       },
                     ],
@@ -16302,38 +13324,30 @@ module CloudsmithConfig
                     "req" => "`reqdata`",
                     "res" => "`body`",
                   },
-                  "index$" => 45,
                 },
                 {
-                  "active" => true,
                   "args" => {
                     "params" => [
                       {
-                        "active" => true,
                         "kind" => "param",
                         "name" => "owner",
                         "orig" => "owner",
                         "reqd" => true,
                         "type" => "`$ANY`",
-                        "index$" => 0,
                       },
                       {
-                        "active" => true,
                         "kind" => "param",
                         "name" => "repo",
                         "orig" => "repo",
                         "reqd" => true,
                         "type" => "`$ANY`",
-                        "index$" => 1,
                       },
                     ],
                     "query" => [
                       {
-                        "active" => true,
                         "kind" => "query",
                         "name" => "data",
                         "orig" => "data",
-                        "reqd" => false,
                         "type" => "`$OBJECT`",
                       },
                     ],
@@ -16359,38 +13373,30 @@ module CloudsmithConfig
                     "req" => "`reqdata`",
                     "res" => "`body`",
                   },
-                  "index$" => 46,
                 },
                 {
-                  "active" => true,
                   "args" => {
                     "params" => [
                       {
-                        "active" => true,
                         "kind" => "param",
                         "name" => "owner",
                         "orig" => "owner",
                         "reqd" => true,
                         "type" => "`$ANY`",
-                        "index$" => 0,
                       },
                       {
-                        "active" => true,
                         "kind" => "param",
                         "name" => "repo",
                         "orig" => "repo",
                         "reqd" => true,
                         "type" => "`$ANY`",
-                        "index$" => 1,
                       },
                     ],
                     "query" => [
                       {
-                        "active" => true,
                         "kind" => "query",
                         "name" => "data",
                         "orig" => "data",
-                        "reqd" => false,
                         "type" => "`$OBJECT`",
                       },
                     ],
@@ -16416,38 +13422,30 @@ module CloudsmithConfig
                     "req" => "`reqdata`",
                     "res" => "`body`",
                   },
-                  "index$" => 47,
                 },
                 {
-                  "active" => true,
                   "args" => {
                     "params" => [
                       {
-                        "active" => true,
                         "kind" => "param",
                         "name" => "owner",
                         "orig" => "owner",
                         "reqd" => true,
                         "type" => "`$ANY`",
-                        "index$" => 0,
                       },
                       {
-                        "active" => true,
                         "kind" => "param",
                         "name" => "repo",
                         "orig" => "repo",
                         "reqd" => true,
                         "type" => "`$ANY`",
-                        "index$" => 1,
                       },
                     ],
                     "query" => [
                       {
-                        "active" => true,
                         "kind" => "query",
                         "name" => "data",
                         "orig" => "data",
-                        "reqd" => false,
                         "type" => "`$OBJECT`",
                       },
                     ],
@@ -16473,38 +13471,30 @@ module CloudsmithConfig
                     "req" => "`reqdata`",
                     "res" => "`body`",
                   },
-                  "index$" => 48,
                 },
                 {
-                  "active" => true,
                   "args" => {
                     "params" => [
                       {
-                        "active" => true,
                         "kind" => "param",
                         "name" => "owner",
                         "orig" => "owner",
                         "reqd" => true,
                         "type" => "`$ANY`",
-                        "index$" => 0,
                       },
                       {
-                        "active" => true,
                         "kind" => "param",
                         "name" => "repo",
                         "orig" => "repo",
                         "reqd" => true,
                         "type" => "`$ANY`",
-                        "index$" => 1,
                       },
                     ],
                     "query" => [
                       {
-                        "active" => true,
                         "kind" => "query",
                         "name" => "data",
                         "orig" => "data",
-                        "reqd" => false,
                         "type" => "`$OBJECT`",
                       },
                     ],
@@ -16530,38 +13520,30 @@ module CloudsmithConfig
                     "req" => "`reqdata`",
                     "res" => "`body`",
                   },
-                  "index$" => 49,
                 },
                 {
-                  "active" => true,
                   "args" => {
                     "params" => [
                       {
-                        "active" => true,
                         "kind" => "param",
                         "name" => "owner",
                         "orig" => "owner",
                         "reqd" => true,
                         "type" => "`$ANY`",
-                        "index$" => 0,
                       },
                       {
-                        "active" => true,
                         "kind" => "param",
                         "name" => "repo",
                         "orig" => "repo",
                         "reqd" => true,
                         "type" => "`$ANY`",
-                        "index$" => 1,
                       },
                     ],
                     "query" => [
                       {
-                        "active" => true,
                         "kind" => "query",
                         "name" => "data",
                         "orig" => "data",
-                        "reqd" => false,
                         "type" => "`$OBJECT`",
                       },
                     ],
@@ -16587,38 +13569,30 @@ module CloudsmithConfig
                     "req" => "`reqdata`",
                     "res" => "`body`",
                   },
-                  "index$" => 50,
                 },
                 {
-                  "active" => true,
                   "args" => {
                     "params" => [
                       {
-                        "active" => true,
                         "kind" => "param",
                         "name" => "owner",
                         "orig" => "owner",
                         "reqd" => true,
                         "type" => "`$ANY`",
-                        "index$" => 0,
                       },
                       {
-                        "active" => true,
                         "kind" => "param",
                         "name" => "repo",
                         "orig" => "repo",
                         "reqd" => true,
                         "type" => "`$ANY`",
-                        "index$" => 1,
                       },
                     ],
                     "query" => [
                       {
-                        "active" => true,
                         "kind" => "query",
                         "name" => "data",
                         "orig" => "data",
-                        "reqd" => false,
                         "type" => "`$OBJECT`",
                       },
                     ],
@@ -16644,38 +13618,30 @@ module CloudsmithConfig
                     "req" => "`reqdata`",
                     "res" => "`body`",
                   },
-                  "index$" => 51,
                 },
                 {
-                  "active" => true,
                   "args" => {
                     "params" => [
                       {
-                        "active" => true,
                         "kind" => "param",
                         "name" => "owner",
                         "orig" => "owner",
                         "reqd" => true,
                         "type" => "`$ANY`",
-                        "index$" => 0,
                       },
                       {
-                        "active" => true,
                         "kind" => "param",
                         "name" => "repo",
                         "orig" => "repo",
                         "reqd" => true,
                         "type" => "`$ANY`",
-                        "index$" => 1,
                       },
                     ],
                     "query" => [
                       {
-                        "active" => true,
                         "kind" => "query",
                         "name" => "data",
                         "orig" => "data",
-                        "reqd" => false,
                         "type" => "`$OBJECT`",
                       },
                     ],
@@ -16701,38 +13667,30 @@ module CloudsmithConfig
                     "req" => "`reqdata`",
                     "res" => "`body`",
                   },
-                  "index$" => 52,
                 },
                 {
-                  "active" => true,
                   "args" => {
                     "params" => [
                       {
-                        "active" => true,
                         "kind" => "param",
                         "name" => "owner",
                         "orig" => "owner",
                         "reqd" => true,
                         "type" => "`$ANY`",
-                        "index$" => 0,
                       },
                       {
-                        "active" => true,
                         "kind" => "param",
                         "name" => "repo",
                         "orig" => "repo",
                         "reqd" => true,
                         "type" => "`$ANY`",
-                        "index$" => 1,
                       },
                     ],
                     "query" => [
                       {
-                        "active" => true,
                         "kind" => "query",
                         "name" => "data",
                         "orig" => "data",
-                        "reqd" => false,
                         "type" => "`$OBJECT`",
                       },
                     ],
@@ -16758,38 +13716,30 @@ module CloudsmithConfig
                     "req" => "`reqdata`",
                     "res" => "`body`",
                   },
-                  "index$" => 53,
                 },
                 {
-                  "active" => true,
                   "args" => {
                     "params" => [
                       {
-                        "active" => true,
                         "kind" => "param",
                         "name" => "owner",
                         "orig" => "owner",
                         "reqd" => true,
                         "type" => "`$ANY`",
-                        "index$" => 0,
                       },
                       {
-                        "active" => true,
                         "kind" => "param",
                         "name" => "repo",
                         "orig" => "repo",
                         "reqd" => true,
                         "type" => "`$ANY`",
-                        "index$" => 1,
                       },
                     ],
                     "query" => [
                       {
-                        "active" => true,
                         "kind" => "query",
                         "name" => "data",
                         "orig" => "data",
-                        "reqd" => false,
                         "type" => "`$OBJECT`",
                       },
                     ],
@@ -16815,38 +13765,30 @@ module CloudsmithConfig
                     "req" => "`reqdata`",
                     "res" => "`body`",
                   },
-                  "index$" => 54,
                 },
                 {
-                  "active" => true,
                   "args" => {
                     "params" => [
                       {
-                        "active" => true,
                         "kind" => "param",
                         "name" => "owner",
                         "orig" => "owner",
                         "reqd" => true,
                         "type" => "`$ANY`",
-                        "index$" => 0,
                       },
                       {
-                        "active" => true,
                         "kind" => "param",
                         "name" => "repo",
                         "orig" => "repo",
                         "reqd" => true,
                         "type" => "`$ANY`",
-                        "index$" => 1,
                       },
                     ],
                     "query" => [
                       {
-                        "active" => true,
                         "kind" => "query",
                         "name" => "data",
                         "orig" => "data",
-                        "reqd" => false,
                         "type" => "`$OBJECT`",
                       },
                     ],
@@ -16872,38 +13814,30 @@ module CloudsmithConfig
                     "req" => "`reqdata`",
                     "res" => "`body`",
                   },
-                  "index$" => 55,
                 },
                 {
-                  "active" => true,
                   "args" => {
                     "params" => [
                       {
-                        "active" => true,
                         "kind" => "param",
                         "name" => "identifier",
                         "orig" => "identifier",
                         "reqd" => true,
                         "type" => "`$ANY`",
-                        "index$" => 0,
                       },
                       {
-                        "active" => true,
                         "kind" => "param",
                         "name" => "owner",
                         "orig" => "owner",
                         "reqd" => true,
                         "type" => "`$ANY`",
-                        "index$" => 1,
                       },
                       {
-                        "active" => true,
                         "kind" => "param",
                         "name" => "repo",
                         "orig" => "repo",
                         "reqd" => true,
                         "type" => "`$ANY`",
-                        "index$" => 2,
                       },
                     ],
                   },
@@ -16928,38 +13862,30 @@ module CloudsmithConfig
                     "req" => "`reqdata`",
                     "res" => "`body`",
                   },
-                  "index$" => 56,
                 },
                 {
-                  "active" => true,
                   "args" => {
                     "params" => [
                       {
-                        "active" => true,
                         "kind" => "param",
                         "name" => "identifier",
                         "orig" => "identifier",
                         "reqd" => true,
                         "type" => "`$ANY`",
-                        "index$" => 0,
                       },
                       {
-                        "active" => true,
                         "kind" => "param",
                         "name" => "owner",
                         "orig" => "owner",
                         "reqd" => true,
                         "type" => "`$ANY`",
-                        "index$" => 1,
                       },
                       {
-                        "active" => true,
                         "kind" => "param",
                         "name" => "repo",
                         "orig" => "repo",
                         "reqd" => true,
                         "type" => "`$ANY`",
-                        "index$" => 2,
                       },
                     ],
                   },
@@ -16984,77 +13910,60 @@ module CloudsmithConfig
                     "req" => "`reqdata`",
                     "res" => "`body`",
                   },
-                  "index$" => 57,
                 },
               ],
-              "key$" => "create",
             },
             "list" => {
               "input" => "data",
               "name" => "list",
               "points" => [
                 {
-                  "active" => true,
                   "args" => {
                     "params" => [
                       {
-                        "active" => true,
                         "kind" => "param",
                         "name" => "owner",
                         "orig" => "owner",
                         "reqd" => true,
                         "type" => "`$ANY`",
-                        "index$" => 0,
                       },
                       {
-                        "active" => true,
                         "kind" => "param",
                         "name" => "repo",
                         "orig" => "repo",
                         "reqd" => true,
                         "type" => "`$ANY`",
-                        "index$" => 1,
                       },
                     ],
                     "query" => [
                       {
-                        "active" => true,
                         "kind" => "query",
                         "name" => "group_by",
                         "orig" => "group_by",
-                        "reqd" => false,
                         "type" => "`$ANY`",
                       },
                       {
-                        "active" => true,
                         "kind" => "query",
                         "name" => "page",
                         "orig" => "page",
-                        "reqd" => false,
                         "type" => "`$INTEGER`",
                       },
                       {
-                        "active" => true,
                         "kind" => "query",
                         "name" => "page_size",
                         "orig" => "page_size",
-                        "reqd" => false,
                         "type" => "`$INTEGER`",
                       },
                       {
-                        "active" => true,
                         "kind" => "query",
                         "name" => "query",
                         "orig" => "query",
-                        "reqd" => false,
                         "type" => "`$ANY`",
                       },
                       {
-                        "active" => true,
                         "kind" => "query",
                         "name" => "sort",
                         "orig" => "sort",
-                        "reqd" => false,
                         "type" => "`$ANY`",
                       },
                     ],
@@ -17083,62 +13992,48 @@ module CloudsmithConfig
                     "req" => "`reqdata`",
                     "res" => "`body.results`",
                   },
-                  "index$" => 0,
                 },
                 {
-                  "active" => true,
                   "args" => {
                     "params" => [
                       {
-                        "active" => true,
                         "kind" => "param",
                         "name" => "owner",
                         "orig" => "owner",
                         "reqd" => true,
                         "type" => "`$ANY`",
-                        "index$" => 0,
                       },
                       {
-                        "active" => true,
                         "kind" => "param",
                         "name" => "repo",
                         "orig" => "repo",
                         "reqd" => true,
                         "type" => "`$ANY`",
-                        "index$" => 1,
                       },
                     ],
                     "query" => [
                       {
-                        "active" => true,
                         "kind" => "query",
                         "name" => "page",
                         "orig" => "page",
-                        "reqd" => false,
                         "type" => "`$INTEGER`",
                       },
                       {
-                        "active" => true,
                         "kind" => "query",
                         "name" => "page_size",
                         "orig" => "page_size",
-                        "reqd" => false,
                         "type" => "`$INTEGER`",
                       },
                       {
-                        "active" => true,
                         "kind" => "query",
                         "name" => "query",
                         "orig" => "query",
-                        "reqd" => false,
                         "type" => "`$ANY`",
                       },
                       {
-                        "active" => true,
                         "kind" => "query",
                         "name" => "sort",
                         "orig" => "sort",
-                        "reqd" => false,
                         "type" => "`$ANY`",
                       },
                     ],
@@ -17165,38 +14060,30 @@ module CloudsmithConfig
                     "req" => "`reqdata`",
                     "res" => "`body`",
                   },
-                  "index$" => 1,
                 },
                 {
-                  "active" => true,
                   "args" => {
                     "params" => [
                       {
-                        "active" => true,
                         "kind" => "param",
                         "name" => "identifier",
                         "orig" => "identifier",
                         "reqd" => true,
                         "type" => "`$ANY`",
-                        "index$" => 0,
                       },
                       {
-                        "active" => true,
                         "kind" => "param",
                         "name" => "owner",
                         "orig" => "owner",
                         "reqd" => true,
                         "type" => "`$ANY`",
-                        "index$" => 1,
                       },
                       {
-                        "active" => true,
                         "kind" => "param",
                         "name" => "repo",
                         "orig" => "repo",
                         "reqd" => true,
                         "type" => "`$ANY`",
-                        "index$" => 2,
                       },
                     ],
                   },
@@ -17220,38 +14107,30 @@ module CloudsmithConfig
                     "req" => "`reqdata`",
                     "res" => "`body`",
                   },
-                  "index$" => 2,
                 },
                 {
-                  "active" => true,
                   "args" => {
                     "params" => [
                       {
-                        "active" => true,
                         "kind" => "param",
                         "name" => "identifier",
                         "orig" => "identifier",
                         "reqd" => true,
                         "type" => "`$ANY`",
-                        "index$" => 0,
                       },
                       {
-                        "active" => true,
                         "kind" => "param",
                         "name" => "owner",
                         "orig" => "owner",
                         "reqd" => true,
                         "type" => "`$ANY`",
-                        "index$" => 1,
                       },
                       {
-                        "active" => true,
                         "kind" => "param",
                         "name" => "repo",
                         "orig" => "repo",
                         "reqd" => true,
                         "type" => "`$ANY`",
-                        "index$" => 2,
                       },
                     ],
                   },
@@ -17276,77 +14155,60 @@ module CloudsmithConfig
                     "req" => "`reqdata`",
                     "res" => "`body.dependencies`",
                   },
-                  "index$" => 3,
                 },
               ],
-              "key$" => "list",
             },
             "load" => {
               "input" => "data",
               "name" => "load",
               "points" => [
                 {
-                  "active" => true,
                   "args" => {
                     "params" => [
                       {
-                        "active" => true,
                         "kind" => "param",
                         "name" => "owner",
                         "orig" => "owner",
                         "reqd" => true,
                         "type" => "`$ANY`",
-                        "index$" => 0,
                       },
                       {
-                        "active" => true,
                         "kind" => "param",
                         "name" => "repo",
                         "orig" => "repo",
                         "reqd" => true,
                         "type" => "`$ANY`",
-                        "index$" => 1,
                       },
                     ],
                     "query" => [
                       {
-                        "active" => true,
                         "kind" => "query",
                         "name" => "finish",
                         "orig" => "finish",
-                        "reqd" => false,
                         "type" => "`$ANY`",
                       },
                       {
-                        "active" => true,
                         "kind" => "query",
                         "name" => "package",
                         "orig" => "package",
-                        "reqd" => false,
                         "type" => "`$ANY`",
                       },
                       {
-                        "active" => true,
                         "kind" => "query",
                         "name" => "page",
                         "orig" => "page",
-                        "reqd" => false,
                         "type" => "`$INTEGER`",
                       },
                       {
-                        "active" => true,
                         "kind" => "query",
                         "name" => "page_size",
                         "orig" => "page_size",
-                        "reqd" => false,
                         "type" => "`$INTEGER`",
                       },
                       {
-                        "active" => true,
                         "kind" => "query",
                         "name" => "start",
                         "orig" => "start",
-                        "reqd" => false,
                         "type" => "`$ANY`",
                       },
                     ],
@@ -17375,38 +14237,30 @@ module CloudsmithConfig
                     "req" => "`reqdata`",
                     "res" => "`body.packages`",
                   },
-                  "index$" => 0,
                 },
                 {
-                  "active" => true,
                   "args" => {
                     "params" => [
                       {
-                        "active" => true,
                         "kind" => "param",
                         "name" => "identifier",
                         "orig" => "identifier",
                         "reqd" => true,
                         "type" => "`$ANY`",
-                        "index$" => 0,
                       },
                       {
-                        "active" => true,
                         "kind" => "param",
                         "name" => "owner",
                         "orig" => "owner",
                         "reqd" => true,
                         "type" => "`$ANY`",
-                        "index$" => 1,
                       },
                       {
-                        "active" => true,
                         "kind" => "param",
                         "name" => "repo",
                         "orig" => "repo",
                         "reqd" => true,
                         "type" => "`$ANY`",
-                        "index$" => 2,
                       },
                     ],
                   },
@@ -17431,45 +14285,36 @@ module CloudsmithConfig
                     "req" => "`reqdata`",
                     "res" => "`body`",
                   },
-                  "index$" => 1,
                 },
               ],
-              "key$" => "load",
             },
             "remove" => {
               "input" => "data",
               "name" => "remove",
               "points" => [
                 {
-                  "active" => true,
                   "args" => {
                     "params" => [
                       {
-                        "active" => true,
                         "kind" => "param",
                         "name" => "identifier",
                         "orig" => "identifier",
                         "reqd" => true,
                         "type" => "`$ANY`",
-                        "index$" => 0,
                       },
                       {
-                        "active" => true,
                         "kind" => "param",
                         "name" => "owner",
                         "orig" => "owner",
                         "reqd" => true,
                         "type" => "`$ANY`",
-                        "index$" => 1,
                       },
                       {
-                        "active" => true,
                         "kind" => "param",
                         "name" => "repo",
                         "orig" => "repo",
                         "reqd" => true,
                         "type" => "`$ANY`",
-                        "index$" => 2,
                       },
                     ],
                   },
@@ -17493,10 +14338,8 @@ module CloudsmithConfig
                     "req" => "`reqdata`",
                     "res" => "`body`",
                   },
-                  "index$" => 0,
                 },
               ],
-              "key$" => "remove",
             },
           },
           "relations" => {
@@ -17510,67 +14353,41 @@ module CloudsmithConfig
         "package_deny_policy" => {
           "fields" => [
             {
-              "active" => true,
               "name" => "action",
-              "req" => false,
               "type" => "`$STRING`",
-              "index$" => 0,
             },
             {
-              "active" => true,
               "name" => "created_at",
-              "req" => false,
               "type" => "`$STRING`",
-              "index$" => 1,
             },
             {
-              "active" => true,
               "name" => "description",
-              "req" => false,
               "type" => "`$STRING`",
-              "index$" => 2,
             },
             {
-              "active" => true,
               "name" => "enabled",
-              "req" => false,
               "type" => "`$BOOLEAN`",
-              "index$" => 3,
             },
             {
-              "active" => true,
               "name" => "name",
-              "req" => false,
               "type" => "`$STRING`",
-              "index$" => 4,
             },
             {
-              "active" => true,
               "name" => "package_query_string",
               "req" => true,
               "type" => "`$STRING`",
-              "index$" => 5,
             },
             {
-              "active" => true,
               "name" => "slug_perm",
-              "req" => false,
               "type" => "`$STRING`",
-              "index$" => 6,
             },
             {
-              "active" => true,
               "name" => "status",
-              "req" => false,
               "type" => "`$STRING`",
-              "index$" => 7,
             },
             {
-              "active" => true,
               "name" => "updated_at",
-              "req" => false,
               "type" => "`$STRING`",
-              "index$" => 8,
             },
           ],
           "name" => "package_deny_policy",
@@ -17580,26 +14397,21 @@ module CloudsmithConfig
               "name" => "create",
               "points" => [
                 {
-                  "active" => true,
                   "args" => {
                     "params" => [
                       {
-                        "active" => true,
                         "kind" => "param",
                         "name" => "org_id",
                         "orig" => "org",
                         "reqd" => true,
                         "type" => "`$STRING`",
-                        "index$" => 0,
                       },
                     ],
                     "query" => [
                       {
-                        "active" => true,
                         "kind" => "query",
                         "name" => "data",
                         "orig" => "data",
-                        "reqd" => false,
                         "type" => "`$OBJECT`",
                       },
                     ],
@@ -17627,44 +14439,35 @@ module CloudsmithConfig
                     "req" => "`reqdata`",
                     "res" => "`body`",
                   },
-                  "index$" => 0,
                 },
               ],
-              "key$" => "create",
             },
             "list" => {
               "input" => "data",
               "name" => "list",
               "points" => [
                 {
-                  "active" => true,
                   "args" => {
                     "params" => [
                       {
-                        "active" => true,
                         "kind" => "param",
                         "name" => "org_id",
                         "orig" => "org",
                         "reqd" => true,
                         "type" => "`$STRING`",
-                        "index$" => 0,
                       },
                     ],
                     "query" => [
                       {
-                        "active" => true,
                         "kind" => "query",
                         "name" => "page",
                         "orig" => "page",
-                        "reqd" => false,
                         "type" => "`$INTEGER`",
                       },
                       {
-                        "active" => true,
                         "kind" => "query",
                         "name" => "page_size",
                         "orig" => "page_size",
-                        "reqd" => false,
                         "type" => "`$INTEGER`",
                       },
                     ],
@@ -17693,36 +14496,29 @@ module CloudsmithConfig
                     "req" => "`reqdata`",
                     "res" => "`body`",
                   },
-                  "index$" => 0,
                 },
               ],
-              "key$" => "list",
             },
             "load" => {
               "input" => "data",
               "name" => "load",
               "points" => [
                 {
-                  "active" => true,
                   "args" => {
                     "params" => [
                       {
-                        "active" => true,
                         "kind" => "param",
                         "name" => "id",
                         "orig" => "slug_perm",
                         "reqd" => true,
                         "type" => "`$STRING`",
-                        "index$" => 0,
                       },
                       {
-                        "active" => true,
                         "kind" => "param",
                         "name" => "org_id",
                         "orig" => "org",
                         "reqd" => true,
                         "type" => "`$STRING`",
-                        "index$" => 1,
                       },
                     ],
                   },
@@ -17751,21 +14547,17 @@ module CloudsmithConfig
                     "req" => "`reqdata`",
                     "res" => "`body`",
                   },
-                  "index$" => 0,
                 },
               ],
-              "key$" => "load",
             },
             "patch" => {
               "input" => "data",
               "name" => "patch",
               "points" => [
                 {
-                  "active" => true,
                   "args" => {
                     "params" => [
                       {
-                        "active" => true,
                         "kind" => "param",
                         "name" => "id",
                         "orig" => "slug_perm",
@@ -17773,7 +14565,6 @@ module CloudsmithConfig
                         "type" => "`$STRING`",
                       },
                       {
-                        "active" => true,
                         "kind" => "param",
                         "name" => "org_id",
                         "orig" => "org",
@@ -17783,11 +14574,9 @@ module CloudsmithConfig
                     ],
                     "query" => [
                       {
-                        "active" => true,
                         "kind" => "query",
                         "name" => "data",
                         "orig" => "data",
-                        "reqd" => false,
                         "type" => "`$OBJECT`",
                       },
                     ],
@@ -17818,45 +14607,36 @@ module CloudsmithConfig
                     "req" => "`reqdata`",
                     "res" => "`body`",
                   },
-                  "index$" => 0,
                 },
               ],
-              "key$" => "patch",
             },
             "update" => {
               "input" => "data",
               "name" => "update",
               "points" => [
                 {
-                  "active" => true,
                   "args" => {
                     "params" => [
                       {
-                        "active" => true,
                         "kind" => "param",
                         "name" => "id",
                         "orig" => "slug_perm",
                         "reqd" => true,
                         "type" => "`$STRING`",
-                        "index$" => 0,
                       },
                       {
-                        "active" => true,
                         "kind" => "param",
                         "name" => "org_id",
                         "orig" => "org",
                         "reqd" => true,
                         "type" => "`$STRING`",
-                        "index$" => 1,
                       },
                     ],
                     "query" => [
                       {
-                        "active" => true,
                         "kind" => "query",
                         "name" => "data",
                         "orig" => "data",
-                        "reqd" => false,
                         "type" => "`$OBJECT`",
                       },
                     ],
@@ -17887,10 +14667,8 @@ module CloudsmithConfig
                     "req" => "`reqdata`",
                     "res" => "`body`",
                   },
-                  "index$" => 0,
                 },
               ],
-              "key$" => "update",
             },
           },
           "relations" => {
@@ -17904,25 +14682,16 @@ module CloudsmithConfig
         "package_file_parts_upload" => {
           "fields" => [
             {
-              "active" => true,
               "name" => "identifier",
-              "req" => false,
               "type" => "`$STRING`",
-              "index$" => 0,
             },
             {
-              "active" => true,
               "name" => "upload_querystring",
-              "req" => false,
               "type" => "`$STRING`",
-              "index$" => 1,
             },
             {
-              "active" => true,
               "name" => "upload_url",
-              "req" => false,
               "type" => "`$STRING`",
-              "index$" => 2,
             },
           ],
           "name" => "package_file_parts_upload",
@@ -17932,40 +14701,32 @@ module CloudsmithConfig
               "name" => "load",
               "points" => [
                 {
-                  "active" => true,
                   "args" => {
                     "params" => [
                       {
-                        "active" => true,
                         "kind" => "param",
                         "name" => "identifier",
                         "orig" => "identifier",
                         "reqd" => true,
                         "type" => "`$ANY`",
-                        "index$" => 0,
                       },
                       {
-                        "active" => true,
                         "kind" => "param",
                         "name" => "owner",
                         "orig" => "owner",
                         "reqd" => true,
                         "type" => "`$ANY`",
-                        "index$" => 1,
                       },
                       {
-                        "active" => true,
                         "kind" => "param",
                         "name" => "repo",
                         "orig" => "repo",
                         "reqd" => true,
                         "type" => "`$ANY`",
-                        "index$" => 2,
                       },
                     ],
                     "query" => [
                       {
-                        "active" => true,
                         "kind" => "query",
                         "name" => "filename",
                         "orig" => "filename",
@@ -17973,11 +14734,9 @@ module CloudsmithConfig
                         "type" => "`$ANY`",
                       },
                       {
-                        "active" => true,
                         "kind" => "query",
                         "name" => "part_number",
                         "orig" => "part_number",
-                        "reqd" => false,
                         "type" => "`$INTEGER`",
                       },
                     ],
@@ -18005,10 +14764,8 @@ module CloudsmithConfig
                     "req" => "`reqdata`",
                     "res" => "`body`",
                   },
-                  "index$" => 0,
                 },
               ],
-              "key$" => "load",
             },
           },
           "relations" => {
@@ -18028,44 +14785,35 @@ module CloudsmithConfig
               "name" => "create",
               "points" => [
                 {
-                  "active" => true,
                   "args" => {
                     "params" => [
                       {
-                        "active" => true,
                         "kind" => "param",
                         "name" => "identifier",
                         "orig" => "identifier",
                         "reqd" => true,
                         "type" => "`$ANY`",
-                        "index$" => 0,
                       },
                       {
-                        "active" => true,
                         "kind" => "param",
                         "name" => "owner",
                         "orig" => "owner",
                         "reqd" => true,
                         "type" => "`$ANY`",
-                        "index$" => 1,
                       },
                       {
-                        "active" => true,
                         "kind" => "param",
                         "name" => "repo",
                         "orig" => "repo",
                         "reqd" => true,
                         "type" => "`$ANY`",
-                        "index$" => 2,
                       },
                     ],
                     "query" => [
                       {
-                        "active" => true,
                         "kind" => "query",
                         "name" => "data",
                         "orig" => "data",
-                        "reqd" => false,
                         "type" => "`$OBJECT`",
                       },
                     ],
@@ -18092,10 +14840,8 @@ module CloudsmithConfig
                     "req" => "`reqdata`",
                     "res" => "`body`",
                   },
-                  "index$" => 0,
                 },
               ],
-              "key$" => "create",
             },
           },
           "relations" => {
@@ -18109,102 +14855,62 @@ module CloudsmithConfig
         "package_license_policy_evaluation" => {
           "fields" => [
             {
-              "active" => true,
               "name" => "allow_unknown_licenses",
-              "req" => false,
               "type" => "`$BOOLEAN`",
-              "index$" => 0,
             },
             {
-              "active" => true,
               "name" => "created_at",
-              "req" => false,
               "type" => "`$STRING`",
-              "index$" => 1,
             },
             {
-              "active" => true,
               "name" => "description",
-              "req" => false,
               "type" => "`$STRING`",
-              "index$" => 2,
             },
             {
-              "active" => true,
               "name" => "evaluation_count",
-              "req" => false,
               "type" => "`$INTEGER`",
-              "index$" => 3,
             },
             {
-              "active" => true,
               "name" => "name",
-              "req" => false,
               "type" => "`$STRING`",
-              "index$" => 4,
             },
             {
-              "active" => true,
               "name" => "on_violation_quarantine",
-              "req" => false,
               "type" => "`$BOOLEAN`",
-              "index$" => 5,
             },
             {
-              "active" => true,
               "name" => "package_query_string",
-              "req" => false,
               "type" => "`$STRING`",
-              "index$" => 6,
             },
             {
-              "active" => true,
               "name" => "policy",
               "req" => true,
               "type" => "`$OBJECT`",
-              "index$" => 7,
             },
             {
-              "active" => true,
               "name" => "slug_perm",
-              "req" => false,
               "type" => "`$STRING`",
-              "index$" => 8,
             },
             {
-              "active" => true,
               "name" => "spdx_identifiers",
               "req" => true,
               "type" => "`$ARRAY`",
-              "index$" => 9,
             },
             {
-              "active" => true,
               "name" => "status",
-              "req" => false,
               "type" => "`$STRING`",
-              "index$" => 10,
             },
             {
-              "active" => true,
               "name" => "updated_at",
-              "req" => false,
               "type" => "`$STRING`",
-              "index$" => 11,
             },
             {
-              "active" => true,
               "name" => "url",
-              "req" => false,
               "type" => "`$STRING`",
-              "index$" => 12,
             },
             {
-              "active" => true,
               "name" => "violation_count",
-              "req" => false,
               "type" => "`$INTEGER`",
-              "index$" => 13,
             },
           ],
           "name" => "package_license_policy_evaluation",
@@ -18214,35 +14920,28 @@ module CloudsmithConfig
               "name" => "create",
               "points" => [
                 {
-                  "active" => true,
                   "args" => {
                     "params" => [
                       {
-                        "active" => true,
                         "kind" => "param",
                         "name" => "org_id",
                         "orig" => "org",
                         "reqd" => true,
                         "type" => "`$STRING`",
-                        "index$" => 0,
                       },
                       {
-                        "active" => true,
                         "kind" => "param",
                         "name" => "policy_slug_perm",
                         "orig" => "policy_slug_perm",
                         "reqd" => true,
                         "type" => "`$ANY`",
-                        "index$" => 1,
                       },
                     ],
                     "query" => [
                       {
-                        "active" => true,
                         "kind" => "query",
                         "name" => "data",
                         "orig" => "data",
-                        "reqd" => false,
                         "type" => "`$OBJECT`",
                       },
                     ],
@@ -18273,53 +14972,42 @@ module CloudsmithConfig
                     "req" => "`reqdata`",
                     "res" => "`body.policy`",
                   },
-                  "index$" => 0,
                 },
               ],
-              "key$" => "create",
             },
             "list" => {
               "input" => "data",
               "name" => "list",
               "points" => [
                 {
-                  "active" => true,
                   "args" => {
                     "params" => [
                       {
-                        "active" => true,
                         "kind" => "param",
                         "name" => "org_id",
                         "orig" => "org",
                         "reqd" => true,
                         "type" => "`$STRING`",
-                        "index$" => 0,
                       },
                       {
-                        "active" => true,
                         "kind" => "param",
                         "name" => "policy_slug_perm",
                         "orig" => "policy_slug_perm",
                         "reqd" => true,
                         "type" => "`$ANY`",
-                        "index$" => 1,
                       },
                     ],
                     "query" => [
                       {
-                        "active" => true,
                         "kind" => "query",
                         "name" => "page",
                         "orig" => "page",
-                        "reqd" => false,
                         "type" => "`$INTEGER`",
                       },
                       {
-                        "active" => true,
                         "kind" => "query",
                         "name" => "page_size",
                         "orig" => "page_size",
-                        "reqd" => false,
                         "type" => "`$INTEGER`",
                       },
                     ],
@@ -18351,45 +15039,36 @@ module CloudsmithConfig
                     "req" => "`reqdata`",
                     "res" => "`body`",
                   },
-                  "index$" => 0,
                 },
               ],
-              "key$" => "list",
             },
             "load" => {
               "input" => "data",
               "name" => "load",
               "points" => [
                 {
-                  "active" => true,
                   "args" => {
                     "params" => [
                       {
-                        "active" => true,
                         "kind" => "param",
                         "name" => "id",
                         "orig" => "slug_perm",
                         "reqd" => true,
                         "type" => "`$STRING`",
-                        "index$" => 0,
                       },
                       {
-                        "active" => true,
                         "kind" => "param",
                         "name" => "license_policy_id",
                         "orig" => "policy_slug_perm",
                         "reqd" => true,
                         "type" => "`$STRING`",
-                        "index$" => 1,
                       },
                       {
-                        "active" => true,
                         "kind" => "param",
                         "name" => "org_id",
                         "orig" => "org",
                         "reqd" => true,
                         "type" => "`$STRING`",
-                        "index$" => 2,
                       },
                     ],
                   },
@@ -18422,10 +15101,8 @@ module CloudsmithConfig
                     "req" => "`reqdata`",
                     "res" => "`body.policy`",
                   },
-                  "index$" => 0,
                 },
               ],
-              "key$" => "load",
             },
           },
           "relations" => {
@@ -18446,151 +15123,116 @@ module CloudsmithConfig
               "name" => "load",
               "points" => [
                 {
-                  "active" => true,
                   "args" => {
                     "params" => [
                       {
-                        "active" => true,
                         "kind" => "param",
                         "name" => "owner",
                         "orig" => "owner",
                         "reqd" => true,
                         "type" => "`$ANY`",
-                        "index$" => 0,
                       },
                       {
-                        "active" => true,
                         "kind" => "param",
                         "name" => "package_format",
                         "orig" => "package_format",
                         "reqd" => true,
                         "type" => "`$ANY`",
-                        "index$" => 1,
                       },
                       {
-                        "active" => true,
                         "kind" => "param",
                         "name" => "package_identifier",
                         "orig" => "package_identifier",
                         "reqd" => true,
                         "type" => "`$ANY`",
-                        "index$" => 2,
                       },
                       {
-                        "active" => true,
                         "kind" => "param",
                         "name" => "package_name",
                         "orig" => "package_name",
                         "reqd" => true,
                         "type" => "`$ANY`",
-                        "index$" => 3,
                       },
                       {
-                        "active" => true,
                         "kind" => "param",
                         "name" => "package_version",
                         "orig" => "package_version",
                         "reqd" => true,
                         "type" => "`$ANY`",
-                        "index$" => 4,
                       },
                       {
-                        "active" => true,
                         "kind" => "param",
                         "name" => "repo",
                         "orig" => "repo",
                         "reqd" => true,
                         "type" => "`$ANY`",
-                        "index$" => 5,
                       },
                     ],
                     "query" => [
                       {
-                        "active" => true,
                         "kind" => "query",
                         "name" => "badge_token",
                         "orig" => "badge_token",
-                        "reqd" => false,
                         "type" => "`$ANY`",
                       },
                       {
-                        "active" => true,
                         "kind" => "query",
                         "name" => "cache_second",
                         "orig" => "cache_second",
-                        "reqd" => false,
                         "type" => "`$ANY`",
                       },
                       {
-                        "active" => true,
                         "kind" => "query",
                         "name" => "color",
                         "orig" => "color",
-                        "reqd" => false,
                         "type" => "`$ANY`",
                       },
                       {
-                        "active" => true,
                         "kind" => "query",
                         "name" => "label",
                         "orig" => "label",
-                        "reqd" => false,
                         "type" => "`$STRING`",
                       },
                       {
-                        "active" => true,
                         "kind" => "query",
                         "name" => "label_color",
                         "orig" => "label_color",
-                        "reqd" => false,
                         "type" => "`$ANY`",
                       },
                       {
-                        "active" => true,
                         "kind" => "query",
                         "name" => "logo_color",
                         "orig" => "logo_color",
-                        "reqd" => false,
                         "type" => "`$ANY`",
                       },
                       {
-                        "active" => true,
                         "kind" => "query",
                         "name" => "logo_width",
                         "orig" => "logo_width",
-                        "reqd" => false,
                         "type" => "`$ANY`",
                       },
                       {
-                        "active" => true,
                         "kind" => "query",
                         "name" => "render",
                         "orig" => "render",
-                        "reqd" => false,
                         "type" => "`$ANY`",
                       },
                       {
-                        "active" => true,
                         "kind" => "query",
                         "name" => "shield",
                         "orig" => "shield",
-                        "reqd" => false,
                         "type" => "`$ANY`",
                       },
                       {
-                        "active" => true,
                         "kind" => "query",
                         "name" => "show_latest",
                         "orig" => "show_latest",
-                        "reqd" => false,
                         "type" => "`$ANY`",
                       },
                       {
-                        "active" => true,
                         "kind" => "query",
                         "name" => "style",
                         "orig" => "style",
-                        "reqd" => false,
                         "type" => "`$ANY`",
                       },
                     ],
@@ -18638,10 +15280,8 @@ module CloudsmithConfig
                     "req" => "`reqdata`",
                     "res" => "`body`",
                   },
-                  "index$" => 0,
                 },
               ],
-              "key$" => "load",
             },
           },
           "relations" => {
@@ -18655,102 +15295,60 @@ module CloudsmithConfig
         "package_vulnerability_policy_evaluation" => {
           "fields" => [
             {
-              "active" => true,
               "name" => "allow_unknown_severity",
-              "req" => false,
               "type" => "`$BOOLEAN`",
-              "index$" => 0,
             },
             {
-              "active" => true,
               "name" => "created_at",
-              "req" => false,
               "type" => "`$STRING`",
-              "index$" => 1,
             },
             {
-              "active" => true,
               "name" => "description",
-              "req" => false,
               "type" => "`$STRING`",
-              "index$" => 2,
             },
             {
-              "active" => true,
               "name" => "evaluation_count",
-              "req" => false,
               "type" => "`$INTEGER`",
-              "index$" => 3,
             },
             {
-              "active" => true,
               "name" => "min_severity",
-              "req" => false,
               "type" => "`$STRING`",
-              "index$" => 4,
             },
             {
-              "active" => true,
               "name" => "name",
-              "req" => false,
               "type" => "`$STRING`",
-              "index$" => 5,
             },
             {
-              "active" => true,
               "name" => "on_violation_quarantine",
-              "req" => false,
               "type" => "`$BOOLEAN`",
-              "index$" => 6,
             },
             {
-              "active" => true,
               "name" => "package_query_string",
-              "req" => false,
               "type" => "`$STRING`",
-              "index$" => 7,
             },
             {
-              "active" => true,
               "name" => "policy",
-              "req" => false,
               "type" => "`$OBJECT`",
-              "index$" => 8,
             },
             {
-              "active" => true,
               "name" => "slug_perm",
-              "req" => false,
               "type" => "`$STRING`",
-              "index$" => 9,
             },
             {
-              "active" => true,
               "name" => "status",
-              "req" => false,
               "type" => "`$STRING`",
-              "index$" => 10,
             },
             {
-              "active" => true,
               "name" => "updated_at",
-              "req" => false,
               "type" => "`$STRING`",
-              "index$" => 11,
             },
             {
-              "active" => true,
               "name" => "url",
-              "req" => false,
               "type" => "`$STRING`",
-              "index$" => 12,
             },
             {
-              "active" => true,
               "name" => "violation_count",
-              "req" => false,
               "type" => "`$INTEGER`",
-              "index$" => 13,
             },
           ],
           "name" => "package_vulnerability_policy_evaluation",
@@ -18760,35 +15358,28 @@ module CloudsmithConfig
               "name" => "create",
               "points" => [
                 {
-                  "active" => true,
                   "args" => {
                     "params" => [
                       {
-                        "active" => true,
                         "kind" => "param",
                         "name" => "org_id",
                         "orig" => "org",
                         "reqd" => true,
                         "type" => "`$STRING`",
-                        "index$" => 0,
                       },
                       {
-                        "active" => true,
                         "kind" => "param",
                         "name" => "policy_slug_perm",
                         "orig" => "policy_slug_perm",
                         "reqd" => true,
                         "type" => "`$ANY`",
-                        "index$" => 1,
                       },
                     ],
                     "query" => [
                       {
-                        "active" => true,
                         "kind" => "query",
                         "name" => "data",
                         "orig" => "data",
-                        "reqd" => false,
                         "type" => "`$OBJECT`",
                       },
                     ],
@@ -18819,53 +15410,42 @@ module CloudsmithConfig
                     "req" => "`reqdata`",
                     "res" => "`body.policy`",
                   },
-                  "index$" => 0,
                 },
               ],
-              "key$" => "create",
             },
             "list" => {
               "input" => "data",
               "name" => "list",
               "points" => [
                 {
-                  "active" => true,
                   "args" => {
                     "params" => [
                       {
-                        "active" => true,
                         "kind" => "param",
                         "name" => "org_id",
                         "orig" => "org",
                         "reqd" => true,
                         "type" => "`$STRING`",
-                        "index$" => 0,
                       },
                       {
-                        "active" => true,
                         "kind" => "param",
                         "name" => "policy_slug_perm",
                         "orig" => "policy_slug_perm",
                         "reqd" => true,
                         "type" => "`$ANY`",
-                        "index$" => 1,
                       },
                     ],
                     "query" => [
                       {
-                        "active" => true,
                         "kind" => "query",
                         "name" => "page",
                         "orig" => "page",
-                        "reqd" => false,
                         "type" => "`$INTEGER`",
                       },
                       {
-                        "active" => true,
                         "kind" => "query",
                         "name" => "page_size",
                         "orig" => "page_size",
-                        "reqd" => false,
                         "type" => "`$INTEGER`",
                       },
                     ],
@@ -18897,45 +15477,36 @@ module CloudsmithConfig
                     "req" => "`reqdata`",
                     "res" => "`body`",
                   },
-                  "index$" => 0,
                 },
               ],
-              "key$" => "list",
             },
             "load" => {
               "input" => "data",
               "name" => "load",
               "points" => [
                 {
-                  "active" => true,
                   "args" => {
                     "params" => [
                       {
-                        "active" => true,
                         "kind" => "param",
                         "name" => "id",
                         "orig" => "slug_perm",
                         "reqd" => true,
                         "type" => "`$STRING`",
-                        "index$" => 0,
                       },
                       {
-                        "active" => true,
                         "kind" => "param",
                         "name" => "org_id",
                         "orig" => "org",
                         "reqd" => true,
                         "type" => "`$STRING`",
-                        "index$" => 1,
                       },
                       {
-                        "active" => true,
                         "kind" => "param",
                         "name" => "vulnerability_policy_id",
                         "orig" => "policy_slug_perm",
                         "reqd" => true,
                         "type" => "`$STRING`",
-                        "index$" => 2,
                       },
                     ],
                   },
@@ -18968,10 +15539,8 @@ module CloudsmithConfig
                     "req" => "`reqdata`",
                     "res" => "`body.policy`",
                   },
-                  "index$" => 0,
                 },
               ],
-              "key$" => "load",
             },
           },
           "relations" => {
@@ -19006,60 +15575,40 @@ module CloudsmithConfig
         "provider_setting" => {
           "fields" => [
             {
-              "active" => true,
               "name" => "claims",
               "req" => true,
               "type" => "`$OBJECT`",
-              "index$" => 0,
             },
             {
-              "active" => true,
               "name" => "enabled",
               "req" => true,
               "type" => "`$BOOLEAN`",
-              "index$" => 1,
             },
             {
-              "active" => true,
               "name" => "mapping_claim",
-              "req" => false,
               "type" => "`$STRING`",
-              "index$" => 2,
             },
             {
-              "active" => true,
               "name" => "name",
               "req" => true,
               "type" => "`$STRING`",
-              "index$" => 3,
             },
             {
-              "active" => true,
               "name" => "provider_url",
               "req" => true,
               "type" => "`$STRING`",
-              "index$" => 4,
             },
             {
-              "active" => true,
               "name" => "service_accounts",
-              "req" => false,
               "type" => "`$ARRAY`",
-              "index$" => 5,
             },
             {
-              "active" => true,
               "name" => "slug",
-              "req" => false,
               "type" => "`$STRING`",
-              "index$" => 6,
             },
             {
-              "active" => true,
               "name" => "slug_perm",
-              "req" => false,
               "type" => "`$STRING`",
-              "index$" => 7,
             },
           ],
           "name" => "provider_setting",
@@ -19069,50 +15618,39 @@ module CloudsmithConfig
               "name" => "list",
               "points" => [
                 {
-                  "active" => true,
                   "args" => {
                     "params" => [
                       {
-                        "active" => true,
                         "kind" => "param",
                         "name" => "org_id",
                         "orig" => "org",
                         "reqd" => true,
                         "type" => "`$STRING`",
-                        "index$" => 0,
                       },
                     ],
                     "query" => [
                       {
-                        "active" => true,
                         "kind" => "query",
                         "name" => "page",
                         "orig" => "page",
-                        "reqd" => false,
                         "type" => "`$INTEGER`",
                       },
                       {
-                        "active" => true,
                         "kind" => "query",
                         "name" => "page_size",
                         "orig" => "page_size",
-                        "reqd" => false,
                         "type" => "`$INTEGER`",
                       },
                       {
-                        "active" => true,
                         "kind" => "query",
                         "name" => "query",
                         "orig" => "query",
-                        "reqd" => false,
                         "type" => "`$ANY`",
                       },
                       {
-                        "active" => true,
                         "kind" => "query",
                         "name" => "sort",
                         "orig" => "sort",
-                        "reqd" => false,
                         "type" => "`$ANY`",
                       },
                     ],
@@ -19143,36 +15681,29 @@ module CloudsmithConfig
                     "req" => "`reqdata`",
                     "res" => "`body`",
                   },
-                  "index$" => 0,
                 },
               ],
-              "key$" => "list",
             },
             "load" => {
               "input" => "data",
               "name" => "load",
               "points" => [
                 {
-                  "active" => true,
                   "args" => {
                     "params" => [
                       {
-                        "active" => true,
                         "kind" => "param",
                         "name" => "org_id",
                         "orig" => "org",
                         "reqd" => true,
                         "type" => "`$STRING`",
-                        "index$" => 0,
                       },
                       {
-                        "active" => true,
                         "kind" => "param",
                         "name" => "slug_perm",
                         "orig" => "slug_perm",
                         "reqd" => true,
                         "type" => "`$ANY`",
-                        "index$" => 1,
                       },
                     ],
                   },
@@ -19200,10 +15731,8 @@ module CloudsmithConfig
                     "req" => "`reqdata`",
                     "res" => "`body`",
                   },
-                  "index$" => 0,
                 },
               ],
-              "key$" => "load",
             },
           },
           "relations" => {
@@ -19221,67 +15750,44 @@ module CloudsmithConfig
         "provider_settings_write" => {
           "fields" => [
             {
-              "active" => true,
               "name" => "claims",
               "req" => true,
               "type" => "`$OBJECT`",
-              "index$" => 0,
             },
             {
-              "active" => true,
               "name" => "dynamic_mappings",
-              "req" => false,
               "type" => "`$ARRAY`",
-              "index$" => 1,
             },
             {
-              "active" => true,
               "name" => "enabled",
               "req" => true,
               "type" => "`$BOOLEAN`",
-              "index$" => 2,
             },
             {
-              "active" => true,
               "name" => "mapping_claim",
-              "req" => false,
               "type" => "`$STRING`",
-              "index$" => 3,
             },
             {
-              "active" => true,
               "name" => "name",
               "req" => true,
               "type" => "`$STRING`",
-              "index$" => 4,
             },
             {
-              "active" => true,
               "name" => "provider_url",
               "req" => true,
               "type" => "`$STRING`",
-              "index$" => 5,
             },
             {
-              "active" => true,
               "name" => "service_accounts",
-              "req" => false,
               "type" => "`$ARRAY`",
-              "index$" => 6,
             },
             {
-              "active" => true,
               "name" => "slug",
-              "req" => false,
               "type" => "`$STRING`",
-              "index$" => 7,
             },
             {
-              "active" => true,
               "name" => "slug_perm",
-              "req" => false,
               "type" => "`$STRING`",
-              "index$" => 8,
             },
           ],
           "name" => "provider_settings_write",
@@ -19291,26 +15797,21 @@ module CloudsmithConfig
               "name" => "create",
               "points" => [
                 {
-                  "active" => true,
                   "args" => {
                     "params" => [
                       {
-                        "active" => true,
                         "kind" => "param",
                         "name" => "org_id",
                         "orig" => "org",
                         "reqd" => true,
                         "type" => "`$STRING`",
-                        "index$" => 0,
                       },
                     ],
                     "query" => [
                       {
-                        "active" => true,
                         "kind" => "query",
                         "name" => "data",
                         "orig" => "data",
-                        "reqd" => false,
                         "type" => "`$OBJECT`",
                       },
                     ],
@@ -19338,21 +15839,17 @@ module CloudsmithConfig
                     "req" => "`reqdata`",
                     "res" => "`body`",
                   },
-                  "index$" => 0,
                 },
               ],
-              "key$" => "create",
             },
             "patch" => {
               "input" => "data",
               "name" => "patch",
               "points" => [
                 {
-                  "active" => true,
                   "args" => {
                     "params" => [
                       {
-                        "active" => true,
                         "kind" => "param",
                         "name" => "org_id",
                         "orig" => "org",
@@ -19360,7 +15857,6 @@ module CloudsmithConfig
                         "type" => "`$STRING`",
                       },
                       {
-                        "active" => true,
                         "kind" => "param",
                         "name" => "slug_perm",
                         "orig" => "slug_perm",
@@ -19370,11 +15866,9 @@ module CloudsmithConfig
                     ],
                     "query" => [
                       {
-                        "active" => true,
                         "kind" => "query",
                         "name" => "data",
                         "orig" => "data",
-                        "reqd" => false,
                         "type" => "`$OBJECT`",
                       },
                     ],
@@ -19404,45 +15898,36 @@ module CloudsmithConfig
                     "req" => "`reqdata`",
                     "res" => "`body`",
                   },
-                  "index$" => 0,
                 },
               ],
-              "key$" => "patch",
             },
             "update" => {
               "input" => "data",
               "name" => "update",
               "points" => [
                 {
-                  "active" => true,
                   "args" => {
                     "params" => [
                       {
-                        "active" => true,
                         "kind" => "param",
                         "name" => "org_id",
                         "orig" => "org",
                         "reqd" => true,
                         "type" => "`$STRING`",
-                        "index$" => 0,
                       },
                       {
-                        "active" => true,
                         "kind" => "param",
                         "name" => "slug_perm",
                         "orig" => "slug_perm",
                         "reqd" => true,
                         "type" => "`$ANY`",
-                        "index$" => 1,
                       },
                     ],
                     "query" => [
                       {
-                        "active" => true,
                         "kind" => "query",
                         "name" => "data",
                         "orig" => "data",
-                        "reqd" => false,
                         "type" => "`$OBJECT`",
                       },
                     ],
@@ -19472,10 +15957,8 @@ module CloudsmithConfig
                     "req" => "`reqdata`",
                     "res" => "`body`",
                   },
-                  "index$" => 0,
                 },
               ],
-              "key$" => "update",
             },
           },
           "relations" => {
@@ -19493,130 +15976,78 @@ module CloudsmithConfig
         "python" => {
           "fields" => [
             {
-              "active" => true,
               "name" => "auth_mode",
-              "req" => false,
               "type" => "`$STRING`",
-              "index$" => 0,
             },
             {
-              "active" => true,
               "name" => "auth_secret",
-              "req" => false,
               "type" => "`$STRING`",
-              "index$" => 1,
             },
             {
-              "active" => true,
               "name" => "auth_username",
-              "req" => false,
               "type" => "`$STRING`",
-              "index$" => 2,
             },
             {
-              "active" => true,
               "name" => "created_at",
-              "req" => false,
               "type" => "`$STRING`",
-              "index$" => 3,
             },
             {
-              "active" => true,
               "name" => "disable_reason",
-              "req" => false,
               "type" => "`$STRING`",
-              "index$" => 4,
             },
             {
-              "active" => true,
               "name" => "extra_header_1",
-              "req" => false,
               "type" => "`$STRING`",
-              "index$" => 5,
             },
             {
-              "active" => true,
               "name" => "extra_header_2",
-              "req" => false,
               "type" => "`$STRING`",
-              "index$" => 6,
             },
             {
-              "active" => true,
               "name" => "extra_value_1",
-              "req" => false,
               "type" => "`$STRING`",
-              "index$" => 7,
             },
             {
-              "active" => true,
               "name" => "extra_value_2",
-              "req" => false,
               "type" => "`$STRING`",
-              "index$" => 8,
             },
             {
-              "active" => true,
               "name" => "is_active",
-              "req" => false,
               "type" => "`$BOOLEAN`",
-              "index$" => 9,
             },
             {
-              "active" => true,
               "name" => "mode",
-              "req" => false,
               "type" => "`$STRING`",
-              "index$" => 10,
             },
             {
-              "active" => true,
               "name" => "name",
               "req" => true,
               "type" => "`$STRING`",
-              "index$" => 11,
             },
             {
-              "active" => true,
               "name" => "pending_validation",
-              "req" => false,
               "type" => "`$BOOLEAN`",
-              "index$" => 12,
             },
             {
-              "active" => true,
               "name" => "priority",
-              "req" => false,
               "type" => "`$INTEGER`",
-              "index$" => 13,
             },
             {
-              "active" => true,
               "name" => "slug_perm",
-              "req" => false,
               "type" => "`$STRING`",
-              "index$" => 14,
             },
             {
-              "active" => true,
               "name" => "updated_at",
-              "req" => false,
               "type" => "`$STRING`",
-              "index$" => 15,
             },
             {
-              "active" => true,
               "name" => "upstream_url",
               "req" => true,
               "type" => "`$STRING`",
-              "index$" => 16,
             },
             {
-              "active" => true,
               "name" => "verify_ssl",
-              "req" => false,
               "type" => "`$BOOLEAN`",
-              "index$" => 17,
             },
           ],
           "name" => "python",
@@ -19626,35 +16057,28 @@ module CloudsmithConfig
               "name" => "create",
               "points" => [
                 {
-                  "active" => true,
                   "args" => {
                     "params" => [
                       {
-                        "active" => true,
                         "kind" => "param",
                         "name" => "identifier",
                         "orig" => "identifier",
                         "reqd" => true,
                         "type" => "`$ANY`",
-                        "index$" => 0,
                       },
                       {
-                        "active" => true,
                         "kind" => "param",
                         "name" => "owner",
                         "orig" => "owner",
                         "reqd" => true,
                         "type" => "`$ANY`",
-                        "index$" => 1,
                       },
                     ],
                     "query" => [
                       {
-                        "active" => true,
                         "kind" => "query",
                         "name" => "data",
                         "orig" => "data",
-                        "reqd" => false,
                         "type" => "`$OBJECT`",
                       },
                     ],
@@ -19680,53 +16104,42 @@ module CloudsmithConfig
                     "req" => "`reqdata`",
                     "res" => "`body`",
                   },
-                  "index$" => 0,
                 },
               ],
-              "key$" => "create",
             },
             "list" => {
               "input" => "data",
               "name" => "list",
               "points" => [
                 {
-                  "active" => true,
                   "args" => {
                     "params" => [
                       {
-                        "active" => true,
                         "kind" => "param",
                         "name" => "identifier",
                         "orig" => "identifier",
                         "reqd" => true,
                         "type" => "`$ANY`",
-                        "index$" => 0,
                       },
                       {
-                        "active" => true,
                         "kind" => "param",
                         "name" => "owner",
                         "orig" => "owner",
                         "reqd" => true,
                         "type" => "`$ANY`",
-                        "index$" => 1,
                       },
                     ],
                     "query" => [
                       {
-                        "active" => true,
                         "kind" => "query",
                         "name" => "page",
                         "orig" => "page",
-                        "reqd" => false,
                         "type" => "`$INTEGER`",
                       },
                       {
-                        "active" => true,
                         "kind" => "query",
                         "name" => "page_size",
                         "orig" => "page_size",
-                        "reqd" => false,
                         "type" => "`$INTEGER`",
                       },
                     ],
@@ -19753,45 +16166,36 @@ module CloudsmithConfig
                     "req" => "`reqdata`",
                     "res" => "`body`",
                   },
-                  "index$" => 0,
                 },
               ],
-              "key$" => "list",
             },
             "load" => {
               "input" => "data",
               "name" => "load",
               "points" => [
                 {
-                  "active" => true,
                   "args" => {
                     "params" => [
                       {
-                        "active" => true,
                         "kind" => "param",
                         "name" => "id",
                         "orig" => "slug_perm",
                         "reqd" => true,
                         "type" => "`$STRING`",
-                        "index$" => 0,
                       },
                       {
-                        "active" => true,
                         "kind" => "param",
                         "name" => "identifier",
                         "orig" => "identifier",
                         "reqd" => true,
                         "type" => "`$ANY`",
-                        "index$" => 1,
                       },
                       {
-                        "active" => true,
                         "kind" => "param",
                         "name" => "owner",
                         "orig" => "owner",
                         "reqd" => true,
                         "type" => "`$ANY`",
-                        "index$" => 2,
                       },
                     ],
                   },
@@ -19822,21 +16226,17 @@ module CloudsmithConfig
                     "req" => "`reqdata`",
                     "res" => "`body`",
                   },
-                  "index$" => 0,
                 },
               ],
-              "key$" => "load",
             },
             "patch" => {
               "input" => "data",
               "name" => "patch",
               "points" => [
                 {
-                  "active" => true,
                   "args" => {
                     "params" => [
                       {
-                        "active" => true,
                         "kind" => "param",
                         "name" => "id",
                         "orig" => "slug_perm",
@@ -19844,7 +16244,6 @@ module CloudsmithConfig
                         "type" => "`$STRING`",
                       },
                       {
-                        "active" => true,
                         "kind" => "param",
                         "name" => "identifier",
                         "orig" => "identifier",
@@ -19852,7 +16251,6 @@ module CloudsmithConfig
                         "type" => "`$ANY`",
                       },
                       {
-                        "active" => true,
                         "kind" => "param",
                         "name" => "owner",
                         "orig" => "owner",
@@ -19862,11 +16260,9 @@ module CloudsmithConfig
                     ],
                     "query" => [
                       {
-                        "active" => true,
                         "kind" => "query",
                         "name" => "data",
                         "orig" => "data",
-                        "reqd" => false,
                         "type" => "`$OBJECT`",
                       },
                     ],
@@ -19899,54 +16295,43 @@ module CloudsmithConfig
                     "req" => "`reqdata`",
                     "res" => "`body`",
                   },
-                  "index$" => 0,
                 },
               ],
-              "key$" => "patch",
             },
             "update" => {
               "input" => "data",
               "name" => "update",
               "points" => [
                 {
-                  "active" => true,
                   "args" => {
                     "params" => [
                       {
-                        "active" => true,
                         "kind" => "param",
                         "name" => "id",
                         "orig" => "slug_perm",
                         "reqd" => true,
                         "type" => "`$STRING`",
-                        "index$" => 0,
                       },
                       {
-                        "active" => true,
                         "kind" => "param",
                         "name" => "identifier",
                         "orig" => "identifier",
                         "reqd" => true,
                         "type" => "`$ANY`",
-                        "index$" => 1,
                       },
                       {
-                        "active" => true,
                         "kind" => "param",
                         "name" => "owner",
                         "orig" => "owner",
                         "reqd" => true,
                         "type" => "`$ANY`",
-                        "index$" => 2,
                       },
                     ],
                     "query" => [
                       {
-                        "active" => true,
                         "kind" => "query",
                         "name" => "data",
                         "orig" => "data",
-                        "reqd" => false,
                         "type" => "`$OBJECT`",
                       },
                     ],
@@ -19979,10 +16364,8 @@ module CloudsmithConfig
                     "req" => "`reqdata`",
                     "res" => "`body`",
                   },
-                  "index$" => 0,
                 },
               ],
-              "key$" => "update",
             },
           },
           "relations" => {
@@ -20011,25 +16394,19 @@ module CloudsmithConfig
         "quota" => {
           "fields" => [
             {
-              "active" => true,
               "name" => "display",
               "req" => true,
               "type" => "`$OBJECT`",
-              "index$" => 0,
             },
             {
-              "active" => true,
               "name" => "history",
               "req" => true,
               "type" => "`$ARRAY`",
-              "index$" => 1,
             },
             {
-              "active" => true,
               "name" => "raw",
               "req" => true,
               "type" => "`$OBJECT`",
-              "index$" => 2,
             },
           ],
           "name" => "quota",
@@ -20039,17 +16416,14 @@ module CloudsmithConfig
               "name" => "load",
               "points" => [
                 {
-                  "active" => true,
                   "args" => {
                     "params" => [
                       {
-                        "active" => true,
                         "kind" => "param",
                         "name" => "id",
                         "orig" => "owner",
                         "reqd" => true,
                         "type" => "`$STRING`",
-                        "index$" => 0,
                       },
                     ],
                   },
@@ -20074,20 +16448,16 @@ module CloudsmithConfig
                     "req" => "`reqdata`",
                     "res" => "`body.usage`",
                   },
-                  "index$" => 0,
                 },
                 {
-                  "active" => true,
                   "args" => {
                     "params" => [
                       {
-                        "active" => true,
                         "kind" => "param",
                         "name" => "owner",
                         "orig" => "owner",
                         "reqd" => true,
                         "type" => "`$ANY`",
-                        "index$" => 0,
                       },
                     ],
                   },
@@ -20108,20 +16478,16 @@ module CloudsmithConfig
                     "req" => "`reqdata`",
                     "res" => "`body`",
                   },
-                  "index$" => 1,
                 },
                 {
-                  "active" => true,
                   "args" => {
                     "params" => [
                       {
-                        "active" => true,
                         "kind" => "param",
                         "name" => "owner",
                         "orig" => "owner",
                         "reqd" => true,
                         "type" => "`$ANY`",
-                        "index$" => 0,
                       },
                     ],
                   },
@@ -20143,20 +16509,16 @@ module CloudsmithConfig
                     "req" => "`reqdata`",
                     "res" => "`body`",
                   },
-                  "index$" => 2,
                 },
                 {
-                  "active" => true,
                   "args" => {
                     "params" => [
                       {
-                        "active" => true,
                         "kind" => "param",
                         "name" => "owner",
                         "orig" => "owner",
                         "reqd" => true,
                         "type" => "`$ANY`",
-                        "index$" => 0,
                       },
                     ],
                   },
@@ -20177,10 +16539,8 @@ module CloudsmithConfig
                     "req" => "`reqdata`",
                     "res" => "`body.usage`",
                   },
-                  "index$" => 3,
                 },
               ],
-              "key$" => "load",
             },
           },
           "relations" => {
@@ -20233,459 +16593,265 @@ module CloudsmithConfig
         "repo" => {
           "fields" => [
             {
-              "active" => true,
               "name" => "cdn_url",
-              "req" => false,
               "type" => "`$STRING`",
-              "index$" => 0,
             },
             {
-              "active" => true,
               "name" => "content_kind",
-              "req" => false,
               "type" => "`$STRING`",
-              "index$" => 1,
             },
             {
-              "active" => true,
               "name" => "contextual_auth_realm",
-              "req" => false,
               "type" => "`$BOOLEAN`",
-              "index$" => 2,
             },
             {
-              "active" => true,
               "name" => "copy_own",
-              "req" => false,
               "type" => "`$BOOLEAN`",
-              "index$" => 3,
             },
             {
-              "active" => true,
               "name" => "copy_packages",
-              "req" => false,
               "type" => "`$STRING`",
-              "index$" => 4,
             },
             {
-              "active" => true,
               "name" => "cosign_signing_enabled",
-              "req" => false,
               "type" => "`$BOOLEAN`",
-              "index$" => 5,
             },
             {
-              "active" => true,
               "name" => "created_at",
-              "req" => false,
               "type" => "`$STRING`",
-              "index$" => 6,
             },
             {
-              "active" => true,
               "name" => "default_privilege",
-              "req" => false,
               "type" => "`$STRING`",
-              "index$" => 7,
             },
             {
-              "active" => true,
               "name" => "delete_own",
-              "req" => false,
               "type" => "`$BOOLEAN`",
-              "index$" => 8,
             },
             {
-              "active" => true,
               "name" => "delete_packages",
-              "req" => false,
               "type" => "`$STRING`",
-              "index$" => 9,
             },
             {
-              "active" => true,
               "name" => "deleted_at",
-              "req" => false,
               "type" => "`$STRING`",
-              "index$" => 10,
             },
             {
-              "active" => true,
               "name" => "description",
-              "req" => false,
               "type" => "`$STRING`",
-              "index$" => 11,
             },
             {
-              "active" => true,
               "name" => "distributes",
-              "req" => false,
               "type" => "`$ARRAY`",
-              "index$" => 12,
             },
             {
-              "active" => true,
               "name" => "docker_refresh_tokens_enabled",
-              "req" => false,
               "type" => "`$BOOLEAN`",
-              "index$" => 13,
             },
             {
-              "active" => true,
               "name" => "ecdsa_keys",
-              "req" => false,
               "type" => "`$ARRAY`",
-              "index$" => 14,
             },
             {
-              "active" => true,
               "name" => "enforce_eula",
-              "req" => false,
               "type" => "`$BOOLEAN`",
-              "index$" => 15,
             },
             {
-              "active" => true,
               "name" => "gpg_keys",
-              "req" => false,
               "type" => "`$ARRAY`",
-              "index$" => 16,
             },
             {
-              "active" => true,
               "name" => "index_files",
-              "req" => false,
               "type" => "`$BOOLEAN`",
-              "index$" => 17,
             },
             {
-              "active" => true,
               "name" => "is_open_source",
-              "req" => false,
               "type" => "`$BOOLEAN`",
-              "index$" => 18,
             },
             {
-              "active" => true,
               "name" => "is_private",
-              "req" => false,
               "type" => "`$BOOLEAN`",
-              "index$" => 19,
             },
             {
-              "active" => true,
               "name" => "is_public",
-              "req" => false,
               "type" => "`$BOOLEAN`",
-              "index$" => 20,
             },
             {
-              "active" => true,
               "name" => "manage_entitlements_privilege",
-              "req" => false,
               "type" => "`$STRING`",
-              "index$" => 21,
             },
             {
-              "active" => true,
               "name" => "move_own",
-              "req" => false,
               "type" => "`$BOOLEAN`",
-              "index$" => 22,
             },
             {
-              "active" => true,
               "name" => "move_packages",
-              "req" => false,
               "type" => "`$STRING`",
-              "index$" => 23,
             },
             {
-              "active" => true,
               "name" => "name",
               "req" => true,
               "type" => "`$STRING`",
-              "index$" => 24,
             },
             {
-              "active" => true,
               "name" => "namespace",
-              "req" => false,
               "type" => "`$STRING`",
-              "index$" => 25,
             },
             {
-              "active" => true,
               "name" => "namespace_url",
-              "req" => false,
               "type" => "`$STRING`",
-              "index$" => 26,
             },
             {
-              "active" => true,
               "name" => "nuget_native_signing_enabled",
-              "req" => false,
               "type" => "`$BOOLEAN`",
-              "index$" => 27,
             },
             {
-              "active" => true,
               "name" => "num_downloads",
-              "req" => false,
               "type" => "`$INTEGER`",
-              "index$" => 28,
             },
             {
-              "active" => true,
               "name" => "num_policy_violated_packages",
-              "req" => false,
               "type" => "`$INTEGER`",
-              "index$" => 29,
             },
             {
-              "active" => true,
               "name" => "num_quarantined_packages",
-              "req" => false,
               "type" => "`$INTEGER`",
-              "index$" => 30,
             },
             {
-              "active" => true,
               "name" => "open_source_license",
-              "req" => false,
               "type" => "`$STRING`",
-              "index$" => 31,
             },
             {
-              "active" => true,
               "name" => "open_source_project_url",
-              "req" => false,
               "type" => "`$STRING`",
-              "index$" => 32,
             },
             {
-              "active" => true,
               "name" => "package_count",
-              "req" => false,
               "type" => "`$INTEGER`",
-              "index$" => 33,
             },
             {
-              "active" => true,
               "name" => "package_group_count",
-              "req" => false,
               "type" => "`$INTEGER`",
-              "index$" => 34,
             },
             {
-              "active" => true,
               "name" => "proxy_npmjs",
-              "req" => false,
               "type" => "`$BOOLEAN`",
-              "index$" => 35,
             },
             {
-              "active" => true,
               "name" => "proxy_pypi",
-              "req" => false,
               "type" => "`$BOOLEAN`",
-              "index$" => 36,
             },
             {
-              "active" => true,
               "name" => "raw_package_index_enabled",
-              "req" => false,
               "type" => "`$BOOLEAN`",
-              "index$" => 37,
             },
             {
-              "active" => true,
               "name" => "raw_package_index_signatures_enabled",
-              "req" => false,
               "type" => "`$BOOLEAN`",
-              "index$" => 38,
             },
             {
-              "active" => true,
               "name" => "replace_packages",
-              "req" => false,
               "type" => "`$STRING`",
-              "index$" => 39,
             },
             {
-              "active" => true,
               "name" => "replace_packages_by_default",
-              "req" => false,
               "type" => "`$BOOLEAN`",
-              "index$" => 40,
             },
             {
-              "active" => true,
               "name" => "repository_type",
-              "req" => false,
               "type" => "`$INTEGER`",
-              "index$" => 41,
             },
             {
-              "active" => true,
               "name" => "repository_type_str",
-              "req" => false,
               "type" => "`$STRING`",
-              "index$" => 42,
             },
             {
-              "active" => true,
               "name" => "resync_own",
-              "req" => false,
               "type" => "`$BOOLEAN`",
-              "index$" => 43,
             },
             {
-              "active" => true,
               "name" => "resync_packages",
-              "req" => false,
               "type" => "`$STRING`",
-              "index$" => 44,
             },
             {
-              "active" => true,
               "name" => "scan_own",
-              "req" => false,
               "type" => "`$BOOLEAN`",
-              "index$" => 45,
             },
             {
-              "active" => true,
               "name" => "scan_packages",
-              "req" => false,
               "type" => "`$STRING`",
-              "index$" => 46,
             },
             {
-              "active" => true,
               "name" => "self_html_url",
-              "req" => false,
               "type" => "`$STRING`",
-              "index$" => 47,
             },
             {
-              "active" => true,
               "name" => "self_url",
-              "req" => false,
               "type" => "`$STRING`",
-              "index$" => 48,
             },
             {
-              "active" => true,
               "name" => "show_setup_all",
-              "req" => false,
               "type" => "`$BOOLEAN`",
-              "index$" => 49,
             },
             {
-              "active" => true,
               "name" => "size",
-              "req" => false,
               "type" => "`$INTEGER`",
-              "index$" => 50,
             },
             {
-              "active" => true,
               "name" => "size_str",
-              "req" => false,
               "type" => "`$STRING`",
-              "index$" => 51,
             },
             {
-              "active" => true,
               "name" => "slug",
-              "req" => false,
               "type" => "`$STRING`",
-              "index$" => 52,
             },
             {
-              "active" => true,
               "name" => "slug_perm",
-              "req" => false,
               "type" => "`$STRING`",
-              "index$" => 53,
             },
             {
-              "active" => true,
               "name" => "storage_region",
-              "req" => false,
               "type" => "`$STRING`",
-              "index$" => 54,
             },
             {
-              "active" => true,
               "name" => "strict_npm_validation",
-              "req" => false,
               "type" => "`$BOOLEAN`",
-              "index$" => 55,
             },
             {
-              "active" => true,
               "name" => "tag_pre_releases_as_latest",
-              "req" => false,
               "type" => "`$BOOLEAN`",
-              "index$" => 56,
             },
             {
-              "active" => true,
               "name" => "use_debian_labels",
-              "req" => false,
               "type" => "`$BOOLEAN`",
-              "index$" => 57,
             },
             {
-              "active" => true,
               "name" => "use_default_cargo_upstream",
-              "req" => false,
               "type" => "`$BOOLEAN`",
-              "index$" => 58,
             },
             {
-              "active" => true,
               "name" => "use_entitlements_privilege",
-              "req" => false,
               "type" => "`$STRING`",
-              "index$" => 59,
             },
             {
-              "active" => true,
               "name" => "use_noarch_packages",
-              "req" => false,
               "type" => "`$BOOLEAN`",
-              "index$" => 60,
             },
             {
-              "active" => true,
               "name" => "use_source_packages",
-              "req" => false,
               "type" => "`$BOOLEAN`",
-              "index$" => 61,
             },
             {
-              "active" => true,
               "name" => "use_vulnerability_scanning",
-              "req" => false,
               "type" => "`$BOOLEAN`",
-              "index$" => 62,
             },
             {
-              "active" => true,
               "name" => "user_entitlements_enabled",
-              "req" => false,
               "type" => "`$BOOLEAN`",
-              "index$" => 63,
             },
             {
-              "active" => true,
               "name" => "view_statistics",
-              "req" => false,
               "type" => "`$STRING`",
-              "index$" => 64,
             },
           ],
           "name" => "repo",
@@ -20695,35 +16861,28 @@ module CloudsmithConfig
               "name" => "create",
               "points" => [
                 {
-                  "active" => true,
                   "args" => {
                     "params" => [
                       {
-                        "active" => true,
                         "kind" => "param",
                         "name" => "identifier",
                         "orig" => "identifier",
                         "reqd" => true,
                         "type" => "`$ANY`",
-                        "index$" => 0,
                       },
                       {
-                        "active" => true,
                         "kind" => "param",
                         "name" => "owner",
                         "orig" => "owner",
                         "reqd" => true,
                         "type" => "`$ANY`",
-                        "index$" => 1,
                       },
                     ],
                     "query" => [
                       {
-                        "active" => true,
                         "kind" => "query",
                         "name" => "data",
                         "orig" => "data",
-                        "reqd" => false,
                         "type" => "`$OBJECT`",
                       },
                     ],
@@ -20749,38 +16908,30 @@ module CloudsmithConfig
                     "req" => "`reqdata`",
                     "res" => "`body`",
                   },
-                  "index$" => 0,
                 },
                 {
-                  "active" => true,
                   "args" => {
                     "params" => [
                       {
-                        "active" => true,
                         "kind" => "param",
                         "name" => "identifier",
                         "orig" => "identifier",
                         "reqd" => true,
                         "type" => "`$ANY`",
-                        "index$" => 0,
                       },
                       {
-                        "active" => true,
                         "kind" => "param",
                         "name" => "owner",
                         "orig" => "owner",
                         "reqd" => true,
                         "type" => "`$ANY`",
-                        "index$" => 1,
                       },
                     ],
                     "query" => [
                       {
-                        "active" => true,
                         "kind" => "query",
                         "name" => "data",
                         "orig" => "data",
-                        "reqd" => false,
                         "type" => "`$OBJECT`",
                       },
                     ],
@@ -20806,38 +16957,30 @@ module CloudsmithConfig
                     "req" => "`reqdata`",
                     "res" => "`body`",
                   },
-                  "index$" => 1,
                 },
                 {
-                  "active" => true,
                   "args" => {
                     "params" => [
                       {
-                        "active" => true,
                         "kind" => "param",
                         "name" => "owner",
                         "orig" => "owner",
                         "reqd" => true,
                         "type" => "`$ANY`",
-                        "index$" => 0,
                       },
                       {
-                        "active" => true,
                         "kind" => "param",
                         "name" => "repo",
                         "orig" => "repo",
                         "reqd" => true,
                         "type" => "`$ANY`",
-                        "index$" => 1,
                       },
                     ],
                     "query" => [
                       {
-                        "active" => true,
                         "kind" => "query",
                         "name" => "data",
                         "orig" => "data",
-                        "reqd" => false,
                         "type" => "`$OBJECT`",
                       },
                     ],
@@ -20863,29 +17006,23 @@ module CloudsmithConfig
                     "req" => "`reqdata`",
                     "res" => "`body`",
                   },
-                  "index$" => 2,
                 },
                 {
-                  "active" => true,
                   "args" => {
                     "params" => [
                       {
-                        "active" => true,
                         "kind" => "param",
                         "name" => "id",
                         "orig" => "owner",
                         "reqd" => true,
                         "type" => "`$STRING`",
-                        "index$" => 0,
                       },
                     ],
                     "query" => [
                       {
-                        "active" => true,
                         "kind" => "query",
                         "name" => "data",
                         "orig" => "data",
-                        "reqd" => false,
                         "type" => "`$OBJECT`",
                       },
                     ],
@@ -20912,36 +17049,29 @@ module CloudsmithConfig
                     "req" => "`reqdata`",
                     "res" => "`body`",
                   },
-                  "index$" => 3,
                 },
               ],
-              "key$" => "create",
             },
             "list" => {
               "input" => "data",
               "name" => "list",
               "points" => [
                 {
-                  "active" => true,
                   "args" => {
                     "params" => [
                       {
-                        "active" => true,
                         "kind" => "param",
                         "name" => "identifier",
                         "orig" => "identifier",
                         "reqd" => true,
                         "type" => "`$ANY`",
-                        "index$" => 0,
                       },
                       {
-                        "active" => true,
                         "kind" => "param",
                         "name" => "owner",
                         "orig" => "owner",
                         "reqd" => true,
                         "type" => "`$ANY`",
-                        "index$" => 1,
                       },
                     ],
                   },
@@ -20963,26 +17093,20 @@ module CloudsmithConfig
                     "req" => "`reqdata`",
                     "res" => "`body`",
                   },
-                  "index$" => 0,
                 },
                 {
-                  "active" => true,
                   "args" => {
                     "query" => [
                       {
-                        "active" => true,
                         "kind" => "query",
                         "name" => "page",
                         "orig" => "page",
-                        "reqd" => false,
                         "type" => "`$INTEGER`",
                       },
                       {
-                        "active" => true,
                         "kind" => "query",
                         "name" => "page_size",
                         "orig" => "page_size",
-                        "reqd" => false,
                         "type" => "`$INTEGER`",
                       },
                     ],
@@ -21003,44 +17127,35 @@ module CloudsmithConfig
                     "req" => "`reqdata`",
                     "res" => "`body`",
                   },
-                  "index$" => 1,
                 },
               ],
-              "key$" => "list",
             },
             "load" => {
               "input" => "data",
               "name" => "load",
               "points" => [
                 {
-                  "active" => true,
                   "args" => {
                     "params" => [
                       {
-                        "active" => true,
                         "kind" => "param",
                         "name" => "id",
                         "orig" => "owner",
                         "reqd" => true,
                         "type" => "`$STRING`",
-                        "index$" => 0,
                       },
                     ],
                     "query" => [
                       {
-                        "active" => true,
                         "kind" => "query",
                         "name" => "page",
                         "orig" => "page",
-                        "reqd" => false,
                         "type" => "`$INTEGER`",
                       },
                       {
-                        "active" => true,
                         "kind" => "query",
                         "name" => "page_size",
                         "orig" => "page_size",
-                        "reqd" => false,
                         "type" => "`$INTEGER`",
                       },
                     ],
@@ -21068,21 +17183,17 @@ module CloudsmithConfig
                     "req" => "`reqdata`",
                     "res" => "`body`",
                   },
-                  "index$" => 0,
                 },
               ],
-              "key$" => "load",
             },
             "patch" => {
               "input" => "data",
               "name" => "patch",
               "points" => [
                 {
-                  "active" => true,
                   "args" => {
                     "params" => [
                       {
-                        "active" => true,
                         "kind" => "param",
                         "name" => "identifier",
                         "orig" => "identifier",
@@ -21090,7 +17201,6 @@ module CloudsmithConfig
                         "type" => "`$ANY`",
                       },
                       {
-                        "active" => true,
                         "kind" => "param",
                         "name" => "owner",
                         "orig" => "owner",
@@ -21100,11 +17210,9 @@ module CloudsmithConfig
                     ],
                     "query" => [
                       {
-                        "active" => true,
                         "kind" => "query",
                         "name" => "data",
                         "orig" => "data",
-                        "reqd" => false,
                         "type" => "`$OBJECT`",
                       },
                     ],
@@ -21128,14 +17236,11 @@ module CloudsmithConfig
                     "req" => "`reqdata`",
                     "res" => "`body`",
                   },
-                  "index$" => 0,
                 },
                 {
-                  "active" => true,
                   "args" => {
                     "params" => [
                       {
-                        "active" => true,
                         "kind" => "param",
                         "name" => "identifier",
                         "orig" => "identifier",
@@ -21143,7 +17248,6 @@ module CloudsmithConfig
                         "type" => "`$ANY`",
                       },
                       {
-                        "active" => true,
                         "kind" => "param",
                         "name" => "owner",
                         "orig" => "owner",
@@ -21153,11 +17257,9 @@ module CloudsmithConfig
                     ],
                     "query" => [
                       {
-                        "active" => true,
                         "kind" => "query",
                         "name" => "data",
                         "orig" => "data",
-                        "reqd" => false,
                         "type" => "`$OBJECT`",
                       },
                     ],
@@ -21182,45 +17284,36 @@ module CloudsmithConfig
                     "req" => "`reqdata`",
                     "res" => "`body`",
                   },
-                  "index$" => 1,
                 },
               ],
-              "key$" => "patch",
             },
             "remove" => {
               "input" => "data",
               "name" => "remove",
               "points" => [
                 {
-                  "active" => true,
                   "args" => {
                     "params" => [
                       {
-                        "active" => true,
                         "kind" => "param",
                         "name" => "identifier",
                         "orig" => "identifier",
                         "reqd" => true,
                         "type" => "`$ANY`",
-                        "index$" => 0,
                       },
                       {
-                        "active" => true,
                         "kind" => "param",
                         "name" => "owner",
                         "orig" => "owner",
                         "reqd" => true,
                         "type" => "`$ANY`",
-                        "index$" => 1,
                       },
                       {
-                        "active" => true,
                         "kind" => "param",
                         "name" => "slug_perm",
                         "orig" => "slug_perm",
                         "reqd" => true,
                         "type" => "`$ANY`",
-                        "index$" => 2,
                       },
                     ],
                   },
@@ -21246,38 +17339,30 @@ module CloudsmithConfig
                     "req" => "`reqdata`",
                     "res" => "`body`",
                   },
-                  "index$" => 0,
                 },
                 {
-                  "active" => true,
                   "args" => {
                     "params" => [
                       {
-                        "active" => true,
                         "kind" => "param",
                         "name" => "identifier",
                         "orig" => "identifier",
                         "reqd" => true,
                         "type" => "`$ANY`",
-                        "index$" => 0,
                       },
                       {
-                        "active" => true,
                         "kind" => "param",
                         "name" => "owner",
                         "orig" => "owner",
                         "reqd" => true,
                         "type" => "`$ANY`",
-                        "index$" => 1,
                       },
                       {
-                        "active" => true,
                         "kind" => "param",
                         "name" => "slug_perm",
                         "orig" => "slug_perm",
                         "reqd" => true,
                         "type" => "`$ANY`",
-                        "index$" => 2,
                       },
                     ],
                   },
@@ -21303,38 +17388,30 @@ module CloudsmithConfig
                     "req" => "`reqdata`",
                     "res" => "`body`",
                   },
-                  "index$" => 1,
                 },
                 {
-                  "active" => true,
                   "args" => {
                     "params" => [
                       {
-                        "active" => true,
                         "kind" => "param",
                         "name" => "identifier",
                         "orig" => "identifier",
                         "reqd" => true,
                         "type" => "`$ANY`",
-                        "index$" => 0,
                       },
                       {
-                        "active" => true,
                         "kind" => "param",
                         "name" => "owner",
                         "orig" => "owner",
                         "reqd" => true,
                         "type" => "`$ANY`",
-                        "index$" => 1,
                       },
                       {
-                        "active" => true,
                         "kind" => "param",
                         "name" => "slug_perm",
                         "orig" => "slug_perm",
                         "reqd" => true,
                         "type" => "`$ANY`",
-                        "index$" => 2,
                       },
                     ],
                   },
@@ -21360,38 +17437,30 @@ module CloudsmithConfig
                     "req" => "`reqdata`",
                     "res" => "`body`",
                   },
-                  "index$" => 2,
                 },
                 {
-                  "active" => true,
                   "args" => {
                     "params" => [
                       {
-                        "active" => true,
                         "kind" => "param",
                         "name" => "identifier",
                         "orig" => "identifier",
                         "reqd" => true,
                         "type" => "`$ANY`",
-                        "index$" => 0,
                       },
                       {
-                        "active" => true,
                         "kind" => "param",
                         "name" => "owner",
                         "orig" => "owner",
                         "reqd" => true,
                         "type" => "`$ANY`",
-                        "index$" => 1,
                       },
                       {
-                        "active" => true,
                         "kind" => "param",
                         "name" => "slug_perm",
                         "orig" => "slug_perm",
                         "reqd" => true,
                         "type" => "`$ANY`",
-                        "index$" => 2,
                       },
                     ],
                   },
@@ -21417,38 +17486,30 @@ module CloudsmithConfig
                     "req" => "`reqdata`",
                     "res" => "`body`",
                   },
-                  "index$" => 3,
                 },
                 {
-                  "active" => true,
                   "args" => {
                     "params" => [
                       {
-                        "active" => true,
                         "kind" => "param",
                         "name" => "identifier",
                         "orig" => "identifier",
                         "reqd" => true,
                         "type" => "`$ANY`",
-                        "index$" => 0,
                       },
                       {
-                        "active" => true,
                         "kind" => "param",
                         "name" => "owner",
                         "orig" => "owner",
                         "reqd" => true,
                         "type" => "`$ANY`",
-                        "index$" => 1,
                       },
                       {
-                        "active" => true,
                         "kind" => "param",
                         "name" => "slug_perm",
                         "orig" => "slug_perm",
                         "reqd" => true,
                         "type" => "`$ANY`",
-                        "index$" => 2,
                       },
                     ],
                   },
@@ -21474,38 +17535,30 @@ module CloudsmithConfig
                     "req" => "`reqdata`",
                     "res" => "`body`",
                   },
-                  "index$" => 4,
                 },
                 {
-                  "active" => true,
                   "args" => {
                     "params" => [
                       {
-                        "active" => true,
                         "kind" => "param",
                         "name" => "identifier",
                         "orig" => "identifier",
                         "reqd" => true,
                         "type" => "`$ANY`",
-                        "index$" => 0,
                       },
                       {
-                        "active" => true,
                         "kind" => "param",
                         "name" => "owner",
                         "orig" => "owner",
                         "reqd" => true,
                         "type" => "`$ANY`",
-                        "index$" => 1,
                       },
                       {
-                        "active" => true,
                         "kind" => "param",
                         "name" => "slug_perm",
                         "orig" => "slug_perm",
                         "reqd" => true,
                         "type" => "`$ANY`",
-                        "index$" => 2,
                       },
                     ],
                   },
@@ -21531,38 +17584,30 @@ module CloudsmithConfig
                     "req" => "`reqdata`",
                     "res" => "`body`",
                   },
-                  "index$" => 5,
                 },
                 {
-                  "active" => true,
                   "args" => {
                     "params" => [
                       {
-                        "active" => true,
                         "kind" => "param",
                         "name" => "identifier",
                         "orig" => "identifier",
                         "reqd" => true,
                         "type" => "`$ANY`",
-                        "index$" => 0,
                       },
                       {
-                        "active" => true,
                         "kind" => "param",
                         "name" => "owner",
                         "orig" => "owner",
                         "reqd" => true,
                         "type" => "`$ANY`",
-                        "index$" => 1,
                       },
                       {
-                        "active" => true,
                         "kind" => "param",
                         "name" => "slug_perm",
                         "orig" => "slug_perm",
                         "reqd" => true,
                         "type" => "`$ANY`",
-                        "index$" => 2,
                       },
                     ],
                   },
@@ -21588,38 +17633,30 @@ module CloudsmithConfig
                     "req" => "`reqdata`",
                     "res" => "`body`",
                   },
-                  "index$" => 6,
                 },
                 {
-                  "active" => true,
                   "args" => {
                     "params" => [
                       {
-                        "active" => true,
                         "kind" => "param",
                         "name" => "identifier",
                         "orig" => "identifier",
                         "reqd" => true,
                         "type" => "`$ANY`",
-                        "index$" => 0,
                       },
                       {
-                        "active" => true,
                         "kind" => "param",
                         "name" => "owner",
                         "orig" => "owner",
                         "reqd" => true,
                         "type" => "`$ANY`",
-                        "index$" => 1,
                       },
                       {
-                        "active" => true,
                         "kind" => "param",
                         "name" => "slug_perm",
                         "orig" => "slug_perm",
                         "reqd" => true,
                         "type" => "`$ANY`",
-                        "index$" => 2,
                       },
                     ],
                   },
@@ -21645,38 +17682,30 @@ module CloudsmithConfig
                     "req" => "`reqdata`",
                     "res" => "`body`",
                   },
-                  "index$" => 7,
                 },
                 {
-                  "active" => true,
                   "args" => {
                     "params" => [
                       {
-                        "active" => true,
                         "kind" => "param",
                         "name" => "identifier",
                         "orig" => "identifier",
                         "reqd" => true,
                         "type" => "`$ANY`",
-                        "index$" => 0,
                       },
                       {
-                        "active" => true,
                         "kind" => "param",
                         "name" => "owner",
                         "orig" => "owner",
                         "reqd" => true,
                         "type" => "`$ANY`",
-                        "index$" => 1,
                       },
                       {
-                        "active" => true,
                         "kind" => "param",
                         "name" => "slug_perm",
                         "orig" => "slug_perm",
                         "reqd" => true,
                         "type" => "`$ANY`",
-                        "index$" => 2,
                       },
                     ],
                   },
@@ -21702,38 +17731,30 @@ module CloudsmithConfig
                     "req" => "`reqdata`",
                     "res" => "`body`",
                   },
-                  "index$" => 8,
                 },
                 {
-                  "active" => true,
                   "args" => {
                     "params" => [
                       {
-                        "active" => true,
                         "kind" => "param",
                         "name" => "identifier",
                         "orig" => "identifier",
                         "reqd" => true,
                         "type" => "`$ANY`",
-                        "index$" => 0,
                       },
                       {
-                        "active" => true,
                         "kind" => "param",
                         "name" => "owner",
                         "orig" => "owner",
                         "reqd" => true,
                         "type" => "`$ANY`",
-                        "index$" => 1,
                       },
                       {
-                        "active" => true,
                         "kind" => "param",
                         "name" => "slug_perm",
                         "orig" => "slug_perm",
                         "reqd" => true,
                         "type" => "`$ANY`",
-                        "index$" => 2,
                       },
                     ],
                   },
@@ -21759,38 +17780,30 @@ module CloudsmithConfig
                     "req" => "`reqdata`",
                     "res" => "`body`",
                   },
-                  "index$" => 9,
                 },
                 {
-                  "active" => true,
                   "args" => {
                     "params" => [
                       {
-                        "active" => true,
                         "kind" => "param",
                         "name" => "identifier",
                         "orig" => "identifier",
                         "reqd" => true,
                         "type" => "`$ANY`",
-                        "index$" => 0,
                       },
                       {
-                        "active" => true,
                         "kind" => "param",
                         "name" => "owner",
                         "orig" => "owner",
                         "reqd" => true,
                         "type" => "`$ANY`",
-                        "index$" => 1,
                       },
                       {
-                        "active" => true,
                         "kind" => "param",
                         "name" => "slug_perm",
                         "orig" => "slug_perm",
                         "reqd" => true,
                         "type" => "`$ANY`",
-                        "index$" => 2,
                       },
                     ],
                   },
@@ -21816,38 +17829,30 @@ module CloudsmithConfig
                     "req" => "`reqdata`",
                     "res" => "`body`",
                   },
-                  "index$" => 10,
                 },
                 {
-                  "active" => true,
                   "args" => {
                     "params" => [
                       {
-                        "active" => true,
                         "kind" => "param",
                         "name" => "identifier",
                         "orig" => "identifier",
                         "reqd" => true,
                         "type" => "`$ANY`",
-                        "index$" => 0,
                       },
                       {
-                        "active" => true,
                         "kind" => "param",
                         "name" => "owner",
                         "orig" => "owner",
                         "reqd" => true,
                         "type" => "`$ANY`",
-                        "index$" => 1,
                       },
                       {
-                        "active" => true,
                         "kind" => "param",
                         "name" => "slug_perm",
                         "orig" => "slug_perm",
                         "reqd" => true,
                         "type" => "`$ANY`",
-                        "index$" => 2,
                       },
                     ],
                   },
@@ -21873,38 +17878,30 @@ module CloudsmithConfig
                     "req" => "`reqdata`",
                     "res" => "`body`",
                   },
-                  "index$" => 11,
                 },
                 {
-                  "active" => true,
                   "args" => {
                     "params" => [
                       {
-                        "active" => true,
                         "kind" => "param",
                         "name" => "identifier",
                         "orig" => "identifier",
                         "reqd" => true,
                         "type" => "`$ANY`",
-                        "index$" => 0,
                       },
                       {
-                        "active" => true,
                         "kind" => "param",
                         "name" => "owner",
                         "orig" => "owner",
                         "reqd" => true,
                         "type" => "`$ANY`",
-                        "index$" => 1,
                       },
                       {
-                        "active" => true,
                         "kind" => "param",
                         "name" => "slug_perm",
                         "orig" => "slug_perm",
                         "reqd" => true,
                         "type" => "`$ANY`",
-                        "index$" => 2,
                       },
                     ],
                   },
@@ -21930,38 +17927,30 @@ module CloudsmithConfig
                     "req" => "`reqdata`",
                     "res" => "`body`",
                   },
-                  "index$" => 12,
                 },
                 {
-                  "active" => true,
                   "args" => {
                     "params" => [
                       {
-                        "active" => true,
                         "kind" => "param",
                         "name" => "identifier",
                         "orig" => "identifier",
                         "reqd" => true,
                         "type" => "`$ANY`",
-                        "index$" => 0,
                       },
                       {
-                        "active" => true,
                         "kind" => "param",
                         "name" => "owner",
                         "orig" => "owner",
                         "reqd" => true,
                         "type" => "`$ANY`",
-                        "index$" => 1,
                       },
                       {
-                        "active" => true,
                         "kind" => "param",
                         "name" => "slug_perm",
                         "orig" => "slug_perm",
                         "reqd" => true,
                         "type" => "`$ANY`",
-                        "index$" => 2,
                       },
                     ],
                   },
@@ -21987,38 +17976,30 @@ module CloudsmithConfig
                     "req" => "`reqdata`",
                     "res" => "`body`",
                   },
-                  "index$" => 13,
                 },
                 {
-                  "active" => true,
                   "args" => {
                     "params" => [
                       {
-                        "active" => true,
                         "kind" => "param",
                         "name" => "identifier",
                         "orig" => "identifier",
                         "reqd" => true,
                         "type" => "`$ANY`",
-                        "index$" => 0,
                       },
                       {
-                        "active" => true,
                         "kind" => "param",
                         "name" => "owner",
                         "orig" => "owner",
                         "reqd" => true,
                         "type" => "`$ANY`",
-                        "index$" => 1,
                       },
                       {
-                        "active" => true,
                         "kind" => "param",
                         "name" => "slug_perm",
                         "orig" => "slug_perm",
                         "reqd" => true,
                         "type" => "`$ANY`",
-                        "index$" => 2,
                       },
                     ],
                   },
@@ -22044,38 +18025,30 @@ module CloudsmithConfig
                     "req" => "`reqdata`",
                     "res" => "`body`",
                   },
-                  "index$" => 14,
                 },
                 {
-                  "active" => true,
                   "args" => {
                     "params" => [
                       {
-                        "active" => true,
                         "kind" => "param",
                         "name" => "identifier",
                         "orig" => "identifier",
                         "reqd" => true,
                         "type" => "`$ANY`",
-                        "index$" => 0,
                       },
                       {
-                        "active" => true,
                         "kind" => "param",
                         "name" => "owner",
                         "orig" => "owner",
                         "reqd" => true,
                         "type" => "`$ANY`",
-                        "index$" => 1,
                       },
                       {
-                        "active" => true,
                         "kind" => "param",
                         "name" => "slug_perm",
                         "orig" => "slug_perm",
                         "reqd" => true,
                         "type" => "`$ANY`",
-                        "index$" => 2,
                       },
                     ],
                   },
@@ -22101,38 +18074,30 @@ module CloudsmithConfig
                     "req" => "`reqdata`",
                     "res" => "`body`",
                   },
-                  "index$" => 15,
                 },
                 {
-                  "active" => true,
                   "args" => {
                     "params" => [
                       {
-                        "active" => true,
                         "kind" => "param",
                         "name" => "identifier",
                         "orig" => "identifier",
                         "reqd" => true,
                         "type" => "`$ANY`",
-                        "index$" => 0,
                       },
                       {
-                        "active" => true,
                         "kind" => "param",
                         "name" => "owner",
                         "orig" => "owner",
                         "reqd" => true,
                         "type" => "`$ANY`",
-                        "index$" => 1,
                       },
                       {
-                        "active" => true,
                         "kind" => "param",
                         "name" => "slug_perm",
                         "orig" => "slug_perm",
                         "reqd" => true,
                         "type" => "`$ANY`",
-                        "index$" => 2,
                       },
                     ],
                   },
@@ -22158,38 +18123,30 @@ module CloudsmithConfig
                     "req" => "`reqdata`",
                     "res" => "`body`",
                   },
-                  "index$" => 16,
                 },
                 {
-                  "active" => true,
                   "args" => {
                     "params" => [
                       {
-                        "active" => true,
                         "kind" => "param",
                         "name" => "identifier",
                         "orig" => "identifier",
                         "reqd" => true,
                         "type" => "`$ANY`",
-                        "index$" => 0,
                       },
                       {
-                        "active" => true,
                         "kind" => "param",
                         "name" => "owner",
                         "orig" => "owner",
                         "reqd" => true,
                         "type" => "`$ANY`",
-                        "index$" => 1,
                       },
                       {
-                        "active" => true,
                         "kind" => "param",
                         "name" => "slug_perm",
                         "orig" => "slug_perm",
                         "reqd" => true,
                         "type" => "`$ANY`",
-                        "index$" => 2,
                       },
                     ],
                   },
@@ -22215,29 +18172,23 @@ module CloudsmithConfig
                     "req" => "`reqdata`",
                     "res" => "`body`",
                   },
-                  "index$" => 17,
                 },
                 {
-                  "active" => true,
                   "args" => {
                     "params" => [
                       {
-                        "active" => true,
                         "kind" => "param",
                         "name" => "identifier",
                         "orig" => "identifier",
                         "reqd" => true,
                         "type" => "`$ANY`",
-                        "index$" => 0,
                       },
                       {
-                        "active" => true,
                         "kind" => "param",
                         "name" => "owner",
                         "orig" => "owner",
                         "reqd" => true,
                         "type" => "`$ANY`",
-                        "index$" => 1,
                       },
                     ],
                   },
@@ -22259,45 +18210,36 @@ module CloudsmithConfig
                     "req" => "`reqdata`",
                     "res" => "`body`",
                   },
-                  "index$" => 18,
                 },
               ],
-              "key$" => "remove",
             },
             "update" => {
               "input" => "data",
               "name" => "update",
               "points" => [
                 {
-                  "active" => true,
                   "args" => {
                     "params" => [
                       {
-                        "active" => true,
                         "kind" => "param",
                         "name" => "identifier",
                         "orig" => "identifier",
                         "reqd" => true,
                         "type" => "`$ANY`",
-                        "index$" => 0,
                       },
                       {
-                        "active" => true,
                         "kind" => "param",
                         "name" => "owner",
                         "orig" => "owner",
                         "reqd" => true,
                         "type" => "`$ANY`",
-                        "index$" => 1,
                       },
                     ],
                     "query" => [
                       {
-                        "active" => true,
                         "kind" => "query",
                         "name" => "data",
                         "orig" => "data",
-                        "reqd" => false,
                         "type" => "`$OBJECT`",
                       },
                     ],
@@ -22322,10 +18264,8 @@ module CloudsmithConfig
                     "req" => "`reqdata`",
                     "res" => "`body`",
                   },
-                  "index$" => 0,
                 },
               ],
-              "key$" => "update",
             },
           },
           "relations" => {
@@ -22411,95 +18351,66 @@ module CloudsmithConfig
         "repository_audit_log" => {
           "fields" => [
             {
-              "active" => true,
               "name" => "actor",
               "req" => true,
               "type" => "`$STRING`",
-              "index$" => 0,
             },
             {
-              "active" => true,
               "name" => "actor_ip_address",
               "req" => true,
               "type" => "`$STRING`",
-              "index$" => 1,
             },
             {
-              "active" => true,
               "name" => "actor_kind",
-              "req" => false,
               "type" => "`$STRING`",
-              "index$" => 2,
             },
             {
-              "active" => true,
               "name" => "actor_location",
               "req" => true,
               "type" => "`$OBJECT`",
-              "index$" => 3,
             },
             {
-              "active" => true,
               "name" => "actor_slug_perm",
               "req" => true,
               "type" => "`$STRING`",
-              "index$" => 4,
             },
             {
-              "active" => true,
               "name" => "actor_url",
-              "req" => false,
               "type" => "`$STRING`",
-              "index$" => 5,
             },
             {
-              "active" => true,
               "name" => "context",
               "req" => true,
               "type" => "`$STRING`",
-              "index$" => 6,
             },
             {
-              "active" => true,
               "name" => "event",
               "req" => true,
               "type" => "`$STRING`",
-              "index$" => 7,
             },
             {
-              "active" => true,
               "name" => "event_at",
               "req" => true,
               "type" => "`$STRING`",
-              "index$" => 8,
             },
             {
-              "active" => true,
               "name" => "object",
               "req" => true,
               "type" => "`$STRING`",
-              "index$" => 9,
             },
             {
-              "active" => true,
               "name" => "object_kind",
               "req" => true,
               "type" => "`$STRING`",
-              "index$" => 10,
             },
             {
-              "active" => true,
               "name" => "object_slug_perm",
               "req" => true,
               "type" => "`$STRING`",
-              "index$" => 11,
             },
             {
-              "active" => true,
               "name" => "uuid",
-              "req" => false,
               "type" => "`$STRING`",
-              "index$" => 12,
             },
           ],
           "name" => "repository_audit_log",
@@ -22509,51 +18420,40 @@ module CloudsmithConfig
               "name" => "list",
               "points" => [
                 {
-                  "active" => true,
                   "args" => {
                     "params" => [
                       {
-                        "active" => true,
                         "kind" => "param",
                         "name" => "owner",
                         "orig" => "owner",
                         "reqd" => true,
                         "type" => "`$ANY`",
-                        "index$" => 0,
                       },
                       {
-                        "active" => true,
                         "kind" => "param",
                         "name" => "repo",
                         "orig" => "repo",
                         "reqd" => true,
                         "type" => "`$ANY`",
-                        "index$" => 1,
                       },
                     ],
                     "query" => [
                       {
-                        "active" => true,
                         "kind" => "query",
                         "name" => "page",
                         "orig" => "page",
-                        "reqd" => false,
                         "type" => "`$INTEGER`",
                       },
                       {
-                        "active" => true,
                         "kind" => "query",
                         "name" => "page_size",
                         "orig" => "page_size",
-                        "reqd" => false,
                         "type" => "`$INTEGER`",
                       },
                       {
-                        "active" => true,
                         "kind" => "query",
                         "name" => "query",
                         "orig" => "query",
-                        "reqd" => false,
                         "type" => "`$ANY`",
                       },
                     ],
@@ -22579,10 +18479,8 @@ module CloudsmithConfig
                     "req" => "`reqdata`",
                     "res" => "`body`",
                   },
-                  "index$" => 0,
                 },
               ],
-              "key$" => "list",
             },
           },
           "relations" => {
@@ -22596,53 +18494,32 @@ module CloudsmithConfig
         "repository_ecdsa_key" => {
           "fields" => [
             {
-              "active" => true,
               "name" => "active",
-              "req" => false,
               "type" => "`$BOOLEAN`",
-              "index$" => 0,
             },
             {
-              "active" => true,
               "name" => "created_at",
-              "req" => false,
               "type" => "`$STRING`",
-              "index$" => 1,
             },
             {
-              "active" => true,
               "name" => "default",
-              "req" => false,
               "type" => "`$BOOLEAN`",
-              "index$" => 2,
             },
             {
-              "active" => true,
               "name" => "fingerprint",
-              "req" => false,
               "type" => "`$STRING`",
-              "index$" => 3,
             },
             {
-              "active" => true,
               "name" => "fingerprint_short",
-              "req" => false,
               "type" => "`$STRING`",
-              "index$" => 4,
             },
             {
-              "active" => true,
               "name" => "public_key",
-              "req" => false,
               "type" => "`$STRING`",
-              "index$" => 5,
             },
             {
-              "active" => true,
               "name" => "ssh_fingerprint",
-              "req" => false,
               "type" => "`$STRING`",
-              "index$" => 6,
             },
           ],
           "name" => "repository_ecdsa_key",
@@ -22652,35 +18529,28 @@ module CloudsmithConfig
               "name" => "create",
               "points" => [
                 {
-                  "active" => true,
                   "args" => {
                     "params" => [
                       {
-                        "active" => true,
                         "kind" => "param",
                         "name" => "identifier",
                         "orig" => "identifier",
                         "reqd" => true,
                         "type" => "`$ANY`",
-                        "index$" => 0,
                       },
                       {
-                        "active" => true,
                         "kind" => "param",
                         "name" => "owner",
                         "orig" => "owner",
                         "reqd" => true,
                         "type" => "`$ANY`",
-                        "index$" => 1,
                       },
                     ],
                     "query" => [
                       {
-                        "active" => true,
                         "kind" => "query",
                         "name" => "data",
                         "orig" => "data",
-                        "reqd" => false,
                         "type" => "`$OBJECT`",
                       },
                     ],
@@ -22705,29 +18575,23 @@ module CloudsmithConfig
                     "req" => "`reqdata`",
                     "res" => "`body`",
                   },
-                  "index$" => 0,
                 },
                 {
-                  "active" => true,
                   "args" => {
                     "params" => [
                       {
-                        "active" => true,
                         "kind" => "param",
                         "name" => "identifier",
                         "orig" => "identifier",
                         "reqd" => true,
                         "type" => "`$ANY`",
-                        "index$" => 0,
                       },
                       {
-                        "active" => true,
                         "kind" => "param",
                         "name" => "owner",
                         "orig" => "owner",
                         "reqd" => true,
                         "type" => "`$ANY`",
-                        "index$" => 1,
                       },
                     ],
                   },
@@ -22751,36 +18615,29 @@ module CloudsmithConfig
                     "req" => "`reqdata`",
                     "res" => "`body`",
                   },
-                  "index$" => 1,
                 },
               ],
-              "key$" => "create",
             },
             "load" => {
               "input" => "data",
               "name" => "load",
               "points" => [
                 {
-                  "active" => true,
                   "args" => {
                     "params" => [
                       {
-                        "active" => true,
                         "kind" => "param",
                         "name" => "identifier",
                         "orig" => "identifier",
                         "reqd" => true,
                         "type" => "`$ANY`",
-                        "index$" => 0,
                       },
                       {
-                        "active" => true,
                         "kind" => "param",
                         "name" => "owner",
                         "orig" => "owner",
                         "reqd" => true,
                         "type" => "`$ANY`",
-                        "index$" => 1,
                       },
                     ],
                   },
@@ -22803,10 +18660,8 @@ module CloudsmithConfig
                     "req" => "`reqdata`",
                     "res" => "`body`",
                   },
-                  "index$" => 0,
                 },
               ],
-              "key$" => "load",
             },
           },
           "relations" => {
@@ -22820,18 +18675,14 @@ module CloudsmithConfig
         "repository_geo_ip_rule" => {
           "fields" => [
             {
-              "active" => true,
               "name" => "cidr",
               "req" => true,
               "type" => "`$OBJECT`",
-              "index$" => 0,
             },
             {
-              "active" => true,
               "name" => "country_code",
               "req" => true,
               "type" => "`$OBJECT`",
-              "index$" => 1,
             },
           ],
           "name" => "repository_geo_ip_rule",
@@ -22841,26 +18692,21 @@ module CloudsmithConfig
               "name" => "load",
               "points" => [
                 {
-                  "active" => true,
                   "args" => {
                     "params" => [
                       {
-                        "active" => true,
                         "kind" => "param",
                         "name" => "identifier",
                         "orig" => "identifier",
                         "reqd" => true,
                         "type" => "`$ANY`",
-                        "index$" => 0,
                       },
                       {
-                        "active" => true,
                         "kind" => "param",
                         "name" => "owner",
                         "orig" => "owner",
                         "reqd" => true,
                         "type" => "`$ANY`",
-                        "index$" => 1,
                       },
                     ],
                   },
@@ -22883,21 +18729,17 @@ module CloudsmithConfig
                     "req" => "`reqdata`",
                     "res" => "`body`",
                   },
-                  "index$" => 0,
                 },
               ],
-              "key$" => "load",
             },
             "patch" => {
               "input" => "data",
               "name" => "patch",
               "points" => [
                 {
-                  "active" => true,
                   "args" => {
                     "params" => [
                       {
-                        "active" => true,
                         "kind" => "param",
                         "name" => "identifier",
                         "orig" => "identifier",
@@ -22905,7 +18747,6 @@ module CloudsmithConfig
                         "type" => "`$ANY`",
                       },
                       {
-                        "active" => true,
                         "kind" => "param",
                         "name" => "owner",
                         "orig" => "owner",
@@ -22915,11 +18756,9 @@ module CloudsmithConfig
                     ],
                     "query" => [
                       {
-                        "active" => true,
                         "kind" => "query",
                         "name" => "data",
                         "orig" => "data",
-                        "reqd" => false,
                         "type" => "`$OBJECT`",
                       },
                     ],
@@ -22944,45 +18783,36 @@ module CloudsmithConfig
                     "req" => "`reqdata`",
                     "res" => "`body`",
                   },
-                  "index$" => 0,
                 },
               ],
-              "key$" => "patch",
             },
             "update" => {
               "input" => "data",
               "name" => "update",
               "points" => [
                 {
-                  "active" => true,
                   "args" => {
                     "params" => [
                       {
-                        "active" => true,
                         "kind" => "param",
                         "name" => "identifier",
                         "orig" => "identifier",
                         "reqd" => true,
                         "type" => "`$ANY`",
-                        "index$" => 0,
                       },
                       {
-                        "active" => true,
                         "kind" => "param",
                         "name" => "owner",
                         "orig" => "owner",
                         "reqd" => true,
                         "type" => "`$ANY`",
-                        "index$" => 1,
                       },
                     ],
                     "query" => [
                       {
-                        "active" => true,
                         "kind" => "query",
                         "name" => "data",
                         "orig" => "data",
-                        "reqd" => false,
                         "type" => "`$OBJECT`",
                       },
                     ],
@@ -23007,10 +18837,8 @@ module CloudsmithConfig
                     "req" => "`reqdata`",
                     "res" => "`body`",
                   },
-                  "index$" => 0,
                 },
               ],
-              "key$" => "update",
             },
           },
           "relations" => {
@@ -23024,11 +18852,8 @@ module CloudsmithConfig
         "repository_geo_ip_status" => {
           "fields" => [
             {
-              "active" => true,
               "name" => "geoip_enabled",
-              "req" => false,
               "type" => "`$BOOLEAN`",
-              "index$" => 0,
             },
           ],
           "name" => "repository_geo_ip_status",
@@ -23038,26 +18863,21 @@ module CloudsmithConfig
               "name" => "load",
               "points" => [
                 {
-                  "active" => true,
                   "args" => {
                     "params" => [
                       {
-                        "active" => true,
                         "kind" => "param",
                         "name" => "identifier",
                         "orig" => "identifier",
                         "reqd" => true,
                         "type" => "`$ANY`",
-                        "index$" => 0,
                       },
                       {
-                        "active" => true,
                         "kind" => "param",
                         "name" => "owner",
                         "orig" => "owner",
                         "reqd" => true,
                         "type" => "`$ANY`",
-                        "index$" => 1,
                       },
                     ],
                   },
@@ -23081,10 +18901,8 @@ module CloudsmithConfig
                     "req" => "`reqdata`",
                     "res" => "`body`",
                   },
-                  "index$" => 0,
                 },
               ],
-              "key$" => "load",
             },
           },
           "relations" => {
@@ -23104,35 +18922,28 @@ module CloudsmithConfig
               "name" => "create",
               "points" => [
                 {
-                  "active" => true,
                   "args" => {
                     "params" => [
                       {
-                        "active" => true,
                         "kind" => "param",
                         "name" => "identifier",
                         "orig" => "identifier",
                         "reqd" => true,
                         "type" => "`$ANY`",
-                        "index$" => 0,
                       },
                       {
-                        "active" => true,
                         "kind" => "param",
                         "name" => "owner",
                         "orig" => "owner",
                         "reqd" => true,
                         "type" => "`$ANY`",
-                        "index$" => 1,
                       },
                     ],
                     "query" => [
                       {
-                        "active" => true,
                         "kind" => "query",
                         "name" => "data",
                         "orig" => "data",
-                        "reqd" => false,
                         "type" => "`$OBJECT`",
                       },
                     ],
@@ -23158,10 +18969,8 @@ module CloudsmithConfig
                     "req" => "`reqdata`",
                     "res" => "`body`",
                   },
-                  "index$" => 0,
                 },
               ],
-              "key$" => "create",
             },
           },
           "relations" => {
@@ -23175,53 +18984,33 @@ module CloudsmithConfig
         "repository_gpg_key" => {
           "fields" => [
             {
-              "active" => true,
               "name" => "active",
-              "req" => false,
               "type" => "`$BOOLEAN`",
-              "index$" => 0,
             },
             {
-              "active" => true,
               "name" => "comment",
               "req" => true,
               "type" => "`$STRING`",
-              "index$" => 1,
             },
             {
-              "active" => true,
               "name" => "created_at",
-              "req" => false,
               "type" => "`$STRING`",
-              "index$" => 2,
             },
             {
-              "active" => true,
               "name" => "default",
-              "req" => false,
               "type" => "`$BOOLEAN`",
-              "index$" => 3,
             },
             {
-              "active" => true,
               "name" => "fingerprint",
-              "req" => false,
               "type" => "`$STRING`",
-              "index$" => 4,
             },
             {
-              "active" => true,
               "name" => "fingerprint_short",
-              "req" => false,
               "type" => "`$STRING`",
-              "index$" => 5,
             },
             {
-              "active" => true,
               "name" => "public_key",
-              "req" => false,
               "type" => "`$STRING`",
-              "index$" => 6,
             },
           ],
           "name" => "repository_gpg_key",
@@ -23231,35 +19020,28 @@ module CloudsmithConfig
               "name" => "create",
               "points" => [
                 {
-                  "active" => true,
                   "args" => {
                     "params" => [
                       {
-                        "active" => true,
                         "kind" => "param",
                         "name" => "identifier",
                         "orig" => "identifier",
                         "reqd" => true,
                         "type" => "`$ANY`",
-                        "index$" => 0,
                       },
                       {
-                        "active" => true,
                         "kind" => "param",
                         "name" => "owner",
                         "orig" => "owner",
                         "reqd" => true,
                         "type" => "`$ANY`",
-                        "index$" => 1,
                       },
                     ],
                     "query" => [
                       {
-                        "active" => true,
                         "kind" => "query",
                         "name" => "data",
                         "orig" => "data",
-                        "reqd" => false,
                         "type" => "`$OBJECT`",
                       },
                     ],
@@ -23284,29 +19066,23 @@ module CloudsmithConfig
                     "req" => "`reqdata`",
                     "res" => "`body`",
                   },
-                  "index$" => 0,
                 },
                 {
-                  "active" => true,
                   "args" => {
                     "params" => [
                       {
-                        "active" => true,
                         "kind" => "param",
                         "name" => "identifier",
                         "orig" => "identifier",
                         "reqd" => true,
                         "type" => "`$ANY`",
-                        "index$" => 0,
                       },
                       {
-                        "active" => true,
                         "kind" => "param",
                         "name" => "owner",
                         "orig" => "owner",
                         "reqd" => true,
                         "type" => "`$ANY`",
-                        "index$" => 1,
                       },
                     ],
                   },
@@ -23330,36 +19106,29 @@ module CloudsmithConfig
                     "req" => "`reqdata`",
                     "res" => "`body`",
                   },
-                  "index$" => 1,
                 },
               ],
-              "key$" => "create",
             },
             "load" => {
               "input" => "data",
               "name" => "load",
               "points" => [
                 {
-                  "active" => true,
                   "args" => {
                     "params" => [
                       {
-                        "active" => true,
                         "kind" => "param",
                         "name" => "identifier",
                         "orig" => "identifier",
                         "reqd" => true,
                         "type" => "`$ANY`",
-                        "index$" => 0,
                       },
                       {
-                        "active" => true,
                         "kind" => "param",
                         "name" => "owner",
                         "orig" => "owner",
                         "reqd" => true,
                         "type" => "`$ANY`",
-                        "index$" => 1,
                       },
                     ],
                   },
@@ -23382,10 +19151,8 @@ module CloudsmithConfig
                     "req" => "`reqdata`",
                     "res" => "`body`",
                   },
-                  "index$" => 0,
                 },
               ],
-              "key$" => "load",
             },
           },
           "relations" => {
@@ -23399,32 +19166,21 @@ module CloudsmithConfig
         "repository_privilege_input" => {
           "fields" => [
             {
-              "active" => true,
               "name" => "privilege",
               "req" => true,
               "type" => "`$STRING`",
-              "index$" => 0,
             },
             {
-              "active" => true,
               "name" => "service",
-              "req" => false,
               "type" => "`$STRING`",
-              "index$" => 1,
             },
             {
-              "active" => true,
               "name" => "team",
-              "req" => false,
               "type" => "`$STRING`",
-              "index$" => 2,
             },
             {
-              "active" => true,
               "name" => "user",
-              "req" => false,
               "type" => "`$STRING`",
-              "index$" => 3,
             },
           ],
           "name" => "repository_privilege_input",
@@ -23434,43 +19190,34 @@ module CloudsmithConfig
               "name" => "list",
               "points" => [
                 {
-                  "active" => true,
                   "args" => {
                     "params" => [
                       {
-                        "active" => true,
                         "kind" => "param",
                         "name" => "identifier",
                         "orig" => "identifier",
                         "reqd" => true,
                         "type" => "`$ANY`",
-                        "index$" => 0,
                       },
                       {
-                        "active" => true,
                         "kind" => "param",
                         "name" => "owner",
                         "orig" => "owner",
                         "reqd" => true,
                         "type" => "`$ANY`",
-                        "index$" => 1,
                       },
                     ],
                     "query" => [
                       {
-                        "active" => true,
                         "kind" => "query",
                         "name" => "page",
                         "orig" => "page",
-                        "reqd" => false,
                         "type" => "`$INTEGER`",
                       },
                       {
-                        "active" => true,
                         "kind" => "query",
                         "name" => "page_size",
                         "orig" => "page_size",
-                        "reqd" => false,
                         "type" => "`$INTEGER`",
                       },
                     ],
@@ -23496,10 +19243,8 @@ module CloudsmithConfig
                     "req" => "`reqdata`",
                     "res" => "`body.privileges`",
                   },
-                  "index$" => 0,
                 },
               ],
-              "key$" => "list",
             },
           },
           "relations" => {
@@ -23513,60 +19258,36 @@ module CloudsmithConfig
         "repository_retention_rule" => {
           "fields" => [
             {
-              "active" => true,
               "name" => "retention_count_limit",
-              "req" => false,
               "type" => "`$INTEGER`",
-              "index$" => 0,
             },
             {
-              "active" => true,
               "name" => "retention_days_limit",
-              "req" => false,
               "type" => "`$INTEGER`",
-              "index$" => 1,
             },
             {
-              "active" => true,
               "name" => "retention_enabled",
-              "req" => false,
               "type" => "`$BOOLEAN`",
-              "index$" => 2,
             },
             {
-              "active" => true,
               "name" => "retention_group_by_format",
-              "req" => false,
               "type" => "`$BOOLEAN`",
-              "index$" => 3,
             },
             {
-              "active" => true,
               "name" => "retention_group_by_name",
-              "req" => false,
               "type" => "`$BOOLEAN`",
-              "index$" => 4,
             },
             {
-              "active" => true,
               "name" => "retention_group_by_package_type",
-              "req" => false,
               "type" => "`$BOOLEAN`",
-              "index$" => 5,
             },
             {
-              "active" => true,
               "name" => "retention_package_query_string",
-              "req" => false,
               "type" => "`$STRING`",
-              "index$" => 6,
             },
             {
-              "active" => true,
               "name" => "retention_size_limit",
-              "req" => false,
               "type" => "`$INTEGER`",
-              "index$" => 7,
             },
           ],
           "name" => "repository_retention_rule",
@@ -23576,26 +19297,21 @@ module CloudsmithConfig
               "name" => "load",
               "points" => [
                 {
-                  "active" => true,
                   "args" => {
                     "params" => [
                       {
-                        "active" => true,
                         "kind" => "param",
                         "name" => "owner",
                         "orig" => "owner",
                         "reqd" => true,
                         "type" => "`$ANY`",
-                        "index$" => 0,
                       },
                       {
-                        "active" => true,
                         "kind" => "param",
                         "name" => "repo",
                         "orig" => "repo",
                         "reqd" => true,
                         "type" => "`$ANY`",
-                        "index$" => 1,
                       },
                     ],
                   },
@@ -23618,45 +19334,36 @@ module CloudsmithConfig
                     "req" => "`reqdata`",
                     "res" => "`body`",
                   },
-                  "index$" => 0,
                 },
               ],
-              "key$" => "load",
             },
             "update" => {
               "input" => "data",
               "name" => "update",
               "points" => [
                 {
-                  "active" => true,
                   "args" => {
                     "params" => [
                       {
-                        "active" => true,
                         "kind" => "param",
                         "name" => "owner",
                         "orig" => "owner",
                         "reqd" => true,
                         "type" => "`$ANY`",
-                        "index$" => 0,
                       },
                       {
-                        "active" => true,
                         "kind" => "param",
                         "name" => "repo",
                         "orig" => "repo",
                         "reqd" => true,
                         "type" => "`$ANY`",
-                        "index$" => 1,
                       },
                     ],
                     "query" => [
                       {
-                        "active" => true,
                         "kind" => "query",
                         "name" => "data",
                         "orig" => "data",
-                        "reqd" => false,
                         "type" => "`$OBJECT`",
                       },
                     ],
@@ -23681,10 +19388,8 @@ module CloudsmithConfig
                     "req" => "`reqdata`",
                     "res" => "`body`",
                   },
-                  "index$" => 0,
                 },
               ],
-              "key$" => "update",
             },
           },
           "relations" => {
@@ -23698,53 +19403,32 @@ module CloudsmithConfig
         "repository_rsa_key" => {
           "fields" => [
             {
-              "active" => true,
               "name" => "active",
-              "req" => false,
               "type" => "`$BOOLEAN`",
-              "index$" => 0,
             },
             {
-              "active" => true,
               "name" => "created_at",
-              "req" => false,
               "type" => "`$STRING`",
-              "index$" => 1,
             },
             {
-              "active" => true,
               "name" => "default",
-              "req" => false,
               "type" => "`$BOOLEAN`",
-              "index$" => 2,
             },
             {
-              "active" => true,
               "name" => "fingerprint",
-              "req" => false,
               "type" => "`$STRING`",
-              "index$" => 3,
             },
             {
-              "active" => true,
               "name" => "fingerprint_short",
-              "req" => false,
               "type" => "`$STRING`",
-              "index$" => 4,
             },
             {
-              "active" => true,
               "name" => "public_key",
-              "req" => false,
               "type" => "`$STRING`",
-              "index$" => 5,
             },
             {
-              "active" => true,
               "name" => "ssh_fingerprint",
-              "req" => false,
               "type" => "`$STRING`",
-              "index$" => 6,
             },
           ],
           "name" => "repository_rsa_key",
@@ -23754,35 +19438,28 @@ module CloudsmithConfig
               "name" => "create",
               "points" => [
                 {
-                  "active" => true,
                   "args" => {
                     "params" => [
                       {
-                        "active" => true,
                         "kind" => "param",
                         "name" => "identifier",
                         "orig" => "identifier",
                         "reqd" => true,
                         "type" => "`$ANY`",
-                        "index$" => 0,
                       },
                       {
-                        "active" => true,
                         "kind" => "param",
                         "name" => "owner",
                         "orig" => "owner",
                         "reqd" => true,
                         "type" => "`$ANY`",
-                        "index$" => 1,
                       },
                     ],
                     "query" => [
                       {
-                        "active" => true,
                         "kind" => "query",
                         "name" => "data",
                         "orig" => "data",
-                        "reqd" => false,
                         "type" => "`$OBJECT`",
                       },
                     ],
@@ -23807,29 +19484,23 @@ module CloudsmithConfig
                     "req" => "`reqdata`",
                     "res" => "`body`",
                   },
-                  "index$" => 0,
                 },
                 {
-                  "active" => true,
                   "args" => {
                     "params" => [
                       {
-                        "active" => true,
                         "kind" => "param",
                         "name" => "identifier",
                         "orig" => "identifier",
                         "reqd" => true,
                         "type" => "`$ANY`",
-                        "index$" => 0,
                       },
                       {
-                        "active" => true,
                         "kind" => "param",
                         "name" => "owner",
                         "orig" => "owner",
                         "reqd" => true,
                         "type" => "`$ANY`",
-                        "index$" => 1,
                       },
                     ],
                   },
@@ -23853,36 +19524,29 @@ module CloudsmithConfig
                     "req" => "`reqdata`",
                     "res" => "`body`",
                   },
-                  "index$" => 1,
                 },
               ],
-              "key$" => "create",
             },
             "load" => {
               "input" => "data",
               "name" => "load",
               "points" => [
                 {
-                  "active" => true,
                   "args" => {
                     "params" => [
                       {
-                        "active" => true,
                         "kind" => "param",
                         "name" => "identifier",
                         "orig" => "identifier",
                         "reqd" => true,
                         "type" => "`$ANY`",
-                        "index$" => 0,
                       },
                       {
-                        "active" => true,
                         "kind" => "param",
                         "name" => "owner",
                         "orig" => "owner",
                         "reqd" => true,
                         "type" => "`$ANY`",
-                        "index$" => 1,
                       },
                     ],
                   },
@@ -23905,10 +19569,8 @@ module CloudsmithConfig
                     "req" => "`reqdata`",
                     "res" => "`body`",
                   },
-                  "index$" => 0,
                 },
               ],
-              "key$" => "load",
             },
           },
           "relations" => {
@@ -23922,277 +19584,161 @@ module CloudsmithConfig
         "repository_token" => {
           "fields" => [
             {
-              "active" => true,
               "name" => "clients",
-              "req" => false,
               "type" => "`$INTEGER`",
-              "index$" => 0,
             },
             {
-              "active" => true,
               "name" => "created_at",
-              "req" => false,
               "type" => "`$STRING`",
-              "index$" => 1,
             },
             {
-              "active" => true,
               "name" => "created_by",
-              "req" => false,
               "type" => "`$STRING`",
-              "index$" => 2,
             },
             {
-              "active" => true,
               "name" => "created_by_url",
-              "req" => false,
               "type" => "`$STRING`",
-              "index$" => 3,
             },
             {
-              "active" => true,
               "name" => "default",
-              "req" => false,
               "type" => "`$BOOLEAN`",
-              "index$" => 4,
             },
             {
-              "active" => true,
               "name" => "disable_url",
-              "req" => false,
               "type" => "`$STRING`",
-              "index$" => 5,
             },
             {
-              "active" => true,
               "name" => "downloads",
-              "req" => false,
               "type" => "`$INTEGER`",
-              "index$" => 6,
             },
             {
-              "active" => true,
               "name" => "enable_url",
-              "req" => false,
               "type" => "`$STRING`",
-              "index$" => 7,
             },
             {
-              "active" => true,
               "name" => "eula_accepted",
-              "req" => false,
               "type" => "`$OBJECT`",
-              "index$" => 8,
             },
             {
-              "active" => true,
               "name" => "eula_accepted_at",
-              "req" => false,
               "type" => "`$STRING`",
-              "index$" => 9,
             },
             {
-              "active" => true,
               "name" => "eula_accepted_from",
-              "req" => false,
               "type" => "`$STRING`",
-              "index$" => 10,
             },
             {
-              "active" => true,
               "name" => "eula_required",
-              "req" => false,
               "type" => "`$BOOLEAN`",
-              "index$" => 11,
             },
             {
-              "active" => true,
               "name" => "has_limits",
-              "req" => false,
               "type" => "`$BOOLEAN`",
-              "index$" => 12,
             },
             {
-              "active" => true,
               "name" => "identifier",
-              "req" => false,
               "type" => "`$INTEGER`",
-              "index$" => 13,
             },
             {
-              "active" => true,
               "name" => "is_active",
-              "req" => false,
               "type" => "`$BOOLEAN`",
-              "index$" => 14,
             },
             {
-              "active" => true,
               "name" => "is_limited",
-              "req" => false,
               "type" => "`$BOOLEAN`",
-              "index$" => 15,
             },
             {
-              "active" => true,
               "name" => "limit_bandwidth",
-              "req" => false,
               "type" => "`$INTEGER`",
-              "index$" => 16,
             },
             {
-              "active" => true,
               "name" => "limit_bandwidth_unit",
-              "req" => false,
               "type" => "`$STRING`",
-              "index$" => 17,
             },
             {
-              "active" => true,
               "name" => "limit_date_range_from",
-              "req" => false,
               "type" => "`$STRING`",
-              "index$" => 18,
             },
             {
-              "active" => true,
               "name" => "limit_date_range_to",
-              "req" => false,
               "type" => "`$STRING`",
-              "index$" => 19,
             },
             {
-              "active" => true,
               "name" => "limit_num_clients",
-              "req" => false,
               "type" => "`$INTEGER`",
-              "index$" => 20,
             },
             {
-              "active" => true,
               "name" => "limit_num_downloads",
-              "req" => false,
               "type" => "`$INTEGER`",
-              "index$" => 21,
             },
             {
-              "active" => true,
               "name" => "limit_package_query",
-              "req" => false,
               "type" => "`$STRING`",
-              "index$" => 22,
             },
             {
-              "active" => true,
               "name" => "limit_path_query",
-              "req" => false,
               "type" => "`$STRING`",
-              "index$" => 23,
             },
             {
-              "active" => true,
               "name" => "metadata",
-              "req" => false,
               "type" => "`$OBJECT`",
-              "index$" => 24,
             },
             {
-              "active" => true,
               "name" => "name",
               "req" => true,
               "type" => "`$STRING`",
-              "index$" => 25,
             },
             {
-              "active" => true,
               "name" => "refresh_url",
-              "req" => false,
               "type" => "`$STRING`",
-              "index$" => 26,
             },
             {
-              "active" => true,
               "name" => "reset_url",
-              "req" => false,
               "type" => "`$STRING`",
-              "index$" => 27,
             },
             {
-              "active" => true,
               "name" => "scheduled_reset_at",
-              "req" => false,
               "type" => "`$STRING`",
-              "index$" => 28,
             },
             {
-              "active" => true,
               "name" => "scheduled_reset_period",
-              "req" => false,
               "type" => "`$STRING`",
-              "index$" => 29,
             },
             {
-              "active" => true,
               "name" => "self_url",
-              "req" => false,
               "type" => "`$STRING`",
-              "index$" => 30,
             },
             {
-              "active" => true,
               "name" => "slug_perm",
-              "req" => false,
               "type" => "`$STRING`",
-              "index$" => 31,
             },
             {
-              "active" => true,
               "name" => "token",
-              "req" => false,
               "type" => "`$STRING`",
-              "index$" => 32,
             },
             {
-              "active" => true,
               "name" => "updated_at",
-              "req" => false,
               "type" => "`$STRING`",
-              "index$" => 33,
             },
             {
-              "active" => true,
               "name" => "updated_by",
-              "req" => false,
               "type" => "`$STRING`",
-              "index$" => 34,
             },
             {
-              "active" => true,
               "name" => "updated_by_url",
-              "req" => false,
               "type" => "`$STRING`",
-              "index$" => 35,
             },
             {
-              "active" => true,
               "name" => "usage",
-              "req" => false,
               "type" => "`$STRING`",
-              "index$" => 36,
             },
             {
-              "active" => true,
               "name" => "user",
-              "req" => false,
               "type" => "`$STRING`",
-              "index$" => 37,
             },
             {
-              "active" => true,
               "name" => "user_url",
-              "req" => false,
               "type" => "`$STRING`",
-              "index$" => 38,
             },
           ],
           "name" => "repository_token",
@@ -24202,43 +19748,34 @@ module CloudsmithConfig
               "name" => "create",
               "points" => [
                 {
-                  "active" => true,
                   "args" => {
                     "params" => [
                       {
-                        "active" => true,
                         "kind" => "param",
                         "name" => "owner",
                         "orig" => "owner",
                         "reqd" => true,
                         "type" => "`$ANY`",
-                        "index$" => 0,
                       },
                       {
-                        "active" => true,
                         "kind" => "param",
                         "name" => "repo",
                         "orig" => "repo",
                         "reqd" => true,
                         "type" => "`$ANY`",
-                        "index$" => 1,
                       },
                     ],
                     "query" => [
                       {
-                        "active" => true,
                         "kind" => "query",
                         "name" => "data",
                         "orig" => "data",
-                        "reqd" => false,
                         "type" => "`$OBJECT`",
                       },
                       {
-                        "active" => true,
                         "kind" => "query",
                         "name" => "show_token",
                         "orig" => "show_token",
-                        "reqd" => false,
                         "type" => "`$ANY`",
                       },
                     ],
@@ -24263,85 +19800,66 @@ module CloudsmithConfig
                     "req" => "`reqdata`",
                     "res" => "`body`",
                   },
-                  "index$" => 0,
                 },
               ],
-              "key$" => "create",
             },
             "list" => {
               "input" => "data",
               "name" => "list",
               "points" => [
                 {
-                  "active" => true,
                   "args" => {
                     "params" => [
                       {
-                        "active" => true,
                         "kind" => "param",
                         "name" => "owner",
                         "orig" => "owner",
                         "reqd" => true,
                         "type" => "`$ANY`",
-                        "index$" => 0,
                       },
                       {
-                        "active" => true,
                         "kind" => "param",
                         "name" => "repo",
                         "orig" => "repo",
                         "reqd" => true,
                         "type" => "`$ANY`",
-                        "index$" => 1,
                       },
                     ],
                     "query" => [
                       {
-                        "active" => true,
                         "kind" => "query",
                         "name" => "active",
                         "orig" => "active",
-                        "reqd" => false,
                         "type" => "`$BOOLEAN`",
                       },
                       {
-                        "active" => true,
                         "kind" => "query",
                         "name" => "page",
                         "orig" => "page",
-                        "reqd" => false,
                         "type" => "`$INTEGER`",
                       },
                       {
-                        "active" => true,
                         "kind" => "query",
                         "name" => "page_size",
                         "orig" => "page_size",
-                        "reqd" => false,
                         "type" => "`$INTEGER`",
                       },
                       {
-                        "active" => true,
                         "kind" => "query",
                         "name" => "query",
                         "orig" => "query",
-                        "reqd" => false,
                         "type" => "`$ANY`",
                       },
                       {
-                        "active" => true,
                         "kind" => "query",
                         "name" => "show_token",
                         "orig" => "show_token",
-                        "reqd" => false,
                         "type" => "`$ANY`",
                       },
                       {
-                        "active" => true,
                         "kind" => "query",
                         "name" => "sort",
                         "orig" => "sort",
-                        "reqd" => false,
                         "type" => "`$ANY`",
                       },
                     ],
@@ -24370,62 +19888,49 @@ module CloudsmithConfig
                     "req" => "`reqdata`",
                     "res" => "`body`",
                   },
-                  "index$" => 0,
                 },
               ],
-              "key$" => "list",
             },
             "load" => {
               "input" => "data",
               "name" => "load",
               "points" => [
                 {
-                  "active" => true,
                   "args" => {
                     "params" => [
                       {
-                        "active" => true,
                         "kind" => "param",
                         "name" => "identifier",
                         "orig" => "identifier",
                         "reqd" => true,
                         "type" => "`$ANY`",
-                        "index$" => 0,
                       },
                       {
-                        "active" => true,
                         "kind" => "param",
                         "name" => "owner",
                         "orig" => "owner",
                         "reqd" => true,
                         "type" => "`$ANY`",
-                        "index$" => 1,
                       },
                       {
-                        "active" => true,
                         "kind" => "param",
                         "name" => "repo",
                         "orig" => "repo",
                         "reqd" => true,
                         "type" => "`$ANY`",
-                        "index$" => 2,
                       },
                     ],
                     "query" => [
                       {
-                        "active" => true,
                         "kind" => "query",
                         "name" => "fuzzy",
                         "orig" => "fuzzy",
-                        "reqd" => false,
                         "type" => "`$ANY`",
                       },
                       {
-                        "active" => true,
                         "kind" => "query",
                         "name" => "show_token",
                         "orig" => "show_token",
-                        "reqd" => false,
                         "type" => "`$ANY`",
                       },
                     ],
@@ -24452,62 +19957,49 @@ module CloudsmithConfig
                     "req" => "`reqdata`",
                     "res" => "`body`",
                   },
-                  "index$" => 0,
                 },
               ],
-              "key$" => "load",
             },
             "update" => {
               "input" => "data",
               "name" => "update",
               "points" => [
                 {
-                  "active" => true,
                   "args" => {
                     "params" => [
                       {
-                        "active" => true,
                         "kind" => "param",
                         "name" => "identifier",
                         "orig" => "identifier",
                         "reqd" => true,
                         "type" => "`$ANY`",
-                        "index$" => 0,
                       },
                       {
-                        "active" => true,
                         "kind" => "param",
                         "name" => "owner",
                         "orig" => "owner",
                         "reqd" => true,
                         "type" => "`$ANY`",
-                        "index$" => 1,
                       },
                       {
-                        "active" => true,
                         "kind" => "param",
                         "name" => "repo",
                         "orig" => "repo",
                         "reqd" => true,
                         "type" => "`$ANY`",
-                        "index$" => 2,
                       },
                     ],
                     "query" => [
                       {
-                        "active" => true,
                         "kind" => "query",
                         "name" => "data",
                         "orig" => "data",
-                        "reqd" => false,
                         "type" => "`$OBJECT`",
                       },
                       {
-                        "active" => true,
                         "kind" => "query",
                         "name" => "show_token",
                         "orig" => "show_token",
-                        "reqd" => false,
                         "type" => "`$ANY`",
                       },
                     ],
@@ -24534,10 +20026,8 @@ module CloudsmithConfig
                     "req" => "`reqdata`",
                     "res" => "`body`",
                   },
-                  "index$" => 0,
                 },
               ],
-              "key$" => "update",
             },
           },
           "relations" => {
@@ -24551,277 +20041,160 @@ module CloudsmithConfig
         "repository_token_refresh" => {
           "fields" => [
             {
-              "active" => true,
               "name" => "clients",
-              "req" => false,
               "type" => "`$INTEGER`",
-              "index$" => 0,
             },
             {
-              "active" => true,
               "name" => "created_at",
-              "req" => false,
               "type" => "`$STRING`",
-              "index$" => 1,
             },
             {
-              "active" => true,
               "name" => "created_by",
-              "req" => false,
               "type" => "`$STRING`",
-              "index$" => 2,
             },
             {
-              "active" => true,
               "name" => "created_by_url",
-              "req" => false,
               "type" => "`$STRING`",
-              "index$" => 3,
             },
             {
-              "active" => true,
               "name" => "default",
-              "req" => false,
               "type" => "`$BOOLEAN`",
-              "index$" => 4,
             },
             {
-              "active" => true,
               "name" => "disable_url",
-              "req" => false,
               "type" => "`$STRING`",
-              "index$" => 5,
             },
             {
-              "active" => true,
               "name" => "downloads",
-              "req" => false,
               "type" => "`$INTEGER`",
-              "index$" => 6,
             },
             {
-              "active" => true,
               "name" => "enable_url",
-              "req" => false,
               "type" => "`$STRING`",
-              "index$" => 7,
             },
             {
-              "active" => true,
               "name" => "eula_accepted",
-              "req" => false,
               "type" => "`$OBJECT`",
-              "index$" => 8,
             },
             {
-              "active" => true,
               "name" => "eula_accepted_at",
-              "req" => false,
               "type" => "`$STRING`",
-              "index$" => 9,
             },
             {
-              "active" => true,
               "name" => "eula_accepted_from",
-              "req" => false,
               "type" => "`$STRING`",
-              "index$" => 10,
             },
             {
-              "active" => true,
               "name" => "eula_required",
-              "req" => false,
               "type" => "`$BOOLEAN`",
-              "index$" => 11,
             },
             {
-              "active" => true,
               "name" => "has_limits",
-              "req" => false,
               "type" => "`$BOOLEAN`",
-              "index$" => 12,
             },
             {
-              "active" => true,
               "name" => "identifier",
-              "req" => false,
               "type" => "`$INTEGER`",
-              "index$" => 13,
             },
             {
-              "active" => true,
               "name" => "is_active",
-              "req" => false,
               "type" => "`$BOOLEAN`",
-              "index$" => 14,
             },
             {
-              "active" => true,
               "name" => "is_limited",
-              "req" => false,
               "type" => "`$BOOLEAN`",
-              "index$" => 15,
             },
             {
-              "active" => true,
               "name" => "limit_bandwidth",
-              "req" => false,
               "type" => "`$INTEGER`",
-              "index$" => 16,
             },
             {
-              "active" => true,
               "name" => "limit_bandwidth_unit",
-              "req" => false,
               "type" => "`$STRING`",
-              "index$" => 17,
             },
             {
-              "active" => true,
               "name" => "limit_date_range_from",
-              "req" => false,
               "type" => "`$STRING`",
-              "index$" => 18,
             },
             {
-              "active" => true,
               "name" => "limit_date_range_to",
-              "req" => false,
               "type" => "`$STRING`",
-              "index$" => 19,
             },
             {
-              "active" => true,
               "name" => "limit_num_clients",
-              "req" => false,
               "type" => "`$INTEGER`",
-              "index$" => 20,
             },
             {
-              "active" => true,
               "name" => "limit_num_downloads",
-              "req" => false,
               "type" => "`$INTEGER`",
-              "index$" => 21,
             },
             {
-              "active" => true,
               "name" => "limit_package_query",
-              "req" => false,
               "type" => "`$STRING`",
-              "index$" => 22,
             },
             {
-              "active" => true,
               "name" => "limit_path_query",
-              "req" => false,
               "type" => "`$STRING`",
-              "index$" => 23,
             },
             {
-              "active" => true,
               "name" => "metadata",
-              "req" => false,
               "type" => "`$OBJECT`",
-              "index$" => 24,
             },
             {
-              "active" => true,
               "name" => "name",
-              "req" => false,
               "type" => "`$STRING`",
-              "index$" => 25,
             },
             {
-              "active" => true,
               "name" => "refresh_url",
-              "req" => false,
               "type" => "`$STRING`",
-              "index$" => 26,
             },
             {
-              "active" => true,
               "name" => "reset_url",
-              "req" => false,
               "type" => "`$STRING`",
-              "index$" => 27,
             },
             {
-              "active" => true,
               "name" => "scheduled_reset_at",
-              "req" => false,
               "type" => "`$STRING`",
-              "index$" => 28,
             },
             {
-              "active" => true,
               "name" => "scheduled_reset_period",
-              "req" => false,
               "type" => "`$STRING`",
-              "index$" => 29,
             },
             {
-              "active" => true,
               "name" => "self_url",
-              "req" => false,
               "type" => "`$STRING`",
-              "index$" => 30,
             },
             {
-              "active" => true,
               "name" => "slug_perm",
-              "req" => false,
               "type" => "`$STRING`",
-              "index$" => 31,
             },
             {
-              "active" => true,
               "name" => "token",
-              "req" => false,
               "type" => "`$STRING`",
-              "index$" => 32,
             },
             {
-              "active" => true,
               "name" => "updated_at",
-              "req" => false,
               "type" => "`$STRING`",
-              "index$" => 33,
             },
             {
-              "active" => true,
               "name" => "updated_by",
-              "req" => false,
               "type" => "`$STRING`",
-              "index$" => 34,
             },
             {
-              "active" => true,
               "name" => "updated_by_url",
-              "req" => false,
               "type" => "`$STRING`",
-              "index$" => 35,
             },
             {
-              "active" => true,
               "name" => "usage",
-              "req" => false,
               "type" => "`$STRING`",
-              "index$" => 36,
             },
             {
-              "active" => true,
               "name" => "user",
-              "req" => false,
               "type" => "`$STRING`",
-              "index$" => 37,
             },
             {
-              "active" => true,
               "name" => "user_url",
-              "req" => false,
               "type" => "`$STRING`",
-              "index$" => 38,
             },
           ],
           "name" => "repository_token_refresh",
@@ -24831,52 +20204,41 @@ module CloudsmithConfig
               "name" => "create",
               "points" => [
                 {
-                  "active" => true,
                   "args" => {
                     "params" => [
                       {
-                        "active" => true,
                         "kind" => "param",
                         "name" => "identifier",
                         "orig" => "identifier",
                         "reqd" => true,
                         "type" => "`$ANY`",
-                        "index$" => 0,
                       },
                       {
-                        "active" => true,
                         "kind" => "param",
                         "name" => "owner",
                         "orig" => "owner",
                         "reqd" => true,
                         "type" => "`$ANY`",
-                        "index$" => 1,
                       },
                       {
-                        "active" => true,
                         "kind" => "param",
                         "name" => "repo",
                         "orig" => "repo",
                         "reqd" => true,
                         "type" => "`$ANY`",
-                        "index$" => 2,
                       },
                     ],
                     "query" => [
                       {
-                        "active" => true,
                         "kind" => "query",
                         "name" => "data",
                         "orig" => "data",
-                        "reqd" => false,
                         "type" => "`$OBJECT`",
                       },
                       {
-                        "active" => true,
                         "kind" => "query",
                         "name" => "show_token",
                         "orig" => "show_token",
-                        "reqd" => false,
                         "type" => "`$ANY`",
                       },
                     ],
@@ -24904,10 +20266,8 @@ module CloudsmithConfig
                     "req" => "`reqdata`",
                     "res" => "`body`",
                   },
-                  "index$" => 0,
                 },
               ],
-              "key$" => "create",
             },
           },
           "relations" => {
@@ -24921,11 +20281,8 @@ module CloudsmithConfig
         "repository_token_sync" => {
           "fields" => [
             {
-              "active" => true,
               "name" => "tokens",
-              "req" => false,
               "type" => "`$ARRAY`",
-              "index$" => 0,
             },
           ],
           "name" => "repository_token_sync",
@@ -24935,43 +20292,34 @@ module CloudsmithConfig
               "name" => "create",
               "points" => [
                 {
-                  "active" => true,
                   "args" => {
                     "params" => [
                       {
-                        "active" => true,
                         "kind" => "param",
                         "name" => "owner",
                         "orig" => "owner",
                         "reqd" => true,
                         "type" => "`$ANY`",
-                        "index$" => 0,
                       },
                       {
-                        "active" => true,
                         "kind" => "param",
                         "name" => "repo",
                         "orig" => "repo",
                         "reqd" => true,
                         "type" => "`$ANY`",
-                        "index$" => 1,
                       },
                     ],
                     "query" => [
                       {
-                        "active" => true,
                         "kind" => "query",
                         "name" => "data",
                         "orig" => "data",
-                        "reqd" => false,
                         "type" => "`$OBJECT`",
                       },
                       {
-                        "active" => true,
                         "kind" => "query",
                         "name" => "show_token",
                         "orig" => "show_token",
-                        "reqd" => false,
                         "type" => "`$ANY`",
                       },
                     ],
@@ -24997,10 +20345,8 @@ module CloudsmithConfig
                     "req" => "`reqdata`",
                     "res" => "`body`",
                   },
-                  "index$" => 0,
                 },
               ],
-              "key$" => "create",
             },
           },
           "relations" => {
@@ -25014,207 +20360,124 @@ module CloudsmithConfig
         "repository_webhook" => {
           "fields" => [
             {
-              "active" => true,
               "name" => "created_at",
-              "req" => false,
               "type" => "`$STRING`",
-              "index$" => 0,
             },
             {
-              "active" => true,
               "name" => "created_by",
-              "req" => false,
               "type" => "`$STRING`",
-              "index$" => 1,
             },
             {
-              "active" => true,
               "name" => "created_by_url",
-              "req" => false,
               "type" => "`$STRING`",
-              "index$" => 2,
             },
             {
-              "active" => true,
               "name" => "disable_reason",
-              "req" => false,
               "type" => "`$INTEGER`",
-              "index$" => 3,
             },
             {
-              "active" => true,
               "name" => "disable_reason_str",
-              "req" => false,
               "type" => "`$STRING`",
-              "index$" => 4,
             },
             {
-              "active" => true,
               "name" => "event",
               "req" => true,
               "type" => "`$STRING`",
-              "index$" => 5,
             },
             {
-              "active" => true,
               "name" => "events",
               "req" => true,
               "type" => "`$ARRAY`",
-              "index$" => 6,
             },
             {
-              "active" => true,
               "name" => "identifier",
-              "req" => false,
               "type" => "`$INTEGER`",
-              "index$" => 7,
             },
             {
-              "active" => true,
               "name" => "is_active",
-              "req" => false,
               "type" => "`$BOOLEAN`",
-              "index$" => 8,
             },
             {
-              "active" => true,
               "name" => "is_last_response_bad",
-              "req" => false,
               "type" => "`$BOOLEAN`",
-              "index$" => 9,
             },
             {
-              "active" => true,
               "name" => "last_response_status",
-              "req" => false,
               "type" => "`$INTEGER`",
-              "index$" => 10,
             },
             {
-              "active" => true,
               "name" => "last_response_status_str",
-              "req" => false,
               "type" => "`$STRING`",
-              "index$" => 11,
             },
             {
-              "active" => true,
               "name" => "num_sent",
-              "req" => false,
               "type" => "`$INTEGER`",
-              "index$" => 12,
             },
             {
-              "active" => true,
               "name" => "package_query",
-              "req" => false,
               "type" => "`$STRING`",
-              "index$" => 13,
             },
             {
-              "active" => true,
               "name" => "request_body_format",
-              "req" => false,
               "type" => "`$INTEGER`",
-              "index$" => 14,
             },
             {
-              "active" => true,
               "name" => "request_body_format_str",
-              "req" => false,
               "type" => "`$STRING`",
-              "index$" => 15,
             },
             {
-              "active" => true,
               "name" => "request_body_template_format",
-              "req" => false,
               "type" => "`$INTEGER`",
-              "index$" => 16,
             },
             {
-              "active" => true,
               "name" => "request_body_template_format_str",
-              "req" => false,
               "type" => "`$STRING`",
-              "index$" => 17,
             },
             {
-              "active" => true,
               "name" => "request_content_type",
-              "req" => false,
               "type" => "`$STRING`",
-              "index$" => 18,
             },
             {
-              "active" => true,
               "name" => "secret_header",
-              "req" => false,
               "type" => "`$STRING`",
-              "index$" => 19,
             },
             {
-              "active" => true,
               "name" => "self_url",
-              "req" => false,
               "type" => "`$STRING`",
-              "index$" => 20,
             },
             {
-              "active" => true,
               "name" => "slug_perm",
-              "req" => false,
               "type" => "`$STRING`",
-              "index$" => 21,
             },
             {
-              "active" => true,
               "name" => "target_url",
               "req" => true,
               "type" => "`$STRING`",
-              "index$" => 22,
             },
             {
-              "active" => true,
               "name" => "template",
-              "req" => false,
               "type" => "`$STRING`",
-              "index$" => 23,
             },
             {
-              "active" => true,
               "name" => "templates",
               "req" => true,
               "type" => "`$ARRAY`",
-              "index$" => 24,
             },
             {
-              "active" => true,
               "name" => "updated_at",
-              "req" => false,
               "type" => "`$STRING`",
-              "index$" => 25,
             },
             {
-              "active" => true,
               "name" => "updated_by",
-              "req" => false,
               "type" => "`$STRING`",
-              "index$" => 26,
             },
             {
-              "active" => true,
               "name" => "updated_by_url",
-              "req" => false,
               "type" => "`$STRING`",
-              "index$" => 27,
             },
             {
-              "active" => true,
               "name" => "verify_ssl",
-              "req" => false,
               "type" => "`$BOOLEAN`",
-              "index$" => 28,
             },
           ],
           "name" => "repository_webhook",
@@ -25224,35 +20487,28 @@ module CloudsmithConfig
               "name" => "create",
               "points" => [
                 {
-                  "active" => true,
                   "args" => {
                     "params" => [
                       {
-                        "active" => true,
                         "kind" => "param",
                         "name" => "owner",
                         "orig" => "owner",
                         "reqd" => true,
                         "type" => "`$ANY`",
-                        "index$" => 0,
                       },
                       {
-                        "active" => true,
                         "kind" => "param",
                         "name" => "repo",
                         "orig" => "repo",
                         "reqd" => true,
                         "type" => "`$ANY`",
-                        "index$" => 1,
                       },
                     ],
                     "query" => [
                       {
-                        "active" => true,
                         "kind" => "query",
                         "name" => "data",
                         "orig" => "data",
-                        "reqd" => false,
                         "type" => "`$OBJECT`",
                       },
                     ],
@@ -25276,53 +20532,42 @@ module CloudsmithConfig
                     "req" => "`reqdata`",
                     "res" => "`body`",
                   },
-                  "index$" => 0,
                 },
               ],
-              "key$" => "create",
             },
             "list" => {
               "input" => "data",
               "name" => "list",
               "points" => [
                 {
-                  "active" => true,
                   "args" => {
                     "params" => [
                       {
-                        "active" => true,
                         "kind" => "param",
                         "name" => "owner",
                         "orig" => "owner",
                         "reqd" => true,
                         "type" => "`$ANY`",
-                        "index$" => 0,
                       },
                       {
-                        "active" => true,
                         "kind" => "param",
                         "name" => "repo",
                         "orig" => "repo",
                         "reqd" => true,
                         "type" => "`$ANY`",
-                        "index$" => 1,
                       },
                     ],
                     "query" => [
                       {
-                        "active" => true,
                         "kind" => "query",
                         "name" => "page",
                         "orig" => "page",
-                        "reqd" => false,
                         "type" => "`$INTEGER`",
                       },
                       {
-                        "active" => true,
                         "kind" => "query",
                         "name" => "page_size",
                         "orig" => "page_size",
-                        "reqd" => false,
                         "type" => "`$INTEGER`",
                       },
                     ],
@@ -25347,38 +20592,30 @@ module CloudsmithConfig
                     "req" => "`reqdata`",
                     "res" => "`body`",
                   },
-                  "index$" => 0,
                 },
                 {
-                  "active" => true,
                   "args" => {
                     "params" => [
                       {
-                        "active" => true,
                         "kind" => "param",
                         "name" => "identifier",
                         "orig" => "identifier",
                         "reqd" => true,
                         "type" => "`$ANY`",
-                        "index$" => 0,
                       },
                       {
-                        "active" => true,
                         "kind" => "param",
                         "name" => "owner",
                         "orig" => "owner",
                         "reqd" => true,
                         "type" => "`$ANY`",
-                        "index$" => 1,
                       },
                       {
-                        "active" => true,
                         "kind" => "param",
                         "name" => "repo",
                         "orig" => "repo",
                         "reqd" => true,
                         "type" => "`$ANY`",
-                        "index$" => 2,
                       },
                     ],
                   },
@@ -25402,54 +20639,43 @@ module CloudsmithConfig
                     "req" => "`reqdata`",
                     "res" => "`body`",
                   },
-                  "index$" => 1,
                 },
               ],
-              "key$" => "list",
             },
             "update" => {
               "input" => "data",
               "name" => "update",
               "points" => [
                 {
-                  "active" => true,
                   "args" => {
                     "params" => [
                       {
-                        "active" => true,
                         "kind" => "param",
                         "name" => "identifier",
                         "orig" => "identifier",
                         "reqd" => true,
                         "type" => "`$ANY`",
-                        "index$" => 0,
                       },
                       {
-                        "active" => true,
                         "kind" => "param",
                         "name" => "owner",
                         "orig" => "owner",
                         "reqd" => true,
                         "type" => "`$ANY`",
-                        "index$" => 1,
                       },
                       {
-                        "active" => true,
                         "kind" => "param",
                         "name" => "repo",
                         "orig" => "repo",
                         "reqd" => true,
                         "type" => "`$ANY`",
-                        "index$" => 2,
                       },
                     ],
                     "query" => [
                       {
-                        "active" => true,
                         "kind" => "query",
                         "name" => "data",
                         "orig" => "data",
-                        "reqd" => false,
                         "type" => "`$OBJECT`",
                       },
                     ],
@@ -25475,10 +20701,8 @@ module CloudsmithConfig
                     "req" => "`reqdata`",
                     "res" => "`body`",
                   },
-                  "index$" => 0,
                 },
               ],
-              "key$" => "update",
             },
           },
           "relations" => {
@@ -25492,74 +20716,44 @@ module CloudsmithConfig
         "repository_x509_ecdsa_certificate" => {
           "fields" => [
             {
-              "active" => true,
               "name" => "active",
-              "req" => false,
               "type" => "`$BOOLEAN`",
-              "index$" => 0,
             },
             {
-              "active" => true,
               "name" => "certificate",
-              "req" => false,
               "type" => "`$STRING`",
-              "index$" => 1,
             },
             {
-              "active" => true,
               "name" => "certificate_chain",
-              "req" => false,
               "type" => "`$STRING`",
-              "index$" => 2,
             },
             {
-              "active" => true,
               "name" => "certificate_chain_fingerprint",
-              "req" => false,
               "type" => "`$STRING`",
-              "index$" => 3,
             },
             {
-              "active" => true,
               "name" => "certificate_chain_fingerprint_short",
-              "req" => false,
               "type" => "`$STRING`",
-              "index$" => 4,
             },
             {
-              "active" => true,
               "name" => "certificate_fingerprint",
-              "req" => false,
               "type" => "`$STRING`",
-              "index$" => 5,
             },
             {
-              "active" => true,
               "name" => "certificate_fingerprint_short",
-              "req" => false,
               "type" => "`$STRING`",
-              "index$" => 6,
             },
             {
-              "active" => true,
               "name" => "created_at",
-              "req" => false,
               "type" => "`$STRING`",
-              "index$" => 7,
             },
             {
-              "active" => true,
               "name" => "default",
-              "req" => false,
               "type" => "`$BOOLEAN`",
-              "index$" => 8,
             },
             {
-              "active" => true,
               "name" => "issuing_status",
-              "req" => false,
               "type" => "`$STRING`",
-              "index$" => 9,
             },
           ],
           "name" => "repository_x509_ecdsa_certificate",
@@ -25569,26 +20763,21 @@ module CloudsmithConfig
               "name" => "load",
               "points" => [
                 {
-                  "active" => true,
                   "args" => {
                     "params" => [
                       {
-                        "active" => true,
                         "kind" => "param",
                         "name" => "identifier",
                         "orig" => "identifier",
                         "reqd" => true,
                         "type" => "`$ANY`",
-                        "index$" => 0,
                       },
                       {
-                        "active" => true,
                         "kind" => "param",
                         "name" => "owner",
                         "orig" => "owner",
                         "reqd" => true,
                         "type" => "`$ANY`",
-                        "index$" => 1,
                       },
                     ],
                   },
@@ -25611,10 +20800,8 @@ module CloudsmithConfig
                     "req" => "`reqdata`",
                     "res" => "`body`",
                   },
-                  "index$" => 0,
                 },
               ],
-              "key$" => "load",
             },
           },
           "relations" => {
@@ -25628,74 +20815,44 @@ module CloudsmithConfig
         "repository_x509_rsa_certificate" => {
           "fields" => [
             {
-              "active" => true,
               "name" => "active",
-              "req" => false,
               "type" => "`$BOOLEAN`",
-              "index$" => 0,
             },
             {
-              "active" => true,
               "name" => "certificate",
-              "req" => false,
               "type" => "`$STRING`",
-              "index$" => 1,
             },
             {
-              "active" => true,
               "name" => "certificate_chain",
-              "req" => false,
               "type" => "`$STRING`",
-              "index$" => 2,
             },
             {
-              "active" => true,
               "name" => "certificate_chain_fingerprint",
-              "req" => false,
               "type" => "`$STRING`",
-              "index$" => 3,
             },
             {
-              "active" => true,
               "name" => "certificate_chain_fingerprint_short",
-              "req" => false,
               "type" => "`$STRING`",
-              "index$" => 4,
             },
             {
-              "active" => true,
               "name" => "certificate_fingerprint",
-              "req" => false,
               "type" => "`$STRING`",
-              "index$" => 5,
             },
             {
-              "active" => true,
               "name" => "certificate_fingerprint_short",
-              "req" => false,
               "type" => "`$STRING`",
-              "index$" => 6,
             },
             {
-              "active" => true,
               "name" => "created_at",
-              "req" => false,
               "type" => "`$STRING`",
-              "index$" => 7,
             },
             {
-              "active" => true,
               "name" => "default",
-              "req" => false,
               "type" => "`$BOOLEAN`",
-              "index$" => 8,
             },
             {
-              "active" => true,
               "name" => "issuing_status",
-              "req" => false,
               "type" => "`$STRING`",
-              "index$" => 9,
             },
           ],
           "name" => "repository_x509_rsa_certificate",
@@ -25705,26 +20862,21 @@ module CloudsmithConfig
               "name" => "load",
               "points" => [
                 {
-                  "active" => true,
                   "args" => {
                     "params" => [
                       {
-                        "active" => true,
                         "kind" => "param",
                         "name" => "identifier",
                         "orig" => "identifier",
                         "reqd" => true,
                         "type" => "`$ANY`",
-                        "index$" => 0,
                       },
                       {
-                        "active" => true,
                         "kind" => "param",
                         "name" => "owner",
                         "orig" => "owner",
                         "reqd" => true,
                         "type" => "`$ANY`",
-                        "index$" => 1,
                       },
                     ],
                   },
@@ -25747,10 +20899,8 @@ module CloudsmithConfig
                     "req" => "`reqdata`",
                     "res" => "`body`",
                   },
-                  "index$" => 0,
                 },
               ],
-              "key$" => "load",
             },
           },
           "relations" => {
@@ -25776,46 +20926,28 @@ module CloudsmithConfig
         "resources_rate_check" => {
           "fields" => [
             {
-              "active" => true,
               "name" => "interval",
-              "req" => false,
               "type" => "`$NUMBER`",
-              "index$" => 0,
             },
             {
-              "active" => true,
               "name" => "limit",
-              "req" => false,
               "type" => "`$INTEGER`",
-              "index$" => 1,
             },
             {
-              "active" => true,
               "name" => "remaining",
-              "req" => false,
               "type" => "`$INTEGER`",
-              "index$" => 2,
             },
             {
-              "active" => true,
               "name" => "reset",
-              "req" => false,
               "type" => "`$INTEGER`",
-              "index$" => 3,
             },
             {
-              "active" => true,
               "name" => "reset_iso_8601",
-              "req" => false,
               "type" => "`$STRING`",
-              "index$" => 4,
             },
             {
-              "active" => true,
               "name" => "throttled",
-              "req" => false,
               "type" => "`$BOOLEAN`",
-              "index$" => 5,
             },
           ],
           "name" => "resources_rate_check",
@@ -25825,7 +20957,6 @@ module CloudsmithConfig
               "name" => "load",
               "points" => [
                 {
-                  "active" => true,
                   "args" => {},
                   "kind" => "http",
                   "method" => "GET",
@@ -25839,10 +20970,8 @@ module CloudsmithConfig
                     "req" => "`reqdata`",
                     "res" => "`body.resources`",
                   },
-                  "index$" => 0,
                 },
               ],
-              "key$" => "load",
             },
           },
           "relations" => {
@@ -25876,172 +21005,103 @@ module CloudsmithConfig
         "rpm" => {
           "fields" => [
             {
-              "active" => true,
               "name" => "auth_mode",
-              "req" => false,
               "type" => "`$STRING`",
-              "index$" => 0,
             },
             {
-              "active" => true,
               "name" => "auth_secret",
-              "req" => false,
               "type" => "`$STRING`",
-              "index$" => 1,
             },
             {
-              "active" => true,
               "name" => "auth_username",
-              "req" => false,
               "type" => "`$STRING`",
-              "index$" => 2,
             },
             {
-              "active" => true,
               "name" => "created_at",
-              "req" => false,
               "type" => "`$STRING`",
-              "index$" => 3,
             },
             {
-              "active" => true,
               "name" => "disable_reason",
-              "req" => false,
               "type" => "`$STRING`",
-              "index$" => 4,
             },
             {
-              "active" => true,
               "name" => "distro_version",
               "req" => true,
               "type" => "`$STRING`",
-              "index$" => 5,
             },
             {
-              "active" => true,
               "name" => "extra_header_1",
-              "req" => false,
               "type" => "`$STRING`",
-              "index$" => 6,
             },
             {
-              "active" => true,
               "name" => "extra_header_2",
-              "req" => false,
               "type" => "`$STRING`",
-              "index$" => 7,
             },
             {
-              "active" => true,
               "name" => "extra_value_1",
-              "req" => false,
               "type" => "`$STRING`",
-              "index$" => 8,
             },
             {
-              "active" => true,
               "name" => "extra_value_2",
-              "req" => false,
               "type" => "`$STRING`",
-              "index$" => 9,
             },
             {
-              "active" => true,
               "name" => "gpg_key_inline",
-              "req" => false,
               "type" => "`$STRING`",
-              "index$" => 10,
             },
             {
-              "active" => true,
               "name" => "gpg_key_url",
-              "req" => false,
               "type" => "`$STRING`",
-              "index$" => 11,
             },
             {
-              "active" => true,
               "name" => "gpg_verification",
-              "req" => false,
               "type" => "`$STRING`",
-              "index$" => 12,
             },
             {
-              "active" => true,
               "name" => "include_sources",
-              "req" => false,
               "type" => "`$BOOLEAN`",
-              "index$" => 13,
             },
             {
-              "active" => true,
               "name" => "is_active",
-              "req" => false,
               "type" => "`$BOOLEAN`",
-              "index$" => 14,
             },
             {
-              "active" => true,
               "name" => "mode",
-              "req" => false,
               "type" => "`$STRING`",
-              "index$" => 15,
             },
             {
-              "active" => true,
               "name" => "name",
               "req" => true,
               "type" => "`$STRING`",
-              "index$" => 16,
             },
             {
-              "active" => true,
               "name" => "pending_validation",
-              "req" => false,
               "type" => "`$BOOLEAN`",
-              "index$" => 17,
             },
             {
-              "active" => true,
               "name" => "priority",
-              "req" => false,
               "type" => "`$INTEGER`",
-              "index$" => 18,
             },
             {
-              "active" => true,
               "name" => "slug_perm",
-              "req" => false,
               "type" => "`$STRING`",
-              "index$" => 19,
             },
             {
-              "active" => true,
               "name" => "updated_at",
-              "req" => false,
               "type" => "`$STRING`",
-              "index$" => 20,
             },
             {
-              "active" => true,
               "name" => "upstream_url",
               "req" => true,
               "type" => "`$STRING`",
-              "index$" => 21,
             },
             {
-              "active" => true,
               "name" => "verification_status",
-              "req" => false,
               "type" => "`$STRING`",
-              "index$" => 22,
             },
             {
-              "active" => true,
               "name" => "verify_ssl",
-              "req" => false,
               "type" => "`$BOOLEAN`",
-              "index$" => 23,
             },
           ],
           "name" => "rpm",
@@ -26051,35 +21111,28 @@ module CloudsmithConfig
               "name" => "create",
               "points" => [
                 {
-                  "active" => true,
                   "args" => {
                     "params" => [
                       {
-                        "active" => true,
                         "kind" => "param",
                         "name" => "identifier",
                         "orig" => "identifier",
                         "reqd" => true,
                         "type" => "`$ANY`",
-                        "index$" => 0,
                       },
                       {
-                        "active" => true,
                         "kind" => "param",
                         "name" => "owner",
                         "orig" => "owner",
                         "reqd" => true,
                         "type" => "`$ANY`",
-                        "index$" => 1,
                       },
                     ],
                     "query" => [
                       {
-                        "active" => true,
                         "kind" => "query",
                         "name" => "data",
                         "orig" => "data",
-                        "reqd" => false,
                         "type" => "`$OBJECT`",
                       },
                     ],
@@ -26105,53 +21158,42 @@ module CloudsmithConfig
                     "req" => "`reqdata`",
                     "res" => "`body`",
                   },
-                  "index$" => 0,
                 },
               ],
-              "key$" => "create",
             },
             "list" => {
               "input" => "data",
               "name" => "list",
               "points" => [
                 {
-                  "active" => true,
                   "args" => {
                     "params" => [
                       {
-                        "active" => true,
                         "kind" => "param",
                         "name" => "identifier",
                         "orig" => "identifier",
                         "reqd" => true,
                         "type" => "`$ANY`",
-                        "index$" => 0,
                       },
                       {
-                        "active" => true,
                         "kind" => "param",
                         "name" => "owner",
                         "orig" => "owner",
                         "reqd" => true,
                         "type" => "`$ANY`",
-                        "index$" => 1,
                       },
                     ],
                     "query" => [
                       {
-                        "active" => true,
                         "kind" => "query",
                         "name" => "page",
                         "orig" => "page",
-                        "reqd" => false,
                         "type" => "`$INTEGER`",
                       },
                       {
-                        "active" => true,
                         "kind" => "query",
                         "name" => "page_size",
                         "orig" => "page_size",
-                        "reqd" => false,
                         "type" => "`$INTEGER`",
                       },
                     ],
@@ -26178,45 +21220,36 @@ module CloudsmithConfig
                     "req" => "`reqdata`",
                     "res" => "`body`",
                   },
-                  "index$" => 0,
                 },
               ],
-              "key$" => "list",
             },
             "load" => {
               "input" => "data",
               "name" => "load",
               "points" => [
                 {
-                  "active" => true,
                   "args" => {
                     "params" => [
                       {
-                        "active" => true,
                         "kind" => "param",
                         "name" => "id",
                         "orig" => "slug_perm",
                         "reqd" => true,
                         "type" => "`$STRING`",
-                        "index$" => 0,
                       },
                       {
-                        "active" => true,
                         "kind" => "param",
                         "name" => "identifier",
                         "orig" => "identifier",
                         "reqd" => true,
                         "type" => "`$ANY`",
-                        "index$" => 1,
                       },
                       {
-                        "active" => true,
                         "kind" => "param",
                         "name" => "owner",
                         "orig" => "owner",
                         "reqd" => true,
                         "type" => "`$ANY`",
-                        "index$" => 2,
                       },
                     ],
                   },
@@ -26247,21 +21280,17 @@ module CloudsmithConfig
                     "req" => "`reqdata`",
                     "res" => "`body`",
                   },
-                  "index$" => 0,
                 },
               ],
-              "key$" => "load",
             },
             "patch" => {
               "input" => "data",
               "name" => "patch",
               "points" => [
                 {
-                  "active" => true,
                   "args" => {
                     "params" => [
                       {
-                        "active" => true,
                         "kind" => "param",
                         "name" => "id",
                         "orig" => "slug_perm",
@@ -26269,7 +21298,6 @@ module CloudsmithConfig
                         "type" => "`$STRING`",
                       },
                       {
-                        "active" => true,
                         "kind" => "param",
                         "name" => "identifier",
                         "orig" => "identifier",
@@ -26277,7 +21305,6 @@ module CloudsmithConfig
                         "type" => "`$ANY`",
                       },
                       {
-                        "active" => true,
                         "kind" => "param",
                         "name" => "owner",
                         "orig" => "owner",
@@ -26287,11 +21314,9 @@ module CloudsmithConfig
                     ],
                     "query" => [
                       {
-                        "active" => true,
                         "kind" => "query",
                         "name" => "data",
                         "orig" => "data",
-                        "reqd" => false,
                         "type" => "`$OBJECT`",
                       },
                     ],
@@ -26324,54 +21349,43 @@ module CloudsmithConfig
                     "req" => "`reqdata`",
                     "res" => "`body`",
                   },
-                  "index$" => 0,
                 },
               ],
-              "key$" => "patch",
             },
             "update" => {
               "input" => "data",
               "name" => "update",
               "points" => [
                 {
-                  "active" => true,
                   "args" => {
                     "params" => [
                       {
-                        "active" => true,
                         "kind" => "param",
                         "name" => "id",
                         "orig" => "slug_perm",
                         "reqd" => true,
                         "type" => "`$STRING`",
-                        "index$" => 0,
                       },
                       {
-                        "active" => true,
                         "kind" => "param",
                         "name" => "identifier",
                         "orig" => "identifier",
                         "reqd" => true,
                         "type" => "`$ANY`",
-                        "index$" => 1,
                       },
                       {
-                        "active" => true,
                         "kind" => "param",
                         "name" => "owner",
                         "orig" => "owner",
                         "reqd" => true,
                         "type" => "`$ANY`",
-                        "index$" => 2,
                       },
                     ],
                     "query" => [
                       {
-                        "active" => true,
                         "kind" => "query",
                         "name" => "data",
                         "orig" => "data",
-                        "reqd" => false,
                         "type" => "`$OBJECT`",
                       },
                     ],
@@ -26404,10 +21418,8 @@ module CloudsmithConfig
                     "req" => "`reqdata`",
                     "res" => "`body`",
                   },
-                  "index$" => 0,
                 },
               ],
-              "key$" => "update",
             },
           },
           "relations" => {
@@ -26436,130 +21448,78 @@ module CloudsmithConfig
         "ruby" => {
           "fields" => [
             {
-              "active" => true,
               "name" => "auth_mode",
-              "req" => false,
               "type" => "`$STRING`",
-              "index$" => 0,
             },
             {
-              "active" => true,
               "name" => "auth_secret",
-              "req" => false,
               "type" => "`$STRING`",
-              "index$" => 1,
             },
             {
-              "active" => true,
               "name" => "auth_username",
-              "req" => false,
               "type" => "`$STRING`",
-              "index$" => 2,
             },
             {
-              "active" => true,
               "name" => "created_at",
-              "req" => false,
               "type" => "`$STRING`",
-              "index$" => 3,
             },
             {
-              "active" => true,
               "name" => "disable_reason",
-              "req" => false,
               "type" => "`$STRING`",
-              "index$" => 4,
             },
             {
-              "active" => true,
               "name" => "extra_header_1",
-              "req" => false,
               "type" => "`$STRING`",
-              "index$" => 5,
             },
             {
-              "active" => true,
               "name" => "extra_header_2",
-              "req" => false,
               "type" => "`$STRING`",
-              "index$" => 6,
             },
             {
-              "active" => true,
               "name" => "extra_value_1",
-              "req" => false,
               "type" => "`$STRING`",
-              "index$" => 7,
             },
             {
-              "active" => true,
               "name" => "extra_value_2",
-              "req" => false,
               "type" => "`$STRING`",
-              "index$" => 8,
             },
             {
-              "active" => true,
               "name" => "is_active",
-              "req" => false,
               "type" => "`$BOOLEAN`",
-              "index$" => 9,
             },
             {
-              "active" => true,
               "name" => "mode",
-              "req" => false,
               "type" => "`$STRING`",
-              "index$" => 10,
             },
             {
-              "active" => true,
               "name" => "name",
               "req" => true,
               "type" => "`$STRING`",
-              "index$" => 11,
             },
             {
-              "active" => true,
               "name" => "pending_validation",
-              "req" => false,
               "type" => "`$BOOLEAN`",
-              "index$" => 12,
             },
             {
-              "active" => true,
               "name" => "priority",
-              "req" => false,
               "type" => "`$INTEGER`",
-              "index$" => 13,
             },
             {
-              "active" => true,
               "name" => "slug_perm",
-              "req" => false,
               "type" => "`$STRING`",
-              "index$" => 14,
             },
             {
-              "active" => true,
               "name" => "updated_at",
-              "req" => false,
               "type" => "`$STRING`",
-              "index$" => 15,
             },
             {
-              "active" => true,
               "name" => "upstream_url",
               "req" => true,
               "type" => "`$STRING`",
-              "index$" => 16,
             },
             {
-              "active" => true,
               "name" => "verify_ssl",
-              "req" => false,
               "type" => "`$BOOLEAN`",
-              "index$" => 17,
             },
           ],
           "name" => "ruby",
@@ -26569,35 +21529,28 @@ module CloudsmithConfig
               "name" => "create",
               "points" => [
                 {
-                  "active" => true,
                   "args" => {
                     "params" => [
                       {
-                        "active" => true,
                         "kind" => "param",
                         "name" => "identifier",
                         "orig" => "identifier",
                         "reqd" => true,
                         "type" => "`$ANY`",
-                        "index$" => 0,
                       },
                       {
-                        "active" => true,
                         "kind" => "param",
                         "name" => "owner",
                         "orig" => "owner",
                         "reqd" => true,
                         "type" => "`$ANY`",
-                        "index$" => 1,
                       },
                     ],
                     "query" => [
                       {
-                        "active" => true,
                         "kind" => "query",
                         "name" => "data",
                         "orig" => "data",
-                        "reqd" => false,
                         "type" => "`$OBJECT`",
                       },
                     ],
@@ -26623,53 +21576,42 @@ module CloudsmithConfig
                     "req" => "`reqdata`",
                     "res" => "`body`",
                   },
-                  "index$" => 0,
                 },
               ],
-              "key$" => "create",
             },
             "list" => {
               "input" => "data",
               "name" => "list",
               "points" => [
                 {
-                  "active" => true,
                   "args" => {
                     "params" => [
                       {
-                        "active" => true,
                         "kind" => "param",
                         "name" => "identifier",
                         "orig" => "identifier",
                         "reqd" => true,
                         "type" => "`$ANY`",
-                        "index$" => 0,
                       },
                       {
-                        "active" => true,
                         "kind" => "param",
                         "name" => "owner",
                         "orig" => "owner",
                         "reqd" => true,
                         "type" => "`$ANY`",
-                        "index$" => 1,
                       },
                     ],
                     "query" => [
                       {
-                        "active" => true,
                         "kind" => "query",
                         "name" => "page",
                         "orig" => "page",
-                        "reqd" => false,
                         "type" => "`$INTEGER`",
                       },
                       {
-                        "active" => true,
                         "kind" => "query",
                         "name" => "page_size",
                         "orig" => "page_size",
-                        "reqd" => false,
                         "type" => "`$INTEGER`",
                       },
                     ],
@@ -26696,45 +21638,36 @@ module CloudsmithConfig
                     "req" => "`reqdata`",
                     "res" => "`body`",
                   },
-                  "index$" => 0,
                 },
               ],
-              "key$" => "list",
             },
             "load" => {
               "input" => "data",
               "name" => "load",
               "points" => [
                 {
-                  "active" => true,
                   "args" => {
                     "params" => [
                       {
-                        "active" => true,
                         "kind" => "param",
                         "name" => "id",
                         "orig" => "slug_perm",
                         "reqd" => true,
                         "type" => "`$STRING`",
-                        "index$" => 0,
                       },
                       {
-                        "active" => true,
                         "kind" => "param",
                         "name" => "identifier",
                         "orig" => "identifier",
                         "reqd" => true,
                         "type" => "`$ANY`",
-                        "index$" => 1,
                       },
                       {
-                        "active" => true,
                         "kind" => "param",
                         "name" => "owner",
                         "orig" => "owner",
                         "reqd" => true,
                         "type" => "`$ANY`",
-                        "index$" => 2,
                       },
                     ],
                   },
@@ -26765,21 +21698,17 @@ module CloudsmithConfig
                     "req" => "`reqdata`",
                     "res" => "`body`",
                   },
-                  "index$" => 0,
                 },
               ],
-              "key$" => "load",
             },
             "patch" => {
               "input" => "data",
               "name" => "patch",
               "points" => [
                 {
-                  "active" => true,
                   "args" => {
                     "params" => [
                       {
-                        "active" => true,
                         "kind" => "param",
                         "name" => "id",
                         "orig" => "slug_perm",
@@ -26787,7 +21716,6 @@ module CloudsmithConfig
                         "type" => "`$STRING`",
                       },
                       {
-                        "active" => true,
                         "kind" => "param",
                         "name" => "identifier",
                         "orig" => "identifier",
@@ -26795,7 +21723,6 @@ module CloudsmithConfig
                         "type" => "`$ANY`",
                       },
                       {
-                        "active" => true,
                         "kind" => "param",
                         "name" => "owner",
                         "orig" => "owner",
@@ -26805,11 +21732,9 @@ module CloudsmithConfig
                     ],
                     "query" => [
                       {
-                        "active" => true,
                         "kind" => "query",
                         "name" => "data",
                         "orig" => "data",
-                        "reqd" => false,
                         "type" => "`$OBJECT`",
                       },
                     ],
@@ -26842,54 +21767,43 @@ module CloudsmithConfig
                     "req" => "`reqdata`",
                     "res" => "`body`",
                   },
-                  "index$" => 0,
                 },
               ],
-              "key$" => "patch",
             },
             "update" => {
               "input" => "data",
               "name" => "update",
               "points" => [
                 {
-                  "active" => true,
                   "args" => {
                     "params" => [
                       {
-                        "active" => true,
                         "kind" => "param",
                         "name" => "id",
                         "orig" => "slug_perm",
                         "reqd" => true,
                         "type" => "`$STRING`",
-                        "index$" => 0,
                       },
                       {
-                        "active" => true,
                         "kind" => "param",
                         "name" => "identifier",
                         "orig" => "identifier",
                         "reqd" => true,
                         "type" => "`$ANY`",
-                        "index$" => 1,
                       },
                       {
-                        "active" => true,
                         "kind" => "param",
                         "name" => "owner",
                         "orig" => "owner",
                         "reqd" => true,
                         "type" => "`$ANY`",
-                        "index$" => 2,
                       },
                     ],
                     "query" => [
                       {
-                        "active" => true,
                         "kind" => "query",
                         "name" => "data",
                         "orig" => "data",
-                        "reqd" => false,
                         "type" => "`$OBJECT`",
                       },
                     ],
@@ -26922,10 +21836,8 @@ module CloudsmithConfig
                     "req" => "`reqdata`",
                     "res" => "`body`",
                   },
-                  "index$" => 0,
                 },
               ],
-              "key$" => "update",
             },
           },
           "relations" => {
@@ -26974,74 +21886,45 @@ module CloudsmithConfig
         "service" => {
           "fields" => [
             {
-              "active" => true,
               "name" => "created_at",
-              "req" => false,
               "type" => "`$STRING`",
-              "index$" => 0,
             },
             {
-              "active" => true,
               "name" => "created_by",
-              "req" => false,
               "type" => "`$STRING`",
-              "index$" => 1,
             },
             {
-              "active" => true,
               "name" => "created_by_url",
-              "req" => false,
               "type" => "`$STRING`",
-              "index$" => 2,
             },
             {
-              "active" => true,
               "name" => "description",
-              "req" => false,
               "type" => "`$STRING`",
-              "index$" => 3,
             },
             {
-              "active" => true,
               "name" => "key",
-              "req" => false,
               "type" => "`$STRING`",
-              "index$" => 4,
             },
             {
-              "active" => true,
               "name" => "key_expires_at",
-              "req" => false,
               "type" => "`$STRING`",
-              "index$" => 5,
             },
             {
-              "active" => true,
               "name" => "name",
               "req" => true,
               "type" => "`$STRING`",
-              "index$" => 6,
             },
             {
-              "active" => true,
               "name" => "role",
-              "req" => false,
               "type" => "`$STRING`",
-              "index$" => 7,
             },
             {
-              "active" => true,
               "name" => "slug",
-              "req" => false,
               "type" => "`$STRING`",
-              "index$" => 8,
             },
             {
-              "active" => true,
               "name" => "teams",
-              "req" => false,
               "type" => "`$ARRAY`",
-              "index$" => 9,
             },
           ],
           "name" => "service",
@@ -27051,26 +21934,21 @@ module CloudsmithConfig
               "name" => "create",
               "points" => [
                 {
-                  "active" => true,
                   "args" => {
                     "params" => [
                       {
-                        "active" => true,
                         "kind" => "param",
                         "name" => "org_id",
                         "orig" => "org",
                         "reqd" => true,
                         "type" => "`$STRING`",
-                        "index$" => 0,
                       },
                     ],
                     "query" => [
                       {
-                        "active" => true,
                         "kind" => "query",
                         "name" => "data",
                         "orig" => "data",
-                        "reqd" => false,
                         "type" => "`$OBJECT`",
                       },
                     ],
@@ -27098,29 +21976,23 @@ module CloudsmithConfig
                     "req" => "`reqdata`",
                     "res" => "`body`",
                   },
-                  "index$" => 0,
                 },
                 {
-                  "active" => true,
                   "args" => {
                     "params" => [
                       {
-                        "active" => true,
                         "kind" => "param",
                         "name" => "id",
                         "orig" => "service",
                         "reqd" => true,
                         "type" => "`$STRING`",
-                        "index$" => 0,
                       },
                       {
-                        "active" => true,
                         "kind" => "param",
                         "name" => "org_id",
                         "orig" => "org",
                         "reqd" => true,
                         "type" => "`$STRING`",
-                        "index$" => 1,
                       },
                     ],
                   },
@@ -27151,60 +22023,47 @@ module CloudsmithConfig
                     "req" => "`reqdata`",
                     "res" => "`body`",
                   },
-                  "index$" => 1,
                 },
               ],
-              "key$" => "create",
             },
             "list" => {
               "input" => "data",
               "name" => "list",
               "points" => [
                 {
-                  "active" => true,
                   "args" => {
                     "params" => [
                       {
-                        "active" => true,
                         "kind" => "param",
                         "name" => "org_id",
                         "orig" => "org",
                         "reqd" => true,
                         "type" => "`$STRING`",
-                        "index$" => 0,
                       },
                     ],
                     "query" => [
                       {
-                        "active" => true,
                         "kind" => "query",
                         "name" => "page",
                         "orig" => "page",
-                        "reqd" => false,
                         "type" => "`$INTEGER`",
                       },
                       {
-                        "active" => true,
                         "kind" => "query",
                         "name" => "page_size",
                         "orig" => "page_size",
-                        "reqd" => false,
                         "type" => "`$INTEGER`",
                       },
                       {
-                        "active" => true,
                         "kind" => "query",
                         "name" => "query",
                         "orig" => "query",
-                        "reqd" => false,
                         "type" => "`$ANY`",
                       },
                       {
-                        "active" => true,
                         "kind" => "query",
                         "name" => "sort",
                         "orig" => "sort",
-                        "reqd" => false,
                         "type" => "`$ANY`",
                       },
                     ],
@@ -27235,36 +22094,29 @@ module CloudsmithConfig
                     "req" => "`reqdata`",
                     "res" => "`body`",
                   },
-                  "index$" => 0,
                 },
               ],
-              "key$" => "list",
             },
             "load" => {
               "input" => "data",
               "name" => "load",
               "points" => [
                 {
-                  "active" => true,
                   "args" => {
                     "params" => [
                       {
-                        "active" => true,
                         "kind" => "param",
                         "name" => "id",
                         "orig" => "service",
                         "reqd" => true,
                         "type" => "`$STRING`",
-                        "index$" => 0,
                       },
                       {
-                        "active" => true,
                         "kind" => "param",
                         "name" => "org_id",
                         "orig" => "org",
                         "reqd" => true,
                         "type" => "`$STRING`",
-                        "index$" => 1,
                       },
                     ],
                   },
@@ -27293,45 +22145,36 @@ module CloudsmithConfig
                     "req" => "`reqdata`",
                     "res" => "`body`",
                   },
-                  "index$" => 0,
                 },
               ],
-              "key$" => "load",
             },
             "update" => {
               "input" => "data",
               "name" => "update",
               "points" => [
                 {
-                  "active" => true,
                   "args" => {
                     "params" => [
                       {
-                        "active" => true,
                         "kind" => "param",
                         "name" => "id",
                         "orig" => "service",
                         "reqd" => true,
                         "type" => "`$STRING`",
-                        "index$" => 0,
                       },
                       {
-                        "active" => true,
                         "kind" => "param",
                         "name" => "org_id",
                         "orig" => "org",
                         "reqd" => true,
                         "type" => "`$STRING`",
-                        "index$" => 1,
                       },
                     ],
                     "query" => [
                       {
-                        "active" => true,
                         "kind" => "query",
                         "name" => "data",
                         "orig" => "data",
-                        "reqd" => false,
                         "type" => "`$OBJECT`",
                       },
                     ],
@@ -27362,10 +22205,8 @@ module CloudsmithConfig
                     "req" => "`reqdata`",
                     "res" => "`body`",
                   },
-                  "index$" => 0,
                 },
               ],
-              "key$" => "update",
             },
           },
           "relations" => {
@@ -27397,18 +22238,12 @@ module CloudsmithConfig
         "status_basic" => {
           "fields" => [
             {
-              "active" => true,
               "name" => "detail",
-              "req" => false,
               "type" => "`$STRING`",
-              "index$" => 0,
             },
             {
-              "active" => true,
               "name" => "version",
-              "req" => false,
               "type" => "`$STRING`",
-              "index$" => 1,
             },
           ],
           "name" => "status_basic",
@@ -27418,7 +22253,6 @@ module CloudsmithConfig
               "name" => "load",
               "points" => [
                 {
-                  "active" => true,
                   "args" => {},
                   "kind" => "http",
                   "method" => "GET",
@@ -27433,10 +22267,8 @@ module CloudsmithConfig
                     "req" => "`reqdata`",
                     "res" => "`body`",
                   },
-                  "index$" => 0,
                 },
               ],
-              "key$" => "load",
             },
           },
           "relations" => {
@@ -27446,18 +22278,14 @@ module CloudsmithConfig
         "storage_region" => {
           "fields" => [
             {
-              "active" => true,
               "name" => "label",
               "req" => true,
               "type" => "`$STRING`",
-              "index$" => 0,
             },
             {
-              "active" => true,
               "name" => "slug",
               "req" => true,
               "type" => "`$STRING`",
-              "index$" => 1,
             },
           ],
           "name" => "storage_region",
@@ -27467,7 +22295,6 @@ module CloudsmithConfig
               "name" => "list",
               "points" => [
                 {
-                  "active" => true,
                   "args" => {},
                   "kind" => "http",
                   "method" => "GET",
@@ -27480,27 +22307,22 @@ module CloudsmithConfig
                     "req" => "`reqdata`",
                     "res" => "`body`",
                   },
-                  "index$" => 0,
                 },
               ],
-              "key$" => "list",
             },
             "load" => {
               "input" => "data",
               "name" => "load",
               "points" => [
                 {
-                  "active" => true,
                   "args" => {
                     "params" => [
                       {
-                        "active" => true,
                         "kind" => "param",
                         "name" => "id",
                         "orig" => "slug",
                         "reqd" => true,
                         "type" => "`$STRING`",
-                        "index$" => 0,
                       },
                     ],
                   },
@@ -27525,10 +22347,8 @@ module CloudsmithConfig
                     "req" => "`reqdata`",
                     "res" => "`body`",
                   },
-                  "index$" => 0,
                 },
               ],
-              "key$" => "load",
             },
           },
           "relations" => {
@@ -27538,130 +22358,78 @@ module CloudsmithConfig
         "swift" => {
           "fields" => [
             {
-              "active" => true,
               "name" => "auth_mode",
-              "req" => false,
               "type" => "`$STRING`",
-              "index$" => 0,
             },
             {
-              "active" => true,
               "name" => "auth_secret",
-              "req" => false,
               "type" => "`$STRING`",
-              "index$" => 1,
             },
             {
-              "active" => true,
               "name" => "auth_username",
-              "req" => false,
               "type" => "`$STRING`",
-              "index$" => 2,
             },
             {
-              "active" => true,
               "name" => "created_at",
-              "req" => false,
               "type" => "`$STRING`",
-              "index$" => 3,
             },
             {
-              "active" => true,
               "name" => "disable_reason",
-              "req" => false,
               "type" => "`$STRING`",
-              "index$" => 4,
             },
             {
-              "active" => true,
               "name" => "extra_header_1",
-              "req" => false,
               "type" => "`$STRING`",
-              "index$" => 5,
             },
             {
-              "active" => true,
               "name" => "extra_header_2",
-              "req" => false,
               "type" => "`$STRING`",
-              "index$" => 6,
             },
             {
-              "active" => true,
               "name" => "extra_value_1",
-              "req" => false,
               "type" => "`$STRING`",
-              "index$" => 7,
             },
             {
-              "active" => true,
               "name" => "extra_value_2",
-              "req" => false,
               "type" => "`$STRING`",
-              "index$" => 8,
             },
             {
-              "active" => true,
               "name" => "is_active",
-              "req" => false,
               "type" => "`$BOOLEAN`",
-              "index$" => 9,
             },
             {
-              "active" => true,
               "name" => "mode",
-              "req" => false,
               "type" => "`$STRING`",
-              "index$" => 10,
             },
             {
-              "active" => true,
               "name" => "name",
               "req" => true,
               "type" => "`$STRING`",
-              "index$" => 11,
             },
             {
-              "active" => true,
               "name" => "pending_validation",
-              "req" => false,
               "type" => "`$BOOLEAN`",
-              "index$" => 12,
             },
             {
-              "active" => true,
               "name" => "priority",
-              "req" => false,
               "type" => "`$INTEGER`",
-              "index$" => 13,
             },
             {
-              "active" => true,
               "name" => "slug_perm",
-              "req" => false,
               "type" => "`$STRING`",
-              "index$" => 14,
             },
             {
-              "active" => true,
               "name" => "updated_at",
-              "req" => false,
               "type" => "`$STRING`",
-              "index$" => 15,
             },
             {
-              "active" => true,
               "name" => "upstream_url",
               "req" => true,
               "type" => "`$STRING`",
-              "index$" => 16,
             },
             {
-              "active" => true,
               "name" => "verify_ssl",
-              "req" => false,
               "type" => "`$BOOLEAN`",
-              "index$" => 17,
             },
           ],
           "name" => "swift",
@@ -27671,35 +22439,28 @@ module CloudsmithConfig
               "name" => "create",
               "points" => [
                 {
-                  "active" => true,
                   "args" => {
                     "params" => [
                       {
-                        "active" => true,
                         "kind" => "param",
                         "name" => "identifier",
                         "orig" => "identifier",
                         "reqd" => true,
                         "type" => "`$ANY`",
-                        "index$" => 0,
                       },
                       {
-                        "active" => true,
                         "kind" => "param",
                         "name" => "owner",
                         "orig" => "owner",
                         "reqd" => true,
                         "type" => "`$ANY`",
-                        "index$" => 1,
                       },
                     ],
                     "query" => [
                       {
-                        "active" => true,
                         "kind" => "query",
                         "name" => "data",
                         "orig" => "data",
-                        "reqd" => false,
                         "type" => "`$OBJECT`",
                       },
                     ],
@@ -27725,53 +22486,42 @@ module CloudsmithConfig
                     "req" => "`reqdata`",
                     "res" => "`body`",
                   },
-                  "index$" => 0,
                 },
               ],
-              "key$" => "create",
             },
             "list" => {
               "input" => "data",
               "name" => "list",
               "points" => [
                 {
-                  "active" => true,
                   "args" => {
                     "params" => [
                       {
-                        "active" => true,
                         "kind" => "param",
                         "name" => "identifier",
                         "orig" => "identifier",
                         "reqd" => true,
                         "type" => "`$ANY`",
-                        "index$" => 0,
                       },
                       {
-                        "active" => true,
                         "kind" => "param",
                         "name" => "owner",
                         "orig" => "owner",
                         "reqd" => true,
                         "type" => "`$ANY`",
-                        "index$" => 1,
                       },
                     ],
                     "query" => [
                       {
-                        "active" => true,
                         "kind" => "query",
                         "name" => "page",
                         "orig" => "page",
-                        "reqd" => false,
                         "type" => "`$INTEGER`",
                       },
                       {
-                        "active" => true,
                         "kind" => "query",
                         "name" => "page_size",
                         "orig" => "page_size",
-                        "reqd" => false,
                         "type" => "`$INTEGER`",
                       },
                     ],
@@ -27798,45 +22548,36 @@ module CloudsmithConfig
                     "req" => "`reqdata`",
                     "res" => "`body`",
                   },
-                  "index$" => 0,
                 },
               ],
-              "key$" => "list",
             },
             "load" => {
               "input" => "data",
               "name" => "load",
               "points" => [
                 {
-                  "active" => true,
                   "args" => {
                     "params" => [
                       {
-                        "active" => true,
                         "kind" => "param",
                         "name" => "id",
                         "orig" => "slug_perm",
                         "reqd" => true,
                         "type" => "`$STRING`",
-                        "index$" => 0,
                       },
                       {
-                        "active" => true,
                         "kind" => "param",
                         "name" => "identifier",
                         "orig" => "identifier",
                         "reqd" => true,
                         "type" => "`$ANY`",
-                        "index$" => 1,
                       },
                       {
-                        "active" => true,
                         "kind" => "param",
                         "name" => "owner",
                         "orig" => "owner",
                         "reqd" => true,
                         "type" => "`$ANY`",
-                        "index$" => 2,
                       },
                     ],
                   },
@@ -27867,21 +22608,17 @@ module CloudsmithConfig
                     "req" => "`reqdata`",
                     "res" => "`body`",
                   },
-                  "index$" => 0,
                 },
               ],
-              "key$" => "load",
             },
             "patch" => {
               "input" => "data",
               "name" => "patch",
               "points" => [
                 {
-                  "active" => true,
                   "args" => {
                     "params" => [
                       {
-                        "active" => true,
                         "kind" => "param",
                         "name" => "id",
                         "orig" => "slug_perm",
@@ -27889,7 +22626,6 @@ module CloudsmithConfig
                         "type" => "`$STRING`",
                       },
                       {
-                        "active" => true,
                         "kind" => "param",
                         "name" => "identifier",
                         "orig" => "identifier",
@@ -27897,7 +22633,6 @@ module CloudsmithConfig
                         "type" => "`$ANY`",
                       },
                       {
-                        "active" => true,
                         "kind" => "param",
                         "name" => "owner",
                         "orig" => "owner",
@@ -27907,11 +22642,9 @@ module CloudsmithConfig
                     ],
                     "query" => [
                       {
-                        "active" => true,
                         "kind" => "query",
                         "name" => "data",
                         "orig" => "data",
-                        "reqd" => false,
                         "type" => "`$OBJECT`",
                       },
                     ],
@@ -27944,54 +22677,43 @@ module CloudsmithConfig
                     "req" => "`reqdata`",
                     "res" => "`body`",
                   },
-                  "index$" => 0,
                 },
               ],
-              "key$" => "patch",
             },
             "update" => {
               "input" => "data",
               "name" => "update",
               "points" => [
                 {
-                  "active" => true,
                   "args" => {
                     "params" => [
                       {
-                        "active" => true,
                         "kind" => "param",
                         "name" => "id",
                         "orig" => "slug_perm",
                         "reqd" => true,
                         "type" => "`$STRING`",
-                        "index$" => 0,
                       },
                       {
-                        "active" => true,
                         "kind" => "param",
                         "name" => "identifier",
                         "orig" => "identifier",
                         "reqd" => true,
                         "type" => "`$ANY`",
-                        "index$" => 1,
                       },
                       {
-                        "active" => true,
                         "kind" => "param",
                         "name" => "owner",
                         "orig" => "owner",
                         "reqd" => true,
                         "type" => "`$ANY`",
-                        "index$" => 2,
                       },
                     ],
                     "query" => [
                       {
-                        "active" => true,
                         "kind" => "query",
                         "name" => "data",
                         "orig" => "data",
-                        "reqd" => false,
                         "type" => "`$OBJECT`",
                       },
                     ],
@@ -28024,10 +22746,8 @@ module CloudsmithConfig
                     "req" => "`reqdata`",
                     "res" => "`body`",
                   },
-                  "index$" => 0,
                 },
               ],
-              "key$" => "update",
             },
           },
           "relations" => {
@@ -28128,25 +22848,16 @@ module CloudsmithConfig
         "user" => {
           "fields" => [
             {
-              "active" => true,
               "name" => "created",
-              "req" => false,
               "type" => "`$STRING`",
-              "index$" => 0,
             },
             {
-              "active" => true,
               "name" => "key",
-              "req" => false,
               "type" => "`$STRING`",
-              "index$" => 1,
             },
             {
-              "active" => true,
               "name" => "slug_perm",
-              "req" => false,
               "type" => "`$STRING`",
-              "index$" => 2,
             },
           ],
           "name" => "user",
@@ -28156,23 +22867,18 @@ module CloudsmithConfig
               "name" => "list",
               "points" => [
                 {
-                  "active" => true,
                   "args" => {
                     "query" => [
                       {
-                        "active" => true,
                         "kind" => "query",
                         "name" => "page",
                         "orig" => "page",
-                        "reqd" => false,
                         "type" => "`$INTEGER`",
                       },
                       {
-                        "active" => true,
                         "kind" => "query",
                         "name" => "page_size",
                         "orig" => "page_size",
-                        "reqd" => false,
                         "type" => "`$INTEGER`",
                       },
                     ],
@@ -28195,10 +22901,8 @@ module CloudsmithConfig
                     "req" => "`reqdata`",
                     "res" => "`body.results`",
                   },
-                  "index$" => 0,
                 },
               ],
-              "key$" => "list",
             },
           },
           "relations" => {
@@ -28214,15 +22918,12 @@ module CloudsmithConfig
               "name" => "create",
               "points" => [
                 {
-                  "active" => true,
                   "args" => {
                     "query" => [
                       {
-                        "active" => true,
                         "kind" => "query",
                         "name" => "data",
                         "orig" => "data",
-                        "reqd" => false,
                         "type" => "`$OBJECT`",
                       },
                     ],
@@ -28243,10 +22944,8 @@ module CloudsmithConfig
                     "req" => "`reqdata`",
                     "res" => "`body`",
                   },
-                  "index$" => 0,
                 },
               ],
-              "key$" => "create",
             },
           },
           "relations" => {
@@ -28256,25 +22955,16 @@ module CloudsmithConfig
         "user_authentication_token" => {
           "fields" => [
             {
-              "active" => true,
               "name" => "created",
-              "req" => false,
               "type" => "`$STRING`",
-              "index$" => 0,
             },
             {
-              "active" => true,
               "name" => "key",
-              "req" => false,
               "type" => "`$STRING`",
-              "index$" => 1,
             },
             {
-              "active" => true,
               "name" => "slug_perm",
-              "req" => false,
               "type" => "`$STRING`",
-              "index$" => 2,
             },
           ],
           "name" => "user_authentication_token",
@@ -28284,7 +22974,6 @@ module CloudsmithConfig
               "name" => "create",
               "points" => [
                 {
-                  "active" => true,
                   "args" => {},
                   "kind" => "http",
                   "method" => "POST",
@@ -28298,27 +22987,22 @@ module CloudsmithConfig
                     "req" => "`reqdata`",
                     "res" => "`body`",
                   },
-                  "index$" => 0,
                 },
               ],
-              "key$" => "create",
             },
             "update" => {
               "input" => "data",
               "name" => "update",
               "points" => [
                 {
-                  "active" => true,
                   "args" => {
                     "params" => [
                       {
-                        "active" => true,
                         "kind" => "param",
                         "name" => "slug_perm",
                         "orig" => "slug_perm",
                         "reqd" => true,
                         "type" => "`$ANY`",
-                        "index$" => 0,
                       },
                     ],
                   },
@@ -28340,10 +23024,8 @@ module CloudsmithConfig
                     "req" => "`reqdata`",
                     "res" => "`body`",
                   },
-                  "index$" => 0,
                 },
               ],
-              "key$" => "update",
             },
           },
           "relations" => {
@@ -28357,53 +23039,32 @@ module CloudsmithConfig
         "user_brief" => {
           "fields" => [
             {
-              "active" => true,
               "name" => "authenticated",
-              "req" => false,
               "type" => "`$BOOLEAN`",
-              "index$" => 0,
             },
             {
-              "active" => true,
               "name" => "email",
-              "req" => false,
               "type" => "`$STRING`",
-              "index$" => 1,
             },
             {
-              "active" => true,
               "name" => "name",
-              "req" => false,
               "type" => "`$STRING`",
-              "index$" => 2,
             },
             {
-              "active" => true,
               "name" => "profile_url",
-              "req" => false,
               "type" => "`$STRING`",
-              "index$" => 3,
             },
             {
-              "active" => true,
               "name" => "self_url",
-              "req" => false,
               "type" => "`$STRING`",
-              "index$" => 4,
             },
             {
-              "active" => true,
               "name" => "slug",
-              "req" => false,
               "type" => "`$STRING`",
-              "index$" => 5,
             },
             {
-              "active" => true,
               "name" => "slug_perm",
-              "req" => false,
               "type" => "`$STRING`",
-              "index$" => 6,
             },
           ],
           "name" => "user_brief",
@@ -28413,7 +23074,6 @@ module CloudsmithConfig
               "name" => "load",
               "points" => [
                 {
-                  "active" => true,
                   "args" => {},
                   "kind" => "http",
                   "method" => "GET",
@@ -28427,10 +23087,8 @@ module CloudsmithConfig
                     "req" => "`reqdata`",
                     "res" => "`body`",
                   },
-                  "index$" => 0,
                 },
               ],
-              "key$" => "load",
             },
           },
           "relations" => {
@@ -28440,74 +23098,46 @@ module CloudsmithConfig
         "user_profile" => {
           "fields" => [
             {
-              "active" => true,
               "name" => "company",
-              "req" => false,
               "type" => "`$STRING`",
-              "index$" => 0,
             },
             {
-              "active" => true,
               "name" => "first_name",
               "req" => true,
               "type" => "`$STRING`",
-              "index$" => 1,
             },
             {
-              "active" => true,
               "name" => "job_title",
-              "req" => false,
               "type" => "`$STRING`",
-              "index$" => 2,
             },
             {
-              "active" => true,
               "name" => "joined_at",
-              "req" => false,
               "type" => "`$STRING`",
-              "index$" => 3,
             },
             {
-              "active" => true,
               "name" => "last_name",
               "req" => true,
               "type" => "`$STRING`",
-              "index$" => 4,
             },
             {
-              "active" => true,
               "name" => "name",
-              "req" => false,
               "type" => "`$STRING`",
-              "index$" => 5,
             },
             {
-              "active" => true,
               "name" => "slug",
-              "req" => false,
               "type" => "`$STRING`",
-              "index$" => 6,
             },
             {
-              "active" => true,
               "name" => "slug_perm",
-              "req" => false,
               "type" => "`$STRING`",
-              "index$" => 7,
             },
             {
-              "active" => true,
               "name" => "tagline",
-              "req" => false,
               "type" => "`$STRING`",
-              "index$" => 8,
             },
             {
-              "active" => true,
               "name" => "url",
-              "req" => false,
               "type" => "`$STRING`",
-              "index$" => 9,
             },
           ],
           "name" => "user_profile",
@@ -28517,17 +23147,14 @@ module CloudsmithConfig
               "name" => "load",
               "points" => [
                 {
-                  "active" => true,
                   "args" => {
                     "params" => [
                       {
-                        "active" => true,
                         "kind" => "param",
                         "name" => "id",
                         "orig" => "slug",
                         "reqd" => true,
                         "type" => "`$STRING`",
-                        "index$" => 0,
                       },
                     ],
                   },
@@ -28553,10 +23180,8 @@ module CloudsmithConfig
                     "req" => "`reqdata`",
                     "res" => "`body`",
                   },
-                  "index$" => 0,
                 },
               ],
-              "key$" => "load",
             },
           },
           "relations" => {
@@ -28602,74 +23227,50 @@ module CloudsmithConfig
         "vulnerability" => {
           "fields" => [
             {
-              "active" => true,
               "name" => "created_at",
-              "req" => false,
               "type" => "`$STRING`",
-              "index$" => 0,
             },
             {
-              "active" => true,
               "name" => "has_vulnerabilities",
-              "req" => false,
               "type" => "`$BOOLEAN`",
-              "index$" => 1,
             },
             {
-              "active" => true,
               "name" => "identifier",
               "req" => true,
               "type" => "`$STRING`",
-              "index$" => 2,
             },
             {
-              "active" => true,
               "name" => "max_severity",
-              "req" => false,
               "type" => "`$STRING`",
-              "index$" => 3,
             },
             {
-              "active" => true,
               "name" => "num_vulnerabilities",
-              "req" => false,
               "type" => "`$INTEGER`",
-              "index$" => 4,
             },
             {
-              "active" => true,
               "name" => "package",
               "req" => true,
               "type" => "`$OBJECT`",
-              "index$" => 5,
             },
             {
-              "active" => true,
               "name" => "results",
               "req" => true,
               "type" => "`$ARRAY`",
-              "index$" => 6,
             },
             {
-              "active" => true,
               "name" => "scan_id",
               "req" => true,
               "type" => "`$INTEGER`",
-              "index$" => 7,
             },
             {
-              "active" => true,
               "name" => "target",
               "req" => true,
               "type" => "`$STRING`",
-              "index$" => 8,
             },
             {
-              "active" => true,
               "name" => "type",
               "req" => true,
               "type" => "`$STRING`",
-              "index$" => 9,
             },
           ],
           "name" => "vulnerability",
@@ -28679,52 +23280,41 @@ module CloudsmithConfig
               "name" => "list",
               "points" => [
                 {
-                  "active" => true,
                   "args" => {
                     "params" => [
                       {
-                        "active" => true,
                         "kind" => "param",
                         "name" => "owner",
                         "orig" => "owner",
                         "reqd" => true,
                         "type" => "`$ANY`",
-                        "index$" => 0,
                       },
                       {
-                        "active" => true,
                         "kind" => "param",
                         "name" => "package",
                         "orig" => "package",
                         "reqd" => true,
                         "type" => "`$ANY`",
-                        "index$" => 1,
                       },
                       {
-                        "active" => true,
                         "kind" => "param",
                         "name" => "repo",
                         "orig" => "repo",
                         "reqd" => true,
                         "type" => "`$ANY`",
-                        "index$" => 2,
                       },
                     ],
                     "query" => [
                       {
-                        "active" => true,
                         "kind" => "query",
                         "name" => "page",
                         "orig" => "page",
-                        "reqd" => false,
                         "type" => "`$INTEGER`",
                       },
                       {
-                        "active" => true,
                         "kind" => "query",
                         "name" => "page_size",
                         "orig" => "page_size",
-                        "reqd" => false,
                         "type" => "`$INTEGER`",
                       },
                     ],
@@ -28751,47 +23341,37 @@ module CloudsmithConfig
                     "req" => "`reqdata`",
                     "res" => "`body`",
                   },
-                  "index$" => 0,
                 },
                 {
-                  "active" => true,
                   "args" => {
                     "params" => [
                       {
-                        "active" => true,
                         "kind" => "param",
                         "name" => "identifier",
                         "orig" => "identifier",
                         "reqd" => true,
                         "type" => "`$ANY`",
-                        "index$" => 0,
                       },
                       {
-                        "active" => true,
                         "kind" => "param",
                         "name" => "owner",
                         "orig" => "owner",
                         "reqd" => true,
                         "type" => "`$ANY`",
-                        "index$" => 1,
                       },
                       {
-                        "active" => true,
                         "kind" => "param",
                         "name" => "package",
                         "orig" => "package",
                         "reqd" => true,
                         "type" => "`$ANY`",
-                        "index$" => 2,
                       },
                       {
-                        "active" => true,
                         "kind" => "param",
                         "name" => "repo",
                         "orig" => "repo",
                         "reqd" => true,
                         "type" => "`$ANY`",
-                        "index$" => 3,
                       },
                     ],
                   },
@@ -28817,46 +23397,36 @@ module CloudsmithConfig
                     "req" => "`reqdata`",
                     "res" => "`body`",
                   },
-                  "index$" => 1,
                 },
                 {
-                  "active" => true,
                   "args" => {
                     "params" => [
                       {
-                        "active" => true,
                         "kind" => "param",
                         "name" => "owner",
                         "orig" => "owner",
                         "reqd" => true,
                         "type" => "`$ANY`",
-                        "index$" => 0,
                       },
                       {
-                        "active" => true,
                         "kind" => "param",
                         "name" => "repo",
                         "orig" => "repo",
                         "reqd" => true,
                         "type" => "`$ANY`",
-                        "index$" => 1,
                       },
                     ],
                     "query" => [
                       {
-                        "active" => true,
                         "kind" => "query",
                         "name" => "page",
                         "orig" => "page",
-                        "reqd" => false,
                         "type" => "`$INTEGER`",
                       },
                       {
-                        "active" => true,
                         "kind" => "query",
                         "name" => "page_size",
                         "orig" => "page_size",
-                        "reqd" => false,
                         "type" => "`$INTEGER`",
                       },
                     ],
@@ -28881,44 +23451,35 @@ module CloudsmithConfig
                     "req" => "`reqdata`",
                     "res" => "`body`",
                   },
-                  "index$" => 2,
                 },
               ],
-              "key$" => "list",
             },
             "load" => {
               "input" => "data",
               "name" => "load",
               "points" => [
                 {
-                  "active" => true,
                   "args" => {
                     "params" => [
                       {
-                        "active" => true,
                         "kind" => "param",
                         "name" => "id",
                         "orig" => "owner",
                         "reqd" => true,
                         "type" => "`$STRING`",
-                        "index$" => 0,
                       },
                     ],
                     "query" => [
                       {
-                        "active" => true,
                         "kind" => "query",
                         "name" => "page",
                         "orig" => "page",
-                        "reqd" => false,
                         "type" => "`$INTEGER`",
                       },
                       {
-                        "active" => true,
                         "kind" => "query",
                         "name" => "page_size",
                         "orig" => "page_size",
-                        "reqd" => false,
                         "type" => "`$INTEGER`",
                       },
                     ],
@@ -28946,10 +23507,8 @@ module CloudsmithConfig
                     "req" => "`reqdata`",
                     "res" => "`body`",
                   },
-                  "index$" => 0,
                 },
               ],
-              "key$" => "load",
             },
           },
           "relations" => {
@@ -28985,35 +23544,28 @@ module CloudsmithConfig
               "name" => "remove",
               "points" => [
                 {
-                  "active" => true,
                   "args" => {
                     "params" => [
                       {
-                        "active" => true,
                         "kind" => "param",
                         "name" => "identifier",
                         "orig" => "identifier",
                         "reqd" => true,
                         "type" => "`$ANY`",
-                        "index$" => 0,
                       },
                       {
-                        "active" => true,
                         "kind" => "param",
                         "name" => "owner",
                         "orig" => "owner",
                         "reqd" => true,
                         "type" => "`$ANY`",
-                        "index$" => 1,
                       },
                       {
-                        "active" => true,
                         "kind" => "param",
                         "name" => "repo",
                         "orig" => "repo",
                         "reqd" => true,
                         "type" => "`$ANY`",
-                        "index$" => 2,
                       },
                     ],
                   },
@@ -29037,10 +23589,8 @@ module CloudsmithConfig
                     "req" => "`reqdata`",
                     "res" => "`body`",
                   },
-                  "index$" => 0,
                 },
               ],
-              "key$" => "remove",
             },
           },
           "relations" => {

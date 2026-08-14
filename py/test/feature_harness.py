@@ -14,7 +14,7 @@ from __future__ import annotations
 
 from urllib.parse import quote
 
-from cloudsmith_sdk.config import make_config
+from cloudsmith_sdk.config import shared_config
 from cloudsmith_sdk.features import _make_feature
 from cloudsmith_sdk.core.control import CloudsmithControl
 from cloudsmith_sdk.core.error import CloudsmithError
@@ -24,7 +24,7 @@ from cloudsmith_sdk.core.spec import CloudsmithSpec
 
 # True when this SDK was generated with the named feature.
 def has_feature(name):
-    feature = make_config().get("feature")
+    feature = shared_config().get("feature")
     return isinstance(feature, dict) and feature.get(name) is not None
 
 

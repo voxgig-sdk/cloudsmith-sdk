@@ -40,7 +40,7 @@ class CloudsmithSDK
         $utility = new CloudsmithUtility();
         $this->_utility = $utility;
 
-        $config = CloudsmithConfig::make_config();
+        $config = CloudsmithConfig::shared_config();
 
         $this->_rootctx = ($utility->make_context)([
             "client" => $this,
