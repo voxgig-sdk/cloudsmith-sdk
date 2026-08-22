@@ -5,6 +5,6 @@ import type { RepositoryTokenRefresh, RepositoryTokenRefreshCreateData } from '.
 declare class RepositoryTokenRefreshEntity extends CloudsmithEntityBase<RepositoryTokenRefresh> {
     constructor(client: CloudsmithSDK, entopts: any);
     make(this: RepositoryTokenRefreshEntity): RepositoryTokenRefreshEntity;
-    create(this: any, reqdata?: RepositoryTokenRefreshCreateData, ctrl?: Control): Promise<RepositoryTokenRefresh>;
+    create(this: any, reqdata?: RepositoryTokenRefreshCreateData, ctrl?: Control): Promise<RepositoryTokenRefreshEntity>;
 }
 export { RepositoryTokenRefreshEntity };

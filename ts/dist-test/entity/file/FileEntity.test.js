@@ -76,7 +76,7 @@ const utility_1 = require("../../utility");
         let file_ref01_data = setup.data.new.file['file_ref01'];
         file_ref01_data['owner'] = setup.idmap['owner01'];
         file_ref01_data['repo'] = setup.idmap['repo01'];
-        file_ref01_data = await file_ref01_ent.create(file_ref01_data);
+        file_ref01_data = (await file_ref01_ent.create(file_ref01_data)).data();
         (0, node_assert_1.default)(null != file_ref01_data);
     });
 });

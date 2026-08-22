@@ -5,6 +5,6 @@ import type { OrganizationMembershipVisibilityUpdate, OrganizationMembershipVisi
 declare class OrganizationMembershipVisibilityUpdateEntity extends CloudsmithEntityBase<OrganizationMembershipVisibilityUpdate> {
     constructor(client: CloudsmithSDK, entopts: any);
     make(this: OrganizationMembershipVisibilityUpdateEntity): OrganizationMembershipVisibilityUpdateEntity;
-    update(this: any, reqdata?: OrganizationMembershipVisibilityUpdateUpdateData, ctrl?: Control): Promise<OrganizationMembershipVisibilityUpdate>;
+    update(this: any, reqdata?: OrganizationMembershipVisibilityUpdateUpdateData, ctrl?: Control): Promise<OrganizationMembershipVisibilityUpdateEntity>;
 }
 export { OrganizationMembershipVisibilityUpdateEntity };

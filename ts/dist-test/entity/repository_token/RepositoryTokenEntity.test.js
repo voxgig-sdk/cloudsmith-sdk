@@ -76,20 +76,20 @@ const utility_1 = require("../../utility");
         let repository_token_ref01_data = setup.data.new.repository_token['repository_token_ref01'];
         repository_token_ref01_data['owner'] = setup.idmap['owner01'];
         repository_token_ref01_data['repo'] = setup.idmap['repo01'];
-        repository_token_ref01_data = await repository_token_ref01_ent.create(repository_token_ref01_data);
+        repository_token_ref01_data = (await repository_token_ref01_ent.create(repository_token_ref01_data)).data();
         (0, node_assert_1.default)(null != repository_token_ref01_data);
         // LIST
         const repository_token_ref01_match = {};
         repository_token_ref01_match['owner'] = setup.idmap['owner01'];
         repository_token_ref01_match['repo'] = setup.idmap['repo01'];
-        const repository_token_ref01_list = await repository_token_ref01_ent.list(repository_token_ref01_match);
+        const repository_token_ref01_list = (await repository_token_ref01_ent.list(repository_token_ref01_match)).map((e) => e.data());
         // UPDATE
         const repository_token_ref01_data_up0 = {};
         repository_token_ref01_data_up0['owner'] = setup.idmap['owner'];
         repository_token_ref01_data_up0['repo'] = setup.idmap['repo'];
         const repository_token_ref01_markdef_up0 = { name: 'created_at', value: 'Mark01-repository_token_ref01_' + setup.now };
         repository_token_ref01_data_up0[repository_token_ref01_markdef_up0.name] = repository_token_ref01_markdef_up0.value;
-        const repository_token_ref01_resdata_up0 = await repository_token_ref01_ent.update(repository_token_ref01_data_up0);
+        const repository_token_ref01_resdata_up0 = (await repository_token_ref01_ent.update(repository_token_ref01_data_up0)).data();
         (0, node_assert_1.default)(null != repository_token_ref01_resdata_up0);
         (0, node_assert_1.default)(repository_token_ref01_resdata_up0[repository_token_ref01_markdef_up0.name] === repository_token_ref01_markdef_up0.value);
     });

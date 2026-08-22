@@ -76,20 +76,20 @@ const utility_1 = require("../../utility");
         let deb_ref01_data = setup.data.new.deb['deb_ref01'];
         deb_ref01_data['identifier'] = setup.idmap['identifier01'];
         deb_ref01_data['owner'] = setup.idmap['owner01'];
-        deb_ref01_data = await deb_ref01_ent.create(deb_ref01_data);
+        deb_ref01_data = (await deb_ref01_ent.create(deb_ref01_data)).data();
         (0, node_assert_1.default)(null != deb_ref01_data);
         // LIST
         const deb_ref01_match = {};
         deb_ref01_match['identifier'] = setup.idmap['identifier01'];
         deb_ref01_match['owner'] = setup.idmap['owner01'];
-        const deb_ref01_list = await deb_ref01_ent.list(deb_ref01_match);
+        const deb_ref01_list = (await deb_ref01_ent.list(deb_ref01_match)).map((e) => e.data());
         // UPDATE
         const deb_ref01_data_up0 = {};
         deb_ref01_data_up0['identifier'] = setup.idmap['identifier'];
         deb_ref01_data_up0['owner'] = setup.idmap['owner'];
         const deb_ref01_markdef_up0 = { name: 'auth_mode', value: 'Mark01-deb_ref01_' + setup.now };
         deb_ref01_data_up0[deb_ref01_markdef_up0.name] = deb_ref01_markdef_up0.value;
-        const deb_ref01_resdata_up0 = await deb_ref01_ent.update(deb_ref01_data_up0);
+        const deb_ref01_resdata_up0 = (await deb_ref01_ent.update(deb_ref01_data_up0)).data();
         (0, node_assert_1.default)(null != deb_ref01_resdata_up0);
         (0, node_assert_1.default)(deb_ref01_resdata_up0[deb_ref01_markdef_up0.name] === deb_ref01_markdef_up0.value);
     });

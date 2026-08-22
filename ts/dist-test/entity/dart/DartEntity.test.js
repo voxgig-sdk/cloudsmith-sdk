@@ -76,20 +76,20 @@ const utility_1 = require("../../utility");
         let dart_ref01_data = setup.data.new.dart['dart_ref01'];
         dart_ref01_data['identifier'] = setup.idmap['identifier01'];
         dart_ref01_data['owner'] = setup.idmap['owner01'];
-        dart_ref01_data = await dart_ref01_ent.create(dart_ref01_data);
+        dart_ref01_data = (await dart_ref01_ent.create(dart_ref01_data)).data();
         (0, node_assert_1.default)(null != dart_ref01_data);
         // LIST
         const dart_ref01_match = {};
         dart_ref01_match['identifier'] = setup.idmap['identifier01'];
         dart_ref01_match['owner'] = setup.idmap['owner01'];
-        const dart_ref01_list = await dart_ref01_ent.list(dart_ref01_match);
+        const dart_ref01_list = (await dart_ref01_ent.list(dart_ref01_match)).map((e) => e.data());
         // UPDATE
         const dart_ref01_data_up0 = {};
         dart_ref01_data_up0['identifier'] = setup.idmap['identifier'];
         dart_ref01_data_up0['owner'] = setup.idmap['owner'];
         const dart_ref01_markdef_up0 = { name: 'auth_mode', value: 'Mark01-dart_ref01_' + setup.now };
         dart_ref01_data_up0[dart_ref01_markdef_up0.name] = dart_ref01_markdef_up0.value;
-        const dart_ref01_resdata_up0 = await dart_ref01_ent.update(dart_ref01_data_up0);
+        const dart_ref01_resdata_up0 = (await dart_ref01_ent.update(dart_ref01_data_up0)).data();
         (0, node_assert_1.default)(null != dart_ref01_resdata_up0);
         (0, node_assert_1.default)(dart_ref01_resdata_up0[dart_ref01_markdef_up0.name] === dart_ref01_markdef_up0.value);
     });

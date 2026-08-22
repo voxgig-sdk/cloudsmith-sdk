@@ -76,20 +76,20 @@ const utility_1 = require("../../utility");
         let python_ref01_data = setup.data.new.python['python_ref01'];
         python_ref01_data['identifier'] = setup.idmap['identifier01'];
         python_ref01_data['owner'] = setup.idmap['owner01'];
-        python_ref01_data = await python_ref01_ent.create(python_ref01_data);
+        python_ref01_data = (await python_ref01_ent.create(python_ref01_data)).data();
         (0, node_assert_1.default)(null != python_ref01_data);
         // LIST
         const python_ref01_match = {};
         python_ref01_match['identifier'] = setup.idmap['identifier01'];
         python_ref01_match['owner'] = setup.idmap['owner01'];
-        const python_ref01_list = await python_ref01_ent.list(python_ref01_match);
+        const python_ref01_list = (await python_ref01_ent.list(python_ref01_match)).map((e) => e.data());
         // UPDATE
         const python_ref01_data_up0 = {};
         python_ref01_data_up0['identifier'] = setup.idmap['identifier'];
         python_ref01_data_up0['owner'] = setup.idmap['owner'];
         const python_ref01_markdef_up0 = { name: 'auth_mode', value: 'Mark01-python_ref01_' + setup.now };
         python_ref01_data_up0[python_ref01_markdef_up0.name] = python_ref01_markdef_up0.value;
-        const python_ref01_resdata_up0 = await python_ref01_ent.update(python_ref01_data_up0);
+        const python_ref01_resdata_up0 = (await python_ref01_ent.update(python_ref01_data_up0)).data();
         (0, node_assert_1.default)(null != python_ref01_resdata_up0);
         (0, node_assert_1.default)(python_ref01_resdata_up0[python_ref01_markdef_up0.name] === python_ref01_markdef_up0.value);
     });

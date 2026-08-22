@@ -16,32 +16,13 @@ class RepoDirectTest < Minitest::Test
       skip(_reason || "skipped via sdk-test-control.json")
       return
     end
-    if setup[:live]
-      ["identifier01", "owner01"].each do |_live_key|
-        if setup[:idmap][_live_key].nil?
-          skip "live test needs #{_live_key} via *_ENTID env var (synthetic IDs only)"
-          return
-        end
-      end
-    end
     client = setup[:client]
 
-    params = {}
-    if setup[:live]
-      params["identifier"] = setup[:idmap]["identifier01"]
-    else
-      params["identifier"] = "direct01"
-    end
-    if setup[:live]
-      params["owner"] = setup[:idmap]["owner01"]
-    else
-      params["owner"] = "direct01"
-    end
 
     result = client.direct({
-      "path" => "repos/{owner}/{identifier}",
+      "path" => "repos",
       "method" => "GET",
-      "params" => params,
+      "params" => {},
     })
     if setup[:live]
       # Live mode is lenient: synthetic IDs frequently 4xx and the list-

@@ -75,7 +75,7 @@ const utility_1 = require("../../utility");
         // LOAD
         const user_brief_ref01_ent = client.UserBrief();
         const user_brief_ref01_match_dt0 = {};
-        const user_brief_ref01_data_dt0 = await user_brief_ref01_ent.load(user_brief_ref01_match_dt0);
+        const user_brief_ref01_data_dt0 = (await user_brief_ref01_ent.load(user_brief_ref01_match_dt0)).data();
         (0, node_assert_1.default)(null != user_brief_ref01_data_dt0);
     });
 });

@@ -75,7 +75,7 @@ const utility_1 = require("../../utility");
         // LIST
         const user_ref01_ent = client.User();
         const user_ref01_match = {};
-        const user_ref01_list = await user_ref01_ent.list(user_ref01_match);
+        const user_ref01_list = (await user_ref01_ent.list(user_ref01_match)).map((e) => e.data());
     });
 });
 function basicSetup(extra) {

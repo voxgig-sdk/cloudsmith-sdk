@@ -74,13 +74,13 @@ const utility_1 = require("../../utility");
         // CREATE
         const user_authentication_token_ref01_ent = client.UserAuthenticationToken();
         let user_authentication_token_ref01_data = setup.data.new.user_authentication_token['user_authentication_token_ref01'];
-        user_authentication_token_ref01_data = await user_authentication_token_ref01_ent.create(user_authentication_token_ref01_data);
+        user_authentication_token_ref01_data = (await user_authentication_token_ref01_ent.create(user_authentication_token_ref01_data)).data();
         (0, node_assert_1.default)(null != user_authentication_token_ref01_data);
         // UPDATE
         const user_authentication_token_ref01_data_up0 = {};
         const user_authentication_token_ref01_markdef_up0 = { name: 'created', value: 'Mark01-user_authentication_token_ref01_' + setup.now };
         user_authentication_token_ref01_data_up0[user_authentication_token_ref01_markdef_up0.name] = user_authentication_token_ref01_markdef_up0.value;
-        const user_authentication_token_ref01_resdata_up0 = await user_authentication_token_ref01_ent.update(user_authentication_token_ref01_data_up0);
+        const user_authentication_token_ref01_resdata_up0 = (await user_authentication_token_ref01_ent.update(user_authentication_token_ref01_data_up0)).data();
         (0, node_assert_1.default)(null != user_authentication_token_ref01_resdata_up0);
         (0, node_assert_1.default)(user_authentication_token_ref01_resdata_up0[user_authentication_token_ref01_markdef_up0.name] === user_authentication_token_ref01_markdef_up0.value);
     });

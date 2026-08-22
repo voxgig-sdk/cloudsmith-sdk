@@ -77,7 +77,7 @@ const utility_1 = require("../../utility");
         const repository_audit_log_ref01_match = {};
         repository_audit_log_ref01_match['owner'] = setup.idmap['owner01'];
         repository_audit_log_ref01_match['repo'] = setup.idmap['repo01'];
-        const repository_audit_log_ref01_list = await repository_audit_log_ref01_ent.list(repository_audit_log_ref01_match);
+        const repository_audit_log_ref01_list = (await repository_audit_log_ref01_ent.list(repository_audit_log_ref01_match)).map((e) => e.data());
     });
 });
 function basicSetup(extra) {

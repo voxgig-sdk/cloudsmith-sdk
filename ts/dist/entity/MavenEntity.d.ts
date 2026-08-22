@@ -5,9 +5,9 @@ import type { Maven, MavenLoadMatch, MavenListMatch, MavenCreateData, MavenUpdat
 declare class MavenEntity extends CloudsmithEntityBase<Maven> {
     constructor(client: CloudsmithSDK, entopts: any);
     make(this: MavenEntity): MavenEntity;
-    load(this: any, reqmatch?: MavenLoadMatch, ctrl?: Control): Promise<Maven>;
-    list(this: any, reqmatch?: MavenListMatch, ctrl?: Control): Promise<Maven[]>;
-    create(this: any, reqdata?: MavenCreateData, ctrl?: Control): Promise<Maven>;
-    update(this: any, reqdata?: MavenUpdateData, ctrl?: Control): Promise<Maven>;
+    load(this: any, reqmatch?: MavenLoadMatch, ctrl?: Control): Promise<MavenEntity>;
+    list(this: any, reqmatch?: MavenListMatch, ctrl?: Control): Promise<MavenEntity[]>;
+    create(this: any, reqdata?: MavenCreateData, ctrl?: Control): Promise<MavenEntity>;
+    update(this: any, reqdata?: MavenUpdateData, ctrl?: Control): Promise<MavenEntity>;
 }
 export { MavenEntity };

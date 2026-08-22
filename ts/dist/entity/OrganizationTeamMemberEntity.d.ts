@@ -5,7 +5,7 @@ import type { OrganizationTeamMember, OrganizationTeamMemberListMatch, Organizat
 declare class OrganizationTeamMemberEntity extends CloudsmithEntityBase<OrganizationTeamMember> {
     constructor(client: CloudsmithSDK, entopts: any);
     make(this: OrganizationTeamMemberEntity): OrganizationTeamMemberEntity;
-    list(this: any, reqmatch?: OrganizationTeamMemberListMatch, ctrl?: Control): Promise<OrganizationTeamMember[]>;
-    create(this: any, reqdata?: OrganizationTeamMemberCreateData, ctrl?: Control): Promise<OrganizationTeamMember>;
+    list(this: any, reqmatch?: OrganizationTeamMemberListMatch, ctrl?: Control): Promise<OrganizationTeamMemberEntity[]>;
+    create(this: any, reqdata?: OrganizationTeamMemberCreateData, ctrl?: Control): Promise<OrganizationTeamMemberEntity>;
 }
 export { OrganizationTeamMemberEntity };

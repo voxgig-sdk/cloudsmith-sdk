@@ -75,7 +75,7 @@ const utility_1 = require("../../utility");
         // LIST
         const distribution_full_ref01_ent = client.DistributionFull();
         const distribution_full_ref01_match = {};
-        const distribution_full_ref01_list = await distribution_full_ref01_ent.list(distribution_full_ref01_match);
+        const distribution_full_ref01_list = (await distribution_full_ref01_ent.list(distribution_full_ref01_match)).map((e) => e.data());
     });
 });
 function basicSetup(extra) {

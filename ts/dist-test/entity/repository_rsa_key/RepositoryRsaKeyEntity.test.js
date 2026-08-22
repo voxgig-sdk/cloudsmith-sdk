@@ -76,7 +76,7 @@ const utility_1 = require("../../utility");
         let repository_rsa_key_ref01_data = setup.data.new.repository_rsa_key['repository_rsa_key_ref01'];
         repository_rsa_key_ref01_data['identifier'] = setup.idmap['identifier01'];
         repository_rsa_key_ref01_data['owner'] = setup.idmap['owner01'];
-        repository_rsa_key_ref01_data = await repository_rsa_key_ref01_ent.create(repository_rsa_key_ref01_data);
+        repository_rsa_key_ref01_data = (await repository_rsa_key_ref01_ent.create(repository_rsa_key_ref01_data)).data();
         (0, node_assert_1.default)(null != repository_rsa_key_ref01_data);
     });
 });

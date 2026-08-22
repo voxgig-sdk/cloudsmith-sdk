@@ -5,7 +5,7 @@ import type { StorageRegion, StorageRegionLoadMatch, StorageRegionListMatch } fr
 declare class StorageRegionEntity extends CloudsmithEntityBase<StorageRegion> {
     constructor(client: CloudsmithSDK, entopts: any);
     make(this: StorageRegionEntity): StorageRegionEntity;
-    load(this: any, reqmatch?: StorageRegionLoadMatch, ctrl?: Control): Promise<StorageRegion>;
-    list(this: any, reqmatch?: StorageRegionListMatch, ctrl?: Control): Promise<StorageRegion[]>;
+    load(this: any, reqmatch?: StorageRegionLoadMatch, ctrl?: Control): Promise<StorageRegionEntity>;
+    list(this: any, reqmatch?: StorageRegionListMatch, ctrl?: Control): Promise<StorageRegionEntity[]>;
 }
 export { StorageRegionEntity };

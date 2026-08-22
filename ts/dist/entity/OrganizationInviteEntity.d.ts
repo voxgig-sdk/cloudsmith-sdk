@@ -5,8 +5,8 @@ import type { OrganizationInvite, OrganizationInviteListMatch, OrganizationInvit
 declare class OrganizationInviteEntity extends CloudsmithEntityBase<OrganizationInvite> {
     constructor(client: CloudsmithSDK, entopts: any);
     make(this: OrganizationInviteEntity): OrganizationInviteEntity;
-    list(this: any, reqmatch?: OrganizationInviteListMatch, ctrl?: Control): Promise<OrganizationInvite[]>;
-    create(this: any, reqdata?: OrganizationInviteCreateData, ctrl?: Control): Promise<OrganizationInvite>;
-    update(this: any, reqdata?: OrganizationInviteUpdateData, ctrl?: Control): Promise<OrganizationInvite>;
+    list(this: any, reqmatch?: OrganizationInviteListMatch, ctrl?: Control): Promise<OrganizationInviteEntity[]>;
+    create(this: any, reqdata?: OrganizationInviteCreateData, ctrl?: Control): Promise<OrganizationInviteEntity>;
+    update(this: any, reqdata?: OrganizationInviteUpdateData, ctrl?: Control): Promise<OrganizationInviteEntity>;
 }
 export { OrganizationInviteEntity };

@@ -5,6 +5,6 @@ import type { ResourcesRateCheck, ResourcesRateCheckLoadMatch } from '../Cloudsm
 declare class ResourcesRateCheckEntity extends CloudsmithEntityBase<ResourcesRateCheck> {
     constructor(client: CloudsmithSDK, entopts: any);
     make(this: ResourcesRateCheckEntity): ResourcesRateCheckEntity;
-    load(this: any, reqmatch?: ResourcesRateCheckLoadMatch, ctrl?: Control): Promise<ResourcesRateCheck>;
+    load(this: any, reqmatch?: ResourcesRateCheckLoadMatch, ctrl?: Control): Promise<ResourcesRateCheckEntity>;
 }
 export { ResourcesRateCheckEntity };

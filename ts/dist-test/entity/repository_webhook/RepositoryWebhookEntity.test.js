@@ -55,7 +55,7 @@ const utility_1 = require("../../utility");
     });
     (0, node_test_1.test)('basic', async (t) => {
         const live = 'TRUE' === process.env.CLOUDSMITH_TEST_LIVE;
-        for (const op of ['create', 'list', 'update']) {
+        for (const op of ['create', 'list', 'update', 'load']) {
             if ((0, utility_1.maybeSkipControl)(t, 'entityOp', 'repository_webhook.' + op, live))
                 return;
         }
@@ -74,24 +74,22 @@ const utility_1 = require("../../utility");
         // CREATE
         const repository_webhook_ref01_ent = client.RepositoryWebhook();
         let repository_webhook_ref01_data = setup.data.new.repository_webhook['repository_webhook_ref01'];
-        repository_webhook_ref01_data['identifier'] = setup.idmap['identifier01'];
         repository_webhook_ref01_data['owner'] = setup.idmap['owner01'];
         repository_webhook_ref01_data['repo'] = setup.idmap['repo01'];
-        repository_webhook_ref01_data = await repository_webhook_ref01_ent.create(repository_webhook_ref01_data);
+        repository_webhook_ref01_data = (await repository_webhook_ref01_ent.create(repository_webhook_ref01_data)).data();
         (0, node_assert_1.default)(null != repository_webhook_ref01_data);
         // LIST
         const repository_webhook_ref01_match = {};
-        repository_webhook_ref01_match['identifier'] = setup.idmap['identifier01'];
         repository_webhook_ref01_match['owner'] = setup.idmap['owner01'];
         repository_webhook_ref01_match['repo'] = setup.idmap['repo01'];
-        const repository_webhook_ref01_list = await repository_webhook_ref01_ent.list(repository_webhook_ref01_match);
+        const repository_webhook_ref01_list = (await repository_webhook_ref01_ent.list(repository_webhook_ref01_match)).map((e) => e.data());
         // UPDATE
         const repository_webhook_ref01_data_up0 = {};
         repository_webhook_ref01_data_up0['owner'] = setup.idmap['owner'];
         repository_webhook_ref01_data_up0['repo'] = setup.idmap['repo'];
         const repository_webhook_ref01_markdef_up0 = { name: 'created_at', value: 'Mark01-repository_webhook_ref01_' + setup.now };
         repository_webhook_ref01_data_up0[repository_webhook_ref01_markdef_up0.name] = repository_webhook_ref01_markdef_up0.value;
-        const repository_webhook_ref01_resdata_up0 = await repository_webhook_ref01_ent.update(repository_webhook_ref01_data_up0);
+        const repository_webhook_ref01_resdata_up0 = (await repository_webhook_ref01_ent.update(repository_webhook_ref01_data_up0)).data();
         (0, node_assert_1.default)(null != repository_webhook_ref01_resdata_up0);
         (0, node_assert_1.default)(repository_webhook_ref01_resdata_up0[repository_webhook_ref01_markdef_up0.name] === repository_webhook_ref01_markdef_up0.value);
     });

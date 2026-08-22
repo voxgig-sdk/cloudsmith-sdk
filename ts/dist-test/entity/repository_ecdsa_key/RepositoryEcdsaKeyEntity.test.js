@@ -76,7 +76,7 @@ const utility_1 = require("../../utility");
         let repository_ecdsa_key_ref01_data = setup.data.new.repository_ecdsa_key['repository_ecdsa_key_ref01'];
         repository_ecdsa_key_ref01_data['identifier'] = setup.idmap['identifier01'];
         repository_ecdsa_key_ref01_data['owner'] = setup.idmap['owner01'];
-        repository_ecdsa_key_ref01_data = await repository_ecdsa_key_ref01_ent.create(repository_ecdsa_key_ref01_data);
+        repository_ecdsa_key_ref01_data = (await repository_ecdsa_key_ref01_ent.create(repository_ecdsa_key_ref01_data)).data();
         (0, node_assert_1.default)(null != repository_ecdsa_key_ref01_data);
     });
 });

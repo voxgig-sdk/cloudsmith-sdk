@@ -39,7 +39,7 @@ describe('RepositoryWebhookEntity', async () => {
   test('basic', async (t) => {
 
     const live = 'TRUE' === process.env.CLOUDSMITH_TEST_LIVE
-    for (const op of ['create', 'list', 'update']) {
+    for (const op of ['create', 'list', 'update', 'load']) {
       if (maybeSkipControl(t, 'entityOp', 'repository_webhook.' + op, live)) return
     }
 
@@ -61,7 +61,6 @@ describe('RepositoryWebhookEntity', async () => {
     // CREATE
     const repository_webhook_ref01_ent = client.RepositoryWebhook()
     let repository_webhook_ref01_data = setup.data.new.repository_webhook['repository_webhook_ref01']
-    repository_webhook_ref01_data['identifier'] = setup.idmap['identifier01']
     repository_webhook_ref01_data['owner'] = setup.idmap['owner01']
     repository_webhook_ref01_data['repo'] = setup.idmap['repo01']
 
@@ -71,7 +70,6 @@ describe('RepositoryWebhookEntity', async () => {
 
     // LIST
     const repository_webhook_ref01_match: any = {}
-    repository_webhook_ref01_match['identifier'] = setup.idmap['identifier01']
     repository_webhook_ref01_match['owner'] = setup.idmap['owner01']
     repository_webhook_ref01_match['repo'] = setup.idmap['repo01']
 
@@ -90,6 +88,7 @@ describe('RepositoryWebhookEntity', async () => {
     assert(null != repository_webhook_ref01_resdata_up0)
 
     assert((repository_webhook_ref01_resdata_up0 as any)[repository_webhook_ref01_markdef_up0.name] === repository_webhook_ref01_markdef_up0.value)
+
 
 
   })

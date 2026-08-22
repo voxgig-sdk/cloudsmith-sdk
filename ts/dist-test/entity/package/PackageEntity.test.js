@@ -77,20 +77,20 @@ const utility_1 = require("../../utility");
         package_ref01_data['identifier'] = setup.idmap['identifier01'];
         package_ref01_data['owner'] = setup.idmap['owner01'];
         package_ref01_data['repo'] = setup.idmap['repo01'];
-        package_ref01_data = await package_ref01_ent.create(package_ref01_data);
+        package_ref01_data = (await package_ref01_ent.create(package_ref01_data)).data();
         (0, node_assert_1.default)(null != package_ref01_data);
         // LIST
         const package_ref01_match = {};
         package_ref01_match['identifier'] = setup.idmap['identifier01'];
         package_ref01_match['owner'] = setup.idmap['owner01'];
         package_ref01_match['repo'] = setup.idmap['repo01'];
-        const package_ref01_list = await package_ref01_ent.list(package_ref01_match);
+        const package_ref01_list = (await package_ref01_ent.list(package_ref01_match)).map((e) => e.data());
         // LIST
         const package_ref01_match_rt0 = {};
         package_ref01_match_rt0['identifier'] = setup.idmap['identifier01'];
         package_ref01_match_rt0['owner'] = setup.idmap['owner01'];
         package_ref01_match_rt0['repo'] = setup.idmap['repo01'];
-        const package_ref01_list_rt0 = await package_ref01_ent.list(package_ref01_match_rt0);
+        const package_ref01_list_rt0 = (await package_ref01_ent.list(package_ref01_match_rt0)).map((e) => e.data());
     });
 });
 function basicSetup(extra) {

@@ -5,6 +5,6 @@ import type { RepositoryGeoIpStatus, RepositoryGeoIpStatusLoadMatch } from '../C
 declare class RepositoryGeoIpStatusEntity extends CloudsmithEntityBase<RepositoryGeoIpStatus> {
     constructor(client: CloudsmithSDK, entopts: any);
     make(this: RepositoryGeoIpStatusEntity): RepositoryGeoIpStatusEntity;
-    load(this: any, reqmatch?: RepositoryGeoIpStatusLoadMatch, ctrl?: Control): Promise<RepositoryGeoIpStatus>;
+    load(this: any, reqmatch?: RepositoryGeoIpStatusLoadMatch, ctrl?: Control): Promise<RepositoryGeoIpStatusEntity>;
 }
 export { RepositoryGeoIpStatusEntity };

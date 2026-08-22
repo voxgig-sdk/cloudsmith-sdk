@@ -5,9 +5,9 @@ import type { OrganizationPackageLicensePolicy, OrganizationPackageLicensePolicy
 declare class OrganizationPackageLicensePolicyEntity extends CloudsmithEntityBase<OrganizationPackageLicensePolicy> {
     constructor(client: CloudsmithSDK, entopts: any);
     make(this: OrganizationPackageLicensePolicyEntity): OrganizationPackageLicensePolicyEntity;
-    load(this: any, reqmatch?: OrganizationPackageLicensePolicyLoadMatch, ctrl?: Control): Promise<OrganizationPackageLicensePolicy>;
-    list(this: any, reqmatch?: OrganizationPackageLicensePolicyListMatch, ctrl?: Control): Promise<OrganizationPackageLicensePolicy[]>;
-    create(this: any, reqdata?: OrganizationPackageLicensePolicyCreateData, ctrl?: Control): Promise<OrganizationPackageLicensePolicy>;
-    update(this: any, reqdata?: OrganizationPackageLicensePolicyUpdateData, ctrl?: Control): Promise<OrganizationPackageLicensePolicy>;
+    load(this: any, reqmatch?: OrganizationPackageLicensePolicyLoadMatch, ctrl?: Control): Promise<OrganizationPackageLicensePolicyEntity>;
+    list(this: any, reqmatch?: OrganizationPackageLicensePolicyListMatch, ctrl?: Control): Promise<OrganizationPackageLicensePolicyEntity[]>;
+    create(this: any, reqdata?: OrganizationPackageLicensePolicyCreateData, ctrl?: Control): Promise<OrganizationPackageLicensePolicyEntity>;
+    update(this: any, reqdata?: OrganizationPackageLicensePolicyUpdateData, ctrl?: Control): Promise<OrganizationPackageLicensePolicyEntity>;
 }
 export { OrganizationPackageLicensePolicyEntity };

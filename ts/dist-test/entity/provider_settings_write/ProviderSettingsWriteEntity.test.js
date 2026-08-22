@@ -75,14 +75,14 @@ const utility_1 = require("../../utility");
         const provider_settings_write_ref01_ent = client.ProviderSettingsWrite();
         let provider_settings_write_ref01_data = setup.data.new.provider_settings_write['provider_settings_write_ref01'];
         provider_settings_write_ref01_data['org_id'] = setup.idmap['org01'];
-        provider_settings_write_ref01_data = await provider_settings_write_ref01_ent.create(provider_settings_write_ref01_data);
+        provider_settings_write_ref01_data = (await provider_settings_write_ref01_ent.create(provider_settings_write_ref01_data)).data();
         (0, node_assert_1.default)(null != provider_settings_write_ref01_data);
         // UPDATE
         const provider_settings_write_ref01_data_up0 = {};
         provider_settings_write_ref01_data_up0['org_id'] = setup.idmap['org_id'];
         const provider_settings_write_ref01_markdef_up0 = { name: 'mapping_claim', value: 'Mark01-provider_settings_write_ref01_' + setup.now };
         provider_settings_write_ref01_data_up0[provider_settings_write_ref01_markdef_up0.name] = provider_settings_write_ref01_markdef_up0.value;
-        const provider_settings_write_ref01_resdata_up0 = await provider_settings_write_ref01_ent.update(provider_settings_write_ref01_data_up0);
+        const provider_settings_write_ref01_resdata_up0 = (await provider_settings_write_ref01_ent.update(provider_settings_write_ref01_data_up0)).data();
         (0, node_assert_1.default)(null != provider_settings_write_ref01_resdata_up0);
         (0, node_assert_1.default)(provider_settings_write_ref01_resdata_up0[provider_settings_write_ref01_markdef_up0.name] === provider_settings_write_ref01_markdef_up0.value);
     });

@@ -76,7 +76,7 @@ const utility_1 = require("../../utility");
         let organization_invite_extend_ref01_data = setup.data.new.organization_invite_extend['organization_invite_extend_ref01'];
         organization_invite_extend_ref01_data['org_id'] = setup.idmap['org01'];
         organization_invite_extend_ref01_data['slug_perm'] = setup.idmap['slug_perm01'];
-        organization_invite_extend_ref01_data = await organization_invite_extend_ref01_ent.create(organization_invite_extend_ref01_data);
+        organization_invite_extend_ref01_data = (await organization_invite_extend_ref01_ent.create(organization_invite_extend_ref01_data)).data();
         (0, node_assert_1.default)(null != organization_invite_extend_ref01_data);
     });
 });

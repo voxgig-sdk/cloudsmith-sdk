@@ -5,6 +5,6 @@ import type { RepositoryGeoIpTestAddress, RepositoryGeoIpTestAddressCreateData }
 declare class RepositoryGeoIpTestAddressEntity extends CloudsmithEntityBase<RepositoryGeoIpTestAddress> {
     constructor(client: CloudsmithSDK, entopts: any);
     make(this: RepositoryGeoIpTestAddressEntity): RepositoryGeoIpTestAddressEntity;
-    create(this: any, reqdata?: RepositoryGeoIpTestAddressCreateData, ctrl?: Control): Promise<RepositoryGeoIpTestAddress>;
+    create(this: any, reqdata?: RepositoryGeoIpTestAddressCreateData, ctrl?: Control): Promise<RepositoryGeoIpTestAddressEntity>;
 }
 export { RepositoryGeoIpTestAddressEntity };

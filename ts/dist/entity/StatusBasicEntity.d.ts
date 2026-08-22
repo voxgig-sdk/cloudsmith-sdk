@@ -5,6 +5,6 @@ import type { StatusBasic, StatusBasicLoadMatch } from '../CloudsmithTypes';
 declare class StatusBasicEntity extends CloudsmithEntityBase<StatusBasic> {
     constructor(client: CloudsmithSDK, entopts: any);
     make(this: StatusBasicEntity): StatusBasicEntity;
-    load(this: any, reqmatch?: StatusBasicLoadMatch, ctrl?: Control): Promise<StatusBasic>;
+    load(this: any, reqmatch?: StatusBasicLoadMatch, ctrl?: Control): Promise<StatusBasicEntity>;
 }
 export { StatusBasicEntity };

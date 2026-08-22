@@ -5,7 +5,7 @@ import type { DynamicMapping, DynamicMappingLoadMatch, DynamicMappingListMatch }
 declare class DynamicMappingEntity extends CloudsmithEntityBase<DynamicMapping> {
     constructor(client: CloudsmithSDK, entopts: any);
     make(this: DynamicMappingEntity): DynamicMappingEntity;
-    load(this: any, reqmatch?: DynamicMappingLoadMatch, ctrl?: Control): Promise<DynamicMapping>;
-    list(this: any, reqmatch?: DynamicMappingListMatch, ctrl?: Control): Promise<DynamicMapping[]>;
+    load(this: any, reqmatch?: DynamicMappingLoadMatch, ctrl?: Control): Promise<DynamicMappingEntity>;
+    list(this: any, reqmatch?: DynamicMappingListMatch, ctrl?: Control): Promise<DynamicMappingEntity[]>;
 }
 export { DynamicMappingEntity };

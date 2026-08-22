@@ -5,6 +5,6 @@ import type { RepositoryTokenSync, RepositoryTokenSyncCreateData } from '../Clou
 declare class RepositoryTokenSyncEntity extends CloudsmithEntityBase<RepositoryTokenSync> {
     constructor(client: CloudsmithSDK, entopts: any);
     make(this: RepositoryTokenSyncEntity): RepositoryTokenSyncEntity;
-    create(this: any, reqdata?: RepositoryTokenSyncCreateData, ctrl?: Control): Promise<RepositoryTokenSync>;
+    create(this: any, reqdata?: RepositoryTokenSyncCreateData, ctrl?: Control): Promise<RepositoryTokenSyncEntity>;
 }
 export { RepositoryTokenSyncEntity };

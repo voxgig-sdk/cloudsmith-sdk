@@ -62,7 +62,8 @@ main: kit: flow: BasicRepoFlow:
       }
 
       match: {
-        id: "repo01"
+        id: "repo01",
+        owner: "owner01"
       }
 
       op: "load",

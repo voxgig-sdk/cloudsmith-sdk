@@ -794,9 +794,7 @@ class Entitlement
 /** Request payload for Entitlement#load. */
 class EntitlementLoadMatch
 {
-    public mixed $owner = null;
-    public mixed $repo = null;
-    public ?string $id = null;
+    public string $id;
 }
 
 /** Request payload for Entitlement#create. */
@@ -1384,7 +1382,7 @@ class Move
 }
 
 /** Namespace entity data model. */
-class Namespace
+class NamespaceType
 {
     public ?string $name = null;
     public ?string $slug = null;
@@ -2784,8 +2782,7 @@ class Quota
 /** Request payload for Quota#load. */
 class QuotaLoadMatch
 {
-    public ?string $id = null;
-    public mixed $owner = null;
+    public string $id;
 }
 
 /** Raw entity data model. */
@@ -2882,16 +2879,77 @@ class RepoLoadMatch
 /** Request payload for Repo#list. */
 class RepoListMatch
 {
-    public mixed $identifier = null;
-    public mixed $owner = null;
+    public ?string $cdn_url = null;
+    public ?string $content_kind = null;
+    public ?bool $contextual_auth_realm = null;
+    public ?bool $copy_own = null;
+    public ?string $copy_packages = null;
+    public ?bool $cosign_signing_enabled = null;
+    public ?string $created_at = null;
+    public ?string $default_privilege = null;
+    public ?bool $delete_own = null;
+    public ?string $delete_packages = null;
+    public ?string $deleted_at = null;
+    public ?string $description = null;
+    public ?array $distributes = null;
+    public ?bool $docker_refresh_tokens_enabled = null;
+    public ?array $ecdsa_keys = null;
+    public ?bool $enforce_eula = null;
+    public ?array $gpg_keys = null;
+    public ?bool $index_files = null;
+    public ?bool $is_open_source = null;
+    public ?bool $is_private = null;
+    public ?bool $is_public = null;
+    public ?string $manage_entitlements_privilege = null;
+    public ?bool $move_own = null;
+    public ?string $move_packages = null;
+    public ?string $name = null;
+    public ?string $namespace = null;
+    public ?string $namespace_url = null;
+    public ?bool $nuget_native_signing_enabled = null;
+    public ?int $num_downloads = null;
+    public ?int $num_policy_violated_packages = null;
+    public ?int $num_quarantined_packages = null;
+    public ?string $open_source_license = null;
+    public ?string $open_source_project_url = null;
+    public ?int $package_count = null;
+    public ?int $package_group_count = null;
+    public ?bool $proxy_npmjs = null;
+    public ?bool $proxy_pypi = null;
+    public ?bool $raw_package_index_enabled = null;
+    public ?bool $raw_package_index_signatures_enabled = null;
+    public ?string $replace_packages = null;
+    public ?bool $replace_packages_by_default = null;
+    public ?int $repository_type = null;
+    public ?string $repository_type_str = null;
+    public ?bool $resync_own = null;
+    public ?string $resync_packages = null;
+    public ?bool $scan_own = null;
+    public ?string $scan_packages = null;
+    public ?string $self_html_url = null;
+    public ?string $self_url = null;
+    public ?bool $show_setup_all = null;
+    public ?int $size = null;
+    public ?string $size_str = null;
+    public ?string $slug = null;
+    public ?string $slug_perm = null;
+    public ?string $storage_region = null;
+    public ?bool $strict_npm_validation = null;
+    public ?bool $tag_pre_releases_as_latest = null;
+    public ?bool $use_debian_labels = null;
+    public ?bool $use_default_cargo_upstream = null;
+    public ?string $use_entitlements_privilege = null;
+    public ?bool $use_noarch_packages = null;
+    public ?bool $use_source_packages = null;
+    public ?bool $use_vulnerability_scanning = null;
+    public ?bool $user_entitlements_enabled = null;
+    public ?string $view_statistics = null;
 }
 
 /** Request payload for Repo#create. */
 class RepoCreateData
 {
-    public mixed $identifier = null;
-    public mixed $owner = null;
-    public ?string $id = null;
+    public string $id;
     public ?string $cdn_url = null;
     public ?string $content_kind = null;
     public ?bool $contextual_auth_realm = null;
@@ -3525,7 +3583,6 @@ class RepositoryWebhook
     public ?string $created_by_url = null;
     public ?int $disable_reason = null;
     public ?string $disable_reason_str = null;
-    public string $event;
     public array $events;
     public ?int $identifier = null;
     public ?bool $is_active = null;
@@ -3543,7 +3600,6 @@ class RepositoryWebhook
     public ?string $self_url = null;
     public ?string $slug_perm = null;
     public string $target_url;
-    public ?string $template = null;
     public array $templates;
     public ?string $updated_at = null;
     public ?string $updated_by = null;
@@ -3551,12 +3607,19 @@ class RepositoryWebhook
     public ?bool $verify_ssl = null;
 }
 
+/** Request payload for RepositoryWebhook#load. */
+class RepositoryWebhookLoadMatch
+{
+    public mixed $identifier;
+    public mixed $owner;
+    public mixed $repo;
+}
+
 /** Request payload for RepositoryWebhook#list. */
 class RepositoryWebhookListMatch
 {
     public mixed $owner;
     public mixed $repo;
-    public mixed $identifier = null;
 }
 
 /** Request payload for RepositoryWebhook#create. */
@@ -3569,7 +3632,6 @@ class RepositoryWebhookCreateData
     public ?string $created_by_url = null;
     public ?int $disable_reason = null;
     public ?string $disable_reason_str = null;
-    public string $event;
     public array $events;
     public ?int $identifier = null;
     public ?bool $is_active = null;
@@ -3587,7 +3649,6 @@ class RepositoryWebhookCreateData
     public ?string $self_url = null;
     public ?string $slug_perm = null;
     public string $target_url;
-    public ?string $template = null;
     public array $templates;
     public ?string $updated_at = null;
     public ?string $updated_by = null;
@@ -3606,7 +3667,6 @@ class RepositoryWebhookUpdateData
     public ?string $created_by_url = null;
     public ?int $disable_reason = null;
     public ?string $disable_reason_str = null;
-    public ?string $event = null;
     public ?array $events = null;
     public ?bool $is_active = null;
     public ?bool $is_last_response_bad = null;
@@ -3623,7 +3683,6 @@ class RepositoryWebhookUpdateData
     public ?string $self_url = null;
     public ?string $slug_perm = null;
     public ?string $target_url = null;
-    public ?string $template = null;
     public ?array $templates = null;
     public ?string $updated_at = null;
     public ?string $updated_by = null;
@@ -3924,7 +3983,7 @@ class Scan
 }
 
 /** Self entity data model. */
-class Self
+class SelfType
 {
 }
 
@@ -4271,10 +4330,8 @@ class Vulnerability
     public ?string $max_severity = null;
     public ?int $num_vulnerabilities = null;
     public array $package;
-    public array $results;
     public int $scan_id;
-    public string $target;
-    public string $type;
+    public array $scans;
 }
 
 /** Request payload for Vulnerability#load. */
@@ -4289,7 +4346,6 @@ class VulnerabilityListMatch
     public mixed $owner;
     public mixed $package = null;
     public mixed $repo;
-    public mixed $identifier = null;
 }
 
 /** VulnerabilityPolicy entity data model. */

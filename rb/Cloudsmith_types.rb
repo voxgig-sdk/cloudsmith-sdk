@@ -2272,17 +2272,9 @@ Entitlement = Struct.new(
 
 # Request payload for Entitlement#load.
 #
-# @!attribute [rw] owner
-#   @return [Object, nil]
-#
-# @!attribute [rw] repo
-#   @return [Object, nil]
-#
 # @!attribute [rw] id
-#   @return [String, nil]
+#   @return [String]
 EntitlementLoadMatch = Struct.new(
-  :owner,
-  :repo,
   :id,
   keyword_init: true
 )
@@ -7992,13 +7984,9 @@ Quota = Struct.new(
 # Request payload for Quota#load.
 #
 # @!attribute [rw] id
-#   @return [String, nil]
-#
-# @!attribute [rw] owner
-#   @return [Object, nil]
+#   @return [String]
 QuotaLoadMatch = Struct.new(
   :id,
-  :owner,
   keyword_init: true
 )
 
@@ -8290,27 +8278,273 @@ RepoLoadMatch = Struct.new(
 
 # Request payload for Repo#list.
 #
-# @!attribute [rw] identifier
-#   @return [Object, nil]
+# @!attribute [rw] cdn_url
+#   @return [String, nil]
 #
-# @!attribute [rw] owner
-#   @return [Object, nil]
+# @!attribute [rw] content_kind
+#   @return [String, nil]
+#
+# @!attribute [rw] contextual_auth_realm
+#   @return [Boolean, nil]
+#
+# @!attribute [rw] copy_own
+#   @return [Boolean, nil]
+#
+# @!attribute [rw] copy_packages
+#   @return [String, nil]
+#
+# @!attribute [rw] cosign_signing_enabled
+#   @return [Boolean, nil]
+#
+# @!attribute [rw] created_at
+#   @return [String, nil]
+#
+# @!attribute [rw] default_privilege
+#   @return [String, nil]
+#
+# @!attribute [rw] delete_own
+#   @return [Boolean, nil]
+#
+# @!attribute [rw] delete_packages
+#   @return [String, nil]
+#
+# @!attribute [rw] deleted_at
+#   @return [String, nil]
+#
+# @!attribute [rw] description
+#   @return [String, nil]
+#
+# @!attribute [rw] distributes
+#   @return [Array, nil]
+#
+# @!attribute [rw] docker_refresh_tokens_enabled
+#   @return [Boolean, nil]
+#
+# @!attribute [rw] ecdsa_keys
+#   @return [Array, nil]
+#
+# @!attribute [rw] enforce_eula
+#   @return [Boolean, nil]
+#
+# @!attribute [rw] gpg_keys
+#   @return [Array, nil]
+#
+# @!attribute [rw] index_files
+#   @return [Boolean, nil]
+#
+# @!attribute [rw] is_open_source
+#   @return [Boolean, nil]
+#
+# @!attribute [rw] is_private
+#   @return [Boolean, nil]
+#
+# @!attribute [rw] is_public
+#   @return [Boolean, nil]
+#
+# @!attribute [rw] manage_entitlements_privilege
+#   @return [String, nil]
+#
+# @!attribute [rw] move_own
+#   @return [Boolean, nil]
+#
+# @!attribute [rw] move_packages
+#   @return [String, nil]
+#
+# @!attribute [rw] name
+#   @return [String, nil]
+#
+# @!attribute [rw] namespace
+#   @return [String, nil]
+#
+# @!attribute [rw] namespace_url
+#   @return [String, nil]
+#
+# @!attribute [rw] nuget_native_signing_enabled
+#   @return [Boolean, nil]
+#
+# @!attribute [rw] num_downloads
+#   @return [Integer, nil]
+#
+# @!attribute [rw] num_policy_violated_packages
+#   @return [Integer, nil]
+#
+# @!attribute [rw] num_quarantined_packages
+#   @return [Integer, nil]
+#
+# @!attribute [rw] open_source_license
+#   @return [String, nil]
+#
+# @!attribute [rw] open_source_project_url
+#   @return [String, nil]
+#
+# @!attribute [rw] package_count
+#   @return [Integer, nil]
+#
+# @!attribute [rw] package_group_count
+#   @return [Integer, nil]
+#
+# @!attribute [rw] proxy_npmjs
+#   @return [Boolean, nil]
+#
+# @!attribute [rw] proxy_pypi
+#   @return [Boolean, nil]
+#
+# @!attribute [rw] raw_package_index_enabled
+#   @return [Boolean, nil]
+#
+# @!attribute [rw] raw_package_index_signatures_enabled
+#   @return [Boolean, nil]
+#
+# @!attribute [rw] replace_packages
+#   @return [String, nil]
+#
+# @!attribute [rw] replace_packages_by_default
+#   @return [Boolean, nil]
+#
+# @!attribute [rw] repository_type
+#   @return [Integer, nil]
+#
+# @!attribute [rw] repository_type_str
+#   @return [String, nil]
+#
+# @!attribute [rw] resync_own
+#   @return [Boolean, nil]
+#
+# @!attribute [rw] resync_packages
+#   @return [String, nil]
+#
+# @!attribute [rw] scan_own
+#   @return [Boolean, nil]
+#
+# @!attribute [rw] scan_packages
+#   @return [String, nil]
+#
+# @!attribute [rw] self_html_url
+#   @return [String, nil]
+#
+# @!attribute [rw] self_url
+#   @return [String, nil]
+#
+# @!attribute [rw] show_setup_all
+#   @return [Boolean, nil]
+#
+# @!attribute [rw] size
+#   @return [Integer, nil]
+#
+# @!attribute [rw] size_str
+#   @return [String, nil]
+#
+# @!attribute [rw] slug
+#   @return [String, nil]
+#
+# @!attribute [rw] slug_perm
+#   @return [String, nil]
+#
+# @!attribute [rw] storage_region
+#   @return [String, nil]
+#
+# @!attribute [rw] strict_npm_validation
+#   @return [Boolean, nil]
+#
+# @!attribute [rw] tag_pre_releases_as_latest
+#   @return [Boolean, nil]
+#
+# @!attribute [rw] use_debian_labels
+#   @return [Boolean, nil]
+#
+# @!attribute [rw] use_default_cargo_upstream
+#   @return [Boolean, nil]
+#
+# @!attribute [rw] use_entitlements_privilege
+#   @return [String, nil]
+#
+# @!attribute [rw] use_noarch_packages
+#   @return [Boolean, nil]
+#
+# @!attribute [rw] use_source_packages
+#   @return [Boolean, nil]
+#
+# @!attribute [rw] use_vulnerability_scanning
+#   @return [Boolean, nil]
+#
+# @!attribute [rw] user_entitlements_enabled
+#   @return [Boolean, nil]
+#
+# @!attribute [rw] view_statistics
+#   @return [String, nil]
 RepoListMatch = Struct.new(
-  :identifier,
-  :owner,
+  :cdn_url,
+  :content_kind,
+  :contextual_auth_realm,
+  :copy_own,
+  :copy_packages,
+  :cosign_signing_enabled,
+  :created_at,
+  :default_privilege,
+  :delete_own,
+  :delete_packages,
+  :deleted_at,
+  :description,
+  :distributes,
+  :docker_refresh_tokens_enabled,
+  :ecdsa_keys,
+  :enforce_eula,
+  :gpg_keys,
+  :index_files,
+  :is_open_source,
+  :is_private,
+  :is_public,
+  :manage_entitlements_privilege,
+  :move_own,
+  :move_packages,
+  :name,
+  :namespace,
+  :namespace_url,
+  :nuget_native_signing_enabled,
+  :num_downloads,
+  :num_policy_violated_packages,
+  :num_quarantined_packages,
+  :open_source_license,
+  :open_source_project_url,
+  :package_count,
+  :package_group_count,
+  :proxy_npmjs,
+  :proxy_pypi,
+  :raw_package_index_enabled,
+  :raw_package_index_signatures_enabled,
+  :replace_packages,
+  :replace_packages_by_default,
+  :repository_type,
+  :repository_type_str,
+  :resync_own,
+  :resync_packages,
+  :scan_own,
+  :scan_packages,
+  :self_html_url,
+  :self_url,
+  :show_setup_all,
+  :size,
+  :size_str,
+  :slug,
+  :slug_perm,
+  :storage_region,
+  :strict_npm_validation,
+  :tag_pre_releases_as_latest,
+  :use_debian_labels,
+  :use_default_cargo_upstream,
+  :use_entitlements_privilege,
+  :use_noarch_packages,
+  :use_source_packages,
+  :use_vulnerability_scanning,
+  :user_entitlements_enabled,
+  :view_statistics,
   keyword_init: true
 )
 
 # Request payload for Repo#create.
 #
-# @!attribute [rw] identifier
-#   @return [Object, nil]
-#
-# @!attribute [rw] owner
-#   @return [Object, nil]
-#
 # @!attribute [rw] id
-#   @return [String, nil]
+#   @return [String]
 #
 # @!attribute [rw] cdn_url
 #   @return [String, nil]
@@ -8507,8 +8741,6 @@ RepoListMatch = Struct.new(
 # @!attribute [rw] view_statistics
 #   @return [String, nil]
 RepoCreateData = Struct.new(
-  :identifier,
-  :owner,
   :id,
   :cdn_url,
   :content_kind,
@@ -10316,9 +10548,6 @@ RepositoryTokenSyncCreateData = Struct.new(
 # @!attribute [rw] disable_reason_str
 #   @return [String, nil]
 #
-# @!attribute [rw] event
-#   @return [String]
-#
 # @!attribute [rw] events
 #   @return [Array]
 #
@@ -10370,9 +10599,6 @@ RepositoryTokenSyncCreateData = Struct.new(
 # @!attribute [rw] target_url
 #   @return [String]
 #
-# @!attribute [rw] template
-#   @return [String, nil]
-#
 # @!attribute [rw] templates
 #   @return [Array]
 #
@@ -10393,7 +10619,6 @@ RepositoryWebhook = Struct.new(
   :created_by_url,
   :disable_reason,
   :disable_reason_str,
-  :event,
   :events,
   :identifier,
   :is_active,
@@ -10411,12 +10636,28 @@ RepositoryWebhook = Struct.new(
   :self_url,
   :slug_perm,
   :target_url,
-  :template,
   :templates,
   :updated_at,
   :updated_by,
   :updated_by_url,
   :verify_ssl,
+  keyword_init: true
+)
+
+# Request payload for RepositoryWebhook#load.
+#
+# @!attribute [rw] identifier
+#   @return [Object]
+#
+# @!attribute [rw] owner
+#   @return [Object]
+#
+# @!attribute [rw] repo
+#   @return [Object]
+RepositoryWebhookLoadMatch = Struct.new(
+  :identifier,
+  :owner,
+  :repo,
   keyword_init: true
 )
 
@@ -10427,13 +10668,9 @@ RepositoryWebhook = Struct.new(
 #
 # @!attribute [rw] repo
 #   @return [Object]
-#
-# @!attribute [rw] identifier
-#   @return [Object, nil]
 RepositoryWebhookListMatch = Struct.new(
   :owner,
   :repo,
-  :identifier,
   keyword_init: true
 )
 
@@ -10460,9 +10697,6 @@ RepositoryWebhookListMatch = Struct.new(
 # @!attribute [rw] disable_reason_str
 #   @return [String, nil]
 #
-# @!attribute [rw] event
-#   @return [String]
-#
 # @!attribute [rw] events
 #   @return [Array]
 #
@@ -10514,9 +10748,6 @@ RepositoryWebhookListMatch = Struct.new(
 # @!attribute [rw] target_url
 #   @return [String]
 #
-# @!attribute [rw] template
-#   @return [String, nil]
-#
 # @!attribute [rw] templates
 #   @return [Array]
 #
@@ -10539,7 +10770,6 @@ RepositoryWebhookCreateData = Struct.new(
   :created_by_url,
   :disable_reason,
   :disable_reason_str,
-  :event,
   :events,
   :identifier,
   :is_active,
@@ -10557,7 +10787,6 @@ RepositoryWebhookCreateData = Struct.new(
   :self_url,
   :slug_perm,
   :target_url,
-  :template,
   :templates,
   :updated_at,
   :updated_by,
@@ -10592,9 +10821,6 @@ RepositoryWebhookCreateData = Struct.new(
 # @!attribute [rw] disable_reason_str
 #   @return [String, nil]
 #
-# @!attribute [rw] event
-#   @return [String, nil]
-#
 # @!attribute [rw] events
 #   @return [Array, nil]
 #
@@ -10643,9 +10869,6 @@ RepositoryWebhookCreateData = Struct.new(
 # @!attribute [rw] target_url
 #   @return [String, nil]
 #
-# @!attribute [rw] template
-#   @return [String, nil]
-#
 # @!attribute [rw] templates
 #   @return [Array, nil]
 #
@@ -10669,7 +10892,6 @@ RepositoryWebhookUpdateData = Struct.new(
   :created_by_url,
   :disable_reason,
   :disable_reason_str,
-  :event,
   :events,
   :is_active,
   :is_last_response_bad,
@@ -10686,7 +10908,6 @@ RepositoryWebhookUpdateData = Struct.new(
   :self_url,
   :slug_perm,
   :target_url,
-  :template,
   :templates,
   :updated_at,
   :updated_by,
@@ -12319,17 +12540,11 @@ end
 # @!attribute [rw] package
 #   @return [Hash]
 #
-# @!attribute [rw] results
-#   @return [Array]
-#
 # @!attribute [rw] scan_id
 #   @return [Integer]
 #
-# @!attribute [rw] target
-#   @return [String]
-#
-# @!attribute [rw] type
-#   @return [String]
+# @!attribute [rw] scans
+#   @return [Array]
 Vulnerability = Struct.new(
   :created_at,
   :has_vulnerabilities,
@@ -12337,10 +12552,8 @@ Vulnerability = Struct.new(
   :max_severity,
   :num_vulnerabilities,
   :package,
-  :results,
   :scan_id,
-  :target,
-  :type,
+  :scans,
   keyword_init: true
 )
 
@@ -12363,14 +12576,10 @@ VulnerabilityLoadMatch = Struct.new(
 #
 # @!attribute [rw] repo
 #   @return [Object]
-#
-# @!attribute [rw] identifier
-#   @return [Object, nil]
 VulnerabilityListMatch = Struct.new(
   :owner,
   :package,
   :repo,
-  :identifier,
   keyword_init: true
 )
 

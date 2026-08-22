@@ -21,29 +21,13 @@ class TestRepoDirect:
             # pytest already imported at module scope
             pytest.skip(_reason or "skipped via sdk-test-control.json")
             return
-        if setup["live"]:
-            for _live_key in ["identifier01", "owner01"]:
-                if setup["idmap"].get(_live_key) is None:
-                    # pytest already imported at module scope
-                    pytest.skip(f"live test needs {_live_key} via *_ENTID env var (synthetic IDs only)")
-                    return
-
         client = setup["client"]
 
-        params = {}
-        if setup["live"]:
-            params["identifier"] = setup["idmap"]["identifier01"]
-        else:
-            params["identifier"] = "direct01"
-        if setup["live"]:
-            params["owner"] = setup["idmap"]["owner01"]
-        else:
-            params["owner"] = "direct01"
 
         result = client.direct({
-            "path": "repos/{owner}/{identifier}",
+            "path": "repos",
             "method": "GET",
-            "params": params,
+            "params": {},
         })
         if setup["live"]:
             # Live mode is lenient: synthetic IDs frequently 4xx and the

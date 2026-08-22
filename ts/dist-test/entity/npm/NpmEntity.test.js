@@ -76,20 +76,20 @@ const utility_1 = require("../../utility");
         let npm_ref01_data = setup.data.new.npm['npm_ref01'];
         npm_ref01_data['identifier'] = setup.idmap['identifier01'];
         npm_ref01_data['owner'] = setup.idmap['owner01'];
-        npm_ref01_data = await npm_ref01_ent.create(npm_ref01_data);
+        npm_ref01_data = (await npm_ref01_ent.create(npm_ref01_data)).data();
         (0, node_assert_1.default)(null != npm_ref01_data);
         // LIST
         const npm_ref01_match = {};
         npm_ref01_match['identifier'] = setup.idmap['identifier01'];
         npm_ref01_match['owner'] = setup.idmap['owner01'];
-        const npm_ref01_list = await npm_ref01_ent.list(npm_ref01_match);
+        const npm_ref01_list = (await npm_ref01_ent.list(npm_ref01_match)).map((e) => e.data());
         // UPDATE
         const npm_ref01_data_up0 = {};
         npm_ref01_data_up0['identifier'] = setup.idmap['identifier'];
         npm_ref01_data_up0['owner'] = setup.idmap['owner'];
         const npm_ref01_markdef_up0 = { name: 'auth_mode', value: 'Mark01-npm_ref01_' + setup.now };
         npm_ref01_data_up0[npm_ref01_markdef_up0.name] = npm_ref01_markdef_up0.value;
-        const npm_ref01_resdata_up0 = await npm_ref01_ent.update(npm_ref01_data_up0);
+        const npm_ref01_resdata_up0 = (await npm_ref01_ent.update(npm_ref01_data_up0)).data();
         (0, node_assert_1.default)(null != npm_ref01_resdata_up0);
         (0, node_assert_1.default)(npm_ref01_resdata_up0[npm_ref01_markdef_up0.name] === npm_ref01_markdef_up0.value);
     });

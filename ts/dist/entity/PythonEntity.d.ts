@@ -5,9 +5,9 @@ import type { Python, PythonLoadMatch, PythonListMatch, PythonCreateData, Python
 declare class PythonEntity extends CloudsmithEntityBase<Python> {
     constructor(client: CloudsmithSDK, entopts: any);
     make(this: PythonEntity): PythonEntity;
-    load(this: any, reqmatch?: PythonLoadMatch, ctrl?: Control): Promise<Python>;
-    list(this: any, reqmatch?: PythonListMatch, ctrl?: Control): Promise<Python[]>;
-    create(this: any, reqdata?: PythonCreateData, ctrl?: Control): Promise<Python>;
-    update(this: any, reqdata?: PythonUpdateData, ctrl?: Control): Promise<Python>;
+    load(this: any, reqmatch?: PythonLoadMatch, ctrl?: Control): Promise<PythonEntity>;
+    list(this: any, reqmatch?: PythonListMatch, ctrl?: Control): Promise<PythonEntity[]>;
+    create(this: any, reqdata?: PythonCreateData, ctrl?: Control): Promise<PythonEntity>;
+    update(this: any, reqdata?: PythonUpdateData, ctrl?: Control): Promise<PythonEntity>;
 }
 export { PythonEntity };

@@ -5,6 +5,6 @@ import type { UserProfile, UserProfileLoadMatch } from '../CloudsmithTypes';
 declare class UserProfileEntity extends CloudsmithEntityBase<UserProfile> {
     constructor(client: CloudsmithSDK, entopts: any);
     make(this: UserProfileEntity): UserProfileEntity;
-    load(this: any, reqmatch?: UserProfileLoadMatch, ctrl?: Control): Promise<UserProfile>;
+    load(this: any, reqmatch?: UserProfileLoadMatch, ctrl?: Control): Promise<UserProfileEntity>;
 }
 export { UserProfileEntity };

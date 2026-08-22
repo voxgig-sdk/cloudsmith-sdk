@@ -76,20 +76,20 @@ const utility_1 = require("../../utility");
         let cargo_ref01_data = setup.data.new.cargo['cargo_ref01'];
         cargo_ref01_data['identifier'] = setup.idmap['identifier01'];
         cargo_ref01_data['owner'] = setup.idmap['owner01'];
-        cargo_ref01_data = await cargo_ref01_ent.create(cargo_ref01_data);
+        cargo_ref01_data = (await cargo_ref01_ent.create(cargo_ref01_data)).data();
         (0, node_assert_1.default)(null != cargo_ref01_data);
         // LIST
         const cargo_ref01_match = {};
         cargo_ref01_match['identifier'] = setup.idmap['identifier01'];
         cargo_ref01_match['owner'] = setup.idmap['owner01'];
-        const cargo_ref01_list = await cargo_ref01_ent.list(cargo_ref01_match);
+        const cargo_ref01_list = (await cargo_ref01_ent.list(cargo_ref01_match)).map((e) => e.data());
         // UPDATE
         const cargo_ref01_data_up0 = {};
         cargo_ref01_data_up0['identifier'] = setup.idmap['identifier'];
         cargo_ref01_data_up0['owner'] = setup.idmap['owner'];
         const cargo_ref01_markdef_up0 = { name: 'auth_mode', value: 'Mark01-cargo_ref01_' + setup.now };
         cargo_ref01_data_up0[cargo_ref01_markdef_up0.name] = cargo_ref01_markdef_up0.value;
-        const cargo_ref01_resdata_up0 = await cargo_ref01_ent.update(cargo_ref01_data_up0);
+        const cargo_ref01_resdata_up0 = (await cargo_ref01_ent.update(cargo_ref01_data_up0)).data();
         (0, node_assert_1.default)(null != cargo_ref01_resdata_up0);
         (0, node_assert_1.default)(cargo_ref01_resdata_up0[cargo_ref01_markdef_up0.name] === cargo_ref01_markdef_up0.value);
     });

@@ -77,7 +77,7 @@ const utility_1 = require("../../utility");
         package_file_upload_ref01_data['identifier'] = setup.idmap['identifier01'];
         package_file_upload_ref01_data['owner'] = setup.idmap['owner01'];
         package_file_upload_ref01_data['repo'] = setup.idmap['repo01'];
-        package_file_upload_ref01_data = await package_file_upload_ref01_ent.create(package_file_upload_ref01_data);
+        package_file_upload_ref01_data = (await package_file_upload_ref01_ent.create(package_file_upload_ref01_data)).data();
         (0, node_assert_1.default)(null != package_file_upload_ref01_data);
     });
 });

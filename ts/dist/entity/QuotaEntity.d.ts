@@ -5,6 +5,6 @@ import type { Quota, QuotaLoadMatch } from '../CloudsmithTypes';
 declare class QuotaEntity extends CloudsmithEntityBase<Quota> {
     constructor(client: CloudsmithSDK, entopts: any);
     make(this: QuotaEntity): QuotaEntity;
-    load(this: any, reqmatch?: QuotaLoadMatch, ctrl?: Control): Promise<Quota>;
+    load(this: any, reqmatch?: QuotaLoadMatch, ctrl?: Control): Promise<QuotaEntity>;
 }
 export { QuotaEntity };

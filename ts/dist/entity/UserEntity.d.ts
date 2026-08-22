@@ -5,6 +5,6 @@ import type { User, UserListMatch } from '../CloudsmithTypes';
 declare class UserEntity extends CloudsmithEntityBase<User> {
     constructor(client: CloudsmithSDK, entopts: any);
     make(this: UserEntity): UserEntity;
-    list(this: any, reqmatch?: UserListMatch, ctrl?: Control): Promise<User[]>;
+    list(this: any, reqmatch?: UserListMatch, ctrl?: Control): Promise<UserEntity[]>;
 }
 export { UserEntity };

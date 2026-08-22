@@ -78,7 +78,7 @@ const utility_1 = require("../../utility");
         organization_membership_visibility_update_ref01_data_up0['org_id'] = setup.idmap['org_id'];
         const organization_membership_visibility_update_ref01_markdef_up0 = { name: 'email', value: 'Mark01-organization_membership_visibility_update_ref01_' + setup.now };
         organization_membership_visibility_update_ref01_data_up0[organization_membership_visibility_update_ref01_markdef_up0.name] = organization_membership_visibility_update_ref01_markdef_up0.value;
-        const organization_membership_visibility_update_ref01_resdata_up0 = await organization_membership_visibility_update_ref01_ent.update(organization_membership_visibility_update_ref01_data_up0);
+        const organization_membership_visibility_update_ref01_resdata_up0 = (await organization_membership_visibility_update_ref01_ent.update(organization_membership_visibility_update_ref01_data_up0)).data();
         (0, node_assert_1.default)(null != organization_membership_visibility_update_ref01_resdata_up0);
         (0, node_assert_1.default)(organization_membership_visibility_update_ref01_resdata_up0[organization_membership_visibility_update_ref01_markdef_up0.name] === organization_membership_visibility_update_ref01_markdef_up0.value);
     });

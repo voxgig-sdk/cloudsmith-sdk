@@ -76,20 +76,20 @@ const utility_1 = require("../../utility");
         let nuget_ref01_data = setup.data.new.nuget['nuget_ref01'];
         nuget_ref01_data['identifier'] = setup.idmap['identifier01'];
         nuget_ref01_data['owner'] = setup.idmap['owner01'];
-        nuget_ref01_data = await nuget_ref01_ent.create(nuget_ref01_data);
+        nuget_ref01_data = (await nuget_ref01_ent.create(nuget_ref01_data)).data();
         (0, node_assert_1.default)(null != nuget_ref01_data);
         // LIST
         const nuget_ref01_match = {};
         nuget_ref01_match['identifier'] = setup.idmap['identifier01'];
         nuget_ref01_match['owner'] = setup.idmap['owner01'];
-        const nuget_ref01_list = await nuget_ref01_ent.list(nuget_ref01_match);
+        const nuget_ref01_list = (await nuget_ref01_ent.list(nuget_ref01_match)).map((e) => e.data());
         // UPDATE
         const nuget_ref01_data_up0 = {};
         nuget_ref01_data_up0['identifier'] = setup.idmap['identifier'];
         nuget_ref01_data_up0['owner'] = setup.idmap['owner'];
         const nuget_ref01_markdef_up0 = { name: 'auth_mode', value: 'Mark01-nuget_ref01_' + setup.now };
         nuget_ref01_data_up0[nuget_ref01_markdef_up0.name] = nuget_ref01_markdef_up0.value;
-        const nuget_ref01_resdata_up0 = await nuget_ref01_ent.update(nuget_ref01_data_up0);
+        const nuget_ref01_resdata_up0 = (await nuget_ref01_ent.update(nuget_ref01_data_up0)).data();
         (0, node_assert_1.default)(null != nuget_ref01_resdata_up0);
         (0, node_assert_1.default)(nuget_ref01_resdata_up0[nuget_ref01_markdef_up0.name] === nuget_ref01_markdef_up0.value);
     });

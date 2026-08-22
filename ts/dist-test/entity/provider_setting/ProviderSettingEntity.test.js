@@ -76,7 +76,7 @@ const utility_1 = require("../../utility");
         const provider_setting_ref01_ent = client.ProviderSetting();
         const provider_setting_ref01_match = {};
         provider_setting_ref01_match['org_id'] = setup.idmap['org01'];
-        const provider_setting_ref01_list = await provider_setting_ref01_ent.list(provider_setting_ref01_match);
+        const provider_setting_ref01_list = (await provider_setting_ref01_ent.list(provider_setting_ref01_match)).map((e) => e.data());
     });
 });
 function basicSetup(extra) {

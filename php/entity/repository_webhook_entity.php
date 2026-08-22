@@ -242,6 +242,39 @@ class RepositoryWebhookEntity
     }
 
     
+    /**
+     * Load a single RepositoryWebhook.
+     *
+     * @param RepositoryWebhookLoadMatch|array|null $reqmatch Match criteria (id/query
+     *   fields) as an assoc-array; a typed RepositoryWebhookLoadMatch names the shape.
+     * @param mixed $ctrl Optional per-call control overrides.
+     * @return RepositoryWebhook|array The loaded RepositoryWebhook as an assoc-array at the
+     *   SDK boundary; throws CloudsmithError on failure (item-5 convention).
+     */
+    public function load(?array $reqmatch = null, $ctrl = null): mixed
+    {
+        $utility = $this->_utility;
+        $ctx = ($utility->make_context)([
+            "opname" => "load",
+            "ctrl" => $ctrl,
+            "match" => $this->_match,
+            "data" => $this->_data,
+            "reqmatch" => $reqmatch,
+        ], $this->_entctx);
+
+        return $this->_run_op($ctx, function () use ($ctx) {
+            if ($ctx->result) {
+                if ($ctx->result->resmatch) {
+                    $this->_match = $ctx->result->resmatch;
+                }
+                if ($ctx->result->resdata) {
+                    $this->_data = CloudsmithHelpers::to_map(Struct::clone($ctx->result->resdata)) ?? [];
+                }
+            }
+        });
+    }
+
+
 
     
     /**

@@ -27,32 +27,13 @@ func TestRepoDirect(t *testing.T) {
 			t.Skip(_reason)
 			return
 		}
-		if setup.live {
-			for _, _liveKey := range []string{"identifier01", "owner01"} {
-				if v := setup.idmap[_liveKey]; v == nil {
-					t.Skipf("live test needs %s via *_ENTID env var (synthetic IDs only)", _liveKey)
-					return
-				}
-			}
-		}
 		client := setup.client
 
-		params := map[string]any{}
-		if setup.live {
-			params["identifier"] = setup.idmap["identifier01"]
-		} else {
-			params["identifier"] = "direct01"
-		}
-		if setup.live {
-			params["owner"] = setup.idmap["owner01"]
-		} else {
-			params["owner"] = "direct02"
-		}
 
 		result, err := client.Direct(map[string]any{
-			"path":   "repos/{owner}/{identifier}",
+			"path":   "repos",
 			"method": "GET",
-			"params": params,
+			"params": map[string]any{},
 		})
 		if setup.live {
 			// Live-mode leniency is a model decision
@@ -93,20 +74,6 @@ func TestRepoDirect(t *testing.T) {
 			if len(*setup.calls) != 1 {
 				t.Fatalf("expected 1 call, got %d", len(*setup.calls))
 			}
-			call := (*setup.calls)[0]
-			if initMap, ok := call["init"].(map[string]any); ok {
-				if initMap["method"] != "GET" {
-					t.Fatalf("expected method GET, got %v", initMap["method"])
-				}
-			}
-			if url, ok := call["url"].(string); ok {
-				if !strings.Contains(url, "direct01") {
-					t.Fatalf("expected url to contain direct01, got %v", url)
-				}
-				if !strings.Contains(url, "direct02") {
-					t.Fatalf("expected url to contain direct02, got %v", url)
-				}
-			}
 		}
 	})
 
@@ -123,24 +90,14 @@ func TestRepoDirect(t *testing.T) {
 			t.Skip(_reason)
 			return
 		}
-		if setup.live {
-			for _, _liveKey := range []string{"identifier01", "owner01"} {
-				if v := setup.idmap[_liveKey]; v == nil {
-					t.Skipf("live test needs %s via *_ENTID env var (synthetic IDs only)", _liveKey)
-					return
-				}
-			}
-		}
 		client := setup.client
 
 		params := map[string]any{}
 		query := map[string]any{}
 		if setup.live {
 			listParams := map[string]any{}
-			listParams["identifier"] = setup.idmap["identifier01"]
-			listParams["owner"] = setup.idmap["owner01"]
 			listResult, listErr := client.Direct(map[string]any{
-				"path":   "repos/{owner}/{identifier}",
+				"path":   "repos",
 				"method": "GET",
 				"params": listParams,
 			})

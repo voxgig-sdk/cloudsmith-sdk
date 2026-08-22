@@ -78,7 +78,7 @@ const utility_1 = require("../../utility");
         repository_retention_rule_ref01_data_up0['owner'] = setup.idmap['owner'];
         const repository_retention_rule_ref01_markdef_up0 = { name: 'retention_package_query_string', value: 'Mark01-repository_retention_rule_ref01_' + setup.now };
         repository_retention_rule_ref01_data_up0[repository_retention_rule_ref01_markdef_up0.name] = repository_retention_rule_ref01_markdef_up0.value;
-        const repository_retention_rule_ref01_resdata_up0 = await repository_retention_rule_ref01_ent.update(repository_retention_rule_ref01_data_up0);
+        const repository_retention_rule_ref01_resdata_up0 = (await repository_retention_rule_ref01_ent.update(repository_retention_rule_ref01_data_up0)).data();
         (0, node_assert_1.default)(null != repository_retention_rule_ref01_resdata_up0);
         (0, node_assert_1.default)(repository_retention_rule_ref01_resdata_up0[repository_retention_rule_ref01_markdef_up0.name] === repository_retention_rule_ref01_markdef_up0.value);
     });

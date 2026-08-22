@@ -81,7 +81,7 @@ func TestRepositoryWebhookEntity(t *testing.T) {
 		if setup.live {
 			_mode = "live"
 		}
-		for _, _op := range []string{"create", "list", "update"} {
+		for _, _op := range []string{"create", "list", "update", "load"} {
 			if _shouldSkip, _reason := isControlSkipped("entityOp", "repository_webhook." + _op, _mode); _shouldSkip {
 				if _reason == "" {
 					_reason = "skipped via sdk-test-control.json"
@@ -102,7 +102,6 @@ func TestRepositoryWebhookEntity(t *testing.T) {
 		repositoryWebhookRef01Ent := client.RepositoryWebhook(nil)
 		repositoryWebhookRef01Data := core.ToMapAny(vs.GetProp(
 			vs.GetPath([]any{"new", "repository_webhook"}, setup.data), "repository_webhook_ref01"))
-		repositoryWebhookRef01Data["identifier"] = setup.idmap["identifier01"]
 		repositoryWebhookRef01Data["owner"] = setup.idmap["owner01"]
 		repositoryWebhookRef01Data["repo"] = setup.idmap["repo01"]
 
@@ -117,7 +116,6 @@ func TestRepositoryWebhookEntity(t *testing.T) {
 
 		// LIST
 		repositoryWebhookRef01Match := map[string]any{
-			"identifier": setup.idmap["identifier01"],
 			"owner": setup.idmap["owner01"],
 			"repo": setup.idmap["repo01"],
 		}
@@ -153,6 +151,16 @@ func TestRepositoryWebhookEntity(t *testing.T) {
 			t.Fatalf("expected %s to be updated, got %v", repositoryWebhookRef01MarkdefUp0Name, repositoryWebhookRef01ResdataUp0[repositoryWebhookRef01MarkdefUp0Name])
 		}
 
+		// LOAD
+		repositoryWebhookRef01MatchDt0 := map[string]any{}
+		repositoryWebhookRef01DataDt0Loaded, err := repositoryWebhookRef01Ent.Load(repositoryWebhookRef01MatchDt0, nil)
+		if err != nil {
+			t.Fatalf("load failed: %v", err)
+		}
+		if repositoryWebhookRef01DataDt0Loaded == nil {
+			t.Fatal("expected load result to be non-nil")
+		}
+
 	})
 }
 
@@ -181,7 +189,7 @@ func repository_webhookBasicSetup(extra map[string]any) *entityTestSetup {
 
 	// Generate idmap via transform, matching TS pattern.
 	idmap := vs.Transform(
-		[]any{"repository_webhook01", "repository_webhook02", "repository_webhook03", "webhook01", "webhook02", "webhook03", "identifier01", "owner01", "repo01"},
+		[]any{"repository_webhook01", "repository_webhook02", "repository_webhook03", "webhook01", "webhook02", "webhook03", "owner01", "repo01"},
 		map[string]any{
 			"`$PACK`": []any{"", map[string]any{
 				"`$KEY`": "`$COPY`",

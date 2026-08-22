@@ -5,9 +5,9 @@ import type { Conda, CondaLoadMatch, CondaListMatch, CondaCreateData, CondaUpdat
 declare class CondaEntity extends CloudsmithEntityBase<Conda> {
     constructor(client: CloudsmithSDK, entopts: any);
     make(this: CondaEntity): CondaEntity;
-    load(this: any, reqmatch?: CondaLoadMatch, ctrl?: Control): Promise<Conda>;
-    list(this: any, reqmatch?: CondaListMatch, ctrl?: Control): Promise<Conda[]>;
-    create(this: any, reqdata?: CondaCreateData, ctrl?: Control): Promise<Conda>;
-    update(this: any, reqdata?: CondaUpdateData, ctrl?: Control): Promise<Conda>;
+    load(this: any, reqmatch?: CondaLoadMatch, ctrl?: Control): Promise<CondaEntity>;
+    list(this: any, reqmatch?: CondaListMatch, ctrl?: Control): Promise<CondaEntity[]>;
+    create(this: any, reqdata?: CondaCreateData, ctrl?: Control): Promise<CondaEntity>;
+    update(this: any, reqdata?: CondaUpdateData, ctrl?: Control): Promise<CondaEntity>;
 }
 export { CondaEntity };

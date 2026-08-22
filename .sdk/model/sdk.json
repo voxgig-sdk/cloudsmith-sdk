@@ -20,9 +20,11 @@
         ],
         "headers": {
           "content-type": "application/json"
-        }
+        },
+        "repr": "auto"
       },
       "contributor": {},
+      "docs": {},
       "entity": {
         "abort": {
           "active": true,
@@ -94,24 +96,28 @@
               "active": true,
               "name": "auth_mode",
               "req": false,
+              "short": "The authentication mode to use when accessing this upstream.",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "auth_secret",
               "req": false,
+              "short": "Secret to provide with requests to upstream.",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "auth_username",
               "req": false,
+              "short": "Username to provide with requests to upstream.",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "created_at",
               "req": false,
+              "short": "The datetime the upstream source was created.",
               "type": "`$STRING`"
             },
             {
@@ -124,54 +130,63 @@
               "active": true,
               "name": "extra_header_1",
               "req": false,
+              "short": "The key for extra header #1 to send to upstream.",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "extra_header_2",
               "req": false,
+              "short": "The key for extra header #2 to send to upstream.",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "extra_value_1",
               "req": false,
+              "short": "The value for extra header #1 to send to upstream.",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "extra_value_2",
               "req": false,
+              "short": "The value for extra header #2 to send to upstream.",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "is_active",
               "req": false,
+              "short": "Whether or not this upstream is active and ready for requests.",
               "type": "`$BOOLEAN`"
             },
             {
               "active": true,
               "name": "mode",
               "req": false,
+              "short": "The mode that this upstream should operate in.",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "name",
               "req": true,
+              "short": "A descriptive name for this upstream source.",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "pending_validation",
               "req": false,
+              "short": "When true, this upstream source is pending validation.",
               "type": "`$BOOLEAN`"
             },
             {
               "active": true,
               "name": "priority",
               "req": false,
+              "short": "Upstream sources are selected for resolving requests by sequential order (1..n), followed by creation date.",
               "type": "`$INTEGER`"
             },
             {
@@ -190,12 +205,14 @@
               "active": true,
               "name": "upstream_url",
               "req": true,
+              "short": "The URL for this upstream source.",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "verify_ssl",
               "req": false,
+              "short": "If enabled, SSL certificates are verified when requests are made to this upstream.",
               "type": "`$BOOLEAN`"
             }
           ],
@@ -598,24 +615,28 @@
               "active": true,
               "name": "auth_mode",
               "req": false,
+              "short": "The authentication mode to use when accessing this upstream.",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "auth_secret",
               "req": false,
+              "short": "Secret to provide with requests to upstream.",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "auth_username",
               "req": false,
+              "short": "Username to provide with requests to upstream.",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "created_at",
               "req": false,
+              "short": "The datetime the upstream source was created.",
               "type": "`$STRING`"
             },
             {
@@ -628,54 +649,63 @@
               "active": true,
               "name": "extra_header_1",
               "req": false,
+              "short": "The key for extra header #1 to send to upstream.",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "extra_header_2",
               "req": false,
+              "short": "The key for extra header #2 to send to upstream.",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "extra_value_1",
               "req": false,
+              "short": "The value for extra header #1 to send to upstream.",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "extra_value_2",
               "req": false,
+              "short": "The value for extra header #2 to send to upstream.",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "is_active",
               "req": false,
+              "short": "Whether or not this upstream is active and ready for requests.",
               "type": "`$BOOLEAN`"
             },
             {
               "active": true,
               "name": "mode",
               "req": false,
+              "short": "The mode that this upstream should operate in.",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "name",
               "req": true,
+              "short": "A descriptive name for this upstream source.",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "pending_validation",
               "req": false,
+              "short": "When true, this upstream source is pending validation.",
               "type": "`$BOOLEAN`"
             },
             {
               "active": true,
               "name": "priority",
               "req": false,
+              "short": "Upstream sources are selected for resolving requests by sequential order (1..n), followed by creation date.",
               "type": "`$INTEGER`"
             },
             {
@@ -694,12 +724,14 @@
               "active": true,
               "name": "upstream_url",
               "req": true,
+              "short": "The URL for this upstream source.",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "verify_ssl",
               "req": false,
+              "short": "If enabled, SSL certificates are verified when requests are made to this upstream.",
               "type": "`$BOOLEAN`"
             }
           ],
@@ -1086,24 +1118,28 @@
               "active": true,
               "name": "auth_mode",
               "req": false,
+              "short": "The authentication mode to use when accessing this upstream.",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "auth_secret",
               "req": false,
+              "short": "Secret to provide with requests to upstream.",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "auth_username",
               "req": false,
+              "short": "Username to provide with requests to upstream.",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "created_at",
               "req": false,
+              "short": "The datetime the upstream source was created.",
               "type": "`$STRING`"
             },
             {
@@ -1116,54 +1152,63 @@
               "active": true,
               "name": "extra_header_1",
               "req": false,
+              "short": "The key for extra header #1 to send to upstream.",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "extra_header_2",
               "req": false,
+              "short": "The key for extra header #2 to send to upstream.",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "extra_value_1",
               "req": false,
+              "short": "The value for extra header #1 to send to upstream.",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "extra_value_2",
               "req": false,
+              "short": "The value for extra header #2 to send to upstream.",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "is_active",
               "req": false,
+              "short": "Whether or not this upstream is active and ready for requests.",
               "type": "`$BOOLEAN`"
             },
             {
               "active": true,
               "name": "mode",
               "req": false,
+              "short": "The mode that this upstream should operate in.",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "name",
               "req": true,
+              "short": "A descriptive name for this upstream source.",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "pending_validation",
               "req": false,
+              "short": "When true, this upstream source is pending validation.",
               "type": "`$BOOLEAN`"
             },
             {
               "active": true,
               "name": "priority",
               "req": false,
+              "short": "Upstream sources are selected for resolving requests by sequential order (1..n), followed by creation date.",
               "type": "`$INTEGER`"
             },
             {
@@ -1182,12 +1227,14 @@
               "active": true,
               "name": "upstream_url",
               "req": true,
+              "short": "The URL for this upstream source.",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "verify_ssl",
               "req": false,
+              "short": "If enabled, SSL certificates are verified when requests are made to this upstream.",
               "type": "`$BOOLEAN`"
             }
           ],
@@ -1574,24 +1621,28 @@
               "active": true,
               "name": "auth_mode",
               "req": false,
+              "short": "The authentication mode to use when accessing this upstream.",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "auth_secret",
               "req": false,
+              "short": "Secret to provide with requests to upstream.",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "auth_username",
               "req": false,
+              "short": "Username to provide with requests to upstream.",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "created_at",
               "req": false,
+              "short": "The datetime the upstream source was created.",
               "type": "`$STRING`"
             },
             {
@@ -1604,54 +1655,63 @@
               "active": true,
               "name": "extra_header_1",
               "req": false,
+              "short": "The key for extra header #1 to send to upstream.",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "extra_header_2",
               "req": false,
+              "short": "The key for extra header #2 to send to upstream.",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "extra_value_1",
               "req": false,
+              "short": "The value for extra header #1 to send to upstream.",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "extra_value_2",
               "req": false,
+              "short": "The value for extra header #2 to send to upstream.",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "is_active",
               "req": false,
+              "short": "Whether or not this upstream is active and ready for requests.",
               "type": "`$BOOLEAN`"
             },
             {
               "active": true,
               "name": "mode",
               "req": false,
+              "short": "The mode that this upstream should operate in.",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "name",
               "req": true,
+              "short": "A descriptive name for this upstream source.",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "pending_validation",
               "req": false,
+              "short": "When true, this upstream source is pending validation.",
               "type": "`$BOOLEAN`"
             },
             {
               "active": true,
               "name": "priority",
               "req": false,
+              "short": "Upstream sources are selected for resolving requests by sequential order (1..n), followed by creation date.",
               "type": "`$INTEGER`"
             },
             {
@@ -1670,12 +1730,14 @@
               "active": true,
               "name": "upstream_url",
               "req": true,
+              "short": "The URL for this upstream source.",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "verify_ssl",
               "req": false,
+              "short": "If enabled, SSL certificates are verified when requests are made to this upstream.",
               "type": "`$BOOLEAN`"
             }
           ],
@@ -2046,24 +2108,28 @@
               "active": true,
               "name": "auth_mode",
               "req": false,
+              "short": "The authentication mode to use when accessing this upstream.",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "auth_secret",
               "req": false,
+              "short": "Secret to provide with requests to upstream.",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "auth_username",
               "req": false,
+              "short": "Username to provide with requests to upstream.",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "created_at",
               "req": false,
+              "short": "The datetime the upstream source was created.",
               "type": "`$STRING`"
             },
             {
@@ -2076,54 +2142,63 @@
               "active": true,
               "name": "extra_header_1",
               "req": false,
+              "short": "The key for extra header #1 to send to upstream.",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "extra_header_2",
               "req": false,
+              "short": "The key for extra header #2 to send to upstream.",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "extra_value_1",
               "req": false,
+              "short": "The value for extra header #1 to send to upstream.",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "extra_value_2",
               "req": false,
+              "short": "The value for extra header #2 to send to upstream.",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "is_active",
               "req": false,
+              "short": "Whether or not this upstream is active and ready for requests.",
               "type": "`$BOOLEAN`"
             },
             {
               "active": true,
               "name": "mode",
               "req": false,
+              "short": "The mode that this upstream should operate in.",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "name",
               "req": true,
+              "short": "A descriptive name for this upstream source.",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "pending_validation",
               "req": false,
+              "short": "When true, this upstream source is pending validation.",
               "type": "`$BOOLEAN`"
             },
             {
               "active": true,
               "name": "priority",
               "req": false,
+              "short": "Upstream sources are selected for resolving requests by sequential order (1..n), followed by creation date.",
               "type": "`$INTEGER`"
             },
             {
@@ -2142,12 +2217,14 @@
               "active": true,
               "name": "upstream_url",
               "req": true,
+              "short": "The URL for this upstream source.",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "verify_ssl",
               "req": false,
+              "short": "If enabled, SSL certificates are verified when requests are made to this upstream.",
               "type": "`$BOOLEAN`"
             }
           ],
@@ -2518,30 +2595,35 @@
               "active": true,
               "name": "auth_mode",
               "req": false,
+              "short": "The authentication mode to use when accessing this upstream.",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "auth_secret",
               "req": false,
+              "short": "Secret to provide with requests to upstream.",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "auth_username",
               "req": false,
+              "short": "Username to provide with requests to upstream.",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "component",
               "req": false,
+              "short": "The component to fetch from the upstream",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "created_at",
               "req": false,
+              "short": "The datetime the upstream source was created.",
               "type": "`$STRING`"
             },
             {
@@ -2554,84 +2636,98 @@
               "active": true,
               "name": "distro_versions",
               "req": true,
+              "short": "The distribution version that packages found on this upstream could be associated with.",
               "type": "`$ARRAY`"
             },
             {
               "active": true,
               "name": "extra_header_1",
               "req": false,
+              "short": "The key for extra header #1 to send to upstream.",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "extra_header_2",
               "req": false,
+              "short": "The key for extra header #2 to send to upstream.",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "extra_value_1",
               "req": false,
+              "short": "The value for extra header #1 to send to upstream.",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "extra_value_2",
               "req": false,
+              "short": "The value for extra header #2 to send to upstream.",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "gpg_key_inline",
               "req": false,
+              "short": "A public GPG key to associate with packages found on this upstream.",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "gpg_key_url",
               "req": false,
+              "short": "When provided, Cloudsmith will fetch, validate, and associate a public GPG key found at the provided URL.",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "gpg_verification",
               "req": false,
+              "short": "The GPG signature verification mode for this upstream.",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "include_sources",
               "req": false,
+              "short": "When true, source packages will be available from this upstream.",
               "type": "`$BOOLEAN`"
             },
             {
               "active": true,
               "name": "is_active",
               "req": false,
+              "short": "Whether or not this upstream is active and ready for requests.",
               "type": "`$BOOLEAN`"
             },
             {
               "active": true,
               "name": "mode",
               "req": false,
+              "short": "The mode that this upstream should operate in.",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "name",
               "req": true,
+              "short": "A descriptive name for this upstream source.",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "pending_validation",
               "req": false,
+              "short": "When true, this upstream source is pending validation.",
               "type": "`$BOOLEAN`"
             },
             {
               "active": true,
               "name": "priority",
               "req": false,
+              "short": "Upstream sources are selected for resolving requests by sequential order (1..n), followed by creation date.",
               "type": "`$INTEGER`"
             },
             {
@@ -2650,24 +2746,28 @@
               "active": true,
               "name": "upstream_distribution",
               "req": false,
+              "short": "The distribution to fetch from the upstream",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "upstream_url",
               "req": true,
+              "short": "The URL for this upstream source.",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "verification_status",
               "req": false,
+              "short": "The signature verification status for this upstream.",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "verify_ssl",
               "req": false,
+              "short": "If enabled, SSL certificates are verified when requests are made to this upstream.",
               "type": "`$BOOLEAN`"
             }
           ],
@@ -3116,6 +3216,7 @@
               "active": true,
               "name": "slug",
               "req": false,
+              "short": "The slug identifier for this distribution",
               "type": "`$STRING`"
             },
             {
@@ -3128,6 +3229,7 @@
               "active": true,
               "name": "versions",
               "req": false,
+              "short": "A list of the versions for this distribution",
               "type": "`$ARRAY`"
             }
           ],
@@ -3222,24 +3324,28 @@
               "active": true,
               "name": "auth_mode",
               "req": false,
+              "short": "The authentication mode to use when accessing this upstream.",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "auth_secret",
               "req": false,
+              "short": "Secret to provide with requests to upstream.",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "auth_username",
               "req": false,
+              "short": "Username to provide with requests to upstream.",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "created_at",
               "req": false,
+              "short": "The datetime the upstream source was created.",
               "type": "`$STRING`"
             },
             {
@@ -3252,54 +3358,63 @@
               "active": true,
               "name": "extra_header_1",
               "req": false,
+              "short": "The key for extra header #1 to send to upstream.",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "extra_header_2",
               "req": false,
+              "short": "The key for extra header #2 to send to upstream.",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "extra_value_1",
               "req": false,
+              "short": "The value for extra header #1 to send to upstream.",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "extra_value_2",
               "req": false,
+              "short": "The value for extra header #2 to send to upstream.",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "is_active",
               "req": false,
+              "short": "Whether or not this upstream is active and ready for requests.",
               "type": "`$BOOLEAN`"
             },
             {
               "active": true,
               "name": "mode",
               "req": false,
+              "short": "The mode that this upstream should operate in.",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "name",
               "req": true,
+              "short": "A descriptive name for this upstream source.",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "pending_validation",
               "req": false,
+              "short": "When true, this upstream source is pending validation.",
               "type": "`$BOOLEAN`"
             },
             {
               "active": true,
               "name": "priority",
               "req": false,
+              "short": "Upstream sources are selected for resolving requests by sequential order (1..n), followed by creation date.",
               "type": "`$INTEGER`"
             },
             {
@@ -3318,12 +3433,14 @@
               "active": true,
               "name": "upstream_url",
               "req": true,
+              "short": "The URL for this upstream source.",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "verify_ssl",
               "req": false,
+              "short": "If enabled, SSL certificates are verified when requests are made to this upstream.",
               "type": "`$BOOLEAN`"
             }
           ],
@@ -3694,12 +3811,14 @@
               "active": true,
               "name": "claim_value",
               "req": true,
+              "short": "The OIDC token claim value that must be present in the token for it to successfully authenticate as the mapped `service_account`.",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "service_account",
               "req": true,
+              "short": "The service account associated with the provider setting and `claim_value` Note: This field and the dynamic mappings feature are still in early access.",
               "type": "`$STRING`"
             }
           ],
@@ -3903,6 +4022,7 @@
               "active": true,
               "name": "active",
               "req": false,
+              "short": "Number of packages with at least 1 download",
               "type": "`$INTEGER`"
             },
             {
@@ -3921,12 +4041,14 @@
               "active": true,
               "name": "inactive",
               "req": false,
+              "short": "Packages with zero downloads",
               "type": "`$INTEGER`"
             },
             {
               "active": true,
               "name": "total",
               "req": false,
+              "short": "Total number of packages in repo",
               "type": "`$INTEGER`"
             }
           ],
@@ -4572,54 +4694,63 @@
               "active": true,
               "name": "description",
               "req": true,
+              "short": "Description of the package format",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "distributions",
               "req": false,
+              "short": "The distributions supported by this package format",
               "type": "`$ARRAY`"
             },
             {
               "active": true,
               "name": "extensions",
               "req": true,
+              "short": "A non-exhaustive list of extensions supported",
               "type": "`$ARRAY`"
             },
             {
               "active": true,
               "name": "name",
               "req": true,
+              "short": "Name for the package format",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "premium",
               "req": true,
+              "short": "If true the package format is a premium-only feature",
               "type": "`$BOOLEAN`"
             },
             {
               "active": true,
               "name": "premium_plan_id",
               "req": false,
+              "short": "The minimum plan id required for this package format",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "premium_plan_name",
               "req": false,
+              "short": "The minimum plan name required for this package format",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "slug",
               "req": true,
+              "short": "Slug for the package format",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "supports",
               "req": true,
+              "short": "A set of what the package format supports",
               "type": "`$OBJECT`"
             }
           ],
@@ -4719,24 +4850,28 @@
               "active": true,
               "name": "auth_mode",
               "req": false,
+              "short": "The authentication mode to use when accessing this upstream.",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "auth_secret",
               "req": false,
+              "short": "Secret to provide with requests to upstream.",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "auth_username",
               "req": false,
+              "short": "Username to provide with requests to upstream.",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "created_at",
               "req": false,
+              "short": "The datetime the upstream source was created.",
               "type": "`$STRING`"
             },
             {
@@ -4749,54 +4884,63 @@
               "active": true,
               "name": "extra_header_1",
               "req": false,
+              "short": "The key for extra header #1 to send to upstream.",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "extra_header_2",
               "req": false,
+              "short": "The key for extra header #2 to send to upstream.",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "extra_value_1",
               "req": false,
+              "short": "The value for extra header #1 to send to upstream.",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "extra_value_2",
               "req": false,
+              "short": "The value for extra header #2 to send to upstream.",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "is_active",
               "req": false,
+              "short": "Whether or not this upstream is active and ready for requests.",
               "type": "`$BOOLEAN`"
             },
             {
               "active": true,
               "name": "mode",
               "req": false,
+              "short": "The mode that this upstream should operate in.",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "name",
               "req": true,
+              "short": "A descriptive name for this upstream source.",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "pending_validation",
               "req": false,
+              "short": "When true, this upstream source is pending validation.",
               "type": "`$BOOLEAN`"
             },
             {
               "active": true,
               "name": "priority",
               "req": false,
+              "short": "Upstream sources are selected for resolving requests by sequential order (1..n), followed by creation date.",
               "type": "`$INTEGER`"
             },
             {
@@ -4815,12 +4959,14 @@
               "active": true,
               "name": "upstream_url",
               "req": true,
+              "short": "The URL for this upstream source.",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "verify_ssl",
               "req": false,
+              "short": "If enabled, SSL certificates are verified when requests are made to this upstream.",
               "type": "`$BOOLEAN`"
             }
           ],
@@ -5212,24 +5358,28 @@
               "active": true,
               "name": "auth_mode",
               "req": false,
+              "short": "The authentication mode to use when accessing this upstream.",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "auth_secret",
               "req": false,
+              "short": "Secret to provide with requests to upstream.",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "auth_username",
               "req": false,
+              "short": "Username to provide with requests to upstream.",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "created_at",
               "req": false,
+              "short": "The datetime the upstream source was created.",
               "type": "`$STRING`"
             },
             {
@@ -5242,54 +5392,63 @@
               "active": true,
               "name": "extra_header_1",
               "req": false,
+              "short": "The key for extra header #1 to send to upstream.",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "extra_header_2",
               "req": false,
+              "short": "The key for extra header #2 to send to upstream.",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "extra_value_1",
               "req": false,
+              "short": "The value for extra header #1 to send to upstream.",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "extra_value_2",
               "req": false,
+              "short": "The value for extra header #2 to send to upstream.",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "is_active",
               "req": false,
+              "short": "Whether or not this upstream is active and ready for requests.",
               "type": "`$BOOLEAN`"
             },
             {
               "active": true,
               "name": "mode",
               "req": false,
+              "short": "The mode that this upstream should operate in.",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "name",
               "req": true,
+              "short": "A descriptive name for this upstream source.",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "pending_validation",
               "req": false,
+              "short": "When true, this upstream source is pending validation.",
               "type": "`$BOOLEAN`"
             },
             {
               "active": true,
               "name": "priority",
               "req": false,
+              "short": "Upstream sources are selected for resolving requests by sequential order (1..n), followed by creation date.",
               "type": "`$INTEGER`"
             },
             {
@@ -5308,12 +5467,14 @@
               "active": true,
               "name": "upstream_url",
               "req": true,
+              "short": "The URL for this upstream source.",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "verify_ssl",
               "req": false,
+              "short": "If enabled, SSL certificates are verified when requests are made to this upstream.",
               "type": "`$BOOLEAN`"
             }
           ],
@@ -5684,24 +5845,28 @@
               "active": true,
               "name": "auth_mode",
               "req": false,
+              "short": "The authentication mode to use when accessing this upstream.",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "auth_secret",
               "req": false,
+              "short": "Secret to provide with requests to upstream.",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "auth_username",
               "req": false,
+              "short": "Username to provide with requests to upstream.",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "created_at",
               "req": false,
+              "short": "The datetime the upstream source was created.",
               "type": "`$STRING`"
             },
             {
@@ -5714,54 +5879,63 @@
               "active": true,
               "name": "extra_header_1",
               "req": false,
+              "short": "The key for extra header #1 to send to upstream.",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "extra_header_2",
               "req": false,
+              "short": "The key for extra header #2 to send to upstream.",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "extra_value_1",
               "req": false,
+              "short": "The value for extra header #1 to send to upstream.",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "extra_value_2",
               "req": false,
+              "short": "The value for extra header #2 to send to upstream.",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "is_active",
               "req": false,
+              "short": "Whether or not this upstream is active and ready for requests.",
               "type": "`$BOOLEAN`"
             },
             {
               "active": true,
               "name": "mode",
               "req": false,
+              "short": "The mode that this upstream should operate in.",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "name",
               "req": true,
+              "short": "A descriptive name for this upstream source.",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "pending_validation",
               "req": false,
+              "short": "When true, this upstream source is pending validation.",
               "type": "`$BOOLEAN`"
             },
             {
               "active": true,
               "name": "priority",
               "req": false,
+              "short": "Upstream sources are selected for resolving requests by sequential order (1..n), followed by creation date.",
               "type": "`$INTEGER`"
             },
             {
@@ -5780,12 +5954,14 @@
               "active": true,
               "name": "upstream_url",
               "req": true,
+              "short": "The URL for this upstream source.",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "verify_ssl",
               "req": false,
+              "short": "If enabled, SSL certificates are verified when requests are made to this upstream.",
               "type": "`$BOOLEAN`"
             }
           ],
@@ -6168,24 +6344,28 @@
               "active": true,
               "name": "auth_mode",
               "req": false,
+              "short": "The authentication mode to use when accessing this upstream.",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "auth_secret",
               "req": false,
+              "short": "Secret to provide with requests to upstream.",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "auth_username",
               "req": false,
+              "short": "Username to provide with requests to upstream.",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "created_at",
               "req": false,
+              "short": "The datetime the upstream source was created.",
               "type": "`$STRING`"
             },
             {
@@ -6198,54 +6378,63 @@
               "active": true,
               "name": "extra_header_1",
               "req": false,
+              "short": "The key for extra header #1 to send to upstream.",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "extra_header_2",
               "req": false,
+              "short": "The key for extra header #2 to send to upstream.",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "extra_value_1",
               "req": false,
+              "short": "The value for extra header #1 to send to upstream.",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "extra_value_2",
               "req": false,
+              "short": "The value for extra header #2 to send to upstream.",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "is_active",
               "req": false,
+              "short": "Whether or not this upstream is active and ready for requests.",
               "type": "`$BOOLEAN`"
             },
             {
               "active": true,
               "name": "mode",
               "req": false,
+              "short": "The mode that this upstream should operate in.",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "name",
               "req": true,
+              "short": "A descriptive name for this upstream source.",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "pending_validation",
               "req": false,
+              "short": "When true, this upstream source is pending validation.",
               "type": "`$BOOLEAN`"
             },
             {
               "active": true,
               "name": "priority",
               "req": false,
+              "short": "Upstream sources are selected for resolving requests by sequential order (1..n), followed by creation date.",
               "type": "`$INTEGER`"
             },
             {
@@ -6264,12 +6453,14 @@
               "active": true,
               "name": "upstream_url",
               "req": true,
+              "short": "The URL for this upstream source.",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "verify_ssl",
               "req": false,
+              "short": "If enabled, SSL certificates are verified when requests are made to this upstream.",
               "type": "`$BOOLEAN`"
             }
           ],
@@ -6724,24 +6915,28 @@
               "active": true,
               "name": "auth_mode",
               "req": false,
+              "short": "The authentication mode to use when accessing this upstream.",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "auth_secret",
               "req": false,
+              "short": "Secret to provide with requests to upstream.",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "auth_username",
               "req": false,
+              "short": "Username to provide with requests to upstream.",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "created_at",
               "req": false,
+              "short": "The datetime the upstream source was created.",
               "type": "`$STRING`"
             },
             {
@@ -6754,72 +6949,84 @@
               "active": true,
               "name": "extra_header_1",
               "req": false,
+              "short": "The key for extra header #1 to send to upstream.",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "extra_header_2",
               "req": false,
+              "short": "The key for extra header #2 to send to upstream.",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "extra_value_1",
               "req": false,
+              "short": "The value for extra header #1 to send to upstream.",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "extra_value_2",
               "req": false,
+              "short": "The value for extra header #2 to send to upstream.",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "gpg_key_inline",
               "req": false,
+              "short": "A public GPG key to associate with packages found on this upstream.",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "gpg_key_url",
               "req": false,
+              "short": "When provided, Cloudsmith will fetch, validate, and associate a public GPG key found at the provided URL.",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "gpg_verification",
               "req": false,
+              "short": "The GPG signature verification mode for this upstream.",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "is_active",
               "req": false,
+              "short": "Whether or not this upstream is active and ready for requests.",
               "type": "`$BOOLEAN`"
             },
             {
               "active": true,
               "name": "mode",
               "req": false,
+              "short": "The mode that this upstream should operate in.",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "name",
               "req": true,
+              "short": "A descriptive name for this upstream source.",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "pending_validation",
               "req": false,
+              "short": "When true, this upstream source is pending validation.",
               "type": "`$BOOLEAN`"
             },
             {
               "active": true,
               "name": "priority",
               "req": false,
+              "short": "Upstream sources are selected for resolving requests by sequential order (1..n), followed by creation date.",
               "type": "`$INTEGER`"
             },
             {
@@ -6838,18 +7045,21 @@
               "active": true,
               "name": "upstream_url",
               "req": true,
+              "short": "The URL for this upstream source.",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "verification_status",
               "req": false,
+              "short": "The signature verification status for this upstream.",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "verify_ssl",
               "req": false,
+              "short": "If enabled, SSL certificates are verified when requests are made to this upstream.",
               "type": "`$BOOLEAN`"
             }
           ],
@@ -7558,24 +7768,28 @@
               "active": true,
               "name": "auth_mode",
               "req": false,
+              "short": "The authentication mode to use when accessing this upstream.",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "auth_secret",
               "req": false,
+              "short": "Secret to provide with requests to upstream.",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "auth_username",
               "req": false,
+              "short": "Username to provide with requests to upstream.",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "created_at",
               "req": false,
+              "short": "The datetime the upstream source was created.",
               "type": "`$STRING`"
             },
             {
@@ -7588,54 +7802,63 @@
               "active": true,
               "name": "extra_header_1",
               "req": false,
+              "short": "The key for extra header #1 to send to upstream.",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "extra_header_2",
               "req": false,
+              "short": "The key for extra header #2 to send to upstream.",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "extra_value_1",
               "req": false,
+              "short": "The value for extra header #1 to send to upstream.",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "extra_value_2",
               "req": false,
+              "short": "The value for extra header #2 to send to upstream.",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "is_active",
               "req": false,
+              "short": "Whether or not this upstream is active and ready for requests.",
               "type": "`$BOOLEAN`"
             },
             {
               "active": true,
               "name": "mode",
               "req": false,
+              "short": "The mode that this upstream should operate in.",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "name",
               "req": true,
+              "short": "A descriptive name for this upstream source.",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "pending_validation",
               "req": false,
+              "short": "When true, this upstream source is pending validation.",
               "type": "`$BOOLEAN`"
             },
             {
               "active": true,
               "name": "priority",
               "req": false,
+              "short": "Upstream sources are selected for resolving requests by sequential order (1..n), followed by creation date.",
               "type": "`$INTEGER`"
             },
             {
@@ -7654,12 +7877,14 @@
               "active": true,
               "name": "upstream_url",
               "req": true,
+              "short": "The URL for this upstream source.",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "verify_ssl",
               "req": false,
+              "short": "If enabled, SSL certificates are verified when requests are made to this upstream.",
               "type": "`$BOOLEAN`"
             }
           ],
@@ -8030,24 +8255,28 @@
               "active": true,
               "name": "auth_mode",
               "req": false,
+              "short": "The authentication mode to use when accessing this upstream.",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "auth_secret",
               "req": false,
+              "short": "Secret to provide with requests to upstream.",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "auth_username",
               "req": false,
+              "short": "Username to provide with requests to upstream.",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "created_at",
               "req": false,
+              "short": "The datetime the upstream source was created.",
               "type": "`$STRING`"
             },
             {
@@ -8060,54 +8289,63 @@
               "active": true,
               "name": "extra_header_1",
               "req": false,
+              "short": "The key for extra header #1 to send to upstream.",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "extra_header_2",
               "req": false,
+              "short": "The key for extra header #2 to send to upstream.",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "extra_value_1",
               "req": false,
+              "short": "The value for extra header #1 to send to upstream.",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "extra_value_2",
               "req": false,
+              "short": "The value for extra header #2 to send to upstream.",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "is_active",
               "req": false,
+              "short": "Whether or not this upstream is active and ready for requests.",
               "type": "`$BOOLEAN`"
             },
             {
               "active": true,
               "name": "mode",
               "req": false,
+              "short": "The mode that this upstream should operate in.",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "name",
               "req": true,
+              "short": "A descriptive name for this upstream source.",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "pending_validation",
               "req": false,
+              "short": "When true, this upstream source is pending validation.",
               "type": "`$BOOLEAN`"
             },
             {
               "active": true,
               "name": "priority",
               "req": false,
+              "short": "Upstream sources are selected for resolving requests by sequential order (1..n), followed by creation date.",
               "type": "`$INTEGER`"
             },
             {
@@ -8126,12 +8364,14 @@
               "active": true,
               "name": "upstream_url",
               "req": true,
+              "short": "The URL for this upstream source.",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "verify_ssl",
               "req": false,
+              "short": "If enabled, SSL certificates are verified when requests are made to this upstream.",
               "type": "`$BOOLEAN`"
             }
           ],
@@ -8540,6 +8780,7 @@
               "active": true,
               "name": "location",
               "req": false,
+              "short": "The city/town/area your organization is based in.",
               "type": "`$STRING`"
             },
             {
@@ -8582,6 +8823,7 @@
               "active": true,
               "name": "tagline",
               "req": false,
+              "short": "A short public descriptive for your organization.",
               "type": "`$STRING`"
             },
             {
@@ -9783,6 +10025,7 @@
               "active": true,
               "name": "email",
               "req": false,
+              "short": "The email of the user to be invited.",
               "type": "`$STRING`"
             },
             {
@@ -9813,6 +10056,7 @@
               "active": true,
               "name": "role",
               "req": false,
+              "short": "The role to be assigned to the invited user.",
               "type": "`$STRING`"
             },
             {
@@ -9831,6 +10075,7 @@
               "active": true,
               "name": "user",
               "req": false,
+              "short": "The slug of the user to be invited.",
               "type": "`$STRING`"
             },
             {
@@ -10043,6 +10288,7 @@
               "active": true,
               "name": "email",
               "req": false,
+              "short": "The email of the user to be invited.",
               "type": "`$STRING`"
             },
             {
@@ -10073,12 +10319,14 @@
               "active": true,
               "name": "role",
               "req": false,
+              "short": "The role to be assigned to the invited user.",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "slug_perm",
               "req": false,
+              "short": "The slug_perm of the invite to be extended.",
               "type": "`$STRING`"
             },
             {
@@ -10091,6 +10339,7 @@
               "active": true,
               "name": "user",
               "req": false,
+              "short": "The slug of the user to be invited.",
               "type": "`$STRING`"
             },
             {
@@ -11200,6 +11449,7 @@
               "active": true,
               "name": "allow_unknown_severity",
               "req": false,
+              "short": "Denotes whether vulnerabilities detected by a security scan with an unknown severity are permitted by this policy.",
               "type": "`$BOOLEAN`"
             },
             {
@@ -11585,12 +11835,14 @@
               "active": true,
               "name": "saml_metadata_inline",
               "req": false,
+              "short": "If configured, SAML metadata will be used as entered instead of retrieved from a remote URL.",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "saml_metadata_url",
               "req": false,
+              "short": "If configured, SAML metadata be retrieved from a remote URL.",
               "type": "`$STRING`"
             }
           ],
@@ -12203,6 +12455,7 @@
               "active": true,
               "name": "active",
               "req": false,
+              "short": "Number of packages with at least 1 download",
               "type": "`$INTEGER`"
             },
             {
@@ -12269,6 +12522,7 @@
               "active": true,
               "name": "dependencies_checksum_md5",
               "req": false,
+              "short": "A checksum of all of the package's dependencies.",
               "type": "`$STRING`"
             },
             {
@@ -12281,6 +12535,7 @@
               "active": true,
               "name": "description",
               "req": false,
+              "short": "A textual description of this package.",
               "type": "`$STRING`"
             },
             {
@@ -12293,12 +12548,14 @@
               "active": true,
               "name": "distro",
               "req": true,
+              "short": "The distributions supported by this package format",
               "type": "`$OBJECT`"
             },
             {
               "active": true,
               "name": "distro_version",
               "req": false,
+              "short": "A list of the versions for this distribution",
               "type": "`$OBJECT`"
             },
             {
@@ -12312,6 +12569,10 @@
                 "list": {
                   "req": false,
                   "type": "`$INTEGER`"
+                },
+                "load": {
+                  "req": false,
+                  "type": "`$INTEGER`"
                 }
               },
               "req": true,
@@ -12321,6 +12582,7 @@
               "active": true,
               "name": "epoch",
               "req": false,
+              "short": "The epoch of the package version (if any).",
               "type": "`$INTEGER`"
             },
             {
@@ -12357,6 +12619,7 @@
               "active": true,
               "name": "freeable_storage",
               "req": false,
+              "short": "Amount of storage that will be freed if this package is deleted",
               "type": "`$INTEGER`"
             },
             {
@@ -12369,18 +12632,21 @@
               "active": true,
               "name": "identifier_perm",
               "req": false,
+              "short": "Unique and permanent identifier for the package.",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "identifiers",
               "req": false,
+              "short": "Return a map of identifier field names and their values.",
               "type": "`$OBJECT`"
             },
             {
               "active": true,
               "name": "inactive",
               "req": false,
+              "short": "Packages with zero downloads",
               "type": "`$INTEGER`"
             },
             {
@@ -12483,12 +12749,14 @@
               "active": true,
               "name": "license",
               "req": false,
+              "short": "The license of this package.",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "name",
               "req": false,
+              "short": "The name of this package.",
               "type": "`$STRING`"
             },
             {
@@ -12537,24 +12805,28 @@
               "active": true,
               "name": "package_type",
               "req": false,
+              "short": "The type of package contents.",
               "type": "`$INTEGER`"
             },
             {
               "active": true,
               "name": "policy_violated",
               "req": false,
+              "short": "Whether or not the package has violated any policy.",
               "type": "`$BOOLEAN`"
             },
             {
               "active": true,
               "name": "release",
               "req": false,
+              "short": "The release of the package version (if any).",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "repository",
               "req": false,
+              "short": "The repository the package will be copied to.",
               "type": "`$STRING`"
             },
             {
@@ -12567,12 +12839,14 @@
               "active": true,
               "name": "security_scan_completed_at",
               "req": false,
+              "short": "The datetime the security scanning was completed.",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "security_scan_started_at",
               "req": false,
+              "short": "The datetime the security scanning was started.",
               "type": "`$STRING`"
             },
             {
@@ -12585,6 +12859,7 @@
               "active": true,
               "name": "security_scan_status_updated_at",
               "req": false,
+              "short": "The datetime the security scanning status was updated.",
               "type": "`$STRING`"
             },
             {
@@ -12615,12 +12890,14 @@
                 }
               },
               "req": false,
+              "short": "The calculated size of the package.",
               "type": "`$INTEGER`"
             },
             {
               "active": true,
               "name": "slug",
               "req": false,
+              "short": "The public unique identifier for the package.",
               "type": "`$STRING`"
             },
             {
@@ -12633,6 +12910,7 @@
               "active": true,
               "name": "stage",
               "req": false,
+              "short": "The synchronisation (in progress) stage of the package.",
               "type": "`$INTEGER`"
             },
             {
@@ -12645,18 +12923,21 @@
               "active": true,
               "name": "stage_updated_at",
               "req": false,
+              "short": "The datetime the package stage was updated at.",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "status",
               "req": false,
+              "short": "The synchronisation status of the package.",
               "type": "`$INTEGER`"
             },
             {
               "active": true,
               "name": "status_reason",
               "req": false,
+              "short": "A textual description for the synchronous status reason (if any",
               "type": "`$STRING`"
             },
             {
@@ -12669,6 +12950,7 @@
               "active": true,
               "name": "status_updated_at",
               "req": false,
+              "short": "The datetime the package status was updated at.",
               "type": "`$STRING`"
             },
             {
@@ -12687,36 +12969,42 @@
               "active": true,
               "name": "summary",
               "req": false,
+              "short": "A one-liner synopsis of this package.",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "sync_finished_at",
               "req": false,
+              "short": "The datetime the package sync was finished at.",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "sync_progress",
               "req": false,
+              "short": "Synchronisation progress (from 0-100)",
               "type": "`$INTEGER`"
             },
             {
               "active": true,
               "name": "tags",
               "req": false,
+              "short": "All tags on the package, grouped by tag type.",
               "type": "`$OBJECT`"
             },
             {
               "active": true,
               "name": "tags_immutable",
               "req": false,
+              "short": "All tags on the package, grouped by tag type.",
               "type": "`$OBJECT`"
             },
             {
               "active": true,
               "name": "total",
               "req": false,
+              "short": "Total number of packages in repo",
               "type": "`$INTEGER`"
             },
             {
@@ -12729,6 +13017,7 @@
               "active": true,
               "name": "uploaded_at",
               "req": false,
+              "short": "The date this package was uploaded.",
               "type": "`$STRING`"
             },
             {
@@ -12747,6 +13036,7 @@
               "active": true,
               "name": "version",
               "req": false,
+              "short": "The raw version for this package.",
               "type": "`$STRING`"
             },
             {
@@ -16138,57 +16428,6 @@
                   },
                   "kind": "http",
                   "method": "GET",
-                  "orig": "/packages/{owner}/{repo}/{identifier}/",
-                  "parts": [
-                    "packages",
-                    "{owner}",
-                    "{repo}",
-                    "{identifier}"
-                  ],
-                  "select": {
-                    "exist": [
-                      "identifier",
-                      "owner",
-                      "repo"
-                    ]
-                  },
-                  "transform": {
-                    "req": "`reqdata`",
-                    "res": "`body`"
-                  }
-                },
-                {
-                  "active": true,
-                  "args": {
-                    "params": [
-                      {
-                        "active": true,
-                        "kind": "param",
-                        "name": "identifier",
-                        "orig": "identifier",
-                        "reqd": true,
-                        "type": "`$ANY`"
-                      },
-                      {
-                        "active": true,
-                        "kind": "param",
-                        "name": "owner",
-                        "orig": "owner",
-                        "reqd": true,
-                        "type": "`$ANY`"
-                      },
-                      {
-                        "active": true,
-                        "kind": "param",
-                        "name": "repo",
-                        "orig": "repo",
-                        "reqd": true,
-                        "type": "`$ANY`"
-                      }
-                    ]
-                  },
-                  "kind": "http",
-                  "method": "GET",
                   "orig": "/packages/{owner}/{repo}/{identifier}/dependencies/",
                   "parts": [
                     "packages",
@@ -16302,6 +16541,57 @@
                   "transform": {
                     "req": "`reqdata`",
                     "res": "`body.packages`"
+                  }
+                },
+                {
+                  "active": true,
+                  "args": {
+                    "params": [
+                      {
+                        "active": true,
+                        "kind": "param",
+                        "name": "identifier",
+                        "orig": "identifier",
+                        "reqd": true,
+                        "type": "`$ANY`"
+                      },
+                      {
+                        "active": true,
+                        "kind": "param",
+                        "name": "owner",
+                        "orig": "owner",
+                        "reqd": true,
+                        "type": "`$ANY`"
+                      },
+                      {
+                        "active": true,
+                        "kind": "param",
+                        "name": "repo",
+                        "orig": "repo",
+                        "reqd": true,
+                        "type": "`$ANY`"
+                      }
+                    ]
+                  },
+                  "kind": "http",
+                  "method": "GET",
+                  "orig": "/packages/{owner}/{repo}/{identifier}/",
+                  "parts": [
+                    "packages",
+                    "{owner}",
+                    "{repo}",
+                    "{identifier}"
+                  ],
+                  "select": {
+                    "exist": [
+                      "identifier",
+                      "owner",
+                      "repo"
+                    ]
+                  },
+                  "transform": {
+                    "req": "`reqdata`",
+                    "res": "`body`"
                   }
                 },
                 {
@@ -16452,6 +16742,7 @@
               "active": true,
               "name": "enabled",
               "req": false,
+              "short": "Whether this rule is enabled or disabled.",
               "type": "`$BOOLEAN`"
             },
             {
@@ -16464,6 +16755,7 @@
               "active": true,
               "name": "package_query_string",
               "req": true,
+              "short": "Packages that match this query will trigger this deny rule.",
               "type": "`$STRING`"
             },
             {
@@ -16807,18 +17099,21 @@
               "active": true,
               "name": "identifier",
               "req": false,
+              "short": "The identifier for the file to use uploading parts.",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "upload_querystring",
               "req": false,
+              "short": "The querystring to use for the next-step PUT upload.",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "upload_url",
               "req": false,
+              "short": "The URL to use for the next-step PUT upload",
               "type": "`$STRING`"
             }
           ],
@@ -17526,6 +17821,7 @@
               "active": true,
               "name": "allow_unknown_severity",
               "req": false,
+              "short": "Denotes whether vulnerabilities detected by a security scan with an unknown severity are permitted by this policy.",
               "type": "`$BOOLEAN`"
             },
             {
@@ -17862,48 +18158,56 @@
               "active": true,
               "name": "claims",
               "req": true,
+              "short": "The set of claims that any received tokens from the provider must contain to authenticate as the configured service account.",
               "type": "`$OBJECT`"
             },
             {
               "active": true,
               "name": "enabled",
               "req": true,
+              "short": "Whether the provider settings should be used for incoming OIDC requests.",
               "type": "`$BOOLEAN`"
             },
             {
               "active": true,
               "name": "mapping_claim",
               "req": false,
+              "short": "The OIDC claim to use for mapping to service accounts in dynamic_mappings.",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "name",
               "req": true,
+              "short": "The name of the provider settings are being configured for",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "provider_url",
               "req": true,
+              "short": "The URL from the provider that serves as the base for the OpenID configuration.",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "service_accounts",
               "req": false,
+              "short": "The service accounts associated with these provider settings.",
               "type": "`$ARRAY`"
             },
             {
               "active": true,
               "name": "slug",
               "req": false,
+              "short": "The slug of the provider settings",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "slug_perm",
               "req": false,
+              "short": "The unique, immutable identifier of the provider settings.",
               "type": "`$STRING`"
             }
           ],
@@ -18066,54 +18370,63 @@
               "active": true,
               "name": "claims",
               "req": true,
+              "short": "The set of claims that any received tokens from the provider must contain to authenticate as the configured service account.",
               "type": "`$OBJECT`"
             },
             {
               "active": true,
               "name": "dynamic_mappings",
               "req": false,
+              "short": "The dynamic mappings of `mapping_claim` values to service accounts.",
               "type": "`$ARRAY`"
             },
             {
               "active": true,
               "name": "enabled",
               "req": true,
+              "short": "Whether the provider settings should be used for incoming OIDC requests.",
               "type": "`$BOOLEAN`"
             },
             {
               "active": true,
               "name": "mapping_claim",
               "req": false,
+              "short": "The OIDC claim to use for mapping to service accounts in dynamic_mappings.",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "name",
               "req": true,
+              "short": "The name of the provider settings are being configured for",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "provider_url",
               "req": true,
+              "short": "The URL from the provider that serves as the base for the OpenID configuration.",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "service_accounts",
               "req": false,
+              "short": "The service accounts associated with these provider settings.",
               "type": "`$ARRAY`"
             },
             {
               "active": true,
               "name": "slug",
               "req": false,
+              "short": "The slug of the provider settings",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "slug_perm",
               "req": false,
+              "short": "The unique, immutable identifier of the provider settings.",
               "type": "`$STRING`"
             }
           ],
@@ -18324,24 +18637,28 @@
               "active": true,
               "name": "auth_mode",
               "req": false,
+              "short": "The authentication mode to use when accessing this upstream.",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "auth_secret",
               "req": false,
+              "short": "Secret to provide with requests to upstream.",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "auth_username",
               "req": false,
+              "short": "Username to provide with requests to upstream.",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "created_at",
               "req": false,
+              "short": "The datetime the upstream source was created.",
               "type": "`$STRING`"
             },
             {
@@ -18354,54 +18671,63 @@
               "active": true,
               "name": "extra_header_1",
               "req": false,
+              "short": "The key for extra header #1 to send to upstream.",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "extra_header_2",
               "req": false,
+              "short": "The key for extra header #2 to send to upstream.",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "extra_value_1",
               "req": false,
+              "short": "The value for extra header #1 to send to upstream.",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "extra_value_2",
               "req": false,
+              "short": "The value for extra header #2 to send to upstream.",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "is_active",
               "req": false,
+              "short": "Whether or not this upstream is active and ready for requests.",
               "type": "`$BOOLEAN`"
             },
             {
               "active": true,
               "name": "mode",
               "req": false,
+              "short": "The mode that this upstream should operate in.",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "name",
               "req": true,
+              "short": "A descriptive name for this upstream source.",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "pending_validation",
               "req": false,
+              "short": "When true, this upstream source is pending validation.",
               "type": "`$BOOLEAN`"
             },
             {
               "active": true,
               "name": "priority",
               "req": false,
+              "short": "Upstream sources are selected for resolving requests by sequential order (1..n), followed by creation date.",
               "type": "`$INTEGER`"
             },
             {
@@ -18420,12 +18746,14 @@
               "active": true,
               "name": "upstream_url",
               "req": true,
+              "short": "The URL for this upstream source.",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "verify_ssl",
               "req": false,
+              "short": "If enabled, SSL certificates are verified when requests are made to this upstream.",
               "type": "`$BOOLEAN`"
             }
           ],
@@ -19038,36 +19366,42 @@
               "active": true,
               "name": "cdn_url",
               "req": false,
+              "short": "Base URL from which packages and other artifacts are downloaded.",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "content_kind",
               "req": false,
+              "short": "The repository content kind determines whether this repository contains packages, or provides a distribution of packages from other repositories.",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "contextual_auth_realm",
               "req": false,
+              "short": "If checked, missing credentials for this repository where basic authentication is required shall present an enriched value in the 'WWW-Authenticate' header containing the namespace and repository.",
               "type": "`$BOOLEAN`"
             },
             {
               "active": true,
               "name": "copy_own",
               "req": false,
+              "short": "If checked, users can copy any of their own packages that they have uploaded, assuming that they still have write privilege for the repository.",
               "type": "`$BOOLEAN`"
             },
             {
               "active": true,
               "name": "copy_packages",
               "req": false,
+              "short": "This defines the minimum level of privilege required for a user to copy packages.",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "cosign_signing_enabled",
               "req": false,
+              "short": "When enabled, all pushed (or pulled from upstream) OCI packages and artifacts will be signed using cosign with the repository's ECDSA key.",
               "type": "`$BOOLEAN`"
             },
             {
@@ -19080,42 +19414,49 @@
               "active": true,
               "name": "default_privilege",
               "req": false,
+              "short": "This defines the default level of privilege that all of your organization members have for this repository.",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "delete_own",
               "req": false,
+              "short": "If checked, users can delete any of their own packages that they have uploaded, assuming that they still have write privilege for the repository.",
               "type": "`$BOOLEAN`"
             },
             {
               "active": true,
               "name": "delete_packages",
               "req": false,
+              "short": "This defines the minimum level of privilege required for a user to delete packages.",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "deleted_at",
               "req": false,
+              "short": "The datetime the repository was manually deleted at.",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "description",
               "req": false,
+              "short": "A description of the repository's purpose/contents.",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "distributes",
               "req": false,
+              "short": "The repositories distributed through this repo.",
               "type": "`$ARRAY`"
             },
             {
               "active": true,
               "name": "docker_refresh_tokens_enabled",
               "req": false,
+              "short": "If checked, refresh tokens will be issued in addition to access tokens for Docker authentication.",
               "type": "`$BOOLEAN`"
             },
             {
@@ -19128,6 +19469,7 @@
               "active": true,
               "name": "enforce_eula",
               "req": false,
+              "short": "If checked, downloads will explicitly require acceptance of an EULA.",
               "type": "`$BOOLEAN`"
             },
             {
@@ -19140,6 +19482,7 @@
               "active": true,
               "name": "index_files",
               "req": false,
+              "short": "If checked, files contained in packages will be indexed, which increase the synchronisation time required for packages.",
               "type": "`$BOOLEAN`"
             },
             {
@@ -19164,264 +19507,308 @@
               "active": true,
               "name": "manage_entitlements_privilege",
               "req": false,
+              "short": "This defines the minimum level of privilege required for a user to manage entitlement tokens with private repositories.",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "move_own",
               "req": false,
+              "short": "If checked, users can move any of their own packages that they have uploaded, assuming that they still have write privilege for the repository.",
               "type": "`$BOOLEAN`"
             },
             {
               "active": true,
               "name": "move_packages",
               "req": false,
+              "short": "This defines the minimum level of privilege required for a user to move packages.",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "name",
               "req": true,
+              "short": "A descriptive name for the repository.",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "namespace",
               "req": false,
+              "short": "Namespace to which this repository belongs.",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "namespace_url",
               "req": false,
+              "short": "API endpoint where data about this namespace can be retrieved.",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "nuget_native_signing_enabled",
               "req": false,
+              "short": "When enabled, all pushed (or pulled from upstream) nuget packages and artifacts will be signed using the repository's X.509 RSA certificate.",
               "type": "`$BOOLEAN`"
             },
             {
               "active": true,
               "name": "num_downloads",
               "req": false,
+              "short": "The number of downloads for packages in the repository.",
               "type": "`$INTEGER`"
             },
             {
               "active": true,
               "name": "num_policy_violated_packages",
               "req": false,
+              "short": "Number of packages with policy violations in a repository.",
               "type": "`$INTEGER`"
             },
             {
               "active": true,
               "name": "num_quarantined_packages",
               "req": false,
+              "short": "Number of quarantined packages in a repository.",
               "type": "`$INTEGER`"
             },
             {
               "active": true,
               "name": "open_source_license",
               "req": false,
+              "short": "The SPDX identifier of the open source license.",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "open_source_project_url",
               "req": false,
+              "short": "The URL to the Open-Source project, used for validating that the project meets the requirements for Open-Source.",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "package_count",
               "req": false,
+              "short": "The number of packages in the repository.",
               "type": "`$INTEGER`"
             },
             {
               "active": true,
               "name": "package_group_count",
               "req": false,
+              "short": "The number of groups in the repository.",
               "type": "`$INTEGER`"
             },
             {
               "active": true,
               "name": "proxy_npmjs",
               "req": false,
+              "short": "If checked, Npm packages that are not in the repository when requested by clients will automatically be proxied from the public npmjs.org registry.",
               "type": "`$BOOLEAN`"
             },
             {
               "active": true,
               "name": "proxy_pypi",
               "req": false,
+              "short": "If checked, Python packages that are not in the repository when requested by clients will automatically be proxied from the public pypi.python.org registry.",
               "type": "`$BOOLEAN`"
             },
             {
               "active": true,
               "name": "raw_package_index_enabled",
               "req": false,
+              "short": "If checked, HTML and JSON indexes will be generated that list all available raw packages in the repository.",
               "type": "`$BOOLEAN`"
             },
             {
               "active": true,
               "name": "raw_package_index_signatures_enabled",
               "req": false,
+              "short": "If checked, the HTML and JSON indexes will display raw package GPG signatures alongside the index packages.",
               "type": "`$BOOLEAN`"
             },
             {
               "active": true,
               "name": "replace_packages",
               "req": false,
+              "short": "This defines the minimum level of privilege required for a user to republish packages.",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "replace_packages_by_default",
               "req": false,
+              "short": "If checked, uploaded packages will overwrite/replace any others with the same attributes (e.g.",
               "type": "`$BOOLEAN`"
             },
             {
               "active": true,
               "name": "repository_type",
               "req": false,
+              "short": "The repository type changes how it is accessed and billed.",
               "type": "`$INTEGER`"
             },
             {
               "active": true,
               "name": "repository_type_str",
               "req": false,
+              "short": "The repository type changes how it is accessed and billed.",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "resync_own",
               "req": false,
+              "short": "If checked, users can resync any of their own packages that they have uploaded, assuming that they still have write privilege for the repository.",
               "type": "`$BOOLEAN`"
             },
             {
               "active": true,
               "name": "resync_packages",
               "req": false,
+              "short": "This defines the minimum level of privilege required for a user to resync packages.",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "scan_own",
               "req": false,
+              "short": "If checked, users can scan any of their own packages that they have uploaded, assuming that they still have write privilege for the repository.",
               "type": "`$BOOLEAN`"
             },
             {
               "active": true,
               "name": "scan_packages",
               "req": false,
+              "short": "This defines the minimum level of privilege required for a user to scan packages.",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "self_html_url",
               "req": false,
+              "short": "Website URL for this repository.",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "self_url",
               "req": false,
+              "short": "API endpoint where data about this repository can be retrieved.",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "show_setup_all",
               "req": false,
+              "short": "If checked, the Set Me Up help for all formats will always be shown, even if you don't have packages of that type uploaded.",
               "type": "`$BOOLEAN`"
             },
             {
               "active": true,
               "name": "size",
               "req": false,
+              "short": "The calculated size of the repository.",
               "type": "`$INTEGER`"
             },
             {
               "active": true,
               "name": "size_str",
               "req": false,
+              "short": "The calculated size of the repository (human readable).",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "slug",
               "req": false,
+              "short": "The slug identifies the repository in URIs.",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "slug_perm",
               "req": false,
+              "short": "The slug_perm immutably identifies the repository.",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "storage_region",
               "req": false,
+              "short": "The Cloudsmith region in which package files are stored.",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "strict_npm_validation",
               "req": false,
+              "short": "If checked, npm packages will be validated strictly to ensure the package matches specifcation.",
               "type": "`$BOOLEAN`"
             },
             {
               "active": true,
               "name": "tag_pre_releases_as_latest",
               "req": false,
+              "short": "If checked, packages pushed with a pre-release component on that version will be marked with the 'latest' tag.",
               "type": "`$BOOLEAN`"
             },
             {
               "active": true,
               "name": "use_debian_labels",
               "req": false,
+              "short": "If checked, a 'Label' field will be present in Debian-based repositories.",
               "type": "`$BOOLEAN`"
             },
             {
               "active": true,
               "name": "use_default_cargo_upstream",
               "req": false,
+              "short": "If checked, dependencies of uploaded Cargo crates which do not set an explicit value for \"registry\" will be assumed to be available from crates.io.",
               "type": "`$BOOLEAN`"
             },
             {
               "active": true,
               "name": "use_entitlements_privilege",
               "req": false,
+              "short": "This defines the minimum level of privilege required for a user to see/use entitlement tokens with private repositories.",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "use_noarch_packages",
               "req": false,
+              "short": "If checked, noarch packages (if supported) are enabled in installations/configurations.",
               "type": "`$BOOLEAN`"
             },
             {
               "active": true,
               "name": "use_source_packages",
               "req": false,
+              "short": "If checked, source packages (if supported) are enabled in installations/configurations.",
               "type": "`$BOOLEAN`"
             },
             {
               "active": true,
               "name": "use_vulnerability_scanning",
               "req": false,
+              "short": "If checked, vulnerability scanning will be enabled for all supported packages within this repository.",
               "type": "`$BOOLEAN`"
             },
             {
               "active": true,
               "name": "user_entitlements_enabled",
               "req": false,
+              "short": "If checked, users can use and manage their own user-specific entitlement token for the repository (if private).",
               "type": "`$BOOLEAN`"
             },
             {
               "active": true,
               "name": "view_statistics",
               "req": false,
+              "short": "This defines the minimum level of privilege required for a user to view repository statistics, to include entitlement-based usage, if applicable.",
               "type": "`$STRING`"
             }
           ],
@@ -19649,47 +20036,6 @@
                 {
                   "active": true,
                   "args": {
-                    "params": [
-                      {
-                        "active": true,
-                        "kind": "param",
-                        "name": "identifier",
-                        "orig": "identifier",
-                        "reqd": true,
-                        "type": "`$ANY`"
-                      },
-                      {
-                        "active": true,
-                        "kind": "param",
-                        "name": "owner",
-                        "orig": "owner",
-                        "reqd": true,
-                        "type": "`$ANY`"
-                      }
-                    ]
-                  },
-                  "kind": "http",
-                  "method": "GET",
-                  "orig": "/repos/{owner}/{identifier}/",
-                  "parts": [
-                    "repos",
-                    "{owner}",
-                    "{identifier}"
-                  ],
-                  "select": {
-                    "exist": [
-                      "identifier",
-                      "owner"
-                    ]
-                  },
-                  "transform": {
-                    "req": "`reqdata`",
-                    "res": "`body`"
-                  }
-                },
-                {
-                  "active": true,
-                  "args": {
                     "query": [
                       {
                         "active": true,
@@ -19781,6 +20127,47 @@
                       "id",
                       "page",
                       "page_size"
+                    ]
+                  },
+                  "transform": {
+                    "req": "`reqdata`",
+                    "res": "`body`"
+                  }
+                },
+                {
+                  "active": true,
+                  "args": {
+                    "params": [
+                      {
+                        "active": true,
+                        "kind": "param",
+                        "name": "identifier",
+                        "orig": "identifier",
+                        "reqd": true,
+                        "type": "`$ANY`"
+                      },
+                      {
+                        "active": true,
+                        "kind": "param",
+                        "name": "owner",
+                        "orig": "owner",
+                        "reqd": true,
+                        "type": "`$ANY`"
+                      }
+                    ]
+                  },
+                  "kind": "http",
+                  "method": "GET",
+                  "orig": "/repos/{owner}/{identifier}/",
+                  "parts": [
+                    "repos",
+                    "{owner}",
+                    "{identifier}"
+                  ],
+                  "select": {
+                    "exist": [
+                      "identifier",
+                      "owner"
                     ]
                   },
                   "transform": {
@@ -21224,6 +21611,7 @@
               "active": true,
               "name": "active",
               "req": false,
+              "short": "If selected this is the active key for this repository.",
               "type": "`$BOOLEAN`"
             },
             {
@@ -21236,12 +21624,14 @@
               "active": true,
               "name": "default",
               "req": false,
+              "short": "If selected this is the default key for this repository.",
               "type": "`$BOOLEAN`"
             },
             {
               "active": true,
               "name": "fingerprint",
               "req": false,
+              "short": "The long identifier used by ECDSA for this key.",
               "type": "`$STRING`"
             },
             {
@@ -21254,12 +21644,14 @@
               "active": true,
               "name": "public_key",
               "req": false,
+              "short": "The public key given to repository users.",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "ssh_fingerprint",
               "req": false,
+              "short": "The SSH fingerprint used by ECDSA for this key.",
               "type": "`$STRING`"
             }
           ],
@@ -21630,6 +22022,7 @@
               "active": true,
               "name": "geoip_enabled",
               "req": false,
+              "short": "If checked, any access to the website or downloads for this repository is allowed/denied according to the configured Geo/IP restriction rules.",
               "type": "`$BOOLEAN`"
             }
           ],
@@ -21780,6 +22173,7 @@
               "active": true,
               "name": "active",
               "req": false,
+              "short": "If selected this is the active key for this repository.",
               "type": "`$BOOLEAN`"
             },
             {
@@ -21798,12 +22192,14 @@
               "active": true,
               "name": "default",
               "req": false,
+              "short": "If selected this is the default key for this repository.",
               "type": "`$BOOLEAN`"
             },
             {
               "active": true,
               "name": "fingerprint",
               "req": false,
+              "short": "The long identifier used by GPG for this key.",
               "type": "`$STRING`"
             },
             {
@@ -21816,6 +22212,7 @@
               "active": true,
               "name": "public_key",
               "req": false,
+              "short": "The public key given to repository users.",
               "type": "`$STRING`"
             }
           ],
@@ -21990,24 +22387,28 @@
               "active": true,
               "name": "privilege",
               "req": true,
+              "short": "The level of privilege that the user or team should be granted to the specified repository.",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "service",
               "req": false,
+              "short": "The service identifier (slug).",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "team",
               "req": false,
+              "short": "The team identifier (slug).",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "user",
               "req": false,
+              "short": "The user identifier (slug).",
               "type": "`$STRING`"
             }
           ],
@@ -22100,48 +22501,56 @@
               "active": true,
               "name": "retention_count_limit",
               "req": false,
+              "short": "The maximum X number of packages to retain.",
               "type": "`$INTEGER`"
             },
             {
               "active": true,
               "name": "retention_days_limit",
               "req": false,
+              "short": "The X number of days of packages to retain.",
               "type": "`$INTEGER`"
             },
             {
               "active": true,
               "name": "retention_enabled",
               "req": false,
+              "short": "If checked, the retention lifecycle rules will be activated for the repository.",
               "type": "`$BOOLEAN`"
             },
             {
               "active": true,
               "name": "retention_group_by_format",
               "req": false,
+              "short": "If checked, retention will apply to packages by package formats rather than across all package formats.For example, when retaining by a limit of 1 and you upload PythonPkg 1.0 and RubyPkg 1.0, no packages are deleted because they are diffe…",
               "type": "`$BOOLEAN`"
             },
             {
               "active": true,
               "name": "retention_group_by_name",
               "req": false,
+              "short": "If checked, retention will apply to groups of packages by name rather than all packages.<br>For example, when retaining by a limit of 1 and you upload PkgA 1.0, PkgB 1.0 and PkgB 1.1; only PkgB 1.0 is deleted because there are two (2) PkgB…",
               "type": "`$BOOLEAN`"
             },
             {
               "active": true,
               "name": "retention_group_by_package_type",
               "req": false,
+              "short": "If checked, retention will apply to packages by package type (e.g.",
               "type": "`$BOOLEAN`"
             },
             {
               "active": true,
               "name": "retention_package_query_string",
               "req": false,
+              "short": "A package search expression which, if provided, filters the packages to be deleted.<br>For example, a search expression of `name:foo` will result in only packages called 'foo' being deleted, or a search expression of `tag:~latest` will pre…",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "retention_size_limit",
               "req": false,
+              "short": "The maximum X total size (in bytes) of packages to retain.",
               "type": "`$INTEGER`"
             }
           ],
@@ -22273,6 +22682,7 @@
               "active": true,
               "name": "active",
               "req": false,
+              "short": "If selected this is the active key for this repository.",
               "type": "`$BOOLEAN`"
             },
             {
@@ -22285,12 +22695,14 @@
               "active": true,
               "name": "default",
               "req": false,
+              "short": "If selected this is the default key for this repository.",
               "type": "`$BOOLEAN`"
             },
             {
               "active": true,
               "name": "fingerprint",
               "req": false,
+              "short": "The long identifier used by RSA for this key.",
               "type": "`$STRING`"
             },
             {
@@ -22303,12 +22715,14 @@
               "active": true,
               "name": "public_key",
               "req": false,
+              "short": "The public key given to repository users.",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "ssh_fingerprint",
               "req": false,
+              "short": "The SSH fingerprint used by RSA for this key.",
               "type": "`$STRING`"
             }
           ],
@@ -22489,6 +22903,7 @@
               "active": true,
               "name": "created_at",
               "req": false,
+              "short": "The datetime the token was updated at.",
               "type": "`$STRING`"
             },
             {
@@ -22507,6 +22922,7 @@
               "active": true,
               "name": "default",
               "req": false,
+              "short": "If selected this is the default token for this repository.",
               "type": "`$BOOLEAN`"
             },
             {
@@ -22537,6 +22953,7 @@
               "active": true,
               "name": "eula_accepted_at",
               "req": false,
+              "short": "The datetime the EULA was accepted at.",
               "type": "`$STRING`"
             },
             {
@@ -22549,6 +22966,7 @@
               "active": true,
               "name": "eula_required",
               "req": false,
+              "short": "If checked, a EULA acceptance is required for this token.",
               "type": "`$BOOLEAN`"
             },
             {
@@ -22561,12 +22979,14 @@
               "active": true,
               "name": "identifier",
               "req": false,
+              "short": "Deprecated (23-05-15): Please use 'slug_perm' instead.",
               "type": "`$INTEGER`"
             },
             {
               "active": true,
               "name": "is_active",
               "req": false,
+              "short": "If enabled, the token will allow downloads based on configured restrictions (if any).",
               "type": "`$BOOLEAN`"
             },
             {
@@ -22579,6 +22999,7 @@
               "active": true,
               "name": "limit_bandwidth",
               "req": false,
+              "short": "The maximum download bandwidth allowed for the token.",
               "type": "`$INTEGER`"
             },
             {
@@ -22591,36 +23012,42 @@
               "active": true,
               "name": "limit_date_range_from",
               "req": false,
+              "short": "The starting date/time the token is allowed to be used from.",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "limit_date_range_to",
               "req": false,
+              "short": "The ending date/time the token is allowed to be used until.",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "limit_num_clients",
               "req": false,
+              "short": "The maximum number of unique clients allowed for the token.",
               "type": "`$INTEGER`"
             },
             {
               "active": true,
               "name": "limit_num_downloads",
               "req": false,
+              "short": "The maximum number of downloads allowed for the token.",
               "type": "`$INTEGER`"
             },
             {
               "active": true,
               "name": "limit_package_query",
               "req": false,
+              "short": "The package-based search query to apply to restrict downloads to.",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "limit_path_query",
               "req": false,
+              "short": "THIS WILL SOON BE DEPRECATED, please use limit_package_query instead.",
               "type": "`$STRING`"
             },
             {
@@ -22651,6 +23078,7 @@
               "active": true,
               "name": "scheduled_reset_at",
               "req": false,
+              "short": "The time at which the scheduled reset period has elapsed and the token limits were automatically reset to zero.",
               "type": "`$STRING`"
             },
             {
@@ -22681,6 +23109,7 @@
               "active": true,
               "name": "updated_at",
               "req": false,
+              "short": "The datetime the token was updated at.",
               "type": "`$STRING`"
             },
             {
@@ -23065,6 +23494,7 @@
               "active": true,
               "name": "created_at",
               "req": false,
+              "short": "The datetime the token was updated at.",
               "type": "`$STRING`"
             },
             {
@@ -23083,6 +23513,7 @@
               "active": true,
               "name": "default",
               "req": false,
+              "short": "If selected this is the default token for this repository.",
               "type": "`$BOOLEAN`"
             },
             {
@@ -23113,6 +23544,7 @@
               "active": true,
               "name": "eula_accepted_at",
               "req": false,
+              "short": "The datetime the EULA was accepted at.",
               "type": "`$STRING`"
             },
             {
@@ -23125,6 +23557,7 @@
               "active": true,
               "name": "eula_required",
               "req": false,
+              "short": "If checked, a EULA acceptance is required for this token.",
               "type": "`$BOOLEAN`"
             },
             {
@@ -23137,12 +23570,14 @@
               "active": true,
               "name": "identifier",
               "req": false,
+              "short": "Deprecated (23-05-15): Please use 'slug_perm' instead.",
               "type": "`$INTEGER`"
             },
             {
               "active": true,
               "name": "is_active",
               "req": false,
+              "short": "If enabled, the token will allow downloads based on configured restrictions (if any).",
               "type": "`$BOOLEAN`"
             },
             {
@@ -23155,6 +23590,7 @@
               "active": true,
               "name": "limit_bandwidth",
               "req": false,
+              "short": "The maximum download bandwidth allowed for the token.",
               "type": "`$INTEGER`"
             },
             {
@@ -23167,36 +23603,42 @@
               "active": true,
               "name": "limit_date_range_from",
               "req": false,
+              "short": "The starting date/time the token is allowed to be used from.",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "limit_date_range_to",
               "req": false,
+              "short": "The ending date/time the token is allowed to be used until.",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "limit_num_clients",
               "req": false,
+              "short": "The maximum number of unique clients allowed for the token.",
               "type": "`$INTEGER`"
             },
             {
               "active": true,
               "name": "limit_num_downloads",
               "req": false,
+              "short": "The maximum number of downloads allowed for the token.",
               "type": "`$INTEGER`"
             },
             {
               "active": true,
               "name": "limit_package_query",
               "req": false,
+              "short": "The package-based search query to apply to restrict downloads to.",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "limit_path_query",
               "req": false,
+              "short": "THIS WILL SOON BE DEPRECATED, please use limit_package_query instead.",
               "type": "`$STRING`"
             },
             {
@@ -23227,6 +23669,7 @@
               "active": true,
               "name": "scheduled_reset_at",
               "req": false,
+              "short": "The time at which the scheduled reset period has elapsed and the token limits were automatically reset to zero.",
               "type": "`$STRING`"
             },
             {
@@ -23257,6 +23700,7 @@
               "active": true,
               "name": "updated_at",
               "req": false,
+              "short": "The datetime the token was updated at.",
               "type": "`$STRING`"
             },
             {
@@ -23389,6 +23833,7 @@
               "active": true,
               "name": "tokens",
               "req": false,
+              "short": "The entitlements that have been synchronised.",
               "type": "`$ARRAY`"
             }
           ],
@@ -23509,12 +23954,6 @@
             },
             {
               "active": true,
-              "name": "event",
-              "req": true,
-              "type": "`$STRING`"
-            },
-            {
-              "active": true,
               "name": "events",
               "req": true,
               "type": "`$ARRAY`"
@@ -23523,12 +23962,14 @@
               "active": true,
               "name": "identifier",
               "req": false,
+              "short": "Deprecated (23-05-15): Please use 'slug_perm' instead.",
               "type": "`$INTEGER`"
             },
             {
               "active": true,
               "name": "is_active",
               "req": false,
+              "short": "If enabled, the webhook will trigger on subscribed events and send payloads to the configured target URL.",
               "type": "`$BOOLEAN`"
             },
             {
@@ -23559,12 +24000,14 @@
               "active": true,
               "name": "package_query",
               "req": false,
+              "short": "The package-based search query for webhooks to fire.",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "request_body_format",
               "req": false,
+              "short": "The format of the payloads for webhook requests.",
               "type": "`$INTEGER`"
             },
             {
@@ -23577,6 +24020,7 @@
               "active": true,
               "name": "request_body_template_format",
               "req": false,
+              "short": "The format of the payloads for webhook requests.",
               "type": "`$INTEGER`"
             },
             {
@@ -23589,12 +24033,14 @@
               "active": true,
               "name": "request_content_type",
               "req": false,
+              "short": "The value that will be sent for the 'Content Type' header.",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "secret_header",
               "req": false,
+              "short": "The header to send the predefined secret in.",
               "type": "`$STRING`"
             },
             {
@@ -23613,12 +24059,7 @@
               "active": true,
               "name": "target_url",
               "req": true,
-              "type": "`$STRING`"
-            },
-            {
-              "active": true,
-              "name": "template",
-              "req": false,
+              "short": "The destination URL that webhook payloads will be POST'ed to.",
               "type": "`$STRING`"
             },
             {
@@ -23649,6 +24090,7 @@
               "active": true,
               "name": "verify_ssl",
               "req": false,
+              "short": "If enabled, SSL certificates is verified when webhooks are sent.",
               "type": "`$BOOLEAN`"
             }
           ],
@@ -23776,7 +24218,13 @@
                     "req": "`reqdata`",
                     "res": "`body`"
                   }
-                },
+                }
+              ]
+            },
+            "load": {
+              "input": "data",
+              "name": "load",
+              "points": [
                 {
                   "active": true,
                   "args": {
@@ -23917,18 +24365,21 @@
               "active": true,
               "name": "active",
               "req": false,
+              "short": "If selected this is the active key for this repository.",
               "type": "`$BOOLEAN`"
             },
             {
               "active": true,
               "name": "certificate",
               "req": false,
+              "short": "The issued certificate.",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "certificate_chain",
               "req": false,
+              "short": "Base64 encoded CA certificate chain.",
               "type": "`$STRING`"
             },
             {
@@ -23947,6 +24398,7 @@
               "active": true,
               "name": "certificate_fingerprint",
               "req": false,
+              "short": "The SHA-256 long identifier used",
               "type": "`$STRING`"
             },
             {
@@ -23965,6 +24417,7 @@
               "active": true,
               "name": "default",
               "req": false,
+              "short": "If selected this is the default key for this repository.",
               "type": "`$BOOLEAN`"
             },
             {
@@ -24043,18 +24496,21 @@
               "active": true,
               "name": "active",
               "req": false,
+              "short": "If selected this is the active key for this repository.",
               "type": "`$BOOLEAN`"
             },
             {
               "active": true,
               "name": "certificate",
               "req": false,
+              "short": "The issued certificate.",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "certificate_chain",
               "req": false,
+              "short": "Base64 encoded CA certificate chain.",
               "type": "`$STRING`"
             },
             {
@@ -24073,6 +24529,7 @@
               "active": true,
               "name": "certificate_fingerprint",
               "req": false,
+              "short": "The SHA-256 long identifier used",
               "type": "`$STRING`"
             },
             {
@@ -24091,6 +24548,7 @@
               "active": true,
               "name": "default",
               "req": false,
+              "short": "If selected this is the default key for this repository.",
               "type": "`$BOOLEAN`"
             },
             {
@@ -24185,36 +24643,42 @@
               "active": true,
               "name": "interval",
               "req": false,
+              "short": "The time in seconds that you are suggested to wait until the next request in order to avoid consuming too much within the rate limit window.",
               "type": "`$NUMBER`"
             },
             {
               "active": true,
               "name": "limit",
               "req": false,
+              "short": "The maximum number of requests that you are permitted to send per hour",
               "type": "`$INTEGER`"
             },
             {
               "active": true,
               "name": "remaining",
               "req": false,
+              "short": "The number of requests that are remaining in the current rate limit window",
               "type": "`$INTEGER`"
             },
             {
               "active": true,
               "name": "reset",
               "req": false,
+              "short": "The UTC epoch timestamp at which the current rate limit window will reset",
               "type": "`$INTEGER`"
             },
             {
               "active": true,
               "name": "reset_iso_8601",
               "req": false,
+              "short": "The ISO 8601 datetime at which the current rate limit window will reset",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "throttled",
               "req": false,
+              "short": "If true, throttling is currently being enforced.",
               "type": "`$BOOLEAN`"
             }
           ],
@@ -24289,24 +24753,28 @@
               "active": true,
               "name": "auth_mode",
               "req": false,
+              "short": "The authentication mode to use when accessing this upstream.",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "auth_secret",
               "req": false,
+              "short": "Secret to provide with requests to upstream.",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "auth_username",
               "req": false,
+              "short": "Username to provide with requests to upstream.",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "created_at",
               "req": false,
+              "short": "The datetime the upstream source was created.",
               "type": "`$STRING`"
             },
             {
@@ -24319,84 +24787,98 @@
               "active": true,
               "name": "distro_version",
               "req": true,
+              "short": "The distribution version that packages found on this upstream will be associated with.",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "extra_header_1",
               "req": false,
+              "short": "The key for extra header #1 to send to upstream.",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "extra_header_2",
               "req": false,
+              "short": "The key for extra header #2 to send to upstream.",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "extra_value_1",
               "req": false,
+              "short": "The value for extra header #1 to send to upstream.",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "extra_value_2",
               "req": false,
+              "short": "The value for extra header #2 to send to upstream.",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "gpg_key_inline",
               "req": false,
+              "short": "A public GPG key to associate with packages found on this upstream.",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "gpg_key_url",
               "req": false,
+              "short": "When provided, Cloudsmith will fetch, validate, and associate a public GPG key found at the provided URL.",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "gpg_verification",
               "req": false,
+              "short": "The GPG signature verification mode for this upstream.",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "include_sources",
               "req": false,
+              "short": "When checked, source packages will be available from this upstream.",
               "type": "`$BOOLEAN`"
             },
             {
               "active": true,
               "name": "is_active",
               "req": false,
+              "short": "Whether or not this upstream is active and ready for requests.",
               "type": "`$BOOLEAN`"
             },
             {
               "active": true,
               "name": "mode",
               "req": false,
+              "short": "The mode that this upstream should operate in.",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "name",
               "req": true,
+              "short": "A descriptive name for this upstream source.",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "pending_validation",
               "req": false,
+              "short": "When true, this upstream source is pending validation.",
               "type": "`$BOOLEAN`"
             },
             {
               "active": true,
               "name": "priority",
               "req": false,
+              "short": "Upstream sources are selected for resolving requests by sequential order (1..n), followed by creation date.",
               "type": "`$INTEGER`"
             },
             {
@@ -24415,18 +24897,21 @@
               "active": true,
               "name": "upstream_url",
               "req": true,
+              "short": "The URL for this upstream source.",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "verification_status",
               "req": false,
+              "short": "The signature verification status for this upstream.",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "verify_ssl",
               "req": false,
+              "short": "If enabled, SSL certificates are verified when requests are made to this upstream.",
               "type": "`$BOOLEAN`"
             }
           ],
@@ -24813,24 +25298,28 @@
               "active": true,
               "name": "auth_mode",
               "req": false,
+              "short": "The authentication mode to use when accessing this upstream.",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "auth_secret",
               "req": false,
+              "short": "Secret to provide with requests to upstream.",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "auth_username",
               "req": false,
+              "short": "Username to provide with requests to upstream.",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "created_at",
               "req": false,
+              "short": "The datetime the upstream source was created.",
               "type": "`$STRING`"
             },
             {
@@ -24843,54 +25332,63 @@
               "active": true,
               "name": "extra_header_1",
               "req": false,
+              "short": "The key for extra header #1 to send to upstream.",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "extra_header_2",
               "req": false,
+              "short": "The key for extra header #2 to send to upstream.",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "extra_value_1",
               "req": false,
+              "short": "The value for extra header #1 to send to upstream.",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "extra_value_2",
               "req": false,
+              "short": "The value for extra header #2 to send to upstream.",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "is_active",
               "req": false,
+              "short": "Whether or not this upstream is active and ready for requests.",
               "type": "`$BOOLEAN`"
             },
             {
               "active": true,
               "name": "mode",
               "req": false,
+              "short": "The mode that this upstream should operate in.",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "name",
               "req": true,
+              "short": "A descriptive name for this upstream source.",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "pending_validation",
               "req": false,
+              "short": "When true, this upstream source is pending validation.",
               "type": "`$BOOLEAN`"
             },
             {
               "active": true,
               "name": "priority",
               "req": false,
+              "short": "Upstream sources are selected for resolving requests by sequential order (1..n), followed by creation date.",
               "type": "`$INTEGER`"
             },
             {
@@ -24909,12 +25407,14 @@
               "active": true,
               "name": "upstream_url",
               "req": true,
+              "short": "The URL for this upstream source.",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "verify_ssl",
               "req": false,
+              "short": "If enabled, SSL certificates are verified when requests are made to this upstream.",
               "type": "`$BOOLEAN`"
             }
           ],
@@ -25347,36 +25847,42 @@
               "active": true,
               "name": "description",
               "req": false,
+              "short": "The description of the service",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "key",
               "req": false,
+              "short": "The API key of the service",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "key_expires_at",
               "req": false,
+              "short": "The time at which the API key will expire.",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "name",
               "req": true,
+              "short": "The name of the service",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "role",
               "req": false,
+              "short": "The role of the service.",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "slug",
               "req": false,
+              "short": "The slug of the service",
               "type": "`$STRING`"
             },
             {
@@ -25733,12 +26239,14 @@
               "active": true,
               "name": "detail",
               "req": false,
+              "short": "The message describing the state of the API.",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "version",
               "req": false,
+              "short": "The current version for the Cloudsmith service.",
               "type": "`$STRING`"
             }
           ],
@@ -25782,12 +26290,14 @@
               "active": true,
               "name": "label",
               "req": true,
+              "short": "Name of the storage region",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "slug",
               "req": true,
+              "short": "Slug for the storage region",
               "type": "`$STRING`"
             }
           ],
@@ -25871,24 +26381,28 @@
               "active": true,
               "name": "auth_mode",
               "req": false,
+              "short": "The authentication mode to use when accessing this upstream.",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "auth_secret",
               "req": false,
+              "short": "Secret to provide with requests to upstream.",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "auth_username",
               "req": false,
+              "short": "Username to provide with requests to upstream.",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "created_at",
               "req": false,
+              "short": "The datetime the upstream source was created.",
               "type": "`$STRING`"
             },
             {
@@ -25901,54 +26415,63 @@
               "active": true,
               "name": "extra_header_1",
               "req": false,
+              "short": "The key for extra header #1 to send to upstream.",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "extra_header_2",
               "req": false,
+              "short": "The key for extra header #2 to send to upstream.",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "extra_value_1",
               "req": false,
+              "short": "The value for extra header #1 to send to upstream.",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "extra_value_2",
               "req": false,
+              "short": "The value for extra header #2 to send to upstream.",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "is_active",
               "req": false,
+              "short": "Whether or not this upstream is active and ready for requests.",
               "type": "`$BOOLEAN`"
             },
             {
               "active": true,
               "name": "mode",
               "req": false,
+              "short": "The mode that this upstream should operate in.",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "name",
               "req": true,
+              "short": "A descriptive name for this upstream source.",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "pending_validation",
               "req": false,
+              "short": "When true, this upstream source is pending validation.",
               "type": "`$BOOLEAN`"
             },
             {
               "active": true,
               "name": "priority",
               "req": false,
+              "short": "Upstream sources are selected for resolving requests by sequential order (1..n), followed by creation date.",
               "type": "`$INTEGER`"
             },
             {
@@ -25967,12 +26490,14 @@
               "active": true,
               "name": "upstream_url",
               "req": true,
+              "short": "The URL for this upstream source.",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "verify_ssl",
               "req": false,
+              "short": "If enabled, SSL certificates are verified when requests are made to this upstream.",
               "type": "`$BOOLEAN`"
             }
           ],
@@ -26455,18 +26980,21 @@
               "active": true,
               "name": "created",
               "req": false,
+              "short": "The time at which the API key was created.",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "key",
               "req": false,
+              "short": "The unique API key used for authentication.",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "slug_perm",
               "req": false,
+              "short": "The slug_perm for token.",
               "type": "`$STRING`"
             }
           ],
@@ -26584,18 +27112,21 @@
               "active": true,
               "name": "created",
               "req": false,
+              "short": "The time at which the API key was created.",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "key",
               "req": false,
+              "short": "The unique API key used for authentication.",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "slug_perm",
               "req": false,
+              "short": "The slug_perm for token.",
               "type": "`$STRING`"
             }
           ],
@@ -26681,24 +27212,28 @@
               "active": true,
               "name": "authenticated",
               "req": false,
+              "short": "If true then you're logged in as a user.",
               "type": "`$BOOLEAN`"
             },
             {
               "active": true,
               "name": "email",
               "req": false,
+              "short": "Your email address that we use to contact you.",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "name",
               "req": false,
+              "short": "The full name of the user (if any).",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "profile_url",
               "req": false,
+              "short": "The URL for the full profile of the user.",
               "type": "`$STRING`"
             },
             {
@@ -26807,6 +27342,7 @@
               "active": true,
               "name": "tagline",
               "req": false,
+              "short": "Your tagline is a sentence about you.",
               "type": "`$STRING`"
             },
             {
@@ -26924,12 +27460,14 @@
               "active": true,
               "name": "created_at",
               "req": false,
+              "short": "The time this scan result was stored.",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "has_vulnerabilities",
               "req": false,
+              "short": "Do the results contain any known vulnerabilities?",
               "type": "`$BOOLEAN`"
             },
             {
@@ -26958,27 +27496,16 @@
             },
             {
               "active": true,
-              "name": "results",
-              "req": true,
-              "type": "`$ARRAY`"
-            },
-            {
-              "active": true,
               "name": "scan_id",
               "req": true,
+              "short": "Deprecated (23-05-15): Please use 'identifier' instead.",
               "type": "`$INTEGER`"
             },
             {
               "active": true,
-              "name": "target",
+              "name": "scans",
               "req": true,
-              "type": "`$STRING`"
-            },
-            {
-              "active": true,
-              "name": "type",
-              "req": true,
-              "type": "`$STRING`"
+              "type": "`$ARRAY`"
             }
           ],
           "name": "vulnerability",
@@ -27065,67 +27592,6 @@
                       {
                         "active": true,
                         "kind": "param",
-                        "name": "identifier",
-                        "orig": "identifier",
-                        "reqd": true,
-                        "type": "`$ANY`"
-                      },
-                      {
-                        "active": true,
-                        "kind": "param",
-                        "name": "owner",
-                        "orig": "owner",
-                        "reqd": true,
-                        "type": "`$ANY`"
-                      },
-                      {
-                        "active": true,
-                        "kind": "param",
-                        "name": "package",
-                        "orig": "package",
-                        "reqd": true,
-                        "type": "`$ANY`"
-                      },
-                      {
-                        "active": true,
-                        "kind": "param",
-                        "name": "repo",
-                        "orig": "repo",
-                        "reqd": true,
-                        "type": "`$ANY`"
-                      }
-                    ]
-                  },
-                  "kind": "http",
-                  "method": "GET",
-                  "orig": "/vulnerabilities/{owner}/{repo}/{package}/{identifier}/",
-                  "parts": [
-                    "vulnerabilities",
-                    "{owner}",
-                    "{repo}",
-                    "{package}",
-                    "{identifier}"
-                  ],
-                  "select": {
-                    "exist": [
-                      "identifier",
-                      "owner",
-                      "package",
-                      "repo"
-                    ]
-                  },
-                  "transform": {
-                    "req": "`reqdata`",
-                    "res": "`body`"
-                  }
-                },
-                {
-                  "active": true,
-                  "args": {
-                    "params": [
-                      {
-                        "active": true,
-                        "kind": "param",
                         "name": "owner",
                         "orig": "owner",
                         "reqd": true,
@@ -27186,6 +27652,67 @@
               "input": "data",
               "name": "load",
               "points": [
+                {
+                  "active": true,
+                  "args": {
+                    "params": [
+                      {
+                        "active": true,
+                        "kind": "param",
+                        "name": "identifier",
+                        "orig": "identifier",
+                        "reqd": true,
+                        "type": "`$ANY`"
+                      },
+                      {
+                        "active": true,
+                        "kind": "param",
+                        "name": "owner",
+                        "orig": "owner",
+                        "reqd": true,
+                        "type": "`$ANY`"
+                      },
+                      {
+                        "active": true,
+                        "kind": "param",
+                        "name": "package",
+                        "orig": "package",
+                        "reqd": true,
+                        "type": "`$ANY`"
+                      },
+                      {
+                        "active": true,
+                        "kind": "param",
+                        "name": "repo",
+                        "orig": "repo",
+                        "reqd": true,
+                        "type": "`$ANY`"
+                      }
+                    ]
+                  },
+                  "kind": "http",
+                  "method": "GET",
+                  "orig": "/vulnerabilities/{owner}/{repo}/{package}/{identifier}/",
+                  "parts": [
+                    "vulnerabilities",
+                    "{owner}",
+                    "{repo}",
+                    "{package}",
+                    "{identifier}"
+                  ],
+                  "select": {
+                    "exist": [
+                      "identifier",
+                      "owner",
+                      "package",
+                      "repo"
+                    ]
+                  },
+                  "transform": {
+                    "req": "`reqdata`",
+                    "res": "`body`"
+                  }
+                },
                 {
                   "active": true,
                   "args": {
@@ -27383,6 +27910,7 @@
       "feature": {
         "test": {
           "active": true,
+          "base": "node_modules/@voxgig/sdkgen/project/.sdk",
           "config": {
             "options": {
               "active": false
@@ -27443,6 +27971,8 @@
             }
           },
           "name": "test",
+          "origname": "",
+          "package": "@voxgig/sdkgen",
           "target": {
             "go": {
               "deps": {}
@@ -30867,7 +31397,8 @@
                 "suffix": "_dt0"
               },
               "match": {
-                "id": "repo01"
+                "id": "repo01",
+                "owner": "owner01"
               },
               "op": "load",
               "spec": [],
@@ -31437,7 +31968,6 @@
                 "ref": "repository_webhook_ref01"
               },
               "match": {
-                "identifier": "identifier01",
                 "owner": "owner01",
                 "repo": "repo01"
               },
@@ -31450,7 +31980,6 @@
               "data": {},
               "input": {},
               "match": {
-                "identifier": "identifier01",
                 "owner": "owner01",
                 "repo": "repo01"
               },
@@ -31488,6 +32017,30 @@
                 }
               ],
               "valid": []
+            },
+            {
+              "active": true,
+              "data": {},
+              "input": {
+                "ref": "repository_webhook_ref01",
+                "srcdatavar": "repository_webhook_ref01_data",
+                "suffix": "_dt0"
+              },
+              "match": {
+                "id": "repository_webhook01",
+                "owner": "owner01",
+                "repo": "repo01"
+              },
+              "op": "load",
+              "spec": [],
+              "valid": [
+                {
+                  "apply": "TextFieldMark",
+                  "def": {
+                    "mark": "Mark01-repository_webhook_ref01"
+                  }
+                }
+              ]
             }
           ]
         },
@@ -32468,6 +33021,7 @@
             "name": "",
             "url": ""
           },
+          "base": "node_modules/@voxgig/sdkgen/project/.sdk",
           "comment": {
             "line": "//"
           },
@@ -32486,12 +33040,14 @@
             "path": ""
           },
           "name": "go",
+          "origname": "",
           "output": {
             "adopt": false,
             "path": "",
             "repo": "",
             "sdkrel": ""
           },
+          "package": "@voxgig/sdkgen",
           "publish": {
             "registry": {
               "active": false,
@@ -32525,6 +33081,7 @@
             "name": "",
             "url": ""
           },
+          "base": "node_modules/@voxgig/sdkgen/project/.sdk",
           "comment": {
             "line": "//"
           },
@@ -32541,12 +33098,14 @@
             "path": ""
           },
           "name": "go-cli",
+          "origname": "",
           "output": {
             "adopt": false,
             "path": "",
             "repo": "",
             "sdkrel": ""
           },
+          "package": "@voxgig/sdkgen",
           "phase": {
             "agentguide": {
               "active": false
@@ -32596,6 +33155,7 @@
             "name": "",
             "url": ""
           },
+          "base": "node_modules/@voxgig/sdkgen/project/.sdk",
           "comment": {
             "line": "//"
           },
@@ -32612,12 +33172,14 @@
             "path": ""
           },
           "name": "go-mcp",
+          "origname": "",
           "output": {
             "adopt": false,
             "path": "",
             "repo": "",
             "sdkrel": ""
           },
+          "package": "@voxgig/sdkgen",
           "phase": {
             "agentguide": {
               "active": false
@@ -32667,6 +33229,7 @@
             "name": "",
             "url": ""
           },
+          "base": "node_modules/@voxgig/sdkgen/project/.sdk",
           "comment": {
             "line": "--"
           },
@@ -32689,12 +33252,14 @@
             "path": ""
           },
           "name": "lua",
+          "origname": "",
           "output": {
             "adopt": false,
             "path": "",
             "repo": "",
             "sdkrel": ""
           },
+          "package": "@voxgig/sdkgen",
           "publish": {
             "registry": {
               "active": false,
@@ -32728,6 +33293,7 @@
             "name": "",
             "url": ""
           },
+          "base": "node_modules/@voxgig/sdkgen/project/.sdk",
           "comment": {
             "line": "//"
           },
@@ -32744,12 +33310,14 @@
             "path": ""
           },
           "name": "php",
+          "origname": "",
           "output": {
             "adopt": false,
             "path": "",
             "repo": "",
             "sdkrel": ""
           },
+          "package": "@voxgig/sdkgen",
           "publish": {
             "registry": {
               "active": false,
@@ -32783,6 +33351,7 @@
             "name": "",
             "url": ""
           },
+          "base": "node_modules/@voxgig/sdkgen/project/.sdk",
           "comment": {
             "line": "#"
           },
@@ -32805,12 +33374,14 @@
             "path": ""
           },
           "name": "py",
+          "origname": "",
           "output": {
             "adopt": false,
             "path": "",
             "repo": "",
             "sdkrel": ""
           },
+          "package": "@voxgig/sdkgen",
           "publish": {
             "registry": {
               "active": false,
@@ -32844,6 +33415,7 @@
             "name": "",
             "url": ""
           },
+          "base": "node_modules/@voxgig/sdkgen/project/.sdk",
           "comment": {
             "line": "#"
           },
@@ -32871,12 +33443,14 @@
             "path": ""
           },
           "name": "rb",
+          "origname": "",
           "output": {
             "adopt": false,
             "path": "",
             "repo": "",
             "sdkrel": ""
           },
+          "package": "@voxgig/sdkgen",
           "publish": {
             "registry": {
               "active": false,
@@ -32943,12 +33517,14 @@
             "path": ""
           },
           "name": "ts",
+          "origname": "",
           "output": {
             "adopt": false,
             "path": "",
             "repo": "",
             "sdkrel": ""
           },
+          "package": "@voxgig/sdkgen",
           "publish": {
             "registry": {
               "active": false,

@@ -979,7 +979,7 @@ guide: {
       op: create: method: *POST
     }
     path: "/packages/{owner}/{repo}/{identifier}/": {
-      op: list: method: *GET
+      op: load: method: *GET
       op: remove: method: *DELETE
     }
     path: "/packages/{owner}/{repo}/{identifier}/copy/": {
@@ -1180,7 +1180,7 @@ guide: {
       op: load: method: *GET
     }
     path: "/repos/{owner}/{identifier}/": {
-      op: list: method: *GET
+      op: load: method: *GET
       op: patch: method: *PATCH
       op: remove: method: *DELETE
     }
@@ -1353,7 +1353,7 @@ guide: {
       op: list: method: *GET
     }
     path: "/webhooks/{owner}/{repo}/{identifier}/": {
-      op: list: method: *GET
+      op: load: method: *GET
       op: patch: method: *PATCH
     }
   }
@@ -1626,7 +1626,7 @@ guide: {
       op: list: method: *GET
     }
     path: "/vulnerabilities/{owner}/{repo}/{package}/{identifier}/": {
-      op: list: method: *GET
+      op: load: method: *GET
     }
   }
 

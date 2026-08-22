@@ -5,8 +5,8 @@ import type { PackageLicensePolicyEvaluation, PackageLicensePolicyEvaluationLoad
 declare class PackageLicensePolicyEvaluationEntity extends CloudsmithEntityBase<PackageLicensePolicyEvaluation> {
     constructor(client: CloudsmithSDK, entopts: any);
     make(this: PackageLicensePolicyEvaluationEntity): PackageLicensePolicyEvaluationEntity;
-    load(this: any, reqmatch?: PackageLicensePolicyEvaluationLoadMatch, ctrl?: Control): Promise<PackageLicensePolicyEvaluation>;
-    list(this: any, reqmatch?: PackageLicensePolicyEvaluationListMatch, ctrl?: Control): Promise<PackageLicensePolicyEvaluation[]>;
-    create(this: any, reqdata?: PackageLicensePolicyEvaluationCreateData, ctrl?: Control): Promise<PackageLicensePolicyEvaluation>;
+    load(this: any, reqmatch?: PackageLicensePolicyEvaluationLoadMatch, ctrl?: Control): Promise<PackageLicensePolicyEvaluationEntity>;
+    list(this: any, reqmatch?: PackageLicensePolicyEvaluationListMatch, ctrl?: Control): Promise<PackageLicensePolicyEvaluationEntity[]>;
+    create(this: any, reqdata?: PackageLicensePolicyEvaluationCreateData, ctrl?: Control): Promise<PackageLicensePolicyEvaluationEntity>;
 }
 export { PackageLicensePolicyEvaluationEntity };

@@ -75,7 +75,7 @@ const utility_1 = require("../../utility");
         // LOAD
         const resources_rate_check_ref01_ent = client.ResourcesRateCheck();
         const resources_rate_check_ref01_match_dt0 = {};
-        const resources_rate_check_ref01_data_dt0 = await resources_rate_check_ref01_ent.load(resources_rate_check_ref01_match_dt0);
+        const resources_rate_check_ref01_data_dt0 = (await resources_rate_check_ref01_ent.load(resources_rate_check_ref01_match_dt0)).data();
         (0, node_assert_1.default)(null != resources_rate_check_ref01_data_dt0);
     });
 });

@@ -5,7 +5,7 @@ import type { Format, FormatLoadMatch, FormatListMatch } from '../CloudsmithType
 declare class FormatEntity extends CloudsmithEntityBase<Format> {
     constructor(client: CloudsmithSDK, entopts: any);
     make(this: FormatEntity): FormatEntity;
-    load(this: any, reqmatch?: FormatLoadMatch, ctrl?: Control): Promise<Format>;
-    list(this: any, reqmatch?: FormatListMatch, ctrl?: Control): Promise<Format[]>;
+    load(this: any, reqmatch?: FormatLoadMatch, ctrl?: Control): Promise<FormatEntity>;
+    list(this: any, reqmatch?: FormatListMatch, ctrl?: Control): Promise<FormatEntity[]>;
 }
 export { FormatEntity };

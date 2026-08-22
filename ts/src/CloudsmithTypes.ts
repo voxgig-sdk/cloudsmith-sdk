@@ -673,9 +673,7 @@ export interface Entitlement {
 }
 
 export interface EntitlementLoadMatch {
-  owner?: any
-  repo?: any
-  id?: string
+  id: string
 }
 
 export interface EntitlementCreateData {
@@ -2373,8 +2371,7 @@ export interface Quota {
 }
 
 export interface QuotaLoadMatch {
-  id?: string
-  owner?: any
+  id: string
 }
 
 export interface Raw {
@@ -2459,14 +2456,75 @@ export interface RepoLoadMatch {
 }
 
 export interface RepoListMatch {
-  identifier?: any
-  owner?: any
+  cdn_url?: string
+  content_kind?: string
+  contextual_auth_realm?: boolean
+  copy_own?: boolean
+  copy_packages?: string
+  cosign_signing_enabled?: boolean
+  created_at?: string
+  default_privilege?: string
+  delete_own?: boolean
+  delete_packages?: string
+  deleted_at?: string
+  description?: string
+  distributes?: any[]
+  docker_refresh_tokens_enabled?: boolean
+  ecdsa_keys?: any[]
+  enforce_eula?: boolean
+  gpg_keys?: any[]
+  index_files?: boolean
+  is_open_source?: boolean
+  is_private?: boolean
+  is_public?: boolean
+  manage_entitlements_privilege?: string
+  move_own?: boolean
+  move_packages?: string
+  name?: string
+  namespace?: string
+  namespace_url?: string
+  nuget_native_signing_enabled?: boolean
+  num_downloads?: number
+  num_policy_violated_packages?: number
+  num_quarantined_packages?: number
+  open_source_license?: string
+  open_source_project_url?: string
+  package_count?: number
+  package_group_count?: number
+  proxy_npmjs?: boolean
+  proxy_pypi?: boolean
+  raw_package_index_enabled?: boolean
+  raw_package_index_signatures_enabled?: boolean
+  replace_packages?: string
+  replace_packages_by_default?: boolean
+  repository_type?: number
+  repository_type_str?: string
+  resync_own?: boolean
+  resync_packages?: string
+  scan_own?: boolean
+  scan_packages?: string
+  self_html_url?: string
+  self_url?: string
+  show_setup_all?: boolean
+  size?: number
+  size_str?: string
+  slug?: string
+  slug_perm?: string
+  storage_region?: string
+  strict_npm_validation?: boolean
+  tag_pre_releases_as_latest?: boolean
+  use_debian_labels?: boolean
+  use_default_cargo_upstream?: boolean
+  use_entitlements_privilege?: string
+  use_noarch_packages?: boolean
+  use_source_packages?: boolean
+  use_vulnerability_scanning?: boolean
+  user_entitlements_enabled?: boolean
+  view_statistics?: string
 }
 
 export interface RepoCreateData {
-  identifier?: any
-  owner?: any
-  id?: string
+  id: string
   cdn_url?: string
   content_kind?: string
   contextual_auth_realm?: boolean
@@ -3036,7 +3094,6 @@ export interface RepositoryWebhook {
   created_by_url?: string
   disable_reason?: number
   disable_reason_str?: string
-  event: string
   events: any[]
   identifier?: number
   is_active?: boolean
@@ -3054,7 +3111,6 @@ export interface RepositoryWebhook {
   self_url?: string
   slug_perm?: string
   target_url: string
-  template?: string
   templates: any[]
   updated_at?: string
   updated_by?: string
@@ -3062,10 +3118,15 @@ export interface RepositoryWebhook {
   verify_ssl?: boolean
 }
 
+export interface RepositoryWebhookLoadMatch {
+  identifier: any
+  owner: any
+  repo: any
+}
+
 export interface RepositoryWebhookListMatch {
   owner: any
   repo: any
-  identifier?: any
 }
 
 export interface RepositoryWebhookCreateData {
@@ -3076,7 +3137,6 @@ export interface RepositoryWebhookCreateData {
   created_by_url?: string
   disable_reason?: number
   disable_reason_str?: string
-  event: string
   events: any[]
   identifier?: number
   is_active?: boolean
@@ -3094,7 +3154,6 @@ export interface RepositoryWebhookCreateData {
   self_url?: string
   slug_perm?: string
   target_url: string
-  template?: string
   templates: any[]
   updated_at?: string
   updated_by?: string
@@ -3111,7 +3170,6 @@ export interface RepositoryWebhookUpdateData {
   created_by_url?: string
   disable_reason?: number
   disable_reason_str?: string
-  event?: string
   events?: any[]
   is_active?: boolean
   is_last_response_bad?: boolean
@@ -3128,7 +3186,6 @@ export interface RepositoryWebhookUpdateData {
   self_url?: string
   slug_perm?: string
   target_url?: string
-  template?: string
   templates?: any[]
   updated_at?: string
   updated_by?: string
@@ -3666,10 +3723,8 @@ export interface Vulnerability {
   max_severity?: string
   num_vulnerabilities?: number
   package: Record<string, any>
-  results: any[]
   scan_id: number
-  target: string
-  type: string
+  scans: any[]
 }
 
 export interface VulnerabilityLoadMatch {
@@ -3680,7 +3735,6 @@ export interface VulnerabilityListMatch {
   owner: any
   package?: any
   repo: any
-  identifier?: any
 }
 
 export interface VulnerabilityPolicy {

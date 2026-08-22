@@ -21,32 +21,13 @@ class RepoDirectTest extends TestCase
             $this->markTestSkipped($_reason ?? "skipped via sdk-test-control.json");
             return;
         }
-        if ($setup["live"]) {
-            foreach (["identifier01", "owner01"] as $_liveKey) {
-                if (!isset($setup["idmap"][$_liveKey]) || $setup["idmap"][$_liveKey] === null) {
-                    $this->markTestSkipped("live test needs $_liveKey via *_ENTID env var (synthetic IDs only)");
-                    return;
-                }
-            }
-        }
         $client = $setup["client"];
 
-        $params = [];
-        if ($setup["live"]) {
-            $params["identifier"] = $setup["idmap"]["identifier01"];
-        } else {
-            $params["identifier"] = "direct01";
-        }
-        if ($setup["live"]) {
-            $params["owner"] = $setup["idmap"]["owner01"];
-        } else {
-            $params["owner"] = "direct01";
-        }
 
         $result = $client->direct([
-            "path" => "repos/{owner}/{identifier}",
+            "path" => "repos",
             "method" => "GET",
-            "params" => $params,
+            "params" => [],
         ]);
         if ($setup["live"]) {
             // Live mode is lenient: synthetic IDs frequently 4xx and the

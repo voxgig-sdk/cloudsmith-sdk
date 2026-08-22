@@ -62,7 +62,7 @@ class RepositoryWebhookEntityTest extends TestCase
         $setup = repository_webhook_basic_setup(null);
         // Per-op sdk-test-control.json skip.
         $_live = !empty($setup["live"]);
-        foreach (["create", "list", "update"] as $_op) {
+        foreach (["create", "list", "update", "load"] as $_op) {
             [$_shouldSkip, $_reason] = Runner::is_control_skipped("entityOp", "repository_webhook." . $_op, $_live ? "live" : "unit");
             if ($_shouldSkip) {
                 $this->markTestSkipped($_reason ?? "skipped via sdk-test-control.json");
@@ -81,7 +81,6 @@ class RepositoryWebhookEntityTest extends TestCase
         $repository_webhook_ref01_ent = $client->RepositoryWebhook(null);
         $repository_webhook_ref01_data = Helpers::to_map(Vs::getprop(
             Vs::getpath($setup["data"], "new.repository_webhook"), "repository_webhook_ref01"));
-        $repository_webhook_ref01_data["identifier"] = $setup["idmap"]["identifier01"];
         $repository_webhook_ref01_data["owner"] = $setup["idmap"]["owner01"];
         $repository_webhook_ref01_data["repo"] = $setup["idmap"]["repo01"];
 
@@ -91,7 +90,6 @@ class RepositoryWebhookEntityTest extends TestCase
 
         // LIST
         $repository_webhook_ref01_match = [
-            "identifier" => $setup["idmap"]["identifier01"],
             "owner" => $setup["idmap"]["owner01"],
             "repo" => $setup["idmap"]["repo01"],
         ];
@@ -114,6 +112,11 @@ class RepositoryWebhookEntityTest extends TestCase
         $this->assertNotNull($repository_webhook_ref01_resdata_up0);
         $this->assertEquals($repository_webhook_ref01_resdata_up0[$repository_webhook_ref01_markdef_up0_name], $repository_webhook_ref01_markdef_up0_value);
 
+        // LOAD
+        $repository_webhook_ref01_match_dt0 = [];
+        $repository_webhook_ref01_data_dt0_loaded = $repository_webhook_ref01_ent->load($repository_webhook_ref01_match_dt0, null);
+        $this->assertNotNull($repository_webhook_ref01_data_dt0_loaded);
+
     }
 }
 
@@ -132,7 +135,7 @@ function repository_webhook_basic_setup($extra)
 
     // Generate idmap.
     $idmap = [];
-    foreach (["repository_webhook01", "repository_webhook02", "repository_webhook03", "webhook01", "webhook02", "webhook03", "identifier01", "owner01", "repo01"] as $k) {
+    foreach (["repository_webhook01", "repository_webhook02", "repository_webhook03", "webhook01", "webhook02", "webhook03", "owner01", "repo01"] as $k) {
         $idmap[$k] = strtoupper($k);
     }
 

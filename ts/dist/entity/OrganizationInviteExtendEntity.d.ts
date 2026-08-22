@@ -5,6 +5,6 @@ import type { OrganizationInviteExtend, OrganizationInviteExtendCreateData } fro
 declare class OrganizationInviteExtendEntity extends CloudsmithEntityBase<OrganizationInviteExtend> {
     constructor(client: CloudsmithSDK, entopts: any);
     make(this: OrganizationInviteExtendEntity): OrganizationInviteExtendEntity;
-    create(this: any, reqdata?: OrganizationInviteExtendCreateData, ctrl?: Control): Promise<OrganizationInviteExtend>;
+    create(this: any, reqdata?: OrganizationInviteExtendCreateData, ctrl?: Control): Promise<OrganizationInviteExtendEntity>;
 }
 export { OrganizationInviteExtendEntity };

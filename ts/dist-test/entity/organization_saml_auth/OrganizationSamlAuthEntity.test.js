@@ -77,7 +77,7 @@ const utility_1 = require("../../utility");
         const organization_saml_auth_ref01_data_up0 = {};
         const organization_saml_auth_ref01_markdef_up0 = { name: 'saml_metadata_inline', value: 'Mark01-organization_saml_auth_ref01_' + setup.now };
         organization_saml_auth_ref01_data_up0[organization_saml_auth_ref01_markdef_up0.name] = organization_saml_auth_ref01_markdef_up0.value;
-        const organization_saml_auth_ref01_resdata_up0 = await organization_saml_auth_ref01_ent.update(organization_saml_auth_ref01_data_up0);
+        const organization_saml_auth_ref01_resdata_up0 = (await organization_saml_auth_ref01_ent.update(organization_saml_auth_ref01_data_up0)).data();
         (0, node_assert_1.default)(null != organization_saml_auth_ref01_resdata_up0);
         (0, node_assert_1.default)(organization_saml_auth_ref01_resdata_up0[organization_saml_auth_ref01_markdef_up0.name] === organization_saml_auth_ref01_markdef_up0.value);
     });

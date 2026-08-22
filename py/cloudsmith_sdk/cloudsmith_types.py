@@ -766,9 +766,7 @@ class Entitlement(EntitlementRequired, total=False):
     total: int
 
 
-class EntitlementLoadMatch(TypedDict, total=False):
-    owner: Any
-    repo: Any
+class EntitlementLoadMatch(TypedDict):
     id: str
 
 
@@ -2679,9 +2677,8 @@ class Quota(TypedDict):
     raw: dict
 
 
-class QuotaLoadMatch(TypedDict, total=False):
+class QuotaLoadMatch(TypedDict):
     id: str
-    owner: Any
 
 
 class Raw(TypedDict):
@@ -2772,18 +2769,79 @@ class RepoLoadMatch(TypedDict):
 
 
 class RepoListMatch(TypedDict, total=False):
-    identifier: Any
-    owner: Any
+    cdn_url: str
+    content_kind: str
+    contextual_auth_realm: bool
+    copy_own: bool
+    copy_packages: str
+    cosign_signing_enabled: bool
+    created_at: str
+    default_privilege: str
+    delete_own: bool
+    delete_packages: str
+    deleted_at: str
+    description: str
+    distributes: list
+    docker_refresh_tokens_enabled: bool
+    ecdsa_keys: list
+    enforce_eula: bool
+    gpg_keys: list
+    index_files: bool
+    is_open_source: bool
+    is_private: bool
+    is_public: bool
+    manage_entitlements_privilege: str
+    move_own: bool
+    move_packages: str
+    name: str
+    namespace: str
+    namespace_url: str
+    nuget_native_signing_enabled: bool
+    num_downloads: int
+    num_policy_violated_packages: int
+    num_quarantined_packages: int
+    open_source_license: str
+    open_source_project_url: str
+    package_count: int
+    package_group_count: int
+    proxy_npmjs: bool
+    proxy_pypi: bool
+    raw_package_index_enabled: bool
+    raw_package_index_signatures_enabled: bool
+    replace_packages: str
+    replace_packages_by_default: bool
+    repository_type: int
+    repository_type_str: str
+    resync_own: bool
+    resync_packages: str
+    scan_own: bool
+    scan_packages: str
+    self_html_url: str
+    self_url: str
+    show_setup_all: bool
+    size: int
+    size_str: str
+    slug: str
+    slug_perm: str
+    storage_region: str
+    strict_npm_validation: bool
+    tag_pre_releases_as_latest: bool
+    use_debian_labels: bool
+    use_default_cargo_upstream: bool
+    use_entitlements_privilege: str
+    use_noarch_packages: bool
+    use_source_packages: bool
+    use_vulnerability_scanning: bool
+    user_entitlements_enabled: bool
+    view_statistics: str
 
 
 class RepoCreateDataRequired(TypedDict):
+    id: str
     name: str
 
 
 class RepoCreateData(RepoCreateDataRequired, total=False):
-    identifier: Any
-    owner: Any
-    id: str
     cdn_url: str
     content_kind: str
     contextual_auth_realm: bool
@@ -3387,7 +3445,6 @@ class RepositoryTokenSyncCreateData(RepositoryTokenSyncCreateDataRequired, total
 
 
 class RepositoryWebhookRequired(TypedDict):
-    event: str
     events: list
     target_url: str
     templates: list
@@ -3414,26 +3471,26 @@ class RepositoryWebhook(RepositoryWebhookRequired, total=False):
     secret_header: str
     self_url: str
     slug_perm: str
-    template: str
     updated_at: str
     updated_by: str
     updated_by_url: str
     verify_ssl: bool
 
 
-class RepositoryWebhookListMatchRequired(TypedDict):
+class RepositoryWebhookLoadMatch(TypedDict):
+    identifier: Any
     owner: Any
     repo: Any
 
 
-class RepositoryWebhookListMatch(RepositoryWebhookListMatchRequired, total=False):
-    identifier: Any
+class RepositoryWebhookListMatch(TypedDict):
+    owner: Any
+    repo: Any
 
 
 class RepositoryWebhookCreateDataRequired(TypedDict):
     owner: Any
     repo: Any
-    event: str
     events: list
     target_url: str
     templates: list
@@ -3460,7 +3517,6 @@ class RepositoryWebhookCreateData(RepositoryWebhookCreateDataRequired, total=Fal
     secret_header: str
     self_url: str
     slug_perm: str
-    template: str
     updated_at: str
     updated_by: str
     updated_by_url: str
@@ -3479,7 +3535,6 @@ class RepositoryWebhookUpdateData(RepositoryWebhookUpdateDataRequired, total=Fal
     created_by_url: str
     disable_reason: int
     disable_reason_str: str
-    event: str
     events: list
     is_active: bool
     is_last_response_bad: bool
@@ -3496,7 +3551,6 @@ class RepositoryWebhookUpdateData(RepositoryWebhookUpdateDataRequired, total=Fal
     self_url: str
     slug_perm: str
     target_url: str
-    template: str
     templates: list
     updated_at: str
     updated_by: str
@@ -4080,10 +4134,8 @@ class Version(TypedDict):
 class VulnerabilityRequired(TypedDict):
     identifier: str
     package: dict
-    results: list
     scan_id: int
-    target: str
-    type: str
+    scans: list
 
 
 class Vulnerability(VulnerabilityRequired, total=False):
@@ -4104,7 +4156,6 @@ class VulnerabilityListMatchRequired(TypedDict):
 
 class VulnerabilityListMatch(VulnerabilityListMatchRequired, total=False):
     package: Any
-    identifier: Any
 
 
 class VulnerabilityPolicy(TypedDict):

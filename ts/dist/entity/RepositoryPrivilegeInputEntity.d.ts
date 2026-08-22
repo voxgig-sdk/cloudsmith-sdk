@@ -5,6 +5,6 @@ import type { RepositoryPrivilegeInput, RepositoryPrivilegeInputListMatch } from
 declare class RepositoryPrivilegeInputEntity extends CloudsmithEntityBase<RepositoryPrivilegeInput> {
     constructor(client: CloudsmithSDK, entopts: any);
     make(this: RepositoryPrivilegeInputEntity): RepositoryPrivilegeInputEntity;
-    list(this: any, reqmatch?: RepositoryPrivilegeInputListMatch, ctrl?: Control): Promise<RepositoryPrivilegeInput[]>;
+    list(this: any, reqmatch?: RepositoryPrivilegeInputListMatch, ctrl?: Control): Promise<RepositoryPrivilegeInputEntity[]>;
 }
 export { RepositoryPrivilegeInputEntity };

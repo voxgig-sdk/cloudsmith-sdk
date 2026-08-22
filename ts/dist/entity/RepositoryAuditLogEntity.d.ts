@@ -5,6 +5,6 @@ import type { RepositoryAuditLog, RepositoryAuditLogListMatch } from '../Cloudsm
 declare class RepositoryAuditLogEntity extends CloudsmithEntityBase<RepositoryAuditLog> {
     constructor(client: CloudsmithSDK, entopts: any);
     make(this: RepositoryAuditLogEntity): RepositoryAuditLogEntity;
-    list(this: any, reqmatch?: RepositoryAuditLogListMatch, ctrl?: Control): Promise<RepositoryAuditLog[]>;
+    list(this: any, reqmatch?: RepositoryAuditLogListMatch, ctrl?: Control): Promise<RepositoryAuditLogEntity[]>;
 }
 export { RepositoryAuditLogEntity };

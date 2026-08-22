@@ -5,6 +5,6 @@ import type { PackageVersionBadge, PackageVersionBadgeLoadMatch } from '../Cloud
 declare class PackageVersionBadgeEntity extends CloudsmithEntityBase<PackageVersionBadge> {
     constructor(client: CloudsmithSDK, entopts: any);
     make(this: PackageVersionBadgeEntity): PackageVersionBadgeEntity;
-    load(this: any, reqmatch?: PackageVersionBadgeLoadMatch, ctrl?: Control): Promise<PackageVersionBadge>;
+    load(this: any, reqmatch?: PackageVersionBadgeLoadMatch, ctrl?: Control): Promise<PackageVersionBadgeEntity>;
 }
 export { PackageVersionBadgeEntity };

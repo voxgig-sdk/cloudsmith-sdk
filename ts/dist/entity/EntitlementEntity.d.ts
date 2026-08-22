@@ -5,8 +5,8 @@ import type { Entitlement, EntitlementLoadMatch, EntitlementCreateData, Entitlem
 declare class EntitlementEntity extends CloudsmithEntityBase<Entitlement> {
     constructor(client: CloudsmithSDK, entopts: any);
     make(this: EntitlementEntity): EntitlementEntity;
-    load(this: any, reqmatch?: EntitlementLoadMatch, ctrl?: Control): Promise<Entitlement>;
-    create(this: any, reqdata?: EntitlementCreateData, ctrl?: Control): Promise<Entitlement>;
-    remove(this: any, reqmatch?: EntitlementRemoveMatch, ctrl?: Control): Promise<Entitlement>;
+    load(this: any, reqmatch?: EntitlementLoadMatch, ctrl?: Control): Promise<EntitlementEntity>;
+    create(this: any, reqdata?: EntitlementCreateData, ctrl?: Control): Promise<EntitlementEntity>;
+    remove(this: any, reqmatch?: EntitlementRemoveMatch, ctrl?: Control): Promise<EntitlementEntity>;
 }
 export { EntitlementEntity };

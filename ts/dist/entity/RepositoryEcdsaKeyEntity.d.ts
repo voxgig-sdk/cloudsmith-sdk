@@ -5,7 +5,7 @@ import type { RepositoryEcdsaKey, RepositoryEcdsaKeyLoadMatch, RepositoryEcdsaKe
 declare class RepositoryEcdsaKeyEntity extends CloudsmithEntityBase<RepositoryEcdsaKey> {
     constructor(client: CloudsmithSDK, entopts: any);
     make(this: RepositoryEcdsaKeyEntity): RepositoryEcdsaKeyEntity;
-    load(this: any, reqmatch?: RepositoryEcdsaKeyLoadMatch, ctrl?: Control): Promise<RepositoryEcdsaKey>;
-    create(this: any, reqdata?: RepositoryEcdsaKeyCreateData, ctrl?: Control): Promise<RepositoryEcdsaKey>;
+    load(this: any, reqmatch?: RepositoryEcdsaKeyLoadMatch, ctrl?: Control): Promise<RepositoryEcdsaKeyEntity>;
+    create(this: any, reqdata?: RepositoryEcdsaKeyCreateData, ctrl?: Control): Promise<RepositoryEcdsaKeyEntity>;
 }
 export { RepositoryEcdsaKeyEntity };

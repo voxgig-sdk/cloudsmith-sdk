@@ -76,20 +76,20 @@ const utility_1 = require("../../utility");
         let helm_ref01_data = setup.data.new.helm['helm_ref01'];
         helm_ref01_data['identifier'] = setup.idmap['identifier01'];
         helm_ref01_data['owner'] = setup.idmap['owner01'];
-        helm_ref01_data = await helm_ref01_ent.create(helm_ref01_data);
+        helm_ref01_data = (await helm_ref01_ent.create(helm_ref01_data)).data();
         (0, node_assert_1.default)(null != helm_ref01_data);
         // LIST
         const helm_ref01_match = {};
         helm_ref01_match['identifier'] = setup.idmap['identifier01'];
         helm_ref01_match['owner'] = setup.idmap['owner01'];
-        const helm_ref01_list = await helm_ref01_ent.list(helm_ref01_match);
+        const helm_ref01_list = (await helm_ref01_ent.list(helm_ref01_match)).map((e) => e.data());
         // UPDATE
         const helm_ref01_data_up0 = {};
         helm_ref01_data_up0['identifier'] = setup.idmap['identifier'];
         helm_ref01_data_up0['owner'] = setup.idmap['owner'];
         const helm_ref01_markdef_up0 = { name: 'auth_mode', value: 'Mark01-helm_ref01_' + setup.now };
         helm_ref01_data_up0[helm_ref01_markdef_up0.name] = helm_ref01_markdef_up0.value;
-        const helm_ref01_resdata_up0 = await helm_ref01_ent.update(helm_ref01_data_up0);
+        const helm_ref01_resdata_up0 = (await helm_ref01_ent.update(helm_ref01_data_up0)).data();
         (0, node_assert_1.default)(null != helm_ref01_resdata_up0);
         (0, node_assert_1.default)(helm_ref01_resdata_up0[helm_ref01_markdef_up0.name] === helm_ref01_markdef_up0.value);
     });

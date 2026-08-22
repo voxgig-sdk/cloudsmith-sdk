@@ -75,7 +75,7 @@ const utility_1 = require("../../utility");
         // LIST
         const format_ref01_ent = client.Format();
         const format_ref01_match = {};
-        const format_ref01_list = await format_ref01_ent.list(format_ref01_match);
+        const format_ref01_list = (await format_ref01_ent.list(format_ref01_match)).map((e) => e.data());
     });
 });
 function basicSetup(extra) {

@@ -737,9 +737,7 @@ type Entitlement struct {
 
 // EntitlementLoadMatch is the typed request payload for Entitlement.LoadTyped.
 type EntitlementLoadMatch struct {
-	Owner *any `json:"owner,omitempty"`
-	Repo *any `json:"repo,omitempty"`
-	Id *string `json:"id,omitempty"`
+	Id string `json:"id"`
 }
 
 // EntitlementCreateData is the typed request payload for Entitlement.CreateTyped.
@@ -2579,8 +2577,7 @@ type Quota struct {
 
 // QuotaLoadMatch is the typed request payload for Quota.LoadTyped.
 type QuotaLoadMatch struct {
-	Id *string `json:"id,omitempty"`
-	Owner *any `json:"owner,omitempty"`
+	Id string `json:"id"`
 }
 
 // Raw is the typed data model for the raw entity.
@@ -2671,15 +2668,76 @@ type RepoLoadMatch struct {
 
 // RepoListMatch is the typed request payload for Repo.ListTyped.
 type RepoListMatch struct {
-	Identifier *any `json:"identifier,omitempty"`
-	Owner *any `json:"owner,omitempty"`
+	CdnUrl *string `json:"cdn_url,omitempty"`
+	ContentKind *string `json:"content_kind,omitempty"`
+	ContextualAuthRealm *bool `json:"contextual_auth_realm,omitempty"`
+	CopyOwn *bool `json:"copy_own,omitempty"`
+	CopyPackages *string `json:"copy_packages,omitempty"`
+	CosignSigningEnabled *bool `json:"cosign_signing_enabled,omitempty"`
+	CreatedAt *string `json:"created_at,omitempty"`
+	DefaultPrivilege *string `json:"default_privilege,omitempty"`
+	DeleteOwn *bool `json:"delete_own,omitempty"`
+	DeletePackages *string `json:"delete_packages,omitempty"`
+	DeletedAt *string `json:"deleted_at,omitempty"`
+	Description *string `json:"description,omitempty"`
+	Distributes *[]any `json:"distributes,omitempty"`
+	DockerRefreshTokensEnabled *bool `json:"docker_refresh_tokens_enabled,omitempty"`
+	EcdsaKeys *[]any `json:"ecdsa_keys,omitempty"`
+	EnforceEula *bool `json:"enforce_eula,omitempty"`
+	GpgKeys *[]any `json:"gpg_keys,omitempty"`
+	IndexFiles *bool `json:"index_files,omitempty"`
+	IsOpenSource *bool `json:"is_open_source,omitempty"`
+	IsPrivate *bool `json:"is_private,omitempty"`
+	IsPublic *bool `json:"is_public,omitempty"`
+	ManageEntitlementsPrivilege *string `json:"manage_entitlements_privilege,omitempty"`
+	MoveOwn *bool `json:"move_own,omitempty"`
+	MovePackages *string `json:"move_packages,omitempty"`
+	Name *string `json:"name,omitempty"`
+	Namespace *string `json:"namespace,omitempty"`
+	NamespaceUrl *string `json:"namespace_url,omitempty"`
+	NugetNativeSigningEnabled *bool `json:"nuget_native_signing_enabled,omitempty"`
+	NumDownloads *int `json:"num_downloads,omitempty"`
+	NumPolicyViolatedPackages *int `json:"num_policy_violated_packages,omitempty"`
+	NumQuarantinedPackages *int `json:"num_quarantined_packages,omitempty"`
+	OpenSourceLicense *string `json:"open_source_license,omitempty"`
+	OpenSourceProjectUrl *string `json:"open_source_project_url,omitempty"`
+	PackageCount *int `json:"package_count,omitempty"`
+	PackageGroupCount *int `json:"package_group_count,omitempty"`
+	ProxyNpmjs *bool `json:"proxy_npmjs,omitempty"`
+	ProxyPypi *bool `json:"proxy_pypi,omitempty"`
+	RawPackageIndexEnabled *bool `json:"raw_package_index_enabled,omitempty"`
+	RawPackageIndexSignaturesEnabled *bool `json:"raw_package_index_signatures_enabled,omitempty"`
+	ReplacePackages *string `json:"replace_packages,omitempty"`
+	ReplacePackagesByDefault *bool `json:"replace_packages_by_default,omitempty"`
+	RepositoryType *int `json:"repository_type,omitempty"`
+	RepositoryTypeStr *string `json:"repository_type_str,omitempty"`
+	ResyncOwn *bool `json:"resync_own,omitempty"`
+	ResyncPackages *string `json:"resync_packages,omitempty"`
+	ScanOwn *bool `json:"scan_own,omitempty"`
+	ScanPackages *string `json:"scan_packages,omitempty"`
+	SelfHtmlUrl *string `json:"self_html_url,omitempty"`
+	SelfUrl *string `json:"self_url,omitempty"`
+	ShowSetupAll *bool `json:"show_setup_all,omitempty"`
+	Size *int `json:"size,omitempty"`
+	SizeStr *string `json:"size_str,omitempty"`
+	Slug *string `json:"slug,omitempty"`
+	SlugPerm *string `json:"slug_perm,omitempty"`
+	StorageRegion *string `json:"storage_region,omitempty"`
+	StrictNpmValidation *bool `json:"strict_npm_validation,omitempty"`
+	TagPreReleasesAsLatest *bool `json:"tag_pre_releases_as_latest,omitempty"`
+	UseDebianLabels *bool `json:"use_debian_labels,omitempty"`
+	UseDefaultCargoUpstream *bool `json:"use_default_cargo_upstream,omitempty"`
+	UseEntitlementsPrivilege *string `json:"use_entitlements_privilege,omitempty"`
+	UseNoarchPackages *bool `json:"use_noarch_packages,omitempty"`
+	UseSourcePackages *bool `json:"use_source_packages,omitempty"`
+	UseVulnerabilityScanning *bool `json:"use_vulnerability_scanning,omitempty"`
+	UserEntitlementsEnabled *bool `json:"user_entitlements_enabled,omitempty"`
+	ViewStatistics *string `json:"view_statistics,omitempty"`
 }
 
 // RepoCreateData is the typed request payload for Repo.CreateTyped.
 type RepoCreateData struct {
-	Identifier *any `json:"identifier,omitempty"`
-	Owner *any `json:"owner,omitempty"`
-	Id *string `json:"id,omitempty"`
+	Id string `json:"id"`
 	CdnUrl *string `json:"cdn_url,omitempty"`
 	ContentKind *string `json:"content_kind,omitempty"`
 	ContextualAuthRealm *bool `json:"contextual_auth_realm,omitempty"`
@@ -3278,7 +3336,6 @@ type RepositoryWebhook struct {
 	CreatedByUrl *string `json:"created_by_url,omitempty"`
 	DisableReason *int `json:"disable_reason,omitempty"`
 	DisableReasonStr *string `json:"disable_reason_str,omitempty"`
-	Event string `json:"event"`
 	Events []any `json:"events"`
 	Identifier *int `json:"identifier,omitempty"`
 	IsActive *bool `json:"is_active,omitempty"`
@@ -3296,7 +3353,6 @@ type RepositoryWebhook struct {
 	SelfUrl *string `json:"self_url,omitempty"`
 	SlugPerm *string `json:"slug_perm,omitempty"`
 	TargetUrl string `json:"target_url"`
-	Template *string `json:"template,omitempty"`
 	Templates []any `json:"templates"`
 	UpdatedAt *string `json:"updated_at,omitempty"`
 	UpdatedBy *string `json:"updated_by,omitempty"`
@@ -3304,11 +3360,17 @@ type RepositoryWebhook struct {
 	VerifySsl *bool `json:"verify_ssl,omitempty"`
 }
 
+// RepositoryWebhookLoadMatch is the typed request payload for RepositoryWebhook.LoadTyped.
+type RepositoryWebhookLoadMatch struct {
+	Identifier any `json:"identifier"`
+	Owner any `json:"owner"`
+	Repo any `json:"repo"`
+}
+
 // RepositoryWebhookListMatch is the typed request payload for RepositoryWebhook.ListTyped.
 type RepositoryWebhookListMatch struct {
 	Owner any `json:"owner"`
 	Repo any `json:"repo"`
-	Identifier *any `json:"identifier,omitempty"`
 }
 
 // RepositoryWebhookCreateData is the typed request payload for RepositoryWebhook.CreateTyped.
@@ -3320,7 +3382,6 @@ type RepositoryWebhookCreateData struct {
 	CreatedByUrl *string `json:"created_by_url,omitempty"`
 	DisableReason *int `json:"disable_reason,omitempty"`
 	DisableReasonStr *string `json:"disable_reason_str,omitempty"`
-	Event string `json:"event"`
 	Events []any `json:"events"`
 	Identifier *int `json:"identifier,omitempty"`
 	IsActive *bool `json:"is_active,omitempty"`
@@ -3338,7 +3399,6 @@ type RepositoryWebhookCreateData struct {
 	SelfUrl *string `json:"self_url,omitempty"`
 	SlugPerm *string `json:"slug_perm,omitempty"`
 	TargetUrl string `json:"target_url"`
-	Template *string `json:"template,omitempty"`
 	Templates []any `json:"templates"`
 	UpdatedAt *string `json:"updated_at,omitempty"`
 	UpdatedBy *string `json:"updated_by,omitempty"`
@@ -3356,7 +3416,6 @@ type RepositoryWebhookUpdateData struct {
 	CreatedByUrl *string `json:"created_by_url,omitempty"`
 	DisableReason *int `json:"disable_reason,omitempty"`
 	DisableReasonStr *string `json:"disable_reason_str,omitempty"`
-	Event *string `json:"event,omitempty"`
 	Events *[]any `json:"events,omitempty"`
 	IsActive *bool `json:"is_active,omitempty"`
 	IsLastResponseBad *bool `json:"is_last_response_bad,omitempty"`
@@ -3373,7 +3432,6 @@ type RepositoryWebhookUpdateData struct {
 	SelfUrl *string `json:"self_url,omitempty"`
 	SlugPerm *string `json:"slug_perm,omitempty"`
 	TargetUrl *string `json:"target_url,omitempty"`
-	Template *string `json:"template,omitempty"`
 	Templates *[]any `json:"templates,omitempty"`
 	UpdatedAt *string `json:"updated_at,omitempty"`
 	UpdatedBy *string `json:"updated_by,omitempty"`
@@ -3960,10 +4018,8 @@ type Vulnerability struct {
 	MaxSeverity *string `json:"max_severity,omitempty"`
 	NumVulnerabilities *int `json:"num_vulnerabilities,omitempty"`
 	Package map[string]any `json:"package"`
-	Results []any `json:"results"`
 	ScanId int `json:"scan_id"`
-	Target string `json:"target"`
-	Type string `json:"type"`
+	Scans []any `json:"scans"`
 }
 
 // VulnerabilityLoadMatch is the typed request payload for Vulnerability.LoadTyped.
@@ -3976,7 +4032,6 @@ type VulnerabilityListMatch struct {
 	Owner any `json:"owner"`
 	Package *any `json:"package,omitempty"`
 	Repo any `json:"repo"`
-	Identifier *any `json:"identifier,omitempty"`
 }
 
 // VulnerabilityPolicy is the typed data model for the vulnerability_policy entity.

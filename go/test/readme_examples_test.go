@@ -11,10 +11,25 @@ import (
 	"testing"
 )
 
-// testSeed is a test-mode fixture seeded for every entity. It is spliced as
-// literal Go source into fragment wrappers and into the test-mode variant of
-// complete programs, so the offline mock transport has data to return.
+// testSeed is a test-mode fixture seeded for every entity, as Go source, so
+// the offline mock transport has data to return. It is NOT spliced into each
+// snippet: it is written ONCE per generated package as seed.go, and snippets
+// reference it by name (seedRef).
+//
+// Splicing it inline was O(snippets x entities). Every fragment lands in ONE
+// package, so a large API multiplied one ~26 KB composite literal by every
+// ```go block in the docs: gitlab reached 1132 fragments / ~625k literal
+// entries in a single compilation unit, and `compile` grew ~15 MB per fragment
+// to ~16 GB — the same superlinear-composite-literal blowup the L1 config data
+// path fixed for core/config.go. One shared var is O(1) in the snippet count.
 const testSeed = `map[string]any{"entity": map[string]any{"abort": map[string]any{"example_id": map[string]any{"id": "example_id"}}, "alpine": map[string]any{"example_id": map[string]any{"id": "example_id"}}, "audit_log": map[string]any{"example_id": map[string]any{"id": "example_id"}}, "basic": map[string]any{"example_id": map[string]any{"id": "example_id"}}, "cargo": map[string]any{"example_id": map[string]any{"id": "example_id"}}, "cocoapod": map[string]any{"example_id": map[string]any{"id": "example_id"}}, "complete": map[string]any{"example_id": map[string]any{"id": "example_id"}}, "composer": map[string]any{"example_id": map[string]any{"id": "example_id"}}, "conan": map[string]any{"example_id": map[string]any{"id": "example_id"}}, "conda": map[string]any{"example_id": map[string]any{"id": "example_id"}}, "copy": map[string]any{"example_id": map[string]any{"id": "example_id"}}, "cran": map[string]any{"example_id": map[string]any{"id": "example_id"}}, "dart": map[string]any{"example_id": map[string]any{"id": "example_id"}}, "deb": map[string]any{"example_id": map[string]any{"id": "example_id"}}, "deny_policy": map[string]any{"example_id": map[string]any{"id": "example_id"}}, "dependency": map[string]any{"example_id": map[string]any{"id": "example_id"}}, "disable": map[string]any{"example_id": map[string]any{"id": "example_id"}}, "distribution_full": map[string]any{"example_id": map[string]any{"id": "example_id"}}, "distro": map[string]any{"example_id": map[string]any{"id": "example_id"}}, "docker": map[string]any{"example_id": map[string]any{"id": "example_id"}}, "dynamic_mapping": map[string]any{"example_id": map[string]any{"id": "example_id"}}, "ecdsa": map[string]any{"example_id": map[string]any{"id": "example_id"}}, "enable": map[string]any{"example_id": map[string]any{"id": "example_id"}}, "entitlement": map[string]any{"example_id": map[string]any{"id": "example_id"}}, "evaluation": map[string]any{"example_id": map[string]any{"id": "example_id"}}, "file": map[string]any{"example_id": map[string]any{"id": "example_id"}}, "format": map[string]any{"example_id": map[string]any{"id": "example_id"}}, "geoip": map[string]any{"example_id": map[string]any{"id": "example_id"}}, "gon": map[string]any{"example_id": map[string]any{"id": "example_id"}}, "gpg": map[string]any{"example_id": map[string]any{"id": "example_id"}}, "group": map[string]any{"example_id": map[string]any{"id": "example_id"}}, "helm": map[string]any{"example_id": map[string]any{"id": "example_id"}}, "hex": map[string]any{"example_id": map[string]any{"id": "example_id"}}, "history": map[string]any{"example_id": map[string]any{"id": "example_id"}}, "huggingface": map[string]any{"example_id": map[string]any{"id": "example_id"}}, "info": map[string]any{"example_id": map[string]any{"id": "example_id"}}, "invite": map[string]any{"example_id": map[string]any{"id": "example_id"}}, "license_policy": map[string]any{"example_id": map[string]any{"id": "example_id"}}, "limit": map[string]any{"example_id": map[string]any{"id": "example_id"}}, "luarock": map[string]any{"example_id": map[string]any{"id": "example_id"}}, "maven": map[string]any{"example_id": map[string]any{"id": "example_id"}}, "member": map[string]any{"example_id": map[string]any{"id": "example_id"}}, "move": map[string]any{"example_id": map[string]any{"id": "example_id"}}, "namespace": map[string]any{"example_id": map[string]any{"id": "example_id"}}, "namespace_audit_log": map[string]any{"example_id": map[string]any{"id": "example_id"}}, "npm": map[string]any{"example_id": map[string]any{"id": "example_id"}}, "nuget": map[string]any{"example_id": map[string]any{"id": "example_id"}}, "openid_connect": map[string]any{"example_id": map[string]any{"id": "example_id"}}, "org": map[string]any{"example_id": map[string]any{"id": "example_id"}}, "organization_group_sync": map[string]any{"example_id": map[string]any{"id": "example_id"}}, "organization_group_sync_status": map[string]any{"example_id": map[string]any{"id": "example_id"}}, "organization_invite": map[string]any{"example_id": map[string]any{"id": "example_id"}}, "organization_invite_extend": map[string]any{"example_id": map[string]any{"id": "example_id"}}, "organization_membership": map[string]any{"example_id": map[string]any{"id": "example_id"}}, "organization_membership_role_update": map[string]any{"example_id": map[string]any{"id": "example_id"}}, "organization_membership_visibility_update": map[string]any{"example_id": map[string]any{"id": "example_id"}}, "organization_package_license_policy": map[string]any{"example_id": map[string]any{"id": "example_id"}}, "organization_package_vulnerability_policy": map[string]any{"example_id": map[string]any{"id": "example_id"}}, "organization_saml_auth": map[string]any{"example_id": map[string]any{"id": "example_id"}}, "organization_team": map[string]any{"example_id": map[string]any{"id": "example_id"}}, "organization_team_member": map[string]any{"example_id": map[string]any{"id": "example_id"}}, "oss": map[string]any{"example_id": map[string]any{"id": "example_id"}}, "p2n": map[string]any{"example_id": map[string]any{"id": "example_id"}}, "package": map[string]any{"example_id": map[string]any{"id": "example_id"}}, "package_deny_policy": map[string]any{"example_id": map[string]any{"id": "example_id"}}, "package_file_parts_upload": map[string]any{"example_id": map[string]any{"id": "example_id"}}, "package_file_upload": map[string]any{"example_id": map[string]any{"id": "example_id"}}, "package_license_policy_evaluation": map[string]any{"example_id": map[string]any{"id": "example_id"}}, "package_version_badge": map[string]any{"example_id": map[string]any{"id": "example_id"}}, "package_vulnerability_policy_evaluation": map[string]any{"example_id": map[string]any{"id": "example_id"}}, "privilege": map[string]any{"example_id": map[string]any{"id": "example_id"}}, "profile": map[string]any{"example_id": map[string]any{"id": "example_id"}}, "provider_setting": map[string]any{"example_id": map[string]any{"id": "example_id"}}, "provider_settings_write": map[string]any{"example_id": map[string]any{"id": "example_id"}}, "python": map[string]any{"example_id": map[string]any{"id": "example_id"}}, "quarantine": map[string]any{"example_id": map[string]any{"id": "example_id"}}, "quota": map[string]any{"example_id": map[string]any{"id": "example_id"}}, "raw": map[string]any{"example_id": map[string]any{"id": "example_id"}}, "refresh": map[string]any{"example_id": map[string]any{"id": "example_id"}}, "regenerate": map[string]any{"example_id": map[string]any{"id": "example_id"}}, "repo": map[string]any{"example_id": map[string]any{"id": "example_id"}}, "repository_audit_log": map[string]any{"example_id": map[string]any{"id": "example_id"}}, "repository_ecdsa_key": map[string]any{"example_id": map[string]any{"id": "example_id"}}, "repository_geo_ip_rule": map[string]any{"example_id": map[string]any{"id": "example_id"}}, "repository_geo_ip_status": map[string]any{"example_id": map[string]any{"id": "example_id"}}, "repository_geo_ip_test_address": map[string]any{"example_id": map[string]any{"id": "example_id"}}, "repository_gpg_key": map[string]any{"example_id": map[string]any{"id": "example_id"}}, "repository_privilege_input": map[string]any{"example_id": map[string]any{"id": "example_id"}}, "repository_retention_rule": map[string]any{"example_id": map[string]any{"id": "example_id"}}, "repository_rsa_key": map[string]any{"example_id": map[string]any{"id": "example_id"}}, "repository_token": map[string]any{"example_id": map[string]any{"id": "example_id"}}, "repository_token_refresh": map[string]any{"example_id": map[string]any{"id": "example_id"}}, "repository_token_sync": map[string]any{"example_id": map[string]any{"id": "example_id"}}, "repository_webhook": map[string]any{"example_id": map[string]any{"id": "example_id"}}, "repository_x509_ecdsa_certificate": map[string]any{"example_id": map[string]any{"id": "example_id"}}, "repository_x509_rsa_certificate": map[string]any{"example_id": map[string]any{"id": "example_id"}}, "reset": map[string]any{"example_id": map[string]any{"id": "example_id"}}, "resources_rate_check": map[string]any{"example_id": map[string]any{"id": "example_id"}}, "resync": map[string]any{"example_id": map[string]any{"id": "example_id"}}, "retention": map[string]any{"example_id": map[string]any{"id": "example_id"}}, "rpm": map[string]any{"example_id": map[string]any{"id": "example_id"}}, "rsa": map[string]any{"example_id": map[string]any{"id": "example_id"}}, "ruby": map[string]any{"example_id": map[string]any{"id": "example_id"}}, "saml_group_sync": map[string]any{"example_id": map[string]any{"id": "example_id"}}, "scan": map[string]any{"example_id": map[string]any{"id": "example_id"}}, "self": map[string]any{"example_id": map[string]any{"id": "example_id"}}, "service": map[string]any{"example_id": map[string]any{"id": "example_id"}}, "status": map[string]any{"example_id": map[string]any{"id": "example_id"}}, "status_basic": map[string]any{"example_id": map[string]any{"id": "example_id"}}, "storage_region": map[string]any{"example_id": map[string]any{"id": "example_id"}}, "swift": map[string]any{"example_id": map[string]any{"id": "example_id"}}, "sync": map[string]any{"example_id": map[string]any{"id": "example_id"}}, "tag": map[string]any{"example_id": map[string]any{"id": "example_id"}}, "team": map[string]any{"example_id": map[string]any{"id": "example_id"}}, "terraform": map[string]any{"example_id": map[string]any{"id": "example_id"}}, "test": map[string]any{"example_id": map[string]any{"id": "example_id"}}, "token": map[string]any{"example_id": map[string]any{"id": "example_id"}}, "transfer_region": map[string]any{"example_id": map[string]any{"id": "example_id"}}, "user": map[string]any{"example_id": map[string]any{"id": "example_id"}}, "user_auth_token": map[string]any{"example_id": map[string]any{"id": "example_id"}}, "user_authentication_token": map[string]any{"example_id": map[string]any{"id": "example_id"}}, "user_brief": map[string]any{"example_id": map[string]any{"id": "example_id"}}, "user_profile": map[string]any{"example_id": map[string]any{"id": "example_id"}}, "vagrant": map[string]any{"example_id": map[string]any{"id": "example_id"}}, "validate": map[string]any{"example_id": map[string]any{"id": "example_id"}}, "version": map[string]any{"example_id": map[string]any{"id": "example_id"}}, "vulnerability": map[string]any{"example_id": map[string]any{"id": "example_id"}}, "vulnerability_policy": map[string]any{"example_id": map[string]any{"id": "example_id"}}, "webhook": map[string]any{"example_id": map[string]any{"id": "example_id"}}, "x509_ecdsa": map[string]any{"example_id": map[string]any{"id": "example_id"}}, "x509_rsa": map[string]any{"example_id": map[string]any{"id": "example_id"}}}}`
+
+// seedRef is how a snippet names the shared fixture; seedFile declares it.
+const seedRef = "readmeTestSeed"
+
+func seedFile(pkg string) []byte {
+	return []byte("package " + pkg + "\n\nvar " + seedRef + " = " + testSeed + "\n")
+}
 
 // doc names one of the three docs that carry go examples, with its path
 // relative to this test file's directory (which is <repo>/go/test): the root
@@ -53,7 +68,18 @@ func TestReadmeGoSnippets(t *testing.T) {
 		{"go/REFERENCE", filepath.Join(testDir, "..", "REFERENCE.md")},
 	}
 
-	work, err := os.MkdirTemp(moduleRoot, "readmecheck-")
+	// The work dir has to live inside the module (the snippets import the SDK
+	// by module path), but it MUST stay invisible to `go build ./...`. The go
+	// tool skips directories whose name starts with "_" for wildcard matching
+	// while still building them by explicit path — exactly what is needed
+	// here, because `defer os.RemoveAll` does NOT run when the process is
+	// killed. A leftover frag package inside the module made the NEXT plain
+	// `go build ./...` compile every snippet and OOM, which is how a killed
+	// run poisoned later runs (and, once committed, every fresh clone).
+	// Sweeping first lets a repo that already carries one self-heal.
+	sweepStaleWorkDirs(moduleRoot)
+
+	work, err := os.MkdirTemp(moduleRoot, "_readmecheck-")
 	if err != nil {
 		t.Fatalf("mkdir temp: %v", err)
 	}
@@ -123,6 +149,10 @@ func TestReadmeGoSnippets(t *testing.T) {
 					if err := os.WriteFile(filepath.Join(runDir, "main.go"), []byte(variant), 0o644); err != nil {
 						t.Fatal(err)
 					}
+					// The rewritten ctors reference the shared fixture.
+					if err := os.WriteFile(filepath.Join(runDir, "seed.go"), seedFile("main"), 0o644); err != nil {
+						t.Fatal(err)
+					}
 					runDirs = append(runDirs, "./"+rel+"/run"+strconv.Itoa(progCount))
 				}
 
@@ -139,6 +169,10 @@ func TestReadmeGoSnippets(t *testing.T) {
 	fragPkg := ""
 	if len(fragFiles) > 0 {
 		if err := os.MkdirAll(fragDir, 0o755); err != nil {
+			t.Fatal(err)
+		}
+		// One shared fixture for the whole fragment package (see testSeed).
+		if err := os.WriteFile(filepath.Join(fragDir, "seed.go"), seedFile("readmefrag"), 0o644); err != nil {
 			t.Fatal(err)
 		}
 		fragPkg = "./" + rel + "/frag"
@@ -249,7 +283,7 @@ func runProgs(moduleRoot string, dirs []string) string {
 // left-to-right pass with balanced-paren matching; returns the rewritten
 // source and whether any replacement was made.
 func rewriteCtorsToTest(src string) (string, bool) {
-	repl := "sdk.TestSDK(" + testSeed + ", nil)"
+	repl := "sdk.TestSDK(" + seedRef + ", nil)"
 	var b strings.Builder
 	changed := false
 	i := 0
@@ -499,7 +533,7 @@ func wrapFragment(name, block, modulePath string) string {
 	b.WriteString("func " + name + "() {\n")
 	if injectClient {
 		// Seeded test client so the fragment's documented calls have data.
-		b.WriteString("\tclient := sdk.TestSDK(" + testSeed + ", nil)\n")
+		b.WriteString("\tclient := sdk.TestSDK(" + seedRef + ", nil)\n")
 	}
 	b.WriteString(block)
 	b.WriteString("\n}\n")
@@ -606,6 +640,25 @@ func addBlankAssign(content, name string) string {
 		return content
 	}
 	return content[:last] + "\t_ = " + name + "\n" + content[last:]
+}
+
+// sweepStaleWorkDirs removes work dirs abandoned by a killed run, under both
+// the current "_readmecheck-" name and the legacy "readmecheck-" one that
+// `go build ./...` still picks up.
+func sweepStaleWorkDirs(moduleRoot string) {
+	entries, err := os.ReadDir(moduleRoot)
+	if err != nil {
+		return
+	}
+	for _, e := range entries {
+		if !e.IsDir() {
+			continue
+		}
+		if n := e.Name(); strings.HasPrefix(n, "readmecheck-") ||
+			strings.HasPrefix(n, "_readmecheck-") {
+			os.RemoveAll(filepath.Join(moduleRoot, n))
+		}
+	}
 }
 
 func readModulePath(moduleRoot string) string {

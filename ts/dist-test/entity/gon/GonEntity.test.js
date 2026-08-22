@@ -76,20 +76,20 @@ const utility_1 = require("../../utility");
         let gon_ref01_data = setup.data.new.gon['gon_ref01'];
         gon_ref01_data['identifier'] = setup.idmap['identifier01'];
         gon_ref01_data['owner'] = setup.idmap['owner01'];
-        gon_ref01_data = await gon_ref01_ent.create(gon_ref01_data);
+        gon_ref01_data = (await gon_ref01_ent.create(gon_ref01_data)).data();
         (0, node_assert_1.default)(null != gon_ref01_data);
         // LIST
         const gon_ref01_match = {};
         gon_ref01_match['identifier'] = setup.idmap['identifier01'];
         gon_ref01_match['owner'] = setup.idmap['owner01'];
-        const gon_ref01_list = await gon_ref01_ent.list(gon_ref01_match);
+        const gon_ref01_list = (await gon_ref01_ent.list(gon_ref01_match)).map((e) => e.data());
         // UPDATE
         const gon_ref01_data_up0 = {};
         gon_ref01_data_up0['identifier'] = setup.idmap['identifier'];
         gon_ref01_data_up0['owner'] = setup.idmap['owner'];
         const gon_ref01_markdef_up0 = { name: 'auth_mode', value: 'Mark01-gon_ref01_' + setup.now };
         gon_ref01_data_up0[gon_ref01_markdef_up0.name] = gon_ref01_markdef_up0.value;
-        const gon_ref01_resdata_up0 = await gon_ref01_ent.update(gon_ref01_data_up0);
+        const gon_ref01_resdata_up0 = (await gon_ref01_ent.update(gon_ref01_data_up0)).data();
         (0, node_assert_1.default)(null != gon_ref01_resdata_up0);
         (0, node_assert_1.default)(gon_ref01_resdata_up0[gon_ref01_markdef_up0.name] === gon_ref01_markdef_up0.value);
     });

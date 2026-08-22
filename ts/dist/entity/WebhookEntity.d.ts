@@ -5,6 +5,6 @@ import type { Webhook, WebhookRemoveMatch } from '../CloudsmithTypes';
 declare class WebhookEntity extends CloudsmithEntityBase<Webhook> {
     constructor(client: CloudsmithSDK, entopts: any);
     make(this: WebhookEntity): WebhookEntity;
-    remove(this: any, reqmatch?: WebhookRemoveMatch, ctrl?: Control): Promise<Webhook>;
+    remove(this: any, reqmatch?: WebhookRemoveMatch, ctrl?: Control): Promise<WebhookEntity>;
 }
 export { WebhookEntity };

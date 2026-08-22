@@ -76,13 +76,13 @@ const utility_1 = require("../../utility");
         let organization_team_member_ref01_data = setup.data.new.organization_team_member['organization_team_member_ref01'];
         organization_team_member_ref01_data['org_id'] = setup.idmap['org01'];
         organization_team_member_ref01_data['team_id'] = setup.idmap['team01'];
-        organization_team_member_ref01_data = await organization_team_member_ref01_ent.create(organization_team_member_ref01_data);
+        organization_team_member_ref01_data = (await organization_team_member_ref01_ent.create(organization_team_member_ref01_data)).data();
         (0, node_assert_1.default)(null != organization_team_member_ref01_data);
         // LIST
         const organization_team_member_ref01_match = {};
         organization_team_member_ref01_match['org_id'] = setup.idmap['org01'];
         organization_team_member_ref01_match['team_id'] = setup.idmap['team01'];
-        const organization_team_member_ref01_list = await organization_team_member_ref01_ent.list(organization_team_member_ref01_match);
+        const organization_team_member_ref01_list = (await organization_team_member_ref01_ent.list(organization_team_member_ref01_match)).map((e) => e.data());
     });
 });
 function basicSetup(extra) {

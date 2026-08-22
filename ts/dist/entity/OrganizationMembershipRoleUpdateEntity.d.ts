@@ -5,6 +5,6 @@ import type { OrganizationMembershipRoleUpdate, OrganizationMembershipRoleUpdate
 declare class OrganizationMembershipRoleUpdateEntity extends CloudsmithEntityBase<OrganizationMembershipRoleUpdate> {
     constructor(client: CloudsmithSDK, entopts: any);
     make(this: OrganizationMembershipRoleUpdateEntity): OrganizationMembershipRoleUpdateEntity;
-    update(this: any, reqdata?: OrganizationMembershipRoleUpdateUpdateData, ctrl?: Control): Promise<OrganizationMembershipRoleUpdate>;
+    update(this: any, reqdata?: OrganizationMembershipRoleUpdateUpdateData, ctrl?: Control): Promise<OrganizationMembershipRoleUpdateEntity>;
 }
 export { OrganizationMembershipRoleUpdateEntity };

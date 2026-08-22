@@ -5,7 +5,7 @@ import type { ProviderSettingsWrite, ProviderSettingsWriteCreateData, ProviderSe
 declare class ProviderSettingsWriteEntity extends CloudsmithEntityBase<ProviderSettingsWrite> {
     constructor(client: CloudsmithSDK, entopts: any);
     make(this: ProviderSettingsWriteEntity): ProviderSettingsWriteEntity;
-    create(this: any, reqdata?: ProviderSettingsWriteCreateData, ctrl?: Control): Promise<ProviderSettingsWrite>;
-    update(this: any, reqdata?: ProviderSettingsWriteUpdateData, ctrl?: Control): Promise<ProviderSettingsWrite>;
+    create(this: any, reqdata?: ProviderSettingsWriteCreateData, ctrl?: Control): Promise<ProviderSettingsWriteEntity>;
+    update(this: any, reqdata?: ProviderSettingsWriteUpdateData, ctrl?: Control): Promise<ProviderSettingsWriteEntity>;
 }
 export { ProviderSettingsWriteEntity };

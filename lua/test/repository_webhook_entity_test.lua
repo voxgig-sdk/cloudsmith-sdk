@@ -60,7 +60,7 @@ describe("RepositoryWebhookEntity", function()
     local setup = repository_webhook_basic_setup(nil)
     -- Per-op sdk-test-control.json skip.
     local _live = setup.live or false
-    for _, _op in ipairs({"create", "list", "update"}) do
+    for _, _op in ipairs({"create", "list", "update", "load"}) do
       local _should_skip, _reason = runner.is_control_skipped("entityOp", "repository_webhook." .. _op, _live and "live" or "unit")
       if _should_skip then
         pending(_reason or "skipped via sdk-test-control.json")
@@ -79,7 +79,6 @@ describe("RepositoryWebhookEntity", function()
     local repository_webhook_ref01_ent = client:RepositoryWebhook(nil)
     local repository_webhook_ref01_data = helpers.to_map(vs.getprop(
       vs.getpath(setup.data, "new.repository_webhook"), "repository_webhook_ref01"))
-    repository_webhook_ref01_data["identifier"] = setup.idmap["identifier01"]
     repository_webhook_ref01_data["owner"] = setup.idmap["owner01"]
     repository_webhook_ref01_data["repo"] = setup.idmap["repo01"]
 
@@ -90,7 +89,6 @@ describe("RepositoryWebhookEntity", function()
 
     -- LIST
     local repository_webhook_ref01_match = {
-      ["identifier"] = setup.idmap["identifier01"],
       ["owner"] = setup.idmap["owner01"],
       ["repo"] = setup.idmap["repo01"],
     }
@@ -115,6 +113,12 @@ describe("RepositoryWebhookEntity", function()
     assert.is_not_nil(repository_webhook_ref01_resdata_up0)
     assert.are.equal(repository_webhook_ref01_resdata_up0[repository_webhook_ref01_markdef_up0_name], repository_webhook_ref01_markdef_up0_value)
 
+    -- LOAD
+    local repository_webhook_ref01_match_dt0 = {}
+    local repository_webhook_ref01_data_dt0_loaded, err = repository_webhook_ref01_ent:load(repository_webhook_ref01_match_dt0, nil)
+    assert.is_nil(err)
+    assert.is_not_nil(repository_webhook_ref01_data_dt0_loaded)
+
   end)
 end)
 
@@ -138,7 +142,7 @@ function repository_webhook_basic_setup(extra)
 
   -- Generate idmap via transform.
   local idmap = vs.transform(
-    { "repository_webhook01", "repository_webhook02", "repository_webhook03", "webhook01", "webhook02", "webhook03", "identifier01", "owner01", "repo01" },
+    { "repository_webhook01", "repository_webhook02", "repository_webhook03", "webhook01", "webhook02", "webhook03", "owner01", "repo01" },
     {
       ["`$PACK`"] = { "", {
         ["`$KEY`"] = "`$COPY`",

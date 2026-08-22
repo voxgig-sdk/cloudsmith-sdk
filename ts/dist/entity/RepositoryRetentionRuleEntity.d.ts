@@ -5,7 +5,7 @@ import type { RepositoryRetentionRule, RepositoryRetentionRuleLoadMatch, Reposit
 declare class RepositoryRetentionRuleEntity extends CloudsmithEntityBase<RepositoryRetentionRule> {
     constructor(client: CloudsmithSDK, entopts: any);
     make(this: RepositoryRetentionRuleEntity): RepositoryRetentionRuleEntity;
-    load(this: any, reqmatch?: RepositoryRetentionRuleLoadMatch, ctrl?: Control): Promise<RepositoryRetentionRule>;
-    update(this: any, reqdata?: RepositoryRetentionRuleUpdateData, ctrl?: Control): Promise<RepositoryRetentionRule>;
+    load(this: any, reqmatch?: RepositoryRetentionRuleLoadMatch, ctrl?: Control): Promise<RepositoryRetentionRuleEntity>;
+    update(this: any, reqdata?: RepositoryRetentionRuleUpdateData, ctrl?: Control): Promise<RepositoryRetentionRuleEntity>;
 }
 export { RepositoryRetentionRuleEntity };

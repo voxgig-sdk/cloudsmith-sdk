@@ -76,7 +76,7 @@ const utility_1 = require("../../utility");
         let repository_gpg_key_ref01_data = setup.data.new.repository_gpg_key['repository_gpg_key_ref01'];
         repository_gpg_key_ref01_data['identifier'] = setup.idmap['identifier01'];
         repository_gpg_key_ref01_data['owner'] = setup.idmap['owner01'];
-        repository_gpg_key_ref01_data = await repository_gpg_key_ref01_ent.create(repository_gpg_key_ref01_data);
+        repository_gpg_key_ref01_data = (await repository_gpg_key_ref01_ent.create(repository_gpg_key_ref01_data)).data();
         (0, node_assert_1.default)(null != repository_gpg_key_ref01_data);
     });
 });

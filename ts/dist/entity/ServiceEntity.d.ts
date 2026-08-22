@@ -5,9 +5,9 @@ import type { Service, ServiceLoadMatch, ServiceListMatch, ServiceCreateData, Se
 declare class ServiceEntity extends CloudsmithEntityBase<Service> {
     constructor(client: CloudsmithSDK, entopts: any);
     make(this: ServiceEntity): ServiceEntity;
-    load(this: any, reqmatch?: ServiceLoadMatch, ctrl?: Control): Promise<Service>;
-    list(this: any, reqmatch?: ServiceListMatch, ctrl?: Control): Promise<Service[]>;
-    create(this: any, reqdata?: ServiceCreateData, ctrl?: Control): Promise<Service>;
-    update(this: any, reqdata?: ServiceUpdateData, ctrl?: Control): Promise<Service>;
+    load(this: any, reqmatch?: ServiceLoadMatch, ctrl?: Control): Promise<ServiceEntity>;
+    list(this: any, reqmatch?: ServiceListMatch, ctrl?: Control): Promise<ServiceEntity[]>;
+    create(this: any, reqdata?: ServiceCreateData, ctrl?: Control): Promise<ServiceEntity>;
+    update(this: any, reqdata?: ServiceUpdateData, ctrl?: Control): Promise<ServiceEntity>;
 }
 export { ServiceEntity };

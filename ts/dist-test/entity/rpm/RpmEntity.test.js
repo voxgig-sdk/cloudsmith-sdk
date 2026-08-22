@@ -76,20 +76,20 @@ const utility_1 = require("../../utility");
         let rpm_ref01_data = setup.data.new.rpm['rpm_ref01'];
         rpm_ref01_data['identifier'] = setup.idmap['identifier01'];
         rpm_ref01_data['owner'] = setup.idmap['owner01'];
-        rpm_ref01_data = await rpm_ref01_ent.create(rpm_ref01_data);
+        rpm_ref01_data = (await rpm_ref01_ent.create(rpm_ref01_data)).data();
         (0, node_assert_1.default)(null != rpm_ref01_data);
         // LIST
         const rpm_ref01_match = {};
         rpm_ref01_match['identifier'] = setup.idmap['identifier01'];
         rpm_ref01_match['owner'] = setup.idmap['owner01'];
-        const rpm_ref01_list = await rpm_ref01_ent.list(rpm_ref01_match);
+        const rpm_ref01_list = (await rpm_ref01_ent.list(rpm_ref01_match)).map((e) => e.data());
         // UPDATE
         const rpm_ref01_data_up0 = {};
         rpm_ref01_data_up0['identifier'] = setup.idmap['identifier'];
         rpm_ref01_data_up0['owner'] = setup.idmap['owner'];
         const rpm_ref01_markdef_up0 = { name: 'auth_mode', value: 'Mark01-rpm_ref01_' + setup.now };
         rpm_ref01_data_up0[rpm_ref01_markdef_up0.name] = rpm_ref01_markdef_up0.value;
-        const rpm_ref01_resdata_up0 = await rpm_ref01_ent.update(rpm_ref01_data_up0);
+        const rpm_ref01_resdata_up0 = (await rpm_ref01_ent.update(rpm_ref01_data_up0)).data();
         (0, node_assert_1.default)(null != rpm_ref01_resdata_up0);
         (0, node_assert_1.default)(rpm_ref01_resdata_up0[rpm_ref01_markdef_up0.name] === rpm_ref01_markdef_up0.value);
     });

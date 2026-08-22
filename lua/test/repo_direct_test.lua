@@ -17,32 +17,13 @@ describe("RepoDirect", function()
       pending(_reason or "skipped via sdk-test-control.json")
       return
     end
-    if setup.live then
-      for _, _live_key in ipairs({"identifier01", "owner01"}) do
-        if setup.idmap[_live_key] == nil then
-          pending("live test needs " .. _live_key .. " via *_ENTID env var (synthetic IDs only)")
-          return
-        end
-      end
-    end
     local client = setup.client
 
-    local params = {}
-    if setup.live then
-      params["identifier"] = setup.idmap["identifier01"]
-    else
-      params["identifier"] = "direct01"
-    end
-    if setup.live then
-      params["owner"] = setup.idmap["owner01"]
-    else
-      params["owner"] = "direct01"
-    end
 
     local result, err = client:direct({
-      path = "repos/{owner}/{identifier}",
+      path = "repos",
       method = "GET",
-      params = params,
+      params = {},
     })
     if setup.live then
       -- Live mode is lenient: synthetic IDs frequently 4xx and the list-

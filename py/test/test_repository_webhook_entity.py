@@ -61,7 +61,7 @@ class TestRepositoryWebhookEntity:
         # multiple ops; skipping any one skips the whole flow (steps depend
         # on each other).
         _live = setup.get("live", False)
-        for _op in ["create", "list", "update"]:
+        for _op in ["create", "list", "update", "load"]:
             _skip, _reason = runner.is_control_skipped("entityOp", "repository_webhook." + _op, "live" if _live else "unit")
             if _skip:
                 pytest.skip(_reason or "skipped via sdk-test-control.json")
@@ -77,7 +77,6 @@ class TestRepositoryWebhookEntity:
         repository_webhook_ref01_ent = client.RepositoryWebhook(None)
         repository_webhook_ref01_data = helpers.to_map(vs.getprop(
             vs.getpath(setup["data"], "new.repository_webhook"), "repository_webhook_ref01"))
-        repository_webhook_ref01_data["identifier"] = setup["idmap"]["identifier01"]
         repository_webhook_ref01_data["owner"] = setup["idmap"]["owner01"]
         repository_webhook_ref01_data["repo"] = setup["idmap"]["repo01"]
 
@@ -86,7 +85,6 @@ class TestRepositoryWebhookEntity:
 
         # LIST
         repository_webhook_ref01_match = {
-            "identifier": setup["idmap"]["identifier01"],
             "owner": setup["idmap"]["owner01"],
             "repo": setup["idmap"]["repo01"],
         }
@@ -108,6 +106,11 @@ class TestRepositoryWebhookEntity:
         assert repository_webhook_ref01_resdata_up0 is not None
         assert repository_webhook_ref01_resdata_up0[repository_webhook_ref01_markdef_up0_name] == repository_webhook_ref01_markdef_up0_value
 
+        # LOAD
+        repository_webhook_ref01_match_dt0 = {}
+        repository_webhook_ref01_data_dt0_loaded = repository_webhook_ref01_ent.load(repository_webhook_ref01_match_dt0, None)
+        assert repository_webhook_ref01_data_dt0_loaded is not None
+
 
 
 def _repository_webhook_basic_setup(extra):
@@ -126,7 +129,7 @@ def _repository_webhook_basic_setup(extra):
 
     # Generate idmap via transform.
     idmap = vs.transform(
-        ["repository_webhook01", "repository_webhook02", "repository_webhook03", "webhook01", "webhook02", "webhook03", "identifier01", "owner01", "repo01"],
+        ["repository_webhook01", "repository_webhook02", "repository_webhook03", "webhook01", "webhook02", "webhook03", "owner01", "repo01"],
         {
             "`$PACK`": ["", {
                 "`$KEY`": "`$COPY`",

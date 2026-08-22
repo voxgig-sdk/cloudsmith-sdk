@@ -44,11 +44,10 @@ describe('RepoDirect', async () => {
     const query: any = {}
     if (setup.live) {
       const listResult: any = await client.direct({
-        path: 'repos/{owner}/{identifier}',
+        path: 'repos',
         method: 'GET',
         params: {
-        identifier: setup.idmap['identifier01'],
-        owner: setup.idmap['owner01'],
+
         },
       })
       if (!listResult.ok) {
@@ -96,21 +95,13 @@ describe('RepoDirect', async () => {
   test('direct-list-repo', async (t: any) => {
     const setup = directSetup([{ id: 'direct01' }, { id: 'direct02' }])
     if (maybeSkipControl(t, 'direct', 'direct-list-repo', setup.live)) return
-    if (skipIfMissingIds(t, setup, ["identifier01","owner01"])) return
     const { client, calls } = setup
 
     const params: any = {}
     const query: any = {}
-    if (setup.live) {
-      params.identifier = setup.idmap['identifier01']
-      params.owner = setup.idmap['owner01']
-    } else {
-      params.identifier = 'direct01'
-      params.owner = 'direct02'
-    }
 
     const result: any = await client.direct({
-      path: 'repos/{owner}/{identifier}',
+      path: 'repos',
       method: 'GET',
       params,
       query,
@@ -136,8 +127,6 @@ describe('RepoDirect', async () => {
       assert(listArr!.length === 2)
       assert(calls.length === 1)
       assert(calls[0].init.method === 'GET')
-      assert(calls[0].url.includes('direct01'))
-      assert(calls[0].url.includes('direct02'))
     }
   })
 

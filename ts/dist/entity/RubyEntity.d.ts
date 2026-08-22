@@ -5,9 +5,9 @@ import type { Ruby, RubyLoadMatch, RubyListMatch, RubyCreateData, RubyUpdateData
 declare class RubyEntity extends CloudsmithEntityBase<Ruby> {
     constructor(client: CloudsmithSDK, entopts: any);
     make(this: RubyEntity): RubyEntity;
-    load(this: any, reqmatch?: RubyLoadMatch, ctrl?: Control): Promise<Ruby>;
-    list(this: any, reqmatch?: RubyListMatch, ctrl?: Control): Promise<Ruby[]>;
-    create(this: any, reqdata?: RubyCreateData, ctrl?: Control): Promise<Ruby>;
-    update(this: any, reqdata?: RubyUpdateData, ctrl?: Control): Promise<Ruby>;
+    load(this: any, reqmatch?: RubyLoadMatch, ctrl?: Control): Promise<RubyEntity>;
+    list(this: any, reqmatch?: RubyListMatch, ctrl?: Control): Promise<RubyEntity[]>;
+    create(this: any, reqdata?: RubyCreateData, ctrl?: Control): Promise<RubyEntity>;
+    update(this: any, reqdata?: RubyUpdateData, ctrl?: Control): Promise<RubyEntity>;
 }
 export { RubyEntity };

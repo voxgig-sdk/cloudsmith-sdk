@@ -5,7 +5,7 @@ import type { RepositoryGpgKey, RepositoryGpgKeyLoadMatch, RepositoryGpgKeyCreat
 declare class RepositoryGpgKeyEntity extends CloudsmithEntityBase<RepositoryGpgKey> {
     constructor(client: CloudsmithSDK, entopts: any);
     make(this: RepositoryGpgKeyEntity): RepositoryGpgKeyEntity;
-    load(this: any, reqmatch?: RepositoryGpgKeyLoadMatch, ctrl?: Control): Promise<RepositoryGpgKey>;
-    create(this: any, reqdata?: RepositoryGpgKeyCreateData, ctrl?: Control): Promise<RepositoryGpgKey>;
+    load(this: any, reqmatch?: RepositoryGpgKeyLoadMatch, ctrl?: Control): Promise<RepositoryGpgKeyEntity>;
+    create(this: any, reqdata?: RepositoryGpgKeyCreateData, ctrl?: Control): Promise<RepositoryGpgKeyEntity>;
 }
 export { RepositoryGpgKeyEntity };

@@ -5,9 +5,9 @@ import type { Docker, DockerLoadMatch, DockerListMatch, DockerCreateData, Docker
 declare class DockerEntity extends CloudsmithEntityBase<Docker> {
     constructor(client: CloudsmithSDK, entopts: any);
     make(this: DockerEntity): DockerEntity;
-    load(this: any, reqmatch?: DockerLoadMatch, ctrl?: Control): Promise<Docker>;
-    list(this: any, reqmatch?: DockerListMatch, ctrl?: Control): Promise<Docker[]>;
-    create(this: any, reqdata?: DockerCreateData, ctrl?: Control): Promise<Docker>;
-    update(this: any, reqdata?: DockerUpdateData, ctrl?: Control): Promise<Docker>;
+    load(this: any, reqmatch?: DockerLoadMatch, ctrl?: Control): Promise<DockerEntity>;
+    list(this: any, reqmatch?: DockerListMatch, ctrl?: Control): Promise<DockerEntity[]>;
+    create(this: any, reqdata?: DockerCreateData, ctrl?: Control): Promise<DockerEntity>;
+    update(this: any, reqdata?: DockerUpdateData, ctrl?: Control): Promise<DockerEntity>;
 }
 export { DockerEntity };

@@ -5,10 +5,10 @@ import type { Org, OrgLoadMatch, OrgListMatch, OrgCreateData, OrgUpdateData, Org
 declare class OrgEntity extends CloudsmithEntityBase<Org> {
     constructor(client: CloudsmithSDK, entopts: any);
     make(this: OrgEntity): OrgEntity;
-    load(this: any, reqmatch?: OrgLoadMatch, ctrl?: Control): Promise<Org>;
-    list(this: any, reqmatch?: OrgListMatch, ctrl?: Control): Promise<Org[]>;
-    create(this: any, reqdata?: OrgCreateData, ctrl?: Control): Promise<Org>;
-    update(this: any, reqdata?: OrgUpdateData, ctrl?: Control): Promise<Org>;
-    remove(this: any, reqmatch?: OrgRemoveMatch, ctrl?: Control): Promise<Org>;
+    load(this: any, reqmatch?: OrgLoadMatch, ctrl?: Control): Promise<OrgEntity>;
+    list(this: any, reqmatch?: OrgListMatch, ctrl?: Control): Promise<OrgEntity[]>;
+    create(this: any, reqdata?: OrgCreateData, ctrl?: Control): Promise<OrgEntity>;
+    update(this: any, reqdata?: OrgUpdateData, ctrl?: Control): Promise<OrgEntity>;
+    remove(this: any, reqmatch?: OrgRemoveMatch, ctrl?: Control): Promise<OrgEntity>;
 }
 export { OrgEntity };

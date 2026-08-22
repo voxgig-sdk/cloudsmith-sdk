@@ -5,9 +5,9 @@ import type { Npm, NpmLoadMatch, NpmListMatch, NpmCreateData, NpmUpdateData } fr
 declare class NpmEntity extends CloudsmithEntityBase<Npm> {
     constructor(client: CloudsmithSDK, entopts: any);
     make(this: NpmEntity): NpmEntity;
-    load(this: any, reqmatch?: NpmLoadMatch, ctrl?: Control): Promise<Npm>;
-    list(this: any, reqmatch?: NpmListMatch, ctrl?: Control): Promise<Npm[]>;
-    create(this: any, reqdata?: NpmCreateData, ctrl?: Control): Promise<Npm>;
-    update(this: any, reqdata?: NpmUpdateData, ctrl?: Control): Promise<Npm>;
+    load(this: any, reqmatch?: NpmLoadMatch, ctrl?: Control): Promise<NpmEntity>;
+    list(this: any, reqmatch?: NpmListMatch, ctrl?: Control): Promise<NpmEntity[]>;
+    create(this: any, reqdata?: NpmCreateData, ctrl?: Control): Promise<NpmEntity>;
+    update(this: any, reqdata?: NpmUpdateData, ctrl?: Control): Promise<NpmEntity>;
 }
 export { NpmEntity };

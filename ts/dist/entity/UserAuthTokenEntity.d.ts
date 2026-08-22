@@ -5,6 +5,6 @@ import type { UserAuthToken, UserAuthTokenCreateData } from '../CloudsmithTypes'
 declare class UserAuthTokenEntity extends CloudsmithEntityBase<UserAuthToken> {
     constructor(client: CloudsmithSDK, entopts: any);
     make(this: UserAuthTokenEntity): UserAuthTokenEntity;
-    create(this: any, reqdata?: UserAuthTokenCreateData, ctrl?: Control): Promise<UserAuthToken>;
+    create(this: any, reqdata?: UserAuthTokenCreateData, ctrl?: Control): Promise<UserAuthTokenEntity>;
 }
 export { UserAuthTokenEntity };

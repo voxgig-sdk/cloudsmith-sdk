@@ -77,7 +77,7 @@ const utility_1 = require("../../utility");
         entitlement_ref01_data['identifier'] = setup.idmap['identifier01'];
         entitlement_ref01_data['owner'] = setup.idmap['owner01'];
         entitlement_ref01_data['repo'] = setup.idmap['repo01'];
-        entitlement_ref01_data = await entitlement_ref01_ent.create(entitlement_ref01_data);
+        entitlement_ref01_data = (await entitlement_ref01_ent.create(entitlement_ref01_data)).data();
         (0, node_assert_1.default)(null != entitlement_ref01_data);
     });
 });

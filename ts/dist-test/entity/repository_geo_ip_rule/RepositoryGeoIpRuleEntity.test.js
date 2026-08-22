@@ -76,7 +76,7 @@ const utility_1 = require("../../utility");
         const repository_geo_ip_rule_ref01_ent = client.RepositoryGeoIpRule();
         const repository_geo_ip_rule_ref01_data_up0 = {};
         repository_geo_ip_rule_ref01_data_up0['owner'] = setup.idmap['owner'];
-        const repository_geo_ip_rule_ref01_resdata_up0 = await repository_geo_ip_rule_ref01_ent.update(repository_geo_ip_rule_ref01_data_up0);
+        const repository_geo_ip_rule_ref01_resdata_up0 = (await repository_geo_ip_rule_ref01_ent.update(repository_geo_ip_rule_ref01_data_up0)).data();
         (0, node_assert_1.default)(null != repository_geo_ip_rule_ref01_resdata_up0);
     });
 });

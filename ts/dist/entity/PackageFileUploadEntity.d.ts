@@ -5,6 +5,6 @@ import type { PackageFileUpload, PackageFileUploadCreateData } from '../Cloudsmi
 declare class PackageFileUploadEntity extends CloudsmithEntityBase<PackageFileUpload> {
     constructor(client: CloudsmithSDK, entopts: any);
     make(this: PackageFileUploadEntity): PackageFileUploadEntity;
-    create(this: any, reqdata?: PackageFileUploadCreateData, ctrl?: Control): Promise<PackageFileUpload>;
+    create(this: any, reqdata?: PackageFileUploadCreateData, ctrl?: Control): Promise<PackageFileUploadEntity>;
 }
 export { PackageFileUploadEntity };

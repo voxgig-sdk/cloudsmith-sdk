@@ -76,22 +76,22 @@ const utility_1 = require("../../utility");
         let repo_ref01_data = setup.data.new.repo['repo_ref01'];
         repo_ref01_data['identifier'] = setup.idmap['identifier01'];
         repo_ref01_data['owner'] = setup.idmap['owner01'];
-        repo_ref01_data = await repo_ref01_ent.create(repo_ref01_data);
+        repo_ref01_data = (await repo_ref01_ent.create(repo_ref01_data)).data();
         (0, node_assert_1.default)(null != repo_ref01_data);
         // LIST
         const repo_ref01_match = {};
-        const repo_ref01_list = await repo_ref01_ent.list(repo_ref01_match);
+        const repo_ref01_list = (await repo_ref01_ent.list(repo_ref01_match)).map((e) => e.data());
         // UPDATE
         const repo_ref01_data_up0 = {};
         repo_ref01_data_up0['owner'] = setup.idmap['owner'];
         const repo_ref01_markdef_up0 = { name: 'cdn_url', value: 'Mark01-repo_ref01_' + setup.now };
         repo_ref01_data_up0[repo_ref01_markdef_up0.name] = repo_ref01_markdef_up0.value;
-        const repo_ref01_resdata_up0 = await repo_ref01_ent.update(repo_ref01_data_up0);
+        const repo_ref01_resdata_up0 = (await repo_ref01_ent.update(repo_ref01_data_up0)).data();
         (0, node_assert_1.default)(null != repo_ref01_resdata_up0);
         (0, node_assert_1.default)(repo_ref01_resdata_up0[repo_ref01_markdef_up0.name] === repo_ref01_markdef_up0.value);
         // LIST
         const repo_ref01_match_rt0 = {};
-        const repo_ref01_list_rt0 = await repo_ref01_ent.list(repo_ref01_match_rt0);
+        const repo_ref01_list_rt0 = (await repo_ref01_ent.list(repo_ref01_match_rt0)).map((e) => e.data());
     });
 });
 function basicSetup(extra) {

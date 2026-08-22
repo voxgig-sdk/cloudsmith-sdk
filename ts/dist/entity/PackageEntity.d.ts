@@ -5,9 +5,9 @@ import type { Package, PackageLoadMatch, PackageListMatch, PackageCreateData, Pa
 declare class PackageEntity extends CloudsmithEntityBase<Package> {
     constructor(client: CloudsmithSDK, entopts: any);
     make(this: PackageEntity): PackageEntity;
-    load(this: any, reqmatch?: PackageLoadMatch, ctrl?: Control): Promise<Package>;
-    list(this: any, reqmatch?: PackageListMatch, ctrl?: Control): Promise<Package[]>;
-    create(this: any, reqdata?: PackageCreateData, ctrl?: Control): Promise<Package>;
-    remove(this: any, reqmatch?: PackageRemoveMatch, ctrl?: Control): Promise<Package>;
+    load(this: any, reqmatch?: PackageLoadMatch, ctrl?: Control): Promise<PackageEntity>;
+    list(this: any, reqmatch?: PackageListMatch, ctrl?: Control): Promise<PackageEntity[]>;
+    create(this: any, reqdata?: PackageCreateData, ctrl?: Control): Promise<PackageEntity>;
+    remove(this: any, reqmatch?: PackageRemoveMatch, ctrl?: Control): Promise<PackageEntity>;
 }
 export { PackageEntity };

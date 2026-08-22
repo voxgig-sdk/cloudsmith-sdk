@@ -75,18 +75,18 @@ const utility_1 = require("../../utility");
         const organization_invite_ref01_ent = client.OrganizationInvite();
         let organization_invite_ref01_data = setup.data.new.organization_invite['organization_invite_ref01'];
         organization_invite_ref01_data['org_id'] = setup.idmap['org01'];
-        organization_invite_ref01_data = await organization_invite_ref01_ent.create(organization_invite_ref01_data);
+        organization_invite_ref01_data = (await organization_invite_ref01_ent.create(organization_invite_ref01_data)).data();
         (0, node_assert_1.default)(null != organization_invite_ref01_data);
         // LIST
         const organization_invite_ref01_match = {};
         organization_invite_ref01_match['org_id'] = setup.idmap['org01'];
-        const organization_invite_ref01_list = await organization_invite_ref01_ent.list(organization_invite_ref01_match);
+        const organization_invite_ref01_list = (await organization_invite_ref01_ent.list(organization_invite_ref01_match)).map((e) => e.data());
         // UPDATE
         const organization_invite_ref01_data_up0 = {};
         organization_invite_ref01_data_up0['org_id'] = setup.idmap['org_id'];
         const organization_invite_ref01_markdef_up0 = { name: 'email', value: 'Mark01-organization_invite_ref01_' + setup.now };
         organization_invite_ref01_data_up0[organization_invite_ref01_markdef_up0.name] = organization_invite_ref01_markdef_up0.value;
-        const organization_invite_ref01_resdata_up0 = await organization_invite_ref01_ent.update(organization_invite_ref01_data_up0);
+        const organization_invite_ref01_resdata_up0 = (await organization_invite_ref01_ent.update(organization_invite_ref01_data_up0)).data();
         (0, node_assert_1.default)(null != organization_invite_ref01_resdata_up0);
         (0, node_assert_1.default)(organization_invite_ref01_resdata_up0[organization_invite_ref01_markdef_up0.name] === organization_invite_ref01_markdef_up0.value);
     });

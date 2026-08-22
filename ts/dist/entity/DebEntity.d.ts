@@ -5,9 +5,9 @@ import type { Deb, DebLoadMatch, DebListMatch, DebCreateData, DebUpdateData } fr
 declare class DebEntity extends CloudsmithEntityBase<Deb> {
     constructor(client: CloudsmithSDK, entopts: any);
     make(this: DebEntity): DebEntity;
-    load(this: any, reqmatch?: DebLoadMatch, ctrl?: Control): Promise<Deb>;
-    list(this: any, reqmatch?: DebListMatch, ctrl?: Control): Promise<Deb[]>;
-    create(this: any, reqdata?: DebCreateData, ctrl?: Control): Promise<Deb>;
-    update(this: any, reqdata?: DebUpdateData, ctrl?: Control): Promise<Deb>;
+    load(this: any, reqmatch?: DebLoadMatch, ctrl?: Control): Promise<DebEntity>;
+    list(this: any, reqmatch?: DebListMatch, ctrl?: Control): Promise<DebEntity[]>;
+    create(this: any, reqdata?: DebCreateData, ctrl?: Control): Promise<DebEntity>;
+    update(this: any, reqdata?: DebUpdateData, ctrl?: Control): Promise<DebEntity>;
 }
 export { DebEntity };

@@ -75,18 +75,18 @@ const utility_1 = require("../../utility");
         const package_deny_policy_ref01_ent = client.PackageDenyPolicy();
         let package_deny_policy_ref01_data = setup.data.new.package_deny_policy['package_deny_policy_ref01'];
         package_deny_policy_ref01_data['org_id'] = setup.idmap['org01'];
-        package_deny_policy_ref01_data = await package_deny_policy_ref01_ent.create(package_deny_policy_ref01_data);
+        package_deny_policy_ref01_data = (await package_deny_policy_ref01_ent.create(package_deny_policy_ref01_data)).data();
         (0, node_assert_1.default)(null != package_deny_policy_ref01_data);
         // LIST
         const package_deny_policy_ref01_match = {};
         package_deny_policy_ref01_match['org_id'] = setup.idmap['org01'];
-        const package_deny_policy_ref01_list = await package_deny_policy_ref01_ent.list(package_deny_policy_ref01_match);
+        const package_deny_policy_ref01_list = (await package_deny_policy_ref01_ent.list(package_deny_policy_ref01_match)).map((e) => e.data());
         // UPDATE
         const package_deny_policy_ref01_data_up0 = {};
         package_deny_policy_ref01_data_up0['org_id'] = setup.idmap['org_id'];
         const package_deny_policy_ref01_markdef_up0 = { name: 'action', value: 'Mark01-package_deny_policy_ref01_' + setup.now };
         package_deny_policy_ref01_data_up0[package_deny_policy_ref01_markdef_up0.name] = package_deny_policy_ref01_markdef_up0.value;
-        const package_deny_policy_ref01_resdata_up0 = await package_deny_policy_ref01_ent.update(package_deny_policy_ref01_data_up0);
+        const package_deny_policy_ref01_resdata_up0 = (await package_deny_policy_ref01_ent.update(package_deny_policy_ref01_data_up0)).data();
         (0, node_assert_1.default)(null != package_deny_policy_ref01_resdata_up0);
         (0, node_assert_1.default)(package_deny_policy_ref01_resdata_up0[package_deny_policy_ref01_markdef_up0.name] === package_deny_policy_ref01_markdef_up0.value);
     });

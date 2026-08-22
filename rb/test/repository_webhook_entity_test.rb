@@ -52,7 +52,7 @@ class RepositoryWebhookEntityTest < Minitest::Test
     setup = repository_webhook_basic_setup(nil)
     # Per-op sdk-test-control.json skip.
     _live = setup[:live] || false
-    ["create", "list", "update"].each do |_op|
+    ["create", "list", "update", "load"].each do |_op|
       _should_skip, _reason = Runner.is_control_skipped("entityOp", "repository_webhook." + _op, _live ? "live" : "unit")
       if _should_skip
         skip(_reason || "skipped via sdk-test-control.json")
@@ -71,7 +71,6 @@ class RepositoryWebhookEntityTest < Minitest::Test
     repository_webhook_ref01_ent = client.RepositoryWebhook(nil)
     repository_webhook_ref01_data = Helpers.to_map(Vs.getprop(
       Vs.getpath(setup[:data], "new.repository_webhook"), "repository_webhook_ref01"))
-    repository_webhook_ref01_data["identifier"] = setup[:idmap]["identifier01"]
     repository_webhook_ref01_data["owner"] = setup[:idmap]["owner01"]
     repository_webhook_ref01_data["repo"] = setup[:idmap]["repo01"]
 
@@ -81,7 +80,6 @@ class RepositoryWebhookEntityTest < Minitest::Test
 
     # LIST
     repository_webhook_ref01_match = {
-      "identifier" => setup[:idmap]["identifier01"],
       "owner" => setup[:idmap]["owner01"],
       "repo" => setup[:idmap]["repo01"],
     }
@@ -104,6 +102,11 @@ class RepositoryWebhookEntityTest < Minitest::Test
     assert !repository_webhook_ref01_resdata_up0.nil?
     assert_equal repository_webhook_ref01_resdata_up0[repository_webhook_ref01_markdef_up0_name], repository_webhook_ref01_markdef_up0_value
 
+    # LOAD
+    repository_webhook_ref01_match_dt0 = {}
+    repository_webhook_ref01_data_dt0_loaded = repository_webhook_ref01_ent.load(repository_webhook_ref01_match_dt0, nil)
+    assert !repository_webhook_ref01_data_dt0_loaded.nil?
+
   end
 end
 
@@ -121,7 +124,7 @@ def repository_webhook_basic_setup(extra)
 
   # Generate idmap via transform.
   idmap = Vs.transform(
-    ["repository_webhook01", "repository_webhook02", "repository_webhook03", "webhook01", "webhook02", "webhook03", "identifier01", "owner01", "repo01"],
+    ["repository_webhook01", "repository_webhook02", "repository_webhook03", "webhook01", "webhook02", "webhook03", "owner01", "repo01"],
     {
       "`$PACK`" => ["", {
         "`$KEY`" => "`$COPY`",

@@ -1813,24 +1813,24 @@ const cargo = client.Cargo()
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `auth_mode` | `string` | No |  |
-| `auth_secret` | `string` | No |  |
-| `auth_username` | `string` | No |  |
-| `created_at` | `string` | No |  |
+| `auth_mode` | `string` | No | The authentication mode to use when accessing this upstream. |
+| `auth_secret` | `string` | No | Secret to provide with requests to upstream. |
+| `auth_username` | `string` | No | Username to provide with requests to upstream. |
+| `created_at` | `string` | No | The datetime the upstream source was created. |
 | `disable_reason` | `string` | No |  |
-| `extra_header_1` | `string` | No |  |
-| `extra_header_2` | `string` | No |  |
-| `extra_value_1` | `string` | No |  |
-| `extra_value_2` | `string` | No |  |
-| `is_active` | `boolean` | No |  |
-| `mode` | `string` | No |  |
-| `name` | `string` | Yes |  |
-| `pending_validation` | `boolean` | No |  |
-| `priority` | `number` | No |  |
+| `extra_header_1` | `string` | No | The key for extra header #1 to send to upstream. |
+| `extra_header_2` | `string` | No | The key for extra header #2 to send to upstream. |
+| `extra_value_1` | `string` | No | The value for extra header #1 to send to upstream. |
+| `extra_value_2` | `string` | No | The value for extra header #2 to send to upstream. |
+| `is_active` | `boolean` | No | Whether or not this upstream is active and ready for requests. |
+| `mode` | `string` | No | The mode that this upstream should operate in. |
+| `name` | `string` | Yes | A descriptive name for this upstream source. |
+| `pending_validation` | `boolean` | No | When true, this upstream source is pending validation. |
+| `priority` | `number` | No | Upstream sources are selected for resolving requests by sequential order (1..n), followed by creation date. |
 | `slug_perm` | `string` | No |  |
 | `updated_at` | `string` | No |  |
-| `upstream_url` | `string` | Yes |  |
-| `verify_ssl` | `boolean` | No |  |
+| `upstream_url` | `string` | Yes | The URL for this upstream source. |
+| `verify_ssl` | `boolean` | No | If enabled, SSL certificates are verified when requests are made to this upstream. |
 
 ### Operations
 
@@ -1982,24 +1982,24 @@ const composer = client.Composer()
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `auth_mode` | `string` | No |  |
-| `auth_secret` | `string` | No |  |
-| `auth_username` | `string` | No |  |
-| `created_at` | `string` | No |  |
+| `auth_mode` | `string` | No | The authentication mode to use when accessing this upstream. |
+| `auth_secret` | `string` | No | Secret to provide with requests to upstream. |
+| `auth_username` | `string` | No | Username to provide with requests to upstream. |
+| `created_at` | `string` | No | The datetime the upstream source was created. |
 | `disable_reason` | `string` | No |  |
-| `extra_header_1` | `string` | No |  |
-| `extra_header_2` | `string` | No |  |
-| `extra_value_1` | `string` | No |  |
-| `extra_value_2` | `string` | No |  |
-| `is_active` | `boolean` | No |  |
-| `mode` | `string` | No |  |
-| `name` | `string` | Yes |  |
-| `pending_validation` | `boolean` | No |  |
-| `priority` | `number` | No |  |
+| `extra_header_1` | `string` | No | The key for extra header #1 to send to upstream. |
+| `extra_header_2` | `string` | No | The key for extra header #2 to send to upstream. |
+| `extra_value_1` | `string` | No | The value for extra header #1 to send to upstream. |
+| `extra_value_2` | `string` | No | The value for extra header #2 to send to upstream. |
+| `is_active` | `boolean` | No | Whether or not this upstream is active and ready for requests. |
+| `mode` | `string` | No | The mode that this upstream should operate in. |
+| `name` | `string` | Yes | A descriptive name for this upstream source. |
+| `pending_validation` | `boolean` | No | When true, this upstream source is pending validation. |
+| `priority` | `number` | No | Upstream sources are selected for resolving requests by sequential order (1..n), followed by creation date. |
 | `slug_perm` | `string` | No |  |
 | `updated_at` | `string` | No |  |
-| `upstream_url` | `string` | Yes |  |
-| `verify_ssl` | `boolean` | No |  |
+| `upstream_url` | `string` | Yes | The URL for this upstream source. |
+| `verify_ssl` | `boolean` | No | If enabled, SSL certificates are verified when requests are made to this upstream. |
 
 ### Operations
 
@@ -2117,24 +2117,24 @@ const conda = client.Conda()
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `auth_mode` | `string` | No |  |
-| `auth_secret` | `string` | No |  |
-| `auth_username` | `string` | No |  |
-| `created_at` | `string` | No |  |
+| `auth_mode` | `string` | No | The authentication mode to use when accessing this upstream. |
+| `auth_secret` | `string` | No | Secret to provide with requests to upstream. |
+| `auth_username` | `string` | No | Username to provide with requests to upstream. |
+| `created_at` | `string` | No | The datetime the upstream source was created. |
 | `disable_reason` | `string` | No |  |
-| `extra_header_1` | `string` | No |  |
-| `extra_header_2` | `string` | No |  |
-| `extra_value_1` | `string` | No |  |
-| `extra_value_2` | `string` | No |  |
-| `is_active` | `boolean` | No |  |
-| `mode` | `string` | No |  |
-| `name` | `string` | Yes |  |
-| `pending_validation` | `boolean` | No |  |
-| `priority` | `number` | No |  |
+| `extra_header_1` | `string` | No | The key for extra header #1 to send to upstream. |
+| `extra_header_2` | `string` | No | The key for extra header #2 to send to upstream. |
+| `extra_value_1` | `string` | No | The value for extra header #1 to send to upstream. |
+| `extra_value_2` | `string` | No | The value for extra header #2 to send to upstream. |
+| `is_active` | `boolean` | No | Whether or not this upstream is active and ready for requests. |
+| `mode` | `string` | No | The mode that this upstream should operate in. |
+| `name` | `string` | Yes | A descriptive name for this upstream source. |
+| `pending_validation` | `boolean` | No | When true, this upstream source is pending validation. |
+| `priority` | `number` | No | Upstream sources are selected for resolving requests by sequential order (1..n), followed by creation date. |
 | `slug_perm` | `string` | No |  |
 | `updated_at` | `string` | No |  |
-| `upstream_url` | `string` | Yes |  |
-| `verify_ssl` | `boolean` | No |  |
+| `upstream_url` | `string` | Yes | The URL for this upstream source. |
+| `verify_ssl` | `boolean` | No | If enabled, SSL certificates are verified when requests are made to this upstream. |
 
 ### Operations
 
@@ -2252,24 +2252,24 @@ const cran = client.Cran()
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `auth_mode` | `string` | No |  |
-| `auth_secret` | `string` | No |  |
-| `auth_username` | `string` | No |  |
-| `created_at` | `string` | No |  |
+| `auth_mode` | `string` | No | The authentication mode to use when accessing this upstream. |
+| `auth_secret` | `string` | No | Secret to provide with requests to upstream. |
+| `auth_username` | `string` | No | Username to provide with requests to upstream. |
+| `created_at` | `string` | No | The datetime the upstream source was created. |
 | `disable_reason` | `string` | No |  |
-| `extra_header_1` | `string` | No |  |
-| `extra_header_2` | `string` | No |  |
-| `extra_value_1` | `string` | No |  |
-| `extra_value_2` | `string` | No |  |
-| `is_active` | `boolean` | No |  |
-| `mode` | `string` | No |  |
-| `name` | `string` | Yes |  |
-| `pending_validation` | `boolean` | No |  |
-| `priority` | `number` | No |  |
+| `extra_header_1` | `string` | No | The key for extra header #1 to send to upstream. |
+| `extra_header_2` | `string` | No | The key for extra header #2 to send to upstream. |
+| `extra_value_1` | `string` | No | The value for extra header #1 to send to upstream. |
+| `extra_value_2` | `string` | No | The value for extra header #2 to send to upstream. |
+| `is_active` | `boolean` | No | Whether or not this upstream is active and ready for requests. |
+| `mode` | `string` | No | The mode that this upstream should operate in. |
+| `name` | `string` | Yes | A descriptive name for this upstream source. |
+| `pending_validation` | `boolean` | No | When true, this upstream source is pending validation. |
+| `priority` | `number` | No | Upstream sources are selected for resolving requests by sequential order (1..n), followed by creation date. |
 | `slug_perm` | `string` | No |  |
 | `updated_at` | `string` | No |  |
-| `upstream_url` | `string` | Yes |  |
-| `verify_ssl` | `boolean` | No |  |
+| `upstream_url` | `string` | Yes | The URL for this upstream source. |
+| `verify_ssl` | `boolean` | No | If enabled, SSL certificates are verified when requests are made to this upstream. |
 
 ### Operations
 
@@ -2353,24 +2353,24 @@ const dart = client.Dart()
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `auth_mode` | `string` | No |  |
-| `auth_secret` | `string` | No |  |
-| `auth_username` | `string` | No |  |
-| `created_at` | `string` | No |  |
+| `auth_mode` | `string` | No | The authentication mode to use when accessing this upstream. |
+| `auth_secret` | `string` | No | Secret to provide with requests to upstream. |
+| `auth_username` | `string` | No | Username to provide with requests to upstream. |
+| `created_at` | `string` | No | The datetime the upstream source was created. |
 | `disable_reason` | `string` | No |  |
-| `extra_header_1` | `string` | No |  |
-| `extra_header_2` | `string` | No |  |
-| `extra_value_1` | `string` | No |  |
-| `extra_value_2` | `string` | No |  |
-| `is_active` | `boolean` | No |  |
-| `mode` | `string` | No |  |
-| `name` | `string` | Yes |  |
-| `pending_validation` | `boolean` | No |  |
-| `priority` | `number` | No |  |
+| `extra_header_1` | `string` | No | The key for extra header #1 to send to upstream. |
+| `extra_header_2` | `string` | No | The key for extra header #2 to send to upstream. |
+| `extra_value_1` | `string` | No | The value for extra header #1 to send to upstream. |
+| `extra_value_2` | `string` | No | The value for extra header #2 to send to upstream. |
+| `is_active` | `boolean` | No | Whether or not this upstream is active and ready for requests. |
+| `mode` | `string` | No | The mode that this upstream should operate in. |
+| `name` | `string` | Yes | A descriptive name for this upstream source. |
+| `pending_validation` | `boolean` | No | When true, this upstream source is pending validation. |
+| `priority` | `number` | No | Upstream sources are selected for resolving requests by sequential order (1..n), followed by creation date. |
 | `slug_perm` | `string` | No |  |
 | `updated_at` | `string` | No |  |
-| `upstream_url` | `string` | Yes |  |
-| `verify_ssl` | `boolean` | No |  |
+| `upstream_url` | `string` | Yes | The URL for this upstream source. |
+| `verify_ssl` | `boolean` | No | If enabled, SSL certificates are verified when requests are made to this upstream. |
 
 ### Operations
 
@@ -2454,32 +2454,32 @@ const deb = client.Deb()
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `auth_mode` | `string` | No |  |
-| `auth_secret` | `string` | No |  |
-| `auth_username` | `string` | No |  |
-| `component` | `string` | No |  |
-| `created_at` | `string` | No |  |
+| `auth_mode` | `string` | No | The authentication mode to use when accessing this upstream. |
+| `auth_secret` | `string` | No | Secret to provide with requests to upstream. |
+| `auth_username` | `string` | No | Username to provide with requests to upstream. |
+| `component` | `string` | No | The component to fetch from the upstream |
+| `created_at` | `string` | No | The datetime the upstream source was created. |
 | `disable_reason` | `string` | No |  |
-| `distro_versions` | `any[]` | Yes |  |
-| `extra_header_1` | `string` | No |  |
-| `extra_header_2` | `string` | No |  |
-| `extra_value_1` | `string` | No |  |
-| `extra_value_2` | `string` | No |  |
-| `gpg_key_inline` | `string` | No |  |
-| `gpg_key_url` | `string` | No |  |
-| `gpg_verification` | `string` | No |  |
-| `include_sources` | `boolean` | No |  |
-| `is_active` | `boolean` | No |  |
-| `mode` | `string` | No |  |
-| `name` | `string` | Yes |  |
-| `pending_validation` | `boolean` | No |  |
-| `priority` | `number` | No |  |
+| `distro_versions` | `any[]` | Yes | The distribution version that packages found on this upstream could be associated with. |
+| `extra_header_1` | `string` | No | The key for extra header #1 to send to upstream. |
+| `extra_header_2` | `string` | No | The key for extra header #2 to send to upstream. |
+| `extra_value_1` | `string` | No | The value for extra header #1 to send to upstream. |
+| `extra_value_2` | `string` | No | The value for extra header #2 to send to upstream. |
+| `gpg_key_inline` | `string` | No | A public GPG key to associate with packages found on this upstream. |
+| `gpg_key_url` | `string` | No | When provided, Cloudsmith will fetch, validate, and associate a public GPG key found at the provided URL. |
+| `gpg_verification` | `string` | No | The GPG signature verification mode for this upstream. |
+| `include_sources` | `boolean` | No | When true, source packages will be available from this upstream. |
+| `is_active` | `boolean` | No | Whether or not this upstream is active and ready for requests. |
+| `mode` | `string` | No | The mode that this upstream should operate in. |
+| `name` | `string` | Yes | A descriptive name for this upstream source. |
+| `pending_validation` | `boolean` | No | When true, this upstream source is pending validation. |
+| `priority` | `number` | No | Upstream sources are selected for resolving requests by sequential order (1..n), followed by creation date. |
 | `slug_perm` | `string` | No |  |
 | `updated_at` | `string` | No |  |
-| `upstream_distribution` | `string` | No |  |
-| `upstream_url` | `string` | Yes |  |
-| `verification_status` | `string` | No |  |
-| `verify_ssl` | `boolean` | No |  |
+| `upstream_distribution` | `string` | No | The distribution to fetch from the upstream |
+| `upstream_url` | `string` | Yes | The URL for this upstream source. |
+| `verification_status` | `string` | No | The signature verification status for this upstream. |
+| `verify_ssl` | `boolean` | No | If enabled, SSL certificates are verified when requests are made to this upstream. |
 
 ### Operations
 
@@ -2670,9 +2670,9 @@ const distribution_full = client.DistributionFull()
 | `format_url` | `string` | No |  |
 | `name` | `string` | Yes |  |
 | `self_url` | `string` | No |  |
-| `slug` | `string` | No |  |
+| `slug` | `string` | No | The slug identifier for this distribution |
 | `variants` | `string` | No |  |
-| `versions` | `any[]` | No |  |
+| `versions` | `any[]` | No | A list of the versions for this distribution |
 
 ### Operations
 
@@ -2764,24 +2764,24 @@ const docker = client.Docker()
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `auth_mode` | `string` | No |  |
-| `auth_secret` | `string` | No |  |
-| `auth_username` | `string` | No |  |
-| `created_at` | `string` | No |  |
+| `auth_mode` | `string` | No | The authentication mode to use when accessing this upstream. |
+| `auth_secret` | `string` | No | Secret to provide with requests to upstream. |
+| `auth_username` | `string` | No | Username to provide with requests to upstream. |
+| `created_at` | `string` | No | The datetime the upstream source was created. |
 | `disable_reason` | `string` | No |  |
-| `extra_header_1` | `string` | No |  |
-| `extra_header_2` | `string` | No |  |
-| `extra_value_1` | `string` | No |  |
-| `extra_value_2` | `string` | No |  |
-| `is_active` | `boolean` | No |  |
-| `mode` | `string` | No |  |
-| `name` | `string` | Yes |  |
-| `pending_validation` | `boolean` | No |  |
-| `priority` | `number` | No |  |
+| `extra_header_1` | `string` | No | The key for extra header #1 to send to upstream. |
+| `extra_header_2` | `string` | No | The key for extra header #2 to send to upstream. |
+| `extra_value_1` | `string` | No | The value for extra header #1 to send to upstream. |
+| `extra_value_2` | `string` | No | The value for extra header #2 to send to upstream. |
+| `is_active` | `boolean` | No | Whether or not this upstream is active and ready for requests. |
+| `mode` | `string` | No | The mode that this upstream should operate in. |
+| `name` | `string` | Yes | A descriptive name for this upstream source. |
+| `pending_validation` | `boolean` | No | When true, this upstream source is pending validation. |
+| `priority` | `number` | No | Upstream sources are selected for resolving requests by sequential order (1..n), followed by creation date. |
 | `slug_perm` | `string` | No |  |
 | `updated_at` | `string` | No |  |
-| `upstream_url` | `string` | Yes |  |
-| `verify_ssl` | `boolean` | No |  |
+| `upstream_url` | `string` | Yes | The URL for this upstream source. |
+| `verify_ssl` | `boolean` | No | If enabled, SSL certificates are verified when requests are made to this upstream. |
 
 ### Operations
 
@@ -2865,8 +2865,8 @@ const dynamic_mapping = client.DynamicMapping()
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `claim_value` | `string` | Yes |  |
-| `service_account` | `string` | Yes |  |
+| `claim_value` | `string` | Yes | The OIDC token claim value that must be present in the token for it to successfully authenticate as the mapped `service_account`. |
+| `service_account` | `string` | Yes | The service account associated with the provider setting and `claim_value` Note: This field and the dynamic mappings feature are still in early access. |
 
 ### Operations
 
@@ -2992,11 +2992,11 @@ const entitlement = client.Entitlement()
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `active` | `number` | No |  |
+| `active` | `number` | No | Number of packages with at least 1 download |
 | `bandwidth` | `Record<string, any>` | Yes |  |
 | `downloads` | `Record<string, any>` | Yes |  |
-| `inactive` | `number` | No |  |
-| `total` | `number` | No |  |
+| `inactive` | `number` | No | Packages with zero downloads |
+| `total` | `number` | No | Total number of packages in repo |
 
 ### Operations
 
@@ -3149,15 +3149,15 @@ const format = client.Format()
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `description` | `string` | Yes |  |
-| `distributions` | `any[]` | No |  |
-| `extensions` | `any[]` | Yes |  |
-| `name` | `string` | Yes |  |
-| `premium` | `boolean` | Yes |  |
-| `premium_plan_id` | `string` | No |  |
-| `premium_plan_name` | `string` | No |  |
-| `slug` | `string` | Yes |  |
-| `supports` | `Record<string, any>` | Yes |  |
+| `description` | `string` | Yes | Description of the package format |
+| `distributions` | `any[]` | No | The distributions supported by this package format |
+| `extensions` | `any[]` | Yes | A non-exhaustive list of extensions supported |
+| `name` | `string` | Yes | Name for the package format |
+| `premium` | `boolean` | Yes | If true the package format is a premium-only feature |
+| `premium_plan_id` | `string` | No | The minimum plan id required for this package format |
+| `premium_plan_name` | `string` | No | The minimum plan name required for this package format |
+| `slug` | `string` | Yes | Slug for the package format |
+| `supports` | `Record<string, any>` | Yes | A set of what the package format supports |
 
 ### Operations
 
@@ -3249,24 +3249,24 @@ const gon = client.Gon()
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `auth_mode` | `string` | No |  |
-| `auth_secret` | `string` | No |  |
-| `auth_username` | `string` | No |  |
-| `created_at` | `string` | No |  |
+| `auth_mode` | `string` | No | The authentication mode to use when accessing this upstream. |
+| `auth_secret` | `string` | No | Secret to provide with requests to upstream. |
+| `auth_username` | `string` | No | Username to provide with requests to upstream. |
+| `created_at` | `string` | No | The datetime the upstream source was created. |
 | `disable_reason` | `string` | No |  |
-| `extra_header_1` | `string` | No |  |
-| `extra_header_2` | `string` | No |  |
-| `extra_value_1` | `string` | No |  |
-| `extra_value_2` | `string` | No |  |
-| `is_active` | `boolean` | No |  |
-| `mode` | `string` | No |  |
-| `name` | `string` | Yes |  |
-| `pending_validation` | `boolean` | No |  |
-| `priority` | `number` | No |  |
+| `extra_header_1` | `string` | No | The key for extra header #1 to send to upstream. |
+| `extra_header_2` | `string` | No | The key for extra header #2 to send to upstream. |
+| `extra_value_1` | `string` | No | The value for extra header #1 to send to upstream. |
+| `extra_value_2` | `string` | No | The value for extra header #2 to send to upstream. |
+| `is_active` | `boolean` | No | Whether or not this upstream is active and ready for requests. |
+| `mode` | `string` | No | The mode that this upstream should operate in. |
+| `name` | `string` | Yes | A descriptive name for this upstream source. |
+| `pending_validation` | `boolean` | No | When true, this upstream source is pending validation. |
+| `priority` | `number` | No | Upstream sources are selected for resolving requests by sequential order (1..n), followed by creation date. |
 | `slug_perm` | `string` | No |  |
 | `updated_at` | `string` | No |  |
-| `upstream_url` | `string` | Yes |  |
-| `verify_ssl` | `boolean` | No |  |
+| `upstream_url` | `string` | Yes | The URL for this upstream source. |
+| `verify_ssl` | `boolean` | No | If enabled, SSL certificates are verified when requests are made to this upstream. |
 
 ### Operations
 
@@ -3418,24 +3418,24 @@ const helm = client.Helm()
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `auth_mode` | `string` | No |  |
-| `auth_secret` | `string` | No |  |
-| `auth_username` | `string` | No |  |
-| `created_at` | `string` | No |  |
+| `auth_mode` | `string` | No | The authentication mode to use when accessing this upstream. |
+| `auth_secret` | `string` | No | Secret to provide with requests to upstream. |
+| `auth_username` | `string` | No | Username to provide with requests to upstream. |
+| `created_at` | `string` | No | The datetime the upstream source was created. |
 | `disable_reason` | `string` | No |  |
-| `extra_header_1` | `string` | No |  |
-| `extra_header_2` | `string` | No |  |
-| `extra_value_1` | `string` | No |  |
-| `extra_value_2` | `string` | No |  |
-| `is_active` | `boolean` | No |  |
-| `mode` | `string` | No |  |
-| `name` | `string` | Yes |  |
-| `pending_validation` | `boolean` | No |  |
-| `priority` | `number` | No |  |
+| `extra_header_1` | `string` | No | The key for extra header #1 to send to upstream. |
+| `extra_header_2` | `string` | No | The key for extra header #2 to send to upstream. |
+| `extra_value_1` | `string` | No | The value for extra header #1 to send to upstream. |
+| `extra_value_2` | `string` | No | The value for extra header #2 to send to upstream. |
+| `is_active` | `boolean` | No | Whether or not this upstream is active and ready for requests. |
+| `mode` | `string` | No | The mode that this upstream should operate in. |
+| `name` | `string` | Yes | A descriptive name for this upstream source. |
+| `pending_validation` | `boolean` | No | When true, this upstream source is pending validation. |
+| `priority` | `number` | No | Upstream sources are selected for resolving requests by sequential order (1..n), followed by creation date. |
 | `slug_perm` | `string` | No |  |
 | `updated_at` | `string` | No |  |
-| `upstream_url` | `string` | Yes |  |
-| `verify_ssl` | `boolean` | No |  |
+| `upstream_url` | `string` | Yes | The URL for this upstream source. |
+| `verify_ssl` | `boolean` | No | If enabled, SSL certificates are verified when requests are made to this upstream. |
 
 ### Operations
 
@@ -3519,24 +3519,24 @@ const hex = client.Hex()
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `auth_mode` | `string` | No |  |
-| `auth_secret` | `string` | No |  |
-| `auth_username` | `string` | No |  |
-| `created_at` | `string` | No |  |
+| `auth_mode` | `string` | No | The authentication mode to use when accessing this upstream. |
+| `auth_secret` | `string` | No | Secret to provide with requests to upstream. |
+| `auth_username` | `string` | No | Username to provide with requests to upstream. |
+| `created_at` | `string` | No | The datetime the upstream source was created. |
 | `disable_reason` | `string` | No |  |
-| `extra_header_1` | `string` | No |  |
-| `extra_header_2` | `string` | No |  |
-| `extra_value_1` | `string` | No |  |
-| `extra_value_2` | `string` | No |  |
-| `is_active` | `boolean` | No |  |
-| `mode` | `string` | No |  |
-| `name` | `string` | Yes |  |
-| `pending_validation` | `boolean` | No |  |
-| `priority` | `number` | No |  |
+| `extra_header_1` | `string` | No | The key for extra header #1 to send to upstream. |
+| `extra_header_2` | `string` | No | The key for extra header #2 to send to upstream. |
+| `extra_value_1` | `string` | No | The value for extra header #1 to send to upstream. |
+| `extra_value_2` | `string` | No | The value for extra header #2 to send to upstream. |
+| `is_active` | `boolean` | No | Whether or not this upstream is active and ready for requests. |
+| `mode` | `string` | No | The mode that this upstream should operate in. |
+| `name` | `string` | Yes | A descriptive name for this upstream source. |
+| `pending_validation` | `boolean` | No | When true, this upstream source is pending validation. |
+| `priority` | `number` | No | Upstream sources are selected for resolving requests by sequential order (1..n), followed by creation date. |
 | `slug_perm` | `string` | No |  |
 | `updated_at` | `string` | No |  |
-| `upstream_url` | `string` | Yes |  |
-| `verify_ssl` | `boolean` | No |  |
+| `upstream_url` | `string` | Yes | The URL for this upstream source. |
+| `verify_ssl` | `boolean` | No | If enabled, SSL certificates are verified when requests are made to this upstream. |
 
 ### Operations
 
@@ -3654,24 +3654,24 @@ const huggingface = client.Huggingface()
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `auth_mode` | `string` | No |  |
-| `auth_secret` | `string` | No |  |
-| `auth_username` | `string` | No |  |
-| `created_at` | `string` | No |  |
+| `auth_mode` | `string` | No | The authentication mode to use when accessing this upstream. |
+| `auth_secret` | `string` | No | Secret to provide with requests to upstream. |
+| `auth_username` | `string` | No | Username to provide with requests to upstream. |
+| `created_at` | `string` | No | The datetime the upstream source was created. |
 | `disable_reason` | `string` | No |  |
-| `extra_header_1` | `string` | No |  |
-| `extra_header_2` | `string` | No |  |
-| `extra_value_1` | `string` | No |  |
-| `extra_value_2` | `string` | No |  |
-| `is_active` | `boolean` | No |  |
-| `mode` | `string` | No |  |
-| `name` | `string` | Yes |  |
-| `pending_validation` | `boolean` | No |  |
-| `priority` | `number` | No |  |
+| `extra_header_1` | `string` | No | The key for extra header #1 to send to upstream. |
+| `extra_header_2` | `string` | No | The key for extra header #2 to send to upstream. |
+| `extra_value_1` | `string` | No | The value for extra header #1 to send to upstream. |
+| `extra_value_2` | `string` | No | The value for extra header #2 to send to upstream. |
+| `is_active` | `boolean` | No | Whether or not this upstream is active and ready for requests. |
+| `mode` | `string` | No | The mode that this upstream should operate in. |
+| `name` | `string` | Yes | A descriptive name for this upstream source. |
+| `pending_validation` | `boolean` | No | When true, this upstream source is pending validation. |
+| `priority` | `number` | No | Upstream sources are selected for resolving requests by sequential order (1..n), followed by creation date. |
 | `slug_perm` | `string` | No |  |
 | `updated_at` | `string` | No |  |
-| `upstream_url` | `string` | Yes |  |
-| `verify_ssl` | `boolean` | No |  |
+| `upstream_url` | `string` | Yes | The URL for this upstream source. |
+| `verify_ssl` | `boolean` | No | If enabled, SSL certificates are verified when requests are made to this upstream. |
 
 ### Operations
 
@@ -3925,28 +3925,28 @@ const maven = client.Maven()
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `auth_mode` | `string` | No |  |
-| `auth_secret` | `string` | No |  |
-| `auth_username` | `string` | No |  |
-| `created_at` | `string` | No |  |
+| `auth_mode` | `string` | No | The authentication mode to use when accessing this upstream. |
+| `auth_secret` | `string` | No | Secret to provide with requests to upstream. |
+| `auth_username` | `string` | No | Username to provide with requests to upstream. |
+| `created_at` | `string` | No | The datetime the upstream source was created. |
 | `disable_reason` | `string` | No |  |
-| `extra_header_1` | `string` | No |  |
-| `extra_header_2` | `string` | No |  |
-| `extra_value_1` | `string` | No |  |
-| `extra_value_2` | `string` | No |  |
-| `gpg_key_inline` | `string` | No |  |
-| `gpg_key_url` | `string` | No |  |
-| `gpg_verification` | `string` | No |  |
-| `is_active` | `boolean` | No |  |
-| `mode` | `string` | No |  |
-| `name` | `string` | Yes |  |
-| `pending_validation` | `boolean` | No |  |
-| `priority` | `number` | No |  |
+| `extra_header_1` | `string` | No | The key for extra header #1 to send to upstream. |
+| `extra_header_2` | `string` | No | The key for extra header #2 to send to upstream. |
+| `extra_value_1` | `string` | No | The value for extra header #1 to send to upstream. |
+| `extra_value_2` | `string` | No | The value for extra header #2 to send to upstream. |
+| `gpg_key_inline` | `string` | No | A public GPG key to associate with packages found on this upstream. |
+| `gpg_key_url` | `string` | No | When provided, Cloudsmith will fetch, validate, and associate a public GPG key found at the provided URL. |
+| `gpg_verification` | `string` | No | The GPG signature verification mode for this upstream. |
+| `is_active` | `boolean` | No | Whether or not this upstream is active and ready for requests. |
+| `mode` | `string` | No | The mode that this upstream should operate in. |
+| `name` | `string` | Yes | A descriptive name for this upstream source. |
+| `pending_validation` | `boolean` | No | When true, this upstream source is pending validation. |
+| `priority` | `number` | No | Upstream sources are selected for resolving requests by sequential order (1..n), followed by creation date. |
 | `slug_perm` | `string` | No |  |
 | `updated_at` | `string` | No |  |
-| `upstream_url` | `string` | Yes |  |
-| `verification_status` | `string` | No |  |
-| `verify_ssl` | `boolean` | No |  |
+| `upstream_url` | `string` | Yes | The URL for this upstream source. |
+| `verification_status` | `string` | No | The signature verification status for this upstream. |
+| `verify_ssl` | `boolean` | No | If enabled, SSL certificates are verified when requests are made to this upstream. |
 
 ### Operations
 
@@ -4224,24 +4224,24 @@ const npm = client.Npm()
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `auth_mode` | `string` | No |  |
-| `auth_secret` | `string` | No |  |
-| `auth_username` | `string` | No |  |
-| `created_at` | `string` | No |  |
+| `auth_mode` | `string` | No | The authentication mode to use when accessing this upstream. |
+| `auth_secret` | `string` | No | Secret to provide with requests to upstream. |
+| `auth_username` | `string` | No | Username to provide with requests to upstream. |
+| `created_at` | `string` | No | The datetime the upstream source was created. |
 | `disable_reason` | `string` | No |  |
-| `extra_header_1` | `string` | No |  |
-| `extra_header_2` | `string` | No |  |
-| `extra_value_1` | `string` | No |  |
-| `extra_value_2` | `string` | No |  |
-| `is_active` | `boolean` | No |  |
-| `mode` | `string` | No |  |
-| `name` | `string` | Yes |  |
-| `pending_validation` | `boolean` | No |  |
-| `priority` | `number` | No |  |
+| `extra_header_1` | `string` | No | The key for extra header #1 to send to upstream. |
+| `extra_header_2` | `string` | No | The key for extra header #2 to send to upstream. |
+| `extra_value_1` | `string` | No | The value for extra header #1 to send to upstream. |
+| `extra_value_2` | `string` | No | The value for extra header #2 to send to upstream. |
+| `is_active` | `boolean` | No | Whether or not this upstream is active and ready for requests. |
+| `mode` | `string` | No | The mode that this upstream should operate in. |
+| `name` | `string` | Yes | A descriptive name for this upstream source. |
+| `pending_validation` | `boolean` | No | When true, this upstream source is pending validation. |
+| `priority` | `number` | No | Upstream sources are selected for resolving requests by sequential order (1..n), followed by creation date. |
 | `slug_perm` | `string` | No |  |
 | `updated_at` | `string` | No |  |
-| `upstream_url` | `string` | Yes |  |
-| `verify_ssl` | `boolean` | No |  |
+| `upstream_url` | `string` | Yes | The URL for this upstream source. |
+| `verify_ssl` | `boolean` | No | If enabled, SSL certificates are verified when requests are made to this upstream. |
 
 ### Operations
 
@@ -4325,24 +4325,24 @@ const nuget = client.Nuget()
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `auth_mode` | `string` | No |  |
-| `auth_secret` | `string` | No |  |
-| `auth_username` | `string` | No |  |
-| `created_at` | `string` | No |  |
+| `auth_mode` | `string` | No | The authentication mode to use when accessing this upstream. |
+| `auth_secret` | `string` | No | Secret to provide with requests to upstream. |
+| `auth_username` | `string` | No | Username to provide with requests to upstream. |
+| `created_at` | `string` | No | The datetime the upstream source was created. |
 | `disable_reason` | `string` | No |  |
-| `extra_header_1` | `string` | No |  |
-| `extra_header_2` | `string` | No |  |
-| `extra_value_1` | `string` | No |  |
-| `extra_value_2` | `string` | No |  |
-| `is_active` | `boolean` | No |  |
-| `mode` | `string` | No |  |
-| `name` | `string` | Yes |  |
-| `pending_validation` | `boolean` | No |  |
-| `priority` | `number` | No |  |
+| `extra_header_1` | `string` | No | The key for extra header #1 to send to upstream. |
+| `extra_header_2` | `string` | No | The key for extra header #2 to send to upstream. |
+| `extra_value_1` | `string` | No | The value for extra header #1 to send to upstream. |
+| `extra_value_2` | `string` | No | The value for extra header #2 to send to upstream. |
+| `is_active` | `boolean` | No | Whether or not this upstream is active and ready for requests. |
+| `mode` | `string` | No | The mode that this upstream should operate in. |
+| `name` | `string` | Yes | A descriptive name for this upstream source. |
+| `pending_validation` | `boolean` | No | When true, this upstream source is pending validation. |
+| `priority` | `number` | No | Upstream sources are selected for resolving requests by sequential order (1..n), followed by creation date. |
 | `slug_perm` | `string` | No |  |
 | `updated_at` | `string` | No |  |
-| `upstream_url` | `string` | Yes |  |
-| `verify_ssl` | `boolean` | No |  |
+| `upstream_url` | `string` | Yes | The URL for this upstream source. |
+| `verify_ssl` | `boolean` | No | If enabled, SSL certificates are verified when requests are made to this upstream. |
 
 ### Operations
 
@@ -4463,14 +4463,14 @@ const org = client.Org()
 | `country` | `string` | No |  |
 | `created_at` | `string` | No |  |
 | `event_at` | `string` | No |  |
-| `location` | `string` | No |  |
+| `location` | `string` | No | The city/town/area your organization is based in. |
 | `name` | `string` | Yes |  |
 | `package` | `Record<string, any>` | Yes |  |
 | `policy` | `Record<string, any>` | Yes |  |
 | `reasons` | `any[]` | Yes |  |
 | `slug` | `string` | No |  |
 | `slug_perm` | `string` | No |  |
-| `tagline` | `string` | No |  |
+| `tagline` | `string` | No | A short public descriptive for your organization. |
 | `vulnerability_scan_results` | `Record<string, any>` | Yes |  |
 
 ### Actions
@@ -4702,15 +4702,15 @@ const organization_invite = client.OrganizationInvite()
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `email` | `string` | No |  |
+| `email` | `string` | No | The email of the user to be invited. |
 | `expires_at` | `string` | No |  |
 | `inviter` | `string` | No |  |
 | `inviter_url` | `string` | No |  |
 | `org` | `string` | No |  |
-| `role` | `string` | No |  |
+| `role` | `string` | No | The role to be assigned to the invited user. |
 | `slug_perm` | `string` | No |  |
 | `teams` | `any[]` | No |  |
-| `user` | `string` | No |  |
+| `user` | `string` | No | The slug of the user to be invited. |
 | `user_url` | `string` | No |  |
 
 ### Operations
@@ -4783,15 +4783,15 @@ const organization_invite_extend = client.OrganizationInviteExtend()
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `email` | `string` | No |  |
+| `email` | `string` | No | The email of the user to be invited. |
 | `expires_at` | `string` | No |  |
 | `inviter` | `string` | No |  |
 | `inviter_url` | `string` | No |  |
 | `org` | `string` | No |  |
-| `role` | `string` | No |  |
-| `slug_perm` | `string` | No |  |
+| `role` | `string` | No | The role to be assigned to the invited user. |
+| `slug_perm` | `string` | No | The slug_perm of the invite to be extended. |
 | `teams` | `any[]` | No |  |
-| `user` | `string` | No |  |
+| `user` | `string` | No | The slug of the user to be invited. |
 | `user_url` | `string` | No |  |
 
 ### Operations
@@ -5144,7 +5144,7 @@ const organization_package_vulnerability_policy = client.OrganizationPackageVuln
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `allow_unknown_severity` | `boolean` | No |  |
+| `allow_unknown_severity` | `boolean` | No | Denotes whether vulnerabilities detected by a security scan with an unknown severity are permitted by this policy. |
 | `created_at` | `string` | No |  |
 | `description` | `string` | No |  |
 | `min_severity` | `string` | No |  |
@@ -5235,8 +5235,8 @@ const organization_saml_auth = client.OrganizationSamlAuth()
 | --- | --- | --- | --- |
 | `saml_auth_enabled` | `boolean` | Yes |  |
 | `saml_auth_enforced` | `boolean` | Yes |  |
-| `saml_metadata_inline` | `string` | No |  |
-| `saml_metadata_url` | `string` | No |  |
+| `saml_metadata_inline` | `string` | No | If configured, SAML metadata will be used as entered instead of retrieved from a remote URL. |
+| `saml_metadata_url` | `string` | No | If configured, SAML metadata be retrieved from a remote URL. |
 
 ### Operations
 
@@ -5514,7 +5514,7 @@ const package_ = client.Package()
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `active` | `number` | No |  |
+| `active` | `number` | No | Number of packages with at least 1 download |
 | `architectures` | `any[]` | No |  |
 | `backend_kind` | `number` | No |  |
 | `bandwidth` | `Record<string, any>` | Yes |  |
@@ -5525,24 +5525,24 @@ const package_ = client.Package()
 | `checksum_sha512` | `string` | No |  |
 | `count` | `number` | Yes |  |
 | `dep_type` | `string` | No |  |
-| `dependencies_checksum_md5` | `string` | No |  |
+| `dependencies_checksum_md5` | `string` | No | A checksum of all of the package's dependencies. |
 | `dependencies_url` | `string` | No |  |
-| `description` | `string` | No |  |
+| `description` | `string` | No | A textual description of this package. |
 | `display_name` | `string` | No |  |
-| `distro` | `Record<string, any>` | Yes |  |
-| `distro_version` | `Record<string, any>` | No |  |
+| `distro` | `Record<string, any>` | Yes | The distributions supported by this package format |
+| `distro_version` | `Record<string, any>` | No | A list of the versions for this distribution |
 | `downloads` | `Record<string, any>` | Yes |  |
-| `epoch` | `number` | No |  |
+| `epoch` | `number` | No | The epoch of the package version (if any). |
 | `extension` | `string` | No |  |
 | `filename` | `string` | No |  |
 | `files` | `any[]` | No |  |
 | `format` | `string` | No |  |
 | `format_url` | `string` | No |  |
-| `freeable_storage` | `number` | No |  |
+| `freeable_storage` | `number` | No | Amount of storage that will be freed if this package is deleted |
 | `fully_qualified_name` | `string` | No |  |
-| `identifier_perm` | `string` | No |  |
-| `identifiers` | `Record<string, any>` | No |  |
-| `inactive` | `number` | No |  |
+| `identifier_perm` | `string` | No | Unique and permanent identifier for the package. |
+| `identifiers` | `Record<string, any>` | No | Return a map of identifier field names and their values. |
+| `inactive` | `number` | No | Packages with zero downloads |
 | `indexed` | `boolean` | No |  |
 | `is_cancellable` | `boolean` | No |  |
 | `is_copyable` | `boolean` | No |  |
@@ -5559,8 +5559,8 @@ const package_ = client.Package()
 | `is_sync_in_flight` | `boolean` | No |  |
 | `is_sync_in_progress` | `boolean` | No |  |
 | `last_push` | `string` | Yes |  |
-| `license` | `string` | No |  |
-| `name` | `string` | No |  |
+| `license` | `string` | No | The license of this package. |
+| `name` | `string` | No | The name of this package. |
 | `namespace` | `string` | No |  |
 | `namespace_url` | `string` | No |  |
 | `num_downloads` | `number` | Yes |  |
@@ -5568,41 +5568,41 @@ const package_ = client.Package()
 | `operator` | `string` | No |  |
 | `origin_repository` | `string` | No |  |
 | `origin_repository_url` | `string` | No |  |
-| `package_type` | `number` | No |  |
-| `policy_violated` | `boolean` | No |  |
-| `release` | `string` | No |  |
-| `repository` | `string` | No |  |
+| `package_type` | `number` | No | The type of package contents. |
+| `policy_violated` | `boolean` | No | Whether or not the package has violated any policy. |
+| `release` | `string` | No | The release of the package version (if any). |
+| `repository` | `string` | No | The repository the package will be copied to. |
 | `repository_url` | `string` | No |  |
-| `security_scan_completed_at` | `string` | No |  |
-| `security_scan_started_at` | `string` | No |  |
+| `security_scan_completed_at` | `string` | No | The datetime the security scanning was completed. |
+| `security_scan_started_at` | `string` | No | The datetime the security scanning was started. |
 | `security_scan_status` | `string` | No |  |
-| `security_scan_status_updated_at` | `string` | No |  |
+| `security_scan_status_updated_at` | `string` | No | The datetime the security scanning status was updated. |
 | `self_html_url` | `string` | No |  |
 | `self_url` | `string` | No |  |
 | `signature_url` | `string` | No |  |
-| `size` | `number` | No |  |
-| `slug` | `string` | No |  |
+| `size` | `number` | No | The calculated size of the package. |
+| `slug` | `string` | No | The public unique identifier for the package. |
 | `slug_perm` | `string` | No |  |
-| `stage` | `number` | No |  |
+| `stage` | `number` | No | The synchronisation (in progress) stage of the package. |
 | `stage_str` | `string` | No |  |
-| `stage_updated_at` | `string` | No |  |
-| `status` | `number` | No |  |
-| `status_reason` | `string` | No |  |
+| `stage_updated_at` | `string` | No | The datetime the package stage was updated at. |
+| `status` | `number` | No | The synchronisation status of the package. |
+| `status_reason` | `string` | No | A textual description for the synchronous status reason (if any |
 | `status_str` | `string` | No |  |
-| `status_updated_at` | `string` | No |  |
+| `status_updated_at` | `string` | No | The datetime the package status was updated at. |
 | `status_url` | `string` | No |  |
 | `subtype` | `string` | No |  |
-| `summary` | `string` | No |  |
-| `sync_finished_at` | `string` | No |  |
-| `sync_progress` | `number` | No |  |
-| `tags` | `Record<string, any>` | No |  |
-| `tags_immutable` | `Record<string, any>` | No |  |
-| `total` | `number` | No |  |
+| `summary` | `string` | No | A one-liner synopsis of this package. |
+| `sync_finished_at` | `string` | No | The datetime the package sync was finished at. |
+| `sync_progress` | `number` | No | Synchronisation progress (from 0-100) |
+| `tags` | `Record<string, any>` | No | All tags on the package, grouped by tag type. |
+| `tags_immutable` | `Record<string, any>` | No | All tags on the package, grouped by tag type. |
+| `total` | `number` | No | Total number of packages in repo |
 | `type_display` | `string` | No |  |
-| `uploaded_at` | `string` | No |  |
+| `uploaded_at` | `string` | No | The date this package was uploaded. |
 | `uploader` | `string` | No |  |
 | `uploader_url` | `string` | No |  |
-| `version` | `string` | No |  |
+| `version` | `string` | No | The raw version for this package. |
 | `version_orig` | `string` | No |  |
 | `vulnerability_scan_results_url` | `string` | No |  |
 
@@ -5627,7 +5627,7 @@ const package_ = client.Package()
 | `display_name` | - | - | - | - |
 | `distro` | - | - | - | - |
 | `distro_version` | - | - | - | - |
-| `downloads` | - | Yes | Yes | - |
+| `downloads` | Yes | Yes | Yes | - |
 | `epoch` | - | - | - | - |
 | `extension` | - | - | - | - |
 | `filename` | - | - | - | - |
@@ -5786,9 +5786,9 @@ const package_deny_policy = client.PackageDenyPolicy()
 | `action` | `string` | No |  |
 | `created_at` | `string` | No |  |
 | `description` | `string` | No |  |
-| `enabled` | `boolean` | No |  |
+| `enabled` | `boolean` | No | Whether this rule is enabled or disabled. |
 | `name` | `string` | No |  |
-| `package_query_string` | `string` | Yes |  |
+| `package_query_string` | `string` | Yes | Packages that match this query will trigger this deny rule. |
 | `slug_perm` | `string` | No |  |
 | `status` | `string` | No |  |
 | `updated_at` | `string` | No |  |
@@ -5872,9 +5872,9 @@ const package_file_parts_upload = client.PackageFilePartsUpload()
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `identifier` | `string` | No |  |
-| `upload_querystring` | `string` | No |  |
-| `upload_url` | `string` | No |  |
+| `identifier` | `string` | No | The identifier for the file to use uploading parts. |
+| `upload_querystring` | `string` | No | The querystring to use for the next-step PUT upload. |
+| `upload_url` | `string` | No | The URL to use for the next-step PUT upload |
 
 ### Operations
 
@@ -6100,7 +6100,7 @@ const package_vulnerability_policy_evaluation = client.PackageVulnerabilityPolic
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `allow_unknown_severity` | `boolean` | No |  |
+| `allow_unknown_severity` | `boolean` | No | Denotes whether vulnerabilities detected by a security scan with an unknown severity are permitted by this policy. |
 | `created_at` | `string` | No |  |
 | `description` | `string` | No |  |
 | `evaluation_count` | `number` | No |  |
@@ -6250,14 +6250,14 @@ const provider_setting = client.ProviderSetting()
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `claims` | `Record<string, any>` | Yes |  |
-| `enabled` | `boolean` | Yes |  |
-| `mapping_claim` | `string` | No |  |
-| `name` | `string` | Yes |  |
-| `provider_url` | `string` | Yes |  |
-| `service_accounts` | `any[]` | No |  |
-| `slug` | `string` | No |  |
-| `slug_perm` | `string` | No |  |
+| `claims` | `Record<string, any>` | Yes | The set of claims that any received tokens from the provider must contain to authenticate as the configured service account. |
+| `enabled` | `boolean` | Yes | Whether the provider settings should be used for incoming OIDC requests. |
+| `mapping_claim` | `string` | No | The OIDC claim to use for mapping to service accounts in dynamic_mappings. |
+| `name` | `string` | Yes | The name of the provider settings are being configured for |
+| `provider_url` | `string` | Yes | The URL from the provider that serves as the base for the OpenID configuration. |
+| `service_accounts` | `any[]` | No | The service accounts associated with these provider settings. |
+| `slug` | `string` | No | The slug of the provider settings |
+| `slug_perm` | `string` | No | The unique, immutable identifier of the provider settings. |
 
 ### Operations
 
@@ -6315,15 +6315,15 @@ const provider_settings_write = client.ProviderSettingsWrite()
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `claims` | `Record<string, any>` | Yes |  |
-| `dynamic_mappings` | `any[]` | No |  |
-| `enabled` | `boolean` | Yes |  |
-| `mapping_claim` | `string` | No |  |
-| `name` | `string` | Yes |  |
-| `provider_url` | `string` | Yes |  |
-| `service_accounts` | `any[]` | No |  |
-| `slug` | `string` | No |  |
-| `slug_perm` | `string` | No |  |
+| `claims` | `Record<string, any>` | Yes | The set of claims that any received tokens from the provider must contain to authenticate as the configured service account. |
+| `dynamic_mappings` | `any[]` | No | The dynamic mappings of `mapping_claim` values to service accounts. |
+| `enabled` | `boolean` | Yes | Whether the provider settings should be used for incoming OIDC requests. |
+| `mapping_claim` | `string` | No | The OIDC claim to use for mapping to service accounts in dynamic_mappings. |
+| `name` | `string` | Yes | The name of the provider settings are being configured for |
+| `provider_url` | `string` | Yes | The URL from the provider that serves as the base for the OpenID configuration. |
+| `service_accounts` | `any[]` | No | The service accounts associated with these provider settings. |
+| `slug` | `string` | No | The slug of the provider settings |
+| `slug_perm` | `string` | No | The unique, immutable identifier of the provider settings. |
 
 ### Operations
 
@@ -6391,24 +6391,24 @@ const python = client.Python()
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `auth_mode` | `string` | No |  |
-| `auth_secret` | `string` | No |  |
-| `auth_username` | `string` | No |  |
-| `created_at` | `string` | No |  |
+| `auth_mode` | `string` | No | The authentication mode to use when accessing this upstream. |
+| `auth_secret` | `string` | No | Secret to provide with requests to upstream. |
+| `auth_username` | `string` | No | Username to provide with requests to upstream. |
+| `created_at` | `string` | No | The datetime the upstream source was created. |
 | `disable_reason` | `string` | No |  |
-| `extra_header_1` | `string` | No |  |
-| `extra_header_2` | `string` | No |  |
-| `extra_value_1` | `string` | No |  |
-| `extra_value_2` | `string` | No |  |
-| `is_active` | `boolean` | No |  |
-| `mode` | `string` | No |  |
-| `name` | `string` | Yes |  |
-| `pending_validation` | `boolean` | No |  |
-| `priority` | `number` | No |  |
+| `extra_header_1` | `string` | No | The key for extra header #1 to send to upstream. |
+| `extra_header_2` | `string` | No | The key for extra header #2 to send to upstream. |
+| `extra_value_1` | `string` | No | The value for extra header #1 to send to upstream. |
+| `extra_value_2` | `string` | No | The value for extra header #2 to send to upstream. |
+| `is_active` | `boolean` | No | Whether or not this upstream is active and ready for requests. |
+| `mode` | `string` | No | The mode that this upstream should operate in. |
+| `name` | `string` | Yes | A descriptive name for this upstream source. |
+| `pending_validation` | `boolean` | No | When true, this upstream source is pending validation. |
+| `priority` | `number` | No | Upstream sources are selected for resolving requests by sequential order (1..n), followed by creation date. |
 | `slug_perm` | `string` | No |  |
 | `updated_at` | `string` | No |  |
-| `upstream_url` | `string` | Yes |  |
-| `verify_ssl` | `boolean` | No |  |
+| `upstream_url` | `string` | Yes | The URL for this upstream source. |
+| `verify_ssl` | `boolean` | No | If enabled, SSL certificates are verified when requests are made to this upstream. |
 
 ### Operations
 
@@ -6680,71 +6680,71 @@ const repo = client.Repo()
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `cdn_url` | `string` | No |  |
-| `content_kind` | `string` | No |  |
-| `contextual_auth_realm` | `boolean` | No |  |
-| `copy_own` | `boolean` | No |  |
-| `copy_packages` | `string` | No |  |
-| `cosign_signing_enabled` | `boolean` | No |  |
+| `cdn_url` | `string` | No | Base URL from which packages and other artifacts are downloaded. |
+| `content_kind` | `string` | No | The repository content kind determines whether this repository contains packages, or provides a distribution of packages from other repositories. |
+| `contextual_auth_realm` | `boolean` | No | If checked, missing credentials for this repository where basic authentication is required shall present an enriched value in the 'WWW-Authenticate' header containing the namespace and repository. |
+| `copy_own` | `boolean` | No | If checked, users can copy any of their own packages that they have uploaded, assuming that they still have write privilege for the repository. |
+| `copy_packages` | `string` | No | This defines the minimum level of privilege required for a user to copy packages. |
+| `cosign_signing_enabled` | `boolean` | No | When enabled, all pushed (or pulled from upstream) OCI packages and artifacts will be signed using cosign with the repository's ECDSA key. |
 | `created_at` | `string` | No |  |
-| `default_privilege` | `string` | No |  |
-| `delete_own` | `boolean` | No |  |
-| `delete_packages` | `string` | No |  |
-| `deleted_at` | `string` | No |  |
-| `description` | `string` | No |  |
-| `distributes` | `any[]` | No |  |
-| `docker_refresh_tokens_enabled` | `boolean` | No |  |
+| `default_privilege` | `string` | No | This defines the default level of privilege that all of your organization members have for this repository. |
+| `delete_own` | `boolean` | No | If checked, users can delete any of their own packages that they have uploaded, assuming that they still have write privilege for the repository. |
+| `delete_packages` | `string` | No | This defines the minimum level of privilege required for a user to delete packages. |
+| `deleted_at` | `string` | No | The datetime the repository was manually deleted at. |
+| `description` | `string` | No | A description of the repository's purpose/contents. |
+| `distributes` | `any[]` | No | The repositories distributed through this repo. |
+| `docker_refresh_tokens_enabled` | `boolean` | No | If checked, refresh tokens will be issued in addition to access tokens for Docker authentication. |
 | `ecdsa_keys` | `any[]` | No |  |
-| `enforce_eula` | `boolean` | No |  |
+| `enforce_eula` | `boolean` | No | If checked, downloads will explicitly require acceptance of an EULA. |
 | `gpg_keys` | `any[]` | No |  |
-| `index_files` | `boolean` | No |  |
+| `index_files` | `boolean` | No | If checked, files contained in packages will be indexed, which increase the synchronisation time required for packages. |
 | `is_open_source` | `boolean` | No |  |
 | `is_private` | `boolean` | No |  |
 | `is_public` | `boolean` | No |  |
-| `manage_entitlements_privilege` | `string` | No |  |
-| `move_own` | `boolean` | No |  |
-| `move_packages` | `string` | No |  |
-| `name` | `string` | Yes |  |
-| `namespace` | `string` | No |  |
-| `namespace_url` | `string` | No |  |
-| `nuget_native_signing_enabled` | `boolean` | No |  |
-| `num_downloads` | `number` | No |  |
-| `num_policy_violated_packages` | `number` | No |  |
-| `num_quarantined_packages` | `number` | No |  |
-| `open_source_license` | `string` | No |  |
-| `open_source_project_url` | `string` | No |  |
-| `package_count` | `number` | No |  |
-| `package_group_count` | `number` | No |  |
-| `proxy_npmjs` | `boolean` | No |  |
-| `proxy_pypi` | `boolean` | No |  |
-| `raw_package_index_enabled` | `boolean` | No |  |
-| `raw_package_index_signatures_enabled` | `boolean` | No |  |
-| `replace_packages` | `string` | No |  |
-| `replace_packages_by_default` | `boolean` | No |  |
-| `repository_type` | `number` | No |  |
-| `repository_type_str` | `string` | No |  |
-| `resync_own` | `boolean` | No |  |
-| `resync_packages` | `string` | No |  |
-| `scan_own` | `boolean` | No |  |
-| `scan_packages` | `string` | No |  |
-| `self_html_url` | `string` | No |  |
-| `self_url` | `string` | No |  |
-| `show_setup_all` | `boolean` | No |  |
-| `size` | `number` | No |  |
-| `size_str` | `string` | No |  |
-| `slug` | `string` | No |  |
-| `slug_perm` | `string` | No |  |
-| `storage_region` | `string` | No |  |
-| `strict_npm_validation` | `boolean` | No |  |
-| `tag_pre_releases_as_latest` | `boolean` | No |  |
-| `use_debian_labels` | `boolean` | No |  |
-| `use_default_cargo_upstream` | `boolean` | No |  |
-| `use_entitlements_privilege` | `string` | No |  |
-| `use_noarch_packages` | `boolean` | No |  |
-| `use_source_packages` | `boolean` | No |  |
-| `use_vulnerability_scanning` | `boolean` | No |  |
-| `user_entitlements_enabled` | `boolean` | No |  |
-| `view_statistics` | `string` | No |  |
+| `manage_entitlements_privilege` | `string` | No | This defines the minimum level of privilege required for a user to manage entitlement tokens with private repositories. |
+| `move_own` | `boolean` | No | If checked, users can move any of their own packages that they have uploaded, assuming that they still have write privilege for the repository. |
+| `move_packages` | `string` | No | This defines the minimum level of privilege required for a user to move packages. |
+| `name` | `string` | Yes | A descriptive name for the repository. |
+| `namespace` | `string` | No | Namespace to which this repository belongs. |
+| `namespace_url` | `string` | No | API endpoint where data about this namespace can be retrieved. |
+| `nuget_native_signing_enabled` | `boolean` | No | When enabled, all pushed (or pulled from upstream) nuget packages and artifacts will be signed using the repository's X.509 RSA certificate. |
+| `num_downloads` | `number` | No | The number of downloads for packages in the repository. |
+| `num_policy_violated_packages` | `number` | No | Number of packages with policy violations in a repository. |
+| `num_quarantined_packages` | `number` | No | Number of quarantined packages in a repository. |
+| `open_source_license` | `string` | No | The SPDX identifier of the open source license. |
+| `open_source_project_url` | `string` | No | The URL to the Open-Source project, used for validating that the project meets the requirements for Open-Source. |
+| `package_count` | `number` | No | The number of packages in the repository. |
+| `package_group_count` | `number` | No | The number of groups in the repository. |
+| `proxy_npmjs` | `boolean` | No | If checked, Npm packages that are not in the repository when requested by clients will automatically be proxied from the public npmjs.org registry. |
+| `proxy_pypi` | `boolean` | No | If checked, Python packages that are not in the repository when requested by clients will automatically be proxied from the public pypi.python.org registry. |
+| `raw_package_index_enabled` | `boolean` | No | If checked, HTML and JSON indexes will be generated that list all available raw packages in the repository. |
+| `raw_package_index_signatures_enabled` | `boolean` | No | If checked, the HTML and JSON indexes will display raw package GPG signatures alongside the index packages. |
+| `replace_packages` | `string` | No | This defines the minimum level of privilege required for a user to republish packages. |
+| `replace_packages_by_default` | `boolean` | No | If checked, uploaded packages will overwrite/replace any others with the same attributes (e.g. |
+| `repository_type` | `number` | No | The repository type changes how it is accessed and billed. |
+| `repository_type_str` | `string` | No | The repository type changes how it is accessed and billed. |
+| `resync_own` | `boolean` | No | If checked, users can resync any of their own packages that they have uploaded, assuming that they still have write privilege for the repository. |
+| `resync_packages` | `string` | No | This defines the minimum level of privilege required for a user to resync packages. |
+| `scan_own` | `boolean` | No | If checked, users can scan any of their own packages that they have uploaded, assuming that they still have write privilege for the repository. |
+| `scan_packages` | `string` | No | This defines the minimum level of privilege required for a user to scan packages. |
+| `self_html_url` | `string` | No | Website URL for this repository. |
+| `self_url` | `string` | No | API endpoint where data about this repository can be retrieved. |
+| `show_setup_all` | `boolean` | No | If checked, the Set Me Up help for all formats will always be shown, even if you don't have packages of that type uploaded. |
+| `size` | `number` | No | The calculated size of the repository. |
+| `size_str` | `string` | No | The calculated size of the repository (human readable). |
+| `slug` | `string` | No | The slug identifies the repository in URIs. |
+| `slug_perm` | `string` | No | The slug_perm immutably identifies the repository. |
+| `storage_region` | `string` | No | The Cloudsmith region in which package files are stored. |
+| `strict_npm_validation` | `boolean` | No | If checked, npm packages will be validated strictly to ensure the package matches specifcation. |
+| `tag_pre_releases_as_latest` | `boolean` | No | If checked, packages pushed with a pre-release component on that version will be marked with the 'latest' tag. |
+| `use_debian_labels` | `boolean` | No | If checked, a 'Label' field will be present in Debian-based repositories. |
+| `use_default_cargo_upstream` | `boolean` | No | If checked, dependencies of uploaded Cargo crates which do not set an explicit value for "registry" will be assumed to be available from crates.io. |
+| `use_entitlements_privilege` | `string` | No | This defines the minimum level of privilege required for a user to see/use entitlement tokens with private repositories. |
+| `use_noarch_packages` | `boolean` | No | If checked, noarch packages (if supported) are enabled in installations/configurations. |
+| `use_source_packages` | `boolean` | No | If checked, source packages (if supported) are enabled in installations/configurations. |
+| `use_vulnerability_scanning` | `boolean` | No | If checked, vulnerability scanning will be enabled for all supported packages within this repository. |
+| `user_entitlements_enabled` | `boolean` | No | If checked, users can use and manage their own user-specific entitlement token for the repository (if private). |
+| `view_statistics` | `string` | No | This defines the minimum level of privilege required for a user to view repository statistics, to include entitlement-based usage, if applicable. |
 
 ### Actions
 
@@ -6774,6 +6774,7 @@ Create a new entity with the given data.
 
 ```ts
 const result = await client.Repo().create({
+  id: 'example_id',
   name: 'example_name',
 })
 ```
@@ -6914,13 +6915,13 @@ const repository_ecdsa_key = client.RepositoryEcdsaKey()
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `active` | `boolean` | No |  |
+| `active` | `boolean` | No | If selected this is the active key for this repository. |
 | `created_at` | `string` | No |  |
-| `default` | `boolean` | No |  |
-| `fingerprint` | `string` | No |  |
+| `default` | `boolean` | No | If selected this is the default key for this repository. |
+| `fingerprint` | `string` | No | The long identifier used by ECDSA for this key. |
 | `fingerprint_short` | `string` | No |  |
-| `public_key` | `string` | No |  |
-| `ssh_fingerprint` | `string` | No |  |
+| `public_key` | `string` | No | The public key given to repository users. |
+| `ssh_fingerprint` | `string` | No | The SSH fingerprint used by ECDSA for this key. |
 
 ### Operations
 
@@ -7044,7 +7045,7 @@ const repository_geo_ip_status = client.RepositoryGeoIpStatus()
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `geoip_enabled` | `boolean` | No |  |
+| `geoip_enabled` | `boolean` | No | If checked, any access to the website or downloads for this repository is allowed/denied according to the configured Geo/IP restriction rules. |
 
 ### Operations
 
@@ -7141,13 +7142,13 @@ const repository_gpg_key = client.RepositoryGpgKey()
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `active` | `boolean` | No |  |
+| `active` | `boolean` | No | If selected this is the active key for this repository. |
 | `comment` | `string` | Yes |  |
 | `created_at` | `string` | No |  |
-| `default` | `boolean` | No |  |
-| `fingerprint` | `string` | No |  |
+| `default` | `boolean` | No | If selected this is the default key for this repository. |
+| `fingerprint` | `string` | No | The long identifier used by GPG for this key. |
 | `fingerprint_short` | `string` | No |  |
-| `public_key` | `string` | No |  |
+| `public_key` | `string` | No | The public key given to repository users. |
 
 ### Operations
 
@@ -7209,10 +7210,10 @@ const repository_privilege_input = client.RepositoryPrivilegeInput()
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `privilege` | `string` | Yes |  |
-| `service` | `string` | No |  |
-| `team` | `string` | No |  |
-| `user` | `string` | No |  |
+| `privilege` | `string` | Yes | The level of privilege that the user or team should be granted to the specified repository. |
+| `service` | `string` | No | The service identifier (slug). |
+| `team` | `string` | No | The team identifier (slug). |
+| `user` | `string` | No | The user identifier (slug). |
 
 ### Operations
 
@@ -7262,14 +7263,14 @@ const repository_retention_rule = client.RepositoryRetentionRule()
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `retention_count_limit` | `number` | No |  |
-| `retention_days_limit` | `number` | No |  |
-| `retention_enabled` | `boolean` | No |  |
-| `retention_group_by_format` | `boolean` | No |  |
-| `retention_group_by_name` | `boolean` | No |  |
-| `retention_group_by_package_type` | `boolean` | No |  |
-| `retention_package_query_string` | `string` | No |  |
-| `retention_size_limit` | `number` | No |  |
+| `retention_count_limit` | `number` | No | The maximum X number of packages to retain. |
+| `retention_days_limit` | `number` | No | The X number of days of packages to retain. |
+| `retention_enabled` | `boolean` | No | If checked, the retention lifecycle rules will be activated for the repository. |
+| `retention_group_by_format` | `boolean` | No | If checked, retention will apply to packages by package formats rather than across all package formats.For example, when retaining by a limit of 1 and you upload PythonPkg 1.0 and RubyPkg 1.0, no packages are deleted because they are diffe… |
+| `retention_group_by_name` | `boolean` | No | If checked, retention will apply to groups of packages by name rather than all packages.<br>For example, when retaining by a limit of 1 and you upload PkgA 1.0, PkgB 1.0 and PkgB 1.1; only PkgB 1.0 is deleted because there are two (2) PkgB… |
+| `retention_group_by_package_type` | `boolean` | No | If checked, retention will apply to packages by package type (e.g. |
+| `retention_package_query_string` | `string` | No | A package search expression which, if provided, filters the packages to be deleted.<br>For example, a search expression of `name:foo` will result in only packages called 'foo' being deleted, or a search expression of `tag:~latest` will pre… |
+| `retention_size_limit` | `number` | No | The maximum X total size (in bytes) of packages to retain. |
 
 ### Operations
 
@@ -7331,13 +7332,13 @@ const repository_rsa_key = client.RepositoryRsaKey()
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `active` | `boolean` | No |  |
+| `active` | `boolean` | No | If selected this is the active key for this repository. |
 | `created_at` | `string` | No |  |
-| `default` | `boolean` | No |  |
-| `fingerprint` | `string` | No |  |
+| `default` | `boolean` | No | If selected this is the default key for this repository. |
+| `fingerprint` | `string` | No | The long identifier used by RSA for this key. |
 | `fingerprint_short` | `string` | No |  |
-| `public_key` | `string` | No |  |
-| `ssh_fingerprint` | `string` | No |  |
+| `public_key` | `string` | No | The public key given to repository users. |
+| `ssh_fingerprint` | `string` | No | The SSH fingerprint used by RSA for this key. |
 
 ### Operations
 
@@ -7399,39 +7400,39 @@ const repository_token = client.RepositoryToken()
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
 | `clients` | `number` | No |  |
-| `created_at` | `string` | No |  |
+| `created_at` | `string` | No | The datetime the token was updated at. |
 | `created_by` | `string` | No |  |
 | `created_by_url` | `string` | No |  |
-| `default` | `boolean` | No |  |
+| `default` | `boolean` | No | If selected this is the default token for this repository. |
 | `disable_url` | `string` | No |  |
 | `downloads` | `number` | No |  |
 | `enable_url` | `string` | No |  |
 | `eula_accepted` | `Record<string, any>` | No |  |
-| `eula_accepted_at` | `string` | No |  |
+| `eula_accepted_at` | `string` | No | The datetime the EULA was accepted at. |
 | `eula_accepted_from` | `string` | No |  |
-| `eula_required` | `boolean` | No |  |
+| `eula_required` | `boolean` | No | If checked, a EULA acceptance is required for this token. |
 | `has_limits` | `boolean` | No |  |
-| `identifier` | `number` | No |  |
-| `is_active` | `boolean` | No |  |
+| `identifier` | `number` | No | Deprecated (23-05-15): Please use 'slug_perm' instead. |
+| `is_active` | `boolean` | No | If enabled, the token will allow downloads based on configured restrictions (if any). |
 | `is_limited` | `boolean` | No |  |
-| `limit_bandwidth` | `number` | No |  |
+| `limit_bandwidth` | `number` | No | The maximum download bandwidth allowed for the token. |
 | `limit_bandwidth_unit` | `string` | No |  |
-| `limit_date_range_from` | `string` | No |  |
-| `limit_date_range_to` | `string` | No |  |
-| `limit_num_clients` | `number` | No |  |
-| `limit_num_downloads` | `number` | No |  |
-| `limit_package_query` | `string` | No |  |
-| `limit_path_query` | `string` | No |  |
+| `limit_date_range_from` | `string` | No | The starting date/time the token is allowed to be used from. |
+| `limit_date_range_to` | `string` | No | The ending date/time the token is allowed to be used until. |
+| `limit_num_clients` | `number` | No | The maximum number of unique clients allowed for the token. |
+| `limit_num_downloads` | `number` | No | The maximum number of downloads allowed for the token. |
+| `limit_package_query` | `string` | No | The package-based search query to apply to restrict downloads to. |
+| `limit_path_query` | `string` | No | THIS WILL SOON BE DEPRECATED, please use limit_package_query instead. |
 | `metadata` | `Record<string, any>` | No |  |
 | `name` | `string` | Yes |  |
 | `refresh_url` | `string` | No |  |
 | `reset_url` | `string` | No |  |
-| `scheduled_reset_at` | `string` | No |  |
+| `scheduled_reset_at` | `string` | No | The time at which the scheduled reset period has elapsed and the token limits were automatically reset to zero. |
 | `scheduled_reset_period` | `string` | No |  |
 | `self_url` | `string` | No |  |
 | `slug_perm` | `string` | No |  |
 | `token` | `string` | No |  |
-| `updated_at` | `string` | No |  |
+| `updated_at` | `string` | No | The datetime the token was updated at. |
 | `updated_by` | `string` | No |  |
 | `updated_by_url` | `string` | No |  |
 | `usage` | `string` | No |  |
@@ -7520,39 +7521,39 @@ const repository_token_refresh = client.RepositoryTokenRefresh()
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
 | `clients` | `number` | No |  |
-| `created_at` | `string` | No |  |
+| `created_at` | `string` | No | The datetime the token was updated at. |
 | `created_by` | `string` | No |  |
 | `created_by_url` | `string` | No |  |
-| `default` | `boolean` | No |  |
+| `default` | `boolean` | No | If selected this is the default token for this repository. |
 | `disable_url` | `string` | No |  |
 | `downloads` | `number` | No |  |
 | `enable_url` | `string` | No |  |
 | `eula_accepted` | `Record<string, any>` | No |  |
-| `eula_accepted_at` | `string` | No |  |
+| `eula_accepted_at` | `string` | No | The datetime the EULA was accepted at. |
 | `eula_accepted_from` | `string` | No |  |
-| `eula_required` | `boolean` | No |  |
+| `eula_required` | `boolean` | No | If checked, a EULA acceptance is required for this token. |
 | `has_limits` | `boolean` | No |  |
-| `identifier` | `number` | No |  |
-| `is_active` | `boolean` | No |  |
+| `identifier` | `number` | No | Deprecated (23-05-15): Please use 'slug_perm' instead. |
+| `is_active` | `boolean` | No | If enabled, the token will allow downloads based on configured restrictions (if any). |
 | `is_limited` | `boolean` | No |  |
-| `limit_bandwidth` | `number` | No |  |
+| `limit_bandwidth` | `number` | No | The maximum download bandwidth allowed for the token. |
 | `limit_bandwidth_unit` | `string` | No |  |
-| `limit_date_range_from` | `string` | No |  |
-| `limit_date_range_to` | `string` | No |  |
-| `limit_num_clients` | `number` | No |  |
-| `limit_num_downloads` | `number` | No |  |
-| `limit_package_query` | `string` | No |  |
-| `limit_path_query` | `string` | No |  |
+| `limit_date_range_from` | `string` | No | The starting date/time the token is allowed to be used from. |
+| `limit_date_range_to` | `string` | No | The ending date/time the token is allowed to be used until. |
+| `limit_num_clients` | `number` | No | The maximum number of unique clients allowed for the token. |
+| `limit_num_downloads` | `number` | No | The maximum number of downloads allowed for the token. |
+| `limit_package_query` | `string` | No | The package-based search query to apply to restrict downloads to. |
+| `limit_path_query` | `string` | No | THIS WILL SOON BE DEPRECATED, please use limit_package_query instead. |
 | `metadata` | `Record<string, any>` | No |  |
 | `name` | `string` | No |  |
 | `refresh_url` | `string` | No |  |
 | `reset_url` | `string` | No |  |
-| `scheduled_reset_at` | `string` | No |  |
+| `scheduled_reset_at` | `string` | No | The time at which the scheduled reset period has elapsed and the token limits were automatically reset to zero. |
 | `scheduled_reset_period` | `string` | No |  |
 | `self_url` | `string` | No |  |
 | `slug_perm` | `string` | No |  |
 | `token` | `string` | No |  |
-| `updated_at` | `string` | No |  |
+| `updated_at` | `string` | No | The datetime the token was updated at. |
 | `updated_by` | `string` | No |  |
 | `updated_by_url` | `string` | No |  |
 | `usage` | `string` | No |  |
@@ -7611,7 +7612,7 @@ const repository_token_sync = client.RepositoryTokenSync()
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `tokens` | `any[]` | No |  |
+| `tokens` | `any[]` | No | The entitlements that have been synchronised. |
 
 ### Operations
 
@@ -7669,30 +7670,28 @@ const repository_webhook = client.RepositoryWebhook()
 | `created_by_url` | `string` | No |  |
 | `disable_reason` | `number` | No |  |
 | `disable_reason_str` | `string` | No |  |
-| `event` | `string` | Yes |  |
 | `events` | `any[]` | Yes |  |
-| `identifier` | `number` | No |  |
-| `is_active` | `boolean` | No |  |
+| `identifier` | `number` | No | Deprecated (23-05-15): Please use 'slug_perm' instead. |
+| `is_active` | `boolean` | No | If enabled, the webhook will trigger on subscribed events and send payloads to the configured target URL. |
 | `is_last_response_bad` | `boolean` | No |  |
 | `last_response_status` | `number` | No |  |
 | `last_response_status_str` | `string` | No |  |
 | `num_sent` | `number` | No |  |
-| `package_query` | `string` | No |  |
-| `request_body_format` | `number` | No |  |
+| `package_query` | `string` | No | The package-based search query for webhooks to fire. |
+| `request_body_format` | `number` | No | The format of the payloads for webhook requests. |
 | `request_body_format_str` | `string` | No |  |
-| `request_body_template_format` | `number` | No |  |
+| `request_body_template_format` | `number` | No | The format of the payloads for webhook requests. |
 | `request_body_template_format_str` | `string` | No |  |
-| `request_content_type` | `string` | No |  |
-| `secret_header` | `string` | No |  |
+| `request_content_type` | `string` | No | The value that will be sent for the 'Content Type' header. |
+| `secret_header` | `string` | No | The header to send the predefined secret in. |
 | `self_url` | `string` | No |  |
 | `slug_perm` | `string` | No |  |
-| `target_url` | `string` | Yes |  |
-| `template` | `string` | No |  |
+| `target_url` | `string` | Yes | The destination URL that webhook payloads will be POST'ed to. |
 | `templates` | `any[]` | Yes |  |
 | `updated_at` | `string` | No |  |
 | `updated_by` | `string` | No |  |
 | `updated_by_url` | `string` | No |  |
-| `verify_ssl` | `boolean` | No |  |
+| `verify_ssl` | `boolean` | No | If enabled, SSL certificates is verified when webhooks are sent. |
 
 ### Operations
 
@@ -7704,7 +7703,6 @@ Create a new entity with the given data.
 const result = await client.RepositoryWebhook().create({
   owner: 'example_owner',
   repo: 'example_repo',
-  event: 'example_event',
   events: [],
   target_url: 'example_target_url',
   templates: [],
@@ -7717,6 +7715,14 @@ List entities matching the given criteria. Returns an array.
 
 ```ts
 const results = await client.RepositoryWebhook().list({ owner: "example", repo: "example" })
+```
+
+#### `load(match: object, ctrl?: object)`
+
+Load a single entity matching the given criteria.
+
+```ts
+const result = await client.RepositoryWebhook().load({ identifier: 'identifier', owner: 'owner', repo: 'repo' })
 ```
 
 #### `update(data: object, ctrl?: object)`
@@ -7770,15 +7776,15 @@ const repository_x509_ecdsa_certificate = client.RepositoryX509EcdsaCertificate(
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `active` | `boolean` | No |  |
-| `certificate` | `string` | No |  |
-| `certificate_chain` | `string` | No |  |
+| `active` | `boolean` | No | If selected this is the active key for this repository. |
+| `certificate` | `string` | No | The issued certificate. |
+| `certificate_chain` | `string` | No | Base64 encoded CA certificate chain. |
 | `certificate_chain_fingerprint` | `string` | No |  |
 | `certificate_chain_fingerprint_short` | `string` | No |  |
-| `certificate_fingerprint` | `string` | No |  |
+| `certificate_fingerprint` | `string` | No | The SHA-256 long identifier used |
 | `certificate_fingerprint_short` | `string` | No |  |
 | `created_at` | `string` | No |  |
-| `default` | `boolean` | No |  |
+| `default` | `boolean` | No | If selected this is the default key for this repository. |
 | `issuing_status` | `string` | No |  |
 
 ### Operations
@@ -7829,15 +7835,15 @@ const repository_x509_rsa_certificate = client.RepositoryX509RsaCertificate()
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `active` | `boolean` | No |  |
-| `certificate` | `string` | No |  |
-| `certificate_chain` | `string` | No |  |
+| `active` | `boolean` | No | If selected this is the active key for this repository. |
+| `certificate` | `string` | No | The issued certificate. |
+| `certificate_chain` | `string` | No | Base64 encoded CA certificate chain. |
 | `certificate_chain_fingerprint` | `string` | No |  |
 | `certificate_chain_fingerprint_short` | `string` | No |  |
-| `certificate_fingerprint` | `string` | No |  |
+| `certificate_fingerprint` | `string` | No | The SHA-256 long identifier used |
 | `certificate_fingerprint_short` | `string` | No |  |
 | `created_at` | `string` | No |  |
-| `default` | `boolean` | No |  |
+| `default` | `boolean` | No | If selected this is the default key for this repository. |
 | `issuing_status` | `string` | No |  |
 
 ### Operations
@@ -7922,12 +7928,12 @@ const resources_rate_check = client.ResourcesRateCheck()
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `interval` | `number` | No |  |
-| `limit` | `number` | No |  |
-| `remaining` | `number` | No |  |
-| `reset` | `number` | No |  |
-| `reset_iso_8601` | `string` | No |  |
-| `throttled` | `boolean` | No |  |
+| `interval` | `number` | No | The time in seconds that you are suggested to wait until the next request in order to avoid consuming too much within the rate limit window. |
+| `limit` | `number` | No | The maximum number of requests that you are permitted to send per hour |
+| `remaining` | `number` | No | The number of requests that are remaining in the current rate limit window |
+| `reset` | `number` | No | The UTC epoch timestamp at which the current rate limit window will reset |
+| `reset_iso_8601` | `string` | No | The ISO 8601 datetime at which the current rate limit window will reset |
+| `throttled` | `boolean` | No | If true, throttling is currently being enforced. |
 
 ### Operations
 
@@ -8045,30 +8051,30 @@ const rpm = client.Rpm()
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `auth_mode` | `string` | No |  |
-| `auth_secret` | `string` | No |  |
-| `auth_username` | `string` | No |  |
-| `created_at` | `string` | No |  |
+| `auth_mode` | `string` | No | The authentication mode to use when accessing this upstream. |
+| `auth_secret` | `string` | No | Secret to provide with requests to upstream. |
+| `auth_username` | `string` | No | Username to provide with requests to upstream. |
+| `created_at` | `string` | No | The datetime the upstream source was created. |
 | `disable_reason` | `string` | No |  |
-| `distro_version` | `string` | Yes |  |
-| `extra_header_1` | `string` | No |  |
-| `extra_header_2` | `string` | No |  |
-| `extra_value_1` | `string` | No |  |
-| `extra_value_2` | `string` | No |  |
-| `gpg_key_inline` | `string` | No |  |
-| `gpg_key_url` | `string` | No |  |
-| `gpg_verification` | `string` | No |  |
-| `include_sources` | `boolean` | No |  |
-| `is_active` | `boolean` | No |  |
-| `mode` | `string` | No |  |
-| `name` | `string` | Yes |  |
-| `pending_validation` | `boolean` | No |  |
-| `priority` | `number` | No |  |
+| `distro_version` | `string` | Yes | The distribution version that packages found on this upstream will be associated with. |
+| `extra_header_1` | `string` | No | The key for extra header #1 to send to upstream. |
+| `extra_header_2` | `string` | No | The key for extra header #2 to send to upstream. |
+| `extra_value_1` | `string` | No | The value for extra header #1 to send to upstream. |
+| `extra_value_2` | `string` | No | The value for extra header #2 to send to upstream. |
+| `gpg_key_inline` | `string` | No | A public GPG key to associate with packages found on this upstream. |
+| `gpg_key_url` | `string` | No | When provided, Cloudsmith will fetch, validate, and associate a public GPG key found at the provided URL. |
+| `gpg_verification` | `string` | No | The GPG signature verification mode for this upstream. |
+| `include_sources` | `boolean` | No | When checked, source packages will be available from this upstream. |
+| `is_active` | `boolean` | No | Whether or not this upstream is active and ready for requests. |
+| `mode` | `string` | No | The mode that this upstream should operate in. |
+| `name` | `string` | Yes | A descriptive name for this upstream source. |
+| `pending_validation` | `boolean` | No | When true, this upstream source is pending validation. |
+| `priority` | `number` | No | Upstream sources are selected for resolving requests by sequential order (1..n), followed by creation date. |
 | `slug_perm` | `string` | No |  |
 | `updated_at` | `string` | No |  |
-| `upstream_url` | `string` | Yes |  |
-| `verification_status` | `string` | No |  |
-| `verify_ssl` | `boolean` | No |  |
+| `upstream_url` | `string` | Yes | The URL for this upstream source. |
+| `verification_status` | `string` | No | The signature verification status for this upstream. |
+| `verify_ssl` | `boolean` | No | If enabled, SSL certificates are verified when requests are made to this upstream. |
 
 ### Operations
 
@@ -8187,24 +8193,24 @@ const ruby = client.Ruby()
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `auth_mode` | `string` | No |  |
-| `auth_secret` | `string` | No |  |
-| `auth_username` | `string` | No |  |
-| `created_at` | `string` | No |  |
+| `auth_mode` | `string` | No | The authentication mode to use when accessing this upstream. |
+| `auth_secret` | `string` | No | Secret to provide with requests to upstream. |
+| `auth_username` | `string` | No | Username to provide with requests to upstream. |
+| `created_at` | `string` | No | The datetime the upstream source was created. |
 | `disable_reason` | `string` | No |  |
-| `extra_header_1` | `string` | No |  |
-| `extra_header_2` | `string` | No |  |
-| `extra_value_1` | `string` | No |  |
-| `extra_value_2` | `string` | No |  |
-| `is_active` | `boolean` | No |  |
-| `mode` | `string` | No |  |
-| `name` | `string` | Yes |  |
-| `pending_validation` | `boolean` | No |  |
-| `priority` | `number` | No |  |
+| `extra_header_1` | `string` | No | The key for extra header #1 to send to upstream. |
+| `extra_header_2` | `string` | No | The key for extra header #2 to send to upstream. |
+| `extra_value_1` | `string` | No | The value for extra header #1 to send to upstream. |
+| `extra_value_2` | `string` | No | The value for extra header #2 to send to upstream. |
+| `is_active` | `boolean` | No | Whether or not this upstream is active and ready for requests. |
+| `mode` | `string` | No | The mode that this upstream should operate in. |
+| `name` | `string` | Yes | A descriptive name for this upstream source. |
+| `pending_validation` | `boolean` | No | When true, this upstream source is pending validation. |
+| `priority` | `number` | No | Upstream sources are selected for resolving requests by sequential order (1..n), followed by creation date. |
 | `slug_perm` | `string` | No |  |
 | `updated_at` | `string` | No |  |
-| `upstream_url` | `string` | Yes |  |
-| `verify_ssl` | `boolean` | No |  |
+| `upstream_url` | `string` | Yes | The URL for this upstream source. |
+| `verify_ssl` | `boolean` | No | If enabled, SSL certificates are verified when requests are made to this upstream. |
 
 ### Operations
 
@@ -8393,12 +8399,12 @@ const service = client.Service()
 | `created_at` | `string` | No |  |
 | `created_by` | `string` | No |  |
 | `created_by_url` | `string` | No |  |
-| `description` | `string` | No |  |
-| `key` | `string` | No |  |
-| `key_expires_at` | `string` | No |  |
-| `name` | `string` | Yes |  |
-| `role` | `string` | No |  |
-| `slug` | `string` | No |  |
+| `description` | `string` | No | The description of the service |
+| `key` | `string` | No | The API key of the service |
+| `key_expires_at` | `string` | No | The time at which the API key will expire. |
+| `name` | `string` | Yes | The name of the service |
+| `role` | `string` | No | The role of the service. |
+| `slug` | `string` | No | The slug of the service |
 | `teams` | `any[]` | No |  |
 
 ### Actions
@@ -8534,8 +8540,8 @@ const status_basic = client.StatusBasic()
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `detail` | `string` | No |  |
-| `version` | `string` | No |  |
+| `detail` | `string` | No | The message describing the state of the API. |
+| `version` | `string` | No | The current version for the Cloudsmith service. |
 
 ### Operations
 
@@ -8585,8 +8591,8 @@ const storage_region = client.StorageRegion()
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `label` | `string` | Yes |  |
-| `slug` | `string` | Yes |  |
+| `label` | `string` | Yes | Name of the storage region |
+| `slug` | `string` | Yes | Slug for the storage region |
 
 ### Operations
 
@@ -8644,24 +8650,24 @@ const swift = client.Swift()
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `auth_mode` | `string` | No |  |
-| `auth_secret` | `string` | No |  |
-| `auth_username` | `string` | No |  |
-| `created_at` | `string` | No |  |
+| `auth_mode` | `string` | No | The authentication mode to use when accessing this upstream. |
+| `auth_secret` | `string` | No | Secret to provide with requests to upstream. |
+| `auth_username` | `string` | No | Username to provide with requests to upstream. |
+| `created_at` | `string` | No | The datetime the upstream source was created. |
 | `disable_reason` | `string` | No |  |
-| `extra_header_1` | `string` | No |  |
-| `extra_header_2` | `string` | No |  |
-| `extra_value_1` | `string` | No |  |
-| `extra_value_2` | `string` | No |  |
-| `is_active` | `boolean` | No |  |
-| `mode` | `string` | No |  |
-| `name` | `string` | Yes |  |
-| `pending_validation` | `boolean` | No |  |
-| `priority` | `number` | No |  |
+| `extra_header_1` | `string` | No | The key for extra header #1 to send to upstream. |
+| `extra_header_2` | `string` | No | The key for extra header #2 to send to upstream. |
+| `extra_value_1` | `string` | No | The value for extra header #1 to send to upstream. |
+| `extra_value_2` | `string` | No | The value for extra header #2 to send to upstream. |
+| `is_active` | `boolean` | No | Whether or not this upstream is active and ready for requests. |
+| `mode` | `string` | No | The mode that this upstream should operate in. |
+| `name` | `string` | Yes | A descriptive name for this upstream source. |
+| `pending_validation` | `boolean` | No | When true, this upstream source is pending validation. |
+| `priority` | `number` | No | Upstream sources are selected for resolving requests by sequential order (1..n), followed by creation date. |
 | `slug_perm` | `string` | No |  |
 | `updated_at` | `string` | No |  |
-| `upstream_url` | `string` | Yes |  |
-| `verify_ssl` | `boolean` | No |  |
+| `upstream_url` | `string` | Yes | The URL for this upstream source. |
+| `verify_ssl` | `boolean` | No | If enabled, SSL certificates are verified when requests are made to this upstream. |
 
 ### Operations
 
@@ -8983,9 +8989,9 @@ const user = client.User()
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `created` | `string` | No |  |
-| `key` | `string` | No |  |
-| `slug_perm` | `string` | No |  |
+| `created` | `string` | No | The time at which the API key was created. |
+| `key` | `string` | No | The unique API key used for authentication. |
+| `slug_perm` | `string` | No | The slug_perm for token. |
 
 ### Actions
 
@@ -9100,9 +9106,9 @@ const user_authentication_token = client.UserAuthenticationToken()
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `created` | `string` | No |  |
-| `key` | `string` | No |  |
-| `slug_perm` | `string` | No |  |
+| `created` | `string` | No | The time at which the API key was created. |
+| `key` | `string` | No | The unique API key used for authentication. |
+| `slug_perm` | `string` | No | The slug_perm for token. |
 
 ### Operations
 
@@ -9164,10 +9170,10 @@ const user_brief = client.UserBrief()
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `authenticated` | `boolean` | No |  |
-| `email` | `string` | No |  |
-| `name` | `string` | No |  |
-| `profile_url` | `string` | No |  |
+| `authenticated` | `boolean` | No | If true then you're logged in as a user. |
+| `email` | `string` | No | Your email address that we use to contact you. |
+| `name` | `string` | No | The full name of the user (if any). |
+| `profile_url` | `string` | No | The URL for the full profile of the user. |
 | `self_url` | `string` | No |  |
 | `slug` | `string` | No |  |
 | `slug_perm` | `string` | No |  |
@@ -9228,7 +9234,7 @@ const user_profile = client.UserProfile()
 | `name` | `string` | No |  |
 | `slug` | `string` | No |  |
 | `slug_perm` | `string` | No |  |
-| `tagline` | `string` | No |  |
+| `tagline` | `string` | No | Your tagline is a sentence about you. |
 | `url` | `string` | No |  |
 
 ### Operations
@@ -9381,16 +9387,14 @@ const vulnerability = client.Vulnerability()
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `created_at` | `string` | No |  |
-| `has_vulnerabilities` | `boolean` | No |  |
+| `created_at` | `string` | No | The time this scan result was stored. |
+| `has_vulnerabilities` | `boolean` | No | Do the results contain any known vulnerabilities? |
 | `identifier` | `string` | Yes |  |
 | `max_severity` | `string` | No |  |
 | `num_vulnerabilities` | `number` | No |  |
 | `package` | `Record<string, any>` | Yes |  |
-| `results` | `any[]` | Yes |  |
-| `scan_id` | `number` | Yes |  |
-| `target` | `string` | Yes |  |
-| `type` | `string` | Yes |  |
+| `scan_id` | `number` | Yes | Deprecated (23-05-15): Please use 'identifier' instead. |
+| `scans` | `any[]` | Yes |  |
 
 ### Operations
 

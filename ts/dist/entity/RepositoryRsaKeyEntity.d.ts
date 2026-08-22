@@ -5,7 +5,7 @@ import type { RepositoryRsaKey, RepositoryRsaKeyLoadMatch, RepositoryRsaKeyCreat
 declare class RepositoryRsaKeyEntity extends CloudsmithEntityBase<RepositoryRsaKey> {
     constructor(client: CloudsmithSDK, entopts: any);
     make(this: RepositoryRsaKeyEntity): RepositoryRsaKeyEntity;
-    load(this: any, reqmatch?: RepositoryRsaKeyLoadMatch, ctrl?: Control): Promise<RepositoryRsaKey>;
-    create(this: any, reqdata?: RepositoryRsaKeyCreateData, ctrl?: Control): Promise<RepositoryRsaKey>;
+    load(this: any, reqmatch?: RepositoryRsaKeyLoadMatch, ctrl?: Control): Promise<RepositoryRsaKeyEntity>;
+    create(this: any, reqdata?: RepositoryRsaKeyCreateData, ctrl?: Control): Promise<RepositoryRsaKeyEntity>;
 }
 export { RepositoryRsaKeyEntity };

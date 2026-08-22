@@ -76,13 +76,13 @@ const utility_1 = require("../../utility");
         const organization_membership_ref01_ent = client.OrganizationMembership();
         const organization_membership_ref01_match = {};
         organization_membership_ref01_match['org_id'] = setup.idmap['org01'];
-        const organization_membership_ref01_list = await organization_membership_ref01_ent.list(organization_membership_ref01_match);
+        const organization_membership_ref01_list = (await organization_membership_ref01_ent.list(organization_membership_ref01_match)).map((e) => e.data());
         // UPDATE
         const organization_membership_ref01_data_up0 = {};
         organization_membership_ref01_data_up0['org_id'] = setup.idmap['org_id'];
         const organization_membership_ref01_markdef_up0 = { name: 'email', value: 'Mark01-organization_membership_ref01_' + setup.now };
         organization_membership_ref01_data_up0[organization_membership_ref01_markdef_up0.name] = organization_membership_ref01_markdef_up0.value;
-        const organization_membership_ref01_resdata_up0 = await organization_membership_ref01_ent.update(organization_membership_ref01_data_up0);
+        const organization_membership_ref01_resdata_up0 = (await organization_membership_ref01_ent.update(organization_membership_ref01_data_up0)).data();
         (0, node_assert_1.default)(null != organization_membership_ref01_resdata_up0);
         (0, node_assert_1.default)(organization_membership_ref01_resdata_up0[organization_membership_ref01_markdef_up0.name] === organization_membership_ref01_markdef_up0.value);
     });

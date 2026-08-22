@@ -5,7 +5,7 @@ import type { Namespace, NamespaceLoadMatch, NamespaceListMatch } from '../Cloud
 declare class NamespaceEntity extends CloudsmithEntityBase<Namespace> {
     constructor(client: CloudsmithSDK, entopts: any);
     make(this: NamespaceEntity): NamespaceEntity;
-    load(this: any, reqmatch?: NamespaceLoadMatch, ctrl?: Control): Promise<Namespace>;
-    list(this: any, reqmatch?: NamespaceListMatch, ctrl?: Control): Promise<Namespace[]>;
+    load(this: any, reqmatch?: NamespaceLoadMatch, ctrl?: Control): Promise<NamespaceEntity>;
+    list(this: any, reqmatch?: NamespaceListMatch, ctrl?: Control): Promise<NamespaceEntity[]>;
 }
 export { NamespaceEntity };

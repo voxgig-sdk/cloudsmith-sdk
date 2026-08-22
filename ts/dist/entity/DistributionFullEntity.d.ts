@@ -5,7 +5,7 @@ import type { DistributionFull, DistributionFullLoadMatch, DistributionFullListM
 declare class DistributionFullEntity extends CloudsmithEntityBase<DistributionFull> {
     constructor(client: CloudsmithSDK, entopts: any);
     make(this: DistributionFullEntity): DistributionFullEntity;
-    load(this: any, reqmatch?: DistributionFullLoadMatch, ctrl?: Control): Promise<DistributionFull>;
-    list(this: any, reqmatch?: DistributionFullListMatch, ctrl?: Control): Promise<DistributionFull[]>;
+    load(this: any, reqmatch?: DistributionFullLoadMatch, ctrl?: Control): Promise<DistributionFullEntity>;
+    list(this: any, reqmatch?: DistributionFullListMatch, ctrl?: Control): Promise<DistributionFullEntity[]>;
 }
 export { DistributionFullEntity };

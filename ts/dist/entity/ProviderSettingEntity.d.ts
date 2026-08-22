@@ -5,7 +5,7 @@ import type { ProviderSetting, ProviderSettingLoadMatch, ProviderSettingListMatc
 declare class ProviderSettingEntity extends CloudsmithEntityBase<ProviderSetting> {
     constructor(client: CloudsmithSDK, entopts: any);
     make(this: ProviderSettingEntity): ProviderSettingEntity;
-    load(this: any, reqmatch?: ProviderSettingLoadMatch, ctrl?: Control): Promise<ProviderSetting>;
-    list(this: any, reqmatch?: ProviderSettingListMatch, ctrl?: Control): Promise<ProviderSetting[]>;
+    load(this: any, reqmatch?: ProviderSettingLoadMatch, ctrl?: Control): Promise<ProviderSettingEntity>;
+    list(this: any, reqmatch?: ProviderSettingListMatch, ctrl?: Control): Promise<ProviderSettingEntity[]>;
 }
 export { ProviderSettingEntity };

@@ -75,7 +75,7 @@ const utility_1 = require("../../utility");
         // LIST
         const storage_region_ref01_ent = client.StorageRegion();
         const storage_region_ref01_match = {};
-        const storage_region_ref01_list = await storage_region_ref01_ent.list(storage_region_ref01_match);
+        const storage_region_ref01_list = (await storage_region_ref01_ent.list(storage_region_ref01_match)).map((e) => e.data());
     });
 });
 function basicSetup(extra) {

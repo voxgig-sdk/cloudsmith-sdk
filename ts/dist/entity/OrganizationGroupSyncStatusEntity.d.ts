@@ -5,6 +5,6 @@ import type { OrganizationGroupSyncStatus, OrganizationGroupSyncStatusLoadMatch 
 declare class OrganizationGroupSyncStatusEntity extends CloudsmithEntityBase<OrganizationGroupSyncStatus> {
     constructor(client: CloudsmithSDK, entopts: any);
     make(this: OrganizationGroupSyncStatusEntity): OrganizationGroupSyncStatusEntity;
-    load(this: any, reqmatch?: OrganizationGroupSyncStatusLoadMatch, ctrl?: Control): Promise<OrganizationGroupSyncStatus>;
+    load(this: any, reqmatch?: OrganizationGroupSyncStatusLoadMatch, ctrl?: Control): Promise<OrganizationGroupSyncStatusEntity>;
 }
 export { OrganizationGroupSyncStatusEntity };

@@ -5,9 +5,9 @@ import type { Composer, ComposerLoadMatch, ComposerListMatch, ComposerCreateData
 declare class ComposerEntity extends CloudsmithEntityBase<Composer> {
     constructor(client: CloudsmithSDK, entopts: any);
     make(this: ComposerEntity): ComposerEntity;
-    load(this: any, reqmatch?: ComposerLoadMatch, ctrl?: Control): Promise<Composer>;
-    list(this: any, reqmatch?: ComposerListMatch, ctrl?: Control): Promise<Composer[]>;
-    create(this: any, reqdata?: ComposerCreateData, ctrl?: Control): Promise<Composer>;
-    update(this: any, reqdata?: ComposerUpdateData, ctrl?: Control): Promise<Composer>;
+    load(this: any, reqmatch?: ComposerLoadMatch, ctrl?: Control): Promise<ComposerEntity>;
+    list(this: any, reqmatch?: ComposerListMatch, ctrl?: Control): Promise<ComposerEntity[]>;
+    create(this: any, reqdata?: ComposerCreateData, ctrl?: Control): Promise<ComposerEntity>;
+    update(this: any, reqdata?: ComposerUpdateData, ctrl?: Control): Promise<ComposerEntity>;
 }
 export { ComposerEntity };

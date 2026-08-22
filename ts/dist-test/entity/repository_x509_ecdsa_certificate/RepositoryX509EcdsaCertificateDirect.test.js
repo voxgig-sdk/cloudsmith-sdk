@@ -68,7 +68,7 @@ const utility_1 = require("../../utility");
 function directSetup(mockres) {
     const calls = [];
     const env = (0, utility_1.envOverride)({
-        'CLOUDSMITH_TEST_REPOSITORY_X____ECDSA_CERTIFICATE_ENTID': {},
+        'CLOUDSMITH_TEST_REPOSITORY_X509_ECDSA_CERTIFICATE_ENTID': {},
         'CLOUDSMITH_TEST_LIVE': 'FALSE',
         'CLOUDSMITH_APIKEY': 'NONE',
     });
@@ -77,7 +77,7 @@ function directSetup(mockres) {
         const client = new __1.CloudsmithSDK({
             apikey: env.CLOUDSMITH_APIKEY,
         });
-        let idmap = env['CLOUDSMITH_TEST_REPOSITORY_X____ECDSA_CERTIFICATE_ENTID'];
+        let idmap = env['CLOUDSMITH_TEST_REPOSITORY_X509_ECDSA_CERTIFICATE_ENTID'];
         if ('string' === typeof idmap && idmap.startsWith('{')) {
             idmap = JSON.parse(idmap);
         }

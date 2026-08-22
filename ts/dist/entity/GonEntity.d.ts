@@ -5,9 +5,9 @@ import type { Gon, GonLoadMatch, GonListMatch, GonCreateData, GonUpdateData } fr
 declare class GonEntity extends CloudsmithEntityBase<Gon> {
     constructor(client: CloudsmithSDK, entopts: any);
     make(this: GonEntity): GonEntity;
-    load(this: any, reqmatch?: GonLoadMatch, ctrl?: Control): Promise<Gon>;
-    list(this: any, reqmatch?: GonListMatch, ctrl?: Control): Promise<Gon[]>;
-    create(this: any, reqdata?: GonCreateData, ctrl?: Control): Promise<Gon>;
-    update(this: any, reqdata?: GonUpdateData, ctrl?: Control): Promise<Gon>;
+    load(this: any, reqmatch?: GonLoadMatch, ctrl?: Control): Promise<GonEntity>;
+    list(this: any, reqmatch?: GonListMatch, ctrl?: Control): Promise<GonEntity[]>;
+    create(this: any, reqdata?: GonCreateData, ctrl?: Control): Promise<GonEntity>;
+    update(this: any, reqdata?: GonUpdateData, ctrl?: Control): Promise<GonEntity>;
 }
 export { GonEntity };

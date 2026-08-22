@@ -76,20 +76,20 @@ const utility_1 = require("../../utility");
         let cran_ref01_data = setup.data.new.cran['cran_ref01'];
         cran_ref01_data['identifier'] = setup.idmap['identifier01'];
         cran_ref01_data['owner'] = setup.idmap['owner01'];
-        cran_ref01_data = await cran_ref01_ent.create(cran_ref01_data);
+        cran_ref01_data = (await cran_ref01_ent.create(cran_ref01_data)).data();
         (0, node_assert_1.default)(null != cran_ref01_data);
         // LIST
         const cran_ref01_match = {};
         cran_ref01_match['identifier'] = setup.idmap['identifier01'];
         cran_ref01_match['owner'] = setup.idmap['owner01'];
-        const cran_ref01_list = await cran_ref01_ent.list(cran_ref01_match);
+        const cran_ref01_list = (await cran_ref01_ent.list(cran_ref01_match)).map((e) => e.data());
         // UPDATE
         const cran_ref01_data_up0 = {};
         cran_ref01_data_up0['identifier'] = setup.idmap['identifier'];
         cran_ref01_data_up0['owner'] = setup.idmap['owner'];
         const cran_ref01_markdef_up0 = { name: 'auth_mode', value: 'Mark01-cran_ref01_' + setup.now };
         cran_ref01_data_up0[cran_ref01_markdef_up0.name] = cran_ref01_markdef_up0.value;
-        const cran_ref01_resdata_up0 = await cran_ref01_ent.update(cran_ref01_data_up0);
+        const cran_ref01_resdata_up0 = (await cran_ref01_ent.update(cran_ref01_data_up0)).data();
         (0, node_assert_1.default)(null != cran_ref01_resdata_up0);
         (0, node_assert_1.default)(cran_ref01_resdata_up0[cran_ref01_markdef_up0.name] === cran_ref01_markdef_up0.value);
     });

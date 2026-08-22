@@ -618,9 +618,7 @@
 ---@field total? number
 
 ---@class EntitlementLoadMatch
----@field owner? any
----@field repo? any
----@field id? string
+---@field id string
 
 ---@class EntitlementCreateData
 ---@field identifier any
@@ -2164,8 +2162,7 @@
 ---@field raw table
 
 ---@class QuotaLoadMatch
----@field id? string
----@field owner? any
+---@field id string
 
 ---@class Raw
 
@@ -2244,13 +2241,74 @@
 ---@field id string
 
 ---@class RepoListMatch
----@field identifier? any
----@field owner? any
+---@field cdn_url? string
+---@field content_kind? string
+---@field contextual_auth_realm? boolean
+---@field copy_own? boolean
+---@field copy_packages? string
+---@field cosign_signing_enabled? boolean
+---@field created_at? string
+---@field default_privilege? string
+---@field delete_own? boolean
+---@field delete_packages? string
+---@field deleted_at? string
+---@field description? string
+---@field distributes? table
+---@field docker_refresh_tokens_enabled? boolean
+---@field ecdsa_keys? table
+---@field enforce_eula? boolean
+---@field gpg_keys? table
+---@field index_files? boolean
+---@field is_open_source? boolean
+---@field is_private? boolean
+---@field is_public? boolean
+---@field manage_entitlements_privilege? string
+---@field move_own? boolean
+---@field move_packages? string
+---@field name? string
+---@field namespace? string
+---@field namespace_url? string
+---@field nuget_native_signing_enabled? boolean
+---@field num_downloads? number
+---@field num_policy_violated_packages? number
+---@field num_quarantined_packages? number
+---@field open_source_license? string
+---@field open_source_project_url? string
+---@field package_count? number
+---@field package_group_count? number
+---@field proxy_npmjs? boolean
+---@field proxy_pypi? boolean
+---@field raw_package_index_enabled? boolean
+---@field raw_package_index_signatures_enabled? boolean
+---@field replace_packages? string
+---@field replace_packages_by_default? boolean
+---@field repository_type? number
+---@field repository_type_str? string
+---@field resync_own? boolean
+---@field resync_packages? string
+---@field scan_own? boolean
+---@field scan_packages? string
+---@field self_html_url? string
+---@field self_url? string
+---@field show_setup_all? boolean
+---@field size? number
+---@field size_str? string
+---@field slug? string
+---@field slug_perm? string
+---@field storage_region? string
+---@field strict_npm_validation? boolean
+---@field tag_pre_releases_as_latest? boolean
+---@field use_debian_labels? boolean
+---@field use_default_cargo_upstream? boolean
+---@field use_entitlements_privilege? string
+---@field use_noarch_packages? boolean
+---@field use_source_packages? boolean
+---@field use_vulnerability_scanning? boolean
+---@field user_entitlements_enabled? boolean
+---@field view_statistics? string
 
 ---@class RepoCreateData
----@field identifier? any
----@field owner? any
----@field id? string
+---@field id string
 ---@field cdn_url? string
 ---@field content_kind? string
 ---@field contextual_auth_realm? boolean
@@ -2779,7 +2837,6 @@
 ---@field created_by_url? string
 ---@field disable_reason? number
 ---@field disable_reason_str? string
----@field event string
 ---@field events table
 ---@field identifier? number
 ---@field is_active? boolean
@@ -2797,17 +2854,20 @@
 ---@field self_url? string
 ---@field slug_perm? string
 ---@field target_url string
----@field template? string
 ---@field templates table
 ---@field updated_at? string
 ---@field updated_by? string
 ---@field updated_by_url? string
 ---@field verify_ssl? boolean
 
+---@class RepositoryWebhookLoadMatch
+---@field identifier any
+---@field owner any
+---@field repo any
+
 ---@class RepositoryWebhookListMatch
 ---@field owner any
 ---@field repo any
----@field identifier? any
 
 ---@class RepositoryWebhookCreateData
 ---@field owner any
@@ -2817,7 +2877,6 @@
 ---@field created_by_url? string
 ---@field disable_reason? number
 ---@field disable_reason_str? string
----@field event string
 ---@field events table
 ---@field identifier? number
 ---@field is_active? boolean
@@ -2835,7 +2894,6 @@
 ---@field self_url? string
 ---@field slug_perm? string
 ---@field target_url string
----@field template? string
 ---@field templates table
 ---@field updated_at? string
 ---@field updated_by? string
@@ -2851,7 +2909,6 @@
 ---@field created_by_url? string
 ---@field disable_reason? number
 ---@field disable_reason_str? string
----@field event? string
 ---@field events? table
 ---@field is_active? boolean
 ---@field is_last_response_bad? boolean
@@ -2868,7 +2925,6 @@
 ---@field self_url? string
 ---@field slug_perm? string
 ---@field target_url? string
----@field template? string
 ---@field templates? table
 ---@field updated_at? string
 ---@field updated_by? string
@@ -3333,10 +3389,8 @@
 ---@field max_severity? string
 ---@field num_vulnerabilities? number
 ---@field package table
----@field results table
 ---@field scan_id number
----@field target string
----@field type string
+---@field scans table
 
 ---@class VulnerabilityLoadMatch
 ---@field id string
@@ -3345,7 +3399,6 @@
 ---@field owner any
 ---@field package? any
 ---@field repo any
----@field identifier? any
 
 ---@class VulnerabilityPolicy
 

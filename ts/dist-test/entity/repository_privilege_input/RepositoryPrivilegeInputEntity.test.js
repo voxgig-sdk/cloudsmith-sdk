@@ -77,7 +77,7 @@ const utility_1 = require("../../utility");
         const repository_privilege_input_ref01_match = {};
         repository_privilege_input_ref01_match['identifier'] = setup.idmap['identifier01'];
         repository_privilege_input_ref01_match['owner'] = setup.idmap['owner01'];
-        const repository_privilege_input_ref01_list = await repository_privilege_input_ref01_ent.list(repository_privilege_input_ref01_match);
+        const repository_privilege_input_ref01_list = (await repository_privilege_input_ref01_ent.list(repository_privilege_input_ref01_match)).map((e) => e.data());
     });
 });
 function basicSetup(extra) {

@@ -76,18 +76,18 @@ const utility_1 = require("../../utility");
         let service_ref01_data = setup.data.new.service['service_ref01'];
         service_ref01_data['org_id'] = setup.idmap['org01'];
         service_ref01_data['service'] = setup.idmap['service01'];
-        service_ref01_data = await service_ref01_ent.create(service_ref01_data);
+        service_ref01_data = (await service_ref01_ent.create(service_ref01_data)).data();
         (0, node_assert_1.default)(null != service_ref01_data);
         // LIST
         const service_ref01_match = {};
         service_ref01_match['org_id'] = setup.idmap['org01'];
-        const service_ref01_list = await service_ref01_ent.list(service_ref01_match);
+        const service_ref01_list = (await service_ref01_ent.list(service_ref01_match)).map((e) => e.data());
         // UPDATE
         const service_ref01_data_up0 = {};
         service_ref01_data_up0['org_id'] = setup.idmap['org_id'];
         const service_ref01_markdef_up0 = { name: 'created_at', value: 'Mark01-service_ref01_' + setup.now };
         service_ref01_data_up0[service_ref01_markdef_up0.name] = service_ref01_markdef_up0.value;
-        const service_ref01_resdata_up0 = await service_ref01_ent.update(service_ref01_data_up0);
+        const service_ref01_resdata_up0 = (await service_ref01_ent.update(service_ref01_data_up0)).data();
         (0, node_assert_1.default)(null != service_ref01_resdata_up0);
         (0, node_assert_1.default)(service_ref01_resdata_up0[service_ref01_markdef_up0.name] === service_ref01_markdef_up0.value);
     });

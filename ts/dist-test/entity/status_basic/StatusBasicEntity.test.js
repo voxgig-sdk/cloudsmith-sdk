@@ -75,7 +75,7 @@ const utility_1 = require("../../utility");
         // LOAD
         const status_basic_ref01_ent = client.StatusBasic();
         const status_basic_ref01_match_dt0 = {};
-        const status_basic_ref01_data_dt0 = await status_basic_ref01_ent.load(status_basic_ref01_match_dt0);
+        const status_basic_ref01_data_dt0 = (await status_basic_ref01_ent.load(status_basic_ref01_match_dt0)).data();
         (0, node_assert_1.default)(null != status_basic_ref01_data_dt0);
     });
 });

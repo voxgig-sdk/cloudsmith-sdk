@@ -74,7 +74,7 @@ const utility_1 = require("../../utility");
         // CREATE
         const user_auth_token_ref01_ent = client.UserAuthToken();
         let user_auth_token_ref01_data = setup.data.new.user_auth_token['user_auth_token_ref01'];
-        user_auth_token_ref01_data = await user_auth_token_ref01_ent.create(user_auth_token_ref01_data);
+        user_auth_token_ref01_data = (await user_auth_token_ref01_ent.create(user_auth_token_ref01_data)).data();
         (0, node_assert_1.default)(null != user_auth_token_ref01_data);
     });
 });

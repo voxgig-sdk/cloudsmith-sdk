@@ -76,20 +76,20 @@ const utility_1 = require("../../utility");
         let composer_ref01_data = setup.data.new.composer['composer_ref01'];
         composer_ref01_data['identifier'] = setup.idmap['identifier01'];
         composer_ref01_data['owner'] = setup.idmap['owner01'];
-        composer_ref01_data = await composer_ref01_ent.create(composer_ref01_data);
+        composer_ref01_data = (await composer_ref01_ent.create(composer_ref01_data)).data();
         (0, node_assert_1.default)(null != composer_ref01_data);
         // LIST
         const composer_ref01_match = {};
         composer_ref01_match['identifier'] = setup.idmap['identifier01'];
         composer_ref01_match['owner'] = setup.idmap['owner01'];
-        const composer_ref01_list = await composer_ref01_ent.list(composer_ref01_match);
+        const composer_ref01_list = (await composer_ref01_ent.list(composer_ref01_match)).map((e) => e.data());
         // UPDATE
         const composer_ref01_data_up0 = {};
         composer_ref01_data_up0['identifier'] = setup.idmap['identifier'];
         composer_ref01_data_up0['owner'] = setup.idmap['owner'];
         const composer_ref01_markdef_up0 = { name: 'auth_mode', value: 'Mark01-composer_ref01_' + setup.now };
         composer_ref01_data_up0[composer_ref01_markdef_up0.name] = composer_ref01_markdef_up0.value;
-        const composer_ref01_resdata_up0 = await composer_ref01_ent.update(composer_ref01_data_up0);
+        const composer_ref01_resdata_up0 = (await composer_ref01_ent.update(composer_ref01_data_up0)).data();
         (0, node_assert_1.default)(null != composer_ref01_resdata_up0);
         (0, node_assert_1.default)(composer_ref01_resdata_up0[composer_ref01_markdef_up0.name] === composer_ref01_markdef_up0.value);
     });

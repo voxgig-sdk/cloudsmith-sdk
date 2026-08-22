@@ -5,9 +5,9 @@ import type { Cran, CranLoadMatch, CranListMatch, CranCreateData, CranUpdateData
 declare class CranEntity extends CloudsmithEntityBase<Cran> {
     constructor(client: CloudsmithSDK, entopts: any);
     make(this: CranEntity): CranEntity;
-    load(this: any, reqmatch?: CranLoadMatch, ctrl?: Control): Promise<Cran>;
-    list(this: any, reqmatch?: CranListMatch, ctrl?: Control): Promise<Cran[]>;
-    create(this: any, reqdata?: CranCreateData, ctrl?: Control): Promise<Cran>;
-    update(this: any, reqdata?: CranUpdateData, ctrl?: Control): Promise<Cran>;
+    load(this: any, reqmatch?: CranLoadMatch, ctrl?: Control): Promise<CranEntity>;
+    list(this: any, reqmatch?: CranListMatch, ctrl?: Control): Promise<CranEntity[]>;
+    create(this: any, reqdata?: CranCreateData, ctrl?: Control): Promise<CranEntity>;
+    update(this: any, reqdata?: CranUpdateData, ctrl?: Control): Promise<CranEntity>;
 }
 export { CranEntity };
