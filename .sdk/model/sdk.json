@@ -1,15 +1,6 @@
 {
-  "NAME": "CLOUDSMITH",
-  "Name": "Cloudsmith",
   "def": "cloudsmith-v1-swagger-2.0.json",
   "main": {
-    "api": {
-      "entity": {},
-      "guide": {}
-    },
-    "custom": {
-      "plurals": {}
-    },
     "def": {
       "desc": ""
     },
@@ -33571,8 +33562,5 @@
     }
   },
   "name": "cloudsmith",
-  "name-": "cloudsmith",
-  "name_": "cloudsmith",
-  "name__orig": "cloudsmith",
   "origin": "voxgig-sdk"
 }
