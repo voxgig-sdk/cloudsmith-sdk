@@ -86,6 +86,7 @@ describe("SwiftEntity", function()
     assert.is_nil(err)
     swift_ref01_data = helpers.to_map(type(swift_ref01_data_result) == 'table' and swift_ref01_data_result.data_get and swift_ref01_data_result:data_get() or swift_ref01_data_result)
     assert.is_not_nil(swift_ref01_data)
+    assert.is_not_nil(swift_ref01_data["id"])
 
     -- LIST
     local swift_ref01_match = {
@@ -97,8 +98,14 @@ describe("SwiftEntity", function()
     assert.is_nil(err)
     assert.is_table(swift_ref01_list_result)
 
+    local found_item = vs.select(
+      runner.entity_list_to_data(swift_ref01_list_result),
+      { id = swift_ref01_data["id"] })
+    assert.is_false(vs.isempty(found_item))
+
     -- UPDATE
     local swift_ref01_data_up0_up = {
+      id = swift_ref01_data["id"],
       ["identifier"] = setup.idmap["identifier"],
       ["owner"] = setup.idmap["owner"],
     }
@@ -111,13 +118,18 @@ describe("SwiftEntity", function()
     assert.is_nil(err)
     local swift_ref01_resdata_up0 = helpers.to_map(type(swift_ref01_resdata_up0_result) == 'table' and swift_ref01_resdata_up0_result.data_get and swift_ref01_resdata_up0_result:data_get() or swift_ref01_resdata_up0_result)
     assert.is_not_nil(swift_ref01_resdata_up0)
+    assert.are.equal(swift_ref01_resdata_up0["id"], swift_ref01_data_up0_up["id"])
     assert.are.equal(swift_ref01_resdata_up0[swift_ref01_markdef_up0_name], swift_ref01_markdef_up0_value)
 
     -- LOAD
-    local swift_ref01_match_dt0 = {}
+    local swift_ref01_match_dt0 = {
+      id = swift_ref01_data["id"],
+    }
     local swift_ref01_data_dt0_loaded, err = swift_ref01_ent:load(swift_ref01_match_dt0, nil)
     assert.is_nil(err)
-    assert.is_not_nil(swift_ref01_data_dt0_loaded)
+    local swift_ref01_data_dt0_load_result = helpers.to_map(type(swift_ref01_data_dt0_loaded) == 'table' and swift_ref01_data_dt0_loaded.data_get and swift_ref01_data_dt0_loaded:data_get() or swift_ref01_data_dt0_loaded)
+    assert.is_not_nil(swift_ref01_data_dt0_load_result)
+    assert.are.equal(swift_ref01_data_dt0_load_result["id"], swift_ref01_data["id"])
 
   end)
 end)

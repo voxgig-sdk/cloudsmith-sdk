@@ -2,48 +2,48 @@
   "existing": {
     "entitlement": {
       "ENTITLEMENT00": {
-        "active": "s32",
+        "active": "s3c",
         "bandwidth": {},
         "downloads": {},
-        "inactive": "s35",
-        "total": "s36",
+        "id": "ENTITLEMENT00",
+        "inactive": "s40",
+        "total": "s41",
         "identifier": "IDENTIFIER01",
         "owner": "OWNER01",
-        "repo": "REPO01",
-        "id": "ENTITLEMENT00"
+        "repo": "REPO01"
       },
       "ENTITLEMENT01": {
-        "active": "s64",
+        "active": "s78",
         "bandwidth": {},
         "downloads": {},
-        "inactive": "s67",
-        "total": "s68",
+        "id": "ENTITLEMENT01",
+        "inactive": "s7c",
+        "total": "s7d",
         "identifier": "IDENTIFIER01",
         "owner": "OWNER01",
-        "repo": "REPO01",
-        "id": "ENTITLEMENT01"
+        "repo": "REPO01"
       },
       "ENTITLEMENT02": {
-        "active": "s96",
+        "active": "sb4",
         "bandwidth": {},
         "downloads": {},
-        "inactive": "s99",
-        "total": "s9a",
+        "id": "ENTITLEMENT02",
+        "inactive": "sb8",
+        "total": "sb9",
         "identifier": "IDENTIFIER01",
         "owner": "OWNER01",
-        "repo": "REPO01",
-        "id": "ENTITLEMENT02"
+        "repo": "REPO01"
       }
     }
   },
   "new": {
     "entitlement": {
       "entitlement_ref01": {
-        "active": "sc8",
+        "active": "sf0",
         "bandwidth": {},
         "downloads": {},
-        "inactive": "scb",
-        "total": "scc"
+        "inactive": "sf4",
+        "total": "sf5"
       }
     }
   }

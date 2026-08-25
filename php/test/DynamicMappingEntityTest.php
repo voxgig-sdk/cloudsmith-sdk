@@ -96,9 +96,13 @@ class DynamicMappingEntityTest extends TestCase
         $this->assertIsArray($dynamic_mapping_ref01_list_result);
 
         // LOAD
-        $dynamic_mapping_ref01_match_dt0 = [];
+        $dynamic_mapping_ref01_match_dt0 = [
+            "id" => $dynamic_mapping_ref01_data["id"],
+        ];
         $dynamic_mapping_ref01_data_dt0_loaded = $dynamic_mapping_ref01_ent->load($dynamic_mapping_ref01_match_dt0, null);
-        $this->assertNotNull($dynamic_mapping_ref01_data_dt0_loaded);
+        $dynamic_mapping_ref01_data_dt0_load_result = Helpers::to_map(is_object($dynamic_mapping_ref01_data_dt0_loaded) && method_exists($dynamic_mapping_ref01_data_dt0_loaded, 'data_get') ? $dynamic_mapping_ref01_data_dt0_loaded->data_get() : $dynamic_mapping_ref01_data_dt0_loaded);
+        $this->assertNotNull($dynamic_mapping_ref01_data_dt0_load_result);
+        $this->assertEquals($dynamic_mapping_ref01_data_dt0_load_result["id"], $dynamic_mapping_ref01_data["id"]);
 
     }
 }

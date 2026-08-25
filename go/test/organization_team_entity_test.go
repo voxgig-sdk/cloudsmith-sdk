@@ -112,6 +112,9 @@ func TestOrganizationTeamEntity(t *testing.T) {
 		if organizationTeamRef01Data == nil {
 			t.Fatal("expected create result to be a map")
 		}
+		if organizationTeamRef01Data["id"] == nil {
+			t.Fatal("expected created entity to have an id")
+		}
 
 		// LIST
 		organizationTeamRef01Match := map[string]any{
@@ -122,13 +125,19 @@ func TestOrganizationTeamEntity(t *testing.T) {
 		if err != nil {
 			t.Fatalf("list failed: %v", err)
 		}
-		_, organizationTeamRef01ListOk := organizationTeamRef01ListResult.([]any)
+		organizationTeamRef01List, organizationTeamRef01ListOk := organizationTeamRef01ListResult.([]any)
 		if !organizationTeamRef01ListOk {
 			t.Fatalf("expected list result to be an array, got %T", organizationTeamRef01ListResult)
 		}
 
+		foundItem := vs.Select(entityListToData(organizationTeamRef01List), map[string]any{"id": organizationTeamRef01Data["id"]})
+		if vs.IsEmpty(foundItem) {
+			t.Fatal("expected to find created entity in list")
+		}
+
 		// UPDATE
 		organizationTeamRef01DataUp0Up := map[string]any{
+			"id": organizationTeamRef01Data["id"],
 			"org_id": setup.idmap["org_id"],
 		}
 
@@ -144,18 +153,27 @@ func TestOrganizationTeamEntity(t *testing.T) {
 		if organizationTeamRef01ResdataUp0 == nil {
 			t.Fatal("expected update result to be a map")
 		}
+		if organizationTeamRef01ResdataUp0["id"] != organizationTeamRef01DataUp0Up["id"] {
+			t.Fatal("expected update result id to match")
+		}
 		if organizationTeamRef01ResdataUp0[organizationTeamRef01MarkdefUp0Name] != organizationTeamRef01MarkdefUp0Value {
 			t.Fatalf("expected %s to be updated, got %v", organizationTeamRef01MarkdefUp0Name, organizationTeamRef01ResdataUp0[organizationTeamRef01MarkdefUp0Name])
 		}
 
 		// LOAD
-		organizationTeamRef01MatchDt0 := map[string]any{}
+		organizationTeamRef01MatchDt0 := map[string]any{
+			"id": organizationTeamRef01Data["id"],
+		}
 		organizationTeamRef01DataDt0Loaded, err := organizationTeamRef01Ent.Load(organizationTeamRef01MatchDt0, nil)
 		if err != nil {
 			t.Fatalf("load failed: %v", err)
 		}
-		if organizationTeamRef01DataDt0Loaded == nil {
-			t.Fatal("expected load result to be non-nil")
+		organizationTeamRef01DataDt0LoadResult := core.ToMapAny(entityData(organizationTeamRef01DataDt0Loaded))
+		if organizationTeamRef01DataDt0LoadResult == nil {
+			t.Fatal("expected load result to be a map")
+		}
+		if organizationTeamRef01DataDt0LoadResult["id"] != organizationTeamRef01Data["id"] {
+			t.Fatal("expected load result id to match")
 		}
 
 	})

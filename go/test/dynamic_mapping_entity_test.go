@@ -124,13 +124,19 @@ func TestDynamicMappingEntity(t *testing.T) {
 		}
 
 		// LOAD
-		dynamicMappingRef01MatchDt0 := map[string]any{}
+		dynamicMappingRef01MatchDt0 := map[string]any{
+			"id": dynamicMappingRef01Data["id"],
+		}
 		dynamicMappingRef01DataDt0Loaded, err := dynamicMappingRef01Ent.Load(dynamicMappingRef01MatchDt0, nil)
 		if err != nil {
 			t.Fatalf("load failed: %v", err)
 		}
-		if dynamicMappingRef01DataDt0Loaded == nil {
-			t.Fatal("expected load result to be non-nil")
+		dynamicMappingRef01DataDt0LoadResult := core.ToMapAny(entityData(dynamicMappingRef01DataDt0Loaded))
+		if dynamicMappingRef01DataDt0LoadResult == nil {
+			t.Fatal("expected load result to be a map")
+		}
+		if dynamicMappingRef01DataDt0LoadResult["id"] != dynamicMappingRef01Data["id"] {
+			t.Fatal("expected load result id to match")
 		}
 
 	})

@@ -95,10 +95,14 @@ describe("DynamicMappingEntity", function()
     assert.is_table(dynamic_mapping_ref01_list_result)
 
     -- LOAD
-    local dynamic_mapping_ref01_match_dt0 = {}
+    local dynamic_mapping_ref01_match_dt0 = {
+      id = dynamic_mapping_ref01_data["id"],
+    }
     local dynamic_mapping_ref01_data_dt0_loaded, err = dynamic_mapping_ref01_ent:load(dynamic_mapping_ref01_match_dt0, nil)
     assert.is_nil(err)
-    assert.is_not_nil(dynamic_mapping_ref01_data_dt0_loaded)
+    local dynamic_mapping_ref01_data_dt0_load_result = helpers.to_map(type(dynamic_mapping_ref01_data_dt0_loaded) == 'table' and dynamic_mapping_ref01_data_dt0_loaded.data_get and dynamic_mapping_ref01_data_dt0_loaded:data_get() or dynamic_mapping_ref01_data_dt0_loaded)
+    assert.is_not_nil(dynamic_mapping_ref01_data_dt0_load_result)
+    assert.are.equal(dynamic_mapping_ref01_data_dt0_load_result["id"], dynamic_mapping_ref01_data["id"])
 
   end)
 end)

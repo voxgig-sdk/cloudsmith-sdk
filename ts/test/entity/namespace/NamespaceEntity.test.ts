@@ -66,6 +66,12 @@ describe('NamespaceEntity', async () => {
     const namespace_ref01_list = (await namespace_ref01_ent.list(namespace_ref01_match)).map((e: any) => e.data())
 
 
+    // LOAD
+    const namespace_ref01_match_dt0: any = {}
+    namespace_ref01_match_dt0.id = namespace_ref01_data.id
+    const namespace_ref01_data_dt0 = (await namespace_ref01_ent.load(namespace_ref01_match_dt0)).data()
+    assert(namespace_ref01_data_dt0.id === namespace_ref01_data.id)
+
 
   })
 })

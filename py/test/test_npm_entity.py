@@ -82,6 +82,7 @@ class TestNpmEntity:
 
         npm_ref01_data = helpers.to_map(runner.entity_data(npm_ref01_ent.create(npm_ref01_data, None)))
         assert npm_ref01_data is not None
+        assert npm_ref01_data["id"] is not None
 
         # LIST
         npm_ref01_match = {
@@ -92,8 +93,14 @@ class TestNpmEntity:
         npm_ref01_list_result = npm_ref01_ent.list(npm_ref01_match, None)
         assert isinstance(npm_ref01_list_result, list)
 
+        found_item = vs.select(
+            runner.entity_list_to_data(npm_ref01_list_result),
+            {"id": npm_ref01_data["id"]})
+        assert not vs.isempty(found_item)
+
         # UPDATE
         npm_ref01_data_up0_up = {
+            "id": npm_ref01_data["id"],
             "identifier": setup["idmap"]["identifier"],
             "owner": setup["idmap"]["owner"],
         }
@@ -104,12 +111,17 @@ class TestNpmEntity:
 
         npm_ref01_resdata_up0 = helpers.to_map(runner.entity_data(npm_ref01_ent.update(npm_ref01_data_up0_up, None)))
         assert npm_ref01_resdata_up0 is not None
+        assert npm_ref01_resdata_up0["id"] == npm_ref01_data_up0_up["id"]
         assert npm_ref01_resdata_up0[npm_ref01_markdef_up0_name] == npm_ref01_markdef_up0_value
 
         # LOAD
-        npm_ref01_match_dt0 = {}
+        npm_ref01_match_dt0 = {
+            "id": npm_ref01_data["id"],
+        }
         npm_ref01_data_dt0_loaded = npm_ref01_ent.load(npm_ref01_match_dt0, None)
-        assert npm_ref01_data_dt0_loaded is not None
+        npm_ref01_data_dt0_load_result = helpers.to_map(runner.entity_data(npm_ref01_data_dt0_loaded))
+        assert npm_ref01_data_dt0_load_result is not None
+        assert npm_ref01_data_dt0_load_result["id"] == npm_ref01_data["id"]
 
 
 

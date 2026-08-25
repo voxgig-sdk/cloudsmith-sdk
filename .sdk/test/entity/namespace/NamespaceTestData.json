@@ -2,35 +2,35 @@
   "existing": {
     "namespace": {
       "NAMESPACE00": {
-        "name": "s28",
-        "slug": "s29",
-        "slug_perm": "s2a",
-        "type_name": "s2b",
-        "id": "NAMESPACE00"
+        "id": "NAMESPACE00",
+        "name": "s33",
+        "slug": "s34",
+        "slug_perm": "s35",
+        "type_name": "s36"
       },
       "NAMESPACE01": {
-        "name": "s50",
-        "slug": "s51",
-        "slug_perm": "s52",
-        "type_name": "s53",
-        "id": "NAMESPACE01"
+        "id": "NAMESPACE01",
+        "name": "s65",
+        "slug": "s66",
+        "slug_perm": "s67",
+        "type_name": "s68"
       },
       "NAMESPACE02": {
-        "name": "s78",
-        "slug": "s79",
-        "slug_perm": "s7a",
-        "type_name": "s7b",
-        "id": "NAMESPACE02"
+        "id": "NAMESPACE02",
+        "name": "s97",
+        "slug": "s98",
+        "slug_perm": "s99",
+        "type_name": "s9a"
       }
     }
   },
   "new": {
     "namespace": {
       "namespace_ref01": {
-        "name": "sa0",
-        "slug": "sa1",
-        "slug_perm": "sa2",
-        "type_name": "sa3"
+        "name": "sc9",
+        "slug": "sca",
+        "slug_perm": "scb",
+        "type_name": "scc"
       }
     }
   }

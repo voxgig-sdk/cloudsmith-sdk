@@ -39,6 +39,7 @@ type Cargo struct {
 	ExtraHeader2 *string `json:"extra_header_2,omitempty"`
 	ExtraValue1 *string `json:"extra_value_1,omitempty"`
 	ExtraValue2 *string `json:"extra_value_2,omitempty"`
+	Id *string `json:"id,omitempty"`
 	IsActive *bool `json:"is_active,omitempty"`
 	Mode *string `json:"mode,omitempty"`
 	Name string `json:"name"`
@@ -76,6 +77,7 @@ type CargoCreateData struct {
 	ExtraHeader2 *string `json:"extra_header_2,omitempty"`
 	ExtraValue1 *string `json:"extra_value_1,omitempty"`
 	ExtraValue2 *string `json:"extra_value_2,omitempty"`
+	Id *string `json:"id,omitempty"`
 	IsActive *bool `json:"is_active,omitempty"`
 	Mode *string `json:"mode,omitempty"`
 	Name string `json:"name"`
@@ -131,6 +133,7 @@ type Composer struct {
 	ExtraHeader2 *string `json:"extra_header_2,omitempty"`
 	ExtraValue1 *string `json:"extra_value_1,omitempty"`
 	ExtraValue2 *string `json:"extra_value_2,omitempty"`
+	Id *string `json:"id,omitempty"`
 	IsActive *bool `json:"is_active,omitempty"`
 	Mode *string `json:"mode,omitempty"`
 	Name string `json:"name"`
@@ -168,6 +171,7 @@ type ComposerCreateData struct {
 	ExtraHeader2 *string `json:"extra_header_2,omitempty"`
 	ExtraValue1 *string `json:"extra_value_1,omitempty"`
 	ExtraValue2 *string `json:"extra_value_2,omitempty"`
+	Id *string `json:"id,omitempty"`
 	IsActive *bool `json:"is_active,omitempty"`
 	Mode *string `json:"mode,omitempty"`
 	Name string `json:"name"`
@@ -219,6 +223,7 @@ type Conda struct {
 	ExtraHeader2 *string `json:"extra_header_2,omitempty"`
 	ExtraValue1 *string `json:"extra_value_1,omitempty"`
 	ExtraValue2 *string `json:"extra_value_2,omitempty"`
+	Id *string `json:"id,omitempty"`
 	IsActive *bool `json:"is_active,omitempty"`
 	Mode *string `json:"mode,omitempty"`
 	Name string `json:"name"`
@@ -256,6 +261,7 @@ type CondaCreateData struct {
 	ExtraHeader2 *string `json:"extra_header_2,omitempty"`
 	ExtraValue1 *string `json:"extra_value_1,omitempty"`
 	ExtraValue2 *string `json:"extra_value_2,omitempty"`
+	Id *string `json:"id,omitempty"`
 	IsActive *bool `json:"is_active,omitempty"`
 	Mode *string `json:"mode,omitempty"`
 	Name string `json:"name"`
@@ -307,6 +313,7 @@ type Cran struct {
 	ExtraHeader2 *string `json:"extra_header_2,omitempty"`
 	ExtraValue1 *string `json:"extra_value_1,omitempty"`
 	ExtraValue2 *string `json:"extra_value_2,omitempty"`
+	Id *string `json:"id,omitempty"`
 	IsActive *bool `json:"is_active,omitempty"`
 	Mode *string `json:"mode,omitempty"`
 	Name string `json:"name"`
@@ -344,6 +351,7 @@ type CranCreateData struct {
 	ExtraHeader2 *string `json:"extra_header_2,omitempty"`
 	ExtraValue1 *string `json:"extra_value_1,omitempty"`
 	ExtraValue2 *string `json:"extra_value_2,omitempty"`
+	Id *string `json:"id,omitempty"`
 	IsActive *bool `json:"is_active,omitempty"`
 	Mode *string `json:"mode,omitempty"`
 	Name string `json:"name"`
@@ -391,6 +399,7 @@ type Dart struct {
 	ExtraHeader2 *string `json:"extra_header_2,omitempty"`
 	ExtraValue1 *string `json:"extra_value_1,omitempty"`
 	ExtraValue2 *string `json:"extra_value_2,omitempty"`
+	Id *string `json:"id,omitempty"`
 	IsActive *bool `json:"is_active,omitempty"`
 	Mode *string `json:"mode,omitempty"`
 	Name string `json:"name"`
@@ -428,6 +437,7 @@ type DartCreateData struct {
 	ExtraHeader2 *string `json:"extra_header_2,omitempty"`
 	ExtraValue1 *string `json:"extra_value_1,omitempty"`
 	ExtraValue2 *string `json:"extra_value_2,omitempty"`
+	Id *string `json:"id,omitempty"`
 	IsActive *bool `json:"is_active,omitempty"`
 	Mode *string `json:"mode,omitempty"`
 	Name string `json:"name"`
@@ -480,6 +490,7 @@ type Deb struct {
 	GpgKeyInline *string `json:"gpg_key_inline,omitempty"`
 	GpgKeyUrl *string `json:"gpg_key_url,omitempty"`
 	GpgVerification *string `json:"gpg_verification,omitempty"`
+	Id *string `json:"id,omitempty"`
 	IncludeSources *bool `json:"include_sources,omitempty"`
 	IsActive *bool `json:"is_active,omitempty"`
 	Mode *string `json:"mode,omitempty"`
@@ -525,6 +536,7 @@ type DebCreateData struct {
 	GpgKeyInline *string `json:"gpg_key_inline,omitempty"`
 	GpgKeyUrl *string `json:"gpg_key_url,omitempty"`
 	GpgVerification *string `json:"gpg_verification,omitempty"`
+	Id *string `json:"id,omitempty"`
 	IncludeSources *bool `json:"include_sources,omitempty"`
 	IsActive *bool `json:"is_active,omitempty"`
 	Mode *string `json:"mode,omitempty"`
@@ -626,6 +638,7 @@ type Docker struct {
 	ExtraHeader2 *string `json:"extra_header_2,omitempty"`
 	ExtraValue1 *string `json:"extra_value_1,omitempty"`
 	ExtraValue2 *string `json:"extra_value_2,omitempty"`
+	Id *string `json:"id,omitempty"`
 	IsActive *bool `json:"is_active,omitempty"`
 	Mode *string `json:"mode,omitempty"`
 	Name string `json:"name"`
@@ -663,6 +676,7 @@ type DockerCreateData struct {
 	ExtraHeader2 *string `json:"extra_header_2,omitempty"`
 	ExtraValue1 *string `json:"extra_value_1,omitempty"`
 	ExtraValue2 *string `json:"extra_value_2,omitempty"`
+	Id *string `json:"id,omitempty"`
 	IsActive *bool `json:"is_active,omitempty"`
 	Mode *string `json:"mode,omitempty"`
 	Name string `json:"name"`
@@ -702,6 +716,7 @@ type DockerUpdateData struct {
 // DynamicMapping is the typed data model for the dynamic_mapping entity.
 type DynamicMapping struct {
 	ClaimValue string `json:"claim_value"`
+	Id *string `json:"id,omitempty"`
 	ServiceAccount string `json:"service_account"`
 }
 
@@ -731,6 +746,7 @@ type Entitlement struct {
 	Active *int `json:"active,omitempty"`
 	Bandwidth map[string]any `json:"bandwidth"`
 	Downloads map[string]any `json:"downloads"`
+	Id *string `json:"id,omitempty"`
 	Inactive *int `json:"inactive,omitempty"`
 	Total *int `json:"total,omitempty"`
 }
@@ -748,6 +764,7 @@ type EntitlementCreateData struct {
 	Active *int `json:"active,omitempty"`
 	Bandwidth map[string]any `json:"bandwidth"`
 	Downloads map[string]any `json:"downloads"`
+	Id *string `json:"id,omitempty"`
 	Inactive *int `json:"inactive,omitempty"`
 	Total *int `json:"total,omitempty"`
 }
@@ -779,6 +796,7 @@ type Format struct {
 	Description string `json:"description"`
 	Distributions *[]any `json:"distributions,omitempty"`
 	Extensions []any `json:"extensions"`
+	Id *string `json:"id,omitempty"`
 	Name string `json:"name"`
 	Premium bool `json:"premium"`
 	PremiumPlanId *string `json:"premium_plan_id,omitempty"`
@@ -797,6 +815,7 @@ type FormatListMatch struct {
 	Description *string `json:"description,omitempty"`
 	Distributions *[]any `json:"distributions,omitempty"`
 	Extensions *[]any `json:"extensions,omitempty"`
+	Id *string `json:"id,omitempty"`
 	Name *string `json:"name,omitempty"`
 	Premium *bool `json:"premium,omitempty"`
 	PremiumPlanId *string `json:"premium_plan_id,omitempty"`
@@ -911,6 +930,7 @@ type Helm struct {
 	ExtraHeader2 *string `json:"extra_header_2,omitempty"`
 	ExtraValue1 *string `json:"extra_value_1,omitempty"`
 	ExtraValue2 *string `json:"extra_value_2,omitempty"`
+	Id *string `json:"id,omitempty"`
 	IsActive *bool `json:"is_active,omitempty"`
 	Mode *string `json:"mode,omitempty"`
 	Name string `json:"name"`
@@ -948,6 +968,7 @@ type HelmCreateData struct {
 	ExtraHeader2 *string `json:"extra_header_2,omitempty"`
 	ExtraValue1 *string `json:"extra_value_1,omitempty"`
 	ExtraValue2 *string `json:"extra_value_2,omitempty"`
+	Id *string `json:"id,omitempty"`
 	IsActive *bool `json:"is_active,omitempty"`
 	Mode *string `json:"mode,omitempty"`
 	Name string `json:"name"`
@@ -995,6 +1016,7 @@ type Hex struct {
 	ExtraHeader2 *string `json:"extra_header_2,omitempty"`
 	ExtraValue1 *string `json:"extra_value_1,omitempty"`
 	ExtraValue2 *string `json:"extra_value_2,omitempty"`
+	Id *string `json:"id,omitempty"`
 	IsActive *bool `json:"is_active,omitempty"`
 	Mode *string `json:"mode,omitempty"`
 	Name string `json:"name"`
@@ -1032,6 +1054,7 @@ type HexCreateData struct {
 	ExtraHeader2 *string `json:"extra_header_2,omitempty"`
 	ExtraValue1 *string `json:"extra_value_1,omitempty"`
 	ExtraValue2 *string `json:"extra_value_2,omitempty"`
+	Id *string `json:"id,omitempty"`
 	IsActive *bool `json:"is_active,omitempty"`
 	Mode *string `json:"mode,omitempty"`
 	Name string `json:"name"`
@@ -1083,6 +1106,7 @@ type Huggingface struct {
 	ExtraHeader2 *string `json:"extra_header_2,omitempty"`
 	ExtraValue1 *string `json:"extra_value_1,omitempty"`
 	ExtraValue2 *string `json:"extra_value_2,omitempty"`
+	Id *string `json:"id,omitempty"`
 	IsActive *bool `json:"is_active,omitempty"`
 	Mode *string `json:"mode,omitempty"`
 	Name string `json:"name"`
@@ -1120,6 +1144,7 @@ type HuggingfaceCreateData struct {
 	ExtraHeader2 *string `json:"extra_header_2,omitempty"`
 	ExtraValue1 *string `json:"extra_value_1,omitempty"`
 	ExtraValue2 *string `json:"extra_value_2,omitempty"`
+	Id *string `json:"id,omitempty"`
 	IsActive *bool `json:"is_active,omitempty"`
 	Mode *string `json:"mode,omitempty"`
 	Name string `json:"name"`
@@ -1190,6 +1215,7 @@ type Maven struct {
 	GpgKeyInline *string `json:"gpg_key_inline,omitempty"`
 	GpgKeyUrl *string `json:"gpg_key_url,omitempty"`
 	GpgVerification *string `json:"gpg_verification,omitempty"`
+	Id *string `json:"id,omitempty"`
 	IsActive *bool `json:"is_active,omitempty"`
 	Mode *string `json:"mode,omitempty"`
 	Name string `json:"name"`
@@ -1231,6 +1257,7 @@ type MavenCreateData struct {
 	GpgKeyInline *string `json:"gpg_key_inline,omitempty"`
 	GpgKeyUrl *string `json:"gpg_key_url,omitempty"`
 	GpgVerification *string `json:"gpg_verification,omitempty"`
+	Id *string `json:"id,omitempty"`
 	IsActive *bool `json:"is_active,omitempty"`
 	Mode *string `json:"mode,omitempty"`
 	Name string `json:"name"`
@@ -1282,6 +1309,7 @@ type Move struct {
 
 // Namespace is the typed data model for the namespace entity.
 type Namespace struct {
+	Id *string `json:"id,omitempty"`
 	Name *string `json:"name,omitempty"`
 	Slug *string `json:"slug,omitempty"`
 	SlugPerm *string `json:"slug_perm,omitempty"`
@@ -1295,6 +1323,7 @@ type NamespaceLoadMatch struct {
 
 // NamespaceListMatch is the typed request payload for Namespace.ListTyped.
 type NamespaceListMatch struct {
+	Id *string `json:"id,omitempty"`
 	Name *string `json:"name,omitempty"`
 	Slug *string `json:"slug,omitempty"`
 	SlugPerm *string `json:"slug_perm,omitempty"`
@@ -1312,6 +1341,7 @@ type NamespaceAuditLog struct {
 	Context string `json:"context"`
 	Event string `json:"event"`
 	EventAt string `json:"event_at"`
+	Id *string `json:"id,omitempty"`
 	Object string `json:"object"`
 	ObjectKind string `json:"object_kind"`
 	ObjectSlugPerm string `json:"object_slug_perm"`
@@ -1337,6 +1367,7 @@ type Npm struct {
 	ExtraHeader2 *string `json:"extra_header_2,omitempty"`
 	ExtraValue1 *string `json:"extra_value_1,omitempty"`
 	ExtraValue2 *string `json:"extra_value_2,omitempty"`
+	Id *string `json:"id,omitempty"`
 	IsActive *bool `json:"is_active,omitempty"`
 	Mode *string `json:"mode,omitempty"`
 	Name string `json:"name"`
@@ -1374,6 +1405,7 @@ type NpmCreateData struct {
 	ExtraHeader2 *string `json:"extra_header_2,omitempty"`
 	ExtraValue1 *string `json:"extra_value_1,omitempty"`
 	ExtraValue2 *string `json:"extra_value_2,omitempty"`
+	Id *string `json:"id,omitempty"`
 	IsActive *bool `json:"is_active,omitempty"`
 	Mode *string `json:"mode,omitempty"`
 	Name string `json:"name"`
@@ -1421,6 +1453,7 @@ type Nuget struct {
 	ExtraHeader2 *string `json:"extra_header_2,omitempty"`
 	ExtraValue1 *string `json:"extra_value_1,omitempty"`
 	ExtraValue2 *string `json:"extra_value_2,omitempty"`
+	Id *string `json:"id,omitempty"`
 	IsActive *bool `json:"is_active,omitempty"`
 	Mode *string `json:"mode,omitempty"`
 	Name string `json:"name"`
@@ -1458,6 +1491,7 @@ type NugetCreateData struct {
 	ExtraHeader2 *string `json:"extra_header_2,omitempty"`
 	ExtraValue1 *string `json:"extra_value_1,omitempty"`
 	ExtraValue2 *string `json:"extra_value_2,omitempty"`
+	Id *string `json:"id,omitempty"`
 	IsActive *bool `json:"is_active,omitempty"`
 	Mode *string `json:"mode,omitempty"`
 	Name string `json:"name"`
@@ -1503,6 +1537,7 @@ type Org struct {
 	Country *string `json:"country,omitempty"`
 	CreatedAt *string `json:"created_at,omitempty"`
 	EventAt *string `json:"event_at,omitempty"`
+	Id *string `json:"id,omitempty"`
 	Location *string `json:"location,omitempty"`
 	Name string `json:"name"`
 	Package map[string]any `json:"package"`
@@ -1525,6 +1560,7 @@ type OrgListMatch struct {
 	Country *string `json:"country,omitempty"`
 	CreatedAt *string `json:"created_at,omitempty"`
 	EventAt *string `json:"event_at,omitempty"`
+	Id *string `json:"id,omitempty"`
 	Location *string `json:"location,omitempty"`
 	Name *string `json:"name,omitempty"`
 	Package *map[string]any `json:"package,omitempty"`
@@ -1619,6 +1655,7 @@ type OrganizationGroupSyncStatusLoadMatch struct {
 type OrganizationInvite struct {
 	Email *string `json:"email,omitempty"`
 	ExpiresAt *string `json:"expires_at,omitempty"`
+	Id *string `json:"id,omitempty"`
 	Inviter *string `json:"inviter,omitempty"`
 	InviterUrl *string `json:"inviter_url,omitempty"`
 	Org *string `json:"org,omitempty"`
@@ -1639,6 +1676,7 @@ type OrganizationInviteCreateData struct {
 	OrgId string `json:"org_id"`
 	Email *string `json:"email,omitempty"`
 	ExpiresAt *string `json:"expires_at,omitempty"`
+	Id *string `json:"id,omitempty"`
 	Inviter *string `json:"inviter,omitempty"`
 	InviterUrl *string `json:"inviter_url,omitempty"`
 	Org *string `json:"org,omitempty"`
@@ -1808,6 +1846,7 @@ type OrganizationPackageLicensePolicy struct {
 	AllowUnknownLicenses *bool `json:"allow_unknown_licenses,omitempty"`
 	CreatedAt *string `json:"created_at,omitempty"`
 	Description *string `json:"description,omitempty"`
+	Id *string `json:"id,omitempty"`
 	Name string `json:"name"`
 	OnViolationQuarantine *bool `json:"on_violation_quarantine,omitempty"`
 	PackageQueryString *string `json:"package_query_string,omitempty"`
@@ -1833,6 +1872,7 @@ type OrganizationPackageLicensePolicyCreateData struct {
 	AllowUnknownLicenses *bool `json:"allow_unknown_licenses,omitempty"`
 	CreatedAt *string `json:"created_at,omitempty"`
 	Description *string `json:"description,omitempty"`
+	Id *string `json:"id,omitempty"`
 	Name string `json:"name"`
 	OnViolationQuarantine *bool `json:"on_violation_quarantine,omitempty"`
 	PackageQueryString *string `json:"package_query_string,omitempty"`
@@ -1861,6 +1901,7 @@ type OrganizationPackageVulnerabilityPolicy struct {
 	AllowUnknownSeverity *bool `json:"allow_unknown_severity,omitempty"`
 	CreatedAt *string `json:"created_at,omitempty"`
 	Description *string `json:"description,omitempty"`
+	Id *string `json:"id,omitempty"`
 	MinSeverity *string `json:"min_severity,omitempty"`
 	Name string `json:"name"`
 	OnViolationQuarantine *bool `json:"on_violation_quarantine,omitempty"`
@@ -1886,6 +1927,7 @@ type OrganizationPackageVulnerabilityPolicyCreateData struct {
 	AllowUnknownSeverity *bool `json:"allow_unknown_severity,omitempty"`
 	CreatedAt *string `json:"created_at,omitempty"`
 	Description *string `json:"description,omitempty"`
+	Id *string `json:"id,omitempty"`
 	MinSeverity *string `json:"min_severity,omitempty"`
 	Name string `json:"name"`
 	OnViolationQuarantine *bool `json:"on_violation_quarantine,omitempty"`
@@ -1934,6 +1976,7 @@ type OrganizationSamlAuthUpdateData struct {
 // OrganizationTeam is the typed data model for the organization_team entity.
 type OrganizationTeam struct {
 	Description *string `json:"description,omitempty"`
+	Id *string `json:"id,omitempty"`
 	Name string `json:"name"`
 	Slug *string `json:"slug,omitempty"`
 	SlugPerm *string `json:"slug_perm,omitempty"`
@@ -1955,6 +1998,7 @@ type OrganizationTeamListMatch struct {
 type OrganizationTeamCreateData struct {
 	OrgId string `json:"org_id"`
 	Description *string `json:"description,omitempty"`
+	Id *string `json:"id,omitempty"`
 	Name string `json:"name"`
 	Slug *string `json:"slug,omitempty"`
 	SlugPerm *string `json:"slug_perm,omitempty"`
@@ -2220,6 +2264,7 @@ type PackageDenyPolicy struct {
 	CreatedAt *string `json:"created_at,omitempty"`
 	Description *string `json:"description,omitempty"`
 	Enabled *bool `json:"enabled,omitempty"`
+	Id *string `json:"id,omitempty"`
 	Name *string `json:"name,omitempty"`
 	PackageQueryString string `json:"package_query_string"`
 	SlugPerm *string `json:"slug_perm,omitempty"`
@@ -2245,6 +2290,7 @@ type PackageDenyPolicyCreateData struct {
 	CreatedAt *string `json:"created_at,omitempty"`
 	Description *string `json:"description,omitempty"`
 	Enabled *bool `json:"enabled,omitempty"`
+	Id *string `json:"id,omitempty"`
 	Name *string `json:"name,omitempty"`
 	PackageQueryString string `json:"package_query_string"`
 	SlugPerm *string `json:"slug_perm,omitempty"`
@@ -2298,6 +2344,7 @@ type PackageLicensePolicyEvaluation struct {
 	CreatedAt *string `json:"created_at,omitempty"`
 	Description *string `json:"description,omitempty"`
 	EvaluationCount *int `json:"evaluation_count,omitempty"`
+	Id *string `json:"id,omitempty"`
 	Name *string `json:"name,omitempty"`
 	OnViolationQuarantine *bool `json:"on_violation_quarantine,omitempty"`
 	PackageQueryString *string `json:"package_query_string,omitempty"`
@@ -2331,6 +2378,7 @@ type PackageLicensePolicyEvaluationCreateData struct {
 	CreatedAt *string `json:"created_at,omitempty"`
 	Description *string `json:"description,omitempty"`
 	EvaluationCount *int `json:"evaluation_count,omitempty"`
+	Id *string `json:"id,omitempty"`
 	Name *string `json:"name,omitempty"`
 	OnViolationQuarantine *bool `json:"on_violation_quarantine,omitempty"`
 	PackageQueryString *string `json:"package_query_string,omitempty"`
@@ -2363,6 +2411,7 @@ type PackageVulnerabilityPolicyEvaluation struct {
 	CreatedAt *string `json:"created_at,omitempty"`
 	Description *string `json:"description,omitempty"`
 	EvaluationCount *int `json:"evaluation_count,omitempty"`
+	Id *string `json:"id,omitempty"`
 	MinSeverity *string `json:"min_severity,omitempty"`
 	Name *string `json:"name,omitempty"`
 	OnViolationQuarantine *bool `json:"on_violation_quarantine,omitempty"`
@@ -2396,6 +2445,7 @@ type PackageVulnerabilityPolicyEvaluationCreateData struct {
 	CreatedAt *string `json:"created_at,omitempty"`
 	Description *string `json:"description,omitempty"`
 	EvaluationCount *int `json:"evaluation_count,omitempty"`
+	Id *string `json:"id,omitempty"`
 	MinSeverity *string `json:"min_severity,omitempty"`
 	Name *string `json:"name,omitempty"`
 	OnViolationQuarantine *bool `json:"on_violation_quarantine,omitempty"`
@@ -2491,6 +2541,7 @@ type Python struct {
 	ExtraHeader2 *string `json:"extra_header_2,omitempty"`
 	ExtraValue1 *string `json:"extra_value_1,omitempty"`
 	ExtraValue2 *string `json:"extra_value_2,omitempty"`
+	Id *string `json:"id,omitempty"`
 	IsActive *bool `json:"is_active,omitempty"`
 	Mode *string `json:"mode,omitempty"`
 	Name string `json:"name"`
@@ -2528,6 +2579,7 @@ type PythonCreateData struct {
 	ExtraHeader2 *string `json:"extra_header_2,omitempty"`
 	ExtraValue1 *string `json:"extra_value_1,omitempty"`
 	ExtraValue2 *string `json:"extra_value_2,omitempty"`
+	Id *string `json:"id,omitempty"`
 	IsActive *bool `json:"is_active,omitempty"`
 	Mode *string `json:"mode,omitempty"`
 	Name string `json:"name"`
@@ -2572,6 +2624,7 @@ type Quarantine struct {
 type Quota struct {
 	Display map[string]any `json:"display"`
 	History []any `json:"history"`
+	Id *string `json:"id,omitempty"`
 	Raw map[string]any `json:"raw"`
 }
 
@@ -2611,6 +2664,7 @@ type Repo struct {
 	EcdsaKeys *[]any `json:"ecdsa_keys,omitempty"`
 	EnforceEula *bool `json:"enforce_eula,omitempty"`
 	GpgKeys *[]any `json:"gpg_keys,omitempty"`
+	Id *string `json:"id,omitempty"`
 	IndexFiles *bool `json:"index_files,omitempty"`
 	IsOpenSource *bool `json:"is_open_source,omitempty"`
 	IsPrivate *bool `json:"is_private,omitempty"`
@@ -2685,6 +2739,7 @@ type RepoListMatch struct {
 	EcdsaKeys *[]any `json:"ecdsa_keys,omitempty"`
 	EnforceEula *bool `json:"enforce_eula,omitempty"`
 	GpgKeys *[]any `json:"gpg_keys,omitempty"`
+	Id *string `json:"id,omitempty"`
 	IndexFiles *bool `json:"index_files,omitempty"`
 	IsOpenSource *bool `json:"is_open_source,omitempty"`
 	IsPrivate *bool `json:"is_private,omitempty"`
@@ -2826,6 +2881,7 @@ type RepoUpdateData struct {
 	EcdsaKeys *[]any `json:"ecdsa_keys,omitempty"`
 	EnforceEula *bool `json:"enforce_eula,omitempty"`
 	GpgKeys *[]any `json:"gpg_keys,omitempty"`
+	Id *string `json:"id,omitempty"`
 	IndexFiles *bool `json:"index_files,omitempty"`
 	IsOpenSource *bool `json:"is_open_source,omitempty"`
 	IsPrivate *bool `json:"is_private,omitempty"`
@@ -3526,6 +3582,7 @@ type Rpm struct {
 	GpgKeyInline *string `json:"gpg_key_inline,omitempty"`
 	GpgKeyUrl *string `json:"gpg_key_url,omitempty"`
 	GpgVerification *string `json:"gpg_verification,omitempty"`
+	Id *string `json:"id,omitempty"`
 	IncludeSources *bool `json:"include_sources,omitempty"`
 	IsActive *bool `json:"is_active,omitempty"`
 	Mode *string `json:"mode,omitempty"`
@@ -3569,6 +3626,7 @@ type RpmCreateData struct {
 	GpgKeyInline *string `json:"gpg_key_inline,omitempty"`
 	GpgKeyUrl *string `json:"gpg_key_url,omitempty"`
 	GpgVerification *string `json:"gpg_verification,omitempty"`
+	Id *string `json:"id,omitempty"`
 	IncludeSources *bool `json:"include_sources,omitempty"`
 	IsActive *bool `json:"is_active,omitempty"`
 	Mode *string `json:"mode,omitempty"`
@@ -3628,6 +3686,7 @@ type Ruby struct {
 	ExtraHeader2 *string `json:"extra_header_2,omitempty"`
 	ExtraValue1 *string `json:"extra_value_1,omitempty"`
 	ExtraValue2 *string `json:"extra_value_2,omitempty"`
+	Id *string `json:"id,omitempty"`
 	IsActive *bool `json:"is_active,omitempty"`
 	Mode *string `json:"mode,omitempty"`
 	Name string `json:"name"`
@@ -3665,6 +3724,7 @@ type RubyCreateData struct {
 	ExtraHeader2 *string `json:"extra_header_2,omitempty"`
 	ExtraValue1 *string `json:"extra_value_1,omitempty"`
 	ExtraValue2 *string `json:"extra_value_2,omitempty"`
+	Id *string `json:"id,omitempty"`
 	IsActive *bool `json:"is_active,omitempty"`
 	Mode *string `json:"mode,omitempty"`
 	Name string `json:"name"`
@@ -3719,6 +3779,7 @@ type Service struct {
 	CreatedBy *string `json:"created_by,omitempty"`
 	CreatedByUrl *string `json:"created_by_url,omitempty"`
 	Description *string `json:"description,omitempty"`
+	Id *string `json:"id,omitempty"`
 	Key *string `json:"key,omitempty"`
 	KeyExpiresAt *string `json:"key_expires_at,omitempty"`
 	Name string `json:"name"`
@@ -3745,6 +3806,7 @@ type ServiceCreateData struct {
 	CreatedBy *string `json:"created_by,omitempty"`
 	CreatedByUrl *string `json:"created_by_url,omitempty"`
 	Description *string `json:"description,omitempty"`
+	Id *string `json:"id,omitempty"`
 	Key *string `json:"key,omitempty"`
 	KeyExpiresAt *string `json:"key_expires_at,omitempty"`
 	Name string `json:"name"`
@@ -3787,6 +3849,7 @@ type StatusBasicLoadMatch struct {
 
 // StorageRegion is the typed data model for the storage_region entity.
 type StorageRegion struct {
+	Id *string `json:"id,omitempty"`
 	Label string `json:"label"`
 	Slug string `json:"slug"`
 }
@@ -3798,6 +3861,7 @@ type StorageRegionLoadMatch struct {
 
 // StorageRegionListMatch is the typed request payload for StorageRegion.ListTyped.
 type StorageRegionListMatch struct {
+	Id *string `json:"id,omitempty"`
 	Label *string `json:"label,omitempty"`
 	Slug *string `json:"slug,omitempty"`
 }
@@ -3813,6 +3877,7 @@ type Swift struct {
 	ExtraHeader2 *string `json:"extra_header_2,omitempty"`
 	ExtraValue1 *string `json:"extra_value_1,omitempty"`
 	ExtraValue2 *string `json:"extra_value_2,omitempty"`
+	Id *string `json:"id,omitempty"`
 	IsActive *bool `json:"is_active,omitempty"`
 	Mode *string `json:"mode,omitempty"`
 	Name string `json:"name"`
@@ -3850,6 +3915,7 @@ type SwiftCreateData struct {
 	ExtraHeader2 *string `json:"extra_header_2,omitempty"`
 	ExtraValue1 *string `json:"extra_value_1,omitempty"`
 	ExtraValue2 *string `json:"extra_value_2,omitempty"`
+	Id *string `json:"id,omitempty"`
 	IsActive *bool `json:"is_active,omitempty"`
 	Mode *string `json:"mode,omitempty"`
 	Name string `json:"name"`
@@ -3983,6 +4049,7 @@ type UserBriefLoadMatch struct {
 type UserProfile struct {
 	Company *string `json:"company,omitempty"`
 	FirstName string `json:"first_name"`
+	Id *string `json:"id,omitempty"`
 	JobTitle *string `json:"job_title,omitempty"`
 	JoinedAt *string `json:"joined_at,omitempty"`
 	LastName string `json:"last_name"`
@@ -4014,6 +4081,7 @@ type Version struct {
 type Vulnerability struct {
 	CreatedAt *string `json:"created_at,omitempty"`
 	HasVulnerabilities *bool `json:"has_vulnerabilities,omitempty"`
+	Id *string `json:"id,omitempty"`
 	Identifier string `json:"identifier"`
 	MaxSeverity *string `json:"max_severity,omitempty"`
 	NumVulnerabilities *int `json:"num_vulnerabilities,omitempty"`

@@ -77,6 +77,7 @@ class ComposerEntityTest < Minitest::Test
     composer_ref01_data_result = composer_ref01_ent.create(composer_ref01_data, nil)
     composer_ref01_data = Helpers.to_map(composer_ref01_data_result.respond_to?(:data_get) ? composer_ref01_data_result.data_get : composer_ref01_data_result)
     assert !composer_ref01_data.nil?
+    assert !composer_ref01_data["id"].nil?
 
     # LIST
     composer_ref01_match = {
@@ -87,8 +88,14 @@ class ComposerEntityTest < Minitest::Test
     composer_ref01_list_result = composer_ref01_ent.list(composer_ref01_match, nil)
     assert composer_ref01_list_result.is_a?(Array)
 
+    found_item = Vs.select(
+      Runner.entity_list_to_data(composer_ref01_list_result),
+      { "id" => composer_ref01_data["id"] })
+    assert !Vs.isempty(found_item)
+
     # UPDATE
     composer_ref01_data_up0_up = {
+      "id" => composer_ref01_data["id"],
       "identifier" => setup[:idmap]["identifier"],
       "owner" => setup[:idmap]["owner"],
     }
@@ -100,12 +107,17 @@ class ComposerEntityTest < Minitest::Test
     composer_ref01_resdata_up0_result = composer_ref01_ent.update(composer_ref01_data_up0_up, nil)
     composer_ref01_resdata_up0 = Helpers.to_map(composer_ref01_resdata_up0_result.respond_to?(:data_get) ? composer_ref01_resdata_up0_result.data_get : composer_ref01_resdata_up0_result)
     assert !composer_ref01_resdata_up0.nil?
+    assert_equal composer_ref01_resdata_up0["id"], composer_ref01_data_up0_up["id"]
     assert_equal composer_ref01_resdata_up0[composer_ref01_markdef_up0_name], composer_ref01_markdef_up0_value
 
     # LOAD
-    composer_ref01_match_dt0 = {}
+    composer_ref01_match_dt0 = {
+      "id" => composer_ref01_data["id"],
+    }
     composer_ref01_data_dt0_loaded = composer_ref01_ent.load(composer_ref01_match_dt0, nil)
-    assert !composer_ref01_data_dt0_loaded.nil?
+    composer_ref01_data_dt0_load_result = Helpers.to_map(composer_ref01_data_dt0_loaded.respond_to?(:data_get) ? composer_ref01_data_dt0_loaded.data_get : composer_ref01_data_dt0_loaded)
+    assert !composer_ref01_data_dt0_load_result.nil?
+    assert_equal composer_ref01_data_dt0_load_result["id"], composer_ref01_data["id"]
 
   end
 end

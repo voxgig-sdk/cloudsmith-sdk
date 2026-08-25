@@ -87,6 +87,7 @@ class DartEntityTest extends TestCase
         $dart_ref01_data_result = $dart_ref01_ent->create($dart_ref01_data, null);
         $dart_ref01_data = Helpers::to_map(is_object($dart_ref01_data_result) && method_exists($dart_ref01_data_result, 'data_get') ? $dart_ref01_data_result->data_get() : $dart_ref01_data_result);
         $this->assertNotNull($dart_ref01_data);
+        $this->assertNotNull($dart_ref01_data["id"]);
 
         // LIST
         $dart_ref01_match = [
@@ -97,8 +98,14 @@ class DartEntityTest extends TestCase
         $dart_ref01_list_result = $dart_ref01_ent->list($dart_ref01_match, null);
         $this->assertIsArray($dart_ref01_list_result);
 
+        $found_item = sdk_select(
+            Runner::entity_list_to_data($dart_ref01_list_result),
+            ["id" => $dart_ref01_data["id"]]);
+        $this->assertNotEmpty($found_item);
+
         // UPDATE
         $dart_ref01_data_up0_up = [
+            "id" => $dart_ref01_data["id"],
             "identifier" => $setup["idmap"]["identifier"],
             "owner" => $setup["idmap"]["owner"],
         ];
@@ -110,12 +117,17 @@ class DartEntityTest extends TestCase
         $dart_ref01_resdata_up0_result = $dart_ref01_ent->update($dart_ref01_data_up0_up, null);
         $dart_ref01_resdata_up0 = Helpers::to_map(is_object($dart_ref01_resdata_up0_result) && method_exists($dart_ref01_resdata_up0_result, 'data_get') ? $dart_ref01_resdata_up0_result->data_get() : $dart_ref01_resdata_up0_result);
         $this->assertNotNull($dart_ref01_resdata_up0);
+        $this->assertEquals($dart_ref01_resdata_up0["id"], $dart_ref01_data_up0_up["id"]);
         $this->assertEquals($dart_ref01_resdata_up0[$dart_ref01_markdef_up0_name], $dart_ref01_markdef_up0_value);
 
         // LOAD
-        $dart_ref01_match_dt0 = [];
+        $dart_ref01_match_dt0 = [
+            "id" => $dart_ref01_data["id"],
+        ];
         $dart_ref01_data_dt0_loaded = $dart_ref01_ent->load($dart_ref01_match_dt0, null);
-        $this->assertNotNull($dart_ref01_data_dt0_loaded);
+        $dart_ref01_data_dt0_load_result = Helpers::to_map(is_object($dart_ref01_data_dt0_loaded) && method_exists($dart_ref01_data_dt0_loaded, 'data_get') ? $dart_ref01_data_dt0_loaded->data_get() : $dart_ref01_data_dt0_loaded);
+        $this->assertNotNull($dart_ref01_data_dt0_load_result);
+        $this->assertEquals($dart_ref01_data_dt0_load_result["id"], $dart_ref01_data["id"]);
 
     }
 }

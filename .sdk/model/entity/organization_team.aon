@@ -11,6 +11,11 @@ main: kit: entity: organization_team: {
       type: "`$STRING`"
     }
     {
+      name: "id"
+      req: false
+      type: "`$STRING`"
+    }
+    {
       name: "name"
       req: true
       type: "`$STRING`"
@@ -31,6 +36,11 @@ main: kit: entity: organization_team: {
       type: "`$STRING`"
     }
   ]
+
+  id: {
+    field: "id"
+    name: "id"
+  }
 
   name: "organization_team"
   op: {

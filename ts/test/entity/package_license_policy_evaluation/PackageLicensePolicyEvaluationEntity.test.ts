@@ -66,7 +66,7 @@ describe('PackageLicensePolicyEvaluationEntity', async () => {
     package_license_policy_evaluation_ref01_data['policy_slug_perm'] = setup.idmap['policy_slug_perm01']
 
     package_license_policy_evaluation_ref01_data = (await package_license_policy_evaluation_ref01_ent.create(package_license_policy_evaluation_ref01_data)).data()
-    assert(null != package_license_policy_evaluation_ref01_data)
+    assert(null != package_license_policy_evaluation_ref01_data.id)
 
 
     // LIST
@@ -76,6 +76,14 @@ describe('PackageLicensePolicyEvaluationEntity', async () => {
 
     const package_license_policy_evaluation_ref01_list = (await package_license_policy_evaluation_ref01_ent.list(package_license_policy_evaluation_ref01_match)).map((e: any) => e.data())
 
+    assert(!isempty(select(package_license_policy_evaluation_ref01_list, { id: package_license_policy_evaluation_ref01_data.id })))
+
+
+    // LOAD
+    const package_license_policy_evaluation_ref01_match_dt0: any = {}
+    package_license_policy_evaluation_ref01_match_dt0.id = package_license_policy_evaluation_ref01_data.id
+    const package_license_policy_evaluation_ref01_data_dt0 = (await package_license_policy_evaluation_ref01_ent.load(package_license_policy_evaluation_ref01_match_dt0)).data()
+    assert(package_license_policy_evaluation_ref01_data_dt0.id === package_license_policy_evaluation_ref01_data.id)
 
 
   })

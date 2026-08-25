@@ -77,6 +77,7 @@ class DebEntityTest < Minitest::Test
     deb_ref01_data_result = deb_ref01_ent.create(deb_ref01_data, nil)
     deb_ref01_data = Helpers.to_map(deb_ref01_data_result.respond_to?(:data_get) ? deb_ref01_data_result.data_get : deb_ref01_data_result)
     assert !deb_ref01_data.nil?
+    assert !deb_ref01_data["id"].nil?
 
     # LIST
     deb_ref01_match = {
@@ -87,8 +88,14 @@ class DebEntityTest < Minitest::Test
     deb_ref01_list_result = deb_ref01_ent.list(deb_ref01_match, nil)
     assert deb_ref01_list_result.is_a?(Array)
 
+    found_item = Vs.select(
+      Runner.entity_list_to_data(deb_ref01_list_result),
+      { "id" => deb_ref01_data["id"] })
+    assert !Vs.isempty(found_item)
+
     # UPDATE
     deb_ref01_data_up0_up = {
+      "id" => deb_ref01_data["id"],
       "identifier" => setup[:idmap]["identifier"],
       "owner" => setup[:idmap]["owner"],
     }
@@ -100,12 +107,17 @@ class DebEntityTest < Minitest::Test
     deb_ref01_resdata_up0_result = deb_ref01_ent.update(deb_ref01_data_up0_up, nil)
     deb_ref01_resdata_up0 = Helpers.to_map(deb_ref01_resdata_up0_result.respond_to?(:data_get) ? deb_ref01_resdata_up0_result.data_get : deb_ref01_resdata_up0_result)
     assert !deb_ref01_resdata_up0.nil?
+    assert_equal deb_ref01_resdata_up0["id"], deb_ref01_data_up0_up["id"]
     assert_equal deb_ref01_resdata_up0[deb_ref01_markdef_up0_name], deb_ref01_markdef_up0_value
 
     # LOAD
-    deb_ref01_match_dt0 = {}
+    deb_ref01_match_dt0 = {
+      "id" => deb_ref01_data["id"],
+    }
     deb_ref01_data_dt0_loaded = deb_ref01_ent.load(deb_ref01_match_dt0, nil)
-    assert !deb_ref01_data_dt0_loaded.nil?
+    deb_ref01_data_dt0_load_result = Helpers.to_map(deb_ref01_data_dt0_loaded.respond_to?(:data_get) ? deb_ref01_data_dt0_loaded.data_get : deb_ref01_data_dt0_loaded)
+    assert !deb_ref01_data_dt0_load_result.nil?
+    assert_equal deb_ref01_data_dt0_load_result["id"], deb_ref01_data["id"]
 
   end
 end

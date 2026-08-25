@@ -82,6 +82,7 @@ class TestHexEntity:
 
         hex_ref01_data = helpers.to_map(runner.entity_data(hex_ref01_ent.create(hex_ref01_data, None)))
         assert hex_ref01_data is not None
+        assert hex_ref01_data["id"] is not None
 
         # LIST
         hex_ref01_match = {
@@ -92,8 +93,14 @@ class TestHexEntity:
         hex_ref01_list_result = hex_ref01_ent.list(hex_ref01_match, None)
         assert isinstance(hex_ref01_list_result, list)
 
+        found_item = vs.select(
+            runner.entity_list_to_data(hex_ref01_list_result),
+            {"id": hex_ref01_data["id"]})
+        assert not vs.isempty(found_item)
+
         # UPDATE
         hex_ref01_data_up0_up = {
+            "id": hex_ref01_data["id"],
             "identifier": setup["idmap"]["identifier"],
             "owner": setup["idmap"]["owner"],
         }
@@ -104,12 +111,17 @@ class TestHexEntity:
 
         hex_ref01_resdata_up0 = helpers.to_map(runner.entity_data(hex_ref01_ent.update(hex_ref01_data_up0_up, None)))
         assert hex_ref01_resdata_up0 is not None
+        assert hex_ref01_resdata_up0["id"] == hex_ref01_data_up0_up["id"]
         assert hex_ref01_resdata_up0[hex_ref01_markdef_up0_name] == hex_ref01_markdef_up0_value
 
         # LOAD
-        hex_ref01_match_dt0 = {}
+        hex_ref01_match_dt0 = {
+            "id": hex_ref01_data["id"],
+        }
         hex_ref01_data_dt0_loaded = hex_ref01_ent.load(hex_ref01_match_dt0, None)
-        assert hex_ref01_data_dt0_loaded is not None
+        hex_ref01_data_dt0_load_result = helpers.to_map(runner.entity_data(hex_ref01_data_dt0_loaded))
+        assert hex_ref01_data_dt0_load_result is not None
+        assert hex_ref01_data_dt0_load_result["id"] == hex_ref01_data["id"]
 
 
 

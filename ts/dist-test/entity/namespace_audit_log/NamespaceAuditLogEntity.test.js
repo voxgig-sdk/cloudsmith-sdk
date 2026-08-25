@@ -72,9 +72,12 @@ const utility_1 = require("../../utility");
         const isempty = struct.isempty;
         const select = struct.select;
         let namespace_audit_log_ref01_data = Object.values(setup.data.existing.namespace_audit_log)[0];
-        // LOAD: skipped — no entity id field and load requires path params.
-        // Entity-var is declared here so later flow steps still compile.
+        // LOAD
         const namespace_audit_log_ref01_ent = client.NamespaceAuditLog();
+        const namespace_audit_log_ref01_match_dt0 = {};
+        namespace_audit_log_ref01_match_dt0.id = namespace_audit_log_ref01_data.id;
+        const namespace_audit_log_ref01_data_dt0 = (await namespace_audit_log_ref01_ent.load(namespace_audit_log_ref01_match_dt0)).data();
+        (0, node_assert_1.default)(namespace_audit_log_ref01_data_dt0.id === namespace_audit_log_ref01_data.id);
     });
 });
 function basicSetup(extra) {

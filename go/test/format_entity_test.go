@@ -121,13 +121,19 @@ func TestFormatEntity(t *testing.T) {
 		}
 
 		// LOAD
-		formatRef01MatchDt0 := map[string]any{}
+		formatRef01MatchDt0 := map[string]any{
+			"id": formatRef01Data["id"],
+		}
 		formatRef01DataDt0Loaded, err := formatRef01Ent.Load(formatRef01MatchDt0, nil)
 		if err != nil {
 			t.Fatalf("load failed: %v", err)
 		}
-		if formatRef01DataDt0Loaded == nil {
-			t.Fatal("expected load result to be non-nil")
+		formatRef01DataDt0LoadResult := core.ToMapAny(entityData(formatRef01DataDt0Loaded))
+		if formatRef01DataDt0LoadResult == nil {
+			t.Fatal("expected load result to be a map")
+		}
+		if formatRef01DataDt0LoadResult["id"] != formatRef01Data["id"] {
+			t.Fatal("expected load result id to match")
 		}
 
 	})

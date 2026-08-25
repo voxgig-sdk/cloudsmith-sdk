@@ -113,6 +113,9 @@ func TestRepoEntity(t *testing.T) {
 		if repoRef01Data == nil {
 			t.Fatal("expected create result to be a map")
 		}
+		if repoRef01Data["id"] == nil {
+			t.Fatal("expected created entity to have an id")
+		}
 
 		// LIST
 		repoRef01Match := map[string]any{}
@@ -121,13 +124,19 @@ func TestRepoEntity(t *testing.T) {
 		if err != nil {
 			t.Fatalf("list failed: %v", err)
 		}
-		_, repoRef01ListOk := repoRef01ListResult.([]any)
+		repoRef01List, repoRef01ListOk := repoRef01ListResult.([]any)
 		if !repoRef01ListOk {
 			t.Fatalf("expected list result to be an array, got %T", repoRef01ListResult)
 		}
 
+		foundItem := vs.Select(entityListToData(repoRef01List), map[string]any{"id": repoRef01Data["id"]})
+		if vs.IsEmpty(foundItem) {
+			t.Fatal("expected to find created entity in list")
+		}
+
 		// UPDATE
 		repoRef01DataUp0Up := map[string]any{
+			"id": repoRef01Data["id"],
 			"owner": setup.idmap["owner"],
 		}
 
@@ -143,20 +152,37 @@ func TestRepoEntity(t *testing.T) {
 		if repoRef01ResdataUp0 == nil {
 			t.Fatal("expected update result to be a map")
 		}
+		if repoRef01ResdataUp0["id"] != repoRef01DataUp0Up["id"] {
+			t.Fatal("expected update result id to match")
+		}
 		if repoRef01ResdataUp0[repoRef01MarkdefUp0Name] != repoRef01MarkdefUp0Value {
 			t.Fatalf("expected %s to be updated, got %v", repoRef01MarkdefUp0Name, repoRef01ResdataUp0[repoRef01MarkdefUp0Name])
 		}
 
 		// LOAD
-		repoRef01MatchDt0 := map[string]any{}
+		repoRef01MatchDt0 := map[string]any{
+			"id": repoRef01Data["id"],
+		}
 		repoRef01DataDt0Loaded, err := repoRef01Ent.Load(repoRef01MatchDt0, nil)
 		if err != nil {
 			t.Fatalf("load failed: %v", err)
 		}
-		if repoRef01DataDt0Loaded == nil {
-			t.Fatal("expected load result to be non-nil")
+		repoRef01DataDt0LoadResult := core.ToMapAny(entityData(repoRef01DataDt0Loaded))
+		if repoRef01DataDt0LoadResult == nil {
+			t.Fatal("expected load result to be a map")
+		}
+		if repoRef01DataDt0LoadResult["id"] != repoRef01Data["id"] {
+			t.Fatal("expected load result id to match")
 		}
 
+		// REMOVE
+		repoRef01MatchRm0 := map[string]any{
+			"id": repoRef01Data["id"],
+		}
+		_, err = repoRef01Ent.Remove(repoRef01MatchRm0, nil)
+		if err != nil {
+			t.Fatalf("remove failed: %v", err)
+		}
 
 		// LIST
 		repoRef01MatchRt0 := map[string]any{}
@@ -165,9 +191,14 @@ func TestRepoEntity(t *testing.T) {
 		if err != nil {
 			t.Fatalf("list failed: %v", err)
 		}
-		_, repoRef01ListRt0Ok := repoRef01ListRt0Result.([]any)
+		repoRef01ListRt0, repoRef01ListRt0Ok := repoRef01ListRt0Result.([]any)
 		if !repoRef01ListRt0Ok {
 			t.Fatalf("expected list result to be an array, got %T", repoRef01ListRt0Result)
+		}
+
+		notFoundItem := vs.Select(entityListToData(repoRef01ListRt0), map[string]any{"id": repoRef01Data["id"]})
+		if !vs.IsEmpty(notFoundItem) {
+			t.Fatal("expected removed entity to not be in list")
 		}
 
 	})

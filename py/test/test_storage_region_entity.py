@@ -88,9 +88,13 @@ class TestStorageRegionEntity:
         assert isinstance(storage_region_ref01_list_result, list)
 
         # LOAD
-        storage_region_ref01_match_dt0 = {}
+        storage_region_ref01_match_dt0 = {
+            "id": storage_region_ref01_data["id"],
+        }
         storage_region_ref01_data_dt0_loaded = storage_region_ref01_ent.load(storage_region_ref01_match_dt0, None)
-        assert storage_region_ref01_data_dt0_loaded is not None
+        storage_region_ref01_data_dt0_load_result = helpers.to_map(runner.entity_data(storage_region_ref01_data_dt0_loaded))
+        assert storage_region_ref01_data_dt0_load_result is not None
+        assert storage_region_ref01_data_dt0_load_result["id"] == storage_region_ref01_data["id"]
 
 
 

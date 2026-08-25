@@ -82,6 +82,7 @@ class TestDartEntity:
 
         dart_ref01_data = helpers.to_map(runner.entity_data(dart_ref01_ent.create(dart_ref01_data, None)))
         assert dart_ref01_data is not None
+        assert dart_ref01_data["id"] is not None
 
         # LIST
         dart_ref01_match = {
@@ -92,8 +93,14 @@ class TestDartEntity:
         dart_ref01_list_result = dart_ref01_ent.list(dart_ref01_match, None)
         assert isinstance(dart_ref01_list_result, list)
 
+        found_item = vs.select(
+            runner.entity_list_to_data(dart_ref01_list_result),
+            {"id": dart_ref01_data["id"]})
+        assert not vs.isempty(found_item)
+
         # UPDATE
         dart_ref01_data_up0_up = {
+            "id": dart_ref01_data["id"],
             "identifier": setup["idmap"]["identifier"],
             "owner": setup["idmap"]["owner"],
         }
@@ -104,12 +111,17 @@ class TestDartEntity:
 
         dart_ref01_resdata_up0 = helpers.to_map(runner.entity_data(dart_ref01_ent.update(dart_ref01_data_up0_up, None)))
         assert dart_ref01_resdata_up0 is not None
+        assert dart_ref01_resdata_up0["id"] == dart_ref01_data_up0_up["id"]
         assert dart_ref01_resdata_up0[dart_ref01_markdef_up0_name] == dart_ref01_markdef_up0_value
 
         # LOAD
-        dart_ref01_match_dt0 = {}
+        dart_ref01_match_dt0 = {
+            "id": dart_ref01_data["id"],
+        }
         dart_ref01_data_dt0_loaded = dart_ref01_ent.load(dart_ref01_match_dt0, None)
-        assert dart_ref01_data_dt0_loaded is not None
+        dart_ref01_data_dt0_load_result = helpers.to_map(runner.entity_data(dart_ref01_data_dt0_loaded))
+        assert dart_ref01_data_dt0_load_result is not None
+        assert dart_ref01_data_dt0_load_result["id"] == dart_ref01_data["id"]
 
 
 

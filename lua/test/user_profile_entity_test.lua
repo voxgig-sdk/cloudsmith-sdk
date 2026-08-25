@@ -44,10 +44,14 @@ describe("UserProfileEntity", function()
 
     -- LOAD
     local user_profile_ref01_ent = client:UserProfile(nil)
-    local user_profile_ref01_match_dt0 = {}
+    local user_profile_ref01_match_dt0 = {
+      id = user_profile_ref01_data["id"],
+    }
     local user_profile_ref01_data_dt0_loaded, err = user_profile_ref01_ent:load(user_profile_ref01_match_dt0, nil)
     assert.is_nil(err)
-    assert.is_not_nil(user_profile_ref01_data_dt0_loaded)
+    local user_profile_ref01_data_dt0_load_result = helpers.to_map(type(user_profile_ref01_data_dt0_loaded) == 'table' and user_profile_ref01_data_dt0_loaded.data_get and user_profile_ref01_data_dt0_loaded:data_get() or user_profile_ref01_data_dt0_loaded)
+    assert.is_not_nil(user_profile_ref01_data_dt0_load_result)
+    assert.are.equal(user_profile_ref01_data_dt0_load_result["id"], user_profile_ref01_data["id"])
 
   end)
 end)

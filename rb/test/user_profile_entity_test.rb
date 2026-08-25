@@ -41,9 +41,13 @@ class UserProfileEntityTest < Minitest::Test
 
     # LOAD
     user_profile_ref01_ent = client.UserProfile(nil)
-    user_profile_ref01_match_dt0 = {}
+    user_profile_ref01_match_dt0 = {
+      "id" => user_profile_ref01_data["id"],
+    }
     user_profile_ref01_data_dt0_loaded = user_profile_ref01_ent.load(user_profile_ref01_match_dt0, nil)
-    assert !user_profile_ref01_data_dt0_loaded.nil?
+    user_profile_ref01_data_dt0_load_result = Helpers.to_map(user_profile_ref01_data_dt0_loaded.respond_to?(:data_get) ? user_profile_ref01_data_dt0_loaded.data_get : user_profile_ref01_data_dt0_loaded)
+    assert !user_profile_ref01_data_dt0_load_result.nil?
+    assert_equal user_profile_ref01_data_dt0_load_result["id"], user_profile_ref01_data["id"]
 
   end
 end

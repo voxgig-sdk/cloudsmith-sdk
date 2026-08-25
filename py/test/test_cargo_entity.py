@@ -82,6 +82,7 @@ class TestCargoEntity:
 
         cargo_ref01_data = helpers.to_map(runner.entity_data(cargo_ref01_ent.create(cargo_ref01_data, None)))
         assert cargo_ref01_data is not None
+        assert cargo_ref01_data["id"] is not None
 
         # LIST
         cargo_ref01_match = {
@@ -92,8 +93,14 @@ class TestCargoEntity:
         cargo_ref01_list_result = cargo_ref01_ent.list(cargo_ref01_match, None)
         assert isinstance(cargo_ref01_list_result, list)
 
+        found_item = vs.select(
+            runner.entity_list_to_data(cargo_ref01_list_result),
+            {"id": cargo_ref01_data["id"]})
+        assert not vs.isempty(found_item)
+
         # UPDATE
         cargo_ref01_data_up0_up = {
+            "id": cargo_ref01_data["id"],
             "identifier": setup["idmap"]["identifier"],
             "owner": setup["idmap"]["owner"],
         }
@@ -104,12 +111,17 @@ class TestCargoEntity:
 
         cargo_ref01_resdata_up0 = helpers.to_map(runner.entity_data(cargo_ref01_ent.update(cargo_ref01_data_up0_up, None)))
         assert cargo_ref01_resdata_up0 is not None
+        assert cargo_ref01_resdata_up0["id"] == cargo_ref01_data_up0_up["id"]
         assert cargo_ref01_resdata_up0[cargo_ref01_markdef_up0_name] == cargo_ref01_markdef_up0_value
 
         # LOAD
-        cargo_ref01_match_dt0 = {}
+        cargo_ref01_match_dt0 = {
+            "id": cargo_ref01_data["id"],
+        }
         cargo_ref01_data_dt0_loaded = cargo_ref01_ent.load(cargo_ref01_match_dt0, None)
-        assert cargo_ref01_data_dt0_loaded is not None
+        cargo_ref01_data_dt0_load_result = helpers.to_map(runner.entity_data(cargo_ref01_data_dt0_loaded))
+        assert cargo_ref01_data_dt0_load_result is not None
+        assert cargo_ref01_data_dt0_load_result["id"] == cargo_ref01_data["id"]
 
 
 

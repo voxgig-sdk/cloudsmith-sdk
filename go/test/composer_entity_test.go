@@ -113,6 +113,9 @@ func TestComposerEntity(t *testing.T) {
 		if composerRef01Data == nil {
 			t.Fatal("expected create result to be a map")
 		}
+		if composerRef01Data["id"] == nil {
+			t.Fatal("expected created entity to have an id")
+		}
 
 		// LIST
 		composerRef01Match := map[string]any{
@@ -124,13 +127,19 @@ func TestComposerEntity(t *testing.T) {
 		if err != nil {
 			t.Fatalf("list failed: %v", err)
 		}
-		_, composerRef01ListOk := composerRef01ListResult.([]any)
+		composerRef01List, composerRef01ListOk := composerRef01ListResult.([]any)
 		if !composerRef01ListOk {
 			t.Fatalf("expected list result to be an array, got %T", composerRef01ListResult)
 		}
 
+		foundItem := vs.Select(entityListToData(composerRef01List), map[string]any{"id": composerRef01Data["id"]})
+		if vs.IsEmpty(foundItem) {
+			t.Fatal("expected to find created entity in list")
+		}
+
 		// UPDATE
 		composerRef01DataUp0Up := map[string]any{
+			"id": composerRef01Data["id"],
 			"identifier": setup.idmap["identifier"],
 			"owner": setup.idmap["owner"],
 		}
@@ -147,18 +156,27 @@ func TestComposerEntity(t *testing.T) {
 		if composerRef01ResdataUp0 == nil {
 			t.Fatal("expected update result to be a map")
 		}
+		if composerRef01ResdataUp0["id"] != composerRef01DataUp0Up["id"] {
+			t.Fatal("expected update result id to match")
+		}
 		if composerRef01ResdataUp0[composerRef01MarkdefUp0Name] != composerRef01MarkdefUp0Value {
 			t.Fatalf("expected %s to be updated, got %v", composerRef01MarkdefUp0Name, composerRef01ResdataUp0[composerRef01MarkdefUp0Name])
 		}
 
 		// LOAD
-		composerRef01MatchDt0 := map[string]any{}
+		composerRef01MatchDt0 := map[string]any{
+			"id": composerRef01Data["id"],
+		}
 		composerRef01DataDt0Loaded, err := composerRef01Ent.Load(composerRef01MatchDt0, nil)
 		if err != nil {
 			t.Fatalf("load failed: %v", err)
 		}
-		if composerRef01DataDt0Loaded == nil {
-			t.Fatal("expected load result to be non-nil")
+		composerRef01DataDt0LoadResult := core.ToMapAny(entityData(composerRef01DataDt0Loaded))
+		if composerRef01DataDt0LoadResult == nil {
+			t.Fatal("expected load result to be a map")
+		}
+		if composerRef01DataDt0LoadResult["id"] != composerRef01Data["id"] {
+			t.Fatal("expected load result id to match")
 		}
 
 	})

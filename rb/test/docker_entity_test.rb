@@ -77,6 +77,7 @@ class DockerEntityTest < Minitest::Test
     docker_ref01_data_result = docker_ref01_ent.create(docker_ref01_data, nil)
     docker_ref01_data = Helpers.to_map(docker_ref01_data_result.respond_to?(:data_get) ? docker_ref01_data_result.data_get : docker_ref01_data_result)
     assert !docker_ref01_data.nil?
+    assert !docker_ref01_data["id"].nil?
 
     # LIST
     docker_ref01_match = {
@@ -87,8 +88,14 @@ class DockerEntityTest < Minitest::Test
     docker_ref01_list_result = docker_ref01_ent.list(docker_ref01_match, nil)
     assert docker_ref01_list_result.is_a?(Array)
 
+    found_item = Vs.select(
+      Runner.entity_list_to_data(docker_ref01_list_result),
+      { "id" => docker_ref01_data["id"] })
+    assert !Vs.isempty(found_item)
+
     # UPDATE
     docker_ref01_data_up0_up = {
+      "id" => docker_ref01_data["id"],
       "identifier" => setup[:idmap]["identifier"],
       "owner" => setup[:idmap]["owner"],
     }
@@ -100,12 +107,17 @@ class DockerEntityTest < Minitest::Test
     docker_ref01_resdata_up0_result = docker_ref01_ent.update(docker_ref01_data_up0_up, nil)
     docker_ref01_resdata_up0 = Helpers.to_map(docker_ref01_resdata_up0_result.respond_to?(:data_get) ? docker_ref01_resdata_up0_result.data_get : docker_ref01_resdata_up0_result)
     assert !docker_ref01_resdata_up0.nil?
+    assert_equal docker_ref01_resdata_up0["id"], docker_ref01_data_up0_up["id"]
     assert_equal docker_ref01_resdata_up0[docker_ref01_markdef_up0_name], docker_ref01_markdef_up0_value
 
     # LOAD
-    docker_ref01_match_dt0 = {}
+    docker_ref01_match_dt0 = {
+      "id" => docker_ref01_data["id"],
+    }
     docker_ref01_data_dt0_loaded = docker_ref01_ent.load(docker_ref01_match_dt0, nil)
-    assert !docker_ref01_data_dt0_loaded.nil?
+    docker_ref01_data_dt0_load_result = Helpers.to_map(docker_ref01_data_dt0_loaded.respond_to?(:data_get) ? docker_ref01_data_dt0_loaded.data_get : docker_ref01_data_dt0_loaded)
+    assert !docker_ref01_data_dt0_load_result.nil?
+    assert_equal docker_ref01_data_dt0_load_result["id"], docker_ref01_data["id"]
 
   end
 end

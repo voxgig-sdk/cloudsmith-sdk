@@ -77,21 +77,28 @@ const utility_1 = require("../../utility");
         cran_ref01_data['identifier'] = setup.idmap['identifier01'];
         cran_ref01_data['owner'] = setup.idmap['owner01'];
         cran_ref01_data = (await cran_ref01_ent.create(cran_ref01_data)).data();
-        (0, node_assert_1.default)(null != cran_ref01_data);
+        (0, node_assert_1.default)(null != cran_ref01_data.id);
         // LIST
         const cran_ref01_match = {};
         cran_ref01_match['identifier'] = setup.idmap['identifier01'];
         cran_ref01_match['owner'] = setup.idmap['owner01'];
         const cran_ref01_list = (await cran_ref01_ent.list(cran_ref01_match)).map((e) => e.data());
+        (0, node_assert_1.default)(!isempty(select(cran_ref01_list, { id: cran_ref01_data.id })));
         // UPDATE
         const cran_ref01_data_up0 = {};
+        cran_ref01_data_up0.id = cran_ref01_data.id;
         cran_ref01_data_up0['identifier'] = setup.idmap['identifier'];
         cran_ref01_data_up0['owner'] = setup.idmap['owner'];
         const cran_ref01_markdef_up0 = { name: 'auth_mode', value: 'Mark01-cran_ref01_' + setup.now };
         cran_ref01_data_up0[cran_ref01_markdef_up0.name] = cran_ref01_markdef_up0.value;
         const cran_ref01_resdata_up0 = (await cran_ref01_ent.update(cran_ref01_data_up0)).data();
-        (0, node_assert_1.default)(null != cran_ref01_resdata_up0);
+        (0, node_assert_1.default)(cran_ref01_resdata_up0.id === cran_ref01_data_up0.id);
         (0, node_assert_1.default)(cran_ref01_resdata_up0[cran_ref01_markdef_up0.name] === cran_ref01_markdef_up0.value);
+        // LOAD
+        const cran_ref01_match_dt0 = {};
+        cran_ref01_match_dt0.id = cran_ref01_data.id;
+        const cran_ref01_data_dt0 = (await cran_ref01_ent.load(cran_ref01_match_dt0)).data();
+        (0, node_assert_1.default)(cran_ref01_data_dt0.id === cran_ref01_data.id);
     });
 });
 function basicSetup(extra) {

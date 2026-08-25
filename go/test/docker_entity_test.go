@@ -113,6 +113,9 @@ func TestDockerEntity(t *testing.T) {
 		if dockerRef01Data == nil {
 			t.Fatal("expected create result to be a map")
 		}
+		if dockerRef01Data["id"] == nil {
+			t.Fatal("expected created entity to have an id")
+		}
 
 		// LIST
 		dockerRef01Match := map[string]any{
@@ -124,13 +127,19 @@ func TestDockerEntity(t *testing.T) {
 		if err != nil {
 			t.Fatalf("list failed: %v", err)
 		}
-		_, dockerRef01ListOk := dockerRef01ListResult.([]any)
+		dockerRef01List, dockerRef01ListOk := dockerRef01ListResult.([]any)
 		if !dockerRef01ListOk {
 			t.Fatalf("expected list result to be an array, got %T", dockerRef01ListResult)
 		}
 
+		foundItem := vs.Select(entityListToData(dockerRef01List), map[string]any{"id": dockerRef01Data["id"]})
+		if vs.IsEmpty(foundItem) {
+			t.Fatal("expected to find created entity in list")
+		}
+
 		// UPDATE
 		dockerRef01DataUp0Up := map[string]any{
+			"id": dockerRef01Data["id"],
 			"identifier": setup.idmap["identifier"],
 			"owner": setup.idmap["owner"],
 		}
@@ -147,18 +156,27 @@ func TestDockerEntity(t *testing.T) {
 		if dockerRef01ResdataUp0 == nil {
 			t.Fatal("expected update result to be a map")
 		}
+		if dockerRef01ResdataUp0["id"] != dockerRef01DataUp0Up["id"] {
+			t.Fatal("expected update result id to match")
+		}
 		if dockerRef01ResdataUp0[dockerRef01MarkdefUp0Name] != dockerRef01MarkdefUp0Value {
 			t.Fatalf("expected %s to be updated, got %v", dockerRef01MarkdefUp0Name, dockerRef01ResdataUp0[dockerRef01MarkdefUp0Name])
 		}
 
 		// LOAD
-		dockerRef01MatchDt0 := map[string]any{}
+		dockerRef01MatchDt0 := map[string]any{
+			"id": dockerRef01Data["id"],
+		}
 		dockerRef01DataDt0Loaded, err := dockerRef01Ent.Load(dockerRef01MatchDt0, nil)
 		if err != nil {
 			t.Fatalf("load failed: %v", err)
 		}
-		if dockerRef01DataDt0Loaded == nil {
-			t.Fatal("expected load result to be non-nil")
+		dockerRef01DataDt0LoadResult := core.ToMapAny(entityData(dockerRef01DataDt0Loaded))
+		if dockerRef01DataDt0LoadResult == nil {
+			t.Fatal("expected load result to be a map")
+		}
+		if dockerRef01DataDt0LoadResult["id"] != dockerRef01Data["id"] {
+			t.Fatal("expected load result id to match")
 		}
 
 	})

@@ -82,6 +82,7 @@ class TestRubyEntity:
 
         ruby_ref01_data = helpers.to_map(runner.entity_data(ruby_ref01_ent.create(ruby_ref01_data, None)))
         assert ruby_ref01_data is not None
+        assert ruby_ref01_data["id"] is not None
 
         # LIST
         ruby_ref01_match = {
@@ -92,8 +93,14 @@ class TestRubyEntity:
         ruby_ref01_list_result = ruby_ref01_ent.list(ruby_ref01_match, None)
         assert isinstance(ruby_ref01_list_result, list)
 
+        found_item = vs.select(
+            runner.entity_list_to_data(ruby_ref01_list_result),
+            {"id": ruby_ref01_data["id"]})
+        assert not vs.isempty(found_item)
+
         # UPDATE
         ruby_ref01_data_up0_up = {
+            "id": ruby_ref01_data["id"],
             "identifier": setup["idmap"]["identifier"],
             "owner": setup["idmap"]["owner"],
         }
@@ -104,12 +111,17 @@ class TestRubyEntity:
 
         ruby_ref01_resdata_up0 = helpers.to_map(runner.entity_data(ruby_ref01_ent.update(ruby_ref01_data_up0_up, None)))
         assert ruby_ref01_resdata_up0 is not None
+        assert ruby_ref01_resdata_up0["id"] == ruby_ref01_data_up0_up["id"]
         assert ruby_ref01_resdata_up0[ruby_ref01_markdef_up0_name] == ruby_ref01_markdef_up0_value
 
         # LOAD
-        ruby_ref01_match_dt0 = {}
+        ruby_ref01_match_dt0 = {
+            "id": ruby_ref01_data["id"],
+        }
         ruby_ref01_data_dt0_loaded = ruby_ref01_ent.load(ruby_ref01_match_dt0, None)
-        assert ruby_ref01_data_dt0_loaded is not None
+        ruby_ref01_data_dt0_load_result = helpers.to_map(runner.entity_data(ruby_ref01_data_dt0_loaded))
+        assert ruby_ref01_data_dt0_load_result is not None
+        assert ruby_ref01_data_dt0_load_result["id"] == ruby_ref01_data["id"]
 
 
 

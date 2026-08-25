@@ -65,7 +65,7 @@ describe('HelmEntity', async () => {
     helm_ref01_data['owner'] = setup.idmap['owner01']
 
     helm_ref01_data = (await helm_ref01_ent.create(helm_ref01_data)).data()
-    assert(null != helm_ref01_data)
+    assert(null != helm_ref01_data.id)
 
 
     // LIST
@@ -75,9 +75,12 @@ describe('HelmEntity', async () => {
 
     const helm_ref01_list = (await helm_ref01_ent.list(helm_ref01_match)).map((e: any) => e.data())
 
+    assert(!isempty(select(helm_ref01_list, { id: helm_ref01_data.id })))
+
 
     // UPDATE
     const helm_ref01_data_up0: any = {}
+    helm_ref01_data_up0.id = helm_ref01_data.id
     helm_ref01_data_up0 ['identifier'] = setup.idmap['identifier']
     helm_ref01_data_up0 ['owner'] = setup.idmap['owner']
 
@@ -85,10 +88,16 @@ describe('HelmEntity', async () => {
     ;(helm_ref01_data_up0 as any)[helm_ref01_markdef_up0.name] = helm_ref01_markdef_up0.value
 
     const helm_ref01_resdata_up0 = (await helm_ref01_ent.update(helm_ref01_data_up0)).data()
-    assert(null != helm_ref01_resdata_up0)
+    assert(helm_ref01_resdata_up0.id === helm_ref01_data_up0.id)
 
     assert((helm_ref01_resdata_up0 as any)[helm_ref01_markdef_up0.name] === helm_ref01_markdef_up0.value)
 
+
+    // LOAD
+    const helm_ref01_match_dt0: any = {}
+    helm_ref01_match_dt0.id = helm_ref01_data.id
+    const helm_ref01_data_dt0 = (await helm_ref01_ent.load(helm_ref01_match_dt0)).data()
+    assert(helm_ref01_data_dt0.id === helm_ref01_data.id)
 
 
   })

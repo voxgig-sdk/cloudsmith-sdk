@@ -77,21 +77,28 @@ const utility_1 = require("../../utility");
         hex_ref01_data['identifier'] = setup.idmap['identifier01'];
         hex_ref01_data['owner'] = setup.idmap['owner01'];
         hex_ref01_data = (await hex_ref01_ent.create(hex_ref01_data)).data();
-        (0, node_assert_1.default)(null != hex_ref01_data);
+        (0, node_assert_1.default)(null != hex_ref01_data.id);
         // LIST
         const hex_ref01_match = {};
         hex_ref01_match['identifier'] = setup.idmap['identifier01'];
         hex_ref01_match['owner'] = setup.idmap['owner01'];
         const hex_ref01_list = (await hex_ref01_ent.list(hex_ref01_match)).map((e) => e.data());
+        (0, node_assert_1.default)(!isempty(select(hex_ref01_list, { id: hex_ref01_data.id })));
         // UPDATE
         const hex_ref01_data_up0 = {};
+        hex_ref01_data_up0.id = hex_ref01_data.id;
         hex_ref01_data_up0['identifier'] = setup.idmap['identifier'];
         hex_ref01_data_up0['owner'] = setup.idmap['owner'];
         const hex_ref01_markdef_up0 = { name: 'auth_mode', value: 'Mark01-hex_ref01_' + setup.now };
         hex_ref01_data_up0[hex_ref01_markdef_up0.name] = hex_ref01_markdef_up0.value;
         const hex_ref01_resdata_up0 = (await hex_ref01_ent.update(hex_ref01_data_up0)).data();
-        (0, node_assert_1.default)(null != hex_ref01_resdata_up0);
+        (0, node_assert_1.default)(hex_ref01_resdata_up0.id === hex_ref01_data_up0.id);
         (0, node_assert_1.default)(hex_ref01_resdata_up0[hex_ref01_markdef_up0.name] === hex_ref01_markdef_up0.value);
+        // LOAD
+        const hex_ref01_match_dt0 = {};
+        hex_ref01_match_dt0.id = hex_ref01_data.id;
+        const hex_ref01_data_dt0 = (await hex_ref01_ent.load(hex_ref01_match_dt0)).data();
+        (0, node_assert_1.default)(hex_ref01_data_dt0.id === hex_ref01_data.id);
     });
 });
 function basicSetup(extra) {

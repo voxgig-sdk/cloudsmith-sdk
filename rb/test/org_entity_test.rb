@@ -76,6 +76,7 @@ class OrgEntityTest < Minitest::Test
     org_ref01_data_result = org_ref01_ent.create(org_ref01_data, nil)
     org_ref01_data = Helpers.to_map(org_ref01_data_result.respond_to?(:data_get) ? org_ref01_data_result.data_get : org_ref01_data_result)
     assert !org_ref01_data.nil?
+    assert !org_ref01_data["id"].nil?
 
     # LIST
     org_ref01_match = {}
@@ -83,8 +84,14 @@ class OrgEntityTest < Minitest::Test
     org_ref01_list_result = org_ref01_ent.list(org_ref01_match, nil)
     assert org_ref01_list_result.is_a?(Array)
 
+    found_item = Vs.select(
+      Runner.entity_list_to_data(org_ref01_list_result),
+      { "id" => org_ref01_data["id"] })
+    assert !Vs.isempty(found_item)
+
     # UPDATE
     org_ref01_data_up0_up = {
+      "id" => org_ref01_data["id"],
     }
 
     org_ref01_markdef_up0_name = "country"
@@ -94,19 +101,34 @@ class OrgEntityTest < Minitest::Test
     org_ref01_resdata_up0_result = org_ref01_ent.update(org_ref01_data_up0_up, nil)
     org_ref01_resdata_up0 = Helpers.to_map(org_ref01_resdata_up0_result.respond_to?(:data_get) ? org_ref01_resdata_up0_result.data_get : org_ref01_resdata_up0_result)
     assert !org_ref01_resdata_up0.nil?
+    assert_equal org_ref01_resdata_up0["id"], org_ref01_data_up0_up["id"]
     assert_equal org_ref01_resdata_up0[org_ref01_markdef_up0_name], org_ref01_markdef_up0_value
 
     # LOAD
-    org_ref01_match_dt0 = {}
+    org_ref01_match_dt0 = {
+      "id" => org_ref01_data["id"],
+    }
     org_ref01_data_dt0_loaded = org_ref01_ent.load(org_ref01_match_dt0, nil)
-    assert !org_ref01_data_dt0_loaded.nil?
+    org_ref01_data_dt0_load_result = Helpers.to_map(org_ref01_data_dt0_loaded.respond_to?(:data_get) ? org_ref01_data_dt0_loaded.data_get : org_ref01_data_dt0_loaded)
+    assert !org_ref01_data_dt0_load_result.nil?
+    assert_equal org_ref01_data_dt0_load_result["id"], org_ref01_data["id"]
 
+    # REMOVE
+    org_ref01_match_rm0 = {
+      "id" => org_ref01_data["id"],
+    }
+    org_ref01_ent.remove(org_ref01_match_rm0, nil)
 
     # LIST
     org_ref01_match_rt0 = {}
 
     org_ref01_list_rt0_result = org_ref01_ent.list(org_ref01_match_rt0, nil)
     assert org_ref01_list_rt0_result.is_a?(Array)
+
+    not_found_item = Vs.select(
+      Runner.entity_list_to_data(org_ref01_list_rt0_result),
+      { "id" => org_ref01_data["id"] })
+    assert Vs.isempty(not_found_item)
 
   end
 end

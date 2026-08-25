@@ -27,6 +27,11 @@ main: kit: entity: service: {
       type: "`$STRING`"
     }
     {
+      name: "id"
+      req: false
+      type: "`$STRING`"
+    }
+    {
       name: "key"
       req: false
       short: "The API key of the service"
@@ -62,6 +67,11 @@ main: kit: entity: service: {
       type: "`$ARRAY`"
     }
   ]
+
+  id: {
+    field: "id"
+    name: "id"
+  }
 
   name: "service"
   op: {

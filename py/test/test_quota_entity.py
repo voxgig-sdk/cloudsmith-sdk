@@ -48,9 +48,13 @@ class TestQuotaEntity:
 
         # LOAD
         quota_ref01_ent = client.Quota(None)
-        quota_ref01_match_dt0 = {}
+        quota_ref01_match_dt0 = {
+            "id": quota_ref01_data["id"],
+        }
         quota_ref01_data_dt0_loaded = quota_ref01_ent.load(quota_ref01_match_dt0, None)
-        assert quota_ref01_data_dt0_loaded is not None
+        quota_ref01_data_dt0_load_result = helpers.to_map(runner.entity_data(quota_ref01_data_dt0_loaded))
+        assert quota_ref01_data_dt0_load_result is not None
+        assert quota_ref01_data_dt0_load_result["id"] == quota_ref01_data["id"]
 
 
 

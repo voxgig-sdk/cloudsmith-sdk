@@ -2,36 +2,36 @@
   "existing": {
     "dynamic_mapping": {
       "DYNAMIC_MAPPING00": {
-        "claim_value": "s14",
-        "service_account": "s15",
+        "claim_value": "s1e",
+        "id": "DYNAMIC_MAPPING00",
+        "service_account": "s20",
         "org_id": "ORG01",
         "provider_setting": "PROVIDER_SETTING01",
-        "openid_connect_id": "OPENID_CONNECT01",
-        "id": "DYNAMIC_MAPPING00"
+        "openid_connect_id": "OPENID_CONNECT01"
       },
       "DYNAMIC_MAPPING01": {
-        "claim_value": "s28",
-        "service_account": "s29",
+        "claim_value": "s3c",
+        "id": "DYNAMIC_MAPPING01",
+        "service_account": "s3e",
         "org_id": "ORG01",
         "provider_setting": "PROVIDER_SETTING01",
-        "openid_connect_id": "OPENID_CONNECT01",
-        "id": "DYNAMIC_MAPPING01"
+        "openid_connect_id": "OPENID_CONNECT01"
       },
       "DYNAMIC_MAPPING02": {
-        "claim_value": "s3c",
-        "service_account": "s3d",
+        "claim_value": "s5a",
+        "id": "DYNAMIC_MAPPING02",
+        "service_account": "s5c",
         "org_id": "ORG01",
         "provider_setting": "PROVIDER_SETTING01",
-        "openid_connect_id": "OPENID_CONNECT01",
-        "id": "DYNAMIC_MAPPING02"
+        "openid_connect_id": "OPENID_CONNECT01"
       }
     }
   },
   "new": {
     "dynamic_mapping": {
       "dynamic_mapping_ref01": {
-        "claim_value": "s50",
-        "service_account": "s51"
+        "claim_value": "s78",
+        "service_account": "s7a"
       }
     }
   }

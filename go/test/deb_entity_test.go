@@ -113,6 +113,9 @@ func TestDebEntity(t *testing.T) {
 		if debRef01Data == nil {
 			t.Fatal("expected create result to be a map")
 		}
+		if debRef01Data["id"] == nil {
+			t.Fatal("expected created entity to have an id")
+		}
 
 		// LIST
 		debRef01Match := map[string]any{
@@ -124,13 +127,19 @@ func TestDebEntity(t *testing.T) {
 		if err != nil {
 			t.Fatalf("list failed: %v", err)
 		}
-		_, debRef01ListOk := debRef01ListResult.([]any)
+		debRef01List, debRef01ListOk := debRef01ListResult.([]any)
 		if !debRef01ListOk {
 			t.Fatalf("expected list result to be an array, got %T", debRef01ListResult)
 		}
 
+		foundItem := vs.Select(entityListToData(debRef01List), map[string]any{"id": debRef01Data["id"]})
+		if vs.IsEmpty(foundItem) {
+			t.Fatal("expected to find created entity in list")
+		}
+
 		// UPDATE
 		debRef01DataUp0Up := map[string]any{
+			"id": debRef01Data["id"],
 			"identifier": setup.idmap["identifier"],
 			"owner": setup.idmap["owner"],
 		}
@@ -147,18 +156,27 @@ func TestDebEntity(t *testing.T) {
 		if debRef01ResdataUp0 == nil {
 			t.Fatal("expected update result to be a map")
 		}
+		if debRef01ResdataUp0["id"] != debRef01DataUp0Up["id"] {
+			t.Fatal("expected update result id to match")
+		}
 		if debRef01ResdataUp0[debRef01MarkdefUp0Name] != debRef01MarkdefUp0Value {
 			t.Fatalf("expected %s to be updated, got %v", debRef01MarkdefUp0Name, debRef01ResdataUp0[debRef01MarkdefUp0Name])
 		}
 
 		// LOAD
-		debRef01MatchDt0 := map[string]any{}
+		debRef01MatchDt0 := map[string]any{
+			"id": debRef01Data["id"],
+		}
 		debRef01DataDt0Loaded, err := debRef01Ent.Load(debRef01MatchDt0, nil)
 		if err != nil {
 			t.Fatalf("load failed: %v", err)
 		}
-		if debRef01DataDt0Loaded == nil {
-			t.Fatal("expected load result to be non-nil")
+		debRef01DataDt0LoadResult := core.ToMapAny(entityData(debRef01DataDt0Loaded))
+		if debRef01DataDt0LoadResult == nil {
+			t.Fatal("expected load result to be a map")
+		}
+		if debRef01DataDt0LoadResult["id"] != debRef01Data["id"] {
+			t.Fatal("expected load result id to match")
 		}
 
 	})

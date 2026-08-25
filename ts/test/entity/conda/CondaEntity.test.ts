@@ -65,7 +65,7 @@ describe('CondaEntity', async () => {
     conda_ref01_data['owner'] = setup.idmap['owner01']
 
     conda_ref01_data = (await conda_ref01_ent.create(conda_ref01_data)).data()
-    assert(null != conda_ref01_data)
+    assert(null != conda_ref01_data.id)
 
 
     // LIST
@@ -75,9 +75,12 @@ describe('CondaEntity', async () => {
 
     const conda_ref01_list = (await conda_ref01_ent.list(conda_ref01_match)).map((e: any) => e.data())
 
+    assert(!isempty(select(conda_ref01_list, { id: conda_ref01_data.id })))
+
 
     // UPDATE
     const conda_ref01_data_up0: any = {}
+    conda_ref01_data_up0.id = conda_ref01_data.id
     conda_ref01_data_up0 ['identifier'] = setup.idmap['identifier']
     conda_ref01_data_up0 ['owner'] = setup.idmap['owner']
 
@@ -85,10 +88,16 @@ describe('CondaEntity', async () => {
     ;(conda_ref01_data_up0 as any)[conda_ref01_markdef_up0.name] = conda_ref01_markdef_up0.value
 
     const conda_ref01_resdata_up0 = (await conda_ref01_ent.update(conda_ref01_data_up0)).data()
-    assert(null != conda_ref01_resdata_up0)
+    assert(conda_ref01_resdata_up0.id === conda_ref01_data_up0.id)
 
     assert((conda_ref01_resdata_up0 as any)[conda_ref01_markdef_up0.name] === conda_ref01_markdef_up0.value)
 
+
+    // LOAD
+    const conda_ref01_match_dt0: any = {}
+    conda_ref01_match_dt0.id = conda_ref01_data.id
+    const conda_ref01_data_dt0 = (await conda_ref01_ent.load(conda_ref01_match_dt0)).data()
+    assert(conda_ref01_data_dt0.id === conda_ref01_data.id)
 
 
   })

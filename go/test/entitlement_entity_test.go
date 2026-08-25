@@ -65,17 +65,34 @@ func TestEntitlementEntity(t *testing.T) {
 		if entitlementRef01Data == nil {
 			t.Fatal("expected create result to be a map")
 		}
+		if entitlementRef01Data["id"] == nil {
+			t.Fatal("expected created entity to have an id")
+		}
 
 		// LOAD
-		entitlementRef01MatchDt0 := map[string]any{}
+		entitlementRef01MatchDt0 := map[string]any{
+			"id": entitlementRef01Data["id"],
+		}
 		entitlementRef01DataDt0Loaded, err := entitlementRef01Ent.Load(entitlementRef01MatchDt0, nil)
 		if err != nil {
 			t.Fatalf("load failed: %v", err)
 		}
-		if entitlementRef01DataDt0Loaded == nil {
-			t.Fatal("expected load result to be non-nil")
+		entitlementRef01DataDt0LoadResult := core.ToMapAny(entityData(entitlementRef01DataDt0Loaded))
+		if entitlementRef01DataDt0LoadResult == nil {
+			t.Fatal("expected load result to be a map")
+		}
+		if entitlementRef01DataDt0LoadResult["id"] != entitlementRef01Data["id"] {
+			t.Fatal("expected load result id to match")
 		}
 
+		// REMOVE
+		entitlementRef01MatchRm0 := map[string]any{
+			"id": entitlementRef01Data["id"],
+		}
+		_, err = entitlementRef01Ent.Remove(entitlementRef01MatchRm0, nil)
+		if err != nil {
+			t.Fatalf("remove failed: %v", err)
+		}
 
 	})
 }

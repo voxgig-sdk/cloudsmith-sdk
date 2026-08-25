@@ -22,6 +22,11 @@ main: kit: entity: entitlement: {
       type: "`$OBJECT`"
     }
     {
+      name: "id"
+      req: false
+      type: "`$STRING`"
+    }
+    {
       name: "inactive"
       req: false
       short: "Packages with zero downloads"
@@ -34,6 +39,11 @@ main: kit: entity: entitlement: {
       type: "`$INTEGER`"
     }
   ]
+
+  id: {
+    field: "id"
+    name: "id"
+  }
 
   name: "entitlement"
   op: {

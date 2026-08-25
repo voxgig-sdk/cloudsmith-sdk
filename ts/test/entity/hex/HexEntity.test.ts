@@ -65,7 +65,7 @@ describe('HexEntity', async () => {
     hex_ref01_data['owner'] = setup.idmap['owner01']
 
     hex_ref01_data = (await hex_ref01_ent.create(hex_ref01_data)).data()
-    assert(null != hex_ref01_data)
+    assert(null != hex_ref01_data.id)
 
 
     // LIST
@@ -75,9 +75,12 @@ describe('HexEntity', async () => {
 
     const hex_ref01_list = (await hex_ref01_ent.list(hex_ref01_match)).map((e: any) => e.data())
 
+    assert(!isempty(select(hex_ref01_list, { id: hex_ref01_data.id })))
+
 
     // UPDATE
     const hex_ref01_data_up0: any = {}
+    hex_ref01_data_up0.id = hex_ref01_data.id
     hex_ref01_data_up0 ['identifier'] = setup.idmap['identifier']
     hex_ref01_data_up0 ['owner'] = setup.idmap['owner']
 
@@ -85,10 +88,16 @@ describe('HexEntity', async () => {
     ;(hex_ref01_data_up0 as any)[hex_ref01_markdef_up0.name] = hex_ref01_markdef_up0.value
 
     const hex_ref01_resdata_up0 = (await hex_ref01_ent.update(hex_ref01_data_up0)).data()
-    assert(null != hex_ref01_resdata_up0)
+    assert(hex_ref01_resdata_up0.id === hex_ref01_data_up0.id)
 
     assert((hex_ref01_resdata_up0 as any)[hex_ref01_markdef_up0.name] === hex_ref01_markdef_up0.value)
 
+
+    // LOAD
+    const hex_ref01_match_dt0: any = {}
+    hex_ref01_match_dt0.id = hex_ref01_data.id
+    const hex_ref01_data_dt0 = (await hex_ref01_ent.load(hex_ref01_match_dt0)).data()
+    assert(hex_ref01_data_dt0.id === hex_ref01_data.id)
 
 
   })

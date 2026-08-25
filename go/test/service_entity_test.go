@@ -113,6 +113,9 @@ func TestServiceEntity(t *testing.T) {
 		if serviceRef01Data == nil {
 			t.Fatal("expected create result to be a map")
 		}
+		if serviceRef01Data["id"] == nil {
+			t.Fatal("expected created entity to have an id")
+		}
 
 		// LIST
 		serviceRef01Match := map[string]any{
@@ -123,13 +126,19 @@ func TestServiceEntity(t *testing.T) {
 		if err != nil {
 			t.Fatalf("list failed: %v", err)
 		}
-		_, serviceRef01ListOk := serviceRef01ListResult.([]any)
+		serviceRef01List, serviceRef01ListOk := serviceRef01ListResult.([]any)
 		if !serviceRef01ListOk {
 			t.Fatalf("expected list result to be an array, got %T", serviceRef01ListResult)
 		}
 
+		foundItem := vs.Select(entityListToData(serviceRef01List), map[string]any{"id": serviceRef01Data["id"]})
+		if vs.IsEmpty(foundItem) {
+			t.Fatal("expected to find created entity in list")
+		}
+
 		// UPDATE
 		serviceRef01DataUp0Up := map[string]any{
+			"id": serviceRef01Data["id"],
 			"org_id": setup.idmap["org_id"],
 		}
 
@@ -145,18 +154,27 @@ func TestServiceEntity(t *testing.T) {
 		if serviceRef01ResdataUp0 == nil {
 			t.Fatal("expected update result to be a map")
 		}
+		if serviceRef01ResdataUp0["id"] != serviceRef01DataUp0Up["id"] {
+			t.Fatal("expected update result id to match")
+		}
 		if serviceRef01ResdataUp0[serviceRef01MarkdefUp0Name] != serviceRef01MarkdefUp0Value {
 			t.Fatalf("expected %s to be updated, got %v", serviceRef01MarkdefUp0Name, serviceRef01ResdataUp0[serviceRef01MarkdefUp0Name])
 		}
 
 		// LOAD
-		serviceRef01MatchDt0 := map[string]any{}
+		serviceRef01MatchDt0 := map[string]any{
+			"id": serviceRef01Data["id"],
+		}
 		serviceRef01DataDt0Loaded, err := serviceRef01Ent.Load(serviceRef01MatchDt0, nil)
 		if err != nil {
 			t.Fatalf("load failed: %v", err)
 		}
-		if serviceRef01DataDt0Loaded == nil {
-			t.Fatal("expected load result to be non-nil")
+		serviceRef01DataDt0LoadResult := core.ToMapAny(entityData(serviceRef01DataDt0Loaded))
+		if serviceRef01DataDt0LoadResult == nil {
+			t.Fatal("expected load result to be a map")
+		}
+		if serviceRef01DataDt0LoadResult["id"] != serviceRef01Data["id"] {
+			t.Fatal("expected load result id to match")
 		}
 
 	})

@@ -66,6 +66,12 @@ describe('StorageRegionEntity', async () => {
     const storage_region_ref01_list = (await storage_region_ref01_ent.list(storage_region_ref01_match)).map((e: any) => e.data())
 
 
+    // LOAD
+    const storage_region_ref01_match_dt0: any = {}
+    storage_region_ref01_match_dt0.id = storage_region_ref01_data.id
+    const storage_region_ref01_data_dt0 = (await storage_region_ref01_ent.load(storage_region_ref01_match_dt0)).data()
+    assert(storage_region_ref01_data_dt0.id === storage_region_ref01_data.id)
+
 
   })
 })

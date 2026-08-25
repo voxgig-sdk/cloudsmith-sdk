@@ -59,9 +59,12 @@ describe('UserProfileEntity', async () => {
 
     let user_profile_ref01_data = Object.values(setup.data.existing.user_profile)[0] as any
 
-    // LOAD: skipped — no entity id field and load requires path params.
-    // Entity-var is declared here so later flow steps still compile.
+    // LOAD
     const user_profile_ref01_ent = client.UserProfile()
+    const user_profile_ref01_match_dt0: any = {}
+    user_profile_ref01_match_dt0.id = user_profile_ref01_data.id
+    const user_profile_ref01_data_dt0 = (await user_profile_ref01_ent.load(user_profile_ref01_match_dt0)).data()
+    assert(user_profile_ref01_data_dt0.id === user_profile_ref01_data.id)
 
 
   })

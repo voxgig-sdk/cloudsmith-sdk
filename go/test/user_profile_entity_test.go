@@ -61,13 +61,19 @@ func TestUserProfileEntity(t *testing.T) {
 
 		// LOAD
 		userProfileRef01Ent := client.UserProfile(nil)
-		userProfileRef01MatchDt0 := map[string]any{}
+		userProfileRef01MatchDt0 := map[string]any{
+			"id": userProfileRef01Data["id"],
+		}
 		userProfileRef01DataDt0Loaded, err := userProfileRef01Ent.Load(userProfileRef01MatchDt0, nil)
 		if err != nil {
 			t.Fatalf("load failed: %v", err)
 		}
-		if userProfileRef01DataDt0Loaded == nil {
-			t.Fatal("expected load result to be non-nil")
+		userProfileRef01DataDt0LoadResult := core.ToMapAny(entityData(userProfileRef01DataDt0Loaded))
+		if userProfileRef01DataDt0LoadResult == nil {
+			t.Fatal("expected load result to be a map")
+		}
+		if userProfileRef01DataDt0LoadResult["id"] != userProfileRef01Data["id"] {
+			t.Fatal("expected load result id to match")
 		}
 
 	})

@@ -82,6 +82,7 @@ class TestPythonEntity:
 
         python_ref01_data = helpers.to_map(runner.entity_data(python_ref01_ent.create(python_ref01_data, None)))
         assert python_ref01_data is not None
+        assert python_ref01_data["id"] is not None
 
         # LIST
         python_ref01_match = {
@@ -92,8 +93,14 @@ class TestPythonEntity:
         python_ref01_list_result = python_ref01_ent.list(python_ref01_match, None)
         assert isinstance(python_ref01_list_result, list)
 
+        found_item = vs.select(
+            runner.entity_list_to_data(python_ref01_list_result),
+            {"id": python_ref01_data["id"]})
+        assert not vs.isempty(found_item)
+
         # UPDATE
         python_ref01_data_up0_up = {
+            "id": python_ref01_data["id"],
             "identifier": setup["idmap"]["identifier"],
             "owner": setup["idmap"]["owner"],
         }
@@ -104,12 +111,17 @@ class TestPythonEntity:
 
         python_ref01_resdata_up0 = helpers.to_map(runner.entity_data(python_ref01_ent.update(python_ref01_data_up0_up, None)))
         assert python_ref01_resdata_up0 is not None
+        assert python_ref01_resdata_up0["id"] == python_ref01_data_up0_up["id"]
         assert python_ref01_resdata_up0[python_ref01_markdef_up0_name] == python_ref01_markdef_up0_value
 
         # LOAD
-        python_ref01_match_dt0 = {}
+        python_ref01_match_dt0 = {
+            "id": python_ref01_data["id"],
+        }
         python_ref01_data_dt0_loaded = python_ref01_ent.load(python_ref01_match_dt0, None)
-        assert python_ref01_data_dt0_loaded is not None
+        python_ref01_data_dt0_load_result = helpers.to_map(runner.entity_data(python_ref01_data_dt0_loaded))
+        assert python_ref01_data_dt0_load_result is not None
+        assert python_ref01_data_dt0_load_result["id"] == python_ref01_data["id"]
 
 
 

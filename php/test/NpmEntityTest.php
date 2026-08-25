@@ -87,6 +87,7 @@ class NpmEntityTest extends TestCase
         $npm_ref01_data_result = $npm_ref01_ent->create($npm_ref01_data, null);
         $npm_ref01_data = Helpers::to_map(is_object($npm_ref01_data_result) && method_exists($npm_ref01_data_result, 'data_get') ? $npm_ref01_data_result->data_get() : $npm_ref01_data_result);
         $this->assertNotNull($npm_ref01_data);
+        $this->assertNotNull($npm_ref01_data["id"]);
 
         // LIST
         $npm_ref01_match = [
@@ -97,8 +98,14 @@ class NpmEntityTest extends TestCase
         $npm_ref01_list_result = $npm_ref01_ent->list($npm_ref01_match, null);
         $this->assertIsArray($npm_ref01_list_result);
 
+        $found_item = sdk_select(
+            Runner::entity_list_to_data($npm_ref01_list_result),
+            ["id" => $npm_ref01_data["id"]]);
+        $this->assertNotEmpty($found_item);
+
         // UPDATE
         $npm_ref01_data_up0_up = [
+            "id" => $npm_ref01_data["id"],
             "identifier" => $setup["idmap"]["identifier"],
             "owner" => $setup["idmap"]["owner"],
         ];
@@ -110,12 +117,17 @@ class NpmEntityTest extends TestCase
         $npm_ref01_resdata_up0_result = $npm_ref01_ent->update($npm_ref01_data_up0_up, null);
         $npm_ref01_resdata_up0 = Helpers::to_map(is_object($npm_ref01_resdata_up0_result) && method_exists($npm_ref01_resdata_up0_result, 'data_get') ? $npm_ref01_resdata_up0_result->data_get() : $npm_ref01_resdata_up0_result);
         $this->assertNotNull($npm_ref01_resdata_up0);
+        $this->assertEquals($npm_ref01_resdata_up0["id"], $npm_ref01_data_up0_up["id"]);
         $this->assertEquals($npm_ref01_resdata_up0[$npm_ref01_markdef_up0_name], $npm_ref01_markdef_up0_value);
 
         // LOAD
-        $npm_ref01_match_dt0 = [];
+        $npm_ref01_match_dt0 = [
+            "id" => $npm_ref01_data["id"],
+        ];
         $npm_ref01_data_dt0_loaded = $npm_ref01_ent->load($npm_ref01_match_dt0, null);
-        $this->assertNotNull($npm_ref01_data_dt0_loaded);
+        $npm_ref01_data_dt0_load_result = Helpers::to_map(is_object($npm_ref01_data_dt0_loaded) && method_exists($npm_ref01_data_dt0_loaded, 'data_get') ? $npm_ref01_data_dt0_loaded->data_get() : $npm_ref01_data_dt0_loaded);
+        $this->assertNotNull($npm_ref01_data_dt0_load_result);
+        $this->assertEquals($npm_ref01_data_dt0_load_result["id"], $npm_ref01_data["id"]);
 
     }
 }

@@ -48,9 +48,13 @@ class QuotaEntityTest extends TestCase
 
         // LOAD
         $quota_ref01_ent = $client->Quota(null);
-        $quota_ref01_match_dt0 = [];
+        $quota_ref01_match_dt0 = [
+            "id" => $quota_ref01_data["id"],
+        ];
         $quota_ref01_data_dt0_loaded = $quota_ref01_ent->load($quota_ref01_match_dt0, null);
-        $this->assertNotNull($quota_ref01_data_dt0_loaded);
+        $quota_ref01_data_dt0_load_result = Helpers::to_map(is_object($quota_ref01_data_dt0_loaded) && method_exists($quota_ref01_data_dt0_loaded, 'data_get') ? $quota_ref01_data_dt0_loaded->data_get() : $quota_ref01_data_dt0_loaded);
+        $this->assertNotNull($quota_ref01_data_dt0_load_result);
+        $this->assertEquals($quota_ref01_data_dt0_load_result["id"], $quota_ref01_data["id"]);
 
     }
 }

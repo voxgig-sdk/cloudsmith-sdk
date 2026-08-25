@@ -65,7 +65,7 @@ describe('MavenEntity', async () => {
     maven_ref01_data['owner'] = setup.idmap['owner01']
 
     maven_ref01_data = (await maven_ref01_ent.create(maven_ref01_data)).data()
-    assert(null != maven_ref01_data)
+    assert(null != maven_ref01_data.id)
 
 
     // LIST
@@ -75,9 +75,12 @@ describe('MavenEntity', async () => {
 
     const maven_ref01_list = (await maven_ref01_ent.list(maven_ref01_match)).map((e: any) => e.data())
 
+    assert(!isempty(select(maven_ref01_list, { id: maven_ref01_data.id })))
+
 
     // UPDATE
     const maven_ref01_data_up0: any = {}
+    maven_ref01_data_up0.id = maven_ref01_data.id
     maven_ref01_data_up0 ['identifier'] = setup.idmap['identifier']
     maven_ref01_data_up0 ['owner'] = setup.idmap['owner']
 
@@ -85,10 +88,16 @@ describe('MavenEntity', async () => {
     ;(maven_ref01_data_up0 as any)[maven_ref01_markdef_up0.name] = maven_ref01_markdef_up0.value
 
     const maven_ref01_resdata_up0 = (await maven_ref01_ent.update(maven_ref01_data_up0)).data()
-    assert(null != maven_ref01_resdata_up0)
+    assert(maven_ref01_resdata_up0.id === maven_ref01_data_up0.id)
 
     assert((maven_ref01_resdata_up0 as any)[maven_ref01_markdef_up0.name] === maven_ref01_markdef_up0.value)
 
+
+    // LOAD
+    const maven_ref01_match_dt0: any = {}
+    maven_ref01_match_dt0.id = maven_ref01_data.id
+    const maven_ref01_data_dt0 = (await maven_ref01_ent.load(maven_ref01_match_dt0)).data()
+    assert(maven_ref01_data_dt0.id === maven_ref01_data.id)
 
 
   })

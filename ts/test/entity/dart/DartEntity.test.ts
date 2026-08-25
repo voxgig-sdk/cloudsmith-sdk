@@ -65,7 +65,7 @@ describe('DartEntity', async () => {
     dart_ref01_data['owner'] = setup.idmap['owner01']
 
     dart_ref01_data = (await dart_ref01_ent.create(dart_ref01_data)).data()
-    assert(null != dart_ref01_data)
+    assert(null != dart_ref01_data.id)
 
 
     // LIST
@@ -75,9 +75,12 @@ describe('DartEntity', async () => {
 
     const dart_ref01_list = (await dart_ref01_ent.list(dart_ref01_match)).map((e: any) => e.data())
 
+    assert(!isempty(select(dart_ref01_list, { id: dart_ref01_data.id })))
+
 
     // UPDATE
     const dart_ref01_data_up0: any = {}
+    dart_ref01_data_up0.id = dart_ref01_data.id
     dart_ref01_data_up0 ['identifier'] = setup.idmap['identifier']
     dart_ref01_data_up0 ['owner'] = setup.idmap['owner']
 
@@ -85,10 +88,16 @@ describe('DartEntity', async () => {
     ;(dart_ref01_data_up0 as any)[dart_ref01_markdef_up0.name] = dart_ref01_markdef_up0.value
 
     const dart_ref01_resdata_up0 = (await dart_ref01_ent.update(dart_ref01_data_up0)).data()
-    assert(null != dart_ref01_resdata_up0)
+    assert(dart_ref01_resdata_up0.id === dart_ref01_data_up0.id)
 
     assert((dart_ref01_resdata_up0 as any)[dart_ref01_markdef_up0.name] === dart_ref01_markdef_up0.value)
 
+
+    // LOAD
+    const dart_ref01_match_dt0: any = {}
+    dart_ref01_match_dt0.id = dart_ref01_data.id
+    const dart_ref01_data_dt0 = (await dart_ref01_ent.load(dart_ref01_match_dt0)).data()
+    assert(dart_ref01_data_dt0.id === dart_ref01_data.id)
 
 
   })

@@ -83,6 +83,7 @@ class TestPackageLicensePolicyEvaluationEntity:
 
         package_license_policy_evaluation_ref01_data = helpers.to_map(runner.entity_data(package_license_policy_evaluation_ref01_ent.create(package_license_policy_evaluation_ref01_data, None)))
         assert package_license_policy_evaluation_ref01_data is not None
+        assert package_license_policy_evaluation_ref01_data["id"] is not None
 
         # LIST
         package_license_policy_evaluation_ref01_match = {
@@ -93,10 +94,19 @@ class TestPackageLicensePolicyEvaluationEntity:
         package_license_policy_evaluation_ref01_list_result = package_license_policy_evaluation_ref01_ent.list(package_license_policy_evaluation_ref01_match, None)
         assert isinstance(package_license_policy_evaluation_ref01_list_result, list)
 
+        found_item = vs.select(
+            runner.entity_list_to_data(package_license_policy_evaluation_ref01_list_result),
+            {"id": package_license_policy_evaluation_ref01_data["id"]})
+        assert not vs.isempty(found_item)
+
         # LOAD
-        package_license_policy_evaluation_ref01_match_dt0 = {}
+        package_license_policy_evaluation_ref01_match_dt0 = {
+            "id": package_license_policy_evaluation_ref01_data["id"],
+        }
         package_license_policy_evaluation_ref01_data_dt0_loaded = package_license_policy_evaluation_ref01_ent.load(package_license_policy_evaluation_ref01_match_dt0, None)
-        assert package_license_policy_evaluation_ref01_data_dt0_loaded is not None
+        package_license_policy_evaluation_ref01_data_dt0_load_result = helpers.to_map(runner.entity_data(package_license_policy_evaluation_ref01_data_dt0_loaded))
+        assert package_license_policy_evaluation_ref01_data_dt0_load_result is not None
+        assert package_license_policy_evaluation_ref01_data_dt0_load_result["id"] == package_license_policy_evaluation_ref01_data["id"]
 
 
 

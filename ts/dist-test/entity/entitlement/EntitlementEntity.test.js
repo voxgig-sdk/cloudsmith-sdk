@@ -78,7 +78,15 @@ const utility_1 = require("../../utility");
         entitlement_ref01_data['owner'] = setup.idmap['owner01'];
         entitlement_ref01_data['repo'] = setup.idmap['repo01'];
         entitlement_ref01_data = (await entitlement_ref01_ent.create(entitlement_ref01_data)).data();
-        (0, node_assert_1.default)(null != entitlement_ref01_data);
+        (0, node_assert_1.default)(null != entitlement_ref01_data.id);
+        // LOAD
+        const entitlement_ref01_match_dt0 = {};
+        entitlement_ref01_match_dt0.id = entitlement_ref01_data.id;
+        const entitlement_ref01_data_dt0 = (await entitlement_ref01_ent.load(entitlement_ref01_match_dt0)).data();
+        (0, node_assert_1.default)(entitlement_ref01_data_dt0.id === entitlement_ref01_data.id);
+        // REMOVE
+        const entitlement_ref01_match_rm0 = { id: entitlement_ref01_data.id };
+        await entitlement_ref01_ent.remove(entitlement_ref01_match_rm0);
     });
 });
 function basicSetup(extra) {

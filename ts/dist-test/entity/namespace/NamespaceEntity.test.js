@@ -76,6 +76,11 @@ const utility_1 = require("../../utility");
         const namespace_ref01_ent = client.Namespace();
         const namespace_ref01_match = {};
         const namespace_ref01_list = (await namespace_ref01_ent.list(namespace_ref01_match)).map((e) => e.data());
+        // LOAD
+        const namespace_ref01_match_dt0 = {};
+        namespace_ref01_match_dt0.id = namespace_ref01_data.id;
+        const namespace_ref01_data_dt0 = (await namespace_ref01_ent.load(namespace_ref01_match_dt0)).data();
+        (0, node_assert_1.default)(namespace_ref01_data_dt0.id === namespace_ref01_data.id);
     });
 });
 function basicSetup(extra) {

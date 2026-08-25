@@ -68,6 +68,12 @@ describe('DynamicMappingEntity', async () => {
     const dynamic_mapping_ref01_list = (await dynamic_mapping_ref01_ent.list(dynamic_mapping_ref01_match)).map((e: any) => e.data())
 
 
+    // LOAD
+    const dynamic_mapping_ref01_match_dt0: any = {}
+    dynamic_mapping_ref01_match_dt0.id = dynamic_mapping_ref01_data.id
+    const dynamic_mapping_ref01_data_dt0 = (await dynamic_mapping_ref01_ent.load(dynamic_mapping_ref01_match_dt0)).data()
+    assert(dynamic_mapping_ref01_data_dt0.id === dynamic_mapping_ref01_data.id)
+
 
   })
 })

@@ -86,6 +86,7 @@ describe("DebEntity", function()
     assert.is_nil(err)
     deb_ref01_data = helpers.to_map(type(deb_ref01_data_result) == 'table' and deb_ref01_data_result.data_get and deb_ref01_data_result:data_get() or deb_ref01_data_result)
     assert.is_not_nil(deb_ref01_data)
+    assert.is_not_nil(deb_ref01_data["id"])
 
     -- LIST
     local deb_ref01_match = {
@@ -97,8 +98,14 @@ describe("DebEntity", function()
     assert.is_nil(err)
     assert.is_table(deb_ref01_list_result)
 
+    local found_item = vs.select(
+      runner.entity_list_to_data(deb_ref01_list_result),
+      { id = deb_ref01_data["id"] })
+    assert.is_false(vs.isempty(found_item))
+
     -- UPDATE
     local deb_ref01_data_up0_up = {
+      id = deb_ref01_data["id"],
       ["identifier"] = setup.idmap["identifier"],
       ["owner"] = setup.idmap["owner"],
     }
@@ -111,13 +118,18 @@ describe("DebEntity", function()
     assert.is_nil(err)
     local deb_ref01_resdata_up0 = helpers.to_map(type(deb_ref01_resdata_up0_result) == 'table' and deb_ref01_resdata_up0_result.data_get and deb_ref01_resdata_up0_result:data_get() or deb_ref01_resdata_up0_result)
     assert.is_not_nil(deb_ref01_resdata_up0)
+    assert.are.equal(deb_ref01_resdata_up0["id"], deb_ref01_data_up0_up["id"])
     assert.are.equal(deb_ref01_resdata_up0[deb_ref01_markdef_up0_name], deb_ref01_markdef_up0_value)
 
     -- LOAD
-    local deb_ref01_match_dt0 = {}
+    local deb_ref01_match_dt0 = {
+      id = deb_ref01_data["id"],
+    }
     local deb_ref01_data_dt0_loaded, err = deb_ref01_ent:load(deb_ref01_match_dt0, nil)
     assert.is_nil(err)
-    assert.is_not_nil(deb_ref01_data_dt0_loaded)
+    local deb_ref01_data_dt0_load_result = helpers.to_map(type(deb_ref01_data_dt0_loaded) == 'table' and deb_ref01_data_dt0_loaded.data_get and deb_ref01_data_dt0_loaded:data_get() or deb_ref01_data_dt0_loaded)
+    assert.is_not_nil(deb_ref01_data_dt0_load_result)
+    assert.are.equal(deb_ref01_data_dt0_load_result["id"], deb_ref01_data["id"])
 
   end)
 end)

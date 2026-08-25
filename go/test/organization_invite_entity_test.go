@@ -112,6 +112,9 @@ func TestOrganizationInviteEntity(t *testing.T) {
 		if organizationInviteRef01Data == nil {
 			t.Fatal("expected create result to be a map")
 		}
+		if organizationInviteRef01Data["id"] == nil {
+			t.Fatal("expected created entity to have an id")
+		}
 
 		// LIST
 		organizationInviteRef01Match := map[string]any{
@@ -122,13 +125,19 @@ func TestOrganizationInviteEntity(t *testing.T) {
 		if err != nil {
 			t.Fatalf("list failed: %v", err)
 		}
-		_, organizationInviteRef01ListOk := organizationInviteRef01ListResult.([]any)
+		organizationInviteRef01List, organizationInviteRef01ListOk := organizationInviteRef01ListResult.([]any)
 		if !organizationInviteRef01ListOk {
 			t.Fatalf("expected list result to be an array, got %T", organizationInviteRef01ListResult)
 		}
 
+		foundItem := vs.Select(entityListToData(organizationInviteRef01List), map[string]any{"id": organizationInviteRef01Data["id"]})
+		if vs.IsEmpty(foundItem) {
+			t.Fatal("expected to find created entity in list")
+		}
+
 		// UPDATE
 		organizationInviteRef01DataUp0Up := map[string]any{
+			"id": organizationInviteRef01Data["id"],
 			"org_id": setup.idmap["org_id"],
 		}
 
@@ -143,6 +152,9 @@ func TestOrganizationInviteEntity(t *testing.T) {
 		organizationInviteRef01ResdataUp0 := core.ToMapAny(entityData(organizationInviteRef01ResdataUp0Result))
 		if organizationInviteRef01ResdataUp0 == nil {
 			t.Fatal("expected update result to be a map")
+		}
+		if organizationInviteRef01ResdataUp0["id"] != organizationInviteRef01DataUp0Up["id"] {
+			t.Fatal("expected update result id to match")
 		}
 		if organizationInviteRef01ResdataUp0[organizationInviteRef01MarkdefUp0Name] != organizationInviteRef01MarkdefUp0Value {
 			t.Fatalf("expected %s to be updated, got %v", organizationInviteRef01MarkdefUp0Name, organizationInviteRef01ResdataUp0[organizationInviteRef01MarkdefUp0Name])

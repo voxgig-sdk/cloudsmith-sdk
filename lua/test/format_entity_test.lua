@@ -92,10 +92,14 @@ describe("FormatEntity", function()
     assert.is_table(format_ref01_list_result)
 
     -- LOAD
-    local format_ref01_match_dt0 = {}
+    local format_ref01_match_dt0 = {
+      id = format_ref01_data["id"],
+    }
     local format_ref01_data_dt0_loaded, err = format_ref01_ent:load(format_ref01_match_dt0, nil)
     assert.is_nil(err)
-    assert.is_not_nil(format_ref01_data_dt0_loaded)
+    local format_ref01_data_dt0_load_result = helpers.to_map(type(format_ref01_data_dt0_loaded) == 'table' and format_ref01_data_dt0_loaded.data_get and format_ref01_data_dt0_loaded:data_get() or format_ref01_data_dt0_loaded)
+    assert.is_not_nil(format_ref01_data_dt0_load_result)
+    assert.are.equal(format_ref01_data_dt0_load_result["id"], format_ref01_data["id"])
 
   end)
 end)

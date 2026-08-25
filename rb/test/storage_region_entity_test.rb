@@ -83,9 +83,13 @@ class StorageRegionEntityTest < Minitest::Test
     assert storage_region_ref01_list_result.is_a?(Array)
 
     # LOAD
-    storage_region_ref01_match_dt0 = {}
+    storage_region_ref01_match_dt0 = {
+      "id" => storage_region_ref01_data["id"],
+    }
     storage_region_ref01_data_dt0_loaded = storage_region_ref01_ent.load(storage_region_ref01_match_dt0, nil)
-    assert !storage_region_ref01_data_dt0_loaded.nil?
+    storage_region_ref01_data_dt0_load_result = Helpers.to_map(storage_region_ref01_data_dt0_loaded.respond_to?(:data_get) ? storage_region_ref01_data_dt0_loaded.data_get : storage_region_ref01_data_dt0_loaded)
+    assert !storage_region_ref01_data_dt0_load_result.nil?
+    assert_equal storage_region_ref01_data_dt0_load_result["id"], storage_region_ref01_data["id"]
 
   end
 end

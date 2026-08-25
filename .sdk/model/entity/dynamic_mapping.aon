@@ -12,12 +12,22 @@ main: kit: entity: dynamic_mapping: {
       type: "`$STRING`"
     }
     {
+      name: "id"
+      req: false
+      type: "`$STRING`"
+    }
+    {
       name: "service_account"
       req: true
       short: "The service account associated with the provider setting and `claim_value` Note: This field and the dynamic mappings feature are still in early access."
       type: "`$STRING`"
     }
   ]
+
+  id: {
+    field: "id"
+    name: "id"
+  }
 
   name: "dynamic_mapping"
   op: {

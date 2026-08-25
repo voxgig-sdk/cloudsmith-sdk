@@ -93,9 +93,13 @@ class NamespaceEntityTest extends TestCase
         $this->assertIsArray($namespace_ref01_list_result);
 
         // LOAD
-        $namespace_ref01_match_dt0 = [];
+        $namespace_ref01_match_dt0 = [
+            "id" => $namespace_ref01_data["id"],
+        ];
         $namespace_ref01_data_dt0_loaded = $namespace_ref01_ent->load($namespace_ref01_match_dt0, null);
-        $this->assertNotNull($namespace_ref01_data_dt0_loaded);
+        $namespace_ref01_data_dt0_load_result = Helpers::to_map(is_object($namespace_ref01_data_dt0_loaded) && method_exists($namespace_ref01_data_dt0_loaded, 'data_get') ? $namespace_ref01_data_dt0_loaded->data_get() : $namespace_ref01_data_dt0_loaded);
+        $this->assertNotNull($namespace_ref01_data_dt0_load_result);
+        $this->assertEquals($namespace_ref01_data_dt0_load_result["id"], $namespace_ref01_data["id"]);
 
     }
 }

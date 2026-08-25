@@ -21,6 +21,11 @@ main: kit: entity: org: {
       type: "`$STRING`"
     }
     {
+      name: "id"
+      req: false
+      type: "`$STRING`"
+    }
+    {
       name: "location"
       req: false
       short: "The city/town/area your organization is based in."
@@ -68,6 +73,11 @@ main: kit: entity: org: {
       type: "`$OBJECT`"
     }
   ]
+
+  id: {
+    field: "id"
+    name: "id"
+  }
 
   name: "org"
   op: {

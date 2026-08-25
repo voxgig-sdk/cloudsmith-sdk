@@ -44,6 +44,7 @@ class Cargo
     public ?string $extra_header_2 = null;
     public ?string $extra_value_1 = null;
     public ?string $extra_value_2 = null;
+    public ?string $id = null;
     public ?bool $is_active = null;
     public ?string $mode = null;
     public string $name;
@@ -84,6 +85,7 @@ class CargoCreateData
     public ?string $extra_header_2 = null;
     public ?string $extra_value_1 = null;
     public ?string $extra_value_2 = null;
+    public ?string $id = null;
     public ?bool $is_active = null;
     public ?string $mode = null;
     public string $name;
@@ -143,6 +145,7 @@ class Composer
     public ?string $extra_header_2 = null;
     public ?string $extra_value_1 = null;
     public ?string $extra_value_2 = null;
+    public ?string $id = null;
     public ?bool $is_active = null;
     public ?string $mode = null;
     public string $name;
@@ -183,6 +186,7 @@ class ComposerCreateData
     public ?string $extra_header_2 = null;
     public ?string $extra_value_1 = null;
     public ?string $extra_value_2 = null;
+    public ?string $id = null;
     public ?bool $is_active = null;
     public ?string $mode = null;
     public string $name;
@@ -237,6 +241,7 @@ class Conda
     public ?string $extra_header_2 = null;
     public ?string $extra_value_1 = null;
     public ?string $extra_value_2 = null;
+    public ?string $id = null;
     public ?bool $is_active = null;
     public ?string $mode = null;
     public string $name;
@@ -277,6 +282,7 @@ class CondaCreateData
     public ?string $extra_header_2 = null;
     public ?string $extra_value_1 = null;
     public ?string $extra_value_2 = null;
+    public ?string $id = null;
     public ?bool $is_active = null;
     public ?string $mode = null;
     public string $name;
@@ -331,6 +337,7 @@ class Cran
     public ?string $extra_header_2 = null;
     public ?string $extra_value_1 = null;
     public ?string $extra_value_2 = null;
+    public ?string $id = null;
     public ?bool $is_active = null;
     public ?string $mode = null;
     public string $name;
@@ -371,6 +378,7 @@ class CranCreateData
     public ?string $extra_header_2 = null;
     public ?string $extra_value_1 = null;
     public ?string $extra_value_2 = null;
+    public ?string $id = null;
     public ?bool $is_active = null;
     public ?string $mode = null;
     public string $name;
@@ -420,6 +428,7 @@ class Dart
     public ?string $extra_header_2 = null;
     public ?string $extra_value_1 = null;
     public ?string $extra_value_2 = null;
+    public ?string $id = null;
     public ?bool $is_active = null;
     public ?string $mode = null;
     public string $name;
@@ -460,6 +469,7 @@ class DartCreateData
     public ?string $extra_header_2 = null;
     public ?string $extra_value_1 = null;
     public ?string $extra_value_2 = null;
+    public ?string $id = null;
     public ?bool $is_active = null;
     public ?string $mode = null;
     public string $name;
@@ -514,6 +524,7 @@ class Deb
     public ?string $gpg_key_inline = null;
     public ?string $gpg_key_url = null;
     public ?string $gpg_verification = null;
+    public ?string $id = null;
     public ?bool $include_sources = null;
     public ?bool $is_active = null;
     public ?string $mode = null;
@@ -562,6 +573,7 @@ class DebCreateData
     public ?string $gpg_key_inline = null;
     public ?string $gpg_key_url = null;
     public ?string $gpg_verification = null;
+    public ?string $id = null;
     public ?bool $include_sources = null;
     public ?bool $is_active = null;
     public ?string $mode = null;
@@ -672,6 +684,7 @@ class Docker
     public ?string $extra_header_2 = null;
     public ?string $extra_value_1 = null;
     public ?string $extra_value_2 = null;
+    public ?string $id = null;
     public ?bool $is_active = null;
     public ?string $mode = null;
     public string $name;
@@ -712,6 +725,7 @@ class DockerCreateData
     public ?string $extra_header_2 = null;
     public ?string $extra_value_1 = null;
     public ?string $extra_value_2 = null;
+    public ?string $id = null;
     public ?bool $is_active = null;
     public ?string $mode = null;
     public string $name;
@@ -753,6 +767,7 @@ class DockerUpdateData
 class DynamicMapping
 {
     public string $claim_value;
+    public ?string $id = null;
     public string $service_account;
 }
 
@@ -787,6 +802,7 @@ class Entitlement
     public ?int $active = null;
     public array $bandwidth;
     public array $downloads;
+    public ?string $id = null;
     public ?int $inactive = null;
     public ?int $total = null;
 }
@@ -806,6 +822,7 @@ class EntitlementCreateData
     public ?int $active = null;
     public array $bandwidth;
     public array $downloads;
+    public ?string $id = null;
     public ?int $inactive = null;
     public ?int $total = null;
 }
@@ -842,6 +859,7 @@ class Format
     public string $description;
     public ?array $distributions = null;
     public array $extensions;
+    public ?string $id = null;
     public string $name;
     public bool $premium;
     public ?string $premium_plan_id = null;
@@ -862,6 +880,7 @@ class FormatListMatch
     public ?string $description = null;
     public ?array $distributions = null;
     public ?array $extensions = null;
+    public ?string $id = null;
     public ?string $name = null;
     public ?bool $premium = null;
     public ?string $premium_plan_id = null;
@@ -985,6 +1004,7 @@ class Helm
     public ?string $extra_header_2 = null;
     public ?string $extra_value_1 = null;
     public ?string $extra_value_2 = null;
+    public ?string $id = null;
     public ?bool $is_active = null;
     public ?string $mode = null;
     public string $name;
@@ -1025,6 +1045,7 @@ class HelmCreateData
     public ?string $extra_header_2 = null;
     public ?string $extra_value_1 = null;
     public ?string $extra_value_2 = null;
+    public ?string $id = null;
     public ?bool $is_active = null;
     public ?string $mode = null;
     public string $name;
@@ -1074,6 +1095,7 @@ class Hex
     public ?string $extra_header_2 = null;
     public ?string $extra_value_1 = null;
     public ?string $extra_value_2 = null;
+    public ?string $id = null;
     public ?bool $is_active = null;
     public ?string $mode = null;
     public string $name;
@@ -1114,6 +1136,7 @@ class HexCreateData
     public ?string $extra_header_2 = null;
     public ?string $extra_value_1 = null;
     public ?string $extra_value_2 = null;
+    public ?string $id = null;
     public ?bool $is_active = null;
     public ?string $mode = null;
     public string $name;
@@ -1168,6 +1191,7 @@ class Huggingface
     public ?string $extra_header_2 = null;
     public ?string $extra_value_1 = null;
     public ?string $extra_value_2 = null;
+    public ?string $id = null;
     public ?bool $is_active = null;
     public ?string $mode = null;
     public string $name;
@@ -1208,6 +1232,7 @@ class HuggingfaceCreateData
     public ?string $extra_header_2 = null;
     public ?string $extra_value_1 = null;
     public ?string $extra_value_2 = null;
+    public ?string $id = null;
     public ?bool $is_active = null;
     public ?string $mode = null;
     public string $name;
@@ -1285,6 +1310,7 @@ class Maven
     public ?string $gpg_key_inline = null;
     public ?string $gpg_key_url = null;
     public ?string $gpg_verification = null;
+    public ?string $id = null;
     public ?bool $is_active = null;
     public ?string $mode = null;
     public string $name;
@@ -1329,6 +1355,7 @@ class MavenCreateData
     public ?string $gpg_key_inline = null;
     public ?string $gpg_key_url = null;
     public ?string $gpg_verification = null;
+    public ?string $id = null;
     public ?bool $is_active = null;
     public ?string $mode = null;
     public string $name;
@@ -1384,6 +1411,7 @@ class Move
 /** Namespace entity data model. */
 class NamespaceType
 {
+    public ?string $id = null;
     public ?string $name = null;
     public ?string $slug = null;
     public ?string $slug_perm = null;
@@ -1399,6 +1427,7 @@ class NamespaceLoadMatch
 /** Request payload for Namespace#list. */
 class NamespaceListMatch
 {
+    public ?string $id = null;
     public ?string $name = null;
     public ?string $slug = null;
     public ?string $slug_perm = null;
@@ -1417,6 +1446,7 @@ class NamespaceAuditLog
     public string $context;
     public string $event;
     public string $event_at;
+    public ?string $id = null;
     public string $object;
     public string $object_kind;
     public string $object_slug_perm;
@@ -1444,6 +1474,7 @@ class Npm
     public ?string $extra_header_2 = null;
     public ?string $extra_value_1 = null;
     public ?string $extra_value_2 = null;
+    public ?string $id = null;
     public ?bool $is_active = null;
     public ?string $mode = null;
     public string $name;
@@ -1484,6 +1515,7 @@ class NpmCreateData
     public ?string $extra_header_2 = null;
     public ?string $extra_value_1 = null;
     public ?string $extra_value_2 = null;
+    public ?string $id = null;
     public ?bool $is_active = null;
     public ?string $mode = null;
     public string $name;
@@ -1533,6 +1565,7 @@ class Nuget
     public ?string $extra_header_2 = null;
     public ?string $extra_value_1 = null;
     public ?string $extra_value_2 = null;
+    public ?string $id = null;
     public ?bool $is_active = null;
     public ?string $mode = null;
     public string $name;
@@ -1573,6 +1606,7 @@ class NugetCreateData
     public ?string $extra_header_2 = null;
     public ?string $extra_value_1 = null;
     public ?string $extra_value_2 = null;
+    public ?string $id = null;
     public ?bool $is_active = null;
     public ?string $mode = null;
     public string $name;
@@ -1621,6 +1655,7 @@ class Org
     public ?string $country = null;
     public ?string $created_at = null;
     public ?string $event_at = null;
+    public ?string $id = null;
     public ?string $location = null;
     public string $name;
     public array $package;
@@ -1645,6 +1680,7 @@ class OrgListMatch
     public ?string $country = null;
     public ?string $created_at = null;
     public ?string $event_at = null;
+    public ?string $id = null;
     public ?string $location = null;
     public ?string $name = null;
     public ?array $package = null;
@@ -1748,6 +1784,7 @@ class OrganizationInvite
 {
     public ?string $email = null;
     public ?string $expires_at = null;
+    public ?string $id = null;
     public ?string $inviter = null;
     public ?string $inviter_url = null;
     public ?string $org = null;
@@ -1770,6 +1807,7 @@ class OrganizationInviteCreateData
     public string $org_id;
     public ?string $email = null;
     public ?string $expires_at = null;
+    public ?string $id = null;
     public ?string $inviter = null;
     public ?string $inviter_url = null;
     public ?string $org = null;
@@ -1951,6 +1989,7 @@ class OrganizationPackageLicensePolicy
     public ?bool $allow_unknown_licenses = null;
     public ?string $created_at = null;
     public ?string $description = null;
+    public ?string $id = null;
     public string $name;
     public ?bool $on_violation_quarantine = null;
     public ?string $package_query_string = null;
@@ -1979,6 +2018,7 @@ class OrganizationPackageLicensePolicyCreateData
     public ?bool $allow_unknown_licenses = null;
     public ?string $created_at = null;
     public ?string $description = null;
+    public ?string $id = null;
     public string $name;
     public ?bool $on_violation_quarantine = null;
     public ?string $package_query_string = null;
@@ -2009,6 +2049,7 @@ class OrganizationPackageVulnerabilityPolicy
     public ?bool $allow_unknown_severity = null;
     public ?string $created_at = null;
     public ?string $description = null;
+    public ?string $id = null;
     public ?string $min_severity = null;
     public string $name;
     public ?bool $on_violation_quarantine = null;
@@ -2037,6 +2078,7 @@ class OrganizationPackageVulnerabilityPolicyCreateData
     public ?bool $allow_unknown_severity = null;
     public ?string $created_at = null;
     public ?string $description = null;
+    public ?string $id = null;
     public ?string $min_severity = null;
     public string $name;
     public ?bool $on_violation_quarantine = null;
@@ -2090,6 +2132,7 @@ class OrganizationSamlAuthUpdateData
 class OrganizationTeam
 {
     public ?string $description = null;
+    public ?string $id = null;
     public string $name;
     public ?string $slug = null;
     public ?string $slug_perm = null;
@@ -2114,6 +2157,7 @@ class OrganizationTeamCreateData
 {
     public string $org_id;
     public ?string $description = null;
+    public ?string $id = null;
     public string $name;
     public ?string $slug = null;
     public ?string $slug_perm = null;
@@ -2391,6 +2435,7 @@ class PackageDenyPolicy
     public ?string $created_at = null;
     public ?string $description = null;
     public ?bool $enabled = null;
+    public ?string $id = null;
     public ?string $name = null;
     public string $package_query_string;
     public ?string $slug_perm = null;
@@ -2419,6 +2464,7 @@ class PackageDenyPolicyCreateData
     public ?string $created_at = null;
     public ?string $description = null;
     public ?bool $enabled = null;
+    public ?string $id = null;
     public ?string $name = null;
     public string $package_query_string;
     public ?string $slug_perm = null;
@@ -2478,6 +2524,7 @@ class PackageLicensePolicyEvaluation
     public ?string $created_at = null;
     public ?string $description = null;
     public ?int $evaluation_count = null;
+    public ?string $id = null;
     public ?string $name = null;
     public ?bool $on_violation_quarantine = null;
     public ?string $package_query_string = null;
@@ -2514,6 +2561,7 @@ class PackageLicensePolicyEvaluationCreateData
     public ?string $created_at = null;
     public ?string $description = null;
     public ?int $evaluation_count = null;
+    public ?string $id = null;
     public ?string $name = null;
     public ?bool $on_violation_quarantine = null;
     public ?string $package_query_string = null;
@@ -2549,6 +2597,7 @@ class PackageVulnerabilityPolicyEvaluation
     public ?string $created_at = null;
     public ?string $description = null;
     public ?int $evaluation_count = null;
+    public ?string $id = null;
     public ?string $min_severity = null;
     public ?string $name = null;
     public ?bool $on_violation_quarantine = null;
@@ -2585,6 +2634,7 @@ class PackageVulnerabilityPolicyEvaluationCreateData
     public ?string $created_at = null;
     public ?string $description = null;
     public ?int $evaluation_count = null;
+    public ?string $id = null;
     public ?string $min_severity = null;
     public ?string $name = null;
     public ?bool $on_violation_quarantine = null;
@@ -2689,6 +2739,7 @@ class Python
     public ?string $extra_header_2 = null;
     public ?string $extra_value_1 = null;
     public ?string $extra_value_2 = null;
+    public ?string $id = null;
     public ?bool $is_active = null;
     public ?string $mode = null;
     public string $name;
@@ -2729,6 +2780,7 @@ class PythonCreateData
     public ?string $extra_header_2 = null;
     public ?string $extra_value_1 = null;
     public ?string $extra_value_2 = null;
+    public ?string $id = null;
     public ?bool $is_active = null;
     public ?string $mode = null;
     public string $name;
@@ -2776,6 +2828,7 @@ class Quota
 {
     public array $display;
     public array $history;
+    public ?string $id = null;
     public array $raw;
 }
 
@@ -2820,6 +2873,7 @@ class Repo
     public ?array $ecdsa_keys = null;
     public ?bool $enforce_eula = null;
     public ?array $gpg_keys = null;
+    public ?string $id = null;
     public ?bool $index_files = null;
     public ?bool $is_open_source = null;
     public ?bool $is_private = null;
@@ -2896,6 +2950,7 @@ class RepoListMatch
     public ?array $ecdsa_keys = null;
     public ?bool $enforce_eula = null;
     public ?array $gpg_keys = null;
+    public ?string $id = null;
     public ?bool $index_files = null;
     public ?bool $is_open_source = null;
     public ?bool $is_private = null;
@@ -3039,6 +3094,7 @@ class RepoUpdateData
     public ?array $ecdsa_keys = null;
     public ?bool $enforce_eula = null;
     public ?array $gpg_keys = null;
+    public ?string $id = null;
     public ?bool $index_files = null;
     public ?bool $is_open_source = null;
     public ?bool $is_private = null;
@@ -3787,6 +3843,7 @@ class Rpm
     public ?string $gpg_key_inline = null;
     public ?string $gpg_key_url = null;
     public ?string $gpg_verification = null;
+    public ?string $id = null;
     public ?bool $include_sources = null;
     public ?bool $is_active = null;
     public ?string $mode = null;
@@ -3833,6 +3890,7 @@ class RpmCreateData
     public ?string $gpg_key_inline = null;
     public ?string $gpg_key_url = null;
     public ?string $gpg_verification = null;
+    public ?string $id = null;
     public ?bool $include_sources = null;
     public ?bool $is_active = null;
     public ?string $mode = null;
@@ -3895,6 +3953,7 @@ class Ruby
     public ?string $extra_header_2 = null;
     public ?string $extra_value_1 = null;
     public ?string $extra_value_2 = null;
+    public ?string $id = null;
     public ?bool $is_active = null;
     public ?string $mode = null;
     public string $name;
@@ -3935,6 +3994,7 @@ class RubyCreateData
     public ?string $extra_header_2 = null;
     public ?string $extra_value_1 = null;
     public ?string $extra_value_2 = null;
+    public ?string $id = null;
     public ?bool $is_active = null;
     public ?string $mode = null;
     public string $name;
@@ -3994,6 +4054,7 @@ class Service
     public ?string $created_by = null;
     public ?string $created_by_url = null;
     public ?string $description = null;
+    public ?string $id = null;
     public ?string $key = null;
     public ?string $key_expires_at = null;
     public string $name;
@@ -4023,6 +4084,7 @@ class ServiceCreateData
     public ?string $created_by = null;
     public ?string $created_by_url = null;
     public ?string $description = null;
+    public ?string $id = null;
     public ?string $key = null;
     public ?string $key_expires_at = null;
     public string $name;
@@ -4070,6 +4132,7 @@ class StatusBasicLoadMatch
 /** StorageRegion entity data model. */
 class StorageRegion
 {
+    public ?string $id = null;
     public string $label;
     public string $slug;
 }
@@ -4083,6 +4146,7 @@ class StorageRegionLoadMatch
 /** Request payload for StorageRegion#list. */
 class StorageRegionListMatch
 {
+    public ?string $id = null;
     public ?string $label = null;
     public ?string $slug = null;
 }
@@ -4099,6 +4163,7 @@ class Swift
     public ?string $extra_header_2 = null;
     public ?string $extra_value_1 = null;
     public ?string $extra_value_2 = null;
+    public ?string $id = null;
     public ?bool $is_active = null;
     public ?string $mode = null;
     public string $name;
@@ -4139,6 +4204,7 @@ class SwiftCreateData
     public ?string $extra_header_2 = null;
     public ?string $extra_value_1 = null;
     public ?string $extra_value_2 = null;
+    public ?string $id = null;
     public ?bool $is_active = null;
     public ?string $mode = null;
     public string $name;
@@ -4290,6 +4356,7 @@ class UserProfile
 {
     public ?string $company = null;
     public string $first_name;
+    public ?string $id = null;
     public ?string $job_title = null;
     public ?string $joined_at = null;
     public string $last_name;
@@ -4326,6 +4393,7 @@ class Vulnerability
 {
     public ?string $created_at = null;
     public ?bool $has_vulnerabilities = null;
+    public ?string $id = null;
     public string $identifier;
     public ?string $max_severity = null;
     public ?int $num_vulnerabilities = null;

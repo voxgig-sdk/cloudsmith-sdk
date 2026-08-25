@@ -121,13 +121,19 @@ func TestNamespaceEntity(t *testing.T) {
 		}
 
 		// LOAD
-		namespaceRef01MatchDt0 := map[string]any{}
+		namespaceRef01MatchDt0 := map[string]any{
+			"id": namespaceRef01Data["id"],
+		}
 		namespaceRef01DataDt0Loaded, err := namespaceRef01Ent.Load(namespaceRef01MatchDt0, nil)
 		if err != nil {
 			t.Fatalf("load failed: %v", err)
 		}
-		if namespaceRef01DataDt0Loaded == nil {
-			t.Fatal("expected load result to be non-nil")
+		namespaceRef01DataDt0LoadResult := core.ToMapAny(entityData(namespaceRef01DataDt0Loaded))
+		if namespaceRef01DataDt0LoadResult == nil {
+			t.Fatal("expected load result to be a map")
+		}
+		if namespaceRef01DataDt0LoadResult["id"] != namespaceRef01Data["id"] {
+			t.Fatal("expected load result id to match")
 		}
 
 	})

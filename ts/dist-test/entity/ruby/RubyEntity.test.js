@@ -77,21 +77,28 @@ const utility_1 = require("../../utility");
         ruby_ref01_data['identifier'] = setup.idmap['identifier01'];
         ruby_ref01_data['owner'] = setup.idmap['owner01'];
         ruby_ref01_data = (await ruby_ref01_ent.create(ruby_ref01_data)).data();
-        (0, node_assert_1.default)(null != ruby_ref01_data);
+        (0, node_assert_1.default)(null != ruby_ref01_data.id);
         // LIST
         const ruby_ref01_match = {};
         ruby_ref01_match['identifier'] = setup.idmap['identifier01'];
         ruby_ref01_match['owner'] = setup.idmap['owner01'];
         const ruby_ref01_list = (await ruby_ref01_ent.list(ruby_ref01_match)).map((e) => e.data());
+        (0, node_assert_1.default)(!isempty(select(ruby_ref01_list, { id: ruby_ref01_data.id })));
         // UPDATE
         const ruby_ref01_data_up0 = {};
+        ruby_ref01_data_up0.id = ruby_ref01_data.id;
         ruby_ref01_data_up0['identifier'] = setup.idmap['identifier'];
         ruby_ref01_data_up0['owner'] = setup.idmap['owner'];
         const ruby_ref01_markdef_up0 = { name: 'auth_mode', value: 'Mark01-ruby_ref01_' + setup.now };
         ruby_ref01_data_up0[ruby_ref01_markdef_up0.name] = ruby_ref01_markdef_up0.value;
         const ruby_ref01_resdata_up0 = (await ruby_ref01_ent.update(ruby_ref01_data_up0)).data();
-        (0, node_assert_1.default)(null != ruby_ref01_resdata_up0);
+        (0, node_assert_1.default)(ruby_ref01_resdata_up0.id === ruby_ref01_data_up0.id);
         (0, node_assert_1.default)(ruby_ref01_resdata_up0[ruby_ref01_markdef_up0.name] === ruby_ref01_markdef_up0.value);
+        // LOAD
+        const ruby_ref01_match_dt0 = {};
+        ruby_ref01_match_dt0.id = ruby_ref01_data.id;
+        const ruby_ref01_data_dt0 = (await ruby_ref01_ent.load(ruby_ref01_match_dt0)).data();
+        (0, node_assert_1.default)(ruby_ref01_data_dt0.id === ruby_ref01_data.id);
     });
 });
 function basicSetup(extra) {

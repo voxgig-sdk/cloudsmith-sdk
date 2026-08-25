@@ -767,6 +767,7 @@ cargo = client.Cargo
 | `extra_header_2` | `String` | No | The key for extra header #2 to send to upstream. |
 | `extra_value_1` | `String` | No | The value for extra header #1 to send to upstream. |
 | `extra_value_2` | `String` | No | The value for extra header #2 to send to upstream. |
+| `id` | `String` | No |  |
 | `is_active` | `Boolean` | No | Whether or not this upstream is active and ready for requests. |
 | `mode` | `String` | No | The mode that this upstream should operate in. |
 | `name` | `String` | Yes | A descriptive name for this upstream source. |
@@ -942,6 +943,7 @@ composer = client.Composer
 | `extra_header_2` | `String` | No | The key for extra header #2 to send to upstream. |
 | `extra_value_1` | `String` | No | The value for extra header #1 to send to upstream. |
 | `extra_value_2` | `String` | No | The value for extra header #2 to send to upstream. |
+| `id` | `String` | No |  |
 | `is_active` | `Boolean` | No | Whether or not this upstream is active and ready for requests. |
 | `mode` | `String` | No | The mode that this upstream should operate in. |
 | `name` | `String` | Yes | A descriptive name for this upstream source. |
@@ -1081,6 +1083,7 @@ conda = client.Conda
 | `extra_header_2` | `String` | No | The key for extra header #2 to send to upstream. |
 | `extra_value_1` | `String` | No | The value for extra header #1 to send to upstream. |
 | `extra_value_2` | `String` | No | The value for extra header #2 to send to upstream. |
+| `id` | `String` | No |  |
 | `is_active` | `Boolean` | No | Whether or not this upstream is active and ready for requests. |
 | `mode` | `String` | No | The mode that this upstream should operate in. |
 | `name` | `String` | Yes | A descriptive name for this upstream source. |
@@ -1220,6 +1223,7 @@ cran = client.Cran
 | `extra_header_2` | `String` | No | The key for extra header #2 to send to upstream. |
 | `extra_value_1` | `String` | No | The value for extra header #1 to send to upstream. |
 | `extra_value_2` | `String` | No | The value for extra header #2 to send to upstream. |
+| `id` | `String` | No |  |
 | `is_active` | `Boolean` | No | Whether or not this upstream is active and ready for requests. |
 | `mode` | `String` | No | The mode that this upstream should operate in. |
 | `name` | `String` | Yes | A descriptive name for this upstream source. |
@@ -1323,6 +1327,7 @@ dart = client.Dart
 | `extra_header_2` | `String` | No | The key for extra header #2 to send to upstream. |
 | `extra_value_1` | `String` | No | The value for extra header #1 to send to upstream. |
 | `extra_value_2` | `String` | No | The value for extra header #2 to send to upstream. |
+| `id` | `String` | No |  |
 | `is_active` | `Boolean` | No | Whether or not this upstream is active and ready for requests. |
 | `mode` | `String` | No | The mode that this upstream should operate in. |
 | `name` | `String` | Yes | A descriptive name for this upstream source. |
@@ -1431,6 +1436,7 @@ deb = client.Deb
 | `gpg_key_inline` | `String` | No | A public GPG key to associate with packages found on this upstream. |
 | `gpg_key_url` | `String` | No | When provided, Cloudsmith will fetch, validate, and associate a public GPG key found at the provided URL. |
 | `gpg_verification` | `String` | No | The GPG signature verification mode for this upstream. |
+| `id` | `String` | No |  |
 | `include_sources` | `Boolean` | No | When true, source packages will be available from this upstream. |
 | `is_active` | `Boolean` | No | Whether or not this upstream is active and ready for requests. |
 | `mode` | `String` | No | The mode that this upstream should operate in. |
@@ -1748,6 +1754,7 @@ docker = client.Docker
 | `extra_header_2` | `String` | No | The key for extra header #2 to send to upstream. |
 | `extra_value_1` | `String` | No | The value for extra header #1 to send to upstream. |
 | `extra_value_2` | `String` | No | The value for extra header #2 to send to upstream. |
+| `id` | `String` | No |  |
 | `is_active` | `Boolean` | No | Whether or not this upstream is active and ready for requests. |
 | `mode` | `String` | No | The mode that this upstream should operate in. |
 | `name` | `String` | Yes | A descriptive name for this upstream source. |
@@ -1843,6 +1850,7 @@ dynamic_mapping = client.DynamicMapping
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
 | `claim_value` | `String` | Yes | The OIDC token claim value that must be present in the token for it to successfully authenticate as the mapped `service_account`. |
+| `id` | `String` | No |  |
 | `service_account` | `String` | Yes | The service account associated with the provider setting and `claim_value` Note: This field and the dynamic mappings feature are still in early access. |
 
 ### Operations
@@ -1978,6 +1986,7 @@ entitlement = client.Entitlement
 | `active` | `Integer` | No | Number of packages with at least 1 download |
 | `bandwidth` | `Hash` | Yes |  |
 | `downloads` | `Hash` | Yes |  |
+| `id` | `String` | No |  |
 | `inactive` | `Integer` | No | Packages with zero downloads |
 | `total` | `Integer` | No | Total number of packages in repo |
 
@@ -2141,6 +2150,7 @@ format = client.Format
 | `description` | `String` | Yes | Description of the package format |
 | `distributions` | `Array` | No | The distributions supported by this package format |
 | `extensions` | `Array` | Yes | A non-exhaustive list of extensions supported |
+| `id` | `String` | No |  |
 | `name` | `String` | Yes | Name for the package format |
 | `premium` | `Boolean` | Yes | If true the package format is a premium-only feature |
 | `premium_plan_id` | `String` | No | The minimum plan id required for this package format |
@@ -2426,6 +2436,7 @@ helm = client.Helm
 | `extra_header_2` | `String` | No | The key for extra header #2 to send to upstream. |
 | `extra_value_1` | `String` | No | The value for extra header #1 to send to upstream. |
 | `extra_value_2` | `String` | No | The value for extra header #2 to send to upstream. |
+| `id` | `String` | No |  |
 | `is_active` | `Boolean` | No | Whether or not this upstream is active and ready for requests. |
 | `mode` | `String` | No | The mode that this upstream should operate in. |
 | `name` | `String` | Yes | A descriptive name for this upstream source. |
@@ -2529,6 +2540,7 @@ hex = client.Hex
 | `extra_header_2` | `String` | No | The key for extra header #2 to send to upstream. |
 | `extra_value_1` | `String` | No | The value for extra header #1 to send to upstream. |
 | `extra_value_2` | `String` | No | The value for extra header #2 to send to upstream. |
+| `id` | `String` | No |  |
 | `is_active` | `Boolean` | No | Whether or not this upstream is active and ready for requests. |
 | `mode` | `String` | No | The mode that this upstream should operate in. |
 | `name` | `String` | Yes | A descriptive name for this upstream source. |
@@ -2668,6 +2680,7 @@ huggingface = client.Huggingface
 | `extra_header_2` | `String` | No | The key for extra header #2 to send to upstream. |
 | `extra_value_1` | `String` | No | The value for extra header #1 to send to upstream. |
 | `extra_value_2` | `String` | No | The value for extra header #2 to send to upstream. |
+| `id` | `String` | No |  |
 | `is_active` | `Boolean` | No | Whether or not this upstream is active and ready for requests. |
 | `mode` | `String` | No | The mode that this upstream should operate in. |
 | `name` | `String` | Yes | A descriptive name for this upstream source. |
@@ -2954,6 +2967,7 @@ maven = client.Maven
 | `gpg_key_inline` | `String` | No | A public GPG key to associate with packages found on this upstream. |
 | `gpg_key_url` | `String` | No | When provided, Cloudsmith will fetch, validate, and associate a public GPG key found at the provided URL. |
 | `gpg_verification` | `String` | No | The GPG signature verification mode for this upstream. |
+| `id` | `String` | No |  |
 | `is_active` | `Boolean` | No | Whether or not this upstream is active and ready for requests. |
 | `mode` | `String` | No | The mode that this upstream should operate in. |
 | `name` | `String` | Yes | A descriptive name for this upstream source. |
@@ -3121,6 +3135,7 @@ namespace = client.Namespace
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
+| `id` | `String` | No |  |
 | `name` | `String` | No |  |
 | `slug` | `String` | No |  |
 | `slug_perm` | `String` | No |  |
@@ -3193,6 +3208,7 @@ namespace_audit_log = client.NamespaceAuditLog
 | `context` | `String` | Yes |  |
 | `event` | `String` | Yes |  |
 | `event_at` | `String` | Yes |  |
+| `id` | `String` | No |  |
 | `object` | `String` | Yes |  |
 | `object_kind` | `String` | Yes |  |
 | `object_slug_perm` | `String` | Yes |  |
@@ -3260,6 +3276,7 @@ npm = client.Npm
 | `extra_header_2` | `String` | No | The key for extra header #2 to send to upstream. |
 | `extra_value_1` | `String` | No | The value for extra header #1 to send to upstream. |
 | `extra_value_2` | `String` | No | The value for extra header #2 to send to upstream. |
+| `id` | `String` | No |  |
 | `is_active` | `Boolean` | No | Whether or not this upstream is active and ready for requests. |
 | `mode` | `String` | No | The mode that this upstream should operate in. |
 | `name` | `String` | Yes | A descriptive name for this upstream source. |
@@ -3363,6 +3380,7 @@ nuget = client.Nuget
 | `extra_header_2` | `String` | No | The key for extra header #2 to send to upstream. |
 | `extra_value_1` | `String` | No | The value for extra header #1 to send to upstream. |
 | `extra_value_2` | `String` | No | The value for extra header #2 to send to upstream. |
+| `id` | `String` | No |  |
 | `is_active` | `Boolean` | No | Whether or not this upstream is active and ready for requests. |
 | `mode` | `String` | No | The mode that this upstream should operate in. |
 | `name` | `String` | Yes | A descriptive name for this upstream source. |
@@ -3496,6 +3514,7 @@ org = client.Org
 | `country` | `String` | No |  |
 | `created_at` | `String` | No |  |
 | `event_at` | `String` | No |  |
+| `id` | `String` | No |  |
 | `location` | `String` | No | The city/town/area your organization is based in. |
 | `name` | `String` | Yes |  |
 | `package` | `Hash` | Yes |  |
@@ -3722,6 +3741,7 @@ organization_invite = client.OrganizationInvite
 | --- | --- | --- | --- |
 | `email` | `String` | No | The email of the user to be invited. |
 | `expires_at` | `String` | No |  |
+| `id` | `String` | No |  |
 | `inviter` | `String` | No |  |
 | `inviter_url` | `String` | No |  |
 | `org` | `String` | No |  |
@@ -4085,6 +4105,7 @@ organization_package_license_policy = client.OrganizationPackageLicensePolicy
 | `allow_unknown_licenses` | `Boolean` | No |  |
 | `created_at` | `String` | No |  |
 | `description` | `String` | No |  |
+| `id` | `String` | No |  |
 | `name` | `String` | Yes |  |
 | `on_violation_quarantine` | `Boolean` | No |  |
 | `package_query_string` | `String` | No |  |
@@ -4177,6 +4198,7 @@ organization_package_vulnerability_policy = client.OrganizationPackageVulnerabil
 | `allow_unknown_severity` | `Boolean` | No | Denotes whether vulnerabilities detected by a security scan with an unknown severity are permitted by this policy. |
 | `created_at` | `String` | No |  |
 | `description` | `String` | No |  |
+| `id` | `String` | No |  |
 | `min_severity` | `String` | No |  |
 | `name` | `String` | Yes |  |
 | `on_violation_quarantine` | `Boolean` | No |  |
@@ -4332,6 +4354,7 @@ organization_team = client.OrganizationTeam
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
 | `description` | `String` | No |  |
+| `id` | `String` | No |  |
 | `name` | `String` | Yes |  |
 | `slug` | `String` | No |  |
 | `slug_perm` | `String` | No |  |
@@ -4831,6 +4854,7 @@ package_deny_policy = client.PackageDenyPolicy
 | `created_at` | `String` | No |  |
 | `description` | `String` | No |  |
 | `enabled` | `Boolean` | No | Whether this rule is enabled or disabled. |
+| `id` | `String` | No |  |
 | `name` | `String` | No |  |
 | `package_query_string` | `String` | Yes | Packages that match this query will trigger this deny rule. |
 | `slug_perm` | `String` | No |  |
@@ -5026,6 +5050,7 @@ package_license_policy_evaluation = client.PackageLicensePolicyEvaluation
 | `created_at` | `String` | No |  |
 | `description` | `String` | No |  |
 | `evaluation_count` | `Integer` | No |  |
+| `id` | `String` | No |  |
 | `name` | `String` | No |  |
 | `on_violation_quarantine` | `Boolean` | No |  |
 | `package_query_string` | `String` | No |  |
@@ -5158,6 +5183,7 @@ package_vulnerability_policy_evaluation = client.PackageVulnerabilityPolicyEvalu
 | `created_at` | `String` | No |  |
 | `description` | `String` | No |  |
 | `evaluation_count` | `Integer` | No |  |
+| `id` | `String` | No |  |
 | `min_severity` | `String` | No |  |
 | `name` | `String` | No |  |
 | `on_violation_quarantine` | `Boolean` | No |  |
@@ -5464,6 +5490,7 @@ python = client.Python
 | `extra_header_2` | `String` | No | The key for extra header #2 to send to upstream. |
 | `extra_value_1` | `String` | No | The value for extra header #1 to send to upstream. |
 | `extra_value_2` | `String` | No | The value for extra header #2 to send to upstream. |
+| `id` | `String` | No |  |
 | `is_active` | `Boolean` | No | Whether or not this upstream is active and ready for requests. |
 | `mode` | `String` | No | The mode that this upstream should operate in. |
 | `name` | `String` | Yes | A descriptive name for this upstream source. |
@@ -5596,6 +5623,7 @@ quota = client.Quota
 | --- | --- | --- | --- |
 | `display` | `Hash` | Yes |  |
 | `history` | `Array` | Yes |  |
+| `id` | `String` | No |  |
 | `raw` | `Hash` | Yes |  |
 
 ### Operations
@@ -5773,6 +5801,7 @@ repo = client.Repo
 | `ecdsa_keys` | `Array` | No |  |
 | `enforce_eula` | `Boolean` | No | If checked, downloads will explicitly require acceptance of an EULA. |
 | `gpg_keys` | `Array` | No |  |
+| `id` | `String` | No |  |
 | `index_files` | `Boolean` | No | If checked, files contained in packages will be indexed, which increase the synchronisation time required for packages. |
 | `is_open_source` | `Boolean` | No |  |
 | `is_private` | `Boolean` | No |  |
@@ -5865,6 +5894,7 @@ Update an existing entity. The data must include the entity `id`. Raises on erro
 
 ```ruby
 result = client.Repo.update({
+  "id" => "repo_id",
   "identifier" => "identifier",
   "owner" => "owner",
   # Fields to update
@@ -7160,6 +7190,7 @@ rpm = client.Rpm
 | `gpg_key_inline` | `String` | No | A public GPG key to associate with packages found on this upstream. |
 | `gpg_key_url` | `String` | No | When provided, Cloudsmith will fetch, validate, and associate a public GPG key found at the provided URL. |
 | `gpg_verification` | `String` | No | The GPG signature verification mode for this upstream. |
+| `id` | `String` | No |  |
 | `include_sources` | `Boolean` | No | When checked, source packages will be available from this upstream. |
 | `is_active` | `Boolean` | No | Whether or not this upstream is active and ready for requests. |
 | `mode` | `String` | No | The mode that this upstream should operate in. |
@@ -7302,6 +7333,7 @@ ruby = client.Ruby
 | `extra_header_2` | `String` | No | The key for extra header #2 to send to upstream. |
 | `extra_value_1` | `String` | No | The value for extra header #1 to send to upstream. |
 | `extra_value_2` | `String` | No | The value for extra header #2 to send to upstream. |
+| `id` | `String` | No |  |
 | `is_active` | `Boolean` | No | Whether or not this upstream is active and ready for requests. |
 | `mode` | `String` | No | The mode that this upstream should operate in. |
 | `name` | `String` | Yes | A descriptive name for this upstream source. |
@@ -7508,6 +7540,7 @@ service = client.Service
 | `created_by` | `String` | No |  |
 | `created_by_url` | `String` | No |  |
 | `description` | `String` | No | The description of the service |
+| `id` | `String` | No |  |
 | `key` | `String` | No | The API key of the service |
 | `key_expires_at` | `String` | No | The time at which the API key will expire. |
 | `name` | `String` | Yes | The name of the service |
@@ -7685,6 +7718,7 @@ storage_region = client.StorageRegion
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
+| `id` | `String` | No |  |
 | `label` | `String` | Yes | Name of the storage region |
 | `slug` | `String` | Yes | Slug for the storage region |
 
@@ -7755,6 +7789,7 @@ swift = client.Swift
 | `extra_header_2` | `String` | No | The key for extra header #2 to send to upstream. |
 | `extra_value_1` | `String` | No | The value for extra header #1 to send to upstream. |
 | `extra_value_2` | `String` | No | The value for extra header #2 to send to upstream. |
+| `id` | `String` | No |  |
 | `is_active` | `Boolean` | No | Whether or not this upstream is active and ready for requests. |
 | `mode` | `String` | No | The mode that this upstream should operate in. |
 | `name` | `String` | Yes | A descriptive name for this upstream source. |
@@ -8328,6 +8363,7 @@ user_profile = client.UserProfile
 | --- | --- | --- | --- |
 | `company` | `String` | No |  |
 | `first_name` | `String` | Yes |  |
+| `id` | `String` | No |  |
 | `job_title` | `String` | No |  |
 | `joined_at` | `String` | No |  |
 | `last_name` | `String` | Yes |  |
@@ -8497,6 +8533,7 @@ vulnerability = client.Vulnerability
 | --- | --- | --- | --- |
 | `created_at` | `String` | No | The time this scan result was stored. |
 | `has_vulnerabilities` | `Boolean` | No | Do the results contain any known vulnerabilities? |
+| `id` | `String` | No |  |
 | `identifier` | `String` | Yes |  |
 | `max_severity` | `String` | No |  |
 | `num_vulnerabilities` | `Integer` | No |  |

@@ -6,6 +6,11 @@ main: kit: entity: storage_region: {
 
   fields: [
     {
+      name: "id"
+      req: false
+      type: "`$STRING`"
+    }
+    {
       name: "label"
       req: true
       short: "Name of the storage region"
@@ -18,6 +23,11 @@ main: kit: entity: storage_region: {
       type: "`$STRING`"
     }
   ]
+
+  id: {
+    field: "id"
+    name: "id"
+  }
 
   name: "storage_region"
   op: {

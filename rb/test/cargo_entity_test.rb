@@ -77,6 +77,7 @@ class CargoEntityTest < Minitest::Test
     cargo_ref01_data_result = cargo_ref01_ent.create(cargo_ref01_data, nil)
     cargo_ref01_data = Helpers.to_map(cargo_ref01_data_result.respond_to?(:data_get) ? cargo_ref01_data_result.data_get : cargo_ref01_data_result)
     assert !cargo_ref01_data.nil?
+    assert !cargo_ref01_data["id"].nil?
 
     # LIST
     cargo_ref01_match = {
@@ -87,8 +88,14 @@ class CargoEntityTest < Minitest::Test
     cargo_ref01_list_result = cargo_ref01_ent.list(cargo_ref01_match, nil)
     assert cargo_ref01_list_result.is_a?(Array)
 
+    found_item = Vs.select(
+      Runner.entity_list_to_data(cargo_ref01_list_result),
+      { "id" => cargo_ref01_data["id"] })
+    assert !Vs.isempty(found_item)
+
     # UPDATE
     cargo_ref01_data_up0_up = {
+      "id" => cargo_ref01_data["id"],
       "identifier" => setup[:idmap]["identifier"],
       "owner" => setup[:idmap]["owner"],
     }
@@ -100,12 +107,17 @@ class CargoEntityTest < Minitest::Test
     cargo_ref01_resdata_up0_result = cargo_ref01_ent.update(cargo_ref01_data_up0_up, nil)
     cargo_ref01_resdata_up0 = Helpers.to_map(cargo_ref01_resdata_up0_result.respond_to?(:data_get) ? cargo_ref01_resdata_up0_result.data_get : cargo_ref01_resdata_up0_result)
     assert !cargo_ref01_resdata_up0.nil?
+    assert_equal cargo_ref01_resdata_up0["id"], cargo_ref01_data_up0_up["id"]
     assert_equal cargo_ref01_resdata_up0[cargo_ref01_markdef_up0_name], cargo_ref01_markdef_up0_value
 
     # LOAD
-    cargo_ref01_match_dt0 = {}
+    cargo_ref01_match_dt0 = {
+      "id" => cargo_ref01_data["id"],
+    }
     cargo_ref01_data_dt0_loaded = cargo_ref01_ent.load(cargo_ref01_match_dt0, nil)
-    assert !cargo_ref01_data_dt0_loaded.nil?
+    cargo_ref01_data_dt0_load_result = Helpers.to_map(cargo_ref01_data_dt0_loaded.respond_to?(:data_get) ? cargo_ref01_data_dt0_loaded.data_get : cargo_ref01_data_dt0_loaded)
+    assert !cargo_ref01_data_dt0_load_result.nil?
+    assert_equal cargo_ref01_data_dt0_load_result["id"], cargo_ref01_data["id"]
 
   end
 end

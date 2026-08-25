@@ -82,6 +82,7 @@ class TestCranEntity:
 
         cran_ref01_data = helpers.to_map(runner.entity_data(cran_ref01_ent.create(cran_ref01_data, None)))
         assert cran_ref01_data is not None
+        assert cran_ref01_data["id"] is not None
 
         # LIST
         cran_ref01_match = {
@@ -92,8 +93,14 @@ class TestCranEntity:
         cran_ref01_list_result = cran_ref01_ent.list(cran_ref01_match, None)
         assert isinstance(cran_ref01_list_result, list)
 
+        found_item = vs.select(
+            runner.entity_list_to_data(cran_ref01_list_result),
+            {"id": cran_ref01_data["id"]})
+        assert not vs.isempty(found_item)
+
         # UPDATE
         cran_ref01_data_up0_up = {
+            "id": cran_ref01_data["id"],
             "identifier": setup["idmap"]["identifier"],
             "owner": setup["idmap"]["owner"],
         }
@@ -104,12 +111,17 @@ class TestCranEntity:
 
         cran_ref01_resdata_up0 = helpers.to_map(runner.entity_data(cran_ref01_ent.update(cran_ref01_data_up0_up, None)))
         assert cran_ref01_resdata_up0 is not None
+        assert cran_ref01_resdata_up0["id"] == cran_ref01_data_up0_up["id"]
         assert cran_ref01_resdata_up0[cran_ref01_markdef_up0_name] == cran_ref01_markdef_up0_value
 
         # LOAD
-        cran_ref01_match_dt0 = {}
+        cran_ref01_match_dt0 = {
+            "id": cran_ref01_data["id"],
+        }
         cran_ref01_data_dt0_loaded = cran_ref01_ent.load(cran_ref01_match_dt0, None)
-        assert cran_ref01_data_dt0_loaded is not None
+        cran_ref01_data_dt0_load_result = helpers.to_map(runner.entity_data(cran_ref01_data_dt0_loaded))
+        assert cran_ref01_data_dt0_load_result is not None
+        assert cran_ref01_data_dt0_load_result["id"] == cran_ref01_data["id"]
 
 
 

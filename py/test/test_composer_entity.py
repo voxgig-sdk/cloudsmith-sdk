@@ -82,6 +82,7 @@ class TestComposerEntity:
 
         composer_ref01_data = helpers.to_map(runner.entity_data(composer_ref01_ent.create(composer_ref01_data, None)))
         assert composer_ref01_data is not None
+        assert composer_ref01_data["id"] is not None
 
         # LIST
         composer_ref01_match = {
@@ -92,8 +93,14 @@ class TestComposerEntity:
         composer_ref01_list_result = composer_ref01_ent.list(composer_ref01_match, None)
         assert isinstance(composer_ref01_list_result, list)
 
+        found_item = vs.select(
+            runner.entity_list_to_data(composer_ref01_list_result),
+            {"id": composer_ref01_data["id"]})
+        assert not vs.isempty(found_item)
+
         # UPDATE
         composer_ref01_data_up0_up = {
+            "id": composer_ref01_data["id"],
             "identifier": setup["idmap"]["identifier"],
             "owner": setup["idmap"]["owner"],
         }
@@ -104,12 +111,17 @@ class TestComposerEntity:
 
         composer_ref01_resdata_up0 = helpers.to_map(runner.entity_data(composer_ref01_ent.update(composer_ref01_data_up0_up, None)))
         assert composer_ref01_resdata_up0 is not None
+        assert composer_ref01_resdata_up0["id"] == composer_ref01_data_up0_up["id"]
         assert composer_ref01_resdata_up0[composer_ref01_markdef_up0_name] == composer_ref01_markdef_up0_value
 
         # LOAD
-        composer_ref01_match_dt0 = {}
+        composer_ref01_match_dt0 = {
+            "id": composer_ref01_data["id"],
+        }
         composer_ref01_data_dt0_loaded = composer_ref01_ent.load(composer_ref01_match_dt0, None)
-        assert composer_ref01_data_dt0_loaded is not None
+        composer_ref01_data_dt0_load_result = helpers.to_map(runner.entity_data(composer_ref01_data_dt0_loaded))
+        assert composer_ref01_data_dt0_load_result is not None
+        assert composer_ref01_data_dt0_load_result["id"] == composer_ref01_data["id"]
 
 
 

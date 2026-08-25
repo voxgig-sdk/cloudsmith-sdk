@@ -83,9 +83,13 @@ class FormatEntityTest < Minitest::Test
     assert format_ref01_list_result.is_a?(Array)
 
     # LOAD
-    format_ref01_match_dt0 = {}
+    format_ref01_match_dt0 = {
+      "id" => format_ref01_data["id"],
+    }
     format_ref01_data_dt0_loaded = format_ref01_ent.load(format_ref01_match_dt0, nil)
-    assert !format_ref01_data_dt0_loaded.nil?
+    format_ref01_data_dt0_load_result = Helpers.to_map(format_ref01_data_dt0_loaded.respond_to?(:data_get) ? format_ref01_data_dt0_loaded.data_get : format_ref01_data_dt0_loaded)
+    assert !format_ref01_data_dt0_load_result.nil?
+    assert_equal format_ref01_data_dt0_load_result["id"], format_ref01_data["id"]
 
   end
 end

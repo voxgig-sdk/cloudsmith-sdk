@@ -87,6 +87,7 @@ class HuggingfaceEntityTest extends TestCase
         $huggingface_ref01_data_result = $huggingface_ref01_ent->create($huggingface_ref01_data, null);
         $huggingface_ref01_data = Helpers::to_map(is_object($huggingface_ref01_data_result) && method_exists($huggingface_ref01_data_result, 'data_get') ? $huggingface_ref01_data_result->data_get() : $huggingface_ref01_data_result);
         $this->assertNotNull($huggingface_ref01_data);
+        $this->assertNotNull($huggingface_ref01_data["id"]);
 
         // LIST
         $huggingface_ref01_match = [
@@ -97,8 +98,14 @@ class HuggingfaceEntityTest extends TestCase
         $huggingface_ref01_list_result = $huggingface_ref01_ent->list($huggingface_ref01_match, null);
         $this->assertIsArray($huggingface_ref01_list_result);
 
+        $found_item = sdk_select(
+            Runner::entity_list_to_data($huggingface_ref01_list_result),
+            ["id" => $huggingface_ref01_data["id"]]);
+        $this->assertNotEmpty($found_item);
+
         // UPDATE
         $huggingface_ref01_data_up0_up = [
+            "id" => $huggingface_ref01_data["id"],
             "identifier" => $setup["idmap"]["identifier"],
             "owner" => $setup["idmap"]["owner"],
         ];
@@ -110,12 +117,17 @@ class HuggingfaceEntityTest extends TestCase
         $huggingface_ref01_resdata_up0_result = $huggingface_ref01_ent->update($huggingface_ref01_data_up0_up, null);
         $huggingface_ref01_resdata_up0 = Helpers::to_map(is_object($huggingface_ref01_resdata_up0_result) && method_exists($huggingface_ref01_resdata_up0_result, 'data_get') ? $huggingface_ref01_resdata_up0_result->data_get() : $huggingface_ref01_resdata_up0_result);
         $this->assertNotNull($huggingface_ref01_resdata_up0);
+        $this->assertEquals($huggingface_ref01_resdata_up0["id"], $huggingface_ref01_data_up0_up["id"]);
         $this->assertEquals($huggingface_ref01_resdata_up0[$huggingface_ref01_markdef_up0_name], $huggingface_ref01_markdef_up0_value);
 
         // LOAD
-        $huggingface_ref01_match_dt0 = [];
+        $huggingface_ref01_match_dt0 = [
+            "id" => $huggingface_ref01_data["id"],
+        ];
         $huggingface_ref01_data_dt0_loaded = $huggingface_ref01_ent->load($huggingface_ref01_match_dt0, null);
-        $this->assertNotNull($huggingface_ref01_data_dt0_loaded);
+        $huggingface_ref01_data_dt0_load_result = Helpers::to_map(is_object($huggingface_ref01_data_dt0_loaded) && method_exists($huggingface_ref01_data_dt0_loaded, 'data_get') ? $huggingface_ref01_data_dt0_loaded->data_get() : $huggingface_ref01_data_dt0_loaded);
+        $this->assertNotNull($huggingface_ref01_data_dt0_load_result);
+        $this->assertEquals($huggingface_ref01_data_dt0_load_result["id"], $huggingface_ref01_data["id"]);
 
     }
 }

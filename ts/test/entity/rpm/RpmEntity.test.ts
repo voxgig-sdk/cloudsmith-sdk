@@ -65,7 +65,7 @@ describe('RpmEntity', async () => {
     rpm_ref01_data['owner'] = setup.idmap['owner01']
 
     rpm_ref01_data = (await rpm_ref01_ent.create(rpm_ref01_data)).data()
-    assert(null != rpm_ref01_data)
+    assert(null != rpm_ref01_data.id)
 
 
     // LIST
@@ -75,9 +75,12 @@ describe('RpmEntity', async () => {
 
     const rpm_ref01_list = (await rpm_ref01_ent.list(rpm_ref01_match)).map((e: any) => e.data())
 
+    assert(!isempty(select(rpm_ref01_list, { id: rpm_ref01_data.id })))
+
 
     // UPDATE
     const rpm_ref01_data_up0: any = {}
+    rpm_ref01_data_up0.id = rpm_ref01_data.id
     rpm_ref01_data_up0 ['identifier'] = setup.idmap['identifier']
     rpm_ref01_data_up0 ['owner'] = setup.idmap['owner']
 
@@ -85,10 +88,16 @@ describe('RpmEntity', async () => {
     ;(rpm_ref01_data_up0 as any)[rpm_ref01_markdef_up0.name] = rpm_ref01_markdef_up0.value
 
     const rpm_ref01_resdata_up0 = (await rpm_ref01_ent.update(rpm_ref01_data_up0)).data()
-    assert(null != rpm_ref01_resdata_up0)
+    assert(rpm_ref01_resdata_up0.id === rpm_ref01_data_up0.id)
 
     assert((rpm_ref01_resdata_up0 as any)[rpm_ref01_markdef_up0.name] === rpm_ref01_markdef_up0.value)
 
+
+    // LOAD
+    const rpm_ref01_match_dt0: any = {}
+    rpm_ref01_match_dt0.id = rpm_ref01_data.id
+    const rpm_ref01_data_dt0 = (await rpm_ref01_ent.load(rpm_ref01_match_dt0)).data()
+    assert(rpm_ref01_data_dt0.id === rpm_ref01_data.id)
 
 
   })

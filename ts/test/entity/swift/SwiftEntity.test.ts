@@ -65,7 +65,7 @@ describe('SwiftEntity', async () => {
     swift_ref01_data['owner'] = setup.idmap['owner01']
 
     swift_ref01_data = (await swift_ref01_ent.create(swift_ref01_data)).data()
-    assert(null != swift_ref01_data)
+    assert(null != swift_ref01_data.id)
 
 
     // LIST
@@ -75,9 +75,12 @@ describe('SwiftEntity', async () => {
 
     const swift_ref01_list = (await swift_ref01_ent.list(swift_ref01_match)).map((e: any) => e.data())
 
+    assert(!isempty(select(swift_ref01_list, { id: swift_ref01_data.id })))
+
 
     // UPDATE
     const swift_ref01_data_up0: any = {}
+    swift_ref01_data_up0.id = swift_ref01_data.id
     swift_ref01_data_up0 ['identifier'] = setup.idmap['identifier']
     swift_ref01_data_up0 ['owner'] = setup.idmap['owner']
 
@@ -85,10 +88,16 @@ describe('SwiftEntity', async () => {
     ;(swift_ref01_data_up0 as any)[swift_ref01_markdef_up0.name] = swift_ref01_markdef_up0.value
 
     const swift_ref01_resdata_up0 = (await swift_ref01_ent.update(swift_ref01_data_up0)).data()
-    assert(null != swift_ref01_resdata_up0)
+    assert(swift_ref01_resdata_up0.id === swift_ref01_data_up0.id)
 
     assert((swift_ref01_resdata_up0 as any)[swift_ref01_markdef_up0.name] === swift_ref01_markdef_up0.value)
 
+
+    // LOAD
+    const swift_ref01_match_dt0: any = {}
+    swift_ref01_match_dt0.id = swift_ref01_data.id
+    const swift_ref01_data_dt0 = (await swift_ref01_ent.load(swift_ref01_match_dt0)).data()
+    assert(swift_ref01_data_dt0.id === swift_ref01_data.id)
 
 
   })

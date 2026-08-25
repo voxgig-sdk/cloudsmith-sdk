@@ -113,6 +113,9 @@ func TestNugetEntity(t *testing.T) {
 		if nugetRef01Data == nil {
 			t.Fatal("expected create result to be a map")
 		}
+		if nugetRef01Data["id"] == nil {
+			t.Fatal("expected created entity to have an id")
+		}
 
 		// LIST
 		nugetRef01Match := map[string]any{
@@ -124,13 +127,19 @@ func TestNugetEntity(t *testing.T) {
 		if err != nil {
 			t.Fatalf("list failed: %v", err)
 		}
-		_, nugetRef01ListOk := nugetRef01ListResult.([]any)
+		nugetRef01List, nugetRef01ListOk := nugetRef01ListResult.([]any)
 		if !nugetRef01ListOk {
 			t.Fatalf("expected list result to be an array, got %T", nugetRef01ListResult)
 		}
 
+		foundItem := vs.Select(entityListToData(nugetRef01List), map[string]any{"id": nugetRef01Data["id"]})
+		if vs.IsEmpty(foundItem) {
+			t.Fatal("expected to find created entity in list")
+		}
+
 		// UPDATE
 		nugetRef01DataUp0Up := map[string]any{
+			"id": nugetRef01Data["id"],
 			"identifier": setup.idmap["identifier"],
 			"owner": setup.idmap["owner"],
 		}
@@ -147,18 +156,27 @@ func TestNugetEntity(t *testing.T) {
 		if nugetRef01ResdataUp0 == nil {
 			t.Fatal("expected update result to be a map")
 		}
+		if nugetRef01ResdataUp0["id"] != nugetRef01DataUp0Up["id"] {
+			t.Fatal("expected update result id to match")
+		}
 		if nugetRef01ResdataUp0[nugetRef01MarkdefUp0Name] != nugetRef01MarkdefUp0Value {
 			t.Fatalf("expected %s to be updated, got %v", nugetRef01MarkdefUp0Name, nugetRef01ResdataUp0[nugetRef01MarkdefUp0Name])
 		}
 
 		// LOAD
-		nugetRef01MatchDt0 := map[string]any{}
+		nugetRef01MatchDt0 := map[string]any{
+			"id": nugetRef01Data["id"],
+		}
 		nugetRef01DataDt0Loaded, err := nugetRef01Ent.Load(nugetRef01MatchDt0, nil)
 		if err != nil {
 			t.Fatalf("load failed: %v", err)
 		}
-		if nugetRef01DataDt0Loaded == nil {
-			t.Fatal("expected load result to be non-nil")
+		nugetRef01DataDt0LoadResult := core.ToMapAny(entityData(nugetRef01DataDt0Loaded))
+		if nugetRef01DataDt0LoadResult == nil {
+			t.Fatal("expected load result to be a map")
+		}
+		if nugetRef01DataDt0LoadResult["id"] != nugetRef01Data["id"] {
+			t.Fatal("expected load result id to match")
 		}
 
 	})

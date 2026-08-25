@@ -4,23 +4,23 @@
       "QUOTA00": {
         "display": {},
         "history": [],
+        "id": "QUOTA00",
         "raw": {},
-        "owner": "OWNER01",
-        "id": "QUOTA00"
+        "owner": "OWNER01"
       },
       "QUOTA01": {
         "display": {},
         "history": [],
+        "id": "QUOTA01",
         "raw": {},
-        "owner": "OWNER01",
-        "id": "QUOTA01"
+        "owner": "OWNER01"
       },
       "QUOTA02": {
         "display": {},
         "history": [],
+        "id": "QUOTA02",
         "raw": {},
-        "owner": "OWNER01",
-        "id": "QUOTA02"
+        "owner": "OWNER01"
       }
     }
   },

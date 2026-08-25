@@ -87,6 +87,7 @@ class HexEntityTest extends TestCase
         $hex_ref01_data_result = $hex_ref01_ent->create($hex_ref01_data, null);
         $hex_ref01_data = Helpers::to_map(is_object($hex_ref01_data_result) && method_exists($hex_ref01_data_result, 'data_get') ? $hex_ref01_data_result->data_get() : $hex_ref01_data_result);
         $this->assertNotNull($hex_ref01_data);
+        $this->assertNotNull($hex_ref01_data["id"]);
 
         // LIST
         $hex_ref01_match = [
@@ -97,8 +98,14 @@ class HexEntityTest extends TestCase
         $hex_ref01_list_result = $hex_ref01_ent->list($hex_ref01_match, null);
         $this->assertIsArray($hex_ref01_list_result);
 
+        $found_item = sdk_select(
+            Runner::entity_list_to_data($hex_ref01_list_result),
+            ["id" => $hex_ref01_data["id"]]);
+        $this->assertNotEmpty($found_item);
+
         // UPDATE
         $hex_ref01_data_up0_up = [
+            "id" => $hex_ref01_data["id"],
             "identifier" => $setup["idmap"]["identifier"],
             "owner" => $setup["idmap"]["owner"],
         ];
@@ -110,12 +117,17 @@ class HexEntityTest extends TestCase
         $hex_ref01_resdata_up0_result = $hex_ref01_ent->update($hex_ref01_data_up0_up, null);
         $hex_ref01_resdata_up0 = Helpers::to_map(is_object($hex_ref01_resdata_up0_result) && method_exists($hex_ref01_resdata_up0_result, 'data_get') ? $hex_ref01_resdata_up0_result->data_get() : $hex_ref01_resdata_up0_result);
         $this->assertNotNull($hex_ref01_resdata_up0);
+        $this->assertEquals($hex_ref01_resdata_up0["id"], $hex_ref01_data_up0_up["id"]);
         $this->assertEquals($hex_ref01_resdata_up0[$hex_ref01_markdef_up0_name], $hex_ref01_markdef_up0_value);
 
         // LOAD
-        $hex_ref01_match_dt0 = [];
+        $hex_ref01_match_dt0 = [
+            "id" => $hex_ref01_data["id"],
+        ];
         $hex_ref01_data_dt0_loaded = $hex_ref01_ent->load($hex_ref01_match_dt0, null);
-        $this->assertNotNull($hex_ref01_data_dt0_loaded);
+        $hex_ref01_data_dt0_load_result = Helpers::to_map(is_object($hex_ref01_data_dt0_loaded) && method_exists($hex_ref01_data_dt0_loaded, 'data_get') ? $hex_ref01_data_dt0_loaded->data_get() : $hex_ref01_data_dt0_loaded);
+        $this->assertNotNull($hex_ref01_data_dt0_load_result);
+        $this->assertEquals($hex_ref01_data_dt0_load_result["id"], $hex_ref01_data["id"]);
 
     }
 }

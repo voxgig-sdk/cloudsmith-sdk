@@ -48,9 +48,13 @@ class UserProfileEntityTest extends TestCase
 
         // LOAD
         $user_profile_ref01_ent = $client->UserProfile(null);
-        $user_profile_ref01_match_dt0 = [];
+        $user_profile_ref01_match_dt0 = [
+            "id" => $user_profile_ref01_data["id"],
+        ];
         $user_profile_ref01_data_dt0_loaded = $user_profile_ref01_ent->load($user_profile_ref01_match_dt0, null);
-        $this->assertNotNull($user_profile_ref01_data_dt0_loaded);
+        $user_profile_ref01_data_dt0_load_result = Helpers::to_map(is_object($user_profile_ref01_data_dt0_loaded) && method_exists($user_profile_ref01_data_dt0_loaded, 'data_get') ? $user_profile_ref01_data_dt0_loaded->data_get() : $user_profile_ref01_data_dt0_loaded);
+        $this->assertNotNull($user_profile_ref01_data_dt0_load_result);
+        $this->assertEquals($user_profile_ref01_data_dt0_load_result["id"], $user_profile_ref01_data["id"]);
 
     }
 }

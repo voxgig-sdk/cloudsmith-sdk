@@ -86,6 +86,7 @@ class OrganizationInviteEntityTest extends TestCase
         $organization_invite_ref01_data_result = $organization_invite_ref01_ent->create($organization_invite_ref01_data, null);
         $organization_invite_ref01_data = Helpers::to_map(is_object($organization_invite_ref01_data_result) && method_exists($organization_invite_ref01_data_result, 'data_get') ? $organization_invite_ref01_data_result->data_get() : $organization_invite_ref01_data_result);
         $this->assertNotNull($organization_invite_ref01_data);
+        $this->assertNotNull($organization_invite_ref01_data["id"]);
 
         // LIST
         $organization_invite_ref01_match = [
@@ -95,8 +96,14 @@ class OrganizationInviteEntityTest extends TestCase
         $organization_invite_ref01_list_result = $organization_invite_ref01_ent->list($organization_invite_ref01_match, null);
         $this->assertIsArray($organization_invite_ref01_list_result);
 
+        $found_item = sdk_select(
+            Runner::entity_list_to_data($organization_invite_ref01_list_result),
+            ["id" => $organization_invite_ref01_data["id"]]);
+        $this->assertNotEmpty($found_item);
+
         // UPDATE
         $organization_invite_ref01_data_up0_up = [
+            "id" => $organization_invite_ref01_data["id"],
             "org_id" => $setup["idmap"]["org_id"],
         ];
 
@@ -107,6 +114,7 @@ class OrganizationInviteEntityTest extends TestCase
         $organization_invite_ref01_resdata_up0_result = $organization_invite_ref01_ent->update($organization_invite_ref01_data_up0_up, null);
         $organization_invite_ref01_resdata_up0 = Helpers::to_map(is_object($organization_invite_ref01_resdata_up0_result) && method_exists($organization_invite_ref01_resdata_up0_result, 'data_get') ? $organization_invite_ref01_resdata_up0_result->data_get() : $organization_invite_ref01_resdata_up0_result);
         $this->assertNotNull($organization_invite_ref01_resdata_up0);
+        $this->assertEquals($organization_invite_ref01_resdata_up0["id"], $organization_invite_ref01_data_up0_up["id"]);
         $this->assertEquals($organization_invite_ref01_resdata_up0[$organization_invite_ref01_markdef_up0_name], $organization_invite_ref01_markdef_up0_value);
 
     }

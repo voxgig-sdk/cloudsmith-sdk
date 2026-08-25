@@ -24,6 +24,7 @@
 ---@field extra_header_2? string
 ---@field extra_value_1? string
 ---@field extra_value_2? string
+---@field id? string
 ---@field is_active? boolean
 ---@field mode? string
 ---@field name string
@@ -55,6 +56,7 @@
 ---@field extra_header_2? string
 ---@field extra_value_1? string
 ---@field extra_value_2? string
+---@field id? string
 ---@field is_active? boolean
 ---@field mode? string
 ---@field name string
@@ -102,6 +104,7 @@
 ---@field extra_header_2? string
 ---@field extra_value_1? string
 ---@field extra_value_2? string
+---@field id? string
 ---@field is_active? boolean
 ---@field mode? string
 ---@field name string
@@ -133,6 +136,7 @@
 ---@field extra_header_2? string
 ---@field extra_value_1? string
 ---@field extra_value_2? string
+---@field id? string
 ---@field is_active? boolean
 ---@field mode? string
 ---@field name string
@@ -178,6 +182,7 @@
 ---@field extra_header_2? string
 ---@field extra_value_1? string
 ---@field extra_value_2? string
+---@field id? string
 ---@field is_active? boolean
 ---@field mode? string
 ---@field name string
@@ -209,6 +214,7 @@
 ---@field extra_header_2? string
 ---@field extra_value_1? string
 ---@field extra_value_2? string
+---@field id? string
 ---@field is_active? boolean
 ---@field mode? string
 ---@field name string
@@ -254,6 +260,7 @@
 ---@field extra_header_2? string
 ---@field extra_value_1? string
 ---@field extra_value_2? string
+---@field id? string
 ---@field is_active? boolean
 ---@field mode? string
 ---@field name string
@@ -285,6 +292,7 @@
 ---@field extra_header_2? string
 ---@field extra_value_1? string
 ---@field extra_value_2? string
+---@field id? string
 ---@field is_active? boolean
 ---@field mode? string
 ---@field name string
@@ -328,6 +336,7 @@
 ---@field extra_header_2? string
 ---@field extra_value_1? string
 ---@field extra_value_2? string
+---@field id? string
 ---@field is_active? boolean
 ---@field mode? string
 ---@field name string
@@ -359,6 +368,7 @@
 ---@field extra_header_2? string
 ---@field extra_value_1? string
 ---@field extra_value_2? string
+---@field id? string
 ---@field is_active? boolean
 ---@field mode? string
 ---@field name string
@@ -407,6 +417,7 @@
 ---@field gpg_key_inline? string
 ---@field gpg_key_url? string
 ---@field gpg_verification? string
+---@field id? string
 ---@field include_sources? boolean
 ---@field is_active? boolean
 ---@field mode? string
@@ -446,6 +457,7 @@
 ---@field gpg_key_inline? string
 ---@field gpg_key_url? string
 ---@field gpg_verification? string
+---@field id? string
 ---@field include_sources? boolean
 ---@field is_active? boolean
 ---@field mode? string
@@ -529,6 +541,7 @@
 ---@field extra_header_2? string
 ---@field extra_value_1? string
 ---@field extra_value_2? string
+---@field id? string
 ---@field is_active? boolean
 ---@field mode? string
 ---@field name string
@@ -560,6 +573,7 @@
 ---@field extra_header_2? string
 ---@field extra_value_1? string
 ---@field extra_value_2? string
+---@field id? string
 ---@field is_active? boolean
 ---@field mode? string
 ---@field name string
@@ -595,6 +609,7 @@
 
 ---@class DynamicMapping
 ---@field claim_value string
+---@field id? string
 ---@field service_account string
 
 ---@class DynamicMappingLoadMatch
@@ -614,6 +629,7 @@
 ---@field active? number
 ---@field bandwidth table
 ---@field downloads table
+---@field id? string
 ---@field inactive? number
 ---@field total? number
 
@@ -627,6 +643,7 @@
 ---@field active? number
 ---@field bandwidth table
 ---@field downloads table
+---@field id? string
 ---@field inactive? number
 ---@field total? number
 
@@ -648,6 +665,7 @@
 ---@field description string
 ---@field distributions? table
 ---@field extensions table
+---@field id? string
 ---@field name string
 ---@field premium boolean
 ---@field premium_plan_id? string
@@ -662,6 +680,7 @@
 ---@field description? string
 ---@field distributions? table
 ---@field extensions? table
+---@field id? string
 ---@field name? string
 ---@field premium? boolean
 ---@field premium_plan_id? string
@@ -758,6 +777,7 @@
 ---@field extra_header_2? string
 ---@field extra_value_1? string
 ---@field extra_value_2? string
+---@field id? string
 ---@field is_active? boolean
 ---@field mode? string
 ---@field name string
@@ -789,6 +809,7 @@
 ---@field extra_header_2? string
 ---@field extra_value_1? string
 ---@field extra_value_2? string
+---@field id? string
 ---@field is_active? boolean
 ---@field mode? string
 ---@field name string
@@ -832,6 +853,7 @@
 ---@field extra_header_2? string
 ---@field extra_value_1? string
 ---@field extra_value_2? string
+---@field id? string
 ---@field is_active? boolean
 ---@field mode? string
 ---@field name string
@@ -863,6 +885,7 @@
 ---@field extra_header_2? string
 ---@field extra_value_1? string
 ---@field extra_value_2? string
+---@field id? string
 ---@field is_active? boolean
 ---@field mode? string
 ---@field name string
@@ -908,6 +931,7 @@
 ---@field extra_header_2? string
 ---@field extra_value_1? string
 ---@field extra_value_2? string
+---@field id? string
 ---@field is_active? boolean
 ---@field mode? string
 ---@field name string
@@ -939,6 +963,7 @@
 ---@field extra_header_2? string
 ---@field extra_value_1? string
 ---@field extra_value_2? string
+---@field id? string
 ---@field is_active? boolean
 ---@field mode? string
 ---@field name string
@@ -995,6 +1020,7 @@
 ---@field gpg_key_inline? string
 ---@field gpg_key_url? string
 ---@field gpg_verification? string
+---@field id? string
 ---@field is_active? boolean
 ---@field mode? string
 ---@field name string
@@ -1030,6 +1056,7 @@
 ---@field gpg_key_inline? string
 ---@field gpg_key_url? string
 ---@field gpg_verification? string
+---@field id? string
 ---@field is_active? boolean
 ---@field mode? string
 ---@field name string
@@ -1073,6 +1100,7 @@
 ---@class Move
 
 ---@class Namespace
+---@field id? string
 ---@field name? string
 ---@field slug? string
 ---@field slug_perm? string
@@ -1082,6 +1110,7 @@
 ---@field id string
 
 ---@class NamespaceListMatch
+---@field id? string
 ---@field name? string
 ---@field slug? string
 ---@field slug_perm? string
@@ -1097,6 +1126,7 @@
 ---@field context string
 ---@field event string
 ---@field event_at string
+---@field id? string
 ---@field object string
 ---@field object_kind string
 ---@field object_slug_perm string
@@ -1118,6 +1148,7 @@
 ---@field extra_header_2? string
 ---@field extra_value_1? string
 ---@field extra_value_2? string
+---@field id? string
 ---@field is_active? boolean
 ---@field mode? string
 ---@field name string
@@ -1149,6 +1180,7 @@
 ---@field extra_header_2? string
 ---@field extra_value_1? string
 ---@field extra_value_2? string
+---@field id? string
 ---@field is_active? boolean
 ---@field mode? string
 ---@field name string
@@ -1192,6 +1224,7 @@
 ---@field extra_header_2? string
 ---@field extra_value_1? string
 ---@field extra_value_2? string
+---@field id? string
 ---@field is_active? boolean
 ---@field mode? string
 ---@field name string
@@ -1223,6 +1256,7 @@
 ---@field extra_header_2? string
 ---@field extra_value_1? string
 ---@field extra_value_2? string
+---@field id? string
 ---@field is_active? boolean
 ---@field mode? string
 ---@field name string
@@ -1262,6 +1296,7 @@
 ---@field country? string
 ---@field created_at? string
 ---@field event_at? string
+---@field id? string
 ---@field location? string
 ---@field name string
 ---@field package table
@@ -1280,6 +1315,7 @@
 ---@field country? string
 ---@field created_at? string
 ---@field event_at? string
+---@field id? string
 ---@field location? string
 ---@field name? string
 ---@field package? table
@@ -1356,6 +1392,7 @@
 ---@class OrganizationInvite
 ---@field email? string
 ---@field expires_at? string
+---@field id? string
 ---@field inviter? string
 ---@field inviter_url? string
 ---@field org? string
@@ -1372,6 +1409,7 @@
 ---@field org_id string
 ---@field email? string
 ---@field expires_at? string
+---@field id? string
 ---@field inviter? string
 ---@field inviter_url? string
 ---@field org? string
@@ -1517,6 +1555,7 @@
 ---@field allow_unknown_licenses? boolean
 ---@field created_at? string
 ---@field description? string
+---@field id? string
 ---@field name string
 ---@field on_violation_quarantine? boolean
 ---@field package_query_string? string
@@ -1536,6 +1575,7 @@
 ---@field allow_unknown_licenses? boolean
 ---@field created_at? string
 ---@field description? string
+---@field id? string
 ---@field name string
 ---@field on_violation_quarantine? boolean
 ---@field package_query_string? string
@@ -1560,6 +1600,7 @@
 ---@field allow_unknown_severity? boolean
 ---@field created_at? string
 ---@field description? string
+---@field id? string
 ---@field min_severity? string
 ---@field name string
 ---@field on_violation_quarantine? boolean
@@ -1579,6 +1620,7 @@
 ---@field allow_unknown_severity? boolean
 ---@field created_at? string
 ---@field description? string
+---@field id? string
 ---@field min_severity? string
 ---@field name string
 ---@field on_violation_quarantine? boolean
@@ -1617,6 +1659,7 @@
 
 ---@class OrganizationTeam
 ---@field description? string
+---@field id? string
 ---@field name string
 ---@field slug? string
 ---@field slug_perm? string
@@ -1632,6 +1675,7 @@
 ---@class OrganizationTeamCreateData
 ---@field org_id string
 ---@field description? string
+---@field id? string
 ---@field name string
 ---@field slug? string
 ---@field slug_perm? string
@@ -1873,6 +1917,7 @@
 ---@field created_at? string
 ---@field description? string
 ---@field enabled? boolean
+---@field id? string
 ---@field name? string
 ---@field package_query_string string
 ---@field slug_perm? string
@@ -1892,6 +1937,7 @@
 ---@field created_at? string
 ---@field description? string
 ---@field enabled? boolean
+---@field id? string
 ---@field name? string
 ---@field package_query_string string
 ---@field slug_perm? string
@@ -1933,6 +1979,7 @@
 ---@field created_at? string
 ---@field description? string
 ---@field evaluation_count? number
+---@field id? string
 ---@field name? string
 ---@field on_violation_quarantine? boolean
 ---@field package_query_string? string
@@ -1960,6 +2007,7 @@
 ---@field created_at? string
 ---@field description? string
 ---@field evaluation_count? number
+---@field id? string
 ---@field name? string
 ---@field on_violation_quarantine? boolean
 ---@field package_query_string? string
@@ -1986,6 +2034,7 @@
 ---@field created_at? string
 ---@field description? string
 ---@field evaluation_count? number
+---@field id? string
 ---@field min_severity? string
 ---@field name? string
 ---@field on_violation_quarantine? boolean
@@ -2013,6 +2062,7 @@
 ---@field created_at? string
 ---@field description? string
 ---@field evaluation_count? number
+---@field id? string
 ---@field min_severity? string
 ---@field name? string
 ---@field on_violation_quarantine? boolean
@@ -2090,6 +2140,7 @@
 ---@field extra_header_2? string
 ---@field extra_value_1? string
 ---@field extra_value_2? string
+---@field id? string
 ---@field is_active? boolean
 ---@field mode? string
 ---@field name string
@@ -2121,6 +2172,7 @@
 ---@field extra_header_2? string
 ---@field extra_value_1? string
 ---@field extra_value_2? string
+---@field id? string
 ---@field is_active? boolean
 ---@field mode? string
 ---@field name string
@@ -2159,6 +2211,7 @@
 ---@class Quota
 ---@field display table
 ---@field history table
+---@field id? string
 ---@field raw table
 
 ---@class QuotaLoadMatch
@@ -2188,6 +2241,7 @@
 ---@field ecdsa_keys? table
 ---@field enforce_eula? boolean
 ---@field gpg_keys? table
+---@field id? string
 ---@field index_files? boolean
 ---@field is_open_source? boolean
 ---@field is_private? boolean
@@ -2258,6 +2312,7 @@
 ---@field ecdsa_keys? table
 ---@field enforce_eula? boolean
 ---@field gpg_keys? table
+---@field id? string
 ---@field index_files? boolean
 ---@field is_open_source? boolean
 ---@field is_private? boolean
@@ -2395,6 +2450,7 @@
 ---@field ecdsa_keys? table
 ---@field enforce_eula? boolean
 ---@field gpg_keys? table
+---@field id? string
 ---@field index_files? boolean
 ---@field is_open_source? boolean
 ---@field is_private? boolean
@@ -2999,6 +3055,7 @@
 ---@field gpg_key_inline? string
 ---@field gpg_key_url? string
 ---@field gpg_verification? string
+---@field id? string
 ---@field include_sources? boolean
 ---@field is_active? boolean
 ---@field mode? string
@@ -3036,6 +3093,7 @@
 ---@field gpg_key_inline? string
 ---@field gpg_key_url? string
 ---@field gpg_verification? string
+---@field id? string
 ---@field include_sources? boolean
 ---@field is_active? boolean
 ---@field mode? string
@@ -3089,6 +3147,7 @@
 ---@field extra_header_2? string
 ---@field extra_value_1? string
 ---@field extra_value_2? string
+---@field id? string
 ---@field is_active? boolean
 ---@field mode? string
 ---@field name string
@@ -3120,6 +3179,7 @@
 ---@field extra_header_2? string
 ---@field extra_value_1? string
 ---@field extra_value_2? string
+---@field id? string
 ---@field is_active? boolean
 ---@field mode? string
 ---@field name string
@@ -3164,6 +3224,7 @@
 ---@field created_by? string
 ---@field created_by_url? string
 ---@field description? string
+---@field id? string
 ---@field key? string
 ---@field key_expires_at? string
 ---@field name string
@@ -3184,6 +3245,7 @@
 ---@field created_by? string
 ---@field created_by_url? string
 ---@field description? string
+---@field id? string
 ---@field key? string
 ---@field key_expires_at? string
 ---@field name string
@@ -3216,6 +3278,7 @@
 ---@field version? string
 
 ---@class StorageRegion
+---@field id? string
 ---@field label string
 ---@field slug string
 
@@ -3223,6 +3286,7 @@
 ---@field id string
 
 ---@class StorageRegionListMatch
+---@field id? string
 ---@field label? string
 ---@field slug? string
 
@@ -3236,6 +3300,7 @@
 ---@field extra_header_2? string
 ---@field extra_value_1? string
 ---@field extra_value_2? string
+---@field id? string
 ---@field is_active? boolean
 ---@field mode? string
 ---@field name string
@@ -3267,6 +3332,7 @@
 ---@field extra_header_2? string
 ---@field extra_value_1? string
 ---@field extra_value_2? string
+---@field id? string
 ---@field is_active? boolean
 ---@field mode? string
 ---@field name string
@@ -3364,6 +3430,7 @@
 ---@class UserProfile
 ---@field company? string
 ---@field first_name string
+---@field id? string
 ---@field job_title? string
 ---@field joined_at? string
 ---@field last_name string
@@ -3385,6 +3452,7 @@
 ---@class Vulnerability
 ---@field created_at? string
 ---@field has_vulnerabilities? boolean
+---@field id? string
 ---@field identifier string
 ---@field max_severity? string
 ---@field num_vulnerabilities? number

@@ -77,21 +77,28 @@ const utility_1 = require("../../utility");
         maven_ref01_data['identifier'] = setup.idmap['identifier01'];
         maven_ref01_data['owner'] = setup.idmap['owner01'];
         maven_ref01_data = (await maven_ref01_ent.create(maven_ref01_data)).data();
-        (0, node_assert_1.default)(null != maven_ref01_data);
+        (0, node_assert_1.default)(null != maven_ref01_data.id);
         // LIST
         const maven_ref01_match = {};
         maven_ref01_match['identifier'] = setup.idmap['identifier01'];
         maven_ref01_match['owner'] = setup.idmap['owner01'];
         const maven_ref01_list = (await maven_ref01_ent.list(maven_ref01_match)).map((e) => e.data());
+        (0, node_assert_1.default)(!isempty(select(maven_ref01_list, { id: maven_ref01_data.id })));
         // UPDATE
         const maven_ref01_data_up0 = {};
+        maven_ref01_data_up0.id = maven_ref01_data.id;
         maven_ref01_data_up0['identifier'] = setup.idmap['identifier'];
         maven_ref01_data_up0['owner'] = setup.idmap['owner'];
         const maven_ref01_markdef_up0 = { name: 'auth_mode', value: 'Mark01-maven_ref01_' + setup.now };
         maven_ref01_data_up0[maven_ref01_markdef_up0.name] = maven_ref01_markdef_up0.value;
         const maven_ref01_resdata_up0 = (await maven_ref01_ent.update(maven_ref01_data_up0)).data();
-        (0, node_assert_1.default)(null != maven_ref01_resdata_up0);
+        (0, node_assert_1.default)(maven_ref01_resdata_up0.id === maven_ref01_data_up0.id);
         (0, node_assert_1.default)(maven_ref01_resdata_up0[maven_ref01_markdef_up0.name] === maven_ref01_markdef_up0.value);
+        // LOAD
+        const maven_ref01_match_dt0 = {};
+        maven_ref01_match_dt0.id = maven_ref01_data.id;
+        const maven_ref01_data_dt0 = (await maven_ref01_ent.load(maven_ref01_match_dt0)).data();
+        (0, node_assert_1.default)(maven_ref01_data_dt0.id === maven_ref01_data.id);
     });
 });
 function basicSetup(extra) {

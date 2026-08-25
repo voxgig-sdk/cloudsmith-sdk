@@ -82,6 +82,7 @@ class TestHelmEntity:
 
         helm_ref01_data = helpers.to_map(runner.entity_data(helm_ref01_ent.create(helm_ref01_data, None)))
         assert helm_ref01_data is not None
+        assert helm_ref01_data["id"] is not None
 
         # LIST
         helm_ref01_match = {
@@ -92,8 +93,14 @@ class TestHelmEntity:
         helm_ref01_list_result = helm_ref01_ent.list(helm_ref01_match, None)
         assert isinstance(helm_ref01_list_result, list)
 
+        found_item = vs.select(
+            runner.entity_list_to_data(helm_ref01_list_result),
+            {"id": helm_ref01_data["id"]})
+        assert not vs.isempty(found_item)
+
         # UPDATE
         helm_ref01_data_up0_up = {
+            "id": helm_ref01_data["id"],
             "identifier": setup["idmap"]["identifier"],
             "owner": setup["idmap"]["owner"],
         }
@@ -104,12 +111,17 @@ class TestHelmEntity:
 
         helm_ref01_resdata_up0 = helpers.to_map(runner.entity_data(helm_ref01_ent.update(helm_ref01_data_up0_up, None)))
         assert helm_ref01_resdata_up0 is not None
+        assert helm_ref01_resdata_up0["id"] == helm_ref01_data_up0_up["id"]
         assert helm_ref01_resdata_up0[helm_ref01_markdef_up0_name] == helm_ref01_markdef_up0_value
 
         # LOAD
-        helm_ref01_match_dt0 = {}
+        helm_ref01_match_dt0 = {
+            "id": helm_ref01_data["id"],
+        }
         helm_ref01_data_dt0_loaded = helm_ref01_ent.load(helm_ref01_match_dt0, None)
-        assert helm_ref01_data_dt0_loaded is not None
+        helm_ref01_data_dt0_load_result = helpers.to_map(runner.entity_data(helm_ref01_data_dt0_loaded))
+        assert helm_ref01_data_dt0_load_result is not None
+        assert helm_ref01_data_dt0_load_result["id"] == helm_ref01_data["id"]
 
 
 

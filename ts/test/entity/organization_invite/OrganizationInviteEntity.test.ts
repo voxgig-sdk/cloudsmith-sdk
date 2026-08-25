@@ -64,7 +64,7 @@ describe('OrganizationInviteEntity', async () => {
     organization_invite_ref01_data['org_id'] = setup.idmap['org01']
 
     organization_invite_ref01_data = (await organization_invite_ref01_ent.create(organization_invite_ref01_data)).data()
-    assert(null != organization_invite_ref01_data)
+    assert(null != organization_invite_ref01_data.id)
 
 
     // LIST
@@ -73,16 +73,19 @@ describe('OrganizationInviteEntity', async () => {
 
     const organization_invite_ref01_list = (await organization_invite_ref01_ent.list(organization_invite_ref01_match)).map((e: any) => e.data())
 
+    assert(!isempty(select(organization_invite_ref01_list, { id: organization_invite_ref01_data.id })))
+
 
     // UPDATE
     const organization_invite_ref01_data_up0: any = {}
+    organization_invite_ref01_data_up0.id = organization_invite_ref01_data.id
     organization_invite_ref01_data_up0 ['org_id'] = setup.idmap['org_id']
 
     const organization_invite_ref01_markdef_up0 = { name: 'email', value: 'Mark01-organization_invite_ref01_' + setup.now }
     ;(organization_invite_ref01_data_up0 as any)[organization_invite_ref01_markdef_up0.name] = organization_invite_ref01_markdef_up0.value
 
     const organization_invite_ref01_resdata_up0 = (await organization_invite_ref01_ent.update(organization_invite_ref01_data_up0)).data()
-    assert(null != organization_invite_ref01_resdata_up0)
+    assert(organization_invite_ref01_resdata_up0.id === organization_invite_ref01_data_up0.id)
 
     assert((organization_invite_ref01_resdata_up0 as any)[organization_invite_ref01_markdef_up0.name] === organization_invite_ref01_markdef_up0.value)
 

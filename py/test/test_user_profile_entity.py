@@ -48,9 +48,13 @@ class TestUserProfileEntity:
 
         # LOAD
         user_profile_ref01_ent = client.UserProfile(None)
-        user_profile_ref01_match_dt0 = {}
+        user_profile_ref01_match_dt0 = {
+            "id": user_profile_ref01_data["id"],
+        }
         user_profile_ref01_data_dt0_loaded = user_profile_ref01_ent.load(user_profile_ref01_match_dt0, None)
-        assert user_profile_ref01_data_dt0_loaded is not None
+        user_profile_ref01_data_dt0_load_result = helpers.to_map(runner.entity_data(user_profile_ref01_data_dt0_loaded))
+        assert user_profile_ref01_data_dt0_load_result is not None
+        assert user_profile_ref01_data_dt0_load_result["id"] == user_profile_ref01_data["id"]
 
 
 

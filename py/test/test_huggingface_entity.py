@@ -82,6 +82,7 @@ class TestHuggingfaceEntity:
 
         huggingface_ref01_data = helpers.to_map(runner.entity_data(huggingface_ref01_ent.create(huggingface_ref01_data, None)))
         assert huggingface_ref01_data is not None
+        assert huggingface_ref01_data["id"] is not None
 
         # LIST
         huggingface_ref01_match = {
@@ -92,8 +93,14 @@ class TestHuggingfaceEntity:
         huggingface_ref01_list_result = huggingface_ref01_ent.list(huggingface_ref01_match, None)
         assert isinstance(huggingface_ref01_list_result, list)
 
+        found_item = vs.select(
+            runner.entity_list_to_data(huggingface_ref01_list_result),
+            {"id": huggingface_ref01_data["id"]})
+        assert not vs.isempty(found_item)
+
         # UPDATE
         huggingface_ref01_data_up0_up = {
+            "id": huggingface_ref01_data["id"],
             "identifier": setup["idmap"]["identifier"],
             "owner": setup["idmap"]["owner"],
         }
@@ -104,12 +111,17 @@ class TestHuggingfaceEntity:
 
         huggingface_ref01_resdata_up0 = helpers.to_map(runner.entity_data(huggingface_ref01_ent.update(huggingface_ref01_data_up0_up, None)))
         assert huggingface_ref01_resdata_up0 is not None
+        assert huggingface_ref01_resdata_up0["id"] == huggingface_ref01_data_up0_up["id"]
         assert huggingface_ref01_resdata_up0[huggingface_ref01_markdef_up0_name] == huggingface_ref01_markdef_up0_value
 
         # LOAD
-        huggingface_ref01_match_dt0 = {}
+        huggingface_ref01_match_dt0 = {
+            "id": huggingface_ref01_data["id"],
+        }
         huggingface_ref01_data_dt0_loaded = huggingface_ref01_ent.load(huggingface_ref01_match_dt0, None)
-        assert huggingface_ref01_data_dt0_loaded is not None
+        huggingface_ref01_data_dt0_load_result = helpers.to_map(runner.entity_data(huggingface_ref01_data_dt0_loaded))
+        assert huggingface_ref01_data_dt0_load_result is not None
+        assert huggingface_ref01_data_dt0_load_result["id"] == huggingface_ref01_data["id"]
 
 
 

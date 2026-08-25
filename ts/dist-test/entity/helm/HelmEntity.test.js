@@ -77,21 +77,28 @@ const utility_1 = require("../../utility");
         helm_ref01_data['identifier'] = setup.idmap['identifier01'];
         helm_ref01_data['owner'] = setup.idmap['owner01'];
         helm_ref01_data = (await helm_ref01_ent.create(helm_ref01_data)).data();
-        (0, node_assert_1.default)(null != helm_ref01_data);
+        (0, node_assert_1.default)(null != helm_ref01_data.id);
         // LIST
         const helm_ref01_match = {};
         helm_ref01_match['identifier'] = setup.idmap['identifier01'];
         helm_ref01_match['owner'] = setup.idmap['owner01'];
         const helm_ref01_list = (await helm_ref01_ent.list(helm_ref01_match)).map((e) => e.data());
+        (0, node_assert_1.default)(!isempty(select(helm_ref01_list, { id: helm_ref01_data.id })));
         // UPDATE
         const helm_ref01_data_up0 = {};
+        helm_ref01_data_up0.id = helm_ref01_data.id;
         helm_ref01_data_up0['identifier'] = setup.idmap['identifier'];
         helm_ref01_data_up0['owner'] = setup.idmap['owner'];
         const helm_ref01_markdef_up0 = { name: 'auth_mode', value: 'Mark01-helm_ref01_' + setup.now };
         helm_ref01_data_up0[helm_ref01_markdef_up0.name] = helm_ref01_markdef_up0.value;
         const helm_ref01_resdata_up0 = (await helm_ref01_ent.update(helm_ref01_data_up0)).data();
-        (0, node_assert_1.default)(null != helm_ref01_resdata_up0);
+        (0, node_assert_1.default)(helm_ref01_resdata_up0.id === helm_ref01_data_up0.id);
         (0, node_assert_1.default)(helm_ref01_resdata_up0[helm_ref01_markdef_up0.name] === helm_ref01_markdef_up0.value);
+        // LOAD
+        const helm_ref01_match_dt0 = {};
+        helm_ref01_match_dt0.id = helm_ref01_data.id;
+        const helm_ref01_data_dt0 = (await helm_ref01_ent.load(helm_ref01_match_dt0)).data();
+        (0, node_assert_1.default)(helm_ref01_data_dt0.id === helm_ref01_data.id);
     });
 });
 function basicSetup(extra) {

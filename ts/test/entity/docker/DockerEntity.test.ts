@@ -65,7 +65,7 @@ describe('DockerEntity', async () => {
     docker_ref01_data['owner'] = setup.idmap['owner01']
 
     docker_ref01_data = (await docker_ref01_ent.create(docker_ref01_data)).data()
-    assert(null != docker_ref01_data)
+    assert(null != docker_ref01_data.id)
 
 
     // LIST
@@ -75,9 +75,12 @@ describe('DockerEntity', async () => {
 
     const docker_ref01_list = (await docker_ref01_ent.list(docker_ref01_match)).map((e: any) => e.data())
 
+    assert(!isempty(select(docker_ref01_list, { id: docker_ref01_data.id })))
+
 
     // UPDATE
     const docker_ref01_data_up0: any = {}
+    docker_ref01_data_up0.id = docker_ref01_data.id
     docker_ref01_data_up0 ['identifier'] = setup.idmap['identifier']
     docker_ref01_data_up0 ['owner'] = setup.idmap['owner']
 
@@ -85,10 +88,16 @@ describe('DockerEntity', async () => {
     ;(docker_ref01_data_up0 as any)[docker_ref01_markdef_up0.name] = docker_ref01_markdef_up0.value
 
     const docker_ref01_resdata_up0 = (await docker_ref01_ent.update(docker_ref01_data_up0)).data()
-    assert(null != docker_ref01_resdata_up0)
+    assert(docker_ref01_resdata_up0.id === docker_ref01_data_up0.id)
 
     assert((docker_ref01_resdata_up0 as any)[docker_ref01_markdef_up0.name] === docker_ref01_markdef_up0.value)
 
+
+    // LOAD
+    const docker_ref01_match_dt0: any = {}
+    docker_ref01_match_dt0.id = docker_ref01_data.id
+    const docker_ref01_data_dt0 = (await docker_ref01_ent.load(docker_ref01_match_dt0)).data()
+    assert(docker_ref01_data_dt0.id === docker_ref01_data.id)
 
 
   })

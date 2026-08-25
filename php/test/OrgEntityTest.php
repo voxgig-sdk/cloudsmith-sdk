@@ -86,6 +86,7 @@ class OrgEntityTest extends TestCase
         $org_ref01_data_result = $org_ref01_ent->create($org_ref01_data, null);
         $org_ref01_data = Helpers::to_map(is_object($org_ref01_data_result) && method_exists($org_ref01_data_result, 'data_get') ? $org_ref01_data_result->data_get() : $org_ref01_data_result);
         $this->assertNotNull($org_ref01_data);
+        $this->assertNotNull($org_ref01_data["id"]);
 
         // LIST
         $org_ref01_match = [];
@@ -93,8 +94,14 @@ class OrgEntityTest extends TestCase
         $org_ref01_list_result = $org_ref01_ent->list($org_ref01_match, null);
         $this->assertIsArray($org_ref01_list_result);
 
+        $found_item = sdk_select(
+            Runner::entity_list_to_data($org_ref01_list_result),
+            ["id" => $org_ref01_data["id"]]);
+        $this->assertNotEmpty($found_item);
+
         // UPDATE
         $org_ref01_data_up0_up = [
+            "id" => $org_ref01_data["id"],
         ];
 
         $org_ref01_markdef_up0_name = "country";
@@ -104,19 +111,34 @@ class OrgEntityTest extends TestCase
         $org_ref01_resdata_up0_result = $org_ref01_ent->update($org_ref01_data_up0_up, null);
         $org_ref01_resdata_up0 = Helpers::to_map(is_object($org_ref01_resdata_up0_result) && method_exists($org_ref01_resdata_up0_result, 'data_get') ? $org_ref01_resdata_up0_result->data_get() : $org_ref01_resdata_up0_result);
         $this->assertNotNull($org_ref01_resdata_up0);
+        $this->assertEquals($org_ref01_resdata_up0["id"], $org_ref01_data_up0_up["id"]);
         $this->assertEquals($org_ref01_resdata_up0[$org_ref01_markdef_up0_name], $org_ref01_markdef_up0_value);
 
         // LOAD
-        $org_ref01_match_dt0 = [];
+        $org_ref01_match_dt0 = [
+            "id" => $org_ref01_data["id"],
+        ];
         $org_ref01_data_dt0_loaded = $org_ref01_ent->load($org_ref01_match_dt0, null);
-        $this->assertNotNull($org_ref01_data_dt0_loaded);
+        $org_ref01_data_dt0_load_result = Helpers::to_map(is_object($org_ref01_data_dt0_loaded) && method_exists($org_ref01_data_dt0_loaded, 'data_get') ? $org_ref01_data_dt0_loaded->data_get() : $org_ref01_data_dt0_loaded);
+        $this->assertNotNull($org_ref01_data_dt0_load_result);
+        $this->assertEquals($org_ref01_data_dt0_load_result["id"], $org_ref01_data["id"]);
 
+        // REMOVE
+        $org_ref01_match_rm0 = [
+            "id" => $org_ref01_data["id"],
+        ];
+        $org_ref01_ent->remove($org_ref01_match_rm0, null);
 
         // LIST
         $org_ref01_match_rt0 = [];
 
         $org_ref01_list_rt0_result = $org_ref01_ent->list($org_ref01_match_rt0, null);
         $this->assertIsArray($org_ref01_list_rt0_result);
+
+        $not_found_item = sdk_select(
+            Runner::entity_list_to_data($org_ref01_list_rt0_result),
+            ["id" => $org_ref01_data["id"]]);
+        $this->assertEmpty($not_found_item);
 
     }
 }

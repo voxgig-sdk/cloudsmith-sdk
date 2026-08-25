@@ -78,6 +78,11 @@ const utility_1 = require("../../utility");
         dynamic_mapping_ref01_match['org_id'] = setup.idmap['org01'];
         dynamic_mapping_ref01_match['provider_setting'] = setup.idmap['provider_setting01'];
         const dynamic_mapping_ref01_list = (await dynamic_mapping_ref01_ent.list(dynamic_mapping_ref01_match)).map((e) => e.data());
+        // LOAD
+        const dynamic_mapping_ref01_match_dt0 = {};
+        dynamic_mapping_ref01_match_dt0.id = dynamic_mapping_ref01_data.id;
+        const dynamic_mapping_ref01_data_dt0 = (await dynamic_mapping_ref01_ent.load(dynamic_mapping_ref01_match_dt0)).data();
+        (0, node_assert_1.default)(dynamic_mapping_ref01_data_dt0.id === dynamic_mapping_ref01_data.id);
     });
 });
 function basicSetup(extra) {

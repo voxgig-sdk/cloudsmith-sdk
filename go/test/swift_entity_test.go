@@ -113,6 +113,9 @@ func TestSwiftEntity(t *testing.T) {
 		if swiftRef01Data == nil {
 			t.Fatal("expected create result to be a map")
 		}
+		if swiftRef01Data["id"] == nil {
+			t.Fatal("expected created entity to have an id")
+		}
 
 		// LIST
 		swiftRef01Match := map[string]any{
@@ -124,13 +127,19 @@ func TestSwiftEntity(t *testing.T) {
 		if err != nil {
 			t.Fatalf("list failed: %v", err)
 		}
-		_, swiftRef01ListOk := swiftRef01ListResult.([]any)
+		swiftRef01List, swiftRef01ListOk := swiftRef01ListResult.([]any)
 		if !swiftRef01ListOk {
 			t.Fatalf("expected list result to be an array, got %T", swiftRef01ListResult)
 		}
 
+		foundItem := vs.Select(entityListToData(swiftRef01List), map[string]any{"id": swiftRef01Data["id"]})
+		if vs.IsEmpty(foundItem) {
+			t.Fatal("expected to find created entity in list")
+		}
+
 		// UPDATE
 		swiftRef01DataUp0Up := map[string]any{
+			"id": swiftRef01Data["id"],
 			"identifier": setup.idmap["identifier"],
 			"owner": setup.idmap["owner"],
 		}
@@ -147,18 +156,27 @@ func TestSwiftEntity(t *testing.T) {
 		if swiftRef01ResdataUp0 == nil {
 			t.Fatal("expected update result to be a map")
 		}
+		if swiftRef01ResdataUp0["id"] != swiftRef01DataUp0Up["id"] {
+			t.Fatal("expected update result id to match")
+		}
 		if swiftRef01ResdataUp0[swiftRef01MarkdefUp0Name] != swiftRef01MarkdefUp0Value {
 			t.Fatalf("expected %s to be updated, got %v", swiftRef01MarkdefUp0Name, swiftRef01ResdataUp0[swiftRef01MarkdefUp0Name])
 		}
 
 		// LOAD
-		swiftRef01MatchDt0 := map[string]any{}
+		swiftRef01MatchDt0 := map[string]any{
+			"id": swiftRef01Data["id"],
+		}
 		swiftRef01DataDt0Loaded, err := swiftRef01Ent.Load(swiftRef01MatchDt0, nil)
 		if err != nil {
 			t.Fatalf("load failed: %v", err)
 		}
-		if swiftRef01DataDt0Loaded == nil {
-			t.Fatal("expected load result to be non-nil")
+		swiftRef01DataDt0LoadResult := core.ToMapAny(entityData(swiftRef01DataDt0Loaded))
+		if swiftRef01DataDt0LoadResult == nil {
+			t.Fatal("expected load result to be a map")
+		}
+		if swiftRef01DataDt0LoadResult["id"] != swiftRef01Data["id"] {
+			t.Fatal("expected load result id to match")
 		}
 
 	})

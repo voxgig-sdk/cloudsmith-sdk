@@ -27,6 +27,7 @@ export interface Cargo {
   extra_header_2?: string
   extra_value_1?: string
   extra_value_2?: string
+  id?: string
   is_active?: boolean
   mode?: string
   name: string
@@ -61,6 +62,7 @@ export interface CargoCreateData {
   extra_header_2?: string
   extra_value_1?: string
   extra_value_2?: string
+  id?: string
   is_active?: boolean
   mode?: string
   name: string
@@ -112,6 +114,7 @@ export interface Composer {
   extra_header_2?: string
   extra_value_1?: string
   extra_value_2?: string
+  id?: string
   is_active?: boolean
   mode?: string
   name: string
@@ -146,6 +149,7 @@ export interface ComposerCreateData {
   extra_header_2?: string
   extra_value_1?: string
   extra_value_2?: string
+  id?: string
   is_active?: boolean
   mode?: string
   name: string
@@ -194,6 +198,7 @@ export interface Conda {
   extra_header_2?: string
   extra_value_1?: string
   extra_value_2?: string
+  id?: string
   is_active?: boolean
   mode?: string
   name: string
@@ -228,6 +233,7 @@ export interface CondaCreateData {
   extra_header_2?: string
   extra_value_1?: string
   extra_value_2?: string
+  id?: string
   is_active?: boolean
   mode?: string
   name: string
@@ -276,6 +282,7 @@ export interface Cran {
   extra_header_2?: string
   extra_value_1?: string
   extra_value_2?: string
+  id?: string
   is_active?: boolean
   mode?: string
   name: string
@@ -310,6 +317,7 @@ export interface CranCreateData {
   extra_header_2?: string
   extra_value_1?: string
   extra_value_2?: string
+  id?: string
   is_active?: boolean
   mode?: string
   name: string
@@ -355,6 +363,7 @@ export interface Dart {
   extra_header_2?: string
   extra_value_1?: string
   extra_value_2?: string
+  id?: string
   is_active?: boolean
   mode?: string
   name: string
@@ -389,6 +398,7 @@ export interface DartCreateData {
   extra_header_2?: string
   extra_value_1?: string
   extra_value_2?: string
+  id?: string
   is_active?: boolean
   mode?: string
   name: string
@@ -439,6 +449,7 @@ export interface Deb {
   gpg_key_inline?: string
   gpg_key_url?: string
   gpg_verification?: string
+  id?: string
   include_sources?: boolean
   is_active?: boolean
   mode?: string
@@ -481,6 +492,7 @@ export interface DebCreateData {
   gpg_key_inline?: string
   gpg_key_url?: string
   gpg_verification?: string
+  id?: string
   include_sources?: boolean
   is_active?: boolean
   mode?: string
@@ -573,6 +585,7 @@ export interface Docker {
   extra_header_2?: string
   extra_value_1?: string
   extra_value_2?: string
+  id?: string
   is_active?: boolean
   mode?: string
   name: string
@@ -607,6 +620,7 @@ export interface DockerCreateData {
   extra_header_2?: string
   extra_value_1?: string
   extra_value_2?: string
+  id?: string
   is_active?: boolean
   mode?: string
   name: string
@@ -644,6 +658,7 @@ export interface DockerUpdateData {
 
 export interface DynamicMapping {
   claim_value: string
+  id?: string
   service_account: string
 }
 
@@ -668,6 +683,7 @@ export interface Entitlement {
   active?: number
   bandwidth: Record<string, any>
   downloads: Record<string, any>
+  id?: string
   inactive?: number
   total?: number
 }
@@ -683,6 +699,7 @@ export interface EntitlementCreateData {
   active?: number
   bandwidth: Record<string, any>
   downloads: Record<string, any>
+  id?: string
   inactive?: number
   total?: number
 }
@@ -709,6 +726,7 @@ export interface Format {
   description: string
   distributions?: any[]
   extensions: any[]
+  id?: string
   name: string
   premium: boolean
   premium_plan_id?: string
@@ -725,6 +743,7 @@ export interface FormatListMatch {
   description?: string
   distributions?: any[]
   extensions?: any[]
+  id?: string
   name?: string
   premium?: boolean
   premium_plan_id?: string
@@ -830,6 +849,7 @@ export interface Helm {
   extra_header_2?: string
   extra_value_1?: string
   extra_value_2?: string
+  id?: string
   is_active?: boolean
   mode?: string
   name: string
@@ -864,6 +884,7 @@ export interface HelmCreateData {
   extra_header_2?: string
   extra_value_1?: string
   extra_value_2?: string
+  id?: string
   is_active?: boolean
   mode?: string
   name: string
@@ -909,6 +930,7 @@ export interface Hex {
   extra_header_2?: string
   extra_value_1?: string
   extra_value_2?: string
+  id?: string
   is_active?: boolean
   mode?: string
   name: string
@@ -943,6 +965,7 @@ export interface HexCreateData {
   extra_header_2?: string
   extra_value_1?: string
   extra_value_2?: string
+  id?: string
   is_active?: boolean
   mode?: string
   name: string
@@ -991,6 +1014,7 @@ export interface Huggingface {
   extra_header_2?: string
   extra_value_1?: string
   extra_value_2?: string
+  id?: string
   is_active?: boolean
   mode?: string
   name: string
@@ -1025,6 +1049,7 @@ export interface HuggingfaceCreateData {
   extra_header_2?: string
   extra_value_1?: string
   extra_value_2?: string
+  id?: string
   is_active?: boolean
   mode?: string
   name: string
@@ -1088,6 +1113,7 @@ export interface Maven {
   gpg_key_inline?: string
   gpg_key_url?: string
   gpg_verification?: string
+  id?: string
   is_active?: boolean
   mode?: string
   name: string
@@ -1126,6 +1152,7 @@ export interface MavenCreateData {
   gpg_key_inline?: string
   gpg_key_url?: string
   gpg_verification?: string
+  id?: string
   is_active?: boolean
   mode?: string
   name: string
@@ -1173,6 +1200,7 @@ export interface Move {
 }
 
 export interface Namespace {
+  id?: string
   name?: string
   slug?: string
   slug_perm?: string
@@ -1184,6 +1212,7 @@ export interface NamespaceLoadMatch {
 }
 
 export interface NamespaceListMatch {
+  id?: string
   name?: string
   slug?: string
   slug_perm?: string
@@ -1200,6 +1229,7 @@ export interface NamespaceAuditLog {
   context: string
   event: string
   event_at: string
+  id?: string
   object: string
   object_kind: string
   object_slug_perm: string
@@ -1223,6 +1253,7 @@ export interface Npm {
   extra_header_2?: string
   extra_value_1?: string
   extra_value_2?: string
+  id?: string
   is_active?: boolean
   mode?: string
   name: string
@@ -1257,6 +1288,7 @@ export interface NpmCreateData {
   extra_header_2?: string
   extra_value_1?: string
   extra_value_2?: string
+  id?: string
   is_active?: boolean
   mode?: string
   name: string
@@ -1302,6 +1334,7 @@ export interface Nuget {
   extra_header_2?: string
   extra_value_1?: string
   extra_value_2?: string
+  id?: string
   is_active?: boolean
   mode?: string
   name: string
@@ -1336,6 +1369,7 @@ export interface NugetCreateData {
   extra_header_2?: string
   extra_value_1?: string
   extra_value_2?: string
+  id?: string
   is_active?: boolean
   mode?: string
   name: string
@@ -1378,6 +1412,7 @@ export interface Org {
   country?: string
   created_at?: string
   event_at?: string
+  id?: string
   location?: string
   name: string
   package: Record<string, any>
@@ -1398,6 +1433,7 @@ export interface OrgListMatch {
   country?: string
   created_at?: string
   event_at?: string
+  id?: string
   location?: string
   name?: string
   package?: Record<string, any>
@@ -1489,6 +1525,7 @@ export interface OrganizationGroupSyncStatusLoadMatch {
 export interface OrganizationInvite {
   email?: string
   expires_at?: string
+  id?: string
   inviter?: string
   inviter_url?: string
   org?: string
@@ -1507,6 +1544,7 @@ export interface OrganizationInviteCreateData {
   org_id: string
   email?: string
   expires_at?: string
+  id?: string
   inviter?: string
   inviter_url?: string
   org?: string
@@ -1664,6 +1702,7 @@ export interface OrganizationPackageLicensePolicy {
   allow_unknown_licenses?: boolean
   created_at?: string
   description?: string
+  id?: string
   name: string
   on_violation_quarantine?: boolean
   package_query_string?: string
@@ -1686,6 +1725,7 @@ export interface OrganizationPackageLicensePolicyCreateData {
   allow_unknown_licenses?: boolean
   created_at?: string
   description?: string
+  id?: string
   name: string
   on_violation_quarantine?: boolean
   package_query_string?: string
@@ -1712,6 +1752,7 @@ export interface OrganizationPackageVulnerabilityPolicy {
   allow_unknown_severity?: boolean
   created_at?: string
   description?: string
+  id?: string
   min_severity?: string
   name: string
   on_violation_quarantine?: boolean
@@ -1734,6 +1775,7 @@ export interface OrganizationPackageVulnerabilityPolicyCreateData {
   allow_unknown_severity?: boolean
   created_at?: string
   description?: string
+  id?: string
   min_severity?: string
   name: string
   on_violation_quarantine?: boolean
@@ -1777,6 +1819,7 @@ export interface OrganizationSamlAuthUpdateData {
 
 export interface OrganizationTeam {
   description?: string
+  id?: string
   name: string
   slug?: string
   slug_perm?: string
@@ -1795,6 +1838,7 @@ export interface OrganizationTeamListMatch {
 export interface OrganizationTeamCreateData {
   org_id: string
   description?: string
+  id?: string
   name: string
   slug?: string
   slug_perm?: string
@@ -2048,6 +2092,7 @@ export interface PackageDenyPolicy {
   created_at?: string
   description?: string
   enabled?: boolean
+  id?: string
   name?: string
   package_query_string: string
   slug_perm?: string
@@ -2070,6 +2115,7 @@ export interface PackageDenyPolicyCreateData {
   created_at?: string
   description?: string
   enabled?: boolean
+  id?: string
   name?: string
   package_query_string: string
   slug_perm?: string
@@ -2117,6 +2163,7 @@ export interface PackageLicensePolicyEvaluation {
   created_at?: string
   description?: string
   evaluation_count?: number
+  id?: string
   name?: string
   on_violation_quarantine?: boolean
   package_query_string?: string
@@ -2147,6 +2194,7 @@ export interface PackageLicensePolicyEvaluationCreateData {
   created_at?: string
   description?: string
   evaluation_count?: number
+  id?: string
   name?: string
   on_violation_quarantine?: boolean
   package_query_string?: string
@@ -2176,6 +2224,7 @@ export interface PackageVulnerabilityPolicyEvaluation {
   created_at?: string
   description?: string
   evaluation_count?: number
+  id?: string
   min_severity?: string
   name?: string
   on_violation_quarantine?: boolean
@@ -2206,6 +2255,7 @@ export interface PackageVulnerabilityPolicyEvaluationCreateData {
   created_at?: string
   description?: string
   evaluation_count?: number
+  id?: string
   min_severity?: string
   name?: string
   on_violation_quarantine?: boolean
@@ -2292,6 +2342,7 @@ export interface Python {
   extra_header_2?: string
   extra_value_1?: string
   extra_value_2?: string
+  id?: string
   is_active?: boolean
   mode?: string
   name: string
@@ -2326,6 +2377,7 @@ export interface PythonCreateData {
   extra_header_2?: string
   extra_value_1?: string
   extra_value_2?: string
+  id?: string
   is_active?: boolean
   mode?: string
   name: string
@@ -2367,6 +2419,7 @@ export interface Quarantine {
 export interface Quota {
   display: Record<string, any>
   history: any[]
+  id?: string
   raw: Record<string, any>
 }
 
@@ -2401,6 +2454,7 @@ export interface Repo {
   ecdsa_keys?: any[]
   enforce_eula?: boolean
   gpg_keys?: any[]
+  id?: string
   index_files?: boolean
   is_open_source?: boolean
   is_private?: boolean
@@ -2473,6 +2527,7 @@ export interface RepoListMatch {
   ecdsa_keys?: any[]
   enforce_eula?: boolean
   gpg_keys?: any[]
+  id?: string
   index_files?: boolean
   is_open_source?: boolean
   is_private?: boolean
@@ -2618,6 +2673,7 @@ export interface RepoUpdateData {
   ecdsa_keys?: any[]
   enforce_eula?: boolean
   gpg_keys?: any[]
+  id?: string
   index_files?: boolean
   is_open_source?: boolean
   is_private?: boolean
@@ -3270,6 +3326,7 @@ export interface Rpm {
   gpg_key_inline?: string
   gpg_key_url?: string
   gpg_verification?: string
+  id?: string
   include_sources?: boolean
   is_active?: boolean
   mode?: string
@@ -3310,6 +3367,7 @@ export interface RpmCreateData {
   gpg_key_inline?: string
   gpg_key_url?: string
   gpg_verification?: string
+  id?: string
   include_sources?: boolean
   is_active?: boolean
   mode?: string
@@ -3366,6 +3424,7 @@ export interface Ruby {
   extra_header_2?: string
   extra_value_1?: string
   extra_value_2?: string
+  id?: string
   is_active?: boolean
   mode?: string
   name: string
@@ -3400,6 +3459,7 @@ export interface RubyCreateData {
   extra_header_2?: string
   extra_value_1?: string
   extra_value_2?: string
+  id?: string
   is_active?: boolean
   mode?: string
   name: string
@@ -3449,6 +3509,7 @@ export interface Service {
   created_by?: string
   created_by_url?: string
   description?: string
+  id?: string
   key?: string
   key_expires_at?: string
   name: string
@@ -3472,6 +3533,7 @@ export interface ServiceCreateData {
   created_by?: string
   created_by_url?: string
   description?: string
+  id?: string
   key?: string
   key_expires_at?: string
   name: string
@@ -3515,6 +3577,7 @@ export interface StatusBasicLoadMatch {
 }
 
 export interface StorageRegion {
+  id?: string
   label: string
   slug: string
 }
@@ -3524,6 +3587,7 @@ export interface StorageRegionLoadMatch {
 }
 
 export interface StorageRegionListMatch {
+  id?: string
   label?: string
   slug?: string
 }
@@ -3538,6 +3602,7 @@ export interface Swift {
   extra_header_2?: string
   extra_value_1?: string
   extra_value_2?: string
+  id?: string
   is_active?: boolean
   mode?: string
   name: string
@@ -3572,6 +3637,7 @@ export interface SwiftCreateData {
   extra_header_2?: string
   extra_value_1?: string
   extra_value_2?: string
+  id?: string
   is_active?: boolean
   mode?: string
   name: string
@@ -3693,6 +3759,7 @@ export interface UserBriefLoadMatch {
 export interface UserProfile {
   company?: string
   first_name: string
+  id?: string
   job_title?: string
   joined_at?: string
   last_name: string
@@ -3719,6 +3786,7 @@ export interface Version {
 export interface Vulnerability {
   created_at?: string
   has_vulnerabilities?: boolean
+  id?: string
   identifier: string
   max_severity?: string
   num_vulnerabilities?: number

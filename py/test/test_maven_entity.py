@@ -82,6 +82,7 @@ class TestMavenEntity:
 
         maven_ref01_data = helpers.to_map(runner.entity_data(maven_ref01_ent.create(maven_ref01_data, None)))
         assert maven_ref01_data is not None
+        assert maven_ref01_data["id"] is not None
 
         # LIST
         maven_ref01_match = {
@@ -92,8 +93,14 @@ class TestMavenEntity:
         maven_ref01_list_result = maven_ref01_ent.list(maven_ref01_match, None)
         assert isinstance(maven_ref01_list_result, list)
 
+        found_item = vs.select(
+            runner.entity_list_to_data(maven_ref01_list_result),
+            {"id": maven_ref01_data["id"]})
+        assert not vs.isempty(found_item)
+
         # UPDATE
         maven_ref01_data_up0_up = {
+            "id": maven_ref01_data["id"],
             "identifier": setup["idmap"]["identifier"],
             "owner": setup["idmap"]["owner"],
         }
@@ -104,12 +111,17 @@ class TestMavenEntity:
 
         maven_ref01_resdata_up0 = helpers.to_map(runner.entity_data(maven_ref01_ent.update(maven_ref01_data_up0_up, None)))
         assert maven_ref01_resdata_up0 is not None
+        assert maven_ref01_resdata_up0["id"] == maven_ref01_data_up0_up["id"]
         assert maven_ref01_resdata_up0[maven_ref01_markdef_up0_name] == maven_ref01_markdef_up0_value
 
         # LOAD
-        maven_ref01_match_dt0 = {}
+        maven_ref01_match_dt0 = {
+            "id": maven_ref01_data["id"],
+        }
         maven_ref01_data_dt0_loaded = maven_ref01_ent.load(maven_ref01_match_dt0, None)
-        assert maven_ref01_data_dt0_loaded is not None
+        maven_ref01_data_dt0_load_result = helpers.to_map(runner.entity_data(maven_ref01_data_dt0_loaded))
+        assert maven_ref01_data_dt0_load_result is not None
+        assert maven_ref01_data_dt0_load_result["id"] == maven_ref01_data["id"]
 
 
 

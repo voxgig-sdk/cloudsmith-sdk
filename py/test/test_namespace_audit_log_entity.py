@@ -48,9 +48,13 @@ class TestNamespaceAuditLogEntity:
 
         # LOAD
         namespace_audit_log_ref01_ent = client.NamespaceAuditLog(None)
-        namespace_audit_log_ref01_match_dt0 = {}
+        namespace_audit_log_ref01_match_dt0 = {
+            "id": namespace_audit_log_ref01_data["id"],
+        }
         namespace_audit_log_ref01_data_dt0_loaded = namespace_audit_log_ref01_ent.load(namespace_audit_log_ref01_match_dt0, None)
-        assert namespace_audit_log_ref01_data_dt0_loaded is not None
+        namespace_audit_log_ref01_data_dt0_load_result = helpers.to_map(runner.entity_data(namespace_audit_log_ref01_data_dt0_loaded))
+        assert namespace_audit_log_ref01_data_dt0_load_result is not None
+        assert namespace_audit_log_ref01_data_dt0_load_result["id"] == namespace_audit_log_ref01_data["id"]
 
 
 

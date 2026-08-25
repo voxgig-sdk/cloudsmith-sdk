@@ -113,6 +113,9 @@ func TestMavenEntity(t *testing.T) {
 		if mavenRef01Data == nil {
 			t.Fatal("expected create result to be a map")
 		}
+		if mavenRef01Data["id"] == nil {
+			t.Fatal("expected created entity to have an id")
+		}
 
 		// LIST
 		mavenRef01Match := map[string]any{
@@ -124,13 +127,19 @@ func TestMavenEntity(t *testing.T) {
 		if err != nil {
 			t.Fatalf("list failed: %v", err)
 		}
-		_, mavenRef01ListOk := mavenRef01ListResult.([]any)
+		mavenRef01List, mavenRef01ListOk := mavenRef01ListResult.([]any)
 		if !mavenRef01ListOk {
 			t.Fatalf("expected list result to be an array, got %T", mavenRef01ListResult)
 		}
 
+		foundItem := vs.Select(entityListToData(mavenRef01List), map[string]any{"id": mavenRef01Data["id"]})
+		if vs.IsEmpty(foundItem) {
+			t.Fatal("expected to find created entity in list")
+		}
+
 		// UPDATE
 		mavenRef01DataUp0Up := map[string]any{
+			"id": mavenRef01Data["id"],
 			"identifier": setup.idmap["identifier"],
 			"owner": setup.idmap["owner"],
 		}
@@ -147,18 +156,27 @@ func TestMavenEntity(t *testing.T) {
 		if mavenRef01ResdataUp0 == nil {
 			t.Fatal("expected update result to be a map")
 		}
+		if mavenRef01ResdataUp0["id"] != mavenRef01DataUp0Up["id"] {
+			t.Fatal("expected update result id to match")
+		}
 		if mavenRef01ResdataUp0[mavenRef01MarkdefUp0Name] != mavenRef01MarkdefUp0Value {
 			t.Fatalf("expected %s to be updated, got %v", mavenRef01MarkdefUp0Name, mavenRef01ResdataUp0[mavenRef01MarkdefUp0Name])
 		}
 
 		// LOAD
-		mavenRef01MatchDt0 := map[string]any{}
+		mavenRef01MatchDt0 := map[string]any{
+			"id": mavenRef01Data["id"],
+		}
 		mavenRef01DataDt0Loaded, err := mavenRef01Ent.Load(mavenRef01MatchDt0, nil)
 		if err != nil {
 			t.Fatalf("load failed: %v", err)
 		}
-		if mavenRef01DataDt0Loaded == nil {
-			t.Fatal("expected load result to be non-nil")
+		mavenRef01DataDt0LoadResult := core.ToMapAny(entityData(mavenRef01DataDt0Loaded))
+		if mavenRef01DataDt0LoadResult == nil {
+			t.Fatal("expected load result to be a map")
+		}
+		if mavenRef01DataDt0LoadResult["id"] != mavenRef01Data["id"] {
+			t.Fatal("expected load result id to match")
 		}
 
 	})

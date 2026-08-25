@@ -88,9 +88,13 @@ class TestFormatEntity:
         assert isinstance(format_ref01_list_result, list)
 
         # LOAD
-        format_ref01_match_dt0 = {}
+        format_ref01_match_dt0 = {
+            "id": format_ref01_data["id"],
+        }
         format_ref01_data_dt0_loaded = format_ref01_ent.load(format_ref01_match_dt0, None)
-        assert format_ref01_data_dt0_loaded is not None
+        format_ref01_data_dt0_load_result = helpers.to_map(runner.entity_data(format_ref01_data_dt0_loaded))
+        assert format_ref01_data_dt0_load_result is not None
+        assert format_ref01_data_dt0_load_result["id"] == format_ref01_data["id"]
 
 
 

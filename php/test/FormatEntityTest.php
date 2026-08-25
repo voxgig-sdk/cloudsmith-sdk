@@ -93,9 +93,13 @@ class FormatEntityTest extends TestCase
         $this->assertIsArray($format_ref01_list_result);
 
         // LOAD
-        $format_ref01_match_dt0 = [];
+        $format_ref01_match_dt0 = [
+            "id" => $format_ref01_data["id"],
+        ];
         $format_ref01_data_dt0_loaded = $format_ref01_ent->load($format_ref01_match_dt0, null);
-        $this->assertNotNull($format_ref01_data_dt0_loaded);
+        $format_ref01_data_dt0_load_result = Helpers::to_map(is_object($format_ref01_data_dt0_loaded) && method_exists($format_ref01_data_dt0_loaded, 'data_get') ? $format_ref01_data_dt0_loaded->data_get() : $format_ref01_data_dt0_loaded);
+        $this->assertNotNull($format_ref01_data_dt0_load_result);
+        $this->assertEquals($format_ref01_data_dt0_load_result["id"], $format_ref01_data["id"]);
 
     }
 }

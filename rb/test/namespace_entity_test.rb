@@ -83,9 +83,13 @@ class NamespaceEntityTest < Minitest::Test
     assert namespace_ref01_list_result.is_a?(Array)
 
     # LOAD
-    namespace_ref01_match_dt0 = {}
+    namespace_ref01_match_dt0 = {
+      "id" => namespace_ref01_data["id"],
+    }
     namespace_ref01_data_dt0_loaded = namespace_ref01_ent.load(namespace_ref01_match_dt0, nil)
-    assert !namespace_ref01_data_dt0_loaded.nil?
+    namespace_ref01_data_dt0_load_result = Helpers.to_map(namespace_ref01_data_dt0_loaded.respond_to?(:data_get) ? namespace_ref01_data_dt0_loaded.data_get : namespace_ref01_data_dt0_loaded)
+    assert !namespace_ref01_data_dt0_load_result.nil?
+    assert_equal namespace_ref01_data_dt0_load_result["id"], namespace_ref01_data["id"]
 
   end
 end

@@ -6,6 +6,11 @@ main: kit: entity: namespace: {
 
   fields: [
     {
+      name: "id"
+      req: false
+      type: "`$STRING`"
+    }
+    {
       name: "name"
       req: false
       type: "`$STRING`"
@@ -26,6 +31,11 @@ main: kit: entity: namespace: {
       type: "`$STRING`"
     }
   ]
+
+  id: {
+    field: "id"
+    name: "id"
+  }
 
   name: "namespace"
   op: {

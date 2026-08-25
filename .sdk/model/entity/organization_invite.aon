@@ -17,6 +17,11 @@ main: kit: entity: organization_invite: {
       type: "`$STRING`"
     }
     {
+      name: "id"
+      req: false
+      type: "`$STRING`"
+    }
+    {
       name: "inviter"
       req: false
       type: "`$STRING`"
@@ -59,6 +64,11 @@ main: kit: entity: organization_invite: {
       type: "`$STRING`"
     }
   ]
+
+  id: {
+    field: "id"
+    name: "id"
+  }
 
   name: "organization_invite"
   op: {

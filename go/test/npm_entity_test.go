@@ -113,6 +113,9 @@ func TestNpmEntity(t *testing.T) {
 		if npmRef01Data == nil {
 			t.Fatal("expected create result to be a map")
 		}
+		if npmRef01Data["id"] == nil {
+			t.Fatal("expected created entity to have an id")
+		}
 
 		// LIST
 		npmRef01Match := map[string]any{
@@ -124,13 +127,19 @@ func TestNpmEntity(t *testing.T) {
 		if err != nil {
 			t.Fatalf("list failed: %v", err)
 		}
-		_, npmRef01ListOk := npmRef01ListResult.([]any)
+		npmRef01List, npmRef01ListOk := npmRef01ListResult.([]any)
 		if !npmRef01ListOk {
 			t.Fatalf("expected list result to be an array, got %T", npmRef01ListResult)
 		}
 
+		foundItem := vs.Select(entityListToData(npmRef01List), map[string]any{"id": npmRef01Data["id"]})
+		if vs.IsEmpty(foundItem) {
+			t.Fatal("expected to find created entity in list")
+		}
+
 		// UPDATE
 		npmRef01DataUp0Up := map[string]any{
+			"id": npmRef01Data["id"],
 			"identifier": setup.idmap["identifier"],
 			"owner": setup.idmap["owner"],
 		}
@@ -147,18 +156,27 @@ func TestNpmEntity(t *testing.T) {
 		if npmRef01ResdataUp0 == nil {
 			t.Fatal("expected update result to be a map")
 		}
+		if npmRef01ResdataUp0["id"] != npmRef01DataUp0Up["id"] {
+			t.Fatal("expected update result id to match")
+		}
 		if npmRef01ResdataUp0[npmRef01MarkdefUp0Name] != npmRef01MarkdefUp0Value {
 			t.Fatalf("expected %s to be updated, got %v", npmRef01MarkdefUp0Name, npmRef01ResdataUp0[npmRef01MarkdefUp0Name])
 		}
 
 		// LOAD
-		npmRef01MatchDt0 := map[string]any{}
+		npmRef01MatchDt0 := map[string]any{
+			"id": npmRef01Data["id"],
+		}
 		npmRef01DataDt0Loaded, err := npmRef01Ent.Load(npmRef01MatchDt0, nil)
 		if err != nil {
 			t.Fatalf("load failed: %v", err)
 		}
-		if npmRef01DataDt0Loaded == nil {
-			t.Fatal("expected load result to be non-nil")
+		npmRef01DataDt0LoadResult := core.ToMapAny(entityData(npmRef01DataDt0Loaded))
+		if npmRef01DataDt0LoadResult == nil {
+			t.Fatal("expected load result to be a map")
+		}
+		if npmRef01DataDt0LoadResult["id"] != npmRef01Data["id"] {
+			t.Fatal("expected load result id to match")
 		}
 
 	})

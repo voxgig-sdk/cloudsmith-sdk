@@ -86,6 +86,7 @@ describe("CargoEntity", function()
     assert.is_nil(err)
     cargo_ref01_data = helpers.to_map(type(cargo_ref01_data_result) == 'table' and cargo_ref01_data_result.data_get and cargo_ref01_data_result:data_get() or cargo_ref01_data_result)
     assert.is_not_nil(cargo_ref01_data)
+    assert.is_not_nil(cargo_ref01_data["id"])
 
     -- LIST
     local cargo_ref01_match = {
@@ -97,8 +98,14 @@ describe("CargoEntity", function()
     assert.is_nil(err)
     assert.is_table(cargo_ref01_list_result)
 
+    local found_item = vs.select(
+      runner.entity_list_to_data(cargo_ref01_list_result),
+      { id = cargo_ref01_data["id"] })
+    assert.is_false(vs.isempty(found_item))
+
     -- UPDATE
     local cargo_ref01_data_up0_up = {
+      id = cargo_ref01_data["id"],
       ["identifier"] = setup.idmap["identifier"],
       ["owner"] = setup.idmap["owner"],
     }
@@ -111,13 +118,18 @@ describe("CargoEntity", function()
     assert.is_nil(err)
     local cargo_ref01_resdata_up0 = helpers.to_map(type(cargo_ref01_resdata_up0_result) == 'table' and cargo_ref01_resdata_up0_result.data_get and cargo_ref01_resdata_up0_result:data_get() or cargo_ref01_resdata_up0_result)
     assert.is_not_nil(cargo_ref01_resdata_up0)
+    assert.are.equal(cargo_ref01_resdata_up0["id"], cargo_ref01_data_up0_up["id"])
     assert.are.equal(cargo_ref01_resdata_up0[cargo_ref01_markdef_up0_name], cargo_ref01_markdef_up0_value)
 
     -- LOAD
-    local cargo_ref01_match_dt0 = {}
+    local cargo_ref01_match_dt0 = {
+      id = cargo_ref01_data["id"],
+    }
     local cargo_ref01_data_dt0_loaded, err = cargo_ref01_ent:load(cargo_ref01_match_dt0, nil)
     assert.is_nil(err)
-    assert.is_not_nil(cargo_ref01_data_dt0_loaded)
+    local cargo_ref01_data_dt0_load_result = helpers.to_map(type(cargo_ref01_data_dt0_loaded) == 'table' and cargo_ref01_data_dt0_loaded.data_get and cargo_ref01_data_dt0_loaded:data_get() or cargo_ref01_data_dt0_loaded)
+    assert.is_not_nil(cargo_ref01_data_dt0_load_result)
+    assert.are.equal(cargo_ref01_data_dt0_load_result["id"], cargo_ref01_data["id"])
 
   end)
 end)

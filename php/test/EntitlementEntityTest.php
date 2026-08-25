@@ -49,12 +49,22 @@ class EntitlementEntityTest extends TestCase
         $entitlement_ref01_data_result = $entitlement_ref01_ent->create($entitlement_ref01_data, null);
         $entitlement_ref01_data = Helpers::to_map(is_object($entitlement_ref01_data_result) && method_exists($entitlement_ref01_data_result, 'data_get') ? $entitlement_ref01_data_result->data_get() : $entitlement_ref01_data_result);
         $this->assertNotNull($entitlement_ref01_data);
+        $this->assertNotNull($entitlement_ref01_data["id"]);
 
         // LOAD
-        $entitlement_ref01_match_dt0 = [];
+        $entitlement_ref01_match_dt0 = [
+            "id" => $entitlement_ref01_data["id"],
+        ];
         $entitlement_ref01_data_dt0_loaded = $entitlement_ref01_ent->load($entitlement_ref01_match_dt0, null);
-        $this->assertNotNull($entitlement_ref01_data_dt0_loaded);
+        $entitlement_ref01_data_dt0_load_result = Helpers::to_map(is_object($entitlement_ref01_data_dt0_loaded) && method_exists($entitlement_ref01_data_dt0_loaded, 'data_get') ? $entitlement_ref01_data_dt0_loaded->data_get() : $entitlement_ref01_data_dt0_loaded);
+        $this->assertNotNull($entitlement_ref01_data_dt0_load_result);
+        $this->assertEquals($entitlement_ref01_data_dt0_load_result["id"], $entitlement_ref01_data["id"]);
 
+        // REMOVE
+        $entitlement_ref01_match_rm0 = [
+            "id" => $entitlement_ref01_data["id"],
+        ];
+        $entitlement_ref01_ent->remove($entitlement_ref01_match_rm0, null);
 
     }
 }

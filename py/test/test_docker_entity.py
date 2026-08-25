@@ -82,6 +82,7 @@ class TestDockerEntity:
 
         docker_ref01_data = helpers.to_map(runner.entity_data(docker_ref01_ent.create(docker_ref01_data, None)))
         assert docker_ref01_data is not None
+        assert docker_ref01_data["id"] is not None
 
         # LIST
         docker_ref01_match = {
@@ -92,8 +93,14 @@ class TestDockerEntity:
         docker_ref01_list_result = docker_ref01_ent.list(docker_ref01_match, None)
         assert isinstance(docker_ref01_list_result, list)
 
+        found_item = vs.select(
+            runner.entity_list_to_data(docker_ref01_list_result),
+            {"id": docker_ref01_data["id"]})
+        assert not vs.isempty(found_item)
+
         # UPDATE
         docker_ref01_data_up0_up = {
+            "id": docker_ref01_data["id"],
             "identifier": setup["idmap"]["identifier"],
             "owner": setup["idmap"]["owner"],
         }
@@ -104,12 +111,17 @@ class TestDockerEntity:
 
         docker_ref01_resdata_up0 = helpers.to_map(runner.entity_data(docker_ref01_ent.update(docker_ref01_data_up0_up, None)))
         assert docker_ref01_resdata_up0 is not None
+        assert docker_ref01_resdata_up0["id"] == docker_ref01_data_up0_up["id"]
         assert docker_ref01_resdata_up0[docker_ref01_markdef_up0_name] == docker_ref01_markdef_up0_value
 
         # LOAD
-        docker_ref01_match_dt0 = {}
+        docker_ref01_match_dt0 = {
+            "id": docker_ref01_data["id"],
+        }
         docker_ref01_data_dt0_loaded = docker_ref01_ent.load(docker_ref01_match_dt0, None)
-        assert docker_ref01_data_dt0_loaded is not None
+        docker_ref01_data_dt0_load_result = helpers.to_map(runner.entity_data(docker_ref01_data_dt0_loaded))
+        assert docker_ref01_data_dt0_load_result is not None
+        assert docker_ref01_data_dt0_load_result["id"] == docker_ref01_data["id"]
 
 
 

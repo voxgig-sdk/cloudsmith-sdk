@@ -77,6 +77,7 @@ class RpmEntityTest < Minitest::Test
     rpm_ref01_data_result = rpm_ref01_ent.create(rpm_ref01_data, nil)
     rpm_ref01_data = Helpers.to_map(rpm_ref01_data_result.respond_to?(:data_get) ? rpm_ref01_data_result.data_get : rpm_ref01_data_result)
     assert !rpm_ref01_data.nil?
+    assert !rpm_ref01_data["id"].nil?
 
     # LIST
     rpm_ref01_match = {
@@ -87,8 +88,14 @@ class RpmEntityTest < Minitest::Test
     rpm_ref01_list_result = rpm_ref01_ent.list(rpm_ref01_match, nil)
     assert rpm_ref01_list_result.is_a?(Array)
 
+    found_item = Vs.select(
+      Runner.entity_list_to_data(rpm_ref01_list_result),
+      { "id" => rpm_ref01_data["id"] })
+    assert !Vs.isempty(found_item)
+
     # UPDATE
     rpm_ref01_data_up0_up = {
+      "id" => rpm_ref01_data["id"],
       "identifier" => setup[:idmap]["identifier"],
       "owner" => setup[:idmap]["owner"],
     }
@@ -100,12 +107,17 @@ class RpmEntityTest < Minitest::Test
     rpm_ref01_resdata_up0_result = rpm_ref01_ent.update(rpm_ref01_data_up0_up, nil)
     rpm_ref01_resdata_up0 = Helpers.to_map(rpm_ref01_resdata_up0_result.respond_to?(:data_get) ? rpm_ref01_resdata_up0_result.data_get : rpm_ref01_resdata_up0_result)
     assert !rpm_ref01_resdata_up0.nil?
+    assert_equal rpm_ref01_resdata_up0["id"], rpm_ref01_data_up0_up["id"]
     assert_equal rpm_ref01_resdata_up0[rpm_ref01_markdef_up0_name], rpm_ref01_markdef_up0_value
 
     # LOAD
-    rpm_ref01_match_dt0 = {}
+    rpm_ref01_match_dt0 = {
+      "id" => rpm_ref01_data["id"],
+    }
     rpm_ref01_data_dt0_loaded = rpm_ref01_ent.load(rpm_ref01_match_dt0, nil)
-    assert !rpm_ref01_data_dt0_loaded.nil?
+    rpm_ref01_data_dt0_load_result = Helpers.to_map(rpm_ref01_data_dt0_loaded.respond_to?(:data_get) ? rpm_ref01_data_dt0_loaded.data_get : rpm_ref01_data_dt0_loaded)
+    assert !rpm_ref01_data_dt0_load_result.nil?
+    assert_equal rpm_ref01_data_dt0_load_result["id"], rpm_ref01_data["id"]
 
   end
 end

@@ -61,13 +61,19 @@ func TestQuotaEntity(t *testing.T) {
 
 		// LOAD
 		quotaRef01Ent := client.Quota(nil)
-		quotaRef01MatchDt0 := map[string]any{}
+		quotaRef01MatchDt0 := map[string]any{
+			"id": quotaRef01Data["id"],
+		}
 		quotaRef01DataDt0Loaded, err := quotaRef01Ent.Load(quotaRef01MatchDt0, nil)
 		if err != nil {
 			t.Fatalf("load failed: %v", err)
 		}
-		if quotaRef01DataDt0Loaded == nil {
-			t.Fatal("expected load result to be non-nil")
+		quotaRef01DataDt0LoadResult := core.ToMapAny(entityData(quotaRef01DataDt0Loaded))
+		if quotaRef01DataDt0LoadResult == nil {
+			t.Fatal("expected load result to be a map")
+		}
+		if quotaRef01DataDt0LoadResult["id"] != quotaRef01Data["id"] {
+			t.Fatal("expected load result id to match")
 		}
 
 	})

@@ -86,6 +86,7 @@ class PackageDenyPolicyEntityTest extends TestCase
         $package_deny_policy_ref01_data_result = $package_deny_policy_ref01_ent->create($package_deny_policy_ref01_data, null);
         $package_deny_policy_ref01_data = Helpers::to_map(is_object($package_deny_policy_ref01_data_result) && method_exists($package_deny_policy_ref01_data_result, 'data_get') ? $package_deny_policy_ref01_data_result->data_get() : $package_deny_policy_ref01_data_result);
         $this->assertNotNull($package_deny_policy_ref01_data);
+        $this->assertNotNull($package_deny_policy_ref01_data["id"]);
 
         // LIST
         $package_deny_policy_ref01_match = [
@@ -95,8 +96,14 @@ class PackageDenyPolicyEntityTest extends TestCase
         $package_deny_policy_ref01_list_result = $package_deny_policy_ref01_ent->list($package_deny_policy_ref01_match, null);
         $this->assertIsArray($package_deny_policy_ref01_list_result);
 
+        $found_item = sdk_select(
+            Runner::entity_list_to_data($package_deny_policy_ref01_list_result),
+            ["id" => $package_deny_policy_ref01_data["id"]]);
+        $this->assertNotEmpty($found_item);
+
         // UPDATE
         $package_deny_policy_ref01_data_up0_up = [
+            "id" => $package_deny_policy_ref01_data["id"],
             "org_id" => $setup["idmap"]["org_id"],
         ];
 
@@ -107,12 +114,17 @@ class PackageDenyPolicyEntityTest extends TestCase
         $package_deny_policy_ref01_resdata_up0_result = $package_deny_policy_ref01_ent->update($package_deny_policy_ref01_data_up0_up, null);
         $package_deny_policy_ref01_resdata_up0 = Helpers::to_map(is_object($package_deny_policy_ref01_resdata_up0_result) && method_exists($package_deny_policy_ref01_resdata_up0_result, 'data_get') ? $package_deny_policy_ref01_resdata_up0_result->data_get() : $package_deny_policy_ref01_resdata_up0_result);
         $this->assertNotNull($package_deny_policy_ref01_resdata_up0);
+        $this->assertEquals($package_deny_policy_ref01_resdata_up0["id"], $package_deny_policy_ref01_data_up0_up["id"]);
         $this->assertEquals($package_deny_policy_ref01_resdata_up0[$package_deny_policy_ref01_markdef_up0_name], $package_deny_policy_ref01_markdef_up0_value);
 
         // LOAD
-        $package_deny_policy_ref01_match_dt0 = [];
+        $package_deny_policy_ref01_match_dt0 = [
+            "id" => $package_deny_policy_ref01_data["id"],
+        ];
         $package_deny_policy_ref01_data_dt0_loaded = $package_deny_policy_ref01_ent->load($package_deny_policy_ref01_match_dt0, null);
-        $this->assertNotNull($package_deny_policy_ref01_data_dt0_loaded);
+        $package_deny_policy_ref01_data_dt0_load_result = Helpers::to_map(is_object($package_deny_policy_ref01_data_dt0_loaded) && method_exists($package_deny_policy_ref01_data_dt0_loaded, 'data_get') ? $package_deny_policy_ref01_data_dt0_loaded->data_get() : $package_deny_policy_ref01_data_dt0_loaded);
+        $this->assertNotNull($package_deny_policy_ref01_data_dt0_load_result);
+        $this->assertEquals($package_deny_policy_ref01_data_dt0_load_result["id"], $package_deny_policy_ref01_data["id"]);
 
     }
 }

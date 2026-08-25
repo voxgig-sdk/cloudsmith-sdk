@@ -86,6 +86,7 @@ describe("NpmEntity", function()
     assert.is_nil(err)
     npm_ref01_data = helpers.to_map(type(npm_ref01_data_result) == 'table' and npm_ref01_data_result.data_get and npm_ref01_data_result:data_get() or npm_ref01_data_result)
     assert.is_not_nil(npm_ref01_data)
+    assert.is_not_nil(npm_ref01_data["id"])
 
     -- LIST
     local npm_ref01_match = {
@@ -97,8 +98,14 @@ describe("NpmEntity", function()
     assert.is_nil(err)
     assert.is_table(npm_ref01_list_result)
 
+    local found_item = vs.select(
+      runner.entity_list_to_data(npm_ref01_list_result),
+      { id = npm_ref01_data["id"] })
+    assert.is_false(vs.isempty(found_item))
+
     -- UPDATE
     local npm_ref01_data_up0_up = {
+      id = npm_ref01_data["id"],
       ["identifier"] = setup.idmap["identifier"],
       ["owner"] = setup.idmap["owner"],
     }
@@ -111,13 +118,18 @@ describe("NpmEntity", function()
     assert.is_nil(err)
     local npm_ref01_resdata_up0 = helpers.to_map(type(npm_ref01_resdata_up0_result) == 'table' and npm_ref01_resdata_up0_result.data_get and npm_ref01_resdata_up0_result:data_get() or npm_ref01_resdata_up0_result)
     assert.is_not_nil(npm_ref01_resdata_up0)
+    assert.are.equal(npm_ref01_resdata_up0["id"], npm_ref01_data_up0_up["id"])
     assert.are.equal(npm_ref01_resdata_up0[npm_ref01_markdef_up0_name], npm_ref01_markdef_up0_value)
 
     -- LOAD
-    local npm_ref01_match_dt0 = {}
+    local npm_ref01_match_dt0 = {
+      id = npm_ref01_data["id"],
+    }
     local npm_ref01_data_dt0_loaded, err = npm_ref01_ent:load(npm_ref01_match_dt0, nil)
     assert.is_nil(err)
-    assert.is_not_nil(npm_ref01_data_dt0_loaded)
+    local npm_ref01_data_dt0_load_result = helpers.to_map(type(npm_ref01_data_dt0_loaded) == 'table' and npm_ref01_data_dt0_loaded.data_get and npm_ref01_data_dt0_loaded:data_get() or npm_ref01_data_dt0_loaded)
+    assert.is_not_nil(npm_ref01_data_dt0_load_result)
+    assert.are.equal(npm_ref01_data_dt0_load_result["id"], npm_ref01_data["id"])
 
   end)
 end)

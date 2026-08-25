@@ -66,6 +66,12 @@ describe('FormatEntity', async () => {
     const format_ref01_list = (await format_ref01_ent.list(format_ref01_match)).map((e: any) => e.data())
 
 
+    // LOAD
+    const format_ref01_match_dt0: any = {}
+    format_ref01_match_dt0.id = format_ref01_data.id
+    const format_ref01_data_dt0 = (await format_ref01_ent.load(format_ref01_match_dt0)).data()
+    assert(format_ref01_data_dt0.id === format_ref01_data.id)
+
 
   })
 })

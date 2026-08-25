@@ -105,6 +105,11 @@ main: kit: entity: repo: {
       type: "`$ARRAY`"
     }
     {
+      name: "id"
+      req: false
+      type: "`$STRING`"
+    }
+    {
       name: "index_files"
       req: false
       short: "If checked, files contained in packages will be indexed, which increase the synchronisation time required for packages."
@@ -390,6 +395,11 @@ main: kit: entity: repo: {
       type: "`$STRING`"
     }
   ]
+
+  id: {
+    field: "id"
+    name: "id"
+  }
 
   name: "repo"
   op: {

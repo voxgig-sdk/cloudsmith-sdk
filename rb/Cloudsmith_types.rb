@@ -53,6 +53,9 @@ end
 # @!attribute [rw] extra_value_2
 #   @return [String, nil]
 #
+# @!attribute [rw] id
+#   @return [String, nil]
+#
 # @!attribute [rw] is_active
 #   @return [Boolean, nil]
 #
@@ -89,6 +92,7 @@ Cargo = Struct.new(
   :extra_header_2,
   :extra_value_1,
   :extra_value_2,
+  :id,
   :is_active,
   :mode,
   :name,
@@ -166,6 +170,9 @@ CargoListMatch = Struct.new(
 # @!attribute [rw] extra_value_2
 #   @return [String, nil]
 #
+# @!attribute [rw] id
+#   @return [String, nil]
+#
 # @!attribute [rw] is_active
 #   @return [Boolean, nil]
 #
@@ -204,6 +211,7 @@ CargoCreateData = Struct.new(
   :extra_header_2,
   :extra_value_1,
   :extra_value_2,
+  :id,
   :is_active,
   :mode,
   :name,
@@ -342,6 +350,9 @@ end
 # @!attribute [rw] extra_value_2
 #   @return [String, nil]
 #
+# @!attribute [rw] id
+#   @return [String, nil]
+#
 # @!attribute [rw] is_active
 #   @return [Boolean, nil]
 #
@@ -378,6 +389,7 @@ Composer = Struct.new(
   :extra_header_2,
   :extra_value_1,
   :extra_value_2,
+  :id,
   :is_active,
   :mode,
   :name,
@@ -455,6 +467,9 @@ ComposerListMatch = Struct.new(
 # @!attribute [rw] extra_value_2
 #   @return [String, nil]
 #
+# @!attribute [rw] id
+#   @return [String, nil]
+#
 # @!attribute [rw] is_active
 #   @return [Boolean, nil]
 #
@@ -493,6 +508,7 @@ ComposerCreateData = Struct.new(
   :extra_header_2,
   :extra_value_1,
   :extra_value_2,
+  :id,
   :is_active,
   :mode,
   :name,
@@ -627,6 +643,9 @@ end
 # @!attribute [rw] extra_value_2
 #   @return [String, nil]
 #
+# @!attribute [rw] id
+#   @return [String, nil]
+#
 # @!attribute [rw] is_active
 #   @return [Boolean, nil]
 #
@@ -663,6 +682,7 @@ Conda = Struct.new(
   :extra_header_2,
   :extra_value_1,
   :extra_value_2,
+  :id,
   :is_active,
   :mode,
   :name,
@@ -740,6 +760,9 @@ CondaListMatch = Struct.new(
 # @!attribute [rw] extra_value_2
 #   @return [String, nil]
 #
+# @!attribute [rw] id
+#   @return [String, nil]
+#
 # @!attribute [rw] is_active
 #   @return [Boolean, nil]
 #
@@ -778,6 +801,7 @@ CondaCreateData = Struct.new(
   :extra_header_2,
   :extra_value_1,
   :extra_value_2,
+  :id,
   :is_active,
   :mode,
   :name,
@@ -912,6 +936,9 @@ end
 # @!attribute [rw] extra_value_2
 #   @return [String, nil]
 #
+# @!attribute [rw] id
+#   @return [String, nil]
+#
 # @!attribute [rw] is_active
 #   @return [Boolean, nil]
 #
@@ -948,6 +975,7 @@ Cran = Struct.new(
   :extra_header_2,
   :extra_value_1,
   :extra_value_2,
+  :id,
   :is_active,
   :mode,
   :name,
@@ -1025,6 +1053,9 @@ CranListMatch = Struct.new(
 # @!attribute [rw] extra_value_2
 #   @return [String, nil]
 #
+# @!attribute [rw] id
+#   @return [String, nil]
+#
 # @!attribute [rw] is_active
 #   @return [Boolean, nil]
 #
@@ -1063,6 +1094,7 @@ CranCreateData = Struct.new(
   :extra_header_2,
   :extra_value_1,
   :extra_value_2,
+  :id,
   :is_active,
   :mode,
   :name,
@@ -1193,6 +1225,9 @@ CranUpdateData = Struct.new(
 # @!attribute [rw] extra_value_2
 #   @return [String, nil]
 #
+# @!attribute [rw] id
+#   @return [String, nil]
+#
 # @!attribute [rw] is_active
 #   @return [Boolean, nil]
 #
@@ -1229,6 +1264,7 @@ Dart = Struct.new(
   :extra_header_2,
   :extra_value_1,
   :extra_value_2,
+  :id,
   :is_active,
   :mode,
   :name,
@@ -1306,6 +1342,9 @@ DartListMatch = Struct.new(
 # @!attribute [rw] extra_value_2
 #   @return [String, nil]
 #
+# @!attribute [rw] id
+#   @return [String, nil]
+#
 # @!attribute [rw] is_active
 #   @return [Boolean, nil]
 #
@@ -1344,6 +1383,7 @@ DartCreateData = Struct.new(
   :extra_header_2,
   :extra_value_1,
   :extra_value_2,
+  :id,
   :is_active,
   :mode,
   :name,
@@ -1489,6 +1529,9 @@ DartUpdateData = Struct.new(
 # @!attribute [rw] gpg_verification
 #   @return [String, nil]
 #
+# @!attribute [rw] id
+#   @return [String, nil]
+#
 # @!attribute [rw] include_sources
 #   @return [Boolean, nil]
 #
@@ -1539,6 +1582,7 @@ Deb = Struct.new(
   :gpg_key_inline,
   :gpg_key_url,
   :gpg_verification,
+  :id,
   :include_sources,
   :is_active,
   :mode,
@@ -1634,6 +1678,9 @@ DebListMatch = Struct.new(
 # @!attribute [rw] gpg_verification
 #   @return [String, nil]
 #
+# @!attribute [rw] id
+#   @return [String, nil]
+#
 # @!attribute [rw] include_sources
 #   @return [Boolean, nil]
 #
@@ -1686,6 +1733,7 @@ DebCreateData = Struct.new(
   :gpg_key_inline,
   :gpg_key_url,
   :gpg_verification,
+  :id,
   :include_sources,
   :is_active,
   :mode,
@@ -1942,6 +1990,9 @@ end
 # @!attribute [rw] extra_value_2
 #   @return [String, nil]
 #
+# @!attribute [rw] id
+#   @return [String, nil]
+#
 # @!attribute [rw] is_active
 #   @return [Boolean, nil]
 #
@@ -1978,6 +2029,7 @@ Docker = Struct.new(
   :extra_header_2,
   :extra_value_1,
   :extra_value_2,
+  :id,
   :is_active,
   :mode,
   :name,
@@ -2055,6 +2107,9 @@ DockerListMatch = Struct.new(
 # @!attribute [rw] extra_value_2
 #   @return [String, nil]
 #
+# @!attribute [rw] id
+#   @return [String, nil]
+#
 # @!attribute [rw] is_active
 #   @return [Boolean, nil]
 #
@@ -2093,6 +2148,7 @@ DockerCreateData = Struct.new(
   :extra_header_2,
   :extra_value_1,
   :extra_value_2,
+  :id,
   :is_active,
   :mode,
   :name,
@@ -2199,10 +2255,14 @@ DockerUpdateData = Struct.new(
 # @!attribute [rw] claim_value
 #   @return [String]
 #
+# @!attribute [rw] id
+#   @return [String, nil]
+#
 # @!attribute [rw] service_account
 #   @return [String]
 DynamicMapping = Struct.new(
   :claim_value,
+  :id,
   :service_account,
   keyword_init: true
 )
@@ -2256,6 +2316,9 @@ end
 # @!attribute [rw] downloads
 #   @return [Hash]
 #
+# @!attribute [rw] id
+#   @return [String, nil]
+#
 # @!attribute [rw] inactive
 #   @return [Integer, nil]
 #
@@ -2265,6 +2328,7 @@ Entitlement = Struct.new(
   :active,
   :bandwidth,
   :downloads,
+  :id,
   :inactive,
   :total,
   keyword_init: true
@@ -2299,6 +2363,9 @@ EntitlementLoadMatch = Struct.new(
 # @!attribute [rw] downloads
 #   @return [Hash]
 #
+# @!attribute [rw] id
+#   @return [String, nil]
+#
 # @!attribute [rw] inactive
 #   @return [Integer, nil]
 #
@@ -2311,6 +2378,7 @@ EntitlementCreateData = Struct.new(
   :active,
   :bandwidth,
   :downloads,
+  :id,
   :inactive,
   :total,
   keyword_init: true
@@ -2369,6 +2437,9 @@ FileCreateData = Struct.new(
 # @!attribute [rw] extensions
 #   @return [Array]
 #
+# @!attribute [rw] id
+#   @return [String, nil]
+#
 # @!attribute [rw] name
 #   @return [String]
 #
@@ -2390,6 +2461,7 @@ Format = Struct.new(
   :description,
   :distributions,
   :extensions,
+  :id,
   :name,
   :premium,
   :premium_plan_id,
@@ -2419,6 +2491,9 @@ FormatLoadMatch = Struct.new(
 # @!attribute [rw] extensions
 #   @return [Array, nil]
 #
+# @!attribute [rw] id
+#   @return [String, nil]
+#
 # @!attribute [rw] name
 #   @return [String, nil]
 #
@@ -2440,6 +2515,7 @@ FormatListMatch = Struct.new(
   :description,
   :distributions,
   :extensions,
+  :id,
   :name,
   :premium,
   :premium_plan_id,
@@ -2767,6 +2843,9 @@ end
 # @!attribute [rw] extra_value_2
 #   @return [String, nil]
 #
+# @!attribute [rw] id
+#   @return [String, nil]
+#
 # @!attribute [rw] is_active
 #   @return [Boolean, nil]
 #
@@ -2803,6 +2882,7 @@ Helm = Struct.new(
   :extra_header_2,
   :extra_value_1,
   :extra_value_2,
+  :id,
   :is_active,
   :mode,
   :name,
@@ -2880,6 +2960,9 @@ HelmListMatch = Struct.new(
 # @!attribute [rw] extra_value_2
 #   @return [String, nil]
 #
+# @!attribute [rw] id
+#   @return [String, nil]
+#
 # @!attribute [rw] is_active
 #   @return [Boolean, nil]
 #
@@ -2918,6 +3001,7 @@ HelmCreateData = Struct.new(
   :extra_header_2,
   :extra_value_1,
   :extra_value_2,
+  :id,
   :is_active,
   :mode,
   :name,
@@ -3048,6 +3132,9 @@ HelmUpdateData = Struct.new(
 # @!attribute [rw] extra_value_2
 #   @return [String, nil]
 #
+# @!attribute [rw] id
+#   @return [String, nil]
+#
 # @!attribute [rw] is_active
 #   @return [Boolean, nil]
 #
@@ -3084,6 +3171,7 @@ Hex = Struct.new(
   :extra_header_2,
   :extra_value_1,
   :extra_value_2,
+  :id,
   :is_active,
   :mode,
   :name,
@@ -3161,6 +3249,9 @@ HexListMatch = Struct.new(
 # @!attribute [rw] extra_value_2
 #   @return [String, nil]
 #
+# @!attribute [rw] id
+#   @return [String, nil]
+#
 # @!attribute [rw] is_active
 #   @return [Boolean, nil]
 #
@@ -3199,6 +3290,7 @@ HexCreateData = Struct.new(
   :extra_header_2,
   :extra_value_1,
   :extra_value_2,
+  :id,
   :is_active,
   :mode,
   :name,
@@ -3333,6 +3425,9 @@ end
 # @!attribute [rw] extra_value_2
 #   @return [String, nil]
 #
+# @!attribute [rw] id
+#   @return [String, nil]
+#
 # @!attribute [rw] is_active
 #   @return [Boolean, nil]
 #
@@ -3369,6 +3464,7 @@ Huggingface = Struct.new(
   :extra_header_2,
   :extra_value_1,
   :extra_value_2,
+  :id,
   :is_active,
   :mode,
   :name,
@@ -3446,6 +3542,9 @@ HuggingfaceListMatch = Struct.new(
 # @!attribute [rw] extra_value_2
 #   @return [String, nil]
 #
+# @!attribute [rw] id
+#   @return [String, nil]
+#
 # @!attribute [rw] is_active
 #   @return [Boolean, nil]
 #
@@ -3484,6 +3583,7 @@ HuggingfaceCreateData = Struct.new(
   :extra_header_2,
   :extra_value_1,
   :extra_value_2,
+  :id,
   :is_active,
   :mode,
   :name,
@@ -3643,6 +3743,9 @@ end
 # @!attribute [rw] gpg_verification
 #   @return [String, nil]
 #
+# @!attribute [rw] id
+#   @return [String, nil]
+#
 # @!attribute [rw] is_active
 #   @return [Boolean, nil]
 #
@@ -3685,6 +3788,7 @@ Maven = Struct.new(
   :gpg_key_inline,
   :gpg_key_url,
   :gpg_verification,
+  :id,
   :is_active,
   :mode,
   :name,
@@ -3772,6 +3876,9 @@ MavenListMatch = Struct.new(
 # @!attribute [rw] gpg_verification
 #   @return [String, nil]
 #
+# @!attribute [rw] id
+#   @return [String, nil]
+#
 # @!attribute [rw] is_active
 #   @return [Boolean, nil]
 #
@@ -3816,6 +3923,7 @@ MavenCreateData = Struct.new(
   :gpg_key_inline,
   :gpg_key_url,
   :gpg_verification,
+  :id,
   :is_active,
   :mode,
   :name,
@@ -3944,6 +4052,9 @@ end
 
 # Namespace entity data model.
 #
+# @!attribute [rw] id
+#   @return [String, nil]
+#
 # @!attribute [rw] name
 #   @return [String, nil]
 #
@@ -3956,6 +4067,7 @@ end
 # @!attribute [rw] type_name
 #   @return [String, nil]
 Namespace = Struct.new(
+  :id,
   :name,
   :slug,
   :slug_perm,
@@ -3974,6 +4086,9 @@ NamespaceLoadMatch = Struct.new(
 
 # Request payload for Namespace#list.
 #
+# @!attribute [rw] id
+#   @return [String, nil]
+#
 # @!attribute [rw] name
 #   @return [String, nil]
 #
@@ -3986,6 +4101,7 @@ NamespaceLoadMatch = Struct.new(
 # @!attribute [rw] type_name
 #   @return [String, nil]
 NamespaceListMatch = Struct.new(
+  :id,
   :name,
   :slug,
   :slug_perm,
@@ -4022,6 +4138,9 @@ NamespaceListMatch = Struct.new(
 # @!attribute [rw] event_at
 #   @return [String]
 #
+# @!attribute [rw] id
+#   @return [String, nil]
+#
 # @!attribute [rw] object
 #   @return [String]
 #
@@ -4052,6 +4171,7 @@ NamespaceAuditLog = Struct.new(
   :context,
   :event,
   :event_at,
+  :id,
   :object,
   :object_kind,
   :object_slug_perm,
@@ -4100,6 +4220,9 @@ NamespaceAuditLogLoadMatch = Struct.new(
 # @!attribute [rw] extra_value_2
 #   @return [String, nil]
 #
+# @!attribute [rw] id
+#   @return [String, nil]
+#
 # @!attribute [rw] is_active
 #   @return [Boolean, nil]
 #
@@ -4136,6 +4259,7 @@ Npm = Struct.new(
   :extra_header_2,
   :extra_value_1,
   :extra_value_2,
+  :id,
   :is_active,
   :mode,
   :name,
@@ -4213,6 +4337,9 @@ NpmListMatch = Struct.new(
 # @!attribute [rw] extra_value_2
 #   @return [String, nil]
 #
+# @!attribute [rw] id
+#   @return [String, nil]
+#
 # @!attribute [rw] is_active
 #   @return [Boolean, nil]
 #
@@ -4251,6 +4378,7 @@ NpmCreateData = Struct.new(
   :extra_header_2,
   :extra_value_1,
   :extra_value_2,
+  :id,
   :is_active,
   :mode,
   :name,
@@ -4381,6 +4509,9 @@ NpmUpdateData = Struct.new(
 # @!attribute [rw] extra_value_2
 #   @return [String, nil]
 #
+# @!attribute [rw] id
+#   @return [String, nil]
+#
 # @!attribute [rw] is_active
 #   @return [Boolean, nil]
 #
@@ -4417,6 +4548,7 @@ Nuget = Struct.new(
   :extra_header_2,
   :extra_value_1,
   :extra_value_2,
+  :id,
   :is_active,
   :mode,
   :name,
@@ -4494,6 +4626,9 @@ NugetListMatch = Struct.new(
 # @!attribute [rw] extra_value_2
 #   @return [String, nil]
 #
+# @!attribute [rw] id
+#   @return [String, nil]
+#
 # @!attribute [rw] is_active
 #   @return [Boolean, nil]
 #
@@ -4532,6 +4667,7 @@ NugetCreateData = Struct.new(
   :extra_header_2,
   :extra_value_1,
   :extra_value_2,
+  :id,
   :is_active,
   :mode,
   :name,
@@ -4648,6 +4784,9 @@ end
 # @!attribute [rw] event_at
 #   @return [String, nil]
 #
+# @!attribute [rw] id
+#   @return [String, nil]
+#
 # @!attribute [rw] location
 #   @return [String, nil]
 #
@@ -4678,6 +4817,7 @@ Org = Struct.new(
   :country,
   :created_at,
   :event_at,
+  :id,
   :location,
   :name,
   :package,
@@ -4714,6 +4854,9 @@ OrgLoadMatch = Struct.new(
 # @!attribute [rw] event_at
 #   @return [String, nil]
 #
+# @!attribute [rw] id
+#   @return [String, nil]
+#
 # @!attribute [rw] location
 #   @return [String, nil]
 #
@@ -4744,6 +4887,7 @@ OrgListMatch = Struct.new(
   :country,
   :created_at,
   :event_at,
+  :id,
   :location,
   :name,
   :package,
@@ -4992,6 +5136,9 @@ OrganizationGroupSyncStatusLoadMatch = Struct.new(
 # @!attribute [rw] expires_at
 #   @return [String, nil]
 #
+# @!attribute [rw] id
+#   @return [String, nil]
+#
 # @!attribute [rw] inviter
 #   @return [String, nil]
 #
@@ -5018,6 +5165,7 @@ OrganizationGroupSyncStatusLoadMatch = Struct.new(
 OrganizationInvite = Struct.new(
   :email,
   :expires_at,
+  :id,
   :inviter,
   :inviter_url,
   :org,
@@ -5049,6 +5197,9 @@ OrganizationInviteListMatch = Struct.new(
 # @!attribute [rw] expires_at
 #   @return [String, nil]
 #
+# @!attribute [rw] id
+#   @return [String, nil]
+#
 # @!attribute [rw] inviter
 #   @return [String, nil]
 #
@@ -5076,6 +5227,7 @@ OrganizationInviteCreateData = Struct.new(
   :org_id,
   :email,
   :expires_at,
+  :id,
   :inviter,
   :inviter_url,
   :org,
@@ -5593,6 +5745,9 @@ OrganizationMembershipVisibilityUpdateUpdateData = Struct.new(
 # @!attribute [rw] description
 #   @return [String, nil]
 #
+# @!attribute [rw] id
+#   @return [String, nil]
+#
 # @!attribute [rw] name
 #   @return [String]
 #
@@ -5614,6 +5769,7 @@ OrganizationPackageLicensePolicy = Struct.new(
   :allow_unknown_licenses,
   :created_at,
   :description,
+  :id,
   :name,
   :on_violation_quarantine,
   :package_query_string,
@@ -5659,6 +5815,9 @@ OrganizationPackageLicensePolicyListMatch = Struct.new(
 # @!attribute [rw] description
 #   @return [String, nil]
 #
+# @!attribute [rw] id
+#   @return [String, nil]
+#
 # @!attribute [rw] name
 #   @return [String]
 #
@@ -5681,6 +5840,7 @@ OrganizationPackageLicensePolicyCreateData = Struct.new(
   :allow_unknown_licenses,
   :created_at,
   :description,
+  :id,
   :name,
   :on_violation_quarantine,
   :package_query_string,
@@ -5750,6 +5910,9 @@ OrganizationPackageLicensePolicyUpdateData = Struct.new(
 # @!attribute [rw] description
 #   @return [String, nil]
 #
+# @!attribute [rw] id
+#   @return [String, nil]
+#
 # @!attribute [rw] min_severity
 #   @return [String, nil]
 #
@@ -5771,6 +5934,7 @@ OrganizationPackageVulnerabilityPolicy = Struct.new(
   :allow_unknown_severity,
   :created_at,
   :description,
+  :id,
   :min_severity,
   :name,
   :on_violation_quarantine,
@@ -5816,6 +5980,9 @@ OrganizationPackageVulnerabilityPolicyListMatch = Struct.new(
 # @!attribute [rw] description
 #   @return [String, nil]
 #
+# @!attribute [rw] id
+#   @return [String, nil]
+#
 # @!attribute [rw] min_severity
 #   @return [String, nil]
 #
@@ -5838,6 +6005,7 @@ OrganizationPackageVulnerabilityPolicyCreateData = Struct.new(
   :allow_unknown_severity,
   :created_at,
   :description,
+  :id,
   :min_severity,
   :name,
   :on_violation_quarantine,
@@ -5956,6 +6124,9 @@ OrganizationSamlAuthUpdateData = Struct.new(
 # @!attribute [rw] description
 #   @return [String, nil]
 #
+# @!attribute [rw] id
+#   @return [String, nil]
+#
 # @!attribute [rw] name
 #   @return [String]
 #
@@ -5969,6 +6140,7 @@ OrganizationSamlAuthUpdateData = Struct.new(
 #   @return [String, nil]
 OrganizationTeam = Struct.new(
   :description,
+  :id,
   :name,
   :slug,
   :slug_perm,
@@ -6006,6 +6178,9 @@ OrganizationTeamListMatch = Struct.new(
 # @!attribute [rw] description
 #   @return [String, nil]
 #
+# @!attribute [rw] id
+#   @return [String, nil]
+#
 # @!attribute [rw] name
 #   @return [String]
 #
@@ -6020,6 +6195,7 @@ OrganizationTeamListMatch = Struct.new(
 OrganizationTeamCreateData = Struct.new(
   :org_id,
   :description,
+  :id,
   :name,
   :slug,
   :slug_perm,
@@ -6930,6 +7106,9 @@ PackageRemoveMatch = Struct.new(
 # @!attribute [rw] enabled
 #   @return [Boolean, nil]
 #
+# @!attribute [rw] id
+#   @return [String, nil]
+#
 # @!attribute [rw] name
 #   @return [String, nil]
 #
@@ -6949,6 +7128,7 @@ PackageDenyPolicy = Struct.new(
   :created_at,
   :description,
   :enabled,
+  :id,
   :name,
   :package_query_string,
   :slug_perm,
@@ -6996,6 +7176,9 @@ PackageDenyPolicyListMatch = Struct.new(
 # @!attribute [rw] enabled
 #   @return [Boolean, nil]
 #
+# @!attribute [rw] id
+#   @return [String, nil]
+#
 # @!attribute [rw] name
 #   @return [String, nil]
 #
@@ -7016,6 +7199,7 @@ PackageDenyPolicyCreateData = Struct.new(
   :created_at,
   :description,
   :enabled,
+  :id,
   :name,
   :package_query_string,
   :slug_perm,
@@ -7142,6 +7326,9 @@ PackageFileUploadCreateData = Struct.new(
 # @!attribute [rw] evaluation_count
 #   @return [Integer, nil]
 #
+# @!attribute [rw] id
+#   @return [String, nil]
+#
 # @!attribute [rw] name
 #   @return [String, nil]
 #
@@ -7176,6 +7363,7 @@ PackageLicensePolicyEvaluation = Struct.new(
   :created_at,
   :description,
   :evaluation_count,
+  :id,
   :name,
   :on_violation_quarantine,
   :package_query_string,
@@ -7239,6 +7427,9 @@ PackageLicensePolicyEvaluationListMatch = Struct.new(
 # @!attribute [rw] evaluation_count
 #   @return [Integer, nil]
 #
+# @!attribute [rw] id
+#   @return [String, nil]
+#
 # @!attribute [rw] name
 #   @return [String, nil]
 #
@@ -7275,6 +7466,7 @@ PackageLicensePolicyEvaluationCreateData = Struct.new(
   :created_at,
   :description,
   :evaluation_count,
+  :id,
   :name,
   :on_violation_quarantine,
   :package_query_string,
@@ -7335,6 +7527,9 @@ PackageVersionBadgeLoadMatch = Struct.new(
 # @!attribute [rw] evaluation_count
 #   @return [Integer, nil]
 #
+# @!attribute [rw] id
+#   @return [String, nil]
+#
 # @!attribute [rw] min_severity
 #   @return [String, nil]
 #
@@ -7369,6 +7564,7 @@ PackageVulnerabilityPolicyEvaluation = Struct.new(
   :created_at,
   :description,
   :evaluation_count,
+  :id,
   :min_severity,
   :name,
   :on_violation_quarantine,
@@ -7432,6 +7628,9 @@ PackageVulnerabilityPolicyEvaluationListMatch = Struct.new(
 # @!attribute [rw] evaluation_count
 #   @return [Integer, nil]
 #
+# @!attribute [rw] id
+#   @return [String, nil]
+#
 # @!attribute [rw] min_severity
 #   @return [String, nil]
 #
@@ -7468,6 +7667,7 @@ PackageVulnerabilityPolicyEvaluationCreateData = Struct.new(
   :created_at,
   :description,
   :evaluation_count,
+  :id,
   :min_severity,
   :name,
   :on_violation_quarantine,
@@ -7708,6 +7908,9 @@ ProviderSettingsWriteUpdateData = Struct.new(
 # @!attribute [rw] extra_value_2
 #   @return [String, nil]
 #
+# @!attribute [rw] id
+#   @return [String, nil]
+#
 # @!attribute [rw] is_active
 #   @return [Boolean, nil]
 #
@@ -7744,6 +7947,7 @@ Python = Struct.new(
   :extra_header_2,
   :extra_value_1,
   :extra_value_2,
+  :id,
   :is_active,
   :mode,
   :name,
@@ -7821,6 +8025,9 @@ PythonListMatch = Struct.new(
 # @!attribute [rw] extra_value_2
 #   @return [String, nil]
 #
+# @!attribute [rw] id
+#   @return [String, nil]
+#
 # @!attribute [rw] is_active
 #   @return [Boolean, nil]
 #
@@ -7859,6 +8066,7 @@ PythonCreateData = Struct.new(
   :extra_header_2,
   :extra_value_1,
   :extra_value_2,
+  :id,
   :is_active,
   :mode,
   :name,
@@ -7972,11 +8180,15 @@ end
 # @!attribute [rw] history
 #   @return [Array]
 #
+# @!attribute [rw] id
+#   @return [String, nil]
+#
 # @!attribute [rw] raw
 #   @return [Hash]
 Quota = Struct.new(
   :display,
   :history,
+  :id,
   :raw,
   keyword_init: true
 )
@@ -8054,6 +8266,9 @@ end
 #
 # @!attribute [rw] gpg_keys
 #   @return [Array, nil]
+#
+# @!attribute [rw] id
+#   @return [String, nil]
 #
 # @!attribute [rw] index_files
 #   @return [Boolean, nil]
@@ -8216,6 +8431,7 @@ Repo = Struct.new(
   :ecdsa_keys,
   :enforce_eula,
   :gpg_keys,
+  :id,
   :index_files,
   :is_open_source,
   :is_private,
@@ -8328,6 +8544,9 @@ RepoLoadMatch = Struct.new(
 #
 # @!attribute [rw] gpg_keys
 #   @return [Array, nil]
+#
+# @!attribute [rw] id
+#   @return [String, nil]
 #
 # @!attribute [rw] index_files
 #   @return [Boolean, nil]
@@ -8490,6 +8709,7 @@ RepoListMatch = Struct.new(
   :ecdsa_keys,
   :enforce_eula,
   :gpg_keys,
+  :id,
   :index_files,
   :is_open_source,
   :is_private,
@@ -8869,6 +9089,9 @@ RepoCreateData = Struct.new(
 # @!attribute [rw] gpg_keys
 #   @return [Array, nil]
 #
+# @!attribute [rw] id
+#   @return [String, nil]
+#
 # @!attribute [rw] index_files
 #   @return [Boolean, nil]
 #
@@ -9032,6 +9255,7 @@ RepoUpdateData = Struct.new(
   :ecdsa_keys,
   :enforce_eula,
   :gpg_keys,
+  :id,
   :index_files,
   :is_open_source,
   :is_private,
@@ -11143,6 +11367,9 @@ end
 # @!attribute [rw] gpg_verification
 #   @return [String, nil]
 #
+# @!attribute [rw] id
+#   @return [String, nil]
+#
 # @!attribute [rw] include_sources
 #   @return [Boolean, nil]
 #
@@ -11189,6 +11416,7 @@ Rpm = Struct.new(
   :gpg_key_inline,
   :gpg_key_url,
   :gpg_verification,
+  :id,
   :include_sources,
   :is_active,
   :mode,
@@ -11280,6 +11508,9 @@ RpmListMatch = Struct.new(
 # @!attribute [rw] gpg_verification
 #   @return [String, nil]
 #
+# @!attribute [rw] id
+#   @return [String, nil]
+#
 # @!attribute [rw] include_sources
 #   @return [Boolean, nil]
 #
@@ -11328,6 +11559,7 @@ RpmCreateData = Struct.new(
   :gpg_key_inline,
   :gpg_key_url,
   :gpg_verification,
+  :id,
   :include_sources,
   :is_active,
   :mode,
@@ -11488,6 +11720,9 @@ end
 # @!attribute [rw] extra_value_2
 #   @return [String, nil]
 #
+# @!attribute [rw] id
+#   @return [String, nil]
+#
 # @!attribute [rw] is_active
 #   @return [Boolean, nil]
 #
@@ -11524,6 +11759,7 @@ Ruby = Struct.new(
   :extra_header_2,
   :extra_value_1,
   :extra_value_2,
+  :id,
   :is_active,
   :mode,
   :name,
@@ -11601,6 +11837,9 @@ RubyListMatch = Struct.new(
 # @!attribute [rw] extra_value_2
 #   @return [String, nil]
 #
+# @!attribute [rw] id
+#   @return [String, nil]
+#
 # @!attribute [rw] is_active
 #   @return [Boolean, nil]
 #
@@ -11639,6 +11878,7 @@ RubyCreateData = Struct.new(
   :extra_header_2,
   :extra_value_1,
   :extra_value_2,
+  :id,
   :is_active,
   :mode,
   :name,
@@ -11766,6 +12006,9 @@ end
 # @!attribute [rw] description
 #   @return [String, nil]
 #
+# @!attribute [rw] id
+#   @return [String, nil]
+#
 # @!attribute [rw] key
 #   @return [String, nil]
 #
@@ -11788,6 +12031,7 @@ Service = Struct.new(
   :created_by,
   :created_by_url,
   :description,
+  :id,
   :key,
   :key_expires_at,
   :name,
@@ -11836,6 +12080,9 @@ ServiceListMatch = Struct.new(
 # @!attribute [rw] description
 #   @return [String, nil]
 #
+# @!attribute [rw] id
+#   @return [String, nil]
+#
 # @!attribute [rw] key
 #   @return [String, nil]
 #
@@ -11859,6 +12106,7 @@ ServiceCreateData = Struct.new(
   :created_by,
   :created_by_url,
   :description,
+  :id,
   :key,
   :key_expires_at,
   :name,
@@ -11953,12 +12201,16 @@ StatusBasicLoadMatch = Struct.new(
 
 # StorageRegion entity data model.
 #
+# @!attribute [rw] id
+#   @return [String, nil]
+#
 # @!attribute [rw] label
 #   @return [String]
 #
 # @!attribute [rw] slug
 #   @return [String]
 StorageRegion = Struct.new(
+  :id,
   :label,
   :slug,
   keyword_init: true
@@ -11975,12 +12227,16 @@ StorageRegionLoadMatch = Struct.new(
 
 # Request payload for StorageRegion#list.
 #
+# @!attribute [rw] id
+#   @return [String, nil]
+#
 # @!attribute [rw] label
 #   @return [String, nil]
 #
 # @!attribute [rw] slug
 #   @return [String, nil]
 StorageRegionListMatch = Struct.new(
+  :id,
   :label,
   :slug,
   keyword_init: true
@@ -12013,6 +12269,9 @@ StorageRegionListMatch = Struct.new(
 #   @return [String, nil]
 #
 # @!attribute [rw] extra_value_2
+#   @return [String, nil]
+#
+# @!attribute [rw] id
 #   @return [String, nil]
 #
 # @!attribute [rw] is_active
@@ -12051,6 +12310,7 @@ Swift = Struct.new(
   :extra_header_2,
   :extra_value_1,
   :extra_value_2,
+  :id,
   :is_active,
   :mode,
   :name,
@@ -12128,6 +12388,9 @@ SwiftListMatch = Struct.new(
 # @!attribute [rw] extra_value_2
 #   @return [String, nil]
 #
+# @!attribute [rw] id
+#   @return [String, nil]
+#
 # @!attribute [rw] is_active
 #   @return [Boolean, nil]
 #
@@ -12166,6 +12429,7 @@ SwiftCreateData = Struct.new(
   :extra_header_2,
   :extra_value_1,
   :extra_value_2,
+  :id,
   :is_active,
   :mode,
   :name,
@@ -12462,6 +12726,9 @@ UserBriefLoadMatch = Struct.new(
 # @!attribute [rw] first_name
 #   @return [String]
 #
+# @!attribute [rw] id
+#   @return [String, nil]
+#
 # @!attribute [rw] job_title
 #   @return [String, nil]
 #
@@ -12488,6 +12755,7 @@ UserBriefLoadMatch = Struct.new(
 UserProfile = Struct.new(
   :company,
   :first_name,
+  :id,
   :job_title,
   :joined_at,
   :last_name,
@@ -12528,6 +12796,9 @@ end
 # @!attribute [rw] has_vulnerabilities
 #   @return [Boolean, nil]
 #
+# @!attribute [rw] id
+#   @return [String, nil]
+#
 # @!attribute [rw] identifier
 #   @return [String]
 #
@@ -12548,6 +12819,7 @@ end
 Vulnerability = Struct.new(
   :created_at,
   :has_vulnerabilities,
+  :id,
   :identifier,
   :max_severity,
   :num_vulnerabilities,

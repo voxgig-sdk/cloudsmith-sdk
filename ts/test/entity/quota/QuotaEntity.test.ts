@@ -59,9 +59,12 @@ describe('QuotaEntity', async () => {
 
     let quota_ref01_data = Object.values(setup.data.existing.quota)[0] as any
 
-    // LOAD: skipped — no entity id field and load requires path params.
-    // Entity-var is declared here so later flow steps still compile.
+    // LOAD
     const quota_ref01_ent = client.Quota()
+    const quota_ref01_match_dt0: any = {}
+    quota_ref01_match_dt0.id = quota_ref01_data.id
+    const quota_ref01_data_dt0 = (await quota_ref01_ent.load(quota_ref01_match_dt0)).data()
+    assert(quota_ref01_data_dt0.id === quota_ref01_data.id)
 
 
   })

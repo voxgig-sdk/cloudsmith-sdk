@@ -112,6 +112,9 @@ func TestOrganizationPackageLicensePolicyEntity(t *testing.T) {
 		if organizationPackageLicensePolicyRef01Data == nil {
 			t.Fatal("expected create result to be a map")
 		}
+		if organizationPackageLicensePolicyRef01Data["id"] == nil {
+			t.Fatal("expected created entity to have an id")
+		}
 
 		// LIST
 		organizationPackageLicensePolicyRef01Match := map[string]any{
@@ -122,13 +125,19 @@ func TestOrganizationPackageLicensePolicyEntity(t *testing.T) {
 		if err != nil {
 			t.Fatalf("list failed: %v", err)
 		}
-		_, organizationPackageLicensePolicyRef01ListOk := organizationPackageLicensePolicyRef01ListResult.([]any)
+		organizationPackageLicensePolicyRef01List, organizationPackageLicensePolicyRef01ListOk := organizationPackageLicensePolicyRef01ListResult.([]any)
 		if !organizationPackageLicensePolicyRef01ListOk {
 			t.Fatalf("expected list result to be an array, got %T", organizationPackageLicensePolicyRef01ListResult)
 		}
 
+		foundItem := vs.Select(entityListToData(organizationPackageLicensePolicyRef01List), map[string]any{"id": organizationPackageLicensePolicyRef01Data["id"]})
+		if vs.IsEmpty(foundItem) {
+			t.Fatal("expected to find created entity in list")
+		}
+
 		// UPDATE
 		organizationPackageLicensePolicyRef01DataUp0Up := map[string]any{
+			"id": organizationPackageLicensePolicyRef01Data["id"],
 			"org_id": setup.idmap["org_id"],
 		}
 
@@ -144,18 +153,27 @@ func TestOrganizationPackageLicensePolicyEntity(t *testing.T) {
 		if organizationPackageLicensePolicyRef01ResdataUp0 == nil {
 			t.Fatal("expected update result to be a map")
 		}
+		if organizationPackageLicensePolicyRef01ResdataUp0["id"] != organizationPackageLicensePolicyRef01DataUp0Up["id"] {
+			t.Fatal("expected update result id to match")
+		}
 		if organizationPackageLicensePolicyRef01ResdataUp0[organizationPackageLicensePolicyRef01MarkdefUp0Name] != organizationPackageLicensePolicyRef01MarkdefUp0Value {
 			t.Fatalf("expected %s to be updated, got %v", organizationPackageLicensePolicyRef01MarkdefUp0Name, organizationPackageLicensePolicyRef01ResdataUp0[organizationPackageLicensePolicyRef01MarkdefUp0Name])
 		}
 
 		// LOAD
-		organizationPackageLicensePolicyRef01MatchDt0 := map[string]any{}
+		organizationPackageLicensePolicyRef01MatchDt0 := map[string]any{
+			"id": organizationPackageLicensePolicyRef01Data["id"],
+		}
 		organizationPackageLicensePolicyRef01DataDt0Loaded, err := organizationPackageLicensePolicyRef01Ent.Load(organizationPackageLicensePolicyRef01MatchDt0, nil)
 		if err != nil {
 			t.Fatalf("load failed: %v", err)
 		}
-		if organizationPackageLicensePolicyRef01DataDt0Loaded == nil {
-			t.Fatal("expected load result to be non-nil")
+		organizationPackageLicensePolicyRef01DataDt0LoadResult := core.ToMapAny(entityData(organizationPackageLicensePolicyRef01DataDt0Loaded))
+		if organizationPackageLicensePolicyRef01DataDt0LoadResult == nil {
+			t.Fatal("expected load result to be a map")
+		}
+		if organizationPackageLicensePolicyRef01DataDt0LoadResult["id"] != organizationPackageLicensePolicyRef01Data["id"] {
+			t.Fatal("expected load result id to match")
 		}
 
 	})

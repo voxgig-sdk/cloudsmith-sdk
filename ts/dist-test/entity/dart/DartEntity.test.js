@@ -77,21 +77,28 @@ const utility_1 = require("../../utility");
         dart_ref01_data['identifier'] = setup.idmap['identifier01'];
         dart_ref01_data['owner'] = setup.idmap['owner01'];
         dart_ref01_data = (await dart_ref01_ent.create(dart_ref01_data)).data();
-        (0, node_assert_1.default)(null != dart_ref01_data);
+        (0, node_assert_1.default)(null != dart_ref01_data.id);
         // LIST
         const dart_ref01_match = {};
         dart_ref01_match['identifier'] = setup.idmap['identifier01'];
         dart_ref01_match['owner'] = setup.idmap['owner01'];
         const dart_ref01_list = (await dart_ref01_ent.list(dart_ref01_match)).map((e) => e.data());
+        (0, node_assert_1.default)(!isempty(select(dart_ref01_list, { id: dart_ref01_data.id })));
         // UPDATE
         const dart_ref01_data_up0 = {};
+        dart_ref01_data_up0.id = dart_ref01_data.id;
         dart_ref01_data_up0['identifier'] = setup.idmap['identifier'];
         dart_ref01_data_up0['owner'] = setup.idmap['owner'];
         const dart_ref01_markdef_up0 = { name: 'auth_mode', value: 'Mark01-dart_ref01_' + setup.now };
         dart_ref01_data_up0[dart_ref01_markdef_up0.name] = dart_ref01_markdef_up0.value;
         const dart_ref01_resdata_up0 = (await dart_ref01_ent.update(dart_ref01_data_up0)).data();
-        (0, node_assert_1.default)(null != dart_ref01_resdata_up0);
+        (0, node_assert_1.default)(dart_ref01_resdata_up0.id === dart_ref01_data_up0.id);
         (0, node_assert_1.default)(dart_ref01_resdata_up0[dart_ref01_markdef_up0.name] === dart_ref01_markdef_up0.value);
+        // LOAD
+        const dart_ref01_match_dt0 = {};
+        dart_ref01_match_dt0.id = dart_ref01_data.id;
+        const dart_ref01_data_dt0 = (await dart_ref01_ent.load(dart_ref01_match_dt0)).data();
+        (0, node_assert_1.default)(dart_ref01_data_dt0.id === dart_ref01_data.id);
     });
 });
 function basicSetup(extra) {

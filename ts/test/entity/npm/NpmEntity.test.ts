@@ -65,7 +65,7 @@ describe('NpmEntity', async () => {
     npm_ref01_data['owner'] = setup.idmap['owner01']
 
     npm_ref01_data = (await npm_ref01_ent.create(npm_ref01_data)).data()
-    assert(null != npm_ref01_data)
+    assert(null != npm_ref01_data.id)
 
 
     // LIST
@@ -75,9 +75,12 @@ describe('NpmEntity', async () => {
 
     const npm_ref01_list = (await npm_ref01_ent.list(npm_ref01_match)).map((e: any) => e.data())
 
+    assert(!isempty(select(npm_ref01_list, { id: npm_ref01_data.id })))
+
 
     // UPDATE
     const npm_ref01_data_up0: any = {}
+    npm_ref01_data_up0.id = npm_ref01_data.id
     npm_ref01_data_up0 ['identifier'] = setup.idmap['identifier']
     npm_ref01_data_up0 ['owner'] = setup.idmap['owner']
 
@@ -85,10 +88,16 @@ describe('NpmEntity', async () => {
     ;(npm_ref01_data_up0 as any)[npm_ref01_markdef_up0.name] = npm_ref01_markdef_up0.value
 
     const npm_ref01_resdata_up0 = (await npm_ref01_ent.update(npm_ref01_data_up0)).data()
-    assert(null != npm_ref01_resdata_up0)
+    assert(npm_ref01_resdata_up0.id === npm_ref01_data_up0.id)
 
     assert((npm_ref01_resdata_up0 as any)[npm_ref01_markdef_up0.name] === npm_ref01_markdef_up0.value)
 
+
+    // LOAD
+    const npm_ref01_match_dt0: any = {}
+    npm_ref01_match_dt0.id = npm_ref01_data.id
+    const npm_ref01_data_dt0 = (await npm_ref01_ent.load(npm_ref01_match_dt0)).data()
+    assert(npm_ref01_data_dt0.id === npm_ref01_data.id)
 
 
   })

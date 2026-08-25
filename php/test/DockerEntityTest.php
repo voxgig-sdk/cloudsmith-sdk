@@ -87,6 +87,7 @@ class DockerEntityTest extends TestCase
         $docker_ref01_data_result = $docker_ref01_ent->create($docker_ref01_data, null);
         $docker_ref01_data = Helpers::to_map(is_object($docker_ref01_data_result) && method_exists($docker_ref01_data_result, 'data_get') ? $docker_ref01_data_result->data_get() : $docker_ref01_data_result);
         $this->assertNotNull($docker_ref01_data);
+        $this->assertNotNull($docker_ref01_data["id"]);
 
         // LIST
         $docker_ref01_match = [
@@ -97,8 +98,14 @@ class DockerEntityTest extends TestCase
         $docker_ref01_list_result = $docker_ref01_ent->list($docker_ref01_match, null);
         $this->assertIsArray($docker_ref01_list_result);
 
+        $found_item = sdk_select(
+            Runner::entity_list_to_data($docker_ref01_list_result),
+            ["id" => $docker_ref01_data["id"]]);
+        $this->assertNotEmpty($found_item);
+
         // UPDATE
         $docker_ref01_data_up0_up = [
+            "id" => $docker_ref01_data["id"],
             "identifier" => $setup["idmap"]["identifier"],
             "owner" => $setup["idmap"]["owner"],
         ];
@@ -110,12 +117,17 @@ class DockerEntityTest extends TestCase
         $docker_ref01_resdata_up0_result = $docker_ref01_ent->update($docker_ref01_data_up0_up, null);
         $docker_ref01_resdata_up0 = Helpers::to_map(is_object($docker_ref01_resdata_up0_result) && method_exists($docker_ref01_resdata_up0_result, 'data_get') ? $docker_ref01_resdata_up0_result->data_get() : $docker_ref01_resdata_up0_result);
         $this->assertNotNull($docker_ref01_resdata_up0);
+        $this->assertEquals($docker_ref01_resdata_up0["id"], $docker_ref01_data_up0_up["id"]);
         $this->assertEquals($docker_ref01_resdata_up0[$docker_ref01_markdef_up0_name], $docker_ref01_markdef_up0_value);
 
         // LOAD
-        $docker_ref01_match_dt0 = [];
+        $docker_ref01_match_dt0 = [
+            "id" => $docker_ref01_data["id"],
+        ];
         $docker_ref01_data_dt0_loaded = $docker_ref01_ent->load($docker_ref01_match_dt0, null);
-        $this->assertNotNull($docker_ref01_data_dt0_loaded);
+        $docker_ref01_data_dt0_load_result = Helpers::to_map(is_object($docker_ref01_data_dt0_loaded) && method_exists($docker_ref01_data_dt0_loaded, 'data_get') ? $docker_ref01_data_dt0_loaded->data_get() : $docker_ref01_data_dt0_loaded);
+        $this->assertNotNull($docker_ref01_data_dt0_load_result);
+        $this->assertEquals($docker_ref01_data_dt0_load_result["id"], $docker_ref01_data["id"]);
 
     }
 }

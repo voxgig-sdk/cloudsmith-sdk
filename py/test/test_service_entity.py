@@ -82,6 +82,7 @@ class TestServiceEntity:
 
         service_ref01_data = helpers.to_map(runner.entity_data(service_ref01_ent.create(service_ref01_data, None)))
         assert service_ref01_data is not None
+        assert service_ref01_data["id"] is not None
 
         # LIST
         service_ref01_match = {
@@ -91,8 +92,14 @@ class TestServiceEntity:
         service_ref01_list_result = service_ref01_ent.list(service_ref01_match, None)
         assert isinstance(service_ref01_list_result, list)
 
+        found_item = vs.select(
+            runner.entity_list_to_data(service_ref01_list_result),
+            {"id": service_ref01_data["id"]})
+        assert not vs.isempty(found_item)
+
         # UPDATE
         service_ref01_data_up0_up = {
+            "id": service_ref01_data["id"],
             "org_id": setup["idmap"]["org_id"],
         }
 
@@ -102,12 +109,17 @@ class TestServiceEntity:
 
         service_ref01_resdata_up0 = helpers.to_map(runner.entity_data(service_ref01_ent.update(service_ref01_data_up0_up, None)))
         assert service_ref01_resdata_up0 is not None
+        assert service_ref01_resdata_up0["id"] == service_ref01_data_up0_up["id"]
         assert service_ref01_resdata_up0[service_ref01_markdef_up0_name] == service_ref01_markdef_up0_value
 
         # LOAD
-        service_ref01_match_dt0 = {}
+        service_ref01_match_dt0 = {
+            "id": service_ref01_data["id"],
+        }
         service_ref01_data_dt0_loaded = service_ref01_ent.load(service_ref01_match_dt0, None)
-        assert service_ref01_data_dt0_loaded is not None
+        service_ref01_data_dt0_load_result = helpers.to_map(runner.entity_data(service_ref01_data_dt0_loaded))
+        assert service_ref01_data_dt0_load_result is not None
+        assert service_ref01_data_dt0_load_result["id"] == service_ref01_data["id"]
 
 
 

@@ -77,21 +77,28 @@ const utility_1 = require("../../utility");
         cargo_ref01_data['identifier'] = setup.idmap['identifier01'];
         cargo_ref01_data['owner'] = setup.idmap['owner01'];
         cargo_ref01_data = (await cargo_ref01_ent.create(cargo_ref01_data)).data();
-        (0, node_assert_1.default)(null != cargo_ref01_data);
+        (0, node_assert_1.default)(null != cargo_ref01_data.id);
         // LIST
         const cargo_ref01_match = {};
         cargo_ref01_match['identifier'] = setup.idmap['identifier01'];
         cargo_ref01_match['owner'] = setup.idmap['owner01'];
         const cargo_ref01_list = (await cargo_ref01_ent.list(cargo_ref01_match)).map((e) => e.data());
+        (0, node_assert_1.default)(!isempty(select(cargo_ref01_list, { id: cargo_ref01_data.id })));
         // UPDATE
         const cargo_ref01_data_up0 = {};
+        cargo_ref01_data_up0.id = cargo_ref01_data.id;
         cargo_ref01_data_up0['identifier'] = setup.idmap['identifier'];
         cargo_ref01_data_up0['owner'] = setup.idmap['owner'];
         const cargo_ref01_markdef_up0 = { name: 'auth_mode', value: 'Mark01-cargo_ref01_' + setup.now };
         cargo_ref01_data_up0[cargo_ref01_markdef_up0.name] = cargo_ref01_markdef_up0.value;
         const cargo_ref01_resdata_up0 = (await cargo_ref01_ent.update(cargo_ref01_data_up0)).data();
-        (0, node_assert_1.default)(null != cargo_ref01_resdata_up0);
+        (0, node_assert_1.default)(cargo_ref01_resdata_up0.id === cargo_ref01_data_up0.id);
         (0, node_assert_1.default)(cargo_ref01_resdata_up0[cargo_ref01_markdef_up0.name] === cargo_ref01_markdef_up0.value);
+        // LOAD
+        const cargo_ref01_match_dt0 = {};
+        cargo_ref01_match_dt0.id = cargo_ref01_data.id;
+        const cargo_ref01_data_dt0 = (await cargo_ref01_ent.load(cargo_ref01_match_dt0)).data();
+        (0, node_assert_1.default)(cargo_ref01_data_dt0.id === cargo_ref01_data.id);
     });
 });
 function basicSetup(extra) {

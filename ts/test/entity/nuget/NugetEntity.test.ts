@@ -65,7 +65,7 @@ describe('NugetEntity', async () => {
     nuget_ref01_data['owner'] = setup.idmap['owner01']
 
     nuget_ref01_data = (await nuget_ref01_ent.create(nuget_ref01_data)).data()
-    assert(null != nuget_ref01_data)
+    assert(null != nuget_ref01_data.id)
 
 
     // LIST
@@ -75,9 +75,12 @@ describe('NugetEntity', async () => {
 
     const nuget_ref01_list = (await nuget_ref01_ent.list(nuget_ref01_match)).map((e: any) => e.data())
 
+    assert(!isempty(select(nuget_ref01_list, { id: nuget_ref01_data.id })))
+
 
     // UPDATE
     const nuget_ref01_data_up0: any = {}
+    nuget_ref01_data_up0.id = nuget_ref01_data.id
     nuget_ref01_data_up0 ['identifier'] = setup.idmap['identifier']
     nuget_ref01_data_up0 ['owner'] = setup.idmap['owner']
 
@@ -85,10 +88,16 @@ describe('NugetEntity', async () => {
     ;(nuget_ref01_data_up0 as any)[nuget_ref01_markdef_up0.name] = nuget_ref01_markdef_up0.value
 
     const nuget_ref01_resdata_up0 = (await nuget_ref01_ent.update(nuget_ref01_data_up0)).data()
-    assert(null != nuget_ref01_resdata_up0)
+    assert(nuget_ref01_resdata_up0.id === nuget_ref01_data_up0.id)
 
     assert((nuget_ref01_resdata_up0 as any)[nuget_ref01_markdef_up0.name] === nuget_ref01_markdef_up0.value)
 
+
+    // LOAD
+    const nuget_ref01_match_dt0: any = {}
+    nuget_ref01_match_dt0.id = nuget_ref01_data.id
+    const nuget_ref01_data_dt0 = (await nuget_ref01_ent.load(nuget_ref01_match_dt0)).data()
+    assert(nuget_ref01_data_dt0.id === nuget_ref01_data.id)
 
 
   })

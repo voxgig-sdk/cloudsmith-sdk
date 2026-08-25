@@ -86,6 +86,7 @@ describe("DockerEntity", function()
     assert.is_nil(err)
     docker_ref01_data = helpers.to_map(type(docker_ref01_data_result) == 'table' and docker_ref01_data_result.data_get and docker_ref01_data_result:data_get() or docker_ref01_data_result)
     assert.is_not_nil(docker_ref01_data)
+    assert.is_not_nil(docker_ref01_data["id"])
 
     -- LIST
     local docker_ref01_match = {
@@ -97,8 +98,14 @@ describe("DockerEntity", function()
     assert.is_nil(err)
     assert.is_table(docker_ref01_list_result)
 
+    local found_item = vs.select(
+      runner.entity_list_to_data(docker_ref01_list_result),
+      { id = docker_ref01_data["id"] })
+    assert.is_false(vs.isempty(found_item))
+
     -- UPDATE
     local docker_ref01_data_up0_up = {
+      id = docker_ref01_data["id"],
       ["identifier"] = setup.idmap["identifier"],
       ["owner"] = setup.idmap["owner"],
     }
@@ -111,13 +118,18 @@ describe("DockerEntity", function()
     assert.is_nil(err)
     local docker_ref01_resdata_up0 = helpers.to_map(type(docker_ref01_resdata_up0_result) == 'table' and docker_ref01_resdata_up0_result.data_get and docker_ref01_resdata_up0_result:data_get() or docker_ref01_resdata_up0_result)
     assert.is_not_nil(docker_ref01_resdata_up0)
+    assert.are.equal(docker_ref01_resdata_up0["id"], docker_ref01_data_up0_up["id"])
     assert.are.equal(docker_ref01_resdata_up0[docker_ref01_markdef_up0_name], docker_ref01_markdef_up0_value)
 
     -- LOAD
-    local docker_ref01_match_dt0 = {}
+    local docker_ref01_match_dt0 = {
+      id = docker_ref01_data["id"],
+    }
     local docker_ref01_data_dt0_loaded, err = docker_ref01_ent:load(docker_ref01_match_dt0, nil)
     assert.is_nil(err)
-    assert.is_not_nil(docker_ref01_data_dt0_loaded)
+    local docker_ref01_data_dt0_load_result = helpers.to_map(type(docker_ref01_data_dt0_loaded) == 'table' and docker_ref01_data_dt0_loaded.data_get and docker_ref01_data_dt0_loaded:data_get() or docker_ref01_data_dt0_loaded)
+    assert.is_not_nil(docker_ref01_data_dt0_load_result)
+    assert.are.equal(docker_ref01_data_dt0_load_result["id"], docker_ref01_data["id"])
 
   end)
 end)

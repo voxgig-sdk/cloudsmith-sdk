@@ -88,6 +88,7 @@ class PackageLicensePolicyEvaluationEntityTest extends TestCase
         $package_license_policy_evaluation_ref01_data_result = $package_license_policy_evaluation_ref01_ent->create($package_license_policy_evaluation_ref01_data, null);
         $package_license_policy_evaluation_ref01_data = Helpers::to_map(is_object($package_license_policy_evaluation_ref01_data_result) && method_exists($package_license_policy_evaluation_ref01_data_result, 'data_get') ? $package_license_policy_evaluation_ref01_data_result->data_get() : $package_license_policy_evaluation_ref01_data_result);
         $this->assertNotNull($package_license_policy_evaluation_ref01_data);
+        $this->assertNotNull($package_license_policy_evaluation_ref01_data["id"]);
 
         // LIST
         $package_license_policy_evaluation_ref01_match = [
@@ -98,10 +99,19 @@ class PackageLicensePolicyEvaluationEntityTest extends TestCase
         $package_license_policy_evaluation_ref01_list_result = $package_license_policy_evaluation_ref01_ent->list($package_license_policy_evaluation_ref01_match, null);
         $this->assertIsArray($package_license_policy_evaluation_ref01_list_result);
 
+        $found_item = sdk_select(
+            Runner::entity_list_to_data($package_license_policy_evaluation_ref01_list_result),
+            ["id" => $package_license_policy_evaluation_ref01_data["id"]]);
+        $this->assertNotEmpty($found_item);
+
         // LOAD
-        $package_license_policy_evaluation_ref01_match_dt0 = [];
+        $package_license_policy_evaluation_ref01_match_dt0 = [
+            "id" => $package_license_policy_evaluation_ref01_data["id"],
+        ];
         $package_license_policy_evaluation_ref01_data_dt0_loaded = $package_license_policy_evaluation_ref01_ent->load($package_license_policy_evaluation_ref01_match_dt0, null);
-        $this->assertNotNull($package_license_policy_evaluation_ref01_data_dt0_loaded);
+        $package_license_policy_evaluation_ref01_data_dt0_load_result = Helpers::to_map(is_object($package_license_policy_evaluation_ref01_data_dt0_loaded) && method_exists($package_license_policy_evaluation_ref01_data_dt0_loaded, 'data_get') ? $package_license_policy_evaluation_ref01_data_dt0_loaded->data_get() : $package_license_policy_evaluation_ref01_data_dt0_loaded);
+        $this->assertNotNull($package_license_policy_evaluation_ref01_data_dt0_load_result);
+        $this->assertEquals($package_license_policy_evaluation_ref01_data_dt0_load_result["id"], $package_license_policy_evaluation_ref01_data["id"]);
 
     }
 }

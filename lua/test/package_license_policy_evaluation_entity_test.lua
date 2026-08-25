@@ -87,6 +87,7 @@ describe("PackageLicensePolicyEvaluationEntity", function()
     assert.is_nil(err)
     package_license_policy_evaluation_ref01_data = helpers.to_map(type(package_license_policy_evaluation_ref01_data_result) == 'table' and package_license_policy_evaluation_ref01_data_result.data_get and package_license_policy_evaluation_ref01_data_result:data_get() or package_license_policy_evaluation_ref01_data_result)
     assert.is_not_nil(package_license_policy_evaluation_ref01_data)
+    assert.is_not_nil(package_license_policy_evaluation_ref01_data["id"])
 
     -- LIST
     local package_license_policy_evaluation_ref01_match = {
@@ -98,11 +99,20 @@ describe("PackageLicensePolicyEvaluationEntity", function()
     assert.is_nil(err)
     assert.is_table(package_license_policy_evaluation_ref01_list_result)
 
+    local found_item = vs.select(
+      runner.entity_list_to_data(package_license_policy_evaluation_ref01_list_result),
+      { id = package_license_policy_evaluation_ref01_data["id"] })
+    assert.is_false(vs.isempty(found_item))
+
     -- LOAD
-    local package_license_policy_evaluation_ref01_match_dt0 = {}
+    local package_license_policy_evaluation_ref01_match_dt0 = {
+      id = package_license_policy_evaluation_ref01_data["id"],
+    }
     local package_license_policy_evaluation_ref01_data_dt0_loaded, err = package_license_policy_evaluation_ref01_ent:load(package_license_policy_evaluation_ref01_match_dt0, nil)
     assert.is_nil(err)
-    assert.is_not_nil(package_license_policy_evaluation_ref01_data_dt0_loaded)
+    local package_license_policy_evaluation_ref01_data_dt0_load_result = helpers.to_map(type(package_license_policy_evaluation_ref01_data_dt0_loaded) == 'table' and package_license_policy_evaluation_ref01_data_dt0_loaded.data_get and package_license_policy_evaluation_ref01_data_dt0_loaded:data_get() or package_license_policy_evaluation_ref01_data_dt0_loaded)
+    assert.is_not_nil(package_license_policy_evaluation_ref01_data_dt0_load_result)
+    assert.are.equal(package_license_policy_evaluation_ref01_data_dt0_load_result["id"], package_license_policy_evaluation_ref01_data["id"])
 
   end)
 end)

@@ -113,6 +113,9 @@ func TestCondaEntity(t *testing.T) {
 		if condaRef01Data == nil {
 			t.Fatal("expected create result to be a map")
 		}
+		if condaRef01Data["id"] == nil {
+			t.Fatal("expected created entity to have an id")
+		}
 
 		// LIST
 		condaRef01Match := map[string]any{
@@ -124,13 +127,19 @@ func TestCondaEntity(t *testing.T) {
 		if err != nil {
 			t.Fatalf("list failed: %v", err)
 		}
-		_, condaRef01ListOk := condaRef01ListResult.([]any)
+		condaRef01List, condaRef01ListOk := condaRef01ListResult.([]any)
 		if !condaRef01ListOk {
 			t.Fatalf("expected list result to be an array, got %T", condaRef01ListResult)
 		}
 
+		foundItem := vs.Select(entityListToData(condaRef01List), map[string]any{"id": condaRef01Data["id"]})
+		if vs.IsEmpty(foundItem) {
+			t.Fatal("expected to find created entity in list")
+		}
+
 		// UPDATE
 		condaRef01DataUp0Up := map[string]any{
+			"id": condaRef01Data["id"],
 			"identifier": setup.idmap["identifier"],
 			"owner": setup.idmap["owner"],
 		}
@@ -147,18 +156,27 @@ func TestCondaEntity(t *testing.T) {
 		if condaRef01ResdataUp0 == nil {
 			t.Fatal("expected update result to be a map")
 		}
+		if condaRef01ResdataUp0["id"] != condaRef01DataUp0Up["id"] {
+			t.Fatal("expected update result id to match")
+		}
 		if condaRef01ResdataUp0[condaRef01MarkdefUp0Name] != condaRef01MarkdefUp0Value {
 			t.Fatalf("expected %s to be updated, got %v", condaRef01MarkdefUp0Name, condaRef01ResdataUp0[condaRef01MarkdefUp0Name])
 		}
 
 		// LOAD
-		condaRef01MatchDt0 := map[string]any{}
+		condaRef01MatchDt0 := map[string]any{
+			"id": condaRef01Data["id"],
+		}
 		condaRef01DataDt0Loaded, err := condaRef01Ent.Load(condaRef01MatchDt0, nil)
 		if err != nil {
 			t.Fatalf("load failed: %v", err)
 		}
-		if condaRef01DataDt0Loaded == nil {
-			t.Fatal("expected load result to be non-nil")
+		condaRef01DataDt0LoadResult := core.ToMapAny(entityData(condaRef01DataDt0Loaded))
+		if condaRef01DataDt0LoadResult == nil {
+			t.Fatal("expected load result to be a map")
+		}
+		if condaRef01DataDt0LoadResult["id"] != condaRef01Data["id"] {
+			t.Fatal("expected load result id to match")
 		}
 
 	})

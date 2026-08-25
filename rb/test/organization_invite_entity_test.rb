@@ -76,6 +76,7 @@ class OrganizationInviteEntityTest < Minitest::Test
     organization_invite_ref01_data_result = organization_invite_ref01_ent.create(organization_invite_ref01_data, nil)
     organization_invite_ref01_data = Helpers.to_map(organization_invite_ref01_data_result.respond_to?(:data_get) ? organization_invite_ref01_data_result.data_get : organization_invite_ref01_data_result)
     assert !organization_invite_ref01_data.nil?
+    assert !organization_invite_ref01_data["id"].nil?
 
     # LIST
     organization_invite_ref01_match = {
@@ -85,8 +86,14 @@ class OrganizationInviteEntityTest < Minitest::Test
     organization_invite_ref01_list_result = organization_invite_ref01_ent.list(organization_invite_ref01_match, nil)
     assert organization_invite_ref01_list_result.is_a?(Array)
 
+    found_item = Vs.select(
+      Runner.entity_list_to_data(organization_invite_ref01_list_result),
+      { "id" => organization_invite_ref01_data["id"] })
+    assert !Vs.isempty(found_item)
+
     # UPDATE
     organization_invite_ref01_data_up0_up = {
+      "id" => organization_invite_ref01_data["id"],
       "org_id" => setup[:idmap]["org_id"],
     }
 
@@ -97,6 +104,7 @@ class OrganizationInviteEntityTest < Minitest::Test
     organization_invite_ref01_resdata_up0_result = organization_invite_ref01_ent.update(organization_invite_ref01_data_up0_up, nil)
     organization_invite_ref01_resdata_up0 = Helpers.to_map(organization_invite_ref01_resdata_up0_result.respond_to?(:data_get) ? organization_invite_ref01_resdata_up0_result.data_get : organization_invite_ref01_resdata_up0_result)
     assert !organization_invite_ref01_resdata_up0.nil?
+    assert_equal organization_invite_ref01_resdata_up0["id"], organization_invite_ref01_data_up0_up["id"]
     assert_equal organization_invite_ref01_resdata_up0[organization_invite_ref01_markdef_up0_name], organization_invite_ref01_markdef_up0_value
 
   end

@@ -113,6 +113,9 @@ func TestDartEntity(t *testing.T) {
 		if dartRef01Data == nil {
 			t.Fatal("expected create result to be a map")
 		}
+		if dartRef01Data["id"] == nil {
+			t.Fatal("expected created entity to have an id")
+		}
 
 		// LIST
 		dartRef01Match := map[string]any{
@@ -124,13 +127,19 @@ func TestDartEntity(t *testing.T) {
 		if err != nil {
 			t.Fatalf("list failed: %v", err)
 		}
-		_, dartRef01ListOk := dartRef01ListResult.([]any)
+		dartRef01List, dartRef01ListOk := dartRef01ListResult.([]any)
 		if !dartRef01ListOk {
 			t.Fatalf("expected list result to be an array, got %T", dartRef01ListResult)
 		}
 
+		foundItem := vs.Select(entityListToData(dartRef01List), map[string]any{"id": dartRef01Data["id"]})
+		if vs.IsEmpty(foundItem) {
+			t.Fatal("expected to find created entity in list")
+		}
+
 		// UPDATE
 		dartRef01DataUp0Up := map[string]any{
+			"id": dartRef01Data["id"],
 			"identifier": setup.idmap["identifier"],
 			"owner": setup.idmap["owner"],
 		}
@@ -147,18 +156,27 @@ func TestDartEntity(t *testing.T) {
 		if dartRef01ResdataUp0 == nil {
 			t.Fatal("expected update result to be a map")
 		}
+		if dartRef01ResdataUp0["id"] != dartRef01DataUp0Up["id"] {
+			t.Fatal("expected update result id to match")
+		}
 		if dartRef01ResdataUp0[dartRef01MarkdefUp0Name] != dartRef01MarkdefUp0Value {
 			t.Fatalf("expected %s to be updated, got %v", dartRef01MarkdefUp0Name, dartRef01ResdataUp0[dartRef01MarkdefUp0Name])
 		}
 
 		// LOAD
-		dartRef01MatchDt0 := map[string]any{}
+		dartRef01MatchDt0 := map[string]any{
+			"id": dartRef01Data["id"],
+		}
 		dartRef01DataDt0Loaded, err := dartRef01Ent.Load(dartRef01MatchDt0, nil)
 		if err != nil {
 			t.Fatalf("load failed: %v", err)
 		}
-		if dartRef01DataDt0Loaded == nil {
-			t.Fatal("expected load result to be non-nil")
+		dartRef01DataDt0LoadResult := core.ToMapAny(entityData(dartRef01DataDt0Loaded))
+		if dartRef01DataDt0LoadResult == nil {
+			t.Fatal("expected load result to be a map")
+		}
+		if dartRef01DataDt0LoadResult["id"] != dartRef01Data["id"] {
+			t.Fatal("expected load result id to match")
 		}
 
 	})

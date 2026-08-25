@@ -77,21 +77,28 @@ const utility_1 = require("../../utility");
         docker_ref01_data['identifier'] = setup.idmap['identifier01'];
         docker_ref01_data['owner'] = setup.idmap['owner01'];
         docker_ref01_data = (await docker_ref01_ent.create(docker_ref01_data)).data();
-        (0, node_assert_1.default)(null != docker_ref01_data);
+        (0, node_assert_1.default)(null != docker_ref01_data.id);
         // LIST
         const docker_ref01_match = {};
         docker_ref01_match['identifier'] = setup.idmap['identifier01'];
         docker_ref01_match['owner'] = setup.idmap['owner01'];
         const docker_ref01_list = (await docker_ref01_ent.list(docker_ref01_match)).map((e) => e.data());
+        (0, node_assert_1.default)(!isempty(select(docker_ref01_list, { id: docker_ref01_data.id })));
         // UPDATE
         const docker_ref01_data_up0 = {};
+        docker_ref01_data_up0.id = docker_ref01_data.id;
         docker_ref01_data_up0['identifier'] = setup.idmap['identifier'];
         docker_ref01_data_up0['owner'] = setup.idmap['owner'];
         const docker_ref01_markdef_up0 = { name: 'auth_mode', value: 'Mark01-docker_ref01_' + setup.now };
         docker_ref01_data_up0[docker_ref01_markdef_up0.name] = docker_ref01_markdef_up0.value;
         const docker_ref01_resdata_up0 = (await docker_ref01_ent.update(docker_ref01_data_up0)).data();
-        (0, node_assert_1.default)(null != docker_ref01_resdata_up0);
+        (0, node_assert_1.default)(docker_ref01_resdata_up0.id === docker_ref01_data_up0.id);
         (0, node_assert_1.default)(docker_ref01_resdata_up0[docker_ref01_markdef_up0.name] === docker_ref01_markdef_up0.value);
+        // LOAD
+        const docker_ref01_match_dt0 = {};
+        docker_ref01_match_dt0.id = docker_ref01_data.id;
+        const docker_ref01_data_dt0 = (await docker_ref01_ent.load(docker_ref01_match_dt0)).data();
+        (0, node_assert_1.default)(docker_ref01_data_dt0.id === docker_ref01_data.id);
     });
 });
 function basicSetup(extra) {

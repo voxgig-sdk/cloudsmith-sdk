@@ -81,6 +81,7 @@ class TestPackageDenyPolicyEntity:
 
         package_deny_policy_ref01_data = helpers.to_map(runner.entity_data(package_deny_policy_ref01_ent.create(package_deny_policy_ref01_data, None)))
         assert package_deny_policy_ref01_data is not None
+        assert package_deny_policy_ref01_data["id"] is not None
 
         # LIST
         package_deny_policy_ref01_match = {
@@ -90,8 +91,14 @@ class TestPackageDenyPolicyEntity:
         package_deny_policy_ref01_list_result = package_deny_policy_ref01_ent.list(package_deny_policy_ref01_match, None)
         assert isinstance(package_deny_policy_ref01_list_result, list)
 
+        found_item = vs.select(
+            runner.entity_list_to_data(package_deny_policy_ref01_list_result),
+            {"id": package_deny_policy_ref01_data["id"]})
+        assert not vs.isempty(found_item)
+
         # UPDATE
         package_deny_policy_ref01_data_up0_up = {
+            "id": package_deny_policy_ref01_data["id"],
             "org_id": setup["idmap"]["org_id"],
         }
 
@@ -101,12 +108,17 @@ class TestPackageDenyPolicyEntity:
 
         package_deny_policy_ref01_resdata_up0 = helpers.to_map(runner.entity_data(package_deny_policy_ref01_ent.update(package_deny_policy_ref01_data_up0_up, None)))
         assert package_deny_policy_ref01_resdata_up0 is not None
+        assert package_deny_policy_ref01_resdata_up0["id"] == package_deny_policy_ref01_data_up0_up["id"]
         assert package_deny_policy_ref01_resdata_up0[package_deny_policy_ref01_markdef_up0_name] == package_deny_policy_ref01_markdef_up0_value
 
         # LOAD
-        package_deny_policy_ref01_match_dt0 = {}
+        package_deny_policy_ref01_match_dt0 = {
+            "id": package_deny_policy_ref01_data["id"],
+        }
         package_deny_policy_ref01_data_dt0_loaded = package_deny_policy_ref01_ent.load(package_deny_policy_ref01_match_dt0, None)
-        assert package_deny_policy_ref01_data_dt0_loaded is not None
+        package_deny_policy_ref01_data_dt0_load_result = helpers.to_map(runner.entity_data(package_deny_policy_ref01_data_dt0_loaded))
+        assert package_deny_policy_ref01_data_dt0_load_result is not None
+        assert package_deny_policy_ref01_data_dt0_load_result["id"] == package_deny_policy_ref01_data["id"]
 
 
 

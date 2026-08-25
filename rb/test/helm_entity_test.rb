@@ -77,6 +77,7 @@ class HelmEntityTest < Minitest::Test
     helm_ref01_data_result = helm_ref01_ent.create(helm_ref01_data, nil)
     helm_ref01_data = Helpers.to_map(helm_ref01_data_result.respond_to?(:data_get) ? helm_ref01_data_result.data_get : helm_ref01_data_result)
     assert !helm_ref01_data.nil?
+    assert !helm_ref01_data["id"].nil?
 
     # LIST
     helm_ref01_match = {
@@ -87,8 +88,14 @@ class HelmEntityTest < Minitest::Test
     helm_ref01_list_result = helm_ref01_ent.list(helm_ref01_match, nil)
     assert helm_ref01_list_result.is_a?(Array)
 
+    found_item = Vs.select(
+      Runner.entity_list_to_data(helm_ref01_list_result),
+      { "id" => helm_ref01_data["id"] })
+    assert !Vs.isempty(found_item)
+
     # UPDATE
     helm_ref01_data_up0_up = {
+      "id" => helm_ref01_data["id"],
       "identifier" => setup[:idmap]["identifier"],
       "owner" => setup[:idmap]["owner"],
     }
@@ -100,12 +107,17 @@ class HelmEntityTest < Minitest::Test
     helm_ref01_resdata_up0_result = helm_ref01_ent.update(helm_ref01_data_up0_up, nil)
     helm_ref01_resdata_up0 = Helpers.to_map(helm_ref01_resdata_up0_result.respond_to?(:data_get) ? helm_ref01_resdata_up0_result.data_get : helm_ref01_resdata_up0_result)
     assert !helm_ref01_resdata_up0.nil?
+    assert_equal helm_ref01_resdata_up0["id"], helm_ref01_data_up0_up["id"]
     assert_equal helm_ref01_resdata_up0[helm_ref01_markdef_up0_name], helm_ref01_markdef_up0_value
 
     # LOAD
-    helm_ref01_match_dt0 = {}
+    helm_ref01_match_dt0 = {
+      "id" => helm_ref01_data["id"],
+    }
     helm_ref01_data_dt0_loaded = helm_ref01_ent.load(helm_ref01_match_dt0, nil)
-    assert !helm_ref01_data_dt0_loaded.nil?
+    helm_ref01_data_dt0_load_result = Helpers.to_map(helm_ref01_data_dt0_loaded.respond_to?(:data_get) ? helm_ref01_data_dt0_loaded.data_get : helm_ref01_data_dt0_loaded)
+    assert !helm_ref01_data_dt0_load_result.nil?
+    assert_equal helm_ref01_data_dt0_load_result["id"], helm_ref01_data["id"]
 
   end
 end

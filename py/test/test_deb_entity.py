@@ -82,6 +82,7 @@ class TestDebEntity:
 
         deb_ref01_data = helpers.to_map(runner.entity_data(deb_ref01_ent.create(deb_ref01_data, None)))
         assert deb_ref01_data is not None
+        assert deb_ref01_data["id"] is not None
 
         # LIST
         deb_ref01_match = {
@@ -92,8 +93,14 @@ class TestDebEntity:
         deb_ref01_list_result = deb_ref01_ent.list(deb_ref01_match, None)
         assert isinstance(deb_ref01_list_result, list)
 
+        found_item = vs.select(
+            runner.entity_list_to_data(deb_ref01_list_result),
+            {"id": deb_ref01_data["id"]})
+        assert not vs.isempty(found_item)
+
         # UPDATE
         deb_ref01_data_up0_up = {
+            "id": deb_ref01_data["id"],
             "identifier": setup["idmap"]["identifier"],
             "owner": setup["idmap"]["owner"],
         }
@@ -104,12 +111,17 @@ class TestDebEntity:
 
         deb_ref01_resdata_up0 = helpers.to_map(runner.entity_data(deb_ref01_ent.update(deb_ref01_data_up0_up, None)))
         assert deb_ref01_resdata_up0 is not None
+        assert deb_ref01_resdata_up0["id"] == deb_ref01_data_up0_up["id"]
         assert deb_ref01_resdata_up0[deb_ref01_markdef_up0_name] == deb_ref01_markdef_up0_value
 
         # LOAD
-        deb_ref01_match_dt0 = {}
+        deb_ref01_match_dt0 = {
+            "id": deb_ref01_data["id"],
+        }
         deb_ref01_data_dt0_loaded = deb_ref01_ent.load(deb_ref01_match_dt0, None)
-        assert deb_ref01_data_dt0_loaded is not None
+        deb_ref01_data_dt0_load_result = helpers.to_map(runner.entity_data(deb_ref01_data_dt0_loaded))
+        assert deb_ref01_data_dt0_load_result is not None
+        assert deb_ref01_data_dt0_load_result["id"] == deb_ref01_data["id"]
 
 
 

@@ -77,21 +77,28 @@ const utility_1 = require("../../utility");
         swift_ref01_data['identifier'] = setup.idmap['identifier01'];
         swift_ref01_data['owner'] = setup.idmap['owner01'];
         swift_ref01_data = (await swift_ref01_ent.create(swift_ref01_data)).data();
-        (0, node_assert_1.default)(null != swift_ref01_data);
+        (0, node_assert_1.default)(null != swift_ref01_data.id);
         // LIST
         const swift_ref01_match = {};
         swift_ref01_match['identifier'] = setup.idmap['identifier01'];
         swift_ref01_match['owner'] = setup.idmap['owner01'];
         const swift_ref01_list = (await swift_ref01_ent.list(swift_ref01_match)).map((e) => e.data());
+        (0, node_assert_1.default)(!isempty(select(swift_ref01_list, { id: swift_ref01_data.id })));
         // UPDATE
         const swift_ref01_data_up0 = {};
+        swift_ref01_data_up0.id = swift_ref01_data.id;
         swift_ref01_data_up0['identifier'] = setup.idmap['identifier'];
         swift_ref01_data_up0['owner'] = setup.idmap['owner'];
         const swift_ref01_markdef_up0 = { name: 'auth_mode', value: 'Mark01-swift_ref01_' + setup.now };
         swift_ref01_data_up0[swift_ref01_markdef_up0.name] = swift_ref01_markdef_up0.value;
         const swift_ref01_resdata_up0 = (await swift_ref01_ent.update(swift_ref01_data_up0)).data();
-        (0, node_assert_1.default)(null != swift_ref01_resdata_up0);
+        (0, node_assert_1.default)(swift_ref01_resdata_up0.id === swift_ref01_data_up0.id);
         (0, node_assert_1.default)(swift_ref01_resdata_up0[swift_ref01_markdef_up0.name] === swift_ref01_markdef_up0.value);
+        // LOAD
+        const swift_ref01_match_dt0 = {};
+        swift_ref01_match_dt0.id = swift_ref01_data.id;
+        const swift_ref01_data_dt0 = (await swift_ref01_ent.load(swift_ref01_match_dt0)).data();
+        (0, node_assert_1.default)(swift_ref01_data_dt0.id === swift_ref01_data.id);
     });
 });
 function basicSetup(extra) {

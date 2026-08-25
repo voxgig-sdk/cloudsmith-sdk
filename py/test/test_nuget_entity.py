@@ -82,6 +82,7 @@ class TestNugetEntity:
 
         nuget_ref01_data = helpers.to_map(runner.entity_data(nuget_ref01_ent.create(nuget_ref01_data, None)))
         assert nuget_ref01_data is not None
+        assert nuget_ref01_data["id"] is not None
 
         # LIST
         nuget_ref01_match = {
@@ -92,8 +93,14 @@ class TestNugetEntity:
         nuget_ref01_list_result = nuget_ref01_ent.list(nuget_ref01_match, None)
         assert isinstance(nuget_ref01_list_result, list)
 
+        found_item = vs.select(
+            runner.entity_list_to_data(nuget_ref01_list_result),
+            {"id": nuget_ref01_data["id"]})
+        assert not vs.isempty(found_item)
+
         # UPDATE
         nuget_ref01_data_up0_up = {
+            "id": nuget_ref01_data["id"],
             "identifier": setup["idmap"]["identifier"],
             "owner": setup["idmap"]["owner"],
         }
@@ -104,12 +111,17 @@ class TestNugetEntity:
 
         nuget_ref01_resdata_up0 = helpers.to_map(runner.entity_data(nuget_ref01_ent.update(nuget_ref01_data_up0_up, None)))
         assert nuget_ref01_resdata_up0 is not None
+        assert nuget_ref01_resdata_up0["id"] == nuget_ref01_data_up0_up["id"]
         assert nuget_ref01_resdata_up0[nuget_ref01_markdef_up0_name] == nuget_ref01_markdef_up0_value
 
         # LOAD
-        nuget_ref01_match_dt0 = {}
+        nuget_ref01_match_dt0 = {
+            "id": nuget_ref01_data["id"],
+        }
         nuget_ref01_data_dt0_loaded = nuget_ref01_ent.load(nuget_ref01_match_dt0, None)
-        assert nuget_ref01_data_dt0_loaded is not None
+        nuget_ref01_data_dt0_load_result = helpers.to_map(runner.entity_data(nuget_ref01_data_dt0_loaded))
+        assert nuget_ref01_data_dt0_load_result is not None
+        assert nuget_ref01_data_dt0_load_result["id"] == nuget_ref01_data["id"]
 
 
 

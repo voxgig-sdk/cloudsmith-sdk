@@ -65,7 +65,7 @@ describe('CranEntity', async () => {
     cran_ref01_data['owner'] = setup.idmap['owner01']
 
     cran_ref01_data = (await cran_ref01_ent.create(cran_ref01_data)).data()
-    assert(null != cran_ref01_data)
+    assert(null != cran_ref01_data.id)
 
 
     // LIST
@@ -75,9 +75,12 @@ describe('CranEntity', async () => {
 
     const cran_ref01_list = (await cran_ref01_ent.list(cran_ref01_match)).map((e: any) => e.data())
 
+    assert(!isempty(select(cran_ref01_list, { id: cran_ref01_data.id })))
+
 
     // UPDATE
     const cran_ref01_data_up0: any = {}
+    cran_ref01_data_up0.id = cran_ref01_data.id
     cran_ref01_data_up0 ['identifier'] = setup.idmap['identifier']
     cran_ref01_data_up0 ['owner'] = setup.idmap['owner']
 
@@ -85,10 +88,16 @@ describe('CranEntity', async () => {
     ;(cran_ref01_data_up0 as any)[cran_ref01_markdef_up0.name] = cran_ref01_markdef_up0.value
 
     const cran_ref01_resdata_up0 = (await cran_ref01_ent.update(cran_ref01_data_up0)).data()
-    assert(null != cran_ref01_resdata_up0)
+    assert(cran_ref01_resdata_up0.id === cran_ref01_data_up0.id)
 
     assert((cran_ref01_resdata_up0 as any)[cran_ref01_markdef_up0.name] === cran_ref01_markdef_up0.value)
 
+
+    // LOAD
+    const cran_ref01_match_dt0: any = {}
+    cran_ref01_match_dt0.id = cran_ref01_data.id
+    const cran_ref01_data_dt0 = (await cran_ref01_ent.load(cran_ref01_match_dt0)).data()
+    assert(cran_ref01_data_dt0.id === cran_ref01_data.id)
 
 
   })

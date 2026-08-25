@@ -42,12 +42,22 @@ class EntitlementEntityTest < Minitest::Test
     entitlement_ref01_data_result = entitlement_ref01_ent.create(entitlement_ref01_data, nil)
     entitlement_ref01_data = Helpers.to_map(entitlement_ref01_data_result.respond_to?(:data_get) ? entitlement_ref01_data_result.data_get : entitlement_ref01_data_result)
     assert !entitlement_ref01_data.nil?
+    assert !entitlement_ref01_data["id"].nil?
 
     # LOAD
-    entitlement_ref01_match_dt0 = {}
+    entitlement_ref01_match_dt0 = {
+      "id" => entitlement_ref01_data["id"],
+    }
     entitlement_ref01_data_dt0_loaded = entitlement_ref01_ent.load(entitlement_ref01_match_dt0, nil)
-    assert !entitlement_ref01_data_dt0_loaded.nil?
+    entitlement_ref01_data_dt0_load_result = Helpers.to_map(entitlement_ref01_data_dt0_loaded.respond_to?(:data_get) ? entitlement_ref01_data_dt0_loaded.data_get : entitlement_ref01_data_dt0_loaded)
+    assert !entitlement_ref01_data_dt0_load_result.nil?
+    assert_equal entitlement_ref01_data_dt0_load_result["id"], entitlement_ref01_data["id"]
 
+    # REMOVE
+    entitlement_ref01_match_rm0 = {
+      "id" => entitlement_ref01_data["id"],
+    }
+    entitlement_ref01_ent.remove(entitlement_ref01_match_rm0, nil)
 
   end
 end

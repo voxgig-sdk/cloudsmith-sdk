@@ -112,6 +112,9 @@ func TestPackageDenyPolicyEntity(t *testing.T) {
 		if packageDenyPolicyRef01Data == nil {
 			t.Fatal("expected create result to be a map")
 		}
+		if packageDenyPolicyRef01Data["id"] == nil {
+			t.Fatal("expected created entity to have an id")
+		}
 
 		// LIST
 		packageDenyPolicyRef01Match := map[string]any{
@@ -122,13 +125,19 @@ func TestPackageDenyPolicyEntity(t *testing.T) {
 		if err != nil {
 			t.Fatalf("list failed: %v", err)
 		}
-		_, packageDenyPolicyRef01ListOk := packageDenyPolicyRef01ListResult.([]any)
+		packageDenyPolicyRef01List, packageDenyPolicyRef01ListOk := packageDenyPolicyRef01ListResult.([]any)
 		if !packageDenyPolicyRef01ListOk {
 			t.Fatalf("expected list result to be an array, got %T", packageDenyPolicyRef01ListResult)
 		}
 
+		foundItem := vs.Select(entityListToData(packageDenyPolicyRef01List), map[string]any{"id": packageDenyPolicyRef01Data["id"]})
+		if vs.IsEmpty(foundItem) {
+			t.Fatal("expected to find created entity in list")
+		}
+
 		// UPDATE
 		packageDenyPolicyRef01DataUp0Up := map[string]any{
+			"id": packageDenyPolicyRef01Data["id"],
 			"org_id": setup.idmap["org_id"],
 		}
 
@@ -144,18 +153,27 @@ func TestPackageDenyPolicyEntity(t *testing.T) {
 		if packageDenyPolicyRef01ResdataUp0 == nil {
 			t.Fatal("expected update result to be a map")
 		}
+		if packageDenyPolicyRef01ResdataUp0["id"] != packageDenyPolicyRef01DataUp0Up["id"] {
+			t.Fatal("expected update result id to match")
+		}
 		if packageDenyPolicyRef01ResdataUp0[packageDenyPolicyRef01MarkdefUp0Name] != packageDenyPolicyRef01MarkdefUp0Value {
 			t.Fatalf("expected %s to be updated, got %v", packageDenyPolicyRef01MarkdefUp0Name, packageDenyPolicyRef01ResdataUp0[packageDenyPolicyRef01MarkdefUp0Name])
 		}
 
 		// LOAD
-		packageDenyPolicyRef01MatchDt0 := map[string]any{}
+		packageDenyPolicyRef01MatchDt0 := map[string]any{
+			"id": packageDenyPolicyRef01Data["id"],
+		}
 		packageDenyPolicyRef01DataDt0Loaded, err := packageDenyPolicyRef01Ent.Load(packageDenyPolicyRef01MatchDt0, nil)
 		if err != nil {
 			t.Fatalf("load failed: %v", err)
 		}
-		if packageDenyPolicyRef01DataDt0Loaded == nil {
-			t.Fatal("expected load result to be non-nil")
+		packageDenyPolicyRef01DataDt0LoadResult := core.ToMapAny(entityData(packageDenyPolicyRef01DataDt0Loaded))
+		if packageDenyPolicyRef01DataDt0LoadResult == nil {
+			t.Fatal("expected load result to be a map")
+		}
+		if packageDenyPolicyRef01DataDt0LoadResult["id"] != packageDenyPolicyRef01Data["id"] {
+			t.Fatal("expected load result id to match")
 		}
 
 	})

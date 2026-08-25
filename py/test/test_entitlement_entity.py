@@ -49,12 +49,22 @@ class TestEntitlementEntity:
 
         entitlement_ref01_data = helpers.to_map(runner.entity_data(entitlement_ref01_ent.create(entitlement_ref01_data, None)))
         assert entitlement_ref01_data is not None
+        assert entitlement_ref01_data["id"] is not None
 
         # LOAD
-        entitlement_ref01_match_dt0 = {}
+        entitlement_ref01_match_dt0 = {
+            "id": entitlement_ref01_data["id"],
+        }
         entitlement_ref01_data_dt0_loaded = entitlement_ref01_ent.load(entitlement_ref01_match_dt0, None)
-        assert entitlement_ref01_data_dt0_loaded is not None
+        entitlement_ref01_data_dt0_load_result = helpers.to_map(runner.entity_data(entitlement_ref01_data_dt0_loaded))
+        assert entitlement_ref01_data_dt0_load_result is not None
+        assert entitlement_ref01_data_dt0_load_result["id"] == entitlement_ref01_data["id"]
 
+        # REMOVE
+        entitlement_ref01_match_rm0 = {
+            "id": entitlement_ref01_data["id"],
+        }
+        entitlement_ref01_ent.remove(entitlement_ref01_match_rm0, None)
 
 
 

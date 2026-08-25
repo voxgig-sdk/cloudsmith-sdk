@@ -59,10 +59,10 @@ Entity operations raise on failure, so wrap them in `try` / `except`:
 
 ```python
 try:
-    userprofile = client.UserProfile().load({"id": "example_id"})
-    print(userprofile)
+    vulnerabilitys = client.Vulnerability().list()
+    print(vulnerabilitys)
 except Exception as err:
-    print(f"load failed: {err}")
+    print(f"list failed: {err}")
 ```
 
 `direct()` does **not** raise — it returns the result envelope. Branch
@@ -128,8 +128,8 @@ client = CloudsmithSDK.test()
 
 # Entity ops return the ENTITY and raises on error;
 # call data_get() for the record.
-userprofile = client.UserProfile().load({"id": "test01"})
-# userprofile contains the mock response record
+vulnerability = client.Vulnerability().list()
+# vulnerability contains the mock response record
 ```
 
 ### Use a custom fetch function
@@ -426,6 +426,7 @@ API path: ``
 | `extra_header_2` | The key for extra header #2 to send to upstream. |
 | `extra_value_1` | The value for extra header #1 to send to upstream. |
 | `extra_value_2` | The value for extra header #2 to send to upstream. |
+| `id` |  |
 | `is_active` | Whether or not this upstream is active and ready for requests. |
 | `mode` | The mode that this upstream should operate in. |
 | `name` | A descriptive name for this upstream source. |
@@ -471,6 +472,7 @@ API path: ``
 | `extra_header_2` | The key for extra header #2 to send to upstream. |
 | `extra_value_1` | The value for extra header #1 to send to upstream. |
 | `extra_value_2` | The value for extra header #2 to send to upstream. |
+| `id` |  |
 | `is_active` | Whether or not this upstream is active and ready for requests. |
 | `mode` | The mode that this upstream should operate in. |
 | `name` | A descriptive name for this upstream source. |
@@ -507,6 +509,7 @@ API path: ``
 | `extra_header_2` | The key for extra header #2 to send to upstream. |
 | `extra_value_1` | The value for extra header #1 to send to upstream. |
 | `extra_value_2` | The value for extra header #2 to send to upstream. |
+| `id` |  |
 | `is_active` | Whether or not this upstream is active and ready for requests. |
 | `mode` | The mode that this upstream should operate in. |
 | `name` | A descriptive name for this upstream source. |
@@ -543,6 +546,7 @@ API path: ``
 | `extra_header_2` | The key for extra header #2 to send to upstream. |
 | `extra_value_1` | The value for extra header #1 to send to upstream. |
 | `extra_value_2` | The value for extra header #2 to send to upstream. |
+| `id` |  |
 | `is_active` | Whether or not this upstream is active and ready for requests. |
 | `mode` | The mode that this upstream should operate in. |
 | `name` | A descriptive name for this upstream source. |
@@ -570,6 +574,7 @@ API path: `/repos/{owner}/{identifier}/upstream/cran/`
 | `extra_header_2` | The key for extra header #2 to send to upstream. |
 | `extra_value_1` | The value for extra header #1 to send to upstream. |
 | `extra_value_2` | The value for extra header #2 to send to upstream. |
+| `id` |  |
 | `is_active` | Whether or not this upstream is active and ready for requests. |
 | `mode` | The mode that this upstream should operate in. |
 | `name` | A descriptive name for this upstream source. |
@@ -602,6 +607,7 @@ API path: `/repos/{owner}/{identifier}/upstream/dart/`
 | `gpg_key_inline` | A public GPG key to associate with packages found on this upstream. |
 | `gpg_key_url` | When provided, Cloudsmith will fetch, validate, and associate a public GPG key found at the provided URL. |
 | `gpg_verification` | The GPG signature verification mode for this upstream. |
+| `id` |  |
 | `include_sources` | When true, source packages will be available from this upstream. |
 | `is_active` | Whether or not this upstream is active and ready for requests. |
 | `mode` | The mode that this upstream should operate in. |
@@ -684,6 +690,7 @@ API path: ``
 | `extra_header_2` | The key for extra header #2 to send to upstream. |
 | `extra_value_1` | The value for extra header #1 to send to upstream. |
 | `extra_value_2` | The value for extra header #2 to send to upstream. |
+| `id` |  |
 | `is_active` | Whether or not this upstream is active and ready for requests. |
 | `mode` | The mode that this upstream should operate in. |
 | `name` | A descriptive name for this upstream source. |
@@ -703,6 +710,7 @@ API path: `/repos/{owner}/{identifier}/upstream/docker/`
 | Field | Description |
 | --- | --- |
 | `claim_value` | The OIDC token claim value that must be present in the token for it to successfully authenticate as the mapped `service_account`. |
+| `id` |  |
 | `service_account` | The service account associated with the provider setting and `claim_value` Note: This field and the dynamic mappings feature are still in early access. |
 
 Operations: List, Load.
@@ -734,6 +742,7 @@ API path: ``
 | `active` | Number of packages with at least 1 download |
 | `bandwidth` |  |
 | `downloads` |  |
+| `id` |  |
 | `inactive` | Packages with zero downloads |
 | `total` | Total number of packages in repo |
 
@@ -766,6 +775,7 @@ API path: `/files/{owner}/{repo}/{identifier}/abort/`
 | `description` | Description of the package format |
 | `distributions` | The distributions supported by this package format |
 | `extensions` | A non-exhaustive list of extensions supported |
+| `id` |  |
 | `name` | Name for the package format |
 | `premium` | If true the package format is a premium-only feature |
 | `premium_plan_id` | The minimum plan id required for this package format |
@@ -844,6 +854,7 @@ API path: ``
 | `extra_header_2` | The key for extra header #2 to send to upstream. |
 | `extra_value_1` | The value for extra header #1 to send to upstream. |
 | `extra_value_2` | The value for extra header #2 to send to upstream. |
+| `id` |  |
 | `is_active` | Whether or not this upstream is active and ready for requests. |
 | `mode` | The mode that this upstream should operate in. |
 | `name` | A descriptive name for this upstream source. |
@@ -871,6 +882,7 @@ API path: `/repos/{owner}/{identifier}/upstream/helm/`
 | `extra_header_2` | The key for extra header #2 to send to upstream. |
 | `extra_value_1` | The value for extra header #1 to send to upstream. |
 | `extra_value_2` | The value for extra header #2 to send to upstream. |
+| `id` |  |
 | `is_active` | Whether or not this upstream is active and ready for requests. |
 | `mode` | The mode that this upstream should operate in. |
 | `name` | A descriptive name for this upstream source. |
@@ -907,6 +919,7 @@ API path: ``
 | `extra_header_2` | The key for extra header #2 to send to upstream. |
 | `extra_value_1` | The value for extra header #1 to send to upstream. |
 | `extra_value_2` | The value for extra header #2 to send to upstream. |
+| `id` |  |
 | `is_active` | Whether or not this upstream is active and ready for requests. |
 | `mode` | The mode that this upstream should operate in. |
 | `name` | A descriptive name for this upstream source. |
@@ -982,6 +995,7 @@ API path: ``
 | `gpg_key_inline` | A public GPG key to associate with packages found on this upstream. |
 | `gpg_key_url` | When provided, Cloudsmith will fetch, validate, and associate a public GPG key found at the provided URL. |
 | `gpg_verification` | The GPG signature verification mode for this upstream. |
+| `id` |  |
 | `is_active` | Whether or not this upstream is active and ready for requests. |
 | `mode` | The mode that this upstream should operate in. |
 | `name` | A descriptive name for this upstream source. |
@@ -1019,6 +1033,7 @@ API path: ``
 
 | Field | Description |
 | --- | --- |
+| `id` |  |
 | `name` |  |
 | `slug` |  |
 | `slug_perm` |  |
@@ -1041,6 +1056,7 @@ API path: `/namespaces/`
 | `context` |  |
 | `event` |  |
 | `event_at` |  |
+| `id` |  |
 | `object` |  |
 | `object_kind` |  |
 | `object_slug_perm` |  |
@@ -1066,6 +1082,7 @@ API path: `/audit-log/{owner}/`
 | `extra_header_2` | The key for extra header #2 to send to upstream. |
 | `extra_value_1` | The value for extra header #1 to send to upstream. |
 | `extra_value_2` | The value for extra header #2 to send to upstream. |
+| `id` |  |
 | `is_active` | Whether or not this upstream is active and ready for requests. |
 | `mode` | The mode that this upstream should operate in. |
 | `name` | A descriptive name for this upstream source. |
@@ -1093,6 +1110,7 @@ API path: `/repos/{owner}/{identifier}/upstream/npm/`
 | `extra_header_2` | The key for extra header #2 to send to upstream. |
 | `extra_value_1` | The value for extra header #1 to send to upstream. |
 | `extra_value_2` | The value for extra header #2 to send to upstream. |
+| `id` |  |
 | `is_active` | Whether or not this upstream is active and ready for requests. |
 | `mode` | The mode that this upstream should operate in. |
 | `name` | A descriptive name for this upstream source. |
@@ -1123,6 +1141,7 @@ API path: ``
 | `country` |  |
 | `created_at` |  |
 | `event_at` |  |
+| `id` |  |
 | `location` | The city/town/area your organization is based in. |
 | `name` |  |
 | `package` |  |
@@ -1167,6 +1186,7 @@ API path: `/orgs/{org}/saml-group-sync/status/`
 | --- | --- |
 | `email` | The email of the user to be invited. |
 | `expires_at` |  |
+| `id` |  |
 | `inviter` |  |
 | `inviter_url` |  |
 | `org` |  |
@@ -1267,6 +1287,7 @@ API path: `/orgs/{org}/members/{member}/update-visibility/`
 | `allow_unknown_licenses` |  |
 | `created_at` |  |
 | `description` |  |
+| `id` |  |
 | `name` |  |
 | `on_violation_quarantine` |  |
 | `package_query_string` |  |
@@ -1285,6 +1306,7 @@ API path: `/orgs/{org}/license-policy/`
 | `allow_unknown_severity` | Denotes whether vulnerabilities detected by a security scan with an unknown severity are permitted by this policy. |
 | `created_at` |  |
 | `description` |  |
+| `id` |  |
 | `min_severity` |  |
 | `name` |  |
 | `on_violation_quarantine` |  |
@@ -1314,6 +1336,7 @@ API path: `/orgs/{org}/saml-authentication`
 | Field | Description |
 | --- | --- |
 | `description` |  |
+| `id` |  |
 | `name` |  |
 | `slug` |  |
 | `slug_perm` |  |
@@ -1460,6 +1483,7 @@ API path: `/packages/{owner}/{repo}/{identifier}/copy/`
 | `created_at` |  |
 | `description` |  |
 | `enabled` | Whether this rule is enabled or disabled. |
+| `id` |  |
 | `name` |  |
 | `package_query_string` | Packages that match this query will trigger this deny rule. |
 | `slug_perm` |  |
@@ -1499,6 +1523,7 @@ API path: `/files/{owner}/{repo}/{identifier}/complete/`
 | `created_at` |  |
 | `description` |  |
 | `evaluation_count` |  |
+| `id` |  |
 | `name` |  |
 | `on_violation_quarantine` |  |
 | `package_query_string` |  |
@@ -1531,6 +1556,7 @@ API path: `/badges/version/{owner}/{repo}/{package_format}/{package_name}/{packa
 | `created_at` |  |
 | `description` |  |
 | `evaluation_count` |  |
+| `id` |  |
 | `min_severity` |  |
 | `name` |  |
 | `on_violation_quarantine` |  |
@@ -1612,6 +1638,7 @@ API path: `/orgs/{org}/openid-connect/`
 | `extra_header_2` | The key for extra header #2 to send to upstream. |
 | `extra_value_1` | The value for extra header #1 to send to upstream. |
 | `extra_value_2` | The value for extra header #2 to send to upstream. |
+| `id` |  |
 | `is_active` | Whether or not this upstream is active and ready for requests. |
 | `mode` | The mode that this upstream should operate in. |
 | `name` | A descriptive name for this upstream source. |
@@ -1641,6 +1668,7 @@ API path: ``
 | --- | --- |
 | `display` |  |
 | `history` |  |
+| `id` |  |
 | `raw` |  |
 
 Operations: Load.
@@ -1695,6 +1723,7 @@ API path: ``
 | `ecdsa_keys` |  |
 | `enforce_eula` | If checked, downloads will explicitly require acceptance of an EULA. |
 | `gpg_keys` |  |
+| `id` |  |
 | `index_files` | If checked, files contained in packages will be indexed, which increase the synchronisation time required for packages. |
 | `is_open_source` |  |
 | `is_private` |  |
@@ -2117,6 +2146,7 @@ API path: ``
 | `gpg_key_inline` | A public GPG key to associate with packages found on this upstream. |
 | `gpg_key_url` | When provided, Cloudsmith will fetch, validate, and associate a public GPG key found at the provided URL. |
 | `gpg_verification` | The GPG signature verification mode for this upstream. |
+| `id` |  |
 | `include_sources` | When checked, source packages will be available from this upstream. |
 | `is_active` | Whether or not this upstream is active and ready for requests. |
 | `mode` | The mode that this upstream should operate in. |
@@ -2155,6 +2185,7 @@ API path: ``
 | `extra_header_2` | The key for extra header #2 to send to upstream. |
 | `extra_value_1` | The value for extra header #1 to send to upstream. |
 | `extra_value_2` | The value for extra header #2 to send to upstream. |
+| `id` |  |
 | `is_active` | Whether or not this upstream is active and ready for requests. |
 | `mode` | The mode that this upstream should operate in. |
 | `name` | A descriptive name for this upstream source. |
@@ -2204,6 +2235,7 @@ API path: ``
 | `created_by` |  |
 | `created_by_url` |  |
 | `description` | The description of the service |
+| `id` |  |
 | `key` | The API key of the service |
 | `key_expires_at` | The time at which the API key will expire. |
 | `name` | The name of the service |
@@ -2239,6 +2271,7 @@ API path: `/status/check/basic/`
 
 | Field | Description |
 | --- | --- |
+| `id` |  |
 | `label` | Name of the storage region |
 | `slug` | Slug for the storage region |
 
@@ -2259,6 +2292,7 @@ API path: `/storage-regions/`
 | `extra_header_2` | The key for extra header #2 to send to upstream. |
 | `extra_value_1` | The value for extra header #1 to send to upstream. |
 | `extra_value_2` | The value for extra header #2 to send to upstream. |
+| `id` |  |
 | `is_active` | Whether or not this upstream is active and ready for requests. |
 | `mode` | The mode that this upstream should operate in. |
 | `name` | A descriptive name for this upstream source. |
@@ -2391,6 +2425,7 @@ API path: `/user/self/`
 | --- | --- |
 | `company` |  |
 | `first_name` |  |
+| `id` |  |
 | `job_title` |  |
 | `joined_at` |  |
 | `last_name` |  |
@@ -2437,6 +2472,7 @@ API path: ``
 | --- | --- |
 | `created_at` | The time this scan result was stored. |
 | `has_vulnerabilities` | Do the results contain any known vulnerabilities? |
+| `id` |  |
 | `identifier` |  |
 | `max_severity` |  |
 | `num_vulnerabilities` |  |
@@ -2535,6 +2571,7 @@ Create an instance: `cargo = client.Cargo()`
 | `extra_header_2` | `str` | The key for extra header #2 to send to upstream. |
 | `extra_value_1` | `str` | The value for extra header #1 to send to upstream. |
 | `extra_value_2` | `str` | The value for extra header #2 to send to upstream. |
+| `id` | `str` |  |
 | `is_active` | `bool` | Whether or not this upstream is active and ready for requests. |
 | `mode` | `str` | The mode that this upstream should operate in. |
 | `name` | `str` | A descriptive name for this upstream source. |
@@ -2605,6 +2642,7 @@ Create an instance: `composer = client.Composer()`
 | `extra_header_2` | `str` | The key for extra header #2 to send to upstream. |
 | `extra_value_1` | `str` | The value for extra header #1 to send to upstream. |
 | `extra_value_2` | `str` | The value for extra header #2 to send to upstream. |
+| `id` | `str` |  |
 | `is_active` | `bool` | Whether or not this upstream is active and ready for requests. |
 | `mode` | `str` | The mode that this upstream should operate in. |
 | `name` | `str` | A descriptive name for this upstream source. |
@@ -2670,6 +2708,7 @@ Create an instance: `conda = client.Conda()`
 | `extra_header_2` | `str` | The key for extra header #2 to send to upstream. |
 | `extra_value_1` | `str` | The value for extra header #1 to send to upstream. |
 | `extra_value_2` | `str` | The value for extra header #2 to send to upstream. |
+| `id` | `str` |  |
 | `is_active` | `bool` | Whether or not this upstream is active and ready for requests. |
 | `mode` | `str` | The mode that this upstream should operate in. |
 | `name` | `str` | A descriptive name for this upstream source. |
@@ -2735,6 +2774,7 @@ Create an instance: `cran = client.Cran()`
 | `extra_header_2` | `str` | The key for extra header #2 to send to upstream. |
 | `extra_value_1` | `str` | The value for extra header #1 to send to upstream. |
 | `extra_value_2` | `str` | The value for extra header #2 to send to upstream. |
+| `id` | `str` |  |
 | `is_active` | `bool` | Whether or not this upstream is active and ready for requests. |
 | `mode` | `str` | The mode that this upstream should operate in. |
 | `name` | `str` | A descriptive name for this upstream source. |
@@ -2795,6 +2835,7 @@ Create an instance: `dart = client.Dart()`
 | `extra_header_2` | `str` | The key for extra header #2 to send to upstream. |
 | `extra_value_1` | `str` | The value for extra header #1 to send to upstream. |
 | `extra_value_2` | `str` | The value for extra header #2 to send to upstream. |
+| `id` | `str` |  |
 | `is_active` | `bool` | Whether or not this upstream is active and ready for requests. |
 | `mode` | `str` | The mode that this upstream should operate in. |
 | `name` | `str` | A descriptive name for this upstream source. |
@@ -2860,6 +2901,7 @@ Create an instance: `deb = client.Deb()`
 | `gpg_key_inline` | `str` | A public GPG key to associate with packages found on this upstream. |
 | `gpg_key_url` | `str` | When provided, Cloudsmith will fetch, validate, and associate a public GPG key found at the provided URL. |
 | `gpg_verification` | `str` | The GPG signature verification mode for this upstream. |
+| `id` | `str` |  |
 | `include_sources` | `bool` | When true, source packages will be available from this upstream. |
 | `is_active` | `bool` | Whether or not this upstream is active and ready for requests. |
 | `mode` | `str` | The mode that this upstream should operate in. |
@@ -2980,6 +3022,7 @@ Create an instance: `docker = client.Docker()`
 | `extra_header_2` | `str` | The key for extra header #2 to send to upstream. |
 | `extra_value_1` | `str` | The value for extra header #1 to send to upstream. |
 | `extra_value_2` | `str` | The value for extra header #2 to send to upstream. |
+| `id` | `str` |  |
 | `is_active` | `bool` | Whether or not this upstream is active and ready for requests. |
 | `mode` | `str` | The mode that this upstream should operate in. |
 | `name` | `str` | A descriptive name for this upstream source. |
@@ -3030,6 +3073,7 @@ Create an instance: `dynamic_mapping = client.DynamicMapping()`
 | Field | Type | Description |
 | --- | --- | --- |
 | `claim_value` | `str` | The OIDC token claim value that must be present in the token for it to successfully authenticate as the mapped `service_account`. |
+| `id` | `str` |  |
 | `service_account` | `str` | The service account associated with the provider setting and `claim_value` Note: This field and the dynamic mappings feature are still in early access. |
 
 #### Example: Load
@@ -3074,6 +3118,7 @@ Create an instance: `entitlement = client.Entitlement()`
 | `active` | `int` | Number of packages with at least 1 download |
 | `bandwidth` | `dict` |  |
 | `downloads` | `dict` |  |
+| `id` | `str` |  |
 | `inactive` | `int` | Packages with zero downloads |
 | `total` | `int` | Total number of packages in repo |
 
@@ -3139,6 +3184,7 @@ Create an instance: `format = client.Format()`
 | `description` | `str` | Description of the package format |
 | `distributions` | `list` | The distributions supported by this package format |
 | `extensions` | `list` | A non-exhaustive list of extensions supported |
+| `id` | `str` |  |
 | `name` | `str` | Name for the package format |
 | `premium` | `bool` | If true the package format is a premium-only feature |
 | `premium_plan_id` | `str` | The minimum plan id required for this package format |
@@ -3260,6 +3306,7 @@ Create an instance: `helm = client.Helm()`
 | `extra_header_2` | `str` | The key for extra header #2 to send to upstream. |
 | `extra_value_1` | `str` | The value for extra header #1 to send to upstream. |
 | `extra_value_2` | `str` | The value for extra header #2 to send to upstream. |
+| `id` | `str` |  |
 | `is_active` | `bool` | Whether or not this upstream is active and ready for requests. |
 | `mode` | `str` | The mode that this upstream should operate in. |
 | `name` | `str` | A descriptive name for this upstream source. |
@@ -3320,6 +3367,7 @@ Create an instance: `hex = client.Hex()`
 | `extra_header_2` | `str` | The key for extra header #2 to send to upstream. |
 | `extra_value_1` | `str` | The value for extra header #1 to send to upstream. |
 | `extra_value_2` | `str` | The value for extra header #2 to send to upstream. |
+| `id` | `str` |  |
 | `is_active` | `bool` | Whether or not this upstream is active and ready for requests. |
 | `mode` | `str` | The mode that this upstream should operate in. |
 | `name` | `str` | A descriptive name for this upstream source. |
@@ -3385,6 +3433,7 @@ Create an instance: `huggingface = client.Huggingface()`
 | `extra_header_2` | `str` | The key for extra header #2 to send to upstream. |
 | `extra_value_1` | `str` | The value for extra header #1 to send to upstream. |
 | `extra_value_2` | `str` | The value for extra header #2 to send to upstream. |
+| `id` | `str` |  |
 | `is_active` | `bool` | Whether or not this upstream is active and ready for requests. |
 | `mode` | `str` | The mode that this upstream should operate in. |
 | `name` | `str` | A descriptive name for this upstream source. |
@@ -3473,6 +3522,7 @@ Create an instance: `maven = client.Maven()`
 | `gpg_key_inline` | `str` | A public GPG key to associate with packages found on this upstream. |
 | `gpg_key_url` | `str` | When provided, Cloudsmith will fetch, validate, and associate a public GPG key found at the provided URL. |
 | `gpg_verification` | `str` | The GPG signature verification mode for this upstream. |
+| `id` | `str` |  |
 | `is_active` | `bool` | Whether or not this upstream is active and ready for requests. |
 | `mode` | `str` | The mode that this upstream should operate in. |
 | `name` | `str` | A descriptive name for this upstream source. |
@@ -3533,6 +3583,7 @@ Create an instance: `namespace = client.Namespace()`
 
 | Field | Type | Description |
 | --- | --- | --- |
+| `id` | `str` |  |
 | `name` | `str` |  |
 | `slug` | `str` |  |
 | `slug_perm` | `str` |  |
@@ -3574,6 +3625,7 @@ Create an instance: `namespace_audit_log = client.NamespaceAuditLog()`
 | `context` | `str` |  |
 | `event` | `str` |  |
 | `event_at` | `str` |  |
+| `id` | `str` |  |
 | `object` | `str` |  |
 | `object_kind` | `str` |  |
 | `object_slug_perm` | `str` |  |
@@ -3615,6 +3667,7 @@ Create an instance: `npm = client.Npm()`
 | `extra_header_2` | `str` | The key for extra header #2 to send to upstream. |
 | `extra_value_1` | `str` | The value for extra header #1 to send to upstream. |
 | `extra_value_2` | `str` | The value for extra header #2 to send to upstream. |
+| `id` | `str` |  |
 | `is_active` | `bool` | Whether or not this upstream is active and ready for requests. |
 | `mode` | `str` | The mode that this upstream should operate in. |
 | `name` | `str` | A descriptive name for this upstream source. |
@@ -3675,6 +3728,7 @@ Create an instance: `nuget = client.Nuget()`
 | `extra_header_2` | `str` | The key for extra header #2 to send to upstream. |
 | `extra_value_1` | `str` | The value for extra header #1 to send to upstream. |
 | `extra_value_2` | `str` | The value for extra header #2 to send to upstream. |
+| `id` | `str` |  |
 | `is_active` | `bool` | Whether or not this upstream is active and ready for requests. |
 | `mode` | `str` | The mode that this upstream should operate in. |
 | `name` | `str` | A descriptive name for this upstream source. |
@@ -3735,6 +3789,7 @@ Create an instance: `org = client.Org()`
 | `country` | `str` |  |
 | `created_at` | `str` |  |
 | `event_at` | `str` |  |
+| `id` | `str` |  |
 | `location` | `str` | The city/town/area your organization is based in. |
 | `name` | `str` |  |
 | `package` | `dict` |  |
@@ -3851,6 +3906,7 @@ Create an instance: `organization_invite = client.OrganizationInvite()`
 | --- | --- | --- |
 | `email` | `str` | The email of the user to be invited. |
 | `expires_at` | `str` |  |
+| `id` | `str` |  |
 | `inviter` | `str` |  |
 | `inviter_url` | `str` |  |
 | `org` | `str` |  |
@@ -4026,6 +4082,7 @@ Create an instance: `organization_package_license_policy = client.OrganizationPa
 | `allow_unknown_licenses` | `bool` |  |
 | `created_at` | `str` |  |
 | `description` | `str` |  |
+| `id` | `str` |  |
 | `name` | `str` |  |
 | `on_violation_quarantine` | `bool` |  |
 | `package_query_string` | `str` |  |
@@ -4076,6 +4133,7 @@ Create an instance: `organization_package_vulnerability_policy = client.Organiza
 | `allow_unknown_severity` | `bool` | Denotes whether vulnerabilities detected by a security scan with an unknown severity are permitted by this policy. |
 | `created_at` | `str` |  |
 | `description` | `str` |  |
+| `id` | `str` |  |
 | `min_severity` | `str` |  |
 | `name` | `str` |  |
 | `on_violation_quarantine` | `bool` |  |
@@ -4150,6 +4208,7 @@ Create an instance: `organization_team = client.OrganizationTeam()`
 | Field | Type | Description |
 | --- | --- | --- |
 | `description` | `str` |  |
+| `id` | `str` |  |
 | `name` | `str` |  |
 | `slug` | `str` |  |
 | `slug_perm` | `str` |  |
@@ -4381,6 +4440,7 @@ Create an instance: `package_deny_policy = client.PackageDenyPolicy()`
 | `created_at` | `str` |  |
 | `description` | `str` |  |
 | `enabled` | `bool` | Whether this rule is enabled or disabled. |
+| `id` | `str` |  |
 | `name` | `str` |  |
 | `package_query_string` | `str` | Packages that match this query will trigger this deny rule. |
 | `slug_perm` | `str` |  |
@@ -4475,6 +4535,7 @@ Create an instance: `package_license_policy_evaluation = client.PackageLicensePo
 | `created_at` | `str` |  |
 | `description` | `str` |  |
 | `evaluation_count` | `int` |  |
+| `id` | `str` |  |
 | `name` | `str` |  |
 | `on_violation_quarantine` | `bool` |  |
 | `package_query_string` | `str` |  |
@@ -4547,6 +4608,7 @@ Create an instance: `package_vulnerability_policy_evaluation = client.PackageVul
 | `created_at` | `str` |  |
 | `description` | `str` |  |
 | `evaluation_count` | `int` |  |
+| `id` | `str` |  |
 | `min_severity` | `str` |  |
 | `name` | `str` |  |
 | `on_violation_quarantine` | `bool` |  |
@@ -4691,6 +4753,7 @@ Create an instance: `python = client.Python()`
 | `extra_header_2` | `str` | The key for extra header #2 to send to upstream. |
 | `extra_value_1` | `str` | The value for extra header #1 to send to upstream. |
 | `extra_value_2` | `str` | The value for extra header #2 to send to upstream. |
+| `id` | `str` |  |
 | `is_active` | `bool` | Whether or not this upstream is active and ready for requests. |
 | `mode` | `str` | The mode that this upstream should operate in. |
 | `name` | `str` | A descriptive name for this upstream source. |
@@ -4746,6 +4809,7 @@ Create an instance: `quota = client.Quota()`
 | --- | --- | --- |
 | `display` | `dict` |  |
 | `history` | `list` |  |
+| `id` | `str` |  |
 | `raw` | `dict` |  |
 
 #### Example: Load
@@ -4805,6 +4869,7 @@ Create an instance: `repo = client.Repo()`
 | `ecdsa_keys` | `list` |  |
 | `enforce_eula` | `bool` | If checked, downloads will explicitly require acceptance of an EULA. |
 | `gpg_keys` | `list` |  |
+| `id` | `str` |  |
 | `index_files` | `bool` | If checked, files contained in packages will be indexed, which increase the synchronisation time required for packages. |
 | `is_open_source` | `bool` |  |
 | `is_private` | `bool` |  |
@@ -5532,6 +5597,7 @@ Create an instance: `rpm = client.Rpm()`
 | `gpg_key_inline` | `str` | A public GPG key to associate with packages found on this upstream. |
 | `gpg_key_url` | `str` | When provided, Cloudsmith will fetch, validate, and associate a public GPG key found at the provided URL. |
 | `gpg_verification` | `str` | The GPG signature verification mode for this upstream. |
+| `id` | `str` |  |
 | `include_sources` | `bool` | When checked, source packages will be available from this upstream. |
 | `is_active` | `bool` | Whether or not this upstream is active and ready for requests. |
 | `mode` | `str` | The mode that this upstream should operate in. |
@@ -5600,6 +5666,7 @@ Create an instance: `ruby = client.Ruby()`
 | `extra_header_2` | `str` | The key for extra header #2 to send to upstream. |
 | `extra_value_1` | `str` | The value for extra header #1 to send to upstream. |
 | `extra_value_2` | `str` | The value for extra header #2 to send to upstream. |
+| `id` | `str` |  |
 | `is_active` | `bool` | Whether or not this upstream is active and ready for requests. |
 | `mode` | `str` | The mode that this upstream should operate in. |
 | `name` | `str` | A descriptive name for this upstream source. |
@@ -5670,6 +5737,7 @@ Create an instance: `service = client.Service()`
 | `created_by` | `str` |  |
 | `created_by_url` | `str` |  |
 | `description` | `str` | The description of the service |
+| `id` | `str` |  |
 | `key` | `str` | The API key of the service |
 | `key_expires_at` | `str` | The time at which the API key will expire. |
 | `name` | `str` | The name of the service |
@@ -5743,6 +5811,7 @@ Create an instance: `storage_region = client.StorageRegion()`
 
 | Field | Type | Description |
 | --- | --- | --- |
+| `id` | `str` |  |
 | `label` | `str` | Name of the storage region |
 | `slug` | `str` | Slug for the storage region |
 
@@ -5785,6 +5854,7 @@ Create an instance: `swift = client.Swift()`
 | `extra_header_2` | `str` | The key for extra header #2 to send to upstream. |
 | `extra_value_1` | `str` | The value for extra header #1 to send to upstream. |
 | `extra_value_2` | `str` | The value for extra header #2 to send to upstream. |
+| `id` | `str` |  |
 | `is_active` | `bool` | Whether or not this upstream is active and ready for requests. |
 | `mode` | `str` | The mode that this upstream should operate in. |
 | `name` | `str` | A descriptive name for this upstream source. |
@@ -5969,6 +6039,7 @@ Create an instance: `user_profile = client.UserProfile()`
 | --- | --- | --- |
 | `company` | `str` |  |
 | `first_name` | `str` |  |
+| `id` | `str` |  |
 | `job_title` | `str` |  |
 | `joined_at` | `str` |  |
 | `last_name` | `str` |  |
@@ -6017,6 +6088,7 @@ Create an instance: `vulnerability = client.Vulnerability()`
 | --- | --- | --- |
 | `created_at` | `str` | The time this scan result was stored. |
 | `has_vulnerabilities` | `bool` | Do the results contain any known vulnerabilities? |
+| `id` | `str` |  |
 | `identifier` | `str` |  |
 | `max_severity` | `str` |  |
 | `num_vulnerabilities` | `int` |  |
@@ -6134,15 +6206,15 @@ Import entity or utility modules directly only when needed.
 
 ### Entity state
 
-Entity instances are stateful. After a successful `load`, the entity
+Entity instances are stateful. After a successful `list`, the entity
 stores the returned data and match criteria internally.
 
 ```python
-userprofile = client.UserProfile()
-userprofile.load({"id": "example_id"})
+vulnerability = client.Vulnerability()
+vulnerability.list()
 
-# userprofile.data_get() now returns the userprofile data from the last load
-# userprofile.match_get() returns the last match criteria
+# vulnerability.data_get() now returns the vulnerability data from the last list
+# vulnerability.match_get() returns the last match criteria
 ```
 
 Call `make()` to create a fresh instance with the same configuration

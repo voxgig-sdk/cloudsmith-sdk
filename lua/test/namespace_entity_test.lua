@@ -92,10 +92,14 @@ describe("NamespaceEntity", function()
     assert.is_table(namespace_ref01_list_result)
 
     -- LOAD
-    local namespace_ref01_match_dt0 = {}
+    local namespace_ref01_match_dt0 = {
+      id = namespace_ref01_data["id"],
+    }
     local namespace_ref01_data_dt0_loaded, err = namespace_ref01_ent:load(namespace_ref01_match_dt0, nil)
     assert.is_nil(err)
-    assert.is_not_nil(namespace_ref01_data_dt0_loaded)
+    local namespace_ref01_data_dt0_load_result = helpers.to_map(type(namespace_ref01_data_dt0_loaded) == 'table' and namespace_ref01_data_dt0_loaded.data_get and namespace_ref01_data_dt0_loaded:data_get() or namespace_ref01_data_dt0_loaded)
+    assert.is_not_nil(namespace_ref01_data_dt0_load_result)
+    assert.are.equal(namespace_ref01_data_dt0_load_result["id"], namespace_ref01_data["id"])
 
   end)
 end)

@@ -113,6 +113,9 @@ func TestPackageLicensePolicyEvaluationEntity(t *testing.T) {
 		if packageLicensePolicyEvaluationRef01Data == nil {
 			t.Fatal("expected create result to be a map")
 		}
+		if packageLicensePolicyEvaluationRef01Data["id"] == nil {
+			t.Fatal("expected created entity to have an id")
+		}
 
 		// LIST
 		packageLicensePolicyEvaluationRef01Match := map[string]any{
@@ -124,19 +127,30 @@ func TestPackageLicensePolicyEvaluationEntity(t *testing.T) {
 		if err != nil {
 			t.Fatalf("list failed: %v", err)
 		}
-		_, packageLicensePolicyEvaluationRef01ListOk := packageLicensePolicyEvaluationRef01ListResult.([]any)
+		packageLicensePolicyEvaluationRef01List, packageLicensePolicyEvaluationRef01ListOk := packageLicensePolicyEvaluationRef01ListResult.([]any)
 		if !packageLicensePolicyEvaluationRef01ListOk {
 			t.Fatalf("expected list result to be an array, got %T", packageLicensePolicyEvaluationRef01ListResult)
 		}
 
+		foundItem := vs.Select(entityListToData(packageLicensePolicyEvaluationRef01List), map[string]any{"id": packageLicensePolicyEvaluationRef01Data["id"]})
+		if vs.IsEmpty(foundItem) {
+			t.Fatal("expected to find created entity in list")
+		}
+
 		// LOAD
-		packageLicensePolicyEvaluationRef01MatchDt0 := map[string]any{}
+		packageLicensePolicyEvaluationRef01MatchDt0 := map[string]any{
+			"id": packageLicensePolicyEvaluationRef01Data["id"],
+		}
 		packageLicensePolicyEvaluationRef01DataDt0Loaded, err := packageLicensePolicyEvaluationRef01Ent.Load(packageLicensePolicyEvaluationRef01MatchDt0, nil)
 		if err != nil {
 			t.Fatalf("load failed: %v", err)
 		}
-		if packageLicensePolicyEvaluationRef01DataDt0Loaded == nil {
-			t.Fatal("expected load result to be non-nil")
+		packageLicensePolicyEvaluationRef01DataDt0LoadResult := core.ToMapAny(entityData(packageLicensePolicyEvaluationRef01DataDt0Loaded))
+		if packageLicensePolicyEvaluationRef01DataDt0LoadResult == nil {
+			t.Fatal("expected load result to be a map")
+		}
+		if packageLicensePolicyEvaluationRef01DataDt0LoadResult["id"] != packageLicensePolicyEvaluationRef01Data["id"] {
+			t.Fatal("expected load result id to match")
 		}
 
 	})

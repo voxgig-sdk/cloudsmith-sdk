@@ -86,6 +86,7 @@ describe("CranEntity", function()
     assert.is_nil(err)
     cran_ref01_data = helpers.to_map(type(cran_ref01_data_result) == 'table' and cran_ref01_data_result.data_get and cran_ref01_data_result:data_get() or cran_ref01_data_result)
     assert.is_not_nil(cran_ref01_data)
+    assert.is_not_nil(cran_ref01_data["id"])
 
     -- LIST
     local cran_ref01_match = {
@@ -97,8 +98,14 @@ describe("CranEntity", function()
     assert.is_nil(err)
     assert.is_table(cran_ref01_list_result)
 
+    local found_item = vs.select(
+      runner.entity_list_to_data(cran_ref01_list_result),
+      { id = cran_ref01_data["id"] })
+    assert.is_false(vs.isempty(found_item))
+
     -- UPDATE
     local cran_ref01_data_up0_up = {
+      id = cran_ref01_data["id"],
       ["identifier"] = setup.idmap["identifier"],
       ["owner"] = setup.idmap["owner"],
     }
@@ -111,13 +118,18 @@ describe("CranEntity", function()
     assert.is_nil(err)
     local cran_ref01_resdata_up0 = helpers.to_map(type(cran_ref01_resdata_up0_result) == 'table' and cran_ref01_resdata_up0_result.data_get and cran_ref01_resdata_up0_result:data_get() or cran_ref01_resdata_up0_result)
     assert.is_not_nil(cran_ref01_resdata_up0)
+    assert.are.equal(cran_ref01_resdata_up0["id"], cran_ref01_data_up0_up["id"])
     assert.are.equal(cran_ref01_resdata_up0[cran_ref01_markdef_up0_name], cran_ref01_markdef_up0_value)
 
     -- LOAD
-    local cran_ref01_match_dt0 = {}
+    local cran_ref01_match_dt0 = {
+      id = cran_ref01_data["id"],
+    }
     local cran_ref01_data_dt0_loaded, err = cran_ref01_ent:load(cran_ref01_match_dt0, nil)
     assert.is_nil(err)
-    assert.is_not_nil(cran_ref01_data_dt0_loaded)
+    local cran_ref01_data_dt0_load_result = helpers.to_map(type(cran_ref01_data_dt0_loaded) == 'table' and cran_ref01_data_dt0_loaded.data_get and cran_ref01_data_dt0_loaded:data_get() or cran_ref01_data_dt0_loaded)
+    assert.is_not_nil(cran_ref01_data_dt0_load_result)
+    assert.are.equal(cran_ref01_data_dt0_load_result["id"], cran_ref01_data["id"])
 
   end)
 end)

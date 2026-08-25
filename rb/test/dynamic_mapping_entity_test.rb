@@ -86,9 +86,13 @@ class DynamicMappingEntityTest < Minitest::Test
     assert dynamic_mapping_ref01_list_result.is_a?(Array)
 
     # LOAD
-    dynamic_mapping_ref01_match_dt0 = {}
+    dynamic_mapping_ref01_match_dt0 = {
+      "id" => dynamic_mapping_ref01_data["id"],
+    }
     dynamic_mapping_ref01_data_dt0_loaded = dynamic_mapping_ref01_ent.load(dynamic_mapping_ref01_match_dt0, nil)
-    assert !dynamic_mapping_ref01_data_dt0_loaded.nil?
+    dynamic_mapping_ref01_data_dt0_load_result = Helpers.to_map(dynamic_mapping_ref01_data_dt0_loaded.respond_to?(:data_get) ? dynamic_mapping_ref01_data_dt0_loaded.data_get : dynamic_mapping_ref01_data_dt0_loaded)
+    assert !dynamic_mapping_ref01_data_dt0_load_result.nil?
+    assert_equal dynamic_mapping_ref01_data_dt0_load_result["id"], dynamic_mapping_ref01_data["id"]
 
   end
 end

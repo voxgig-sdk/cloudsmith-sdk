@@ -87,6 +87,7 @@ class ServiceEntityTest extends TestCase
         $service_ref01_data_result = $service_ref01_ent->create($service_ref01_data, null);
         $service_ref01_data = Helpers::to_map(is_object($service_ref01_data_result) && method_exists($service_ref01_data_result, 'data_get') ? $service_ref01_data_result->data_get() : $service_ref01_data_result);
         $this->assertNotNull($service_ref01_data);
+        $this->assertNotNull($service_ref01_data["id"]);
 
         // LIST
         $service_ref01_match = [
@@ -96,8 +97,14 @@ class ServiceEntityTest extends TestCase
         $service_ref01_list_result = $service_ref01_ent->list($service_ref01_match, null);
         $this->assertIsArray($service_ref01_list_result);
 
+        $found_item = sdk_select(
+            Runner::entity_list_to_data($service_ref01_list_result),
+            ["id" => $service_ref01_data["id"]]);
+        $this->assertNotEmpty($found_item);
+
         // UPDATE
         $service_ref01_data_up0_up = [
+            "id" => $service_ref01_data["id"],
             "org_id" => $setup["idmap"]["org_id"],
         ];
 
@@ -108,12 +115,17 @@ class ServiceEntityTest extends TestCase
         $service_ref01_resdata_up0_result = $service_ref01_ent->update($service_ref01_data_up0_up, null);
         $service_ref01_resdata_up0 = Helpers::to_map(is_object($service_ref01_resdata_up0_result) && method_exists($service_ref01_resdata_up0_result, 'data_get') ? $service_ref01_resdata_up0_result->data_get() : $service_ref01_resdata_up0_result);
         $this->assertNotNull($service_ref01_resdata_up0);
+        $this->assertEquals($service_ref01_resdata_up0["id"], $service_ref01_data_up0_up["id"]);
         $this->assertEquals($service_ref01_resdata_up0[$service_ref01_markdef_up0_name], $service_ref01_markdef_up0_value);
 
         // LOAD
-        $service_ref01_match_dt0 = [];
+        $service_ref01_match_dt0 = [
+            "id" => $service_ref01_data["id"],
+        ];
         $service_ref01_data_dt0_loaded = $service_ref01_ent->load($service_ref01_match_dt0, null);
-        $this->assertNotNull($service_ref01_data_dt0_loaded);
+        $service_ref01_data_dt0_load_result = Helpers::to_map(is_object($service_ref01_data_dt0_loaded) && method_exists($service_ref01_data_dt0_loaded, 'data_get') ? $service_ref01_data_dt0_loaded->data_get() : $service_ref01_data_dt0_loaded);
+        $this->assertNotNull($service_ref01_data_dt0_load_result);
+        $this->assertEquals($service_ref01_data_dt0_load_result["id"], $service_ref01_data["id"]);
 
     }
 }

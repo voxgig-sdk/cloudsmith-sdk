@@ -65,7 +65,7 @@ describe('DebEntity', async () => {
     deb_ref01_data['owner'] = setup.idmap['owner01']
 
     deb_ref01_data = (await deb_ref01_ent.create(deb_ref01_data)).data()
-    assert(null != deb_ref01_data)
+    assert(null != deb_ref01_data.id)
 
 
     // LIST
@@ -75,9 +75,12 @@ describe('DebEntity', async () => {
 
     const deb_ref01_list = (await deb_ref01_ent.list(deb_ref01_match)).map((e: any) => e.data())
 
+    assert(!isempty(select(deb_ref01_list, { id: deb_ref01_data.id })))
+
 
     // UPDATE
     const deb_ref01_data_up0: any = {}
+    deb_ref01_data_up0.id = deb_ref01_data.id
     deb_ref01_data_up0 ['identifier'] = setup.idmap['identifier']
     deb_ref01_data_up0 ['owner'] = setup.idmap['owner']
 
@@ -85,10 +88,16 @@ describe('DebEntity', async () => {
     ;(deb_ref01_data_up0 as any)[deb_ref01_markdef_up0.name] = deb_ref01_markdef_up0.value
 
     const deb_ref01_resdata_up0 = (await deb_ref01_ent.update(deb_ref01_data_up0)).data()
-    assert(null != deb_ref01_resdata_up0)
+    assert(deb_ref01_resdata_up0.id === deb_ref01_data_up0.id)
 
     assert((deb_ref01_resdata_up0 as any)[deb_ref01_markdef_up0.name] === deb_ref01_markdef_up0.value)
 
+
+    // LOAD
+    const deb_ref01_match_dt0: any = {}
+    deb_ref01_match_dt0.id = deb_ref01_data.id
+    const deb_ref01_data_dt0 = (await deb_ref01_ent.load(deb_ref01_match_dt0)).data()
+    assert(deb_ref01_data_dt0.id === deb_ref01_data.id)
 
 
   })

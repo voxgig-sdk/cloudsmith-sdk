@@ -24,6 +24,11 @@ main: kit: entity: format: {
       type: "`$ARRAY`"
     }
     {
+      name: "id"
+      req: false
+      type: "`$STRING`"
+    }
+    {
       name: "name"
       req: true
       short: "Name for the package format"
@@ -60,6 +65,11 @@ main: kit: entity: format: {
       type: "`$OBJECT`"
     }
   ]
+
+  id: {
+    field: "id"
+    name: "id"
+  }
 
   name: "format"
   op: {

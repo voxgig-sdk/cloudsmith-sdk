@@ -82,6 +82,7 @@ class TestRepoEntity:
 
         repo_ref01_data = helpers.to_map(runner.entity_data(repo_ref01_ent.create(repo_ref01_data, None)))
         assert repo_ref01_data is not None
+        assert repo_ref01_data["id"] is not None
 
         # LIST
         repo_ref01_match = {}
@@ -89,8 +90,14 @@ class TestRepoEntity:
         repo_ref01_list_result = repo_ref01_ent.list(repo_ref01_match, None)
         assert isinstance(repo_ref01_list_result, list)
 
+        found_item = vs.select(
+            runner.entity_list_to_data(repo_ref01_list_result),
+            {"id": repo_ref01_data["id"]})
+        assert not vs.isempty(found_item)
+
         # UPDATE
         repo_ref01_data_up0_up = {
+            "id": repo_ref01_data["id"],
             "owner": setup["idmap"]["owner"],
         }
 
@@ -100,19 +107,34 @@ class TestRepoEntity:
 
         repo_ref01_resdata_up0 = helpers.to_map(runner.entity_data(repo_ref01_ent.update(repo_ref01_data_up0_up, None)))
         assert repo_ref01_resdata_up0 is not None
+        assert repo_ref01_resdata_up0["id"] == repo_ref01_data_up0_up["id"]
         assert repo_ref01_resdata_up0[repo_ref01_markdef_up0_name] == repo_ref01_markdef_up0_value
 
         # LOAD
-        repo_ref01_match_dt0 = {}
+        repo_ref01_match_dt0 = {
+            "id": repo_ref01_data["id"],
+        }
         repo_ref01_data_dt0_loaded = repo_ref01_ent.load(repo_ref01_match_dt0, None)
-        assert repo_ref01_data_dt0_loaded is not None
+        repo_ref01_data_dt0_load_result = helpers.to_map(runner.entity_data(repo_ref01_data_dt0_loaded))
+        assert repo_ref01_data_dt0_load_result is not None
+        assert repo_ref01_data_dt0_load_result["id"] == repo_ref01_data["id"]
 
+        # REMOVE
+        repo_ref01_match_rm0 = {
+            "id": repo_ref01_data["id"],
+        }
+        repo_ref01_ent.remove(repo_ref01_match_rm0, None)
 
         # LIST
         repo_ref01_match_rt0 = {}
 
         repo_ref01_list_rt0_result = repo_ref01_ent.list(repo_ref01_match_rt0, None)
         assert isinstance(repo_ref01_list_rt0_result, list)
+
+        not_found_item = vs.select(
+            runner.entity_list_to_data(repo_ref01_list_rt0_result),
+            {"id": repo_ref01_data["id"]})
+        assert vs.isempty(not_found_item)
 
 
 

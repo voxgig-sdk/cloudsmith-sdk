@@ -88,9 +88,13 @@ class TestNamespaceEntity:
         assert isinstance(namespace_ref01_list_result, list)
 
         # LOAD
-        namespace_ref01_match_dt0 = {}
+        namespace_ref01_match_dt0 = {
+            "id": namespace_ref01_data["id"],
+        }
         namespace_ref01_data_dt0_loaded = namespace_ref01_ent.load(namespace_ref01_match_dt0, None)
-        assert namespace_ref01_data_dt0_loaded is not None
+        namespace_ref01_data_dt0_load_result = helpers.to_map(runner.entity_data(namespace_ref01_data_dt0_loaded))
+        assert namespace_ref01_data_dt0_load_result is not None
+        assert namespace_ref01_data_dt0_load_result["id"] == namespace_ref01_data["id"]
 
 
 

@@ -61,13 +61,19 @@ func TestNamespaceAuditLogEntity(t *testing.T) {
 
 		// LOAD
 		namespaceAuditLogRef01Ent := client.NamespaceAuditLog(nil)
-		namespaceAuditLogRef01MatchDt0 := map[string]any{}
+		namespaceAuditLogRef01MatchDt0 := map[string]any{
+			"id": namespaceAuditLogRef01Data["id"],
+		}
 		namespaceAuditLogRef01DataDt0Loaded, err := namespaceAuditLogRef01Ent.Load(namespaceAuditLogRef01MatchDt0, nil)
 		if err != nil {
 			t.Fatalf("load failed: %v", err)
 		}
-		if namespaceAuditLogRef01DataDt0Loaded == nil {
-			t.Fatal("expected load result to be non-nil")
+		namespaceAuditLogRef01DataDt0LoadResult := core.ToMapAny(entityData(namespaceAuditLogRef01DataDt0Loaded))
+		if namespaceAuditLogRef01DataDt0LoadResult == nil {
+			t.Fatal("expected load result to be a map")
+		}
+		if namespaceAuditLogRef01DataDt0LoadResult["id"] != namespaceAuditLogRef01Data["id"] {
+			t.Fatal("expected load result id to match")
 		}
 
 	})

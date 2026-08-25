@@ -113,6 +113,9 @@ func TestPythonEntity(t *testing.T) {
 		if pythonRef01Data == nil {
 			t.Fatal("expected create result to be a map")
 		}
+		if pythonRef01Data["id"] == nil {
+			t.Fatal("expected created entity to have an id")
+		}
 
 		// LIST
 		pythonRef01Match := map[string]any{
@@ -124,13 +127,19 @@ func TestPythonEntity(t *testing.T) {
 		if err != nil {
 			t.Fatalf("list failed: %v", err)
 		}
-		_, pythonRef01ListOk := pythonRef01ListResult.([]any)
+		pythonRef01List, pythonRef01ListOk := pythonRef01ListResult.([]any)
 		if !pythonRef01ListOk {
 			t.Fatalf("expected list result to be an array, got %T", pythonRef01ListResult)
 		}
 
+		foundItem := vs.Select(entityListToData(pythonRef01List), map[string]any{"id": pythonRef01Data["id"]})
+		if vs.IsEmpty(foundItem) {
+			t.Fatal("expected to find created entity in list")
+		}
+
 		// UPDATE
 		pythonRef01DataUp0Up := map[string]any{
+			"id": pythonRef01Data["id"],
 			"identifier": setup.idmap["identifier"],
 			"owner": setup.idmap["owner"],
 		}
@@ -147,18 +156,27 @@ func TestPythonEntity(t *testing.T) {
 		if pythonRef01ResdataUp0 == nil {
 			t.Fatal("expected update result to be a map")
 		}
+		if pythonRef01ResdataUp0["id"] != pythonRef01DataUp0Up["id"] {
+			t.Fatal("expected update result id to match")
+		}
 		if pythonRef01ResdataUp0[pythonRef01MarkdefUp0Name] != pythonRef01MarkdefUp0Value {
 			t.Fatalf("expected %s to be updated, got %v", pythonRef01MarkdefUp0Name, pythonRef01ResdataUp0[pythonRef01MarkdefUp0Name])
 		}
 
 		// LOAD
-		pythonRef01MatchDt0 := map[string]any{}
+		pythonRef01MatchDt0 := map[string]any{
+			"id": pythonRef01Data["id"],
+		}
 		pythonRef01DataDt0Loaded, err := pythonRef01Ent.Load(pythonRef01MatchDt0, nil)
 		if err != nil {
 			t.Fatalf("load failed: %v", err)
 		}
-		if pythonRef01DataDt0Loaded == nil {
-			t.Fatal("expected load result to be non-nil")
+		pythonRef01DataDt0LoadResult := core.ToMapAny(entityData(pythonRef01DataDt0Loaded))
+		if pythonRef01DataDt0LoadResult == nil {
+			t.Fatal("expected load result to be a map")
+		}
+		if pythonRef01DataDt0LoadResult["id"] != pythonRef01Data["id"] {
+			t.Fatal("expected load result id to match")
 		}
 
 	})

@@ -64,7 +64,7 @@ describe('OrgEntity', async () => {
     org_ref01_data['org'] = setup.idmap['org01']
 
     org_ref01_data = (await org_ref01_ent.create(org_ref01_data)).data()
-    assert(null != org_ref01_data)
+    assert(null != org_ref01_data.id)
 
 
     // LIST
@@ -72,25 +72,40 @@ describe('OrgEntity', async () => {
 
     const org_ref01_list = (await org_ref01_ent.list(org_ref01_match)).map((e: any) => e.data())
 
+    assert(!isempty(select(org_ref01_list, { id: org_ref01_data.id })))
+
 
     // UPDATE
     const org_ref01_data_up0: any = {}
+    org_ref01_data_up0.id = org_ref01_data.id
 
     const org_ref01_markdef_up0 = { name: 'country', value: 'Mark01-org_ref01_' + setup.now }
     ;(org_ref01_data_up0 as any)[org_ref01_markdef_up0.name] = org_ref01_markdef_up0.value
 
     const org_ref01_resdata_up0 = (await org_ref01_ent.update(org_ref01_data_up0)).data()
-    assert(null != org_ref01_resdata_up0)
+    assert(org_ref01_resdata_up0.id === org_ref01_data_up0.id)
 
     assert((org_ref01_resdata_up0 as any)[org_ref01_markdef_up0.name] === org_ref01_markdef_up0.value)
 
 
+    // LOAD
+    const org_ref01_match_dt0: any = {}
+    org_ref01_match_dt0.id = org_ref01_data.id
+    const org_ref01_data_dt0 = (await org_ref01_ent.load(org_ref01_match_dt0)).data()
+    assert(org_ref01_data_dt0.id === org_ref01_data.id)
 
+
+    // REMOVE
+    const org_ref01_match_rm0: any = { id: org_ref01_data.id }
+    await org_ref01_ent.remove(org_ref01_match_rm0)
+  
 
     // LIST
     const org_ref01_match_rt0: any = {}
 
     const org_ref01_list_rt0 = (await org_ref01_ent.list(org_ref01_match_rt0)).map((e: any) => e.data())
+
+    assert(isempty(select(org_ref01_list_rt0, { id: org_ref01_data.id })))
 
 
   })

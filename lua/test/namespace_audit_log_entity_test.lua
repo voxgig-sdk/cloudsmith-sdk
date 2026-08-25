@@ -44,10 +44,14 @@ describe("NamespaceAuditLogEntity", function()
 
     -- LOAD
     local namespace_audit_log_ref01_ent = client:NamespaceAuditLog(nil)
-    local namespace_audit_log_ref01_match_dt0 = {}
+    local namespace_audit_log_ref01_match_dt0 = {
+      id = namespace_audit_log_ref01_data["id"],
+    }
     local namespace_audit_log_ref01_data_dt0_loaded, err = namespace_audit_log_ref01_ent:load(namespace_audit_log_ref01_match_dt0, nil)
     assert.is_nil(err)
-    assert.is_not_nil(namespace_audit_log_ref01_data_dt0_loaded)
+    local namespace_audit_log_ref01_data_dt0_load_result = helpers.to_map(type(namespace_audit_log_ref01_data_dt0_loaded) == 'table' and namespace_audit_log_ref01_data_dt0_loaded.data_get and namespace_audit_log_ref01_data_dt0_loaded:data_get() or namespace_audit_log_ref01_data_dt0_loaded)
+    assert.is_not_nil(namespace_audit_log_ref01_data_dt0_load_result)
+    assert.are.equal(namespace_audit_log_ref01_data_dt0_load_result["id"], namespace_audit_log_ref01_data["id"])
 
   end)
 end)

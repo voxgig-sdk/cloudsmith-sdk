@@ -39,23 +39,23 @@ network, and no credentials:
 // Shape: { entity: { <entity-name>: { <id>: <record> } } }
 const client = CloudsmithSDK.test({
   entity: {
-    user_profile: {
+    vulnerability: {
       test01: { id: 'test01' },
     },
   },
 })
-const userprofile = await client.UserProfile().load({ id: 'test01' })
-// userprofile is the UserProfile entity, populated with mock data
-// — call userprofile.data() for the record itself
-console.log(userprofile)
+const vulnerabilitys = await client.Vulnerability().list()
+// vulnerabilitys is an array of Vulnerability entities, populated with mock data
+// — call vulnerabilitys[0].data() for the record itself
+console.log(vulnerabilitys)
 ```
 
 ### Python
 
 ```python
 client = CloudsmithSDK.test()
-userprofile = client.UserProfile().load({"id": "test01"})
-print(userprofile)
+vulnerabilitys = client.Vulnerability().list()
+print(vulnerabilitys)
 ```
 
 ### PHP
@@ -63,17 +63,17 @@ print(userprofile)
 ```php
 // Seed fixture data so offline calls resolve without a live server.
 $client = CloudsmithSDK::test([
-    "entity" => ["userprofile" => ["test01" => ["id" => "test01"]]],
+    "entity" => ["vulnerability" => ["test01" => ["id" => "test01"]]],
 ]);
-$userprofile = $client->UserProfile()->load(["id" => "test01"]);
+$vulnerabilitys = $client->Vulnerability()->list();
 ```
 
 ### Golang
 
 ```go
 client := sdk.Test()
-result, err := client.UserProfile(nil).Load(
-    map[string]any{"id": "test01"}, nil,
+result, err := client.Vulnerability(nil).List(
+    nil, nil,
 )
 ```
 
@@ -82,16 +82,16 @@ result, err := client.UserProfile(nil).Load(
 ```ruby
 # Seed fixture data so offline calls resolve without a live server.
 client = CloudsmithSDK.test({
-  "entity" => { "userprofile" => { "test01" => { "id" => "test01" } } },
+  "entity" => { "vulnerability" => { "test01" => { "id" => "test01" } } },
 })
-userprofile = client.UserProfile.load({ "id" => "test01" })
+vulnerabilitys = client.Vulnerability.list()
 ```
 
 ### Lua
 
 ```lua
 local client = sdk.test()
-local result, err = client:UserProfile():load({ id = "test01" })
+local results, err = client:Vulnerability():list()
 ```
 
 ## Packages

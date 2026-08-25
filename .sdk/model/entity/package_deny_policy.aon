@@ -27,6 +27,11 @@ main: kit: entity: package_deny_policy: {
       type: "`$BOOLEAN`"
     }
     {
+      name: "id"
+      req: false
+      type: "`$STRING`"
+    }
+    {
       name: "name"
       req: false
       type: "`$STRING`"
@@ -53,6 +58,11 @@ main: kit: entity: package_deny_policy: {
       type: "`$STRING`"
     }
   ]
+
+  id: {
+    field: "id"
+    name: "id"
+  }
 
   name: "package_deny_policy"
   op: {

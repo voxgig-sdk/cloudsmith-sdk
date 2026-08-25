@@ -59,6 +59,11 @@ main: kit: entity: conda: {
       type: "`$STRING`"
     }
     {
+      name: "id"
+      req: false
+      type: "`$STRING`"
+    }
+    {
       name: "is_active"
       req: false
       short: "Whether or not this upstream is active and ready for requests."
@@ -111,6 +116,11 @@ main: kit: entity: conda: {
       type: "`$BOOLEAN`"
     }
   ]
+
+  id: {
+    field: "id"
+    name: "id"
+  }
 
   name: "conda"
   op: {

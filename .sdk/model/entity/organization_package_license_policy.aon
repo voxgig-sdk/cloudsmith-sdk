@@ -21,6 +21,11 @@ main: kit: entity: organization_package_license_policy: {
       type: "`$STRING`"
     }
     {
+      name: "id"
+      req: false
+      type: "`$STRING`"
+    }
+    {
       name: "name"
       req: true
       type: "`$STRING`"
@@ -51,6 +56,11 @@ main: kit: entity: organization_package_license_policy: {
       type: "`$STRING`"
     }
   ]
+
+  id: {
+    field: "id"
+    name: "id"
+  }
 
   name: "organization_package_license_policy"
   op: {

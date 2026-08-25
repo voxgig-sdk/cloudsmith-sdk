@@ -77,6 +77,7 @@ class ServiceEntityTest < Minitest::Test
     service_ref01_data_result = service_ref01_ent.create(service_ref01_data, nil)
     service_ref01_data = Helpers.to_map(service_ref01_data_result.respond_to?(:data_get) ? service_ref01_data_result.data_get : service_ref01_data_result)
     assert !service_ref01_data.nil?
+    assert !service_ref01_data["id"].nil?
 
     # LIST
     service_ref01_match = {
@@ -86,8 +87,14 @@ class ServiceEntityTest < Minitest::Test
     service_ref01_list_result = service_ref01_ent.list(service_ref01_match, nil)
     assert service_ref01_list_result.is_a?(Array)
 
+    found_item = Vs.select(
+      Runner.entity_list_to_data(service_ref01_list_result),
+      { "id" => service_ref01_data["id"] })
+    assert !Vs.isempty(found_item)
+
     # UPDATE
     service_ref01_data_up0_up = {
+      "id" => service_ref01_data["id"],
       "org_id" => setup[:idmap]["org_id"],
     }
 
@@ -98,12 +105,17 @@ class ServiceEntityTest < Minitest::Test
     service_ref01_resdata_up0_result = service_ref01_ent.update(service_ref01_data_up0_up, nil)
     service_ref01_resdata_up0 = Helpers.to_map(service_ref01_resdata_up0_result.respond_to?(:data_get) ? service_ref01_resdata_up0_result.data_get : service_ref01_resdata_up0_result)
     assert !service_ref01_resdata_up0.nil?
+    assert_equal service_ref01_resdata_up0["id"], service_ref01_data_up0_up["id"]
     assert_equal service_ref01_resdata_up0[service_ref01_markdef_up0_name], service_ref01_markdef_up0_value
 
     # LOAD
-    service_ref01_match_dt0 = {}
+    service_ref01_match_dt0 = {
+      "id" => service_ref01_data["id"],
+    }
     service_ref01_data_dt0_loaded = service_ref01_ent.load(service_ref01_match_dt0, nil)
-    assert !service_ref01_data_dt0_loaded.nil?
+    service_ref01_data_dt0_load_result = Helpers.to_map(service_ref01_data_dt0_loaded.respond_to?(:data_get) ? service_ref01_data_dt0_loaded.data_get : service_ref01_data_dt0_loaded)
+    assert !service_ref01_data_dt0_load_result.nil?
+    assert_equal service_ref01_data_dt0_load_result["id"], service_ref01_data["id"]
 
   end
 end

@@ -121,13 +121,19 @@ func TestStorageRegionEntity(t *testing.T) {
 		}
 
 		// LOAD
-		storageRegionRef01MatchDt0 := map[string]any{}
+		storageRegionRef01MatchDt0 := map[string]any{
+			"id": storageRegionRef01Data["id"],
+		}
 		storageRegionRef01DataDt0Loaded, err := storageRegionRef01Ent.Load(storageRegionRef01MatchDt0, nil)
 		if err != nil {
 			t.Fatalf("load failed: %v", err)
 		}
-		if storageRegionRef01DataDt0Loaded == nil {
-			t.Fatal("expected load result to be non-nil")
+		storageRegionRef01DataDt0LoadResult := core.ToMapAny(entityData(storageRegionRef01DataDt0Loaded))
+		if storageRegionRef01DataDt0LoadResult == nil {
+			t.Fatal("expected load result to be a map")
+		}
+		if storageRegionRef01DataDt0LoadResult["id"] != storageRegionRef01Data["id"] {
+			t.Fatal("expected load result id to match")
 		}
 
 	})

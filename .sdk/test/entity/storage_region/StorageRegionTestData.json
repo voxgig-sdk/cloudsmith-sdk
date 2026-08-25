@@ -2,27 +2,27 @@
   "existing": {
     "storage_region": {
       "STORAGE_REGION00": {
-        "label": "s14",
-        "slug": "s15",
-        "id": "STORAGE_REGION00"
+        "id": "STORAGE_REGION00",
+        "label": "s1f",
+        "slug": "s20"
       },
       "STORAGE_REGION01": {
-        "label": "s28",
-        "slug": "s29",
-        "id": "STORAGE_REGION01"
+        "id": "STORAGE_REGION01",
+        "label": "s3d",
+        "slug": "s3e"
       },
       "STORAGE_REGION02": {
-        "label": "s3c",
-        "slug": "s3d",
-        "id": "STORAGE_REGION02"
+        "id": "STORAGE_REGION02",
+        "label": "s5b",
+        "slug": "s5c"
       }
     }
   },
   "new": {
     "storage_region": {
       "storage_region_ref01": {
-        "label": "s50",
-        "slug": "s51"
+        "label": "s79",
+        "slug": "s7a"
       }
     }
   }

@@ -3,42 +3,42 @@
     "organization_package_license_policy": {
       "ORGANIZATION_PACKAGE_LICENSE_POLICY00": {
         "allow_unknown_licenses": true,
-        "created_at": "s5b",
-        "description": "s5c",
-        "name": "s5d",
-        "on_violation_quarantine": true,
-        "package_query_string": "s5f",
-        "slug_perm": "s60",
+        "created_at": "s65",
+        "description": "s66",
+        "id": "ORGANIZATION_PACKAGE_LICENSE_POLICY00",
+        "name": "s68",
+        "on_violation_quarantine": false,
+        "package_query_string": "s6a",
+        "slug_perm": "s6b",
         "spdx_identifiers": [],
-        "updated_at": "s62",
-        "org_id": "ORG01",
-        "id": "ORGANIZATION_PACKAGE_LICENSE_POLICY00"
+        "updated_at": "s6d",
+        "org_id": "ORG01"
       },
       "ORGANIZATION_PACKAGE_LICENSE_POLICY01": {
         "allow_unknown_licenses": true,
-        "created_at": "sb5",
-        "description": "sb6",
-        "name": "sb7",
-        "on_violation_quarantine": true,
-        "package_query_string": "sb9",
-        "slug_perm": "sba",
+        "created_at": "sc9",
+        "description": "sca",
+        "id": "ORGANIZATION_PACKAGE_LICENSE_POLICY01",
+        "name": "scc",
+        "on_violation_quarantine": false,
+        "package_query_string": "sce",
+        "slug_perm": "scf",
         "spdx_identifiers": [],
-        "updated_at": "sbc",
-        "org_id": "ORG01",
-        "id": "ORGANIZATION_PACKAGE_LICENSE_POLICY01"
+        "updated_at": "sd1",
+        "org_id": "ORG01"
       },
       "ORGANIZATION_PACKAGE_LICENSE_POLICY02": {
         "allow_unknown_licenses": true,
-        "created_at": "s10f",
-        "description": "s110",
-        "name": "s111",
-        "on_violation_quarantine": true,
-        "package_query_string": "s113",
-        "slug_perm": "s114",
+        "created_at": "s12d",
+        "description": "s12e",
+        "id": "ORGANIZATION_PACKAGE_LICENSE_POLICY02",
+        "name": "s130",
+        "on_violation_quarantine": false,
+        "package_query_string": "s132",
+        "slug_perm": "s133",
         "spdx_identifiers": [],
-        "updated_at": "s116",
-        "org_id": "ORG01",
-        "id": "ORGANIZATION_PACKAGE_LICENSE_POLICY02"
+        "updated_at": "s135",
+        "org_id": "ORG01"
       }
     }
   },
@@ -46,14 +46,14 @@
     "organization_package_license_policy": {
       "organization_package_license_policy_ref01": {
         "allow_unknown_licenses": true,
-        "created_at": "s169",
-        "description": "s16a",
-        "name": "s16b",
-        "on_violation_quarantine": true,
-        "package_query_string": "s16d",
-        "slug_perm": "s16e",
+        "created_at": "s191",
+        "description": "s192",
+        "name": "s194",
+        "on_violation_quarantine": false,
+        "package_query_string": "s196",
+        "slug_perm": "s197",
         "spdx_identifiers": [],
-        "updated_at": "s170"
+        "updated_at": "s199"
       }
     }
   }

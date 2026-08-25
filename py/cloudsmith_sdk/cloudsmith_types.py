@@ -47,6 +47,7 @@ class Cargo(CargoRequired, total=False):
     extra_header_2: str
     extra_value_1: str
     extra_value_2: str
+    id: str
     is_active: bool
     mode: str
     pending_validation: bool
@@ -84,6 +85,7 @@ class CargoCreateData(CargoCreateDataRequired, total=False):
     extra_header_2: str
     extra_value_1: str
     extra_value_2: str
+    id: str
     is_active: bool
     mode: str
     pending_validation: bool
@@ -143,6 +145,7 @@ class Composer(ComposerRequired, total=False):
     extra_header_2: str
     extra_value_1: str
     extra_value_2: str
+    id: str
     is_active: bool
     mode: str
     pending_validation: bool
@@ -180,6 +183,7 @@ class ComposerCreateData(ComposerCreateDataRequired, total=False):
     extra_header_2: str
     extra_value_1: str
     extra_value_2: str
+    id: str
     is_active: bool
     mode: str
     pending_validation: bool
@@ -235,6 +239,7 @@ class Conda(CondaRequired, total=False):
     extra_header_2: str
     extra_value_1: str
     extra_value_2: str
+    id: str
     is_active: bool
     mode: str
     pending_validation: bool
@@ -272,6 +277,7 @@ class CondaCreateData(CondaCreateDataRequired, total=False):
     extra_header_2: str
     extra_value_1: str
     extra_value_2: str
+    id: str
     is_active: bool
     mode: str
     pending_validation: bool
@@ -327,6 +333,7 @@ class Cran(CranRequired, total=False):
     extra_header_2: str
     extra_value_1: str
     extra_value_2: str
+    id: str
     is_active: bool
     mode: str
     pending_validation: bool
@@ -364,6 +371,7 @@ class CranCreateData(CranCreateDataRequired, total=False):
     extra_header_2: str
     extra_value_1: str
     extra_value_2: str
+    id: str
     is_active: bool
     mode: str
     pending_validation: bool
@@ -415,6 +423,7 @@ class Dart(DartRequired, total=False):
     extra_header_2: str
     extra_value_1: str
     extra_value_2: str
+    id: str
     is_active: bool
     mode: str
     pending_validation: bool
@@ -452,6 +461,7 @@ class DartCreateData(DartCreateDataRequired, total=False):
     extra_header_2: str
     extra_value_1: str
     extra_value_2: str
+    id: str
     is_active: bool
     mode: str
     pending_validation: bool
@@ -508,6 +518,7 @@ class Deb(DebRequired, total=False):
     gpg_key_inline: str
     gpg_key_url: str
     gpg_verification: str
+    id: str
     include_sources: bool
     is_active: bool
     mode: str
@@ -553,6 +564,7 @@ class DebCreateData(DebCreateDataRequired, total=False):
     gpg_key_inline: str
     gpg_key_url: str
     gpg_verification: str
+    id: str
     include_sources: bool
     is_active: bool
     mode: str
@@ -658,6 +670,7 @@ class Docker(DockerRequired, total=False):
     extra_header_2: str
     extra_value_1: str
     extra_value_2: str
+    id: str
     is_active: bool
     mode: str
     pending_validation: bool
@@ -695,6 +708,7 @@ class DockerCreateData(DockerCreateDataRequired, total=False):
     extra_header_2: str
     extra_value_1: str
     extra_value_2: str
+    id: str
     is_active: bool
     mode: str
     pending_validation: bool
@@ -731,9 +745,13 @@ class DockerUpdateData(DockerUpdateDataRequired, total=False):
     verify_ssl: bool
 
 
-class DynamicMapping(TypedDict):
+class DynamicMappingRequired(TypedDict):
     claim_value: str
     service_account: str
+
+
+class DynamicMapping(DynamicMappingRequired, total=False):
+    id: str
 
 
 class DynamicMappingLoadMatch(TypedDict):
@@ -762,6 +780,7 @@ class EntitlementRequired(TypedDict):
 
 class Entitlement(EntitlementRequired, total=False):
     active: int
+    id: str
     inactive: int
     total: int
 
@@ -780,6 +799,7 @@ class EntitlementCreateDataRequired(TypedDict):
 
 class EntitlementCreateData(EntitlementCreateDataRequired, total=False):
     active: int
+    id: str
     inactive: int
     total: int
 
@@ -818,6 +838,7 @@ class FormatRequired(TypedDict):
 
 class Format(FormatRequired, total=False):
     distributions: list
+    id: str
     premium_plan_id: str
     premium_plan_name: str
 
@@ -830,6 +851,7 @@ class FormatListMatch(TypedDict, total=False):
     description: str
     distributions: list
     extensions: list
+    id: str
     name: str
     premium: bool
     premium_plan_id: str
@@ -952,6 +974,7 @@ class Helm(HelmRequired, total=False):
     extra_header_2: str
     extra_value_1: str
     extra_value_2: str
+    id: str
     is_active: bool
     mode: str
     pending_validation: bool
@@ -989,6 +1012,7 @@ class HelmCreateData(HelmCreateDataRequired, total=False):
     extra_header_2: str
     extra_value_1: str
     extra_value_2: str
+    id: str
     is_active: bool
     mode: str
     pending_validation: bool
@@ -1040,6 +1064,7 @@ class Hex(HexRequired, total=False):
     extra_header_2: str
     extra_value_1: str
     extra_value_2: str
+    id: str
     is_active: bool
     mode: str
     pending_validation: bool
@@ -1077,6 +1102,7 @@ class HexCreateData(HexCreateDataRequired, total=False):
     extra_header_2: str
     extra_value_1: str
     extra_value_2: str
+    id: str
     is_active: bool
     mode: str
     pending_validation: bool
@@ -1132,6 +1158,7 @@ class Huggingface(HuggingfaceRequired, total=False):
     extra_header_2: str
     extra_value_1: str
     extra_value_2: str
+    id: str
     is_active: bool
     mode: str
     pending_validation: bool
@@ -1169,6 +1196,7 @@ class HuggingfaceCreateData(HuggingfaceCreateDataRequired, total=False):
     extra_header_2: str
     extra_value_1: str
     extra_value_2: str
+    id: str
     is_active: bool
     mode: str
     pending_validation: bool
@@ -1243,6 +1271,7 @@ class Maven(MavenRequired, total=False):
     gpg_key_inline: str
     gpg_key_url: str
     gpg_verification: str
+    id: str
     is_active: bool
     mode: str
     pending_validation: bool
@@ -1284,6 +1313,7 @@ class MavenCreateData(MavenCreateDataRequired, total=False):
     gpg_key_inline: str
     gpg_key_url: str
     gpg_verification: str
+    id: str
     is_active: bool
     mode: str
     pending_validation: bool
@@ -1334,6 +1364,7 @@ class Move(TypedDict):
 
 
 class Namespace(TypedDict, total=False):
+    id: str
     name: str
     slug: str
     slug_perm: str
@@ -1345,6 +1376,7 @@ class NamespaceLoadMatch(TypedDict):
 
 
 class NamespaceListMatch(TypedDict, total=False):
+    id: str
     name: str
     slug: str
     slug_perm: str
@@ -1369,6 +1401,7 @@ class NamespaceAuditLogRequired(TypedDict):
 class NamespaceAuditLog(NamespaceAuditLogRequired, total=False):
     actor_kind: str
     actor_url: str
+    id: str
     target_slug_perm: str
     uuid: str
 
@@ -1392,6 +1425,7 @@ class Npm(NpmRequired, total=False):
     extra_header_2: str
     extra_value_1: str
     extra_value_2: str
+    id: str
     is_active: bool
     mode: str
     pending_validation: bool
@@ -1429,6 +1463,7 @@ class NpmCreateData(NpmCreateDataRequired, total=False):
     extra_header_2: str
     extra_value_1: str
     extra_value_2: str
+    id: str
     is_active: bool
     mode: str
     pending_validation: bool
@@ -1480,6 +1515,7 @@ class Nuget(NugetRequired, total=False):
     extra_header_2: str
     extra_value_1: str
     extra_value_2: str
+    id: str
     is_active: bool
     mode: str
     pending_validation: bool
@@ -1517,6 +1553,7 @@ class NugetCreateData(NugetCreateDataRequired, total=False):
     extra_header_2: str
     extra_value_1: str
     extra_value_2: str
+    id: str
     is_active: bool
     mode: str
     pending_validation: bool
@@ -1569,6 +1606,7 @@ class Org(OrgRequired, total=False):
     country: str
     created_at: str
     event_at: str
+    id: str
     location: str
     slug: str
     slug_perm: str
@@ -1587,6 +1625,7 @@ class OrgListMatch(TypedDict, total=False):
     country: str
     created_at: str
     event_at: str
+    id: str
     location: str
     name: str
     package: dict
@@ -1687,6 +1726,7 @@ class OrganizationGroupSyncStatusLoadMatch(TypedDict):
 class OrganizationInvite(TypedDict, total=False):
     email: str
     expires_at: str
+    id: str
     inviter: str
     inviter_url: str
     org: str
@@ -1708,6 +1748,7 @@ class OrganizationInviteCreateDataRequired(TypedDict):
 class OrganizationInviteCreateData(OrganizationInviteCreateDataRequired, total=False):
     email: str
     expires_at: str
+    id: str
     inviter: str
     inviter_url: str
     org: str
@@ -1885,6 +1926,7 @@ class OrganizationPackageLicensePolicy(OrganizationPackageLicensePolicyRequired,
     allow_unknown_licenses: bool
     created_at: str
     description: str
+    id: str
     on_violation_quarantine: bool
     package_query_string: str
     slug_perm: str
@@ -1910,6 +1952,7 @@ class OrganizationPackageLicensePolicyCreateData(OrganizationPackageLicensePolic
     allow_unknown_licenses: bool
     created_at: str
     description: str
+    id: str
     on_violation_quarantine: bool
     package_query_string: str
     slug_perm: str
@@ -1941,6 +1984,7 @@ class OrganizationPackageVulnerabilityPolicy(OrganizationPackageVulnerabilityPol
     allow_unknown_severity: bool
     created_at: str
     description: str
+    id: str
     min_severity: str
     on_violation_quarantine: bool
     package_query_string: str
@@ -1966,6 +2010,7 @@ class OrganizationPackageVulnerabilityPolicyCreateData(OrganizationPackageVulner
     allow_unknown_severity: bool
     created_at: str
     description: str
+    id: str
     min_severity: str
     on_violation_quarantine: bool
     package_query_string: str
@@ -2021,6 +2066,7 @@ class OrganizationTeamRequired(TypedDict):
 
 class OrganizationTeam(OrganizationTeamRequired, total=False):
     description: str
+    id: str
     slug: str
     slug_perm: str
     visibility: str
@@ -2042,6 +2088,7 @@ class OrganizationTeamCreateDataRequired(TypedDict):
 
 class OrganizationTeamCreateData(OrganizationTeamCreateDataRequired, total=False):
     description: str
+    id: str
     slug: str
     slug_perm: str
     visibility: str
@@ -2315,6 +2362,7 @@ class PackageDenyPolicy(PackageDenyPolicyRequired, total=False):
     created_at: str
     description: str
     enabled: bool
+    id: str
     name: str
     slug_perm: str
     status: str
@@ -2340,6 +2388,7 @@ class PackageDenyPolicyCreateData(PackageDenyPolicyCreateDataRequired, total=Fal
     created_at: str
     description: str
     enabled: bool
+    id: str
     name: str
     slug_perm: str
     status: str
@@ -2395,6 +2444,7 @@ class PackageLicensePolicyEvaluation(PackageLicensePolicyEvaluationRequired, tot
     created_at: str
     description: str
     evaluation_count: int
+    id: str
     name: str
     on_violation_quarantine: bool
     package_query_string: str
@@ -2428,6 +2478,7 @@ class PackageLicensePolicyEvaluationCreateData(PackageLicensePolicyEvaluationCre
     created_at: str
     description: str
     evaluation_count: int
+    id: str
     name: str
     on_violation_quarantine: bool
     package_query_string: str
@@ -2456,6 +2507,7 @@ class PackageVulnerabilityPolicyEvaluation(TypedDict, total=False):
     created_at: str
     description: str
     evaluation_count: int
+    id: str
     min_severity: str
     name: str
     on_violation_quarantine: bool
@@ -2489,6 +2541,7 @@ class PackageVulnerabilityPolicyEvaluationCreateData(PackageVulnerabilityPolicyE
     created_at: str
     description: str
     evaluation_count: int
+    id: str
     min_severity: str
     name: str
     on_violation_quarantine: bool
@@ -2594,6 +2647,7 @@ class Python(PythonRequired, total=False):
     extra_header_2: str
     extra_value_1: str
     extra_value_2: str
+    id: str
     is_active: bool
     mode: str
     pending_validation: bool
@@ -2631,6 +2685,7 @@ class PythonCreateData(PythonCreateDataRequired, total=False):
     extra_header_2: str
     extra_value_1: str
     extra_value_2: str
+    id: str
     is_active: bool
     mode: str
     pending_validation: bool
@@ -2671,10 +2726,14 @@ class Quarantine(TypedDict):
     pass
 
 
-class Quota(TypedDict):
+class QuotaRequired(TypedDict):
     display: dict
     history: list
     raw: dict
+
+
+class Quota(QuotaRequired, total=False):
+    id: str
 
 
 class QuotaLoadMatch(TypedDict):
@@ -2715,6 +2774,7 @@ class Repo(RepoRequired, total=False):
     ecdsa_keys: list
     enforce_eula: bool
     gpg_keys: list
+    id: str
     index_files: bool
     is_open_source: bool
     is_private: bool
@@ -2786,6 +2846,7 @@ class RepoListMatch(TypedDict, total=False):
     ecdsa_keys: list
     enforce_eula: bool
     gpg_keys: list
+    id: str
     index_files: bool
     is_open_source: bool
     is_private: bool
@@ -2931,6 +2992,7 @@ class RepoUpdateData(RepoUpdateDataRequired, total=False):
     ecdsa_keys: list
     enforce_eula: bool
     gpg_keys: list
+    id: str
     index_files: bool
     is_open_source: bool
     is_private: bool
@@ -3643,6 +3705,7 @@ class Rpm(RpmRequired, total=False):
     gpg_key_inline: str
     gpg_key_url: str
     gpg_verification: str
+    id: str
     include_sources: bool
     is_active: bool
     mode: str
@@ -3686,6 +3749,7 @@ class RpmCreateData(RpmCreateDataRequired, total=False):
     gpg_key_inline: str
     gpg_key_url: str
     gpg_verification: str
+    id: str
     include_sources: bool
     is_active: bool
     mode: str
@@ -3749,6 +3813,7 @@ class Ruby(RubyRequired, total=False):
     extra_header_2: str
     extra_value_1: str
     extra_value_2: str
+    id: str
     is_active: bool
     mode: str
     pending_validation: bool
@@ -3786,6 +3851,7 @@ class RubyCreateData(RubyCreateDataRequired, total=False):
     extra_header_2: str
     extra_value_1: str
     extra_value_2: str
+    id: str
     is_active: bool
     mode: str
     pending_validation: bool
@@ -3843,6 +3909,7 @@ class Service(ServiceRequired, total=False):
     created_by: str
     created_by_url: str
     description: str
+    id: str
     key: str
     key_expires_at: str
     role: str
@@ -3869,6 +3936,7 @@ class ServiceCreateData(ServiceCreateDataRequired, total=False):
     created_by: str
     created_by_url: str
     description: str
+    id: str
     key: str
     key_expires_at: str
     role: str
@@ -3908,9 +3976,13 @@ class StatusBasicLoadMatch(TypedDict, total=False):
     version: str
 
 
-class StorageRegion(TypedDict):
+class StorageRegionRequired(TypedDict):
     label: str
     slug: str
+
+
+class StorageRegion(StorageRegionRequired, total=False):
+    id: str
 
 
 class StorageRegionLoadMatch(TypedDict):
@@ -3918,6 +3990,7 @@ class StorageRegionLoadMatch(TypedDict):
 
 
 class StorageRegionListMatch(TypedDict, total=False):
+    id: str
     label: str
     slug: str
 
@@ -3937,6 +4010,7 @@ class Swift(SwiftRequired, total=False):
     extra_header_2: str
     extra_value_1: str
     extra_value_2: str
+    id: str
     is_active: bool
     mode: str
     pending_validation: bool
@@ -3974,6 +4048,7 @@ class SwiftCreateData(SwiftCreateDataRequired, total=False):
     extra_header_2: str
     extra_value_1: str
     extra_value_2: str
+    id: str
     is_active: bool
     mode: str
     pending_validation: bool
@@ -4106,6 +4181,7 @@ class UserProfileRequired(TypedDict):
 
 class UserProfile(UserProfileRequired, total=False):
     company: str
+    id: str
     job_title: str
     joined_at: str
     name: str
@@ -4141,6 +4217,7 @@ class VulnerabilityRequired(TypedDict):
 class Vulnerability(VulnerabilityRequired, total=False):
     created_at: str
     has_vulnerabilities: bool
+    id: str
     max_severity: str
     num_vulnerabilities: int
 

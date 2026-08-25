@@ -64,7 +64,7 @@ describe('OrganizationTeamEntity', async () => {
     organization_team_ref01_data['org_id'] = setup.idmap['org01']
 
     organization_team_ref01_data = (await organization_team_ref01_ent.create(organization_team_ref01_data)).data()
-    assert(null != organization_team_ref01_data)
+    assert(null != organization_team_ref01_data.id)
 
 
     // LIST
@@ -73,19 +73,28 @@ describe('OrganizationTeamEntity', async () => {
 
     const organization_team_ref01_list = (await organization_team_ref01_ent.list(organization_team_ref01_match)).map((e: any) => e.data())
 
+    assert(!isempty(select(organization_team_ref01_list, { id: organization_team_ref01_data.id })))
+
 
     // UPDATE
     const organization_team_ref01_data_up0: any = {}
+    organization_team_ref01_data_up0.id = organization_team_ref01_data.id
     organization_team_ref01_data_up0 ['org_id'] = setup.idmap['org_id']
 
     const organization_team_ref01_markdef_up0 = { name: 'description', value: 'Mark01-organization_team_ref01_' + setup.now }
     ;(organization_team_ref01_data_up0 as any)[organization_team_ref01_markdef_up0.name] = organization_team_ref01_markdef_up0.value
 
     const organization_team_ref01_resdata_up0 = (await organization_team_ref01_ent.update(organization_team_ref01_data_up0)).data()
-    assert(null != organization_team_ref01_resdata_up0)
+    assert(organization_team_ref01_resdata_up0.id === organization_team_ref01_data_up0.id)
 
     assert((organization_team_ref01_resdata_up0 as any)[organization_team_ref01_markdef_up0.name] === organization_team_ref01_markdef_up0.value)
 
+
+    // LOAD
+    const organization_team_ref01_match_dt0: any = {}
+    organization_team_ref01_match_dt0.id = organization_team_ref01_data.id
+    const organization_team_ref01_data_dt0 = (await organization_team_ref01_ent.load(organization_team_ref01_match_dt0)).data()
+    assert(organization_team_ref01_data_dt0.id === organization_team_ref01_data.id)
 
 
   })

@@ -81,6 +81,7 @@ class TestOrganizationTeamEntity:
 
         organization_team_ref01_data = helpers.to_map(runner.entity_data(organization_team_ref01_ent.create(organization_team_ref01_data, None)))
         assert organization_team_ref01_data is not None
+        assert organization_team_ref01_data["id"] is not None
 
         # LIST
         organization_team_ref01_match = {
@@ -90,8 +91,14 @@ class TestOrganizationTeamEntity:
         organization_team_ref01_list_result = organization_team_ref01_ent.list(organization_team_ref01_match, None)
         assert isinstance(organization_team_ref01_list_result, list)
 
+        found_item = vs.select(
+            runner.entity_list_to_data(organization_team_ref01_list_result),
+            {"id": organization_team_ref01_data["id"]})
+        assert not vs.isempty(found_item)
+
         # UPDATE
         organization_team_ref01_data_up0_up = {
+            "id": organization_team_ref01_data["id"],
             "org_id": setup["idmap"]["org_id"],
         }
 
@@ -101,12 +108,17 @@ class TestOrganizationTeamEntity:
 
         organization_team_ref01_resdata_up0 = helpers.to_map(runner.entity_data(organization_team_ref01_ent.update(organization_team_ref01_data_up0_up, None)))
         assert organization_team_ref01_resdata_up0 is not None
+        assert organization_team_ref01_resdata_up0["id"] == organization_team_ref01_data_up0_up["id"]
         assert organization_team_ref01_resdata_up0[organization_team_ref01_markdef_up0_name] == organization_team_ref01_markdef_up0_value
 
         # LOAD
-        organization_team_ref01_match_dt0 = {}
+        organization_team_ref01_match_dt0 = {
+            "id": organization_team_ref01_data["id"],
+        }
         organization_team_ref01_data_dt0_loaded = organization_team_ref01_ent.load(organization_team_ref01_match_dt0, None)
-        assert organization_team_ref01_data_dt0_loaded is not None
+        organization_team_ref01_data_dt0_load_result = helpers.to_map(runner.entity_data(organization_team_ref01_data_dt0_loaded))
+        assert organization_team_ref01_data_dt0_load_result is not None
+        assert organization_team_ref01_data_dt0_load_result["id"] == organization_team_ref01_data["id"]
 
 
 

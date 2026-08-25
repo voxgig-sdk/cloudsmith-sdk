@@ -85,6 +85,7 @@ describe("OrgEntity", function()
     assert.is_nil(err)
     org_ref01_data = helpers.to_map(type(org_ref01_data_result) == 'table' and org_ref01_data_result.data_get and org_ref01_data_result:data_get() or org_ref01_data_result)
     assert.is_not_nil(org_ref01_data)
+    assert.is_not_nil(org_ref01_data["id"])
 
     -- LIST
     local org_ref01_match = {}
@@ -93,8 +94,14 @@ describe("OrgEntity", function()
     assert.is_nil(err)
     assert.is_table(org_ref01_list_result)
 
+    local found_item = vs.select(
+      runner.entity_list_to_data(org_ref01_list_result),
+      { id = org_ref01_data["id"] })
+    assert.is_false(vs.isempty(found_item))
+
     -- UPDATE
     local org_ref01_data_up0_up = {
+      id = org_ref01_data["id"],
     }
 
     local org_ref01_markdef_up0_name = "country"
@@ -105,14 +112,25 @@ describe("OrgEntity", function()
     assert.is_nil(err)
     local org_ref01_resdata_up0 = helpers.to_map(type(org_ref01_resdata_up0_result) == 'table' and org_ref01_resdata_up0_result.data_get and org_ref01_resdata_up0_result:data_get() or org_ref01_resdata_up0_result)
     assert.is_not_nil(org_ref01_resdata_up0)
+    assert.are.equal(org_ref01_resdata_up0["id"], org_ref01_data_up0_up["id"])
     assert.are.equal(org_ref01_resdata_up0[org_ref01_markdef_up0_name], org_ref01_markdef_up0_value)
 
     -- LOAD
-    local org_ref01_match_dt0 = {}
+    local org_ref01_match_dt0 = {
+      id = org_ref01_data["id"],
+    }
     local org_ref01_data_dt0_loaded, err = org_ref01_ent:load(org_ref01_match_dt0, nil)
     assert.is_nil(err)
-    assert.is_not_nil(org_ref01_data_dt0_loaded)
+    local org_ref01_data_dt0_load_result = helpers.to_map(type(org_ref01_data_dt0_loaded) == 'table' and org_ref01_data_dt0_loaded.data_get and org_ref01_data_dt0_loaded:data_get() or org_ref01_data_dt0_loaded)
+    assert.is_not_nil(org_ref01_data_dt0_load_result)
+    assert.are.equal(org_ref01_data_dt0_load_result["id"], org_ref01_data["id"])
 
+    -- REMOVE
+    local org_ref01_match_rm0 = {
+      id = org_ref01_data["id"],
+    }
+    local _, err = org_ref01_ent:remove(org_ref01_match_rm0, nil)
+    assert.is_nil(err)
 
     -- LIST
     local org_ref01_match_rt0 = {}
@@ -120,6 +138,11 @@ describe("OrgEntity", function()
     local org_ref01_list_rt0_result, err = org_ref01_ent:list(org_ref01_match_rt0, nil)
     assert.is_nil(err)
     assert.is_table(org_ref01_list_rt0_result)
+
+    local not_found_item = vs.select(
+      runner.entity_list_to_data(org_ref01_list_rt0_result),
+      { id = org_ref01_data["id"] })
+    assert.is_true(vs.isempty(not_found_item))
 
   end)
 end)

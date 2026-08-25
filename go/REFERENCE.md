@@ -752,6 +752,7 @@ fmt.Println(cargo.GetName()) // "cargo"
 | `extra_header_2` | `string` | No | The key for extra header #2 to send to upstream. |
 | `extra_value_1` | `string` | No | The value for extra header #1 to send to upstream. |
 | `extra_value_2` | `string` | No | The value for extra header #2 to send to upstream. |
+| `id` | `string` | No |  |
 | `is_active` | `bool` | No | Whether or not this upstream is active and ready for requests. |
 | `mode` | `string` | No | The mode that this upstream should operate in. |
 | `name` | `string` | Yes | A descriptive name for this upstream source. |
@@ -928,6 +929,7 @@ fmt.Println(composer.GetName()) // "composer"
 | `extra_header_2` | `string` | No | The key for extra header #2 to send to upstream. |
 | `extra_value_1` | `string` | No | The value for extra header #1 to send to upstream. |
 | `extra_value_2` | `string` | No | The value for extra header #2 to send to upstream. |
+| `id` | `string` | No |  |
 | `is_active` | `bool` | No | Whether or not this upstream is active and ready for requests. |
 | `mode` | `string` | No | The mode that this upstream should operate in. |
 | `name` | `string` | Yes | A descriptive name for this upstream source. |
@@ -1073,6 +1075,7 @@ fmt.Println(conda.GetName()) // "conda"
 | `extra_header_2` | `string` | No | The key for extra header #2 to send to upstream. |
 | `extra_value_1` | `string` | No | The value for extra header #1 to send to upstream. |
 | `extra_value_2` | `string` | No | The value for extra header #2 to send to upstream. |
+| `id` | `string` | No |  |
 | `is_active` | `bool` | No | Whether or not this upstream is active and ready for requests. |
 | `mode` | `string` | No | The mode that this upstream should operate in. |
 | `name` | `string` | Yes | A descriptive name for this upstream source. |
@@ -1218,6 +1221,7 @@ fmt.Println(cran.GetName()) // "cran"
 | `extra_header_2` | `string` | No | The key for extra header #2 to send to upstream. |
 | `extra_value_1` | `string` | No | The value for extra header #1 to send to upstream. |
 | `extra_value_2` | `string` | No | The value for extra header #2 to send to upstream. |
+| `id` | `string` | No |  |
 | `is_active` | `bool` | No | Whether or not this upstream is active and ready for requests. |
 | `mode` | `string` | No | The mode that this upstream should operate in. |
 | `name` | `string` | Yes | A descriptive name for this upstream source. |
@@ -1332,6 +1336,7 @@ fmt.Println(dart.GetName()) // "dart"
 | `extra_header_2` | `string` | No | The key for extra header #2 to send to upstream. |
 | `extra_value_1` | `string` | No | The value for extra header #1 to send to upstream. |
 | `extra_value_2` | `string` | No | The value for extra header #2 to send to upstream. |
+| `id` | `string` | No |  |
 | `is_active` | `bool` | No | Whether or not this upstream is active and ready for requests. |
 | `mode` | `string` | No | The mode that this upstream should operate in. |
 | `name` | `string` | Yes | A descriptive name for this upstream source. |
@@ -1451,6 +1456,7 @@ fmt.Println(deb.GetName()) // "deb"
 | `gpg_key_inline` | `string` | No | A public GPG key to associate with packages found on this upstream. |
 | `gpg_key_url` | `string` | No | When provided, Cloudsmith will fetch, validate, and associate a public GPG key found at the provided URL. |
 | `gpg_verification` | `string` | No | The GPG signature verification mode for this upstream. |
+| `id` | `string` | No |  |
 | `include_sources` | `bool` | No | When true, source packages will be available from this upstream. |
 | `is_active` | `bool` | No | Whether or not this upstream is active and ready for requests. |
 | `mode` | `string` | No | The mode that this upstream should operate in. |
@@ -1762,6 +1768,7 @@ fmt.Println(docker.GetName()) // "docker"
 | `extra_header_2` | `string` | No | The key for extra header #2 to send to upstream. |
 | `extra_value_1` | `string` | No | The value for extra header #1 to send to upstream. |
 | `extra_value_2` | `string` | No | The value for extra header #2 to send to upstream. |
+| `id` | `string` | No |  |
 | `is_active` | `bool` | No | Whether or not this upstream is active and ready for requests. |
 | `mode` | `string` | No | The mode that this upstream should operate in. |
 | `name` | `string` | Yes | A descriptive name for this upstream source. |
@@ -1868,6 +1875,7 @@ fmt.Println(dynamicMapping.GetName()) // "dynamic_mapping"
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
 | `claim_value` | `string` | Yes | The OIDC token claim value that must be present in the token for it to successfully authenticate as the mapped `service_account`. |
+| `id` | `string` | No |  |
 | `service_account` | `string` | Yes | The service account associated with the provider setting and `claim_value` Note: This field and the dynamic mappings feature are still in early access. |
 
 ### Operations
@@ -1996,6 +2004,7 @@ fmt.Println(entitlement.GetName()) // "entitlement"
 | `active` | `int` | No | Number of packages with at least 1 download |
 | `bandwidth` | `map[string]any` | Yes |  |
 | `downloads` | `map[string]any` | Yes |  |
+| `id` | `string` | No |  |
 | `inactive` | `int` | No | Packages with zero downloads |
 | `total` | `int` | No | Total number of packages in repo |
 
@@ -2160,6 +2169,7 @@ fmt.Println(format.GetName()) // "format"
 | `description` | `string` | Yes | Description of the package format |
 | `distributions` | `[]any` | No | The distributions supported by this package format |
 | `extensions` | `[]any` | Yes | A non-exhaustive list of extensions supported |
+| `id` | `string` | No |  |
 | `name` | `string` | Yes | Name for the package format |
 | `premium` | `bool` | Yes | If true the package format is a premium-only feature |
 | `premium_plan_id` | `string` | No | The minimum plan id required for this package format |
@@ -2444,6 +2454,7 @@ fmt.Println(helm.GetName()) // "helm"
 | `extra_header_2` | `string` | No | The key for extra header #2 to send to upstream. |
 | `extra_value_1` | `string` | No | The value for extra header #1 to send to upstream. |
 | `extra_value_2` | `string` | No | The value for extra header #2 to send to upstream. |
+| `id` | `string` | No |  |
 | `is_active` | `bool` | No | Whether or not this upstream is active and ready for requests. |
 | `mode` | `string` | No | The mode that this upstream should operate in. |
 | `name` | `string` | Yes | A descriptive name for this upstream source. |
@@ -2558,6 +2569,7 @@ fmt.Println(hex.GetName()) // "hex"
 | `extra_header_2` | `string` | No | The key for extra header #2 to send to upstream. |
 | `extra_value_1` | `string` | No | The value for extra header #1 to send to upstream. |
 | `extra_value_2` | `string` | No | The value for extra header #2 to send to upstream. |
+| `id` | `string` | No |  |
 | `is_active` | `bool` | No | Whether or not this upstream is active and ready for requests. |
 | `mode` | `string` | No | The mode that this upstream should operate in. |
 | `name` | `string` | Yes | A descriptive name for this upstream source. |
@@ -2703,6 +2715,7 @@ fmt.Println(huggingface.GetName()) // "huggingface"
 | `extra_header_2` | `string` | No | The key for extra header #2 to send to upstream. |
 | `extra_value_1` | `string` | No | The value for extra header #1 to send to upstream. |
 | `extra_value_2` | `string` | No | The value for extra header #2 to send to upstream. |
+| `id` | `string` | No |  |
 | `is_active` | `bool` | No | Whether or not this upstream is active and ready for requests. |
 | `mode` | `string` | No | The mode that this upstream should operate in. |
 | `name` | `string` | Yes | A descriptive name for this upstream source. |
@@ -2975,6 +2988,7 @@ fmt.Println(maven.GetName()) // "maven"
 | `gpg_key_inline` | `string` | No | A public GPG key to associate with packages found on this upstream. |
 | `gpg_key_url` | `string` | No | When provided, Cloudsmith will fetch, validate, and associate a public GPG key found at the provided URL. |
 | `gpg_verification` | `string` | No | The GPG signature verification mode for this upstream. |
+| `id` | `string` | No |  |
 | `is_active` | `bool` | No | Whether or not this upstream is active and ready for requests. |
 | `mode` | `string` | No | The mode that this upstream should operate in. |
 | `name` | `string` | Yes | A descriptive name for this upstream source. |
@@ -3143,6 +3157,7 @@ fmt.Println(namespace.GetName()) // "namespace"
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
+| `id` | `string` | No |  |
 | `name` | `string` | No |  |
 | `slug` | `string` | No |  |
 | `slug_perm` | `string` | No |  |
@@ -3218,6 +3233,7 @@ fmt.Println(namespaceAuditLog.GetName()) // "namespace_audit_log"
 | `context` | `string` | Yes |  |
 | `event` | `string` | Yes |  |
 | `event_at` | `string` | Yes |  |
+| `id` | `string` | No |  |
 | `object` | `string` | Yes |  |
 | `object_kind` | `string` | Yes |  |
 | `object_slug_perm` | `string` | Yes |  |
@@ -3284,6 +3300,7 @@ fmt.Println(npm.GetName()) // "npm"
 | `extra_header_2` | `string` | No | The key for extra header #2 to send to upstream. |
 | `extra_value_1` | `string` | No | The value for extra header #1 to send to upstream. |
 | `extra_value_2` | `string` | No | The value for extra header #2 to send to upstream. |
+| `id` | `string` | No |  |
 | `is_active` | `bool` | No | Whether or not this upstream is active and ready for requests. |
 | `mode` | `string` | No | The mode that this upstream should operate in. |
 | `name` | `string` | Yes | A descriptive name for this upstream source. |
@@ -3398,6 +3415,7 @@ fmt.Println(nuget.GetName()) // "nuget"
 | `extra_header_2` | `string` | No | The key for extra header #2 to send to upstream. |
 | `extra_value_1` | `string` | No | The value for extra header #1 to send to upstream. |
 | `extra_value_2` | `string` | No | The value for extra header #2 to send to upstream. |
+| `id` | `string` | No |  |
 | `is_active` | `bool` | No | Whether or not this upstream is active and ready for requests. |
 | `mode` | `string` | No | The mode that this upstream should operate in. |
 | `name` | `string` | Yes | A descriptive name for this upstream source. |
@@ -3537,6 +3555,7 @@ fmt.Println(org.GetName()) // "org"
 | `country` | `string` | No |  |
 | `created_at` | `string` | No |  |
 | `event_at` | `string` | No |  |
+| `id` | `string` | No |  |
 | `location` | `string` | No | The city/town/area your organization is based in. |
 | `name` | `string` | Yes |  |
 | `package` | `map[string]any` | Yes |  |
@@ -3780,6 +3799,7 @@ fmt.Println(organizationInvite.GetName()) // "organization_invite"
 | --- | --- | --- | --- |
 | `email` | `string` | No | The email of the user to be invited. |
 | `expires_at` | `string` | No |  |
+| `id` | `string` | No |  |
 | `inviter` | `string` | No |  |
 | `inviter_url` | `string` | No |  |
 | `org` | `string` | No |  |
@@ -4154,6 +4174,7 @@ fmt.Println(organizationPackageLicensePolicy.GetName()) // "organization_package
 | `allow_unknown_licenses` | `bool` | No |  |
 | `created_at` | `string` | No |  |
 | `description` | `string` | No |  |
+| `id` | `string` | No |  |
 | `name` | `string` | Yes |  |
 | `on_violation_quarantine` | `bool` | No |  |
 | `package_query_string` | `string` | No |  |
@@ -4257,6 +4278,7 @@ fmt.Println(organizationPackageVulnerabilityPolicy.GetName()) // "organization_p
 | `allow_unknown_severity` | `bool` | No | Denotes whether vulnerabilities detected by a security scan with an unknown severity are permitted by this policy. |
 | `created_at` | `string` | No |  |
 | `description` | `string` | No |  |
+| `id` | `string` | No |  |
 | `min_severity` | `string` | No |  |
 | `name` | `string` | Yes |  |
 | `on_violation_quarantine` | `bool` | No |  |
@@ -4426,6 +4448,7 @@ fmt.Println(organizationTeam.GetName()) // "organization_team"
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
 | `description` | `string` | No |  |
+| `id` | `string` | No |  |
 | `name` | `string` | Yes |  |
 | `slug` | `string` | No |  |
 | `slug_perm` | `string` | No |  |
@@ -4940,6 +4963,7 @@ fmt.Println(packageDenyPolicy.GetName()) // "package_deny_policy"
 | `created_at` | `string` | No |  |
 | `description` | `string` | No |  |
 | `enabled` | `bool` | No | Whether this rule is enabled or disabled. |
+| `id` | `string` | No |  |
 | `name` | `string` | No |  |
 | `package_query_string` | `string` | Yes | Packages that match this query will trigger this deny rule. |
 | `slug_perm` | `string` | No |  |
@@ -5144,6 +5168,7 @@ fmt.Println(packageLicensePolicyEvaluation.GetName()) // "package_license_policy
 | `created_at` | `string` | No |  |
 | `description` | `string` | No |  |
 | `evaluation_count` | `int` | No |  |
+| `id` | `string` | No |  |
 | `name` | `string` | No |  |
 | `on_violation_quarantine` | `bool` | No |  |
 | `package_query_string` | `string` | No |  |
@@ -5282,6 +5307,7 @@ fmt.Println(packageVulnerabilityPolicyEvaluation.GetName()) // "package_vulnerab
 | `created_at` | `string` | No |  |
 | `description` | `string` | No |  |
 | `evaluation_count` | `int` | No |  |
+| `id` | `string` | No |  |
 | `min_severity` | `string` | No |  |
 | `name` | `string` | No |  |
 | `on_violation_quarantine` | `bool` | No |  |
@@ -5591,6 +5617,7 @@ fmt.Println(python.GetName()) // "python"
 | `extra_header_2` | `string` | No | The key for extra header #2 to send to upstream. |
 | `extra_value_1` | `string` | No | The value for extra header #1 to send to upstream. |
 | `extra_value_2` | `string` | No | The value for extra header #2 to send to upstream. |
+| `id` | `string` | No |  |
 | `is_active` | `bool` | No | Whether or not this upstream is active and ready for requests. |
 | `mode` | `string` | No | The mode that this upstream should operate in. |
 | `name` | `string` | Yes | A descriptive name for this upstream source. |
@@ -5729,6 +5756,7 @@ fmt.Println(quota.GetName()) // "quota"
 | --- | --- | --- | --- |
 | `display` | `map[string]any` | Yes |  |
 | `history` | `[]any` | Yes |  |
+| `id` | `string` | No |  |
 | `raw` | `map[string]any` | Yes |  |
 
 ### Operations
@@ -5890,6 +5918,7 @@ fmt.Println(repo.GetName()) // "repo"
 | `ecdsa_keys` | `[]any` | No |  |
 | `enforce_eula` | `bool` | No | If checked, downloads will explicitly require acceptance of an EULA. |
 | `gpg_keys` | `[]any` | No |  |
+| `id` | `string` | No |  |
 | `index_files` | `bool` | No | If checked, files contained in packages will be indexed, which increase the synchronisation time required for packages. |
 | `is_open_source` | `bool` | No |  |
 | `is_private` | `bool` | No |  |
@@ -5986,6 +6015,7 @@ Update an existing entity. The data must include the entity `id`.
 
 ```go
 result, err := client.Repo(nil).Update(map[string]any{
+    "id": "repo_id",
     "identifier": "identifier",
     "owner": "owner",
     // Fields to update
@@ -7305,6 +7335,7 @@ fmt.Println(rpm.GetName()) // "rpm"
 | `gpg_key_inline` | `string` | No | A public GPG key to associate with packages found on this upstream. |
 | `gpg_key_url` | `string` | No | When provided, Cloudsmith will fetch, validate, and associate a public GPG key found at the provided URL. |
 | `gpg_verification` | `string` | No | The GPG signature verification mode for this upstream. |
+| `id` | `string` | No |  |
 | `include_sources` | `bool` | No | When checked, source packages will be available from this upstream. |
 | `is_active` | `bool` | No | Whether or not this upstream is active and ready for requests. |
 | `mode` | `string` | No | The mode that this upstream should operate in. |
@@ -7453,6 +7484,7 @@ fmt.Println(ruby.GetName()) // "ruby"
 | `extra_header_2` | `string` | No | The key for extra header #2 to send to upstream. |
 | `extra_value_1` | `string` | No | The value for extra header #1 to send to upstream. |
 | `extra_value_2` | `string` | No | The value for extra header #2 to send to upstream. |
+| `id` | `string` | No |  |
 | `is_active` | `bool` | No | Whether or not this upstream is active and ready for requests. |
 | `mode` | `string` | No | The mode that this upstream should operate in. |
 | `name` | `string` | Yes | A descriptive name for this upstream source. |
@@ -7655,6 +7687,7 @@ fmt.Println(service.GetName()) // "service"
 | `created_by` | `string` | No |  |
 | `created_by_url` | `string` | No |  |
 | `description` | `string` | No | The description of the service |
+| `id` | `string` | No |  |
 | `key` | `string` | No | The API key of the service |
 | `key_expires_at` | `string` | No | The time at which the API key will expire. |
 | `name` | `string` | Yes | The name of the service |
@@ -7837,6 +7870,7 @@ fmt.Println(storageRegion.GetName()) // "storage_region"
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
+| `id` | `string` | No |  |
 | `label` | `string` | Yes | Name of the storage region |
 | `slug` | `string` | Yes | Slug for the storage region |
 
@@ -7910,6 +7944,7 @@ fmt.Println(swift.GetName()) // "swift"
 | `extra_header_2` | `string` | No | The key for extra header #2 to send to upstream. |
 | `extra_value_1` | `string` | No | The value for extra header #1 to send to upstream. |
 | `extra_value_2` | `string` | No | The value for extra header #2 to send to upstream. |
+| `id` | `string` | No |  |
 | `is_active` | `bool` | No | Whether or not this upstream is active and ready for requests. |
 | `mode` | `string` | No | The mode that this upstream should operate in. |
 | `name` | `string` | Yes | A descriptive name for this upstream source. |
@@ -8459,6 +8494,7 @@ fmt.Println(userProfile.GetName()) // "user_profile"
 | --- | --- | --- | --- |
 | `company` | `string` | No |  |
 | `first_name` | `string` | Yes |  |
+| `id` | `string` | No |  |
 | `job_title` | `string` | No |  |
 | `joined_at` | `string` | No |  |
 | `last_name` | `string` | Yes |  |
@@ -8612,6 +8648,7 @@ fmt.Println(vulnerability.GetName()) // "vulnerability"
 | --- | --- | --- | --- |
 | `created_at` | `string` | No | The time this scan result was stored. |
 | `has_vulnerabilities` | `bool` | No | Do the results contain any known vulnerabilities? |
+| `id` | `string` | No |  |
 | `identifier` | `string` | Yes |  |
 | `max_severity` | `string` | No |  |
 | `num_vulnerabilities` | `int` | No |  |

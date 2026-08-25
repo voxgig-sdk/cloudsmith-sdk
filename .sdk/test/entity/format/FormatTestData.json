@@ -2,54 +2,54 @@
   "existing": {
     "format": {
       "FORMAT00": {
-        "description": "s5a",
+        "description": "s64",
         "distributions": [],
         "extensions": [],
-        "name": "s5d",
-        "premium": true,
+        "id": "FORMAT00",
+        "name": "s68",
+        "premium": false,
         "premium_plan_id": "PREMIUM_PLAN01",
-        "premium_plan_name": "s60",
-        "slug": "s61",
-        "supports": {},
-        "id": "FORMAT00"
+        "premium_plan_name": "s6b",
+        "slug": "s6c",
+        "supports": {}
       },
       "FORMAT01": {
-        "description": "sb4",
+        "description": "sc8",
         "distributions": [],
         "extensions": [],
-        "name": "sb7",
-        "premium": true,
+        "id": "FORMAT01",
+        "name": "scc",
+        "premium": false,
         "premium_plan_id": "PREMIUM_PLAN01",
-        "premium_plan_name": "sba",
-        "slug": "sbb",
-        "supports": {},
-        "id": "FORMAT01"
+        "premium_plan_name": "scf",
+        "slug": "sd0",
+        "supports": {}
       },
       "FORMAT02": {
-        "description": "s10e",
+        "description": "s12c",
         "distributions": [],
         "extensions": [],
-        "name": "s111",
-        "premium": true,
+        "id": "FORMAT02",
+        "name": "s130",
+        "premium": false,
         "premium_plan_id": "PREMIUM_PLAN01",
-        "premium_plan_name": "s114",
-        "slug": "s115",
-        "supports": {},
-        "id": "FORMAT02"
+        "premium_plan_name": "s133",
+        "slug": "s134",
+        "supports": {}
       }
     }
   },
   "new": {
     "format": {
       "format_ref01": {
-        "description": "s168",
+        "description": "s190",
         "distributions": [],
         "extensions": [],
-        "name": "s16b",
-        "premium": true,
+        "name": "s194",
+        "premium": false,
         "premium_plan_id": "PREMIUM_PLAN01",
-        "premium_plan_name": "s16e",
-        "slug": "s16f",
+        "premium_plan_name": "s197",
+        "slug": "s198",
         "supports": {}
       }
     }

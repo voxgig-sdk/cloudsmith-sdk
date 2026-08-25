@@ -77,6 +77,11 @@ main: kit: entity: maven: {
       type: "`$STRING`"
     }
     {
+      name: "id"
+      req: false
+      type: "`$STRING`"
+    }
+    {
       name: "is_active"
       req: false
       short: "Whether or not this upstream is active and ready for requests."
@@ -135,6 +140,11 @@ main: kit: entity: maven: {
       type: "`$BOOLEAN`"
     }
   ]
+
+  id: {
+    field: "id"
+    name: "id"
+  }
 
   name: "maven"
   op: {

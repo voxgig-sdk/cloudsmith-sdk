@@ -65,7 +65,7 @@ describe('ComposerEntity', async () => {
     composer_ref01_data['owner'] = setup.idmap['owner01']
 
     composer_ref01_data = (await composer_ref01_ent.create(composer_ref01_data)).data()
-    assert(null != composer_ref01_data)
+    assert(null != composer_ref01_data.id)
 
 
     // LIST
@@ -75,9 +75,12 @@ describe('ComposerEntity', async () => {
 
     const composer_ref01_list = (await composer_ref01_ent.list(composer_ref01_match)).map((e: any) => e.data())
 
+    assert(!isempty(select(composer_ref01_list, { id: composer_ref01_data.id })))
+
 
     // UPDATE
     const composer_ref01_data_up0: any = {}
+    composer_ref01_data_up0.id = composer_ref01_data.id
     composer_ref01_data_up0 ['identifier'] = setup.idmap['identifier']
     composer_ref01_data_up0 ['owner'] = setup.idmap['owner']
 
@@ -85,10 +88,16 @@ describe('ComposerEntity', async () => {
     ;(composer_ref01_data_up0 as any)[composer_ref01_markdef_up0.name] = composer_ref01_markdef_up0.value
 
     const composer_ref01_resdata_up0 = (await composer_ref01_ent.update(composer_ref01_data_up0)).data()
-    assert(null != composer_ref01_resdata_up0)
+    assert(composer_ref01_resdata_up0.id === composer_ref01_data_up0.id)
 
     assert((composer_ref01_resdata_up0 as any)[composer_ref01_markdef_up0.name] === composer_ref01_markdef_up0.value)
 
+
+    // LOAD
+    const composer_ref01_match_dt0: any = {}
+    composer_ref01_match_dt0.id = composer_ref01_data.id
+    const composer_ref01_data_dt0 = (await composer_ref01_ent.load(composer_ref01_match_dt0)).data()
+    assert(composer_ref01_data_dt0.id === composer_ref01_data.id)
 
 
   })

@@ -87,6 +87,7 @@ class HelmEntityTest extends TestCase
         $helm_ref01_data_result = $helm_ref01_ent->create($helm_ref01_data, null);
         $helm_ref01_data = Helpers::to_map(is_object($helm_ref01_data_result) && method_exists($helm_ref01_data_result, 'data_get') ? $helm_ref01_data_result->data_get() : $helm_ref01_data_result);
         $this->assertNotNull($helm_ref01_data);
+        $this->assertNotNull($helm_ref01_data["id"]);
 
         // LIST
         $helm_ref01_match = [
@@ -97,8 +98,14 @@ class HelmEntityTest extends TestCase
         $helm_ref01_list_result = $helm_ref01_ent->list($helm_ref01_match, null);
         $this->assertIsArray($helm_ref01_list_result);
 
+        $found_item = sdk_select(
+            Runner::entity_list_to_data($helm_ref01_list_result),
+            ["id" => $helm_ref01_data["id"]]);
+        $this->assertNotEmpty($found_item);
+
         // UPDATE
         $helm_ref01_data_up0_up = [
+            "id" => $helm_ref01_data["id"],
             "identifier" => $setup["idmap"]["identifier"],
             "owner" => $setup["idmap"]["owner"],
         ];
@@ -110,12 +117,17 @@ class HelmEntityTest extends TestCase
         $helm_ref01_resdata_up0_result = $helm_ref01_ent->update($helm_ref01_data_up0_up, null);
         $helm_ref01_resdata_up0 = Helpers::to_map(is_object($helm_ref01_resdata_up0_result) && method_exists($helm_ref01_resdata_up0_result, 'data_get') ? $helm_ref01_resdata_up0_result->data_get() : $helm_ref01_resdata_up0_result);
         $this->assertNotNull($helm_ref01_resdata_up0);
+        $this->assertEquals($helm_ref01_resdata_up0["id"], $helm_ref01_data_up0_up["id"]);
         $this->assertEquals($helm_ref01_resdata_up0[$helm_ref01_markdef_up0_name], $helm_ref01_markdef_up0_value);
 
         // LOAD
-        $helm_ref01_match_dt0 = [];
+        $helm_ref01_match_dt0 = [
+            "id" => $helm_ref01_data["id"],
+        ];
         $helm_ref01_data_dt0_loaded = $helm_ref01_ent->load($helm_ref01_match_dt0, null);
-        $this->assertNotNull($helm_ref01_data_dt0_loaded);
+        $helm_ref01_data_dt0_load_result = Helpers::to_map(is_object($helm_ref01_data_dt0_loaded) && method_exists($helm_ref01_data_dt0_loaded, 'data_get') ? $helm_ref01_data_dt0_loaded->data_get() : $helm_ref01_data_dt0_loaded);
+        $this->assertNotNull($helm_ref01_data_dt0_load_result);
+        $this->assertEquals($helm_ref01_data_dt0_load_result["id"], $helm_ref01_data["id"]);
 
     }
 }

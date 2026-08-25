@@ -91,9 +91,13 @@ class TestDynamicMappingEntity:
         assert isinstance(dynamic_mapping_ref01_list_result, list)
 
         # LOAD
-        dynamic_mapping_ref01_match_dt0 = {}
+        dynamic_mapping_ref01_match_dt0 = {
+            "id": dynamic_mapping_ref01_data["id"],
+        }
         dynamic_mapping_ref01_data_dt0_loaded = dynamic_mapping_ref01_ent.load(dynamic_mapping_ref01_match_dt0, None)
-        assert dynamic_mapping_ref01_data_dt0_loaded is not None
+        dynamic_mapping_ref01_data_dt0_load_result = helpers.to_map(runner.entity_data(dynamic_mapping_ref01_data_dt0_loaded))
+        assert dynamic_mapping_ref01_data_dt0_load_result is not None
+        assert dynamic_mapping_ref01_data_dt0_load_result["id"] == dynamic_mapping_ref01_data["id"]
 
 
 

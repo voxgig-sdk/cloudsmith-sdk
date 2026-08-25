@@ -112,6 +112,9 @@ func TestOrgEntity(t *testing.T) {
 		if orgRef01Data == nil {
 			t.Fatal("expected create result to be a map")
 		}
+		if orgRef01Data["id"] == nil {
+			t.Fatal("expected created entity to have an id")
+		}
 
 		// LIST
 		orgRef01Match := map[string]any{}
@@ -120,13 +123,19 @@ func TestOrgEntity(t *testing.T) {
 		if err != nil {
 			t.Fatalf("list failed: %v", err)
 		}
-		_, orgRef01ListOk := orgRef01ListResult.([]any)
+		orgRef01List, orgRef01ListOk := orgRef01ListResult.([]any)
 		if !orgRef01ListOk {
 			t.Fatalf("expected list result to be an array, got %T", orgRef01ListResult)
 		}
 
+		foundItem := vs.Select(entityListToData(orgRef01List), map[string]any{"id": orgRef01Data["id"]})
+		if vs.IsEmpty(foundItem) {
+			t.Fatal("expected to find created entity in list")
+		}
+
 		// UPDATE
 		orgRef01DataUp0Up := map[string]any{
+			"id": orgRef01Data["id"],
 		}
 
 		orgRef01MarkdefUp0Name := "country"
@@ -141,20 +150,37 @@ func TestOrgEntity(t *testing.T) {
 		if orgRef01ResdataUp0 == nil {
 			t.Fatal("expected update result to be a map")
 		}
+		if orgRef01ResdataUp0["id"] != orgRef01DataUp0Up["id"] {
+			t.Fatal("expected update result id to match")
+		}
 		if orgRef01ResdataUp0[orgRef01MarkdefUp0Name] != orgRef01MarkdefUp0Value {
 			t.Fatalf("expected %s to be updated, got %v", orgRef01MarkdefUp0Name, orgRef01ResdataUp0[orgRef01MarkdefUp0Name])
 		}
 
 		// LOAD
-		orgRef01MatchDt0 := map[string]any{}
+		orgRef01MatchDt0 := map[string]any{
+			"id": orgRef01Data["id"],
+		}
 		orgRef01DataDt0Loaded, err := orgRef01Ent.Load(orgRef01MatchDt0, nil)
 		if err != nil {
 			t.Fatalf("load failed: %v", err)
 		}
-		if orgRef01DataDt0Loaded == nil {
-			t.Fatal("expected load result to be non-nil")
+		orgRef01DataDt0LoadResult := core.ToMapAny(entityData(orgRef01DataDt0Loaded))
+		if orgRef01DataDt0LoadResult == nil {
+			t.Fatal("expected load result to be a map")
+		}
+		if orgRef01DataDt0LoadResult["id"] != orgRef01Data["id"] {
+			t.Fatal("expected load result id to match")
 		}
 
+		// REMOVE
+		orgRef01MatchRm0 := map[string]any{
+			"id": orgRef01Data["id"],
+		}
+		_, err = orgRef01Ent.Remove(orgRef01MatchRm0, nil)
+		if err != nil {
+			t.Fatalf("remove failed: %v", err)
+		}
 
 		// LIST
 		orgRef01MatchRt0 := map[string]any{}
@@ -163,9 +189,14 @@ func TestOrgEntity(t *testing.T) {
 		if err != nil {
 			t.Fatalf("list failed: %v", err)
 		}
-		_, orgRef01ListRt0Ok := orgRef01ListRt0Result.([]any)
+		orgRef01ListRt0, orgRef01ListRt0Ok := orgRef01ListRt0Result.([]any)
 		if !orgRef01ListRt0Ok {
 			t.Fatalf("expected list result to be an array, got %T", orgRef01ListRt0Result)
+		}
+
+		notFoundItem := vs.Select(entityListToData(orgRef01ListRt0), map[string]any{"id": orgRef01Data["id"]})
+		if !vs.IsEmpty(notFoundItem) {
+			t.Fatal("expected removed entity to not be in list")
 		}
 
 	})

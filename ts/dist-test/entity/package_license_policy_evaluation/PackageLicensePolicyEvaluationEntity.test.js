@@ -78,12 +78,18 @@ const utility_1 = require("../../utility");
         package_license_policy_evaluation_ref01_data['org_id'] = setup.idmap['org01'];
         package_license_policy_evaluation_ref01_data['policy_slug_perm'] = setup.idmap['policy_slug_perm01'];
         package_license_policy_evaluation_ref01_data = (await package_license_policy_evaluation_ref01_ent.create(package_license_policy_evaluation_ref01_data)).data();
-        (0, node_assert_1.default)(null != package_license_policy_evaluation_ref01_data);
+        (0, node_assert_1.default)(null != package_license_policy_evaluation_ref01_data.id);
         // LIST
         const package_license_policy_evaluation_ref01_match = {};
         package_license_policy_evaluation_ref01_match['org_id'] = setup.idmap['org01'];
         package_license_policy_evaluation_ref01_match['policy_slug_perm'] = setup.idmap['policy_slug_perm01'];
         const package_license_policy_evaluation_ref01_list = (await package_license_policy_evaluation_ref01_ent.list(package_license_policy_evaluation_ref01_match)).map((e) => e.data());
+        (0, node_assert_1.default)(!isempty(select(package_license_policy_evaluation_ref01_list, { id: package_license_policy_evaluation_ref01_data.id })));
+        // LOAD
+        const package_license_policy_evaluation_ref01_match_dt0 = {};
+        package_license_policy_evaluation_ref01_match_dt0.id = package_license_policy_evaluation_ref01_data.id;
+        const package_license_policy_evaluation_ref01_data_dt0 = (await package_license_policy_evaluation_ref01_ent.load(package_license_policy_evaluation_ref01_match_dt0)).data();
+        (0, node_assert_1.default)(package_license_policy_evaluation_ref01_data_dt0.id === package_license_policy_evaluation_ref01_data.id);
     });
 });
 function basicSetup(extra) {

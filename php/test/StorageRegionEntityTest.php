@@ -93,9 +93,13 @@ class StorageRegionEntityTest extends TestCase
         $this->assertIsArray($storage_region_ref01_list_result);
 
         // LOAD
-        $storage_region_ref01_match_dt0 = [];
+        $storage_region_ref01_match_dt0 = [
+            "id" => $storage_region_ref01_data["id"],
+        ];
         $storage_region_ref01_data_dt0_loaded = $storage_region_ref01_ent->load($storage_region_ref01_match_dt0, null);
-        $this->assertNotNull($storage_region_ref01_data_dt0_loaded);
+        $storage_region_ref01_data_dt0_load_result = Helpers::to_map(is_object($storage_region_ref01_data_dt0_loaded) && method_exists($storage_region_ref01_data_dt0_loaded, 'data_get') ? $storage_region_ref01_data_dt0_loaded->data_get() : $storage_region_ref01_data_dt0_loaded);
+        $this->assertNotNull($storage_region_ref01_data_dt0_load_result);
+        $this->assertEquals($storage_region_ref01_data_dt0_load_result["id"], $storage_region_ref01_data["id"]);
 
     }
 }

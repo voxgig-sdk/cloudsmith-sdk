@@ -87,6 +87,7 @@ class CondaEntityTest extends TestCase
         $conda_ref01_data_result = $conda_ref01_ent->create($conda_ref01_data, null);
         $conda_ref01_data = Helpers::to_map(is_object($conda_ref01_data_result) && method_exists($conda_ref01_data_result, 'data_get') ? $conda_ref01_data_result->data_get() : $conda_ref01_data_result);
         $this->assertNotNull($conda_ref01_data);
+        $this->assertNotNull($conda_ref01_data["id"]);
 
         // LIST
         $conda_ref01_match = [
@@ -97,8 +98,14 @@ class CondaEntityTest extends TestCase
         $conda_ref01_list_result = $conda_ref01_ent->list($conda_ref01_match, null);
         $this->assertIsArray($conda_ref01_list_result);
 
+        $found_item = sdk_select(
+            Runner::entity_list_to_data($conda_ref01_list_result),
+            ["id" => $conda_ref01_data["id"]]);
+        $this->assertNotEmpty($found_item);
+
         // UPDATE
         $conda_ref01_data_up0_up = [
+            "id" => $conda_ref01_data["id"],
             "identifier" => $setup["idmap"]["identifier"],
             "owner" => $setup["idmap"]["owner"],
         ];
@@ -110,12 +117,17 @@ class CondaEntityTest extends TestCase
         $conda_ref01_resdata_up0_result = $conda_ref01_ent->update($conda_ref01_data_up0_up, null);
         $conda_ref01_resdata_up0 = Helpers::to_map(is_object($conda_ref01_resdata_up0_result) && method_exists($conda_ref01_resdata_up0_result, 'data_get') ? $conda_ref01_resdata_up0_result->data_get() : $conda_ref01_resdata_up0_result);
         $this->assertNotNull($conda_ref01_resdata_up0);
+        $this->assertEquals($conda_ref01_resdata_up0["id"], $conda_ref01_data_up0_up["id"]);
         $this->assertEquals($conda_ref01_resdata_up0[$conda_ref01_markdef_up0_name], $conda_ref01_markdef_up0_value);
 
         // LOAD
-        $conda_ref01_match_dt0 = [];
+        $conda_ref01_match_dt0 = [
+            "id" => $conda_ref01_data["id"],
+        ];
         $conda_ref01_data_dt0_loaded = $conda_ref01_ent->load($conda_ref01_match_dt0, null);
-        $this->assertNotNull($conda_ref01_data_dt0_loaded);
+        $conda_ref01_data_dt0_load_result = Helpers::to_map(is_object($conda_ref01_data_dt0_loaded) && method_exists($conda_ref01_data_dt0_loaded, 'data_get') ? $conda_ref01_data_dt0_loaded->data_get() : $conda_ref01_data_dt0_loaded);
+        $this->assertNotNull($conda_ref01_data_dt0_load_result);
+        $this->assertEquals($conda_ref01_data_dt0_load_result["id"], $conda_ref01_data["id"]);
 
     }
 }

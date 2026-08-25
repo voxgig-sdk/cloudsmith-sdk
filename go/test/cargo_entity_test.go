@@ -113,6 +113,9 @@ func TestCargoEntity(t *testing.T) {
 		if cargoRef01Data == nil {
 			t.Fatal("expected create result to be a map")
 		}
+		if cargoRef01Data["id"] == nil {
+			t.Fatal("expected created entity to have an id")
+		}
 
 		// LIST
 		cargoRef01Match := map[string]any{
@@ -124,13 +127,19 @@ func TestCargoEntity(t *testing.T) {
 		if err != nil {
 			t.Fatalf("list failed: %v", err)
 		}
-		_, cargoRef01ListOk := cargoRef01ListResult.([]any)
+		cargoRef01List, cargoRef01ListOk := cargoRef01ListResult.([]any)
 		if !cargoRef01ListOk {
 			t.Fatalf("expected list result to be an array, got %T", cargoRef01ListResult)
 		}
 
+		foundItem := vs.Select(entityListToData(cargoRef01List), map[string]any{"id": cargoRef01Data["id"]})
+		if vs.IsEmpty(foundItem) {
+			t.Fatal("expected to find created entity in list")
+		}
+
 		// UPDATE
 		cargoRef01DataUp0Up := map[string]any{
+			"id": cargoRef01Data["id"],
 			"identifier": setup.idmap["identifier"],
 			"owner": setup.idmap["owner"],
 		}
@@ -147,18 +156,27 @@ func TestCargoEntity(t *testing.T) {
 		if cargoRef01ResdataUp0 == nil {
 			t.Fatal("expected update result to be a map")
 		}
+		if cargoRef01ResdataUp0["id"] != cargoRef01DataUp0Up["id"] {
+			t.Fatal("expected update result id to match")
+		}
 		if cargoRef01ResdataUp0[cargoRef01MarkdefUp0Name] != cargoRef01MarkdefUp0Value {
 			t.Fatalf("expected %s to be updated, got %v", cargoRef01MarkdefUp0Name, cargoRef01ResdataUp0[cargoRef01MarkdefUp0Name])
 		}
 
 		// LOAD
-		cargoRef01MatchDt0 := map[string]any{}
+		cargoRef01MatchDt0 := map[string]any{
+			"id": cargoRef01Data["id"],
+		}
 		cargoRef01DataDt0Loaded, err := cargoRef01Ent.Load(cargoRef01MatchDt0, nil)
 		if err != nil {
 			t.Fatalf("load failed: %v", err)
 		}
-		if cargoRef01DataDt0Loaded == nil {
-			t.Fatal("expected load result to be non-nil")
+		cargoRef01DataDt0LoadResult := core.ToMapAny(entityData(cargoRef01DataDt0Loaded))
+		if cargoRef01DataDt0LoadResult == nil {
+			t.Fatal("expected load result to be a map")
+		}
+		if cargoRef01DataDt0LoadResult["id"] != cargoRef01Data["id"] {
+			t.Fatal("expected load result id to match")
 		}
 
 	})
