@@ -249,14 +249,22 @@ func pythonDirectSetup(mockres any) *pythonDirectSetupResult {
 	env := envOverride(map[string]any{
 		"CLOUDSMITH_TEST_PYTHON_ENTID": map[string]any{},
 		"CLOUDSMITH_TEST_LIVE":    "FALSE",
-		"CLOUDSMITH_APIKEY":       "NONE",
+		"CLOUDSMITH_APIKEY":       "",
 	})
 
 	live := env["CLOUDSMITH_TEST_LIVE"] == "TRUE"
 
 	if live {
-		mergedOpts := map[string]any{
+		// sdk-test-control.json's test.client.options seeds the live
+		// client; the generated fields below overwrite anything they name.
+		mergedOpts := map[string]any{}
+		for k, v := range liveClientOptions() {
+			mergedOpts[k] = v
+		}
+		for k, v := range map[string]any{
 			"apikey": env["CLOUDSMITH_APIKEY"],
+		} {
+			mergedOpts[k] = v
 		}
 		client := sdk.NewCloudsmithSDK(mergedOpts)
 

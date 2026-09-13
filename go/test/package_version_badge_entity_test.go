@@ -50,7 +50,7 @@ func TestPackageVersionBadgeEntity(t *testing.T) {
 		client := setup.client
 
 		// Bootstrap entity data from existing test data (no create step in flow).
-		packageVersionBadgeRef01DataRaw := vs.Items(core.ToMapAny(vs.GetPath("existing.package_version_badge", setup.data)))
+		packageVersionBadgeRef01DataRaw := vs.Items(core.ToMapAny(vs.GetPath(setup.data, "existing.package_version_badge")))
 		var packageVersionBadgeRef01Data map[string]any
 		if len(packageVersionBadgeRef01DataRaw) > 0 {
 			packageVersionBadgeRef01Data = core.ToMapAny(packageVersionBadgeRef01DataRaw[0][1])
@@ -61,13 +61,19 @@ func TestPackageVersionBadgeEntity(t *testing.T) {
 
 		// LOAD
 		packageVersionBadgeRef01Ent := client.PackageVersionBadge(nil)
-		packageVersionBadgeRef01MatchDt0 := map[string]any{}
+		packageVersionBadgeRef01MatchDt0 := map[string]any{
+			"id": packageVersionBadgeRef01Data["id"],
+		}
 		packageVersionBadgeRef01DataDt0Loaded, err := packageVersionBadgeRef01Ent.Load(packageVersionBadgeRef01MatchDt0, nil)
 		if err != nil {
 			t.Fatalf("load failed: %v", err)
 		}
-		if packageVersionBadgeRef01DataDt0Loaded == nil {
-			t.Fatal("expected load result to be non-nil")
+		packageVersionBadgeRef01DataDt0LoadResult := core.ToMapAny(entityData(packageVersionBadgeRef01DataDt0Loaded))
+		if packageVersionBadgeRef01DataDt0LoadResult == nil {
+			t.Fatal("expected load result to be a map")
+		}
+		if packageVersionBadgeRef01DataDt0LoadResult["id"] != packageVersionBadgeRef01Data["id"] {
+			t.Fatal("expected load result id to match")
 		}
 
 	})
@@ -97,7 +103,7 @@ func package_version_badgeBasicSetup(extra map[string]any) *entityTestSetup {
 	client := sdk.TestSDK(options, extra)
 
 	// Generate idmap via transform, matching TS pattern.
-	idmap := vs.Transform(
+	idmap, _ := vs.Transform(
 		[]any{"package_version_badge01", "package_version_badge02", "package_version_badge03", "version01", "version02", "version03", "owner01", "package_format01", "package_name01", "package_version01", "repo01"},
 		map[string]any{
 			"`$PACK`": []any{"", map[string]any{
@@ -117,7 +123,7 @@ func package_version_badgeBasicSetup(extra map[string]any) *entityTestSetup {
 		"CLOUDSMITH_TEST_PACKAGE_VERSION_BADGE_ENTID": idmap,
 		"CLOUDSMITH_TEST_LIVE":      "FALSE",
 		"CLOUDSMITH_TEST_EXPLAIN":   "FALSE",
-		"CLOUDSMITH_APIKEY":         "NONE",
+		"CLOUDSMITH_APIKEY":         "",
 	})
 
 	idmapResolved := core.ToMapAny(env["CLOUDSMITH_TEST_PACKAGE_VERSION_BADGE_ENTID"])
@@ -126,11 +132,23 @@ func package_version_badgeBasicSetup(extra map[string]any) *entityTestSetup {
 	}
 
 	if env["CLOUDSMITH_TEST_LIVE"] == "TRUE" {
+		// An empty map, not a nil one: Merge returns nil when its last entry
+		// is nil, and BasicSetup is normally called with no extras - so a
+		// bare nil silently discarded the apikey and server values below.
+		extraOpts := extra
+		if extraOpts == nil {
+			extraOpts = map[string]any{}
+		}
+
 		mergedOpts := vs.Merge([]any{
+			// liveClientOptions() FIRST, so the generated fields below win:
+			// sdk-test-control.json's test.client.options adds to the live
+			// client, it does not redirect it.
+			liveClientOptions(),
 			map[string]any{
 				"apikey": env["CLOUDSMITH_APIKEY"],
 			},
-			extra,
+			extraOpts,
 		})
 		client = sdk.NewCloudsmithSDK(core.ToMapAny(mergedOpts))
 	}

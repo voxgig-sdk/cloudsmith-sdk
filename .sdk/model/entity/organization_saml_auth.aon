@@ -22,6 +22,7 @@ main: kit: entity: organization_saml_auth: {
       type: "`$STRING`"
     }
     {
+      format: "uri"
       name: "saml_metadata_url"
       req: false
       short: "If configured, SAML metadata be retrieved from a remote URL."
@@ -48,16 +49,22 @@ main: kit: entity: organization_saml_auth: {
           }
           method: "GET"
           orig: "/orgs/{org}/saml-authentication"
-          parts: [
-            "orgs"
-            "{org_id}"
-            "saml-authentication"
-          ]
           rename: {
             param: {
               org: "org_id"
             }
           }
+          segments: [
+            {
+              lit: "orgs"
+            }
+            {
+              var: "org_id"
+            }
+            {
+              lit: "saml-authentication"
+            }
+          ]
           select: {
             exist: [
               "org_id"
@@ -96,16 +103,22 @@ main: kit: entity: organization_saml_auth: {
           }
           method: "PATCH"
           orig: "/orgs/{org}/saml-authentication"
-          parts: [
-            "orgs"
-            "{org_id}"
-            "saml-authentication"
-          ]
           rename: {
             param: {
               org: "org_id"
             }
           }
+          segments: [
+            {
+              lit: "orgs"
+            }
+            {
+              var: "org_id"
+            }
+            {
+              lit: "saml-authentication"
+            }
+          ]
           select: {
             exist: [
               "data"

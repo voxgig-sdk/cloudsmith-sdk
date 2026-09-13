@@ -1,3 +1,4 @@
 /dist/
 /cloudsmith-cli
 /go-cli
+.jostraca/

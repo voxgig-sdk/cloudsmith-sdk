@@ -82,6 +82,7 @@ class TestRepositoryWebhookEntity:
 
         repository_webhook_ref01_data = helpers.to_map(runner.entity_data(repository_webhook_ref01_ent.create(repository_webhook_ref01_data, None)))
         assert repository_webhook_ref01_data is not None
+        assert repository_webhook_ref01_data["id"] is not None
 
         # LIST
         repository_webhook_ref01_match = {
@@ -92,8 +93,14 @@ class TestRepositoryWebhookEntity:
         repository_webhook_ref01_list_result = repository_webhook_ref01_ent.list(repository_webhook_ref01_match, None)
         assert isinstance(repository_webhook_ref01_list_result, list)
 
+        found_item = vs.select(
+            runner.entity_list_to_data(repository_webhook_ref01_list_result),
+            {"id": repository_webhook_ref01_data["id"]})
+        assert not vs.isempty(found_item)
+
         # UPDATE
         repository_webhook_ref01_data_up0_up = {
+            "id": repository_webhook_ref01_data["id"],
             "owner": setup["idmap"]["owner"],
             "repo": setup["idmap"]["repo"],
         }
@@ -104,12 +111,17 @@ class TestRepositoryWebhookEntity:
 
         repository_webhook_ref01_resdata_up0 = helpers.to_map(runner.entity_data(repository_webhook_ref01_ent.update(repository_webhook_ref01_data_up0_up, None)))
         assert repository_webhook_ref01_resdata_up0 is not None
+        assert repository_webhook_ref01_resdata_up0["id"] == repository_webhook_ref01_data_up0_up["id"]
         assert repository_webhook_ref01_resdata_up0[repository_webhook_ref01_markdef_up0_name] == repository_webhook_ref01_markdef_up0_value
 
         # LOAD
-        repository_webhook_ref01_match_dt0 = {}
+        repository_webhook_ref01_match_dt0 = {
+            "id": repository_webhook_ref01_data["id"],
+        }
         repository_webhook_ref01_data_dt0_loaded = repository_webhook_ref01_ent.load(repository_webhook_ref01_match_dt0, None)
-        assert repository_webhook_ref01_data_dt0_loaded is not None
+        repository_webhook_ref01_data_dt0_load_result = helpers.to_map(runner.entity_data(repository_webhook_ref01_data_dt0_loaded))
+        assert repository_webhook_ref01_data_dt0_load_result is not None
+        assert repository_webhook_ref01_data_dt0_load_result["id"] == repository_webhook_ref01_data["id"]
 
 
 
@@ -149,7 +161,7 @@ def _repository_webhook_basic_setup(extra):
         "CLOUDSMITH_TEST_REPOSITORY_WEBHOOK_ENTID": idmap,
         "CLOUDSMITH_TEST_LIVE": "FALSE",
         "CLOUDSMITH_TEST_EXPLAIN": "FALSE",
-        "CLOUDSMITH_APIKEY": "NONE",
+        "CLOUDSMITH_APIKEY": "",
     })
 
     idmap_resolved = helpers.to_map(
@@ -163,6 +175,10 @@ def _repository_webhook_basic_setup(extra):
 
     if env.get("CLOUDSMITH_TEST_LIVE") == "TRUE":
         merged_opts = vs.merge([
+            # FIRST, so the generated fields below win: sdk-test-control.json's
+            # test.client.options adds to the live client, it does not
+            # redirect it.
+            runner.live_client_options(),
             {
                 "apikey": env.get("CLOUDSMITH_APIKEY"),
             },

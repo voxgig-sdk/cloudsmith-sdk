@@ -1,6 +1,4 @@
 
-const envlocal = __dirname + '/../../../.env.local'
-require('dotenv').config({ quiet: true, path: [envlocal] })
 
 import Path from 'node:path'
 import * as Fs from 'node:fs'
@@ -13,7 +11,9 @@ import { CloudsmithSDK, BaseFeature, stdutil } from '../../..'
 
 import {
   envOverride,
+  liveClientOptions,
   liveDelay,
+  loadEnvLocal,
   makeCtrl,
   makeMatch,
   makeReqdata,
@@ -21,6 +21,13 @@ import {
   makeValid,
   maybeSkipControl,
 } from '../../utility'
+
+
+// AFTER the imports on purpose: TypeScript hoists `import` above any
+// statement in the emitted CommonJS, so a loader placed above them would
+// run only after every imported module had already been evaluated - and
+// anything reading process.env at module scope would miss these values.
+loadEnvLocal(__dirname + '/../../../.env.local')
 
 
 describe('RepositoryWebhookEntity', async () => {
@@ -65,7 +72,7 @@ describe('RepositoryWebhookEntity', async () => {
     repository_webhook_ref01_data['repo'] = setup.idmap['repo01']
 
     repository_webhook_ref01_data = (await repository_webhook_ref01_ent.create(repository_webhook_ref01_data)).data()
-    assert(null != repository_webhook_ref01_data)
+    assert(null != repository_webhook_ref01_data.id)
 
 
     // LIST
@@ -75,9 +82,12 @@ describe('RepositoryWebhookEntity', async () => {
 
     const repository_webhook_ref01_list = (await repository_webhook_ref01_ent.list(repository_webhook_ref01_match)).map((e: any) => e.data())
 
+    assert(!isempty(select(repository_webhook_ref01_list, { id: repository_webhook_ref01_data.id })))
+
 
     // UPDATE
     const repository_webhook_ref01_data_up0: any = {}
+    repository_webhook_ref01_data_up0.id = repository_webhook_ref01_data.id
     repository_webhook_ref01_data_up0 ['owner'] = setup.idmap['owner']
     repository_webhook_ref01_data_up0 ['repo'] = setup.idmap['repo']
 
@@ -85,10 +95,16 @@ describe('RepositoryWebhookEntity', async () => {
     ;(repository_webhook_ref01_data_up0 as any)[repository_webhook_ref01_markdef_up0.name] = repository_webhook_ref01_markdef_up0.value
 
     const repository_webhook_ref01_resdata_up0 = (await repository_webhook_ref01_ent.update(repository_webhook_ref01_data_up0)).data()
-    assert(null != repository_webhook_ref01_resdata_up0)
+    assert(repository_webhook_ref01_resdata_up0.id === repository_webhook_ref01_data_up0.id)
 
     assert((repository_webhook_ref01_resdata_up0 as any)[repository_webhook_ref01_markdef_up0.name] === repository_webhook_ref01_markdef_up0.value)
 
+
+    // LOAD
+    const repository_webhook_ref01_match_dt0: any = {}
+    repository_webhook_ref01_match_dt0.id = repository_webhook_ref01_data.id
+    const repository_webhook_ref01_data_dt0 = (await repository_webhook_ref01_ent.load(repository_webhook_ref01_match_dt0)).data()
+    assert(repository_webhook_ref01_data_dt0.id === repository_webhook_ref01_data.id)
 
 
   })
@@ -138,7 +154,7 @@ function basicSetup(extra?: any) {
     'CLOUDSMITH_TEST_REPOSITORY_WEBHOOK_ENTID': idmap,
     'CLOUDSMITH_TEST_LIVE': 'FALSE',
     'CLOUDSMITH_TEST_EXPLAIN': 'FALSE',
-    'CLOUDSMITH_APIKEY': 'NONE',
+    'CLOUDSMITH_APIKEY': '',
   })
 
   idmap = env['CLOUDSMITH_TEST_REPOSITORY_WEBHOOK_ENTID']
@@ -147,10 +163,18 @@ function basicSetup(extra?: any) {
 
   if (live) {
     client = new CloudsmithSDK(merge([
+      // FIRST, so the generated fields below win: sdk-test-control.json's
+      // test.client.options adds to the live client, it does not redirect it.
+      liveClientOptions(),
       {
         apikey: env.CLOUDSMITH_APIKEY,
       },
-      extra
+      // 'extra || {}', not a bare 'extra': struct.merge returns UNDEFINED when the
+      // last entry is undefined, and basicSetup is normally called with no
+      // argument at all - so a bare 'extra' silently discarded the apikey
+      // and server values above and handed the SDK undefined. Harmless
+      // while there was nothing in that object; not harmless now.
+      extra || {}
     ]))
   }
 

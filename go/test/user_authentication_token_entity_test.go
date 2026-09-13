@@ -53,7 +53,7 @@ func TestUserAuthenticationTokenEntity(t *testing.T) {
 		// CREATE
 		userAuthenticationTokenRef01Ent := client.UserAuthenticationToken(nil)
 		userAuthenticationTokenRef01Data := core.ToMapAny(vs.GetProp(
-			vs.GetPath([]any{"new", "user_authentication_token"}, setup.data), "user_authentication_token_ref01"))
+			vs.GetPath(setup.data, []any{"new", "user_authentication_token"}), "user_authentication_token_ref01"))
 
 		userAuthenticationTokenRef01DataResult, err := userAuthenticationTokenRef01Ent.Create(userAuthenticationTokenRef01Data, nil)
 		if err != nil {
@@ -111,7 +111,7 @@ func user_authentication_tokenBasicSetup(extra map[string]any) *entityTestSetup 
 	client := sdk.TestSDK(options, extra)
 
 	// Generate idmap via transform, matching TS pattern.
-	idmap := vs.Transform(
+	idmap, _ := vs.Transform(
 		[]any{"user_authentication_token01", "user_authentication_token02", "user_authentication_token03", "token01", "token02", "token03"},
 		map[string]any{
 			"`$PACK`": []any{"", map[string]any{
@@ -131,7 +131,7 @@ func user_authentication_tokenBasicSetup(extra map[string]any) *entityTestSetup 
 		"CLOUDSMITH_TEST_USER_AUTHENTICATION_TOKEN_ENTID": idmap,
 		"CLOUDSMITH_TEST_LIVE":      "FALSE",
 		"CLOUDSMITH_TEST_EXPLAIN":   "FALSE",
-		"CLOUDSMITH_APIKEY":         "NONE",
+		"CLOUDSMITH_APIKEY":         "",
 	})
 
 	idmapResolved := core.ToMapAny(env["CLOUDSMITH_TEST_USER_AUTHENTICATION_TOKEN_ENTID"])
@@ -140,11 +140,23 @@ func user_authentication_tokenBasicSetup(extra map[string]any) *entityTestSetup 
 	}
 
 	if env["CLOUDSMITH_TEST_LIVE"] == "TRUE" {
+		// An empty map, not a nil one: Merge returns nil when its last entry
+		// is nil, and BasicSetup is normally called with no extras - so a
+		// bare nil silently discarded the apikey and server values below.
+		extraOpts := extra
+		if extraOpts == nil {
+			extraOpts = map[string]any{}
+		}
+
 		mergedOpts := vs.Merge([]any{
+			// liveClientOptions() FIRST, so the generated fields below win:
+			// sdk-test-control.json's test.client.options adds to the live
+			// client, it does not redirect it.
+			liveClientOptions(),
 			map[string]any{
 				"apikey": env["CLOUDSMITH_APIKEY"],
 			},
-			extra,
+			extraOpts,
 		})
 		client = sdk.NewCloudsmithSDK(core.ToMapAny(mergedOpts))
 	}

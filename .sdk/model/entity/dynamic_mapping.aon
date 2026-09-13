@@ -71,18 +71,28 @@ main: kit: entity: dynamic_mapping: {
           }
           method: "GET"
           orig: "/orgs/{org}/openid-connect/{provider_setting}/dynamic-mappings/"
-          parts: [
-            "orgs"
-            "{org_id}"
-            "openid-connect"
-            "{provider_setting}"
-            "dynamic-mappings"
-          ]
           rename: {
             param: {
               org: "org_id"
             }
           }
+          segments: [
+            {
+              lit: "orgs"
+            }
+            {
+              var: "org_id"
+            }
+            {
+              lit: "openid-connect"
+            }
+            {
+              var: "provider_setting"
+            }
+            {
+              lit: "dynamic-mappings"
+            }
+          ]
           select: {
             exist: [
               "org_id"
@@ -129,14 +139,6 @@ main: kit: entity: dynamic_mapping: {
           }
           method: "GET"
           orig: "/orgs/{org}/openid-connect/{provider_setting}/dynamic-mappings/{claim_value}/"
-          parts: [
-            "orgs"
-            "{org_id}"
-            "openid-connect"
-            "{openid_connect_id}"
-            "dynamic-mappings"
-            "{id}"
-          ]
           rename: {
             param: {
               claim_value: "id"
@@ -144,6 +146,26 @@ main: kit: entity: dynamic_mapping: {
               provider_setting: "openid_connect_id"
             }
           }
+          segments: [
+            {
+              lit: "orgs"
+            }
+            {
+              var: "org_id"
+            }
+            {
+              lit: "openid-connect"
+            }
+            {
+              var: "openid_connect_id"
+            }
+            {
+              lit: "dynamic-mappings"
+            }
+            {
+              var: "id"
+            }
+          ]
           select: {
             exist: [
               "id"

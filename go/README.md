@@ -1416,6 +1416,7 @@ API path: ``
 | `"format_url"` |  |
 | `"freeable_storage"` | Amount of storage that will be freed if this package is deleted |
 | `"fully_qualified_name"` |  |
+| `"id"` |  |
 | `"identifier_perm"` | Unique and permanent identifier for the package. |
 | `"identifiers"` | Return a map of identifier field names and their values. |
 | `"inactive"` | Packages with zero downloads |
@@ -1554,6 +1555,7 @@ API path: `/orgs/{org}/license-policy/{policy_slug_perm}/evaluation/`
 
 | Field | Description |
 | --- | --- |
+| `"id"` |  |
 
 Operations: Load.
 
@@ -1935,6 +1937,7 @@ API path: `/repos/{owner}/{identifier}/rsa/`
 | `"eula_accepted_from"` |  |
 | `"eula_required"` | If checked, a EULA acceptance is required for this token. |
 | `"has_limits"` |  |
+| `"id"` |  |
 | `"identifier"` | Deprecated (23-05-15): Please use 'slug_perm' instead. |
 | `"is_active"` | If enabled, the token will allow downloads based on configured restrictions (if any). |
 | `"is_limited"` |  |
@@ -2034,6 +2037,7 @@ API path: `/entitlements/{owner}/{repo}/sync/`
 | `"disable_reason"` |  |
 | `"disable_reason_str"` |  |
 | `"events"` |  |
+| `"id"` |  |
 | `"identifier"` | Deprecated (23-05-15): Please use 'slug_perm' instead. |
 | `"is_active"` | If enabled, the webhook will trigger on subscribed events and send payloads to the configured target URL. |
 | `"is_last_response_bad"` |  |
@@ -2508,6 +2512,7 @@ API path: ``
 
 | Field | Description |
 | --- | --- |
+| `"id"` |  |
 
 Operations: Remove.
 
@@ -4644,6 +4649,7 @@ Create an instance: `package_ := client.Package(nil)`
 | `format_url` | `string` |  |
 | `freeable_storage` | `int` | Amount of storage that will be freed if this package is deleted |
 | `fully_qualified_name` | `string` |  |
+| `id` | `string` |  |
 | `identifier_perm` | `string` | Unique and permanent identifier for the package. |
 | `identifiers` | `map[string]any` | Return a map of identifier field names and their values. |
 | `inactive` | `int` | Packages with zero downloads |
@@ -4833,7 +4839,7 @@ Create an instance: `packageFilePartsUpload := client.PackageFilePartsUpload(nil
 #### Example: Load
 
 ```go
-packageFilePartsUpload, err := client.PackageFilePartsUpload(nil).Load(map[string]any{"identifier": "identifier", "owner": "owner", "repo": "repo"}, nil)
+packageFilePartsUpload, err := client.PackageFilePartsUpload(nil).Load(map[string]any{"identifier": "identifier", "owner": "owner", "repo": "repo", "filename": "filename"}, nil)
 if err != nil {
     panic(err)
 }
@@ -4943,6 +4949,12 @@ Create an instance: `packageVersionBadge := client.PackageVersionBadge(nil)`
 | Method | Description |
 | --- | --- |
 | `Load(match, ctrl)` | Load a single entity by match criteria. |
+
+#### Fields
+
+| Field | Type | Description |
+| --- | --- | --- |
+| `id` | `string` |  |
 
 #### Example: Load
 
@@ -5716,6 +5728,7 @@ Create an instance: `repositoryToken := client.RepositoryToken(nil)`
 | `eula_accepted_from` | `string` |  |
 | `eula_required` | `bool` | If checked, a EULA acceptance is required for this token. |
 | `has_limits` | `bool` |  |
+| `id` | `string` |  |
 | `identifier` | `int` | Deprecated (23-05-15): Please use 'slug_perm' instead. |
 | `is_active` | `bool` | If enabled, the token will allow downloads based on configured restrictions (if any). |
 | `is_limited` | `bool` |  |
@@ -5900,6 +5913,7 @@ Create an instance: `repositoryWebhook := client.RepositoryWebhook(nil)`
 | `disable_reason` | `int` |  |
 | `disable_reason_str` | `string` |  |
 | `events` | `[]any` |  |
+| `id` | `string` |  |
 | `identifier` | `int` | Deprecated (23-05-15): Please use 'slug_perm' instead. |
 | `is_active` | `bool` | If enabled, the webhook will trigger on subscribed events and send payloads to the configured target URL. |
 | `is_last_response_bad` | `bool` |  |
@@ -6723,6 +6737,12 @@ Create an instance: `webhook := client.Webhook(nil)`
 | --- | --- |
 | `Remove(match, ctrl)` | Remove the matching entity. |
 
+#### Fields
+
+| Field | Type | Description |
+| --- | --- | --- |
+| `id` | `string` |  |
+
 
 ### X509Ecdsa
 
@@ -6732,6 +6752,29 @@ Create an instance: `x509Ecdsa := client.X509Ecdsa(nil)`
 ### X509Rsa
 
 Create an instance: `x509Rsa := client.X509Rsa(nil)`
+
+## Features
+
+This SDK ships 1 optional features. Each is **inactive until you
+switch it on**, so an SDK you have not configured behaves exactly as if none of
+them existed — no retries, no cache, no logging, no measurable overhead.
+
+Activate a feature by name in the client options, alongside the options shown
+above:
+
+| Feature | What it does |
+|---|---|
+| [`test`](#test) | In-memory mock transport for testing without a live server |
+
+### test
+
+In-memory mock transport for testing without a live server.
+
+| Option | Default |
+|---|---|
+| `active` | `false` |
+
+Set `feature.test.active` to enable it, then override any of the options above.
 
 
 ## Advanced

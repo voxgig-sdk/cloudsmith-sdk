@@ -7,6 +7,7 @@ main: kit: entity: repo: {
   fields: [
     {
       name: "cdn_url"
+      readOnly: true
       req: false
       short: "Base URL from which packages and other artifacts are downloaded."
       type: "`$STRING`"
@@ -42,7 +43,9 @@ main: kit: entity: repo: {
       type: "`$BOOLEAN`"
     }
     {
+      format: "date-time"
       name: "created_at"
+      readOnly: true
       req: false
       type: "`$STRING`"
     }
@@ -65,7 +68,9 @@ main: kit: entity: repo: {
       type: "`$STRING`"
     }
     {
+      format: "date-time"
       name: "deleted_at"
+      readOnly: true
       req: false
       short: "The datetime the repository was manually deleted at."
       type: "`$STRING`"
@@ -90,6 +95,7 @@ main: kit: entity: repo: {
     }
     {
       name: "ecdsa_keys"
+      readOnly: true
       req: false
       type: "`$ARRAY`"
     }
@@ -101,6 +107,7 @@ main: kit: entity: repo: {
     }
     {
       name: "gpg_keys"
+      readOnly: true
       req: false
       type: "`$ARRAY`"
     }
@@ -117,16 +124,19 @@ main: kit: entity: repo: {
     }
     {
       name: "is_open_source"
+      readOnly: true
       req: false
       type: "`$BOOLEAN`"
     }
     {
       name: "is_private"
+      readOnly: true
       req: false
       type: "`$BOOLEAN`"
     }
     {
       name: "is_public"
+      readOnly: true
       req: false
       type: "`$BOOLEAN`"
     }
@@ -155,13 +165,17 @@ main: kit: entity: repo: {
       type: "`$STRING`"
     }
     {
+      format: "slug"
       name: "namespace"
+      readOnly: true
       req: false
       short: "Namespace to which this repository belongs."
       type: "`$STRING`"
     }
     {
+      format: "uri"
       name: "namespace_url"
+      readOnly: true
       req: false
       short: "API endpoint where data about this namespace can be retrieved."
       type: "`$STRING`"
@@ -174,18 +188,21 @@ main: kit: entity: repo: {
     }
     {
       name: "num_downloads"
+      readOnly: true
       req: false
       short: "The number of downloads for packages in the repository."
       type: "`$INTEGER`"
     }
     {
       name: "num_policy_violated_packages"
+      readOnly: true
       req: false
       short: "Number of packages with policy violations in a repository."
       type: "`$INTEGER`"
     }
     {
       name: "num_quarantined_packages"
+      readOnly: true
       req: false
       short: "Number of quarantined packages in a repository."
       type: "`$INTEGER`"
@@ -197,6 +214,7 @@ main: kit: entity: repo: {
       type: "`$STRING`"
     }
     {
+      format: "uri"
       name: "open_source_project_url"
       req: false
       short: "The URL to the Open-Source project, used for validating that the project meets the requirements for Open-Source."
@@ -204,12 +222,14 @@ main: kit: entity: repo: {
     }
     {
       name: "package_count"
+      readOnly: true
       req: false
       short: "The number of packages in the repository."
       type: "`$INTEGER`"
     }
     {
       name: "package_group_count"
+      readOnly: true
       req: false
       short: "The number of groups in the repository."
       type: "`$INTEGER`"
@@ -252,6 +272,7 @@ main: kit: entity: repo: {
     }
     {
       name: "repository_type"
+      readOnly: true
       req: false
       short: "The repository type changes how it is accessed and billed."
       type: "`$INTEGER`"
@@ -288,12 +309,15 @@ main: kit: entity: repo: {
     }
     {
       name: "self_html_url"
+      readOnly: true
       req: false
       short: "Website URL for this repository."
       type: "`$STRING`"
     }
     {
+      format: "uri"
       name: "self_url"
+      readOnly: true
       req: false
       short: "API endpoint where data about this repository can be retrieved."
       type: "`$STRING`"
@@ -306,12 +330,14 @@ main: kit: entity: repo: {
     }
     {
       name: "size"
+      readOnly: true
       req: false
       short: "The calculated size of the repository."
       type: "`$INTEGER`"
     }
     {
       name: "size_str"
+      readOnly: true
       req: false
       short: "The calculated size of the repository (human readable)."
       type: "`$STRING`"
@@ -323,13 +349,16 @@ main: kit: entity: repo: {
       type: "`$STRING`"
     }
     {
+      format: "slug"
       name: "slug_perm"
+      readOnly: true
       req: false
       short: "The slug_perm immutably identifies the repository."
       type: "`$STRING`"
     }
     {
       name: "storage_region"
+      readOnly: true
       req: false
       short: "The Cloudsmith region in which package files are stored."
       type: "`$STRING`"
@@ -436,12 +465,22 @@ main: kit: entity: repo: {
           }
           method: "POST"
           orig: "/repos/{owner}/{identifier}/geoip/disable/"
-          parts: [
-            "repos"
-            "{owner}"
-            "{identifier}"
-            "geoip"
-            "disable"
+          segments: [
+            {
+              lit: "repos"
+            }
+            {
+              var: "owner"
+            }
+            {
+              var: "identifier"
+            }
+            {
+              lit: "geoip"
+            }
+            {
+              lit: "disable"
+            }
           ]
           select: {
             exist: [
@@ -485,12 +524,22 @@ main: kit: entity: repo: {
           }
           method: "POST"
           orig: "/repos/{owner}/{identifier}/geoip/enable/"
-          parts: [
-            "repos"
-            "{owner}"
-            "{identifier}"
-            "geoip"
-            "enable"
+          segments: [
+            {
+              lit: "repos"
+            }
+            {
+              var: "owner"
+            }
+            {
+              var: "identifier"
+            }
+            {
+              lit: "geoip"
+            }
+            {
+              lit: "enable"
+            }
           ]
           select: {
             exist: [
@@ -534,11 +583,19 @@ main: kit: entity: repo: {
           }
           method: "POST"
           orig: "/repos/{owner}/{repo}/transfer-region/"
-          parts: [
-            "repos"
-            "{owner}"
-            "{repo}"
-            "transfer-region"
+          segments: [
+            {
+              lit: "repos"
+            }
+            {
+              var: "owner"
+            }
+            {
+              var: "repo"
+            }
+            {
+              lit: "transfer-region"
+            }
           ]
           select: {
             "$action": "transfer_region"
@@ -576,15 +633,19 @@ main: kit: entity: repo: {
           }
           method: "POST"
           orig: "/repos/{owner}/"
-          parts: [
-            "repos"
-            "{id}"
-          ]
           rename: {
             param: {
               owner: "id"
             }
           }
+          segments: [
+            {
+              lit: "repos"
+            }
+            {
+              var: "id"
+            }
+          ]
           select: {
             exist: [
               "data"
@@ -622,8 +683,10 @@ main: kit: entity: repo: {
           }
           method: "GET"
           orig: "/repos/"
-          parts: [
-            "repos"
+          segments: [
+            {
+              lit: "repos"
+            }
           ]
           select: {
             exist: [
@@ -671,15 +734,19 @@ main: kit: entity: repo: {
           }
           method: "GET"
           orig: "/repos/{owner}/"
-          parts: [
-            "repos"
-            "{id}"
-          ]
           rename: {
             param: {
               owner: "id"
             }
           }
+          segments: [
+            {
+              lit: "repos"
+            }
+            {
+              var: "id"
+            }
+          ]
           select: {
             exist: [
               "id"
@@ -713,10 +780,16 @@ main: kit: entity: repo: {
           }
           method: "GET"
           orig: "/repos/{owner}/{identifier}/"
-          parts: [
-            "repos"
-            "{owner}"
-            "{identifier}"
+          segments: [
+            {
+              lit: "repos"
+            }
+            {
+              var: "owner"
+            }
+            {
+              var: "identifier"
+            }
           ]
           select: {
             exist: [
@@ -764,10 +837,16 @@ main: kit: entity: repo: {
           }
           method: "PATCH"
           orig: "/repos/{owner}/{identifier}/"
-          parts: [
-            "repos"
-            "{owner}"
-            "{identifier}"
+          segments: [
+            {
+              lit: "repos"
+            }
+            {
+              var: "owner"
+            }
+            {
+              var: "identifier"
+            }
           ]
           select: {
             exist: [
@@ -811,11 +890,19 @@ main: kit: entity: repo: {
           }
           method: "PATCH"
           orig: "/repos/{owner}/{identifier}/privileges"
-          parts: [
-            "repos"
-            "{owner}"
-            "{identifier}"
-            "privileges"
+          segments: [
+            {
+              lit: "repos"
+            }
+            {
+              var: "owner"
+            }
+            {
+              var: "identifier"
+            }
+            {
+              lit: "privileges"
+            }
           ]
           select: {
             exist: [
@@ -862,13 +949,25 @@ main: kit: entity: repo: {
           }
           method: "DELETE"
           orig: "/repos/{owner}/{identifier}/upstream/cargo/{slug_perm}/"
-          parts: [
-            "repos"
-            "{owner}"
-            "{identifier}"
-            "upstream"
-            "cargo"
-            "{slug_perm}"
+          segments: [
+            {
+              lit: "repos"
+            }
+            {
+              var: "owner"
+            }
+            {
+              var: "identifier"
+            }
+            {
+              lit: "upstream"
+            }
+            {
+              lit: "cargo"
+            }
+            {
+              var: "slug_perm"
+            }
           ]
           select: {
             exist: [
@@ -910,13 +1009,25 @@ main: kit: entity: repo: {
           }
           method: "DELETE"
           orig: "/repos/{owner}/{identifier}/upstream/composer/{slug_perm}/"
-          parts: [
-            "repos"
-            "{owner}"
-            "{identifier}"
-            "upstream"
-            "composer"
-            "{slug_perm}"
+          segments: [
+            {
+              lit: "repos"
+            }
+            {
+              var: "owner"
+            }
+            {
+              var: "identifier"
+            }
+            {
+              lit: "upstream"
+            }
+            {
+              lit: "composer"
+            }
+            {
+              var: "slug_perm"
+            }
           ]
           select: {
             exist: [
@@ -958,13 +1069,25 @@ main: kit: entity: repo: {
           }
           method: "DELETE"
           orig: "/repos/{owner}/{identifier}/upstream/conda/{slug_perm}/"
-          parts: [
-            "repos"
-            "{owner}"
-            "{identifier}"
-            "upstream"
-            "conda"
-            "{slug_perm}"
+          segments: [
+            {
+              lit: "repos"
+            }
+            {
+              var: "owner"
+            }
+            {
+              var: "identifier"
+            }
+            {
+              lit: "upstream"
+            }
+            {
+              lit: "conda"
+            }
+            {
+              var: "slug_perm"
+            }
           ]
           select: {
             exist: [
@@ -1006,13 +1129,25 @@ main: kit: entity: repo: {
           }
           method: "DELETE"
           orig: "/repos/{owner}/{identifier}/upstream/cran/{slug_perm}/"
-          parts: [
-            "repos"
-            "{owner}"
-            "{identifier}"
-            "upstream"
-            "cran"
-            "{slug_perm}"
+          segments: [
+            {
+              lit: "repos"
+            }
+            {
+              var: "owner"
+            }
+            {
+              var: "identifier"
+            }
+            {
+              lit: "upstream"
+            }
+            {
+              lit: "cran"
+            }
+            {
+              var: "slug_perm"
+            }
           ]
           select: {
             exist: [
@@ -1054,13 +1189,25 @@ main: kit: entity: repo: {
           }
           method: "DELETE"
           orig: "/repos/{owner}/{identifier}/upstream/dart/{slug_perm}/"
-          parts: [
-            "repos"
-            "{owner}"
-            "{identifier}"
-            "upstream"
-            "dart"
-            "{slug_perm}"
+          segments: [
+            {
+              lit: "repos"
+            }
+            {
+              var: "owner"
+            }
+            {
+              var: "identifier"
+            }
+            {
+              lit: "upstream"
+            }
+            {
+              lit: "dart"
+            }
+            {
+              var: "slug_perm"
+            }
           ]
           select: {
             exist: [
@@ -1102,13 +1249,25 @@ main: kit: entity: repo: {
           }
           method: "DELETE"
           orig: "/repos/{owner}/{identifier}/upstream/deb/{slug_perm}/"
-          parts: [
-            "repos"
-            "{owner}"
-            "{identifier}"
-            "upstream"
-            "deb"
-            "{slug_perm}"
+          segments: [
+            {
+              lit: "repos"
+            }
+            {
+              var: "owner"
+            }
+            {
+              var: "identifier"
+            }
+            {
+              lit: "upstream"
+            }
+            {
+              lit: "deb"
+            }
+            {
+              var: "slug_perm"
+            }
           ]
           select: {
             exist: [
@@ -1150,13 +1309,25 @@ main: kit: entity: repo: {
           }
           method: "DELETE"
           orig: "/repos/{owner}/{identifier}/upstream/docker/{slug_perm}/"
-          parts: [
-            "repos"
-            "{owner}"
-            "{identifier}"
-            "upstream"
-            "docker"
-            "{slug_perm}"
+          segments: [
+            {
+              lit: "repos"
+            }
+            {
+              var: "owner"
+            }
+            {
+              var: "identifier"
+            }
+            {
+              lit: "upstream"
+            }
+            {
+              lit: "docker"
+            }
+            {
+              var: "slug_perm"
+            }
           ]
           select: {
             exist: [
@@ -1198,13 +1369,25 @@ main: kit: entity: repo: {
           }
           method: "DELETE"
           orig: "/repos/{owner}/{identifier}/upstream/go/{slug_perm}/"
-          parts: [
-            "repos"
-            "{owner}"
-            "{identifier}"
-            "upstream"
-            "go"
-            "{slug_perm}"
+          segments: [
+            {
+              lit: "repos"
+            }
+            {
+              var: "owner"
+            }
+            {
+              var: "identifier"
+            }
+            {
+              lit: "upstream"
+            }
+            {
+              lit: "go"
+            }
+            {
+              var: "slug_perm"
+            }
           ]
           select: {
             exist: [
@@ -1246,13 +1429,25 @@ main: kit: entity: repo: {
           }
           method: "DELETE"
           orig: "/repos/{owner}/{identifier}/upstream/helm/{slug_perm}/"
-          parts: [
-            "repos"
-            "{owner}"
-            "{identifier}"
-            "upstream"
-            "helm"
-            "{slug_perm}"
+          segments: [
+            {
+              lit: "repos"
+            }
+            {
+              var: "owner"
+            }
+            {
+              var: "identifier"
+            }
+            {
+              lit: "upstream"
+            }
+            {
+              lit: "helm"
+            }
+            {
+              var: "slug_perm"
+            }
           ]
           select: {
             exist: [
@@ -1294,13 +1489,25 @@ main: kit: entity: repo: {
           }
           method: "DELETE"
           orig: "/repos/{owner}/{identifier}/upstream/hex/{slug_perm}/"
-          parts: [
-            "repos"
-            "{owner}"
-            "{identifier}"
-            "upstream"
-            "hex"
-            "{slug_perm}"
+          segments: [
+            {
+              lit: "repos"
+            }
+            {
+              var: "owner"
+            }
+            {
+              var: "identifier"
+            }
+            {
+              lit: "upstream"
+            }
+            {
+              lit: "hex"
+            }
+            {
+              var: "slug_perm"
+            }
           ]
           select: {
             exist: [
@@ -1342,13 +1549,25 @@ main: kit: entity: repo: {
           }
           method: "DELETE"
           orig: "/repos/{owner}/{identifier}/upstream/huggingface/{slug_perm}/"
-          parts: [
-            "repos"
-            "{owner}"
-            "{identifier}"
-            "upstream"
-            "huggingface"
-            "{slug_perm}"
+          segments: [
+            {
+              lit: "repos"
+            }
+            {
+              var: "owner"
+            }
+            {
+              var: "identifier"
+            }
+            {
+              lit: "upstream"
+            }
+            {
+              lit: "huggingface"
+            }
+            {
+              var: "slug_perm"
+            }
           ]
           select: {
             exist: [
@@ -1390,13 +1609,25 @@ main: kit: entity: repo: {
           }
           method: "DELETE"
           orig: "/repos/{owner}/{identifier}/upstream/maven/{slug_perm}/"
-          parts: [
-            "repos"
-            "{owner}"
-            "{identifier}"
-            "upstream"
-            "maven"
-            "{slug_perm}"
+          segments: [
+            {
+              lit: "repos"
+            }
+            {
+              var: "owner"
+            }
+            {
+              var: "identifier"
+            }
+            {
+              lit: "upstream"
+            }
+            {
+              lit: "maven"
+            }
+            {
+              var: "slug_perm"
+            }
           ]
           select: {
             exist: [
@@ -1438,13 +1669,25 @@ main: kit: entity: repo: {
           }
           method: "DELETE"
           orig: "/repos/{owner}/{identifier}/upstream/npm/{slug_perm}/"
-          parts: [
-            "repos"
-            "{owner}"
-            "{identifier}"
-            "upstream"
-            "npm"
-            "{slug_perm}"
+          segments: [
+            {
+              lit: "repos"
+            }
+            {
+              var: "owner"
+            }
+            {
+              var: "identifier"
+            }
+            {
+              lit: "upstream"
+            }
+            {
+              lit: "npm"
+            }
+            {
+              var: "slug_perm"
+            }
           ]
           select: {
             exist: [
@@ -1486,13 +1729,25 @@ main: kit: entity: repo: {
           }
           method: "DELETE"
           orig: "/repos/{owner}/{identifier}/upstream/nuget/{slug_perm}/"
-          parts: [
-            "repos"
-            "{owner}"
-            "{identifier}"
-            "upstream"
-            "nuget"
-            "{slug_perm}"
+          segments: [
+            {
+              lit: "repos"
+            }
+            {
+              var: "owner"
+            }
+            {
+              var: "identifier"
+            }
+            {
+              lit: "upstream"
+            }
+            {
+              lit: "nuget"
+            }
+            {
+              var: "slug_perm"
+            }
           ]
           select: {
             exist: [
@@ -1534,13 +1789,25 @@ main: kit: entity: repo: {
           }
           method: "DELETE"
           orig: "/repos/{owner}/{identifier}/upstream/python/{slug_perm}/"
-          parts: [
-            "repos"
-            "{owner}"
-            "{identifier}"
-            "upstream"
-            "python"
-            "{slug_perm}"
+          segments: [
+            {
+              lit: "repos"
+            }
+            {
+              var: "owner"
+            }
+            {
+              var: "identifier"
+            }
+            {
+              lit: "upstream"
+            }
+            {
+              lit: "python"
+            }
+            {
+              var: "slug_perm"
+            }
           ]
           select: {
             exist: [
@@ -1582,13 +1849,25 @@ main: kit: entity: repo: {
           }
           method: "DELETE"
           orig: "/repos/{owner}/{identifier}/upstream/rpm/{slug_perm}/"
-          parts: [
-            "repos"
-            "{owner}"
-            "{identifier}"
-            "upstream"
-            "rpm"
-            "{slug_perm}"
+          segments: [
+            {
+              lit: "repos"
+            }
+            {
+              var: "owner"
+            }
+            {
+              var: "identifier"
+            }
+            {
+              lit: "upstream"
+            }
+            {
+              lit: "rpm"
+            }
+            {
+              var: "slug_perm"
+            }
           ]
           select: {
             exist: [
@@ -1630,13 +1909,25 @@ main: kit: entity: repo: {
           }
           method: "DELETE"
           orig: "/repos/{owner}/{identifier}/upstream/ruby/{slug_perm}/"
-          parts: [
-            "repos"
-            "{owner}"
-            "{identifier}"
-            "upstream"
-            "ruby"
-            "{slug_perm}"
+          segments: [
+            {
+              lit: "repos"
+            }
+            {
+              var: "owner"
+            }
+            {
+              var: "identifier"
+            }
+            {
+              lit: "upstream"
+            }
+            {
+              lit: "ruby"
+            }
+            {
+              var: "slug_perm"
+            }
           ]
           select: {
             exist: [
@@ -1678,13 +1969,25 @@ main: kit: entity: repo: {
           }
           method: "DELETE"
           orig: "/repos/{owner}/{identifier}/upstream/swift/{slug_perm}/"
-          parts: [
-            "repos"
-            "{owner}"
-            "{identifier}"
-            "upstream"
-            "swift"
-            "{slug_perm}"
+          segments: [
+            {
+              lit: "repos"
+            }
+            {
+              var: "owner"
+            }
+            {
+              var: "identifier"
+            }
+            {
+              lit: "upstream"
+            }
+            {
+              lit: "swift"
+            }
+            {
+              var: "slug_perm"
+            }
           ]
           select: {
             exist: [
@@ -1719,10 +2022,16 @@ main: kit: entity: repo: {
           }
           method: "DELETE"
           orig: "/repos/{owner}/{identifier}/"
-          parts: [
-            "repos"
-            "{owner}"
-            "{identifier}"
+          segments: [
+            {
+              lit: "repos"
+            }
+            {
+              var: "owner"
+            }
+            {
+              var: "identifier"
+            }
           ]
           select: {
             exist: [
@@ -1770,11 +2079,19 @@ main: kit: entity: repo: {
           }
           method: "PUT"
           orig: "/repos/{owner}/{identifier}/privileges"
-          parts: [
-            "repos"
-            "{owner}"
-            "{identifier}"
-            "privileges"
+          segments: [
+            {
+              lit: "repos"
+            }
+            {
+              var: "owner"
+            }
+            {
+              var: "identifier"
+            }
+            {
+              lit: "privileges"
+            }
           ]
           select: {
             exist: [

@@ -48,7 +48,7 @@ func TestDenyPolicyEntity(t *testing.T) {
 			return
 		}
 		// Bootstrap entity data from existing test data (no create step in flow).
-		denyPolicyRef01DataRaw := vs.Items(core.ToMapAny(vs.GetPath("existing.deny_policy", setup.data)))
+		denyPolicyRef01DataRaw := vs.Items(core.ToMapAny(vs.GetPath(setup.data, "existing.deny_policy")))
 		var denyPolicyRef01Data map[string]any
 		if len(denyPolicyRef01DataRaw) > 0 {
 			denyPolicyRef01Data = core.ToMapAny(denyPolicyRef01DataRaw[0][1])
@@ -84,7 +84,7 @@ func deny_policyBasicSetup(extra map[string]any) *entityTestSetup {
 	client := sdk.TestSDK(options, extra)
 
 	// Generate idmap via transform, matching TS pattern.
-	idmap := vs.Transform(
+	idmap, _ := vs.Transform(
 		[]any{"deny_policy01", "deny_policy02", "deny_policy03", "org01", "org02", "org03"},
 		map[string]any{
 			"`$PACK`": []any{"", map[string]any{
@@ -104,7 +104,7 @@ func deny_policyBasicSetup(extra map[string]any) *entityTestSetup {
 		"CLOUDSMITH_TEST_DENY_POLICY_ENTID": idmap,
 		"CLOUDSMITH_TEST_LIVE":      "FALSE",
 		"CLOUDSMITH_TEST_EXPLAIN":   "FALSE",
-		"CLOUDSMITH_APIKEY":         "NONE",
+		"CLOUDSMITH_APIKEY":         "",
 	})
 
 	idmapResolved := core.ToMapAny(env["CLOUDSMITH_TEST_DENY_POLICY_ENTID"])
@@ -113,11 +113,23 @@ func deny_policyBasicSetup(extra map[string]any) *entityTestSetup {
 	}
 
 	if env["CLOUDSMITH_TEST_LIVE"] == "TRUE" {
+		// An empty map, not a nil one: Merge returns nil when its last entry
+		// is nil, and BasicSetup is normally called with no extras - so a
+		// bare nil silently discarded the apikey and server values below.
+		extraOpts := extra
+		if extraOpts == nil {
+			extraOpts = map[string]any{}
+		}
+
 		mergedOpts := vs.Merge([]any{
+			// liveClientOptions() FIRST, so the generated fields below win:
+			// sdk-test-control.json's test.client.options adds to the live
+			// client, it does not redirect it.
+			liveClientOptions(),
 			map[string]any{
 				"apikey": env["CLOUDSMITH_APIKEY"],
 			},
-			extra,
+			extraOpts,
 		})
 		client = sdk.NewCloudsmithSDK(core.ToMapAny(mergedOpts))
 	}

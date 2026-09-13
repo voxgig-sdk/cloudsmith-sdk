@@ -48,9 +48,13 @@ class TestPackageVersionBadgeEntity:
 
         # LOAD
         package_version_badge_ref01_ent = client.PackageVersionBadge(None)
-        package_version_badge_ref01_match_dt0 = {}
+        package_version_badge_ref01_match_dt0 = {
+            "id": package_version_badge_ref01_data["id"],
+        }
         package_version_badge_ref01_data_dt0_loaded = package_version_badge_ref01_ent.load(package_version_badge_ref01_match_dt0, None)
-        assert package_version_badge_ref01_data_dt0_loaded is not None
+        package_version_badge_ref01_data_dt0_load_result = helpers.to_map(runner.entity_data(package_version_badge_ref01_data_dt0_loaded))
+        assert package_version_badge_ref01_data_dt0_load_result is not None
+        assert package_version_badge_ref01_data_dt0_load_result["id"] == package_version_badge_ref01_data["id"]
 
 
 
@@ -90,7 +94,7 @@ def _package_version_badge_basic_setup(extra):
         "CLOUDSMITH_TEST_PACKAGE_VERSION_BADGE_ENTID": idmap,
         "CLOUDSMITH_TEST_LIVE": "FALSE",
         "CLOUDSMITH_TEST_EXPLAIN": "FALSE",
-        "CLOUDSMITH_APIKEY": "NONE",
+        "CLOUDSMITH_APIKEY": "",
     })
 
     idmap_resolved = helpers.to_map(
@@ -100,6 +104,10 @@ def _package_version_badge_basic_setup(extra):
 
     if env.get("CLOUDSMITH_TEST_LIVE") == "TRUE":
         merged_opts = vs.merge([
+            # FIRST, so the generated fields below win: sdk-test-control.json's
+            # test.client.options adds to the live client, it does not
+            # redirect it.
+            runner.live_client_options(),
             {
                 "apikey": env.get("CLOUDSMITH_APIKEY"),
             },

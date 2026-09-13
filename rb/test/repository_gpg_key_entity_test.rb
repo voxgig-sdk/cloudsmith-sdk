@@ -83,7 +83,7 @@ def repository_gpg_key_basic_setup(extra)
     "CLOUDSMITH_TEST_REPOSITORY_GPG_KEY_ENTID" => idmap,
     "CLOUDSMITH_TEST_LIVE" => "FALSE",
     "CLOUDSMITH_TEST_EXPLAIN" => "FALSE",
-    "CLOUDSMITH_APIKEY" => "NONE",
+    "CLOUDSMITH_APIKEY" => "",
   })
 
   idmap_resolved = Helpers.to_map(
@@ -94,6 +94,9 @@ def repository_gpg_key_basic_setup(extra)
 
   if env["CLOUDSMITH_TEST_LIVE"] == "TRUE"
     merged_opts = Vs.merge([
+      # FIRST, so the generated fields below win: sdk-test-control.json's
+      # test.client.options adds to the live client, it does not redirect it.
+      Runner.live_client_options,
       {
         "apikey" => env["CLOUDSMITH_APIKEY"],
       },

@@ -1412,6 +1412,7 @@ API path: ``
 | `format_url` |  |
 | `freeable_storage` | Amount of storage that will be freed if this package is deleted |
 | `fully_qualified_name` |  |
+| `id` |  |
 | `identifier_perm` | Unique and permanent identifier for the package. |
 | `identifiers` | Return a map of identifier field names and their values. |
 | `inactive` | Packages with zero downloads |
@@ -1550,6 +1551,7 @@ API path: `/orgs/{org}/license-policy/{policy_slug_perm}/evaluation/`
 
 | Field | Description |
 | --- | --- |
+| `id` |  |
 
 Operations: Load.
 
@@ -1931,6 +1933,7 @@ API path: `/repos/{owner}/{identifier}/rsa/`
 | `eula_accepted_from` |  |
 | `eula_required` | If checked, a EULA acceptance is required for this token. |
 | `has_limits` |  |
+| `id` |  |
 | `identifier` | Deprecated (23-05-15): Please use 'slug_perm' instead. |
 | `is_active` | If enabled, the token will allow downloads based on configured restrictions (if any). |
 | `is_limited` |  |
@@ -2030,6 +2033,7 @@ API path: `/entitlements/{owner}/{repo}/sync/`
 | `disable_reason` |  |
 | `disable_reason_str` |  |
 | `events` |  |
+| `id` |  |
 | `identifier` | Deprecated (23-05-15): Please use 'slug_perm' instead. |
 | `is_active` | If enabled, the webhook will trigger on subscribed events and send payloads to the configured target URL. |
 | `is_last_response_bad` |  |
@@ -2504,6 +2508,7 @@ API path: ``
 
 | Field | Description |
 | --- | --- |
+| `id` |  |
 
 Operations: Remove.
 
@@ -4385,6 +4390,7 @@ Create an instance: `$package = $client->Package();`
 | `format_url` | `string` |  |
 | `freeable_storage` | `int` | Amount of storage that will be freed if this package is deleted |
 | `fully_qualified_name` | `string` |  |
+| `id` | `string` |  |
 | `identifier_perm` | `string` | Unique and permanent identifier for the package. |
 | `identifiers` | `array` | Return a map of identifier field names and their values. |
 | `inactive` | `int` | Packages with zero downloads |
@@ -4555,7 +4561,7 @@ Create an instance: `$package_file_parts_upload = $client->PackageFilePartsUploa
 
 ```php
 // load() returns the ENTITY — call data_get() for the PackageFilePartsUpload record (throws on error).
-$package_file_parts_upload = $client->PackageFilePartsUpload()->load(["identifier" => "identifier", "owner" => "owner", "repo" => "repo"]);
+$package_file_parts_upload = $client->PackageFilePartsUpload()->load(["identifier" => "identifier", "owner" => "owner", "repo" => "repo", "filename" => "filename"]);
 ```
 
 
@@ -4647,6 +4653,12 @@ Create an instance: `$package_version_badge = $client->PackageVersionBadge();`
 | Method | Description |
 | --- | --- |
 | `load(match)` | Load a single entity by match criteria. |
+
+#### Fields
+
+| Field | Type | Description |
+| --- | --- | --- |
+| `id` | `string` |  |
 
 #### Example: Load
 
@@ -5334,6 +5346,7 @@ Create an instance: `$repository_token = $client->RepositoryToken();`
 | `eula_accepted_from` | `string` |  |
 | `eula_required` | `bool` | If checked, a EULA acceptance is required for this token. |
 | `has_limits` | `bool` |  |
+| `id` | `string` |  |
 | `identifier` | `int` | Deprecated (23-05-15): Please use 'slug_perm' instead. |
 | `is_active` | `bool` | If enabled, the token will allow downloads based on configured restrictions (if any). |
 | `is_limited` | `bool` |  |
@@ -5500,6 +5513,7 @@ Create an instance: `$repository_webhook = $client->RepositoryWebhook();`
 | `disable_reason` | `int` |  |
 | `disable_reason_str` | `string` |  |
 | `events` | `array` |  |
+| `id` | `string` |  |
 | `identifier` | `int` | Deprecated (23-05-15): Please use 'slug_perm' instead. |
 | `is_active` | `bool` | If enabled, the webhook will trigger on subscribed events and send payloads to the configured target URL. |
 | `is_last_response_bad` | `bool` |  |
@@ -6232,6 +6246,12 @@ Create an instance: `$webhook = $client->Webhook();`
 | --- | --- |
 | `remove(match)` | Remove the matching entity. |
 
+#### Fields
+
+| Field | Type | Description |
+| --- | --- | --- |
+| `id` | `string` |  |
+
 
 ### X509Ecdsa
 
@@ -6241,6 +6261,29 @@ Create an instance: `$x509_ecdsa = $client->X509Ecdsa();`
 ### X509Rsa
 
 Create an instance: `$x509_rsa = $client->X509Rsa();`
+
+## Features
+
+This SDK ships 1 optional features. Each is **inactive until you
+switch it on**, so an SDK you have not configured behaves exactly as if none of
+them existed — no retries, no cache, no logging, no measurable overhead.
+
+Activate a feature by name in the client options, alongside the options shown
+above:
+
+| Feature | What it does |
+|---|---|
+| [`test`](#test) | In-memory mock transport for testing without a live server |
+
+### test
+
+In-memory mock transport for testing without a live server.
+
+| Option | Default |
+|---|---|
+| `active` | `false` |
+
+Set `feature.test.active` to enable it, then override any of the options above.
 
 
 ## Advanced

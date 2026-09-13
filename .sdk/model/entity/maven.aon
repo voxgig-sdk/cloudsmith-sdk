@@ -24,13 +24,16 @@ main: kit: entity: maven: {
       type: "`$STRING`"
     }
     {
+      format: "date-time"
       name: "created_at"
+      readOnly: true
       req: false
       short: "The datetime the upstream source was created."
       type: "`$STRING`"
     }
     {
       name: "disable_reason"
+      readOnly: true
       req: false
       type: "`$STRING`"
     }
@@ -65,6 +68,7 @@ main: kit: entity: maven: {
       type: "`$STRING`"
     }
     {
+      format: "uri"
       name: "gpg_key_url"
       req: false
       short: "When provided, Cloudsmith will fetch, validate, and associate a public GPG key found at the provided URL."
@@ -101,6 +105,7 @@ main: kit: entity: maven: {
     }
     {
       name: "pending_validation"
+      readOnly: true
       req: false
       short: "When true, this upstream source is pending validation."
       type: "`$BOOLEAN`"
@@ -112,16 +117,21 @@ main: kit: entity: maven: {
       type: "`$INTEGER`"
     }
     {
+      format: "slug"
       name: "slug_perm"
+      readOnly: true
       req: false
       type: "`$STRING`"
     }
     {
+      format: "date-time"
       name: "updated_at"
+      readOnly: true
       req: false
       type: "`$STRING`"
     }
     {
+      format: "uri"
       name: "upstream_url"
       req: true
       short: "The URL for this upstream source."
@@ -129,6 +139,7 @@ main: kit: entity: maven: {
     }
     {
       name: "verification_status"
+      readOnly: true
       req: false
       short: "The signature verification status for this upstream."
       type: "`$STRING`"
@@ -181,12 +192,22 @@ main: kit: entity: maven: {
           }
           method: "POST"
           orig: "/repos/{owner}/{identifier}/upstream/maven/"
-          parts: [
-            "repos"
-            "{owner}"
-            "{identifier}"
-            "upstream"
-            "maven"
+          segments: [
+            {
+              lit: "repos"
+            }
+            {
+              var: "owner"
+            }
+            {
+              var: "identifier"
+            }
+            {
+              lit: "upstream"
+            }
+            {
+              lit: "maven"
+            }
           ]
           select: {
             exist: [
@@ -242,12 +263,22 @@ main: kit: entity: maven: {
           }
           method: "GET"
           orig: "/repos/{owner}/{identifier}/upstream/maven/"
-          parts: [
-            "repos"
-            "{owner}"
-            "{identifier}"
-            "upstream"
-            "maven"
+          segments: [
+            {
+              lit: "repos"
+            }
+            {
+              var: "owner"
+            }
+            {
+              var: "identifier"
+            }
+            {
+              lit: "upstream"
+            }
+            {
+              lit: "maven"
+            }
           ]
           select: {
             exist: [
@@ -295,19 +326,31 @@ main: kit: entity: maven: {
           }
           method: "GET"
           orig: "/repos/{owner}/{identifier}/upstream/maven/{slug_perm}/"
-          parts: [
-            "repos"
-            "{owner}"
-            "{identifier}"
-            "upstream"
-            "maven"
-            "{id}"
-          ]
           rename: {
             param: {
               slug_perm: "id"
             }
           }
+          segments: [
+            {
+              lit: "repos"
+            }
+            {
+              var: "owner"
+            }
+            {
+              var: "identifier"
+            }
+            {
+              lit: "upstream"
+            }
+            {
+              lit: "maven"
+            }
+            {
+              var: "id"
+            }
+          ]
           select: {
             exist: [
               "id"
@@ -362,19 +405,31 @@ main: kit: entity: maven: {
           }
           method: "PATCH"
           orig: "/repos/{owner}/{identifier}/upstream/maven/{slug_perm}/"
-          parts: [
-            "repos"
-            "{owner}"
-            "{identifier}"
-            "upstream"
-            "maven"
-            "{id}"
-          ]
           rename: {
             param: {
               slug_perm: "id"
             }
           }
+          segments: [
+            {
+              lit: "repos"
+            }
+            {
+              var: "owner"
+            }
+            {
+              var: "identifier"
+            }
+            {
+              lit: "upstream"
+            }
+            {
+              lit: "maven"
+            }
+            {
+              var: "id"
+            }
+          ]
           select: {
             exist: [
               "data"
@@ -430,19 +485,31 @@ main: kit: entity: maven: {
           }
           method: "PUT"
           orig: "/repos/{owner}/{identifier}/upstream/maven/{slug_perm}/"
-          parts: [
-            "repos"
-            "{owner}"
-            "{identifier}"
-            "upstream"
-            "maven"
-            "{id}"
-          ]
           rename: {
             param: {
               slug_perm: "id"
             }
           }
+          segments: [
+            {
+              lit: "repos"
+            }
+            {
+              var: "owner"
+            }
+            {
+              var: "identifier"
+            }
+            {
+              lit: "upstream"
+            }
+            {
+              lit: "maven"
+            }
+            {
+              var: "id"
+            }
+          ]
           select: {
             exist: [
               "data"

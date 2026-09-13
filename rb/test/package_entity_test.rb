@@ -78,6 +78,7 @@ class PackageEntityTest < Minitest::Test
     package_ref01_data_result = package_ref01_ent.create(package_ref01_data, nil)
     package_ref01_data = Helpers.to_map(package_ref01_data_result.respond_to?(:data_get) ? package_ref01_data_result.data_get : package_ref01_data_result)
     assert !package_ref01_data.nil?
+    assert !package_ref01_data["id"].nil?
 
     # LIST
     package_ref01_match = {
@@ -89,11 +90,25 @@ class PackageEntityTest < Minitest::Test
     package_ref01_list_result = package_ref01_ent.list(package_ref01_match, nil)
     assert package_ref01_list_result.is_a?(Array)
 
-    # LOAD
-    package_ref01_match_dt0 = {}
-    package_ref01_data_dt0_loaded = package_ref01_ent.load(package_ref01_match_dt0, nil)
-    assert !package_ref01_data_dt0_loaded.nil?
+    found_item = Vs.select(
+      Runner.entity_list_to_data(package_ref01_list_result),
+      { "id" => package_ref01_data["id"] })
+    assert !Vs.isempty(found_item)
 
+    # LOAD
+    package_ref01_match_dt0 = {
+      "id" => package_ref01_data["id"],
+    }
+    package_ref01_data_dt0_loaded = package_ref01_ent.load(package_ref01_match_dt0, nil)
+    package_ref01_data_dt0_load_result = Helpers.to_map(package_ref01_data_dt0_loaded.respond_to?(:data_get) ? package_ref01_data_dt0_loaded.data_get : package_ref01_data_dt0_loaded)
+    assert !package_ref01_data_dt0_load_result.nil?
+    assert_equal package_ref01_data_dt0_load_result["id"], package_ref01_data["id"]
+
+    # REMOVE
+    package_ref01_match_rm0 = {
+      "id" => package_ref01_data["id"],
+    }
+    package_ref01_ent.remove(package_ref01_match_rm0, nil)
 
     # LIST
     package_ref01_match_rt0 = {
@@ -104,6 +119,11 @@ class PackageEntityTest < Minitest::Test
 
     package_ref01_list_rt0_result = package_ref01_ent.list(package_ref01_match_rt0, nil)
     assert package_ref01_list_rt0_result.is_a?(Array)
+
+    not_found_item = Vs.select(
+      Runner.entity_list_to_data(package_ref01_list_rt0_result),
+      { "id" => package_ref01_data["id"] })
+    assert Vs.isempty(not_found_item)
 
   end
 end
@@ -141,7 +161,7 @@ def package_basic_setup(extra)
     "CLOUDSMITH_TEST_PACKAGE_ENTID" => idmap,
     "CLOUDSMITH_TEST_LIVE" => "FALSE",
     "CLOUDSMITH_TEST_EXPLAIN" => "FALSE",
-    "CLOUDSMITH_APIKEY" => "NONE",
+    "CLOUDSMITH_APIKEY" => "",
   })
 
   idmap_resolved = Helpers.to_map(
@@ -152,6 +172,9 @@ def package_basic_setup(extra)
 
   if env["CLOUDSMITH_TEST_LIVE"] == "TRUE"
     merged_opts = Vs.merge([
+      # FIRST, so the generated fields below win: sdk-test-control.json's
+      # test.client.options adds to the live client, it does not redirect it.
+      Runner.live_client_options,
       {
         "apikey" => env["CLOUDSMITH_APIKEY"],
       },

@@ -129,9 +129,17 @@ CargoLoadMatch = Struct.new(
 #
 # @!attribute [rw] owner
 #   @return [Object]
+#
+# @!attribute [rw] page
+#   @return [Integer, nil]
+#
+# @!attribute [rw] page_size
+#   @return [Integer, nil]
 CargoListMatch = Struct.new(
   :identifier,
   :owner,
+  :page,
+  :page_size,
   keyword_init: true
 )
 
@@ -142,6 +150,9 @@ CargoListMatch = Struct.new(
 #
 # @!attribute [rw] owner
 #   @return [Object]
+#
+# @!attribute [rw] data
+#   @return [Hash, nil]
 #
 # @!attribute [rw] auth_mode
 #   @return [String, nil]
@@ -202,6 +213,7 @@ CargoListMatch = Struct.new(
 CargoCreateData = Struct.new(
   :identifier,
   :owner,
+  :data,
   :auth_mode,
   :auth_secret,
   :auth_username,
@@ -234,6 +246,9 @@ CargoCreateData = Struct.new(
 #
 # @!attribute [rw] owner
 #   @return [Object]
+#
+# @!attribute [rw] data
+#   @return [Hash, nil]
 #
 # @!attribute [rw] auth_mode
 #   @return [String, nil]
@@ -292,6 +307,7 @@ CargoUpdateData = Struct.new(
   :id,
   :identifier,
   :owner,
+  :data,
   :auth_mode,
   :auth_secret,
   :auth_username,
@@ -426,9 +442,17 @@ ComposerLoadMatch = Struct.new(
 #
 # @!attribute [rw] owner
 #   @return [Object]
+#
+# @!attribute [rw] page
+#   @return [Integer, nil]
+#
+# @!attribute [rw] page_size
+#   @return [Integer, nil]
 ComposerListMatch = Struct.new(
   :identifier,
   :owner,
+  :page,
+  :page_size,
   keyword_init: true
 )
 
@@ -439,6 +463,9 @@ ComposerListMatch = Struct.new(
 #
 # @!attribute [rw] owner
 #   @return [Object]
+#
+# @!attribute [rw] data
+#   @return [Hash, nil]
 #
 # @!attribute [rw] auth_mode
 #   @return [String, nil]
@@ -499,6 +526,7 @@ ComposerListMatch = Struct.new(
 ComposerCreateData = Struct.new(
   :identifier,
   :owner,
+  :data,
   :auth_mode,
   :auth_secret,
   :auth_username,
@@ -531,6 +559,9 @@ ComposerCreateData = Struct.new(
 #
 # @!attribute [rw] owner
 #   @return [Object]
+#
+# @!attribute [rw] data
+#   @return [Hash, nil]
 #
 # @!attribute [rw] auth_mode
 #   @return [String, nil]
@@ -589,6 +620,7 @@ ComposerUpdateData = Struct.new(
   :id,
   :identifier,
   :owner,
+  :data,
   :auth_mode,
   :auth_secret,
   :auth_username,
@@ -719,9 +751,17 @@ CondaLoadMatch = Struct.new(
 #
 # @!attribute [rw] owner
 #   @return [Object]
+#
+# @!attribute [rw] page
+#   @return [Integer, nil]
+#
+# @!attribute [rw] page_size
+#   @return [Integer, nil]
 CondaListMatch = Struct.new(
   :identifier,
   :owner,
+  :page,
+  :page_size,
   keyword_init: true
 )
 
@@ -732,6 +772,9 @@ CondaListMatch = Struct.new(
 #
 # @!attribute [rw] owner
 #   @return [Object]
+#
+# @!attribute [rw] data
+#   @return [Hash, nil]
 #
 # @!attribute [rw] auth_mode
 #   @return [String, nil]
@@ -792,6 +835,7 @@ CondaListMatch = Struct.new(
 CondaCreateData = Struct.new(
   :identifier,
   :owner,
+  :data,
   :auth_mode,
   :auth_secret,
   :auth_username,
@@ -824,6 +868,9 @@ CondaCreateData = Struct.new(
 #
 # @!attribute [rw] owner
 #   @return [Object]
+#
+# @!attribute [rw] data
+#   @return [Hash, nil]
 #
 # @!attribute [rw] auth_mode
 #   @return [String, nil]
@@ -882,6 +929,7 @@ CondaUpdateData = Struct.new(
   :id,
   :identifier,
   :owner,
+  :data,
   :auth_mode,
   :auth_secret,
   :auth_username,
@@ -1012,9 +1060,17 @@ CranLoadMatch = Struct.new(
 #
 # @!attribute [rw] owner
 #   @return [Object]
+#
+# @!attribute [rw] page
+#   @return [Integer, nil]
+#
+# @!attribute [rw] page_size
+#   @return [Integer, nil]
 CranListMatch = Struct.new(
   :identifier,
   :owner,
+  :page,
+  :page_size,
   keyword_init: true
 )
 
@@ -1025,6 +1081,9 @@ CranListMatch = Struct.new(
 #
 # @!attribute [rw] owner
 #   @return [Object]
+#
+# @!attribute [rw] data
+#   @return [Hash, nil]
 #
 # @!attribute [rw] auth_mode
 #   @return [String, nil]
@@ -1085,6 +1144,7 @@ CranListMatch = Struct.new(
 CranCreateData = Struct.new(
   :identifier,
   :owner,
+  :data,
   :auth_mode,
   :auth_secret,
   :auth_username,
@@ -1117,6 +1177,9 @@ CranCreateData = Struct.new(
 #
 # @!attribute [rw] owner
 #   @return [Object]
+#
+# @!attribute [rw] data
+#   @return [Hash, nil]
 #
 # @!attribute [rw] auth_mode
 #   @return [String, nil]
@@ -1175,6 +1238,7 @@ CranUpdateData = Struct.new(
   :id,
   :identifier,
   :owner,
+  :data,
   :auth_mode,
   :auth_secret,
   :auth_username,
@@ -1301,9 +1365,17 @@ DartLoadMatch = Struct.new(
 #
 # @!attribute [rw] owner
 #   @return [Object]
+#
+# @!attribute [rw] page
+#   @return [Integer, nil]
+#
+# @!attribute [rw] page_size
+#   @return [Integer, nil]
 DartListMatch = Struct.new(
   :identifier,
   :owner,
+  :page,
+  :page_size,
   keyword_init: true
 )
 
@@ -1314,6 +1386,9 @@ DartListMatch = Struct.new(
 #
 # @!attribute [rw] owner
 #   @return [Object]
+#
+# @!attribute [rw] data
+#   @return [Hash, nil]
 #
 # @!attribute [rw] auth_mode
 #   @return [String, nil]
@@ -1374,6 +1449,7 @@ DartListMatch = Struct.new(
 DartCreateData = Struct.new(
   :identifier,
   :owner,
+  :data,
   :auth_mode,
   :auth_secret,
   :auth_username,
@@ -1406,6 +1482,9 @@ DartCreateData = Struct.new(
 #
 # @!attribute [rw] owner
 #   @return [Object]
+#
+# @!attribute [rw] data
+#   @return [Hash, nil]
 #
 # @!attribute [rw] auth_mode
 #   @return [String, nil]
@@ -1464,6 +1543,7 @@ DartUpdateData = Struct.new(
   :id,
   :identifier,
   :owner,
+  :data,
   :auth_mode,
   :auth_secret,
   :auth_username,
@@ -1622,9 +1702,17 @@ DebLoadMatch = Struct.new(
 #
 # @!attribute [rw] owner
 #   @return [Object]
+#
+# @!attribute [rw] page
+#   @return [Integer, nil]
+#
+# @!attribute [rw] page_size
+#   @return [Integer, nil]
 DebListMatch = Struct.new(
   :identifier,
   :owner,
+  :page,
+  :page_size,
   keyword_init: true
 )
 
@@ -1635,6 +1723,9 @@ DebListMatch = Struct.new(
 #
 # @!attribute [rw] owner
 #   @return [Object]
+#
+# @!attribute [rw] data
+#   @return [Hash, nil]
 #
 # @!attribute [rw] auth_mode
 #   @return [String, nil]
@@ -1719,6 +1810,7 @@ DebListMatch = Struct.new(
 DebCreateData = Struct.new(
   :identifier,
   :owner,
+  :data,
   :auth_mode,
   :auth_secret,
   :auth_username,
@@ -1759,6 +1851,9 @@ DebCreateData = Struct.new(
 #
 # @!attribute [rw] owner
 #   @return [Object]
+#
+# @!attribute [rw] data
+#   @return [Hash, nil]
 #
 # @!attribute [rw] auth_mode
 #   @return [String, nil]
@@ -1841,6 +1936,7 @@ DebUpdateData = Struct.new(
   :id,
   :identifier,
   :owner,
+  :data,
   :auth_mode,
   :auth_secret,
   :auth_username,
@@ -2066,9 +2162,17 @@ DockerLoadMatch = Struct.new(
 #
 # @!attribute [rw] owner
 #   @return [Object]
+#
+# @!attribute [rw] page
+#   @return [Integer, nil]
+#
+# @!attribute [rw] page_size
+#   @return [Integer, nil]
 DockerListMatch = Struct.new(
   :identifier,
   :owner,
+  :page,
+  :page_size,
   keyword_init: true
 )
 
@@ -2079,6 +2183,9 @@ DockerListMatch = Struct.new(
 #
 # @!attribute [rw] owner
 #   @return [Object]
+#
+# @!attribute [rw] data
+#   @return [Hash, nil]
 #
 # @!attribute [rw] auth_mode
 #   @return [String, nil]
@@ -2139,6 +2246,7 @@ DockerListMatch = Struct.new(
 DockerCreateData = Struct.new(
   :identifier,
   :owner,
+  :data,
   :auth_mode,
   :auth_secret,
   :auth_username,
@@ -2171,6 +2279,9 @@ DockerCreateData = Struct.new(
 #
 # @!attribute [rw] owner
 #   @return [Object]
+#
+# @!attribute [rw] data
+#   @return [Hash, nil]
 #
 # @!attribute [rw] auth_mode
 #   @return [String, nil]
@@ -2229,6 +2340,7 @@ DockerUpdateData = Struct.new(
   :id,
   :identifier,
   :owner,
+  :data,
   :auth_mode,
   :auth_secret,
   :auth_username,
@@ -2291,9 +2403,17 @@ DynamicMappingLoadMatch = Struct.new(
 #
 # @!attribute [rw] provider_setting
 #   @return [Object]
+#
+# @!attribute [rw] page
+#   @return [Integer, nil]
+#
+# @!attribute [rw] page_size
+#   @return [Integer, nil]
 DynamicMappingListMatch = Struct.new(
   :org_id,
   :provider_setting,
+  :page,
+  :page_size,
   keyword_init: true
 )
 
@@ -2338,8 +2458,28 @@ Entitlement = Struct.new(
 #
 # @!attribute [rw] id
 #   @return [String]
+#
+# @!attribute [rw] finish
+#   @return [Object, nil]
+#
+# @!attribute [rw] page
+#   @return [Integer, nil]
+#
+# @!attribute [rw] page_size
+#   @return [Integer, nil]
+#
+# @!attribute [rw] start
+#   @return [Object, nil]
+#
+# @!attribute [rw] token
+#   @return [String, nil]
 EntitlementLoadMatch = Struct.new(
   :id,
+  :finish,
+  :page,
+  :page_size,
+  :start,
+  :token,
   keyword_init: true
 )
 
@@ -2353,6 +2493,9 @@ EntitlementLoadMatch = Struct.new(
 #
 # @!attribute [rw] repo
 #   @return [Object]
+#
+# @!attribute [rw] show_token
+#   @return [Object, nil]
 #
 # @!attribute [rw] active
 #   @return [Integer, nil]
@@ -2375,6 +2518,7 @@ EntitlementCreateData = Struct.new(
   :identifier,
   :owner,
   :repo,
+  :show_token,
   :active,
   :bandwidth,
   :downloads,
@@ -2419,10 +2563,14 @@ end
 #
 # @!attribute [rw] repo
 #   @return [Object]
+#
+# @!attribute [rw] data
+#   @return [Hash, nil]
 FileCreateData = Struct.new(
   :identifier,
   :owner,
   :repo,
+  :data,
   keyword_init: true
 )
 
@@ -2630,9 +2778,17 @@ GonLoadMatch = Struct.new(
 #
 # @!attribute [rw] owner
 #   @return [Object]
+#
+# @!attribute [rw] page
+#   @return [Integer, nil]
+#
+# @!attribute [rw] page_size
+#   @return [Integer, nil]
 GonListMatch = Struct.new(
   :identifier,
   :owner,
+  :page,
+  :page_size,
   keyword_init: true
 )
 
@@ -2643,6 +2799,9 @@ GonListMatch = Struct.new(
 #
 # @!attribute [rw] owner
 #   @return [Object]
+#
+# @!attribute [rw] data
+#   @return [Hash, nil]
 #
 # @!attribute [rw] auth_mode
 #   @return [String, nil]
@@ -2700,6 +2859,7 @@ GonListMatch = Struct.new(
 GonCreateData = Struct.new(
   :identifier,
   :owner,
+  :data,
   :auth_mode,
   :auth_secret,
   :auth_username,
@@ -2731,6 +2891,9 @@ GonCreateData = Struct.new(
 #
 # @!attribute [rw] slug_perm
 #   @return [Object]
+#
+# @!attribute [rw] data
+#   @return [Hash, nil]
 #
 # @!attribute [rw] auth_mode
 #   @return [String, nil]
@@ -2786,6 +2949,7 @@ GonUpdateData = Struct.new(
   :identifier,
   :owner,
   :slug_perm,
+  :data,
   :auth_mode,
   :auth_secret,
   :auth_username,
@@ -2919,9 +3083,17 @@ HelmLoadMatch = Struct.new(
 #
 # @!attribute [rw] owner
 #   @return [Object]
+#
+# @!attribute [rw] page
+#   @return [Integer, nil]
+#
+# @!attribute [rw] page_size
+#   @return [Integer, nil]
 HelmListMatch = Struct.new(
   :identifier,
   :owner,
+  :page,
+  :page_size,
   keyword_init: true
 )
 
@@ -2932,6 +3104,9 @@ HelmListMatch = Struct.new(
 #
 # @!attribute [rw] owner
 #   @return [Object]
+#
+# @!attribute [rw] data
+#   @return [Hash, nil]
 #
 # @!attribute [rw] auth_mode
 #   @return [String, nil]
@@ -2992,6 +3167,7 @@ HelmListMatch = Struct.new(
 HelmCreateData = Struct.new(
   :identifier,
   :owner,
+  :data,
   :auth_mode,
   :auth_secret,
   :auth_username,
@@ -3024,6 +3200,9 @@ HelmCreateData = Struct.new(
 #
 # @!attribute [rw] owner
 #   @return [Object]
+#
+# @!attribute [rw] data
+#   @return [Hash, nil]
 #
 # @!attribute [rw] auth_mode
 #   @return [String, nil]
@@ -3082,6 +3261,7 @@ HelmUpdateData = Struct.new(
   :id,
   :identifier,
   :owner,
+  :data,
   :auth_mode,
   :auth_secret,
   :auth_username,
@@ -3208,9 +3388,17 @@ HexLoadMatch = Struct.new(
 #
 # @!attribute [rw] owner
 #   @return [Object]
+#
+# @!attribute [rw] page
+#   @return [Integer, nil]
+#
+# @!attribute [rw] page_size
+#   @return [Integer, nil]
 HexListMatch = Struct.new(
   :identifier,
   :owner,
+  :page,
+  :page_size,
   keyword_init: true
 )
 
@@ -3221,6 +3409,9 @@ HexListMatch = Struct.new(
 #
 # @!attribute [rw] owner
 #   @return [Object]
+#
+# @!attribute [rw] data
+#   @return [Hash, nil]
 #
 # @!attribute [rw] auth_mode
 #   @return [String, nil]
@@ -3281,6 +3472,7 @@ HexListMatch = Struct.new(
 HexCreateData = Struct.new(
   :identifier,
   :owner,
+  :data,
   :auth_mode,
   :auth_secret,
   :auth_username,
@@ -3313,6 +3505,9 @@ HexCreateData = Struct.new(
 #
 # @!attribute [rw] owner
 #   @return [Object]
+#
+# @!attribute [rw] data
+#   @return [Hash, nil]
 #
 # @!attribute [rw] auth_mode
 #   @return [String, nil]
@@ -3371,6 +3566,7 @@ HexUpdateData = Struct.new(
   :id,
   :identifier,
   :owner,
+  :data,
   :auth_mode,
   :auth_secret,
   :auth_username,
@@ -3501,9 +3697,17 @@ HuggingfaceLoadMatch = Struct.new(
 #
 # @!attribute [rw] owner
 #   @return [Object]
+#
+# @!attribute [rw] page
+#   @return [Integer, nil]
+#
+# @!attribute [rw] page_size
+#   @return [Integer, nil]
 HuggingfaceListMatch = Struct.new(
   :identifier,
   :owner,
+  :page,
+  :page_size,
   keyword_init: true
 )
 
@@ -3514,6 +3718,9 @@ HuggingfaceListMatch = Struct.new(
 #
 # @!attribute [rw] owner
 #   @return [Object]
+#
+# @!attribute [rw] data
+#   @return [Hash, nil]
 #
 # @!attribute [rw] auth_mode
 #   @return [String, nil]
@@ -3574,6 +3781,7 @@ HuggingfaceListMatch = Struct.new(
 HuggingfaceCreateData = Struct.new(
   :identifier,
   :owner,
+  :data,
   :auth_mode,
   :auth_secret,
   :auth_username,
@@ -3606,6 +3814,9 @@ HuggingfaceCreateData = Struct.new(
 #
 # @!attribute [rw] owner
 #   @return [Object]
+#
+# @!attribute [rw] data
+#   @return [Hash, nil]
 #
 # @!attribute [rw] auth_mode
 #   @return [String, nil]
@@ -3664,6 +3875,7 @@ HuggingfaceUpdateData = Struct.new(
   :id,
   :identifier,
   :owner,
+  :data,
   :auth_mode,
   :auth_secret,
   :auth_username,
@@ -3826,9 +4038,17 @@ MavenLoadMatch = Struct.new(
 #
 # @!attribute [rw] owner
 #   @return [Object]
+#
+# @!attribute [rw] page
+#   @return [Integer, nil]
+#
+# @!attribute [rw] page_size
+#   @return [Integer, nil]
 MavenListMatch = Struct.new(
   :identifier,
   :owner,
+  :page,
+  :page_size,
   keyword_init: true
 )
 
@@ -3839,6 +4059,9 @@ MavenListMatch = Struct.new(
 #
 # @!attribute [rw] owner
 #   @return [Object]
+#
+# @!attribute [rw] data
+#   @return [Hash, nil]
 #
 # @!attribute [rw] auth_mode
 #   @return [String, nil]
@@ -3911,6 +4134,7 @@ MavenListMatch = Struct.new(
 MavenCreateData = Struct.new(
   :identifier,
   :owner,
+  :data,
   :auth_mode,
   :auth_secret,
   :auth_username,
@@ -3947,6 +4171,9 @@ MavenCreateData = Struct.new(
 #
 # @!attribute [rw] owner
 #   @return [Object]
+#
+# @!attribute [rw] data
+#   @return [Hash, nil]
 #
 # @!attribute [rw] auth_mode
 #   @return [String, nil]
@@ -4017,6 +4244,7 @@ MavenUpdateData = Struct.new(
   :id,
   :identifier,
   :owner,
+  :data,
   :auth_mode,
   :auth_secret,
   :auth_username,
@@ -4086,26 +4314,14 @@ NamespaceLoadMatch = Struct.new(
 
 # Request payload for Namespace#list.
 #
-# @!attribute [rw] id
-#   @return [String, nil]
+# @!attribute [rw] page
+#   @return [Integer, nil]
 #
-# @!attribute [rw] name
-#   @return [String, nil]
-#
-# @!attribute [rw] slug
-#   @return [String, nil]
-#
-# @!attribute [rw] slug_perm
-#   @return [String, nil]
-#
-# @!attribute [rw] type_name
-#   @return [String, nil]
+# @!attribute [rw] page_size
+#   @return [Integer, nil]
 NamespaceListMatch = Struct.new(
-  :id,
-  :name,
-  :slug,
-  :slug_perm,
-  :type_name,
+  :page,
+  :page_size,
   keyword_init: true
 )
 
@@ -4186,8 +4402,20 @@ NamespaceAuditLog = Struct.new(
 #
 # @!attribute [rw] id
 #   @return [String]
+#
+# @!attribute [rw] page
+#   @return [Integer, nil]
+#
+# @!attribute [rw] page_size
+#   @return [Integer, nil]
+#
+# @!attribute [rw] query
+#   @return [Object, nil]
 NamespaceAuditLogLoadMatch = Struct.new(
   :id,
+  :page,
+  :page_size,
+  :query,
   keyword_init: true
 )
 
@@ -4296,9 +4524,17 @@ NpmLoadMatch = Struct.new(
 #
 # @!attribute [rw] owner
 #   @return [Object]
+#
+# @!attribute [rw] page
+#   @return [Integer, nil]
+#
+# @!attribute [rw] page_size
+#   @return [Integer, nil]
 NpmListMatch = Struct.new(
   :identifier,
   :owner,
+  :page,
+  :page_size,
   keyword_init: true
 )
 
@@ -4309,6 +4545,9 @@ NpmListMatch = Struct.new(
 #
 # @!attribute [rw] owner
 #   @return [Object]
+#
+# @!attribute [rw] data
+#   @return [Hash, nil]
 #
 # @!attribute [rw] auth_mode
 #   @return [String, nil]
@@ -4369,6 +4608,7 @@ NpmListMatch = Struct.new(
 NpmCreateData = Struct.new(
   :identifier,
   :owner,
+  :data,
   :auth_mode,
   :auth_secret,
   :auth_username,
@@ -4401,6 +4641,9 @@ NpmCreateData = Struct.new(
 #
 # @!attribute [rw] owner
 #   @return [Object]
+#
+# @!attribute [rw] data
+#   @return [Hash, nil]
 #
 # @!attribute [rw] auth_mode
 #   @return [String, nil]
@@ -4459,6 +4702,7 @@ NpmUpdateData = Struct.new(
   :id,
   :identifier,
   :owner,
+  :data,
   :auth_mode,
   :auth_secret,
   :auth_username,
@@ -4585,9 +4829,17 @@ NugetLoadMatch = Struct.new(
 #
 # @!attribute [rw] owner
 #   @return [Object]
+#
+# @!attribute [rw] page
+#   @return [Integer, nil]
+#
+# @!attribute [rw] page_size
+#   @return [Integer, nil]
 NugetListMatch = Struct.new(
   :identifier,
   :owner,
+  :page,
+  :page_size,
   keyword_init: true
 )
 
@@ -4598,6 +4850,9 @@ NugetListMatch = Struct.new(
 #
 # @!attribute [rw] owner
 #   @return [Object]
+#
+# @!attribute [rw] data
+#   @return [Hash, nil]
 #
 # @!attribute [rw] auth_mode
 #   @return [String, nil]
@@ -4658,6 +4913,7 @@ NugetListMatch = Struct.new(
 NugetCreateData = Struct.new(
   :identifier,
   :owner,
+  :data,
   :auth_mode,
   :auth_secret,
   :auth_username,
@@ -4690,6 +4946,9 @@ NugetCreateData = Struct.new(
 #
 # @!attribute [rw] owner
 #   @return [Object]
+#
+# @!attribute [rw] data
+#   @return [Hash, nil]
 #
 # @!attribute [rw] auth_mode
 #   @return [String, nil]
@@ -4748,6 +5007,7 @@ NugetUpdateData = Struct.new(
   :id,
   :identifier,
   :owner,
+  :data,
   :auth_mode,
   :auth_secret,
   :auth_username,
@@ -4845,58 +5105,14 @@ OrgLoadMatch = Struct.new(
 
 # Request payload for Org#list.
 #
-# @!attribute [rw] country
-#   @return [String, nil]
+# @!attribute [rw] page
+#   @return [Integer, nil]
 #
-# @!attribute [rw] created_at
-#   @return [String, nil]
-#
-# @!attribute [rw] event_at
-#   @return [String, nil]
-#
-# @!attribute [rw] id
-#   @return [String, nil]
-#
-# @!attribute [rw] location
-#   @return [String, nil]
-#
-# @!attribute [rw] name
-#   @return [String, nil]
-#
-# @!attribute [rw] package
-#   @return [Hash, nil]
-#
-# @!attribute [rw] policy
-#   @return [Hash, nil]
-#
-# @!attribute [rw] reasons
-#   @return [Array, nil]
-#
-# @!attribute [rw] slug
-#   @return [String, nil]
-#
-# @!attribute [rw] slug_perm
-#   @return [String, nil]
-#
-# @!attribute [rw] tagline
-#   @return [String, nil]
-#
-# @!attribute [rw] vulnerability_scan_results
-#   @return [Hash, nil]
+# @!attribute [rw] page_size
+#   @return [Integer, nil]
 OrgListMatch = Struct.new(
-  :country,
-  :created_at,
-  :event_at,
-  :id,
-  :location,
-  :name,
-  :package,
-  :policy,
-  :reasons,
-  :slug,
-  :slug_perm,
-  :tagline,
-  :vulnerability_scan_results,
+  :page,
+  :page_size,
   keyword_init: true
 )
 
@@ -4969,6 +5185,9 @@ OrgCreateData = Struct.new(
 # @!attribute [rw] team_id
 #   @return [String]
 #
+# @!attribute [rw] data
+#   @return [Hash, nil]
+#
 # @!attribute [rw] country
 #   @return [String, nil]
 #
@@ -5007,6 +5226,7 @@ OrgCreateData = Struct.new(
 OrgUpdateData = Struct.new(
   :id,
   :team_id,
+  :data,
   :country,
   :created_at,
   :event_at,
@@ -5076,8 +5296,16 @@ OrganizationGroupSync = Struct.new(
 #
 # @!attribute [rw] org_id
 #   @return [String]
+#
+# @!attribute [rw] page
+#   @return [Integer, nil]
+#
+# @!attribute [rw] page_size
+#   @return [Integer, nil]
 OrganizationGroupSyncListMatch = Struct.new(
   :org_id,
+  :page,
+  :page_size,
   keyword_init: true
 )
 
@@ -5085,6 +5313,9 @@ OrganizationGroupSyncListMatch = Struct.new(
 #
 # @!attribute [rw] org_id
 #   @return [String]
+#
+# @!attribute [rw] data
+#   @return [Hash, nil]
 #
 # @!attribute [rw] idp_key
 #   @return [String]
@@ -5102,6 +5333,7 @@ OrganizationGroupSyncListMatch = Struct.new(
 #   @return [String]
 OrganizationGroupSyncCreateData = Struct.new(
   :org_id,
+  :data,
   :idp_key,
   :idp_value,
   :role,
@@ -5181,8 +5413,16 @@ OrganizationInvite = Struct.new(
 #
 # @!attribute [rw] org_id
 #   @return [String]
+#
+# @!attribute [rw] page
+#   @return [Integer, nil]
+#
+# @!attribute [rw] page_size
+#   @return [Integer, nil]
 OrganizationInviteListMatch = Struct.new(
   :org_id,
+  :page,
+  :page_size,
   keyword_init: true
 )
 
@@ -5190,6 +5430,9 @@ OrganizationInviteListMatch = Struct.new(
 #
 # @!attribute [rw] org_id
 #   @return [String]
+#
+# @!attribute [rw] data
+#   @return [Hash, nil]
 #
 # @!attribute [rw] email
 #   @return [String, nil]
@@ -5225,6 +5468,7 @@ OrganizationInviteListMatch = Struct.new(
 #   @return [String, nil]
 OrganizationInviteCreateData = Struct.new(
   :org_id,
+  :data,
   :email,
   :expires_at,
   :id,
@@ -5246,6 +5490,9 @@ OrganizationInviteCreateData = Struct.new(
 #
 # @!attribute [rw] org_id
 #   @return [String]
+#
+# @!attribute [rw] data
+#   @return [Hash, nil]
 #
 # @!attribute [rw] email
 #   @return [String, nil]
@@ -5279,6 +5526,7 @@ OrganizationInviteCreateData = Struct.new(
 OrganizationInviteUpdateData = Struct.new(
   :id,
   :org_id,
+  :data,
   :email,
   :expires_at,
   :inviter,
@@ -5456,8 +5704,28 @@ OrganizationMembershipLoadMatch = Struct.new(
 #
 # @!attribute [rw] org_id
 #   @return [String]
+#
+# @!attribute [rw] is_active
+#   @return [Boolean, nil]
+#
+# @!attribute [rw] page
+#   @return [Integer, nil]
+#
+# @!attribute [rw] page_size
+#   @return [Integer, nil]
+#
+# @!attribute [rw] query
+#   @return [Object, nil]
+#
+# @!attribute [rw] sort
+#   @return [Object, nil]
 OrganizationMembershipListMatch = Struct.new(
   :org_id,
+  :is_active,
+  :page,
+  :page_size,
+  :query,
+  :sort,
   keyword_init: true
 )
 
@@ -5468,6 +5736,9 @@ OrganizationMembershipListMatch = Struct.new(
 #
 # @!attribute [rw] org_id
 #   @return [String]
+#
+# @!attribute [rw] data
+#   @return [Hash, nil]
 #
 # @!attribute [rw] email
 #   @return [String, nil]
@@ -5507,6 +5778,7 @@ OrganizationMembershipListMatch = Struct.new(
 OrganizationMembershipUpdateData = Struct.new(
   :member,
   :org_id,
+  :data,
   :email,
   :has_two_factor,
   :is_active,
@@ -5579,6 +5851,9 @@ OrganizationMembershipRoleUpdate = Struct.new(
 # @!attribute [rw] org_id
 #   @return [String]
 #
+# @!attribute [rw] data
+#   @return [Hash, nil]
+#
 # @!attribute [rw] email
 #   @return [String, nil]
 #
@@ -5614,6 +5889,7 @@ OrganizationMembershipRoleUpdate = Struct.new(
 OrganizationMembershipRoleUpdateUpdateData = Struct.new(
   :member_id,
   :org_id,
+  :data,
   :email,
   :has_two_factor,
   :joined_at,
@@ -5685,6 +5961,9 @@ OrganizationMembershipVisibilityUpdate = Struct.new(
 # @!attribute [rw] org_id
 #   @return [String]
 #
+# @!attribute [rw] data
+#   @return [Hash, nil]
+#
 # @!attribute [rw] email
 #   @return [String, nil]
 #
@@ -5720,6 +5999,7 @@ OrganizationMembershipVisibilityUpdate = Struct.new(
 OrganizationMembershipVisibilityUpdateUpdateData = Struct.new(
   :member_id,
   :org_id,
+  :data,
   :email,
   :has_two_factor,
   :joined_at,
@@ -5796,8 +6076,16 @@ OrganizationPackageLicensePolicyLoadMatch = Struct.new(
 #
 # @!attribute [rw] org_id
 #   @return [String]
+#
+# @!attribute [rw] page
+#   @return [Integer, nil]
+#
+# @!attribute [rw] page_size
+#   @return [Integer, nil]
 OrganizationPackageLicensePolicyListMatch = Struct.new(
   :org_id,
+  :page,
+  :page_size,
   keyword_init: true
 )
 
@@ -5805,6 +6093,9 @@ OrganizationPackageLicensePolicyListMatch = Struct.new(
 #
 # @!attribute [rw] org_id
 #   @return [String]
+#
+# @!attribute [rw] data
+#   @return [Hash, nil]
 #
 # @!attribute [rw] allow_unknown_licenses
 #   @return [Boolean, nil]
@@ -5837,6 +6128,7 @@ OrganizationPackageLicensePolicyListMatch = Struct.new(
 #   @return [String, nil]
 OrganizationPackageLicensePolicyCreateData = Struct.new(
   :org_id,
+  :data,
   :allow_unknown_licenses,
   :created_at,
   :description,
@@ -5857,6 +6149,9 @@ OrganizationPackageLicensePolicyCreateData = Struct.new(
 #
 # @!attribute [rw] org_id
 #   @return [String]
+#
+# @!attribute [rw] data
+#   @return [Hash, nil]
 #
 # @!attribute [rw] allow_unknown_licenses
 #   @return [Boolean, nil]
@@ -5887,6 +6182,7 @@ OrganizationPackageLicensePolicyCreateData = Struct.new(
 OrganizationPackageLicensePolicyUpdateData = Struct.new(
   :id,
   :org_id,
+  :data,
   :allow_unknown_licenses,
   :created_at,
   :description,
@@ -5961,8 +6257,16 @@ OrganizationPackageVulnerabilityPolicyLoadMatch = Struct.new(
 #
 # @!attribute [rw] org_id
 #   @return [String]
+#
+# @!attribute [rw] page
+#   @return [Integer, nil]
+#
+# @!attribute [rw] page_size
+#   @return [Integer, nil]
 OrganizationPackageVulnerabilityPolicyListMatch = Struct.new(
   :org_id,
+  :page,
+  :page_size,
   keyword_init: true
 )
 
@@ -5970,6 +6274,9 @@ OrganizationPackageVulnerabilityPolicyListMatch = Struct.new(
 #
 # @!attribute [rw] org_id
 #   @return [String]
+#
+# @!attribute [rw] data
+#   @return [Hash, nil]
 #
 # @!attribute [rw] allow_unknown_severity
 #   @return [Boolean, nil]
@@ -6002,6 +6309,7 @@ OrganizationPackageVulnerabilityPolicyListMatch = Struct.new(
 #   @return [String, nil]
 OrganizationPackageVulnerabilityPolicyCreateData = Struct.new(
   :org_id,
+  :data,
   :allow_unknown_severity,
   :created_at,
   :description,
@@ -6022,6 +6330,9 @@ OrganizationPackageVulnerabilityPolicyCreateData = Struct.new(
 #
 # @!attribute [rw] org_id
 #   @return [String]
+#
+# @!attribute [rw] data
+#   @return [Hash, nil]
 #
 # @!attribute [rw] allow_unknown_severity
 #   @return [Boolean, nil]
@@ -6052,6 +6363,7 @@ OrganizationPackageVulnerabilityPolicyCreateData = Struct.new(
 OrganizationPackageVulnerabilityPolicyUpdateData = Struct.new(
   :id,
   :org_id,
+  :data,
   :allow_unknown_severity,
   :created_at,
   :description,
@@ -6099,6 +6411,9 @@ OrganizationSamlAuthLoadMatch = Struct.new(
 # @!attribute [rw] org_id
 #   @return [String]
 #
+# @!attribute [rw] data
+#   @return [Hash, nil]
+#
 # @!attribute [rw] saml_auth_enabled
 #   @return [Boolean, nil]
 #
@@ -6112,6 +6427,7 @@ OrganizationSamlAuthLoadMatch = Struct.new(
 #   @return [String, nil]
 OrganizationSamlAuthUpdateData = Struct.new(
   :org_id,
+  :data,
   :saml_auth_enabled,
   :saml_auth_enforced,
   :saml_metadata_inline,
@@ -6165,8 +6481,28 @@ OrganizationTeamLoadMatch = Struct.new(
 #
 # @!attribute [rw] org_id
 #   @return [String]
+#
+# @!attribute [rw] for_user
+#   @return [Object, nil]
+#
+# @!attribute [rw] page
+#   @return [Integer, nil]
+#
+# @!attribute [rw] page_size
+#   @return [Integer, nil]
+#
+# @!attribute [rw] query
+#   @return [Object, nil]
+#
+# @!attribute [rw] sort
+#   @return [Object, nil]
 OrganizationTeamListMatch = Struct.new(
   :org_id,
+  :for_user,
+  :page,
+  :page_size,
+  :query,
+  :sort,
   keyword_init: true
 )
 
@@ -6174,6 +6510,9 @@ OrganizationTeamListMatch = Struct.new(
 #
 # @!attribute [rw] org_id
 #   @return [String]
+#
+# @!attribute [rw] data
+#   @return [Hash, nil]
 #
 # @!attribute [rw] description
 #   @return [String, nil]
@@ -6194,6 +6533,7 @@ OrganizationTeamListMatch = Struct.new(
 #   @return [String, nil]
 OrganizationTeamCreateData = Struct.new(
   :org_id,
+  :data,
   :description,
   :id,
   :name,
@@ -6210,6 +6550,9 @@ OrganizationTeamCreateData = Struct.new(
 #
 # @!attribute [rw] org_id
 #   @return [String]
+#
+# @!attribute [rw] data
+#   @return [Hash, nil]
 #
 # @!attribute [rw] description
 #   @return [String, nil]
@@ -6228,6 +6571,7 @@ OrganizationTeamCreateData = Struct.new(
 OrganizationTeamUpdateData = Struct.new(
   :id,
   :org_id,
+  :data,
   :description,
   :name,
   :slug,
@@ -6270,6 +6614,9 @@ OrganizationTeamMemberListMatch = Struct.new(
 # @!attribute [rw] team_id
 #   @return [String]
 #
+# @!attribute [rw] data
+#   @return [Hash, nil]
+#
 # @!attribute [rw] role
 #   @return [String]
 #
@@ -6278,6 +6625,7 @@ OrganizationTeamMemberListMatch = Struct.new(
 OrganizationTeamMemberCreateData = Struct.new(
   :org_id,
   :team_id,
+  :data,
   :role,
   :user,
   keyword_init: true
@@ -6369,6 +6717,9 @@ end
 #   @return [Integer, nil]
 #
 # @!attribute [rw] fully_qualified_name
+#   @return [String, nil]
+#
+# @!attribute [rw] id
 #   @return [String, nil]
 #
 # @!attribute [rw] identifier_perm
@@ -6592,6 +6943,7 @@ Package = Struct.new(
   :format_url,
   :freeable_storage,
   :fully_qualified_name,
+  :id,
   :identifier_perm,
   :identifiers,
   :inactive,
@@ -6668,11 +7020,31 @@ Package = Struct.new(
 # @!attribute [rw] repo
 #   @return [Object]
 #
+# @!attribute [rw] finish
+#   @return [Object, nil]
+#
+# @!attribute [rw] package
+#   @return [Object, nil]
+#
+# @!attribute [rw] page
+#   @return [Integer, nil]
+#
+# @!attribute [rw] page_size
+#   @return [Integer, nil]
+#
+# @!attribute [rw] start
+#   @return [Object, nil]
+#
 # @!attribute [rw] identifier
 #   @return [Object, nil]
 PackageLoadMatch = Struct.new(
   :owner,
   :repo,
+  :finish,
+  :package,
+  :page,
+  :page_size,
+  :start,
   :identifier,
   keyword_init: true
 )
@@ -6685,11 +7057,31 @@ PackageLoadMatch = Struct.new(
 # @!attribute [rw] repo
 #   @return [Object]
 #
+# @!attribute [rw] group_by
+#   @return [Object, nil]
+#
+# @!attribute [rw] page
+#   @return [Integer, nil]
+#
+# @!attribute [rw] page_size
+#   @return [Integer, nil]
+#
+# @!attribute [rw] query
+#   @return [Object, nil]
+#
+# @!attribute [rw] sort
+#   @return [Object, nil]
+#
 # @!attribute [rw] identifier
 #   @return [Object, nil]
 PackageListMatch = Struct.new(
   :owner,
   :repo,
+  :group_by,
+  :page,
+  :page_size,
+  :query,
+  :sort,
   :identifier,
   keyword_init: true
 )
@@ -6704,6 +7096,9 @@ PackageListMatch = Struct.new(
 #
 # @!attribute [rw] repo
 #   @return [Object]
+#
+# @!attribute [rw] data
+#   @return [Hash, nil]
 #
 # @!attribute [rw] active
 #   @return [Integer, nil]
@@ -6781,6 +7176,9 @@ PackageListMatch = Struct.new(
 #   @return [Integer, nil]
 #
 # @!attribute [rw] fully_qualified_name
+#   @return [String, nil]
+#
+# @!attribute [rw] id
 #   @return [String, nil]
 #
 # @!attribute [rw] identifier_perm
@@ -6981,6 +7379,7 @@ PackageCreateData = Struct.new(
   :identifier,
   :owner,
   :repo,
+  :data,
   :active,
   :architectures,
   :backend_kind,
@@ -7007,6 +7406,7 @@ PackageCreateData = Struct.new(
   :format_url,
   :freeable_storage,
   :fully_qualified_name,
+  :id,
   :identifier_perm,
   :identifiers,
   :inactive,
@@ -7154,8 +7554,16 @@ PackageDenyPolicyLoadMatch = Struct.new(
 #
 # @!attribute [rw] org_id
 #   @return [String]
+#
+# @!attribute [rw] page
+#   @return [Integer, nil]
+#
+# @!attribute [rw] page_size
+#   @return [Integer, nil]
 PackageDenyPolicyListMatch = Struct.new(
   :org_id,
+  :page,
+  :page_size,
   keyword_init: true
 )
 
@@ -7163,6 +7571,9 @@ PackageDenyPolicyListMatch = Struct.new(
 #
 # @!attribute [rw] org_id
 #   @return [String]
+#
+# @!attribute [rw] data
+#   @return [Hash, nil]
 #
 # @!attribute [rw] action
 #   @return [String, nil]
@@ -7195,6 +7606,7 @@ PackageDenyPolicyListMatch = Struct.new(
 #   @return [String, nil]
 PackageDenyPolicyCreateData = Struct.new(
   :org_id,
+  :data,
   :action,
   :created_at,
   :description,
@@ -7215,6 +7627,9 @@ PackageDenyPolicyCreateData = Struct.new(
 #
 # @!attribute [rw] org_id
 #   @return [String]
+#
+# @!attribute [rw] data
+#   @return [Hash, nil]
 #
 # @!attribute [rw] action
 #   @return [String, nil]
@@ -7245,6 +7660,7 @@ PackageDenyPolicyCreateData = Struct.new(
 PackageDenyPolicyUpdateData = Struct.new(
   :id,
   :org_id,
+  :data,
   :action,
   :created_at,
   :description,
@@ -7284,10 +7700,18 @@ PackageFilePartsUpload = Struct.new(
 #
 # @!attribute [rw] repo
 #   @return [Object]
+#
+# @!attribute [rw] filename
+#   @return [Object]
+#
+# @!attribute [rw] part_number
+#   @return [Integer, nil]
 PackageFilePartsUploadLoadMatch = Struct.new(
   :identifier,
   :owner,
   :repo,
+  :filename,
+  :part_number,
   keyword_init: true
 )
 
@@ -7305,10 +7729,14 @@ end
 #
 # @!attribute [rw] repo
 #   @return [Object]
+#
+# @!attribute [rw] data
+#   @return [Hash, nil]
 PackageFileUploadCreateData = Struct.new(
   :identifier,
   :owner,
   :repo,
+  :data,
   keyword_init: true
 )
 
@@ -7401,9 +7829,17 @@ PackageLicensePolicyEvaluationLoadMatch = Struct.new(
 #
 # @!attribute [rw] policy_slug_perm
 #   @return [Object]
+#
+# @!attribute [rw] page
+#   @return [Integer, nil]
+#
+# @!attribute [rw] page_size
+#   @return [Integer, nil]
 PackageLicensePolicyEvaluationListMatch = Struct.new(
   :org_id,
   :policy_slug_perm,
+  :page,
+  :page_size,
   keyword_init: true
 )
 
@@ -7414,6 +7850,9 @@ PackageLicensePolicyEvaluationListMatch = Struct.new(
 #
 # @!attribute [rw] policy_slug_perm
 #   @return [Object]
+#
+# @!attribute [rw] data
+#   @return [Hash, nil]
 #
 # @!attribute [rw] allow_unknown_licenses
 #   @return [Boolean, nil]
@@ -7462,6 +7901,7 @@ PackageLicensePolicyEvaluationListMatch = Struct.new(
 PackageLicensePolicyEvaluationCreateData = Struct.new(
   :org_id,
   :policy_slug_perm,
+  :data,
   :allow_unknown_licenses,
   :created_at,
   :description,
@@ -7481,8 +7921,13 @@ PackageLicensePolicyEvaluationCreateData = Struct.new(
 )
 
 # PackageVersionBadge entity data model.
-class PackageVersionBadge
-end
+#
+# @!attribute [rw] id
+#   @return [String, nil]
+PackageVersionBadge = Struct.new(
+  :id,
+  keyword_init: true
+)
 
 # Request payload for PackageVersionBadge#load.
 #
@@ -7503,6 +7948,39 @@ end
 #
 # @!attribute [rw] repo
 #   @return [Object]
+#
+# @!attribute [rw] badge_token
+#   @return [Object, nil]
+#
+# @!attribute [rw] cache_second
+#   @return [Object, nil]
+#
+# @!attribute [rw] color
+#   @return [Object, nil]
+#
+# @!attribute [rw] label
+#   @return [String, nil]
+#
+# @!attribute [rw] label_color
+#   @return [Object, nil]
+#
+# @!attribute [rw] logo_color
+#   @return [Object, nil]
+#
+# @!attribute [rw] logo_width
+#   @return [Object, nil]
+#
+# @!attribute [rw] render
+#   @return [Object, nil]
+#
+# @!attribute [rw] shield
+#   @return [Object, nil]
+#
+# @!attribute [rw] show_latest
+#   @return [Object, nil]
+#
+# @!attribute [rw] style
+#   @return [Object, nil]
 PackageVersionBadgeLoadMatch = Struct.new(
   :owner,
   :package_format,
@@ -7510,6 +7988,17 @@ PackageVersionBadgeLoadMatch = Struct.new(
   :package_name,
   :package_version,
   :repo,
+  :badge_token,
+  :cache_second,
+  :color,
+  :label,
+  :label_color,
+  :logo_color,
+  :logo_width,
+  :render,
+  :shield,
+  :show_latest,
+  :style,
   keyword_init: true
 )
 
@@ -7602,9 +8091,17 @@ PackageVulnerabilityPolicyEvaluationLoadMatch = Struct.new(
 #
 # @!attribute [rw] policy_slug_perm
 #   @return [Object]
+#
+# @!attribute [rw] page
+#   @return [Integer, nil]
+#
+# @!attribute [rw] page_size
+#   @return [Integer, nil]
 PackageVulnerabilityPolicyEvaluationListMatch = Struct.new(
   :org_id,
   :policy_slug_perm,
+  :page,
+  :page_size,
   keyword_init: true
 )
 
@@ -7615,6 +8112,9 @@ PackageVulnerabilityPolicyEvaluationListMatch = Struct.new(
 #
 # @!attribute [rw] policy_slug_perm
 #   @return [Object]
+#
+# @!attribute [rw] data
+#   @return [Hash, nil]
 #
 # @!attribute [rw] allow_unknown_severity
 #   @return [Boolean, nil]
@@ -7663,6 +8163,7 @@ PackageVulnerabilityPolicyEvaluationListMatch = Struct.new(
 PackageVulnerabilityPolicyEvaluationCreateData = Struct.new(
   :org_id,
   :policy_slug_perm,
+  :data,
   :allow_unknown_severity,
   :created_at,
   :description,
@@ -7743,8 +8244,24 @@ ProviderSettingLoadMatch = Struct.new(
 #
 # @!attribute [rw] org_id
 #   @return [String]
+#
+# @!attribute [rw] page
+#   @return [Integer, nil]
+#
+# @!attribute [rw] page_size
+#   @return [Integer, nil]
+#
+# @!attribute [rw] query
+#   @return [Object, nil]
+#
+# @!attribute [rw] sort
+#   @return [Object, nil]
 ProviderSettingListMatch = Struct.new(
   :org_id,
+  :page,
+  :page_size,
+  :query,
+  :sort,
   keyword_init: true
 )
 
@@ -7794,6 +8311,9 @@ ProviderSettingsWrite = Struct.new(
 # @!attribute [rw] org_id
 #   @return [String]
 #
+# @!attribute [rw] data
+#   @return [Hash, nil]
+#
 # @!attribute [rw] claims
 #   @return [Hash]
 #
@@ -7822,6 +8342,7 @@ ProviderSettingsWrite = Struct.new(
 #   @return [String, nil]
 ProviderSettingsWriteCreateData = Struct.new(
   :org_id,
+  :data,
   :claims,
   :dynamic_mappings,
   :enabled,
@@ -7841,6 +8362,9 @@ ProviderSettingsWriteCreateData = Struct.new(
 #
 # @!attribute [rw] slug_perm
 #   @return [Object]
+#
+# @!attribute [rw] data
+#   @return [Hash, nil]
 #
 # @!attribute [rw] claims
 #   @return [Hash, nil]
@@ -7868,6 +8392,7 @@ ProviderSettingsWriteCreateData = Struct.new(
 ProviderSettingsWriteUpdateData = Struct.new(
   :org_id,
   :slug_perm,
+  :data,
   :claims,
   :dynamic_mappings,
   :enabled,
@@ -7984,9 +8509,17 @@ PythonLoadMatch = Struct.new(
 #
 # @!attribute [rw] owner
 #   @return [Object]
+#
+# @!attribute [rw] page
+#   @return [Integer, nil]
+#
+# @!attribute [rw] page_size
+#   @return [Integer, nil]
 PythonListMatch = Struct.new(
   :identifier,
   :owner,
+  :page,
+  :page_size,
   keyword_init: true
 )
 
@@ -7997,6 +8530,9 @@ PythonListMatch = Struct.new(
 #
 # @!attribute [rw] owner
 #   @return [Object]
+#
+# @!attribute [rw] data
+#   @return [Hash, nil]
 #
 # @!attribute [rw] auth_mode
 #   @return [String, nil]
@@ -8057,6 +8593,7 @@ PythonListMatch = Struct.new(
 PythonCreateData = Struct.new(
   :identifier,
   :owner,
+  :data,
   :auth_mode,
   :auth_secret,
   :auth_username,
@@ -8089,6 +8626,9 @@ PythonCreateData = Struct.new(
 #
 # @!attribute [rw] owner
 #   @return [Object]
+#
+# @!attribute [rw] data
+#   @return [Hash, nil]
 #
 # @!attribute [rw] auth_mode
 #   @return [String, nil]
@@ -8147,6 +8687,7 @@ PythonUpdateData = Struct.new(
   :id,
   :identifier,
   :owner,
+  :data,
   :auth_mode,
   :auth_secret,
   :auth_username,
@@ -8487,277 +9028,29 @@ Repo = Struct.new(
 #
 # @!attribute [rw] id
 #   @return [String]
+#
+# @!attribute [rw] page
+#   @return [Integer, nil]
+#
+# @!attribute [rw] page_size
+#   @return [Integer, nil]
 RepoLoadMatch = Struct.new(
   :id,
+  :page,
+  :page_size,
   keyword_init: true
 )
 
 # Request payload for Repo#list.
 #
-# @!attribute [rw] cdn_url
-#   @return [String, nil]
-#
-# @!attribute [rw] content_kind
-#   @return [String, nil]
-#
-# @!attribute [rw] contextual_auth_realm
-#   @return [Boolean, nil]
-#
-# @!attribute [rw] copy_own
-#   @return [Boolean, nil]
-#
-# @!attribute [rw] copy_packages
-#   @return [String, nil]
-#
-# @!attribute [rw] cosign_signing_enabled
-#   @return [Boolean, nil]
-#
-# @!attribute [rw] created_at
-#   @return [String, nil]
-#
-# @!attribute [rw] default_privilege
-#   @return [String, nil]
-#
-# @!attribute [rw] delete_own
-#   @return [Boolean, nil]
-#
-# @!attribute [rw] delete_packages
-#   @return [String, nil]
-#
-# @!attribute [rw] deleted_at
-#   @return [String, nil]
-#
-# @!attribute [rw] description
-#   @return [String, nil]
-#
-# @!attribute [rw] distributes
-#   @return [Array, nil]
-#
-# @!attribute [rw] docker_refresh_tokens_enabled
-#   @return [Boolean, nil]
-#
-# @!attribute [rw] ecdsa_keys
-#   @return [Array, nil]
-#
-# @!attribute [rw] enforce_eula
-#   @return [Boolean, nil]
-#
-# @!attribute [rw] gpg_keys
-#   @return [Array, nil]
-#
-# @!attribute [rw] id
-#   @return [String, nil]
-#
-# @!attribute [rw] index_files
-#   @return [Boolean, nil]
-#
-# @!attribute [rw] is_open_source
-#   @return [Boolean, nil]
-#
-# @!attribute [rw] is_private
-#   @return [Boolean, nil]
-#
-# @!attribute [rw] is_public
-#   @return [Boolean, nil]
-#
-# @!attribute [rw] manage_entitlements_privilege
-#   @return [String, nil]
-#
-# @!attribute [rw] move_own
-#   @return [Boolean, nil]
-#
-# @!attribute [rw] move_packages
-#   @return [String, nil]
-#
-# @!attribute [rw] name
-#   @return [String, nil]
-#
-# @!attribute [rw] namespace
-#   @return [String, nil]
-#
-# @!attribute [rw] namespace_url
-#   @return [String, nil]
-#
-# @!attribute [rw] nuget_native_signing_enabled
-#   @return [Boolean, nil]
-#
-# @!attribute [rw] num_downloads
+# @!attribute [rw] page
 #   @return [Integer, nil]
 #
-# @!attribute [rw] num_policy_violated_packages
+# @!attribute [rw] page_size
 #   @return [Integer, nil]
-#
-# @!attribute [rw] num_quarantined_packages
-#   @return [Integer, nil]
-#
-# @!attribute [rw] open_source_license
-#   @return [String, nil]
-#
-# @!attribute [rw] open_source_project_url
-#   @return [String, nil]
-#
-# @!attribute [rw] package_count
-#   @return [Integer, nil]
-#
-# @!attribute [rw] package_group_count
-#   @return [Integer, nil]
-#
-# @!attribute [rw] proxy_npmjs
-#   @return [Boolean, nil]
-#
-# @!attribute [rw] proxy_pypi
-#   @return [Boolean, nil]
-#
-# @!attribute [rw] raw_package_index_enabled
-#   @return [Boolean, nil]
-#
-# @!attribute [rw] raw_package_index_signatures_enabled
-#   @return [Boolean, nil]
-#
-# @!attribute [rw] replace_packages
-#   @return [String, nil]
-#
-# @!attribute [rw] replace_packages_by_default
-#   @return [Boolean, nil]
-#
-# @!attribute [rw] repository_type
-#   @return [Integer, nil]
-#
-# @!attribute [rw] repository_type_str
-#   @return [String, nil]
-#
-# @!attribute [rw] resync_own
-#   @return [Boolean, nil]
-#
-# @!attribute [rw] resync_packages
-#   @return [String, nil]
-#
-# @!attribute [rw] scan_own
-#   @return [Boolean, nil]
-#
-# @!attribute [rw] scan_packages
-#   @return [String, nil]
-#
-# @!attribute [rw] self_html_url
-#   @return [String, nil]
-#
-# @!attribute [rw] self_url
-#   @return [String, nil]
-#
-# @!attribute [rw] show_setup_all
-#   @return [Boolean, nil]
-#
-# @!attribute [rw] size
-#   @return [Integer, nil]
-#
-# @!attribute [rw] size_str
-#   @return [String, nil]
-#
-# @!attribute [rw] slug
-#   @return [String, nil]
-#
-# @!attribute [rw] slug_perm
-#   @return [String, nil]
-#
-# @!attribute [rw] storage_region
-#   @return [String, nil]
-#
-# @!attribute [rw] strict_npm_validation
-#   @return [Boolean, nil]
-#
-# @!attribute [rw] tag_pre_releases_as_latest
-#   @return [Boolean, nil]
-#
-# @!attribute [rw] use_debian_labels
-#   @return [Boolean, nil]
-#
-# @!attribute [rw] use_default_cargo_upstream
-#   @return [Boolean, nil]
-#
-# @!attribute [rw] use_entitlements_privilege
-#   @return [String, nil]
-#
-# @!attribute [rw] use_noarch_packages
-#   @return [Boolean, nil]
-#
-# @!attribute [rw] use_source_packages
-#   @return [Boolean, nil]
-#
-# @!attribute [rw] use_vulnerability_scanning
-#   @return [Boolean, nil]
-#
-# @!attribute [rw] user_entitlements_enabled
-#   @return [Boolean, nil]
-#
-# @!attribute [rw] view_statistics
-#   @return [String, nil]
 RepoListMatch = Struct.new(
-  :cdn_url,
-  :content_kind,
-  :contextual_auth_realm,
-  :copy_own,
-  :copy_packages,
-  :cosign_signing_enabled,
-  :created_at,
-  :default_privilege,
-  :delete_own,
-  :delete_packages,
-  :deleted_at,
-  :description,
-  :distributes,
-  :docker_refresh_tokens_enabled,
-  :ecdsa_keys,
-  :enforce_eula,
-  :gpg_keys,
-  :id,
-  :index_files,
-  :is_open_source,
-  :is_private,
-  :is_public,
-  :manage_entitlements_privilege,
-  :move_own,
-  :move_packages,
-  :name,
-  :namespace,
-  :namespace_url,
-  :nuget_native_signing_enabled,
-  :num_downloads,
-  :num_policy_violated_packages,
-  :num_quarantined_packages,
-  :open_source_license,
-  :open_source_project_url,
-  :package_count,
-  :package_group_count,
-  :proxy_npmjs,
-  :proxy_pypi,
-  :raw_package_index_enabled,
-  :raw_package_index_signatures_enabled,
-  :replace_packages,
-  :replace_packages_by_default,
-  :repository_type,
-  :repository_type_str,
-  :resync_own,
-  :resync_packages,
-  :scan_own,
-  :scan_packages,
-  :self_html_url,
-  :self_url,
-  :show_setup_all,
-  :size,
-  :size_str,
-  :slug,
-  :slug_perm,
-  :storage_region,
-  :strict_npm_validation,
-  :tag_pre_releases_as_latest,
-  :use_debian_labels,
-  :use_default_cargo_upstream,
-  :use_entitlements_privilege,
-  :use_noarch_packages,
-  :use_source_packages,
-  :use_vulnerability_scanning,
-  :user_entitlements_enabled,
-  :view_statistics,
+  :page,
+  :page_size,
   keyword_init: true
 )
 
@@ -8765,6 +9058,9 @@ RepoListMatch = Struct.new(
 #
 # @!attribute [rw] id
 #   @return [String]
+#
+# @!attribute [rw] data
+#   @return [Hash, nil]
 #
 # @!attribute [rw] cdn_url
 #   @return [String, nil]
@@ -8962,6 +9258,7 @@ RepoListMatch = Struct.new(
 #   @return [String, nil]
 RepoCreateData = Struct.new(
   :id,
+  :data,
   :cdn_url,
   :content_kind,
   :contextual_auth_realm,
@@ -9037,6 +9334,9 @@ RepoCreateData = Struct.new(
 #
 # @!attribute [rw] owner
 #   @return [Object]
+#
+# @!attribute [rw] data
+#   @return [Hash, nil]
 #
 # @!attribute [rw] cdn_url
 #   @return [String, nil]
@@ -9238,6 +9538,7 @@ RepoCreateData = Struct.new(
 RepoUpdateData = Struct.new(
   :identifier,
   :owner,
+  :data,
   :cdn_url,
   :content_kind,
   :contextual_auth_realm,
@@ -9388,9 +9689,21 @@ RepositoryAuditLog = Struct.new(
 #
 # @!attribute [rw] repo
 #   @return [Object]
+#
+# @!attribute [rw] page
+#   @return [Integer, nil]
+#
+# @!attribute [rw] page_size
+#   @return [Integer, nil]
+#
+# @!attribute [rw] query
+#   @return [Object, nil]
 RepositoryAuditLogListMatch = Struct.new(
   :owner,
   :repo,
+  :page,
+  :page_size,
+  :query,
   keyword_init: true
 )
 
@@ -9448,6 +9761,9 @@ RepositoryEcdsaKeyLoadMatch = Struct.new(
 # @!attribute [rw] owner
 #   @return [Object]
 #
+# @!attribute [rw] data
+#   @return [Hash, nil]
+#
 # @!attribute [rw] active
 #   @return [Boolean, nil]
 #
@@ -9471,6 +9787,7 @@ RepositoryEcdsaKeyLoadMatch = Struct.new(
 RepositoryEcdsaKeyCreateData = Struct.new(
   :identifier,
   :owner,
+  :data,
   :active,
   :created_at,
   :default,
@@ -9515,6 +9832,9 @@ RepositoryGeoIpRuleLoadMatch = Struct.new(
 # @!attribute [rw] owner
 #   @return [Object]
 #
+# @!attribute [rw] data
+#   @return [Hash, nil]
+#
 # @!attribute [rw] cidr
 #   @return [Hash, nil]
 #
@@ -9523,6 +9843,7 @@ RepositoryGeoIpRuleLoadMatch = Struct.new(
 RepositoryGeoIpRuleUpdateData = Struct.new(
   :identifier,
   :owner,
+  :data,
   :cidr,
   :country_code,
   keyword_init: true
@@ -9561,9 +9882,13 @@ end
 #
 # @!attribute [rw] owner
 #   @return [Object]
+#
+# @!attribute [rw] data
+#   @return [Hash, nil]
 RepositoryGeoIpTestAddressCreateData = Struct.new(
   :identifier,
   :owner,
+  :data,
   keyword_init: true
 )
 
@@ -9621,6 +9946,9 @@ RepositoryGpgKeyLoadMatch = Struct.new(
 # @!attribute [rw] owner
 #   @return [Object]
 #
+# @!attribute [rw] data
+#   @return [Hash, nil]
+#
 # @!attribute [rw] active
 #   @return [Boolean, nil]
 #
@@ -9644,6 +9972,7 @@ RepositoryGpgKeyLoadMatch = Struct.new(
 RepositoryGpgKeyCreateData = Struct.new(
   :identifier,
   :owner,
+  :data,
   :active,
   :comment,
   :created_at,
@@ -9682,9 +10011,17 @@ RepositoryPrivilegeInput = Struct.new(
 #
 # @!attribute [rw] owner
 #   @return [Object]
+#
+# @!attribute [rw] page
+#   @return [Integer, nil]
+#
+# @!attribute [rw] page_size
+#   @return [Integer, nil]
 RepositoryPrivilegeInputListMatch = Struct.new(
   :identifier,
   :owner,
+  :page,
+  :page_size,
   keyword_init: true
 )
 
@@ -9746,6 +10083,9 @@ RepositoryRetentionRuleLoadMatch = Struct.new(
 # @!attribute [rw] repo
 #   @return [Object]
 #
+# @!attribute [rw] data
+#   @return [Hash, nil]
+#
 # @!attribute [rw] retention_count_limit
 #   @return [Integer, nil]
 #
@@ -9772,6 +10112,7 @@ RepositoryRetentionRuleLoadMatch = Struct.new(
 RepositoryRetentionRuleUpdateData = Struct.new(
   :owner,
   :repo,
+  :data,
   :retention_count_limit,
   :retention_days_limit,
   :retention_enabled,
@@ -9837,6 +10178,9 @@ RepositoryRsaKeyLoadMatch = Struct.new(
 # @!attribute [rw] owner
 #   @return [Object]
 #
+# @!attribute [rw] data
+#   @return [Hash, nil]
+#
 # @!attribute [rw] active
 #   @return [Boolean, nil]
 #
@@ -9860,6 +10204,7 @@ RepositoryRsaKeyLoadMatch = Struct.new(
 RepositoryRsaKeyCreateData = Struct.new(
   :identifier,
   :owner,
+  :data,
   :active,
   :created_at,
   :default,
@@ -9910,6 +10255,9 @@ RepositoryRsaKeyCreateData = Struct.new(
 #
 # @!attribute [rw] has_limits
 #   @return [Boolean, nil]
+#
+# @!attribute [rw] id
+#   @return [String, nil]
 #
 # @!attribute [rw] identifier
 #   @return [Integer, nil]
@@ -10002,6 +10350,7 @@ RepositoryToken = Struct.new(
   :eula_accepted_from,
   :eula_required,
   :has_limits,
+  :id,
   :identifier,
   :is_active,
   :is_limited,
@@ -10041,10 +10390,18 @@ RepositoryToken = Struct.new(
 #
 # @!attribute [rw] repo
 #   @return [Object]
+#
+# @!attribute [rw] fuzzy
+#   @return [Object, nil]
+#
+# @!attribute [rw] show_token
+#   @return [Object, nil]
 RepositoryTokenLoadMatch = Struct.new(
   :identifier,
   :owner,
   :repo,
+  :fuzzy,
+  :show_token,
   keyword_init: true
 )
 
@@ -10055,9 +10412,33 @@ RepositoryTokenLoadMatch = Struct.new(
 #
 # @!attribute [rw] repo
 #   @return [Object]
+#
+# @!attribute [rw] active
+#   @return [Boolean, nil]
+#
+# @!attribute [rw] page
+#   @return [Integer, nil]
+#
+# @!attribute [rw] page_size
+#   @return [Integer, nil]
+#
+# @!attribute [rw] query
+#   @return [Object, nil]
+#
+# @!attribute [rw] show_token
+#   @return [Object, nil]
+#
+# @!attribute [rw] sort
+#   @return [Object, nil]
 RepositoryTokenListMatch = Struct.new(
   :owner,
   :repo,
+  :active,
+  :page,
+  :page_size,
+  :query,
+  :show_token,
+  :sort,
   keyword_init: true
 )
 
@@ -10068,6 +10449,12 @@ RepositoryTokenListMatch = Struct.new(
 #
 # @!attribute [rw] repo
 #   @return [Object]
+#
+# @!attribute [rw] data
+#   @return [Hash, nil]
+#
+# @!attribute [rw] show_token
+#   @return [Object, nil]
 #
 # @!attribute [rw] clients
 #   @return [Integer, nil]
@@ -10107,6 +10494,9 @@ RepositoryTokenListMatch = Struct.new(
 #
 # @!attribute [rw] has_limits
 #   @return [Boolean, nil]
+#
+# @!attribute [rw] id
+#   @return [String, nil]
 #
 # @!attribute [rw] identifier
 #   @return [Integer, nil]
@@ -10188,6 +10578,8 @@ RepositoryTokenListMatch = Struct.new(
 RepositoryTokenCreateData = Struct.new(
   :owner,
   :repo,
+  :data,
+  :show_token,
   :clients,
   :created_at,
   :created_by,
@@ -10201,6 +10593,7 @@ RepositoryTokenCreateData = Struct.new(
   :eula_accepted_from,
   :eula_required,
   :has_limits,
+  :id,
   :identifier,
   :is_active,
   :is_limited,
@@ -10241,6 +10634,12 @@ RepositoryTokenCreateData = Struct.new(
 # @!attribute [rw] repo
 #   @return [Object]
 #
+# @!attribute [rw] data
+#   @return [Hash, nil]
+#
+# @!attribute [rw] show_token
+#   @return [Object, nil]
+#
 # @!attribute [rw] clients
 #   @return [Integer, nil]
 #
@@ -10279,6 +10678,9 @@ RepositoryTokenCreateData = Struct.new(
 #
 # @!attribute [rw] has_limits
 #   @return [Boolean, nil]
+#
+# @!attribute [rw] id
+#   @return [String, nil]
 #
 # @!attribute [rw] is_active
 #   @return [Boolean, nil]
@@ -10358,6 +10760,8 @@ RepositoryTokenUpdateData = Struct.new(
   :identifier,
   :owner,
   :repo,
+  :data,
+  :show_token,
   :clients,
   :created_at,
   :created_by,
@@ -10371,6 +10775,7 @@ RepositoryTokenUpdateData = Struct.new(
   :eula_accepted_from,
   :eula_required,
   :has_limits,
+  :id,
   :is_active,
   :is_limited,
   :limit_bandwidth,
@@ -10571,6 +10976,12 @@ RepositoryTokenRefresh = Struct.new(
 # @!attribute [rw] repo
 #   @return [Object]
 #
+# @!attribute [rw] data
+#   @return [Hash, nil]
+#
+# @!attribute [rw] show_token
+#   @return [Object, nil]
+#
 # @!attribute [rw] clients
 #   @return [Integer, nil]
 #
@@ -10688,6 +11099,8 @@ RepositoryTokenRefreshCreateData = Struct.new(
   :identifier,
   :owner,
   :repo,
+  :data,
+  :show_token,
   :clients,
   :created_at,
   :created_by,
@@ -10746,11 +11159,19 @@ RepositoryTokenSync = Struct.new(
 # @!attribute [rw] repo
 #   @return [Object]
 #
+# @!attribute [rw] data
+#   @return [Hash, nil]
+#
+# @!attribute [rw] show_token
+#   @return [Object, nil]
+#
 # @!attribute [rw] tokens
 #   @return [Array, nil]
 RepositoryTokenSyncCreateData = Struct.new(
   :owner,
   :repo,
+  :data,
+  :show_token,
   :tokens,
   keyword_init: true
 )
@@ -10774,6 +11195,9 @@ RepositoryTokenSyncCreateData = Struct.new(
 #
 # @!attribute [rw] events
 #   @return [Array]
+#
+# @!attribute [rw] id
+#   @return [String, nil]
 #
 # @!attribute [rw] identifier
 #   @return [Integer, nil]
@@ -10844,6 +11268,7 @@ RepositoryWebhook = Struct.new(
   :disable_reason,
   :disable_reason_str,
   :events,
+  :id,
   :identifier,
   :is_active,
   :is_last_response_bad,
@@ -10892,9 +11317,17 @@ RepositoryWebhookLoadMatch = Struct.new(
 #
 # @!attribute [rw] repo
 #   @return [Object]
+#
+# @!attribute [rw] page
+#   @return [Integer, nil]
+#
+# @!attribute [rw] page_size
+#   @return [Integer, nil]
 RepositoryWebhookListMatch = Struct.new(
   :owner,
   :repo,
+  :page,
+  :page_size,
   keyword_init: true
 )
 
@@ -10905,6 +11338,9 @@ RepositoryWebhookListMatch = Struct.new(
 #
 # @!attribute [rw] repo
 #   @return [Object]
+#
+# @!attribute [rw] data
+#   @return [Hash, nil]
 #
 # @!attribute [rw] created_at
 #   @return [String, nil]
@@ -10923,6 +11359,9 @@ RepositoryWebhookListMatch = Struct.new(
 #
 # @!attribute [rw] events
 #   @return [Array]
+#
+# @!attribute [rw] id
+#   @return [String, nil]
 #
 # @!attribute [rw] identifier
 #   @return [Integer, nil]
@@ -10989,12 +11428,14 @@ RepositoryWebhookListMatch = Struct.new(
 RepositoryWebhookCreateData = Struct.new(
   :owner,
   :repo,
+  :data,
   :created_at,
   :created_by,
   :created_by_url,
   :disable_reason,
   :disable_reason_str,
   :events,
+  :id,
   :identifier,
   :is_active,
   :is_last_response_bad,
@@ -11030,6 +11471,9 @@ RepositoryWebhookCreateData = Struct.new(
 # @!attribute [rw] repo
 #   @return [Object]
 #
+# @!attribute [rw] data
+#   @return [Hash, nil]
+#
 # @!attribute [rw] created_at
 #   @return [String, nil]
 #
@@ -11047,6 +11491,9 @@ RepositoryWebhookCreateData = Struct.new(
 #
 # @!attribute [rw] events
 #   @return [Array, nil]
+#
+# @!attribute [rw] id
+#   @return [String, nil]
 #
 # @!attribute [rw] is_active
 #   @return [Boolean, nil]
@@ -11111,12 +11558,14 @@ RepositoryWebhookUpdateData = Struct.new(
   :identifier,
   :owner,
   :repo,
+  :data,
   :created_at,
   :created_by,
   :created_by_url,
   :disable_reason,
   :disable_reason_str,
   :events,
+  :id,
   :is_active,
   :is_last_response_bad,
   :last_response_status,
@@ -11455,9 +11904,17 @@ RpmLoadMatch = Struct.new(
 #
 # @!attribute [rw] owner
 #   @return [Object]
+#
+# @!attribute [rw] page
+#   @return [Integer, nil]
+#
+# @!attribute [rw] page_size
+#   @return [Integer, nil]
 RpmListMatch = Struct.new(
   :identifier,
   :owner,
+  :page,
+  :page_size,
   keyword_init: true
 )
 
@@ -11468,6 +11925,9 @@ RpmListMatch = Struct.new(
 #
 # @!attribute [rw] owner
 #   @return [Object]
+#
+# @!attribute [rw] data
+#   @return [Hash, nil]
 #
 # @!attribute [rw] auth_mode
 #   @return [String, nil]
@@ -11546,6 +12006,7 @@ RpmListMatch = Struct.new(
 RpmCreateData = Struct.new(
   :identifier,
   :owner,
+  :data,
   :auth_mode,
   :auth_secret,
   :auth_username,
@@ -11584,6 +12045,9 @@ RpmCreateData = Struct.new(
 #
 # @!attribute [rw] owner
 #   @return [Object]
+#
+# @!attribute [rw] data
+#   @return [Hash, nil]
 #
 # @!attribute [rw] auth_mode
 #   @return [String, nil]
@@ -11660,6 +12124,7 @@ RpmUpdateData = Struct.new(
   :id,
   :identifier,
   :owner,
+  :data,
   :auth_mode,
   :auth_secret,
   :auth_username,
@@ -11796,9 +12261,17 @@ RubyLoadMatch = Struct.new(
 #
 # @!attribute [rw] owner
 #   @return [Object]
+#
+# @!attribute [rw] page
+#   @return [Integer, nil]
+#
+# @!attribute [rw] page_size
+#   @return [Integer, nil]
 RubyListMatch = Struct.new(
   :identifier,
   :owner,
+  :page,
+  :page_size,
   keyword_init: true
 )
 
@@ -11809,6 +12282,9 @@ RubyListMatch = Struct.new(
 #
 # @!attribute [rw] owner
 #   @return [Object]
+#
+# @!attribute [rw] data
+#   @return [Hash, nil]
 #
 # @!attribute [rw] auth_mode
 #   @return [String, nil]
@@ -11869,6 +12345,7 @@ RubyListMatch = Struct.new(
 RubyCreateData = Struct.new(
   :identifier,
   :owner,
+  :data,
   :auth_mode,
   :auth_secret,
   :auth_username,
@@ -11901,6 +12378,9 @@ RubyCreateData = Struct.new(
 #
 # @!attribute [rw] owner
 #   @return [Object]
+#
+# @!attribute [rw] data
+#   @return [Hash, nil]
 #
 # @!attribute [rw] auth_mode
 #   @return [String, nil]
@@ -11959,6 +12439,7 @@ RubyUpdateData = Struct.new(
   :id,
   :identifier,
   :owner,
+  :data,
   :auth_mode,
   :auth_secret,
   :auth_username,
@@ -12058,8 +12539,24 @@ ServiceLoadMatch = Struct.new(
 #
 # @!attribute [rw] org_id
 #   @return [String]
+#
+# @!attribute [rw] page
+#   @return [Integer, nil]
+#
+# @!attribute [rw] page_size
+#   @return [Integer, nil]
+#
+# @!attribute [rw] query
+#   @return [Object, nil]
+#
+# @!attribute [rw] sort
+#   @return [Object, nil]
 ServiceListMatch = Struct.new(
   :org_id,
+  :page,
+  :page_size,
+  :query,
+  :sort,
   keyword_init: true
 )
 
@@ -12067,6 +12564,9 @@ ServiceListMatch = Struct.new(
 #
 # @!attribute [rw] org_id
 #   @return [String]
+#
+# @!attribute [rw] data
+#   @return [Hash, nil]
 #
 # @!attribute [rw] created_at
 #   @return [String, nil]
@@ -12102,6 +12602,7 @@ ServiceListMatch = Struct.new(
 #   @return [Array, nil]
 ServiceCreateData = Struct.new(
   :org_id,
+  :data,
   :created_at,
   :created_by,
   :created_by_url,
@@ -12123,6 +12624,9 @@ ServiceCreateData = Struct.new(
 #
 # @!attribute [rw] org_id
 #   @return [String]
+#
+# @!attribute [rw] data
+#   @return [Hash, nil]
 #
 # @!attribute [rw] created_at
 #   @return [String, nil]
@@ -12156,6 +12660,7 @@ ServiceCreateData = Struct.new(
 ServiceUpdateData = Struct.new(
   :id,
   :org_id,
+  :data,
   :created_at,
   :created_by,
   :created_by_url,
@@ -12347,9 +12852,17 @@ SwiftLoadMatch = Struct.new(
 #
 # @!attribute [rw] owner
 #   @return [Object]
+#
+# @!attribute [rw] page
+#   @return [Integer, nil]
+#
+# @!attribute [rw] page_size
+#   @return [Integer, nil]
 SwiftListMatch = Struct.new(
   :identifier,
   :owner,
+  :page,
+  :page_size,
   keyword_init: true
 )
 
@@ -12360,6 +12873,9 @@ SwiftListMatch = Struct.new(
 #
 # @!attribute [rw] owner
 #   @return [Object]
+#
+# @!attribute [rw] data
+#   @return [Hash, nil]
 #
 # @!attribute [rw] auth_mode
 #   @return [String, nil]
@@ -12420,6 +12936,7 @@ SwiftListMatch = Struct.new(
 SwiftCreateData = Struct.new(
   :identifier,
   :owner,
+  :data,
   :auth_mode,
   :auth_secret,
   :auth_username,
@@ -12452,6 +12969,9 @@ SwiftCreateData = Struct.new(
 #
 # @!attribute [rw] owner
 #   @return [Object]
+#
+# @!attribute [rw] data
+#   @return [Hash, nil]
 #
 # @!attribute [rw] auth_mode
 #   @return [String, nil]
@@ -12510,6 +13030,7 @@ SwiftUpdateData = Struct.new(
   :id,
   :identifier,
   :owner,
+  :data,
   :auth_mode,
   :auth_secret,
   :auth_username,
@@ -12578,18 +13099,14 @@ User = Struct.new(
 
 # Request payload for User#list.
 #
-# @!attribute [rw] created
-#   @return [String, nil]
+# @!attribute [rw] page
+#   @return [Integer, nil]
 #
-# @!attribute [rw] key
-#   @return [String, nil]
-#
-# @!attribute [rw] slug_perm
-#   @return [String, nil]
+# @!attribute [rw] page_size
+#   @return [Integer, nil]
 UserListMatch = Struct.new(
-  :created,
-  :key,
-  :slug_perm,
+  :page,
+  :page_size,
   keyword_init: true
 )
 
@@ -12598,8 +13115,13 @@ class UserAuthToken
 end
 
 # Request payload for UserAuthToken#create.
-class UserAuthTokenCreateData
-end
+#
+# @!attribute [rw] data
+#   @return [Hash, nil]
+UserAuthTokenCreateData = Struct.new(
+  :data,
+  keyword_init: true
+)
 
 # UserAuthenticationToken entity data model.
 #
@@ -12833,8 +13355,16 @@ Vulnerability = Struct.new(
 #
 # @!attribute [rw] id
 #   @return [String]
+#
+# @!attribute [rw] page
+#   @return [Integer, nil]
+#
+# @!attribute [rw] page_size
+#   @return [Integer, nil]
 VulnerabilityLoadMatch = Struct.new(
   :id,
+  :page,
+  :page_size,
   keyword_init: true
 )
 
@@ -12848,10 +13378,18 @@ VulnerabilityLoadMatch = Struct.new(
 #
 # @!attribute [rw] repo
 #   @return [Object]
+#
+# @!attribute [rw] page
+#   @return [Integer, nil]
+#
+# @!attribute [rw] page_size
+#   @return [Integer, nil]
 VulnerabilityListMatch = Struct.new(
   :owner,
   :package,
   :repo,
+  :page,
+  :page_size,
   keyword_init: true
 )
 
@@ -12860,8 +13398,13 @@ class VulnerabilityPolicy
 end
 
 # Webhook entity data model.
-class Webhook
-end
+#
+# @!attribute [rw] id
+#   @return [String, nil]
+Webhook = Struct.new(
+  :id,
+  keyword_init: true
+)
 
 # Request payload for Webhook#remove.
 #

@@ -21,11 +21,14 @@ main: kit: entity: organization_group_sync: {
       type: "`$STRING`"
     }
     {
+      format: "slug"
       name: "slug_perm"
+      readOnly: true
       req: false
       type: "`$STRING`"
     }
     {
+      format: "slug"
       name: "team"
       req: true
       type: "`$STRING`"
@@ -60,16 +63,22 @@ main: kit: entity: organization_group_sync: {
           }
           method: "POST"
           orig: "/orgs/{org}/saml-group-sync/"
-          parts: [
-            "orgs"
-            "{org_id}"
-            "saml-group-sync"
-          ]
           rename: {
             param: {
               org: "org_id"
             }
           }
+          segments: [
+            {
+              lit: "orgs"
+            }
+            {
+              var: "org_id"
+            }
+            {
+              lit: "saml-group-sync"
+            }
+          ]
           select: {
             exist: [
               "data"
@@ -116,16 +125,22 @@ main: kit: entity: organization_group_sync: {
           }
           method: "GET"
           orig: "/orgs/{org}/saml-group-sync/"
-          parts: [
-            "orgs"
-            "{org_id}"
-            "saml-group-sync"
-          ]
           rename: {
             param: {
               org: "org_id"
             }
           }
+          segments: [
+            {
+              lit: "orgs"
+            }
+            {
+              var: "org_id"
+            }
+            {
+              lit: "saml-group-sync"
+            }
+          ]
           select: {
             exist: [
               "org_id"

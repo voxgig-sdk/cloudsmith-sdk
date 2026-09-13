@@ -52,7 +52,7 @@ func TestFileEntity(t *testing.T) {
 		// CREATE
 		fileRef01Ent := client.File(nil)
 		fileRef01Data := core.ToMapAny(vs.GetProp(
-			vs.GetPath([]any{"new", "file"}, setup.data), "file_ref01"))
+			vs.GetPath(setup.data, []any{"new", "file"}), "file_ref01"))
 		fileRef01Data["owner"] = setup.idmap["owner01"]
 		fileRef01Data["repo"] = setup.idmap["repo01"]
 
@@ -92,7 +92,7 @@ func fileBasicSetup(extra map[string]any) *entityTestSetup {
 	client := sdk.TestSDK(options, extra)
 
 	// Generate idmap via transform, matching TS pattern.
-	idmap := vs.Transform(
+	idmap, _ := vs.Transform(
 		[]any{"file01", "file02", "file03", "owner01", "repo01"},
 		map[string]any{
 			"`$PACK`": []any{"", map[string]any{
@@ -112,7 +112,7 @@ func fileBasicSetup(extra map[string]any) *entityTestSetup {
 		"CLOUDSMITH_TEST_FILE_ENTID": idmap,
 		"CLOUDSMITH_TEST_LIVE":      "FALSE",
 		"CLOUDSMITH_TEST_EXPLAIN":   "FALSE",
-		"CLOUDSMITH_APIKEY":         "NONE",
+		"CLOUDSMITH_APIKEY":         "",
 	})
 
 	idmapResolved := core.ToMapAny(env["CLOUDSMITH_TEST_FILE_ENTID"])
@@ -121,11 +121,23 @@ func fileBasicSetup(extra map[string]any) *entityTestSetup {
 	}
 
 	if env["CLOUDSMITH_TEST_LIVE"] == "TRUE" {
+		// An empty map, not a nil one: Merge returns nil when its last entry
+		// is nil, and BasicSetup is normally called with no extras - so a
+		// bare nil silently discarded the apikey and server values below.
+		extraOpts := extra
+		if extraOpts == nil {
+			extraOpts = map[string]any{}
+		}
+
 		mergedOpts := vs.Merge([]any{
+			// liveClientOptions() FIRST, so the generated fields below win:
+			// sdk-test-control.json's test.client.options adds to the live
+			// client, it does not redirect it.
+			liveClientOptions(),
 			map[string]any{
 				"apikey": env["CLOUDSMITH_APIKEY"],
 			},
-			extra,
+			extraOpts,
 		})
 		client = sdk.NewCloudsmithSDK(core.ToMapAny(mergedOpts))
 	}

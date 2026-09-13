@@ -35,10 +35,13 @@ export interface CargoLoadMatch {
 export interface CargoListMatch {
     identifier: any;
     owner: any;
+    page?: number;
+    page_size?: number;
 }
 export interface CargoCreateData {
     identifier: any;
     owner: any;
+    data?: Record<string, any>;
     auth_mode?: string;
     auth_secret?: string;
     auth_username?: string;
@@ -63,6 +66,7 @@ export interface CargoUpdateData {
     id: string;
     identifier: any;
     owner: any;
+    data?: Record<string, any>;
     auth_mode?: string;
     auth_secret?: string;
     auth_username?: string;
@@ -115,10 +119,13 @@ export interface ComposerLoadMatch {
 export interface ComposerListMatch {
     identifier: any;
     owner: any;
+    page?: number;
+    page_size?: number;
 }
 export interface ComposerCreateData {
     identifier: any;
     owner: any;
+    data?: Record<string, any>;
     auth_mode?: string;
     auth_secret?: string;
     auth_username?: string;
@@ -143,6 +150,7 @@ export interface ComposerUpdateData {
     id: string;
     identifier: any;
     owner: any;
+    data?: Record<string, any>;
     auth_mode?: string;
     auth_secret?: string;
     auth_username?: string;
@@ -193,10 +201,13 @@ export interface CondaLoadMatch {
 export interface CondaListMatch {
     identifier: any;
     owner: any;
+    page?: number;
+    page_size?: number;
 }
 export interface CondaCreateData {
     identifier: any;
     owner: any;
+    data?: Record<string, any>;
     auth_mode?: string;
     auth_secret?: string;
     auth_username?: string;
@@ -221,6 +232,7 @@ export interface CondaUpdateData {
     id: string;
     identifier: any;
     owner: any;
+    data?: Record<string, any>;
     auth_mode?: string;
     auth_secret?: string;
     auth_username?: string;
@@ -271,10 +283,13 @@ export interface CranLoadMatch {
 export interface CranListMatch {
     identifier: any;
     owner: any;
+    page?: number;
+    page_size?: number;
 }
 export interface CranCreateData {
     identifier: any;
     owner: any;
+    data?: Record<string, any>;
     auth_mode?: string;
     auth_secret?: string;
     auth_username?: string;
@@ -299,6 +314,7 @@ export interface CranUpdateData {
     id: string;
     identifier: any;
     owner: any;
+    data?: Record<string, any>;
     auth_mode?: string;
     auth_secret?: string;
     auth_username?: string;
@@ -347,10 +363,13 @@ export interface DartLoadMatch {
 export interface DartListMatch {
     identifier: any;
     owner: any;
+    page?: number;
+    page_size?: number;
 }
 export interface DartCreateData {
     identifier: any;
     owner: any;
+    data?: Record<string, any>;
     auth_mode?: string;
     auth_secret?: string;
     auth_username?: string;
@@ -375,6 +394,7 @@ export interface DartUpdateData {
     id: string;
     identifier: any;
     owner: any;
+    data?: Record<string, any>;
     auth_mode?: string;
     auth_secret?: string;
     auth_username?: string;
@@ -431,10 +451,13 @@ export interface DebLoadMatch {
 export interface DebListMatch {
     identifier: any;
     owner: any;
+    page?: number;
+    page_size?: number;
 }
 export interface DebCreateData {
     identifier: any;
     owner: any;
+    data?: Record<string, any>;
     auth_mode?: string;
     auth_secret?: string;
     auth_username?: string;
@@ -467,6 +490,7 @@ export interface DebUpdateData {
     id: string;
     identifier: any;
     owner: any;
+    data?: Record<string, any>;
     auth_mode?: string;
     auth_secret?: string;
     auth_username?: string;
@@ -552,10 +576,13 @@ export interface DockerLoadMatch {
 export interface DockerListMatch {
     identifier: any;
     owner: any;
+    page?: number;
+    page_size?: number;
 }
 export interface DockerCreateData {
     identifier: any;
     owner: any;
+    data?: Record<string, any>;
     auth_mode?: string;
     auth_secret?: string;
     auth_username?: string;
@@ -580,6 +607,7 @@ export interface DockerUpdateData {
     id: string;
     identifier: any;
     owner: any;
+    data?: Record<string, any>;
     auth_mode?: string;
     auth_secret?: string;
     auth_username?: string;
@@ -612,6 +640,8 @@ export interface DynamicMappingLoadMatch {
 export interface DynamicMappingListMatch {
     org_id: string;
     provider_setting: any;
+    page?: number;
+    page_size?: number;
 }
 export interface Ecdsa {
 }
@@ -627,11 +657,17 @@ export interface Entitlement {
 }
 export interface EntitlementLoadMatch {
     id: string;
+    finish?: any;
+    page?: number;
+    page_size?: number;
+    start?: any;
+    token?: string;
 }
 export interface EntitlementCreateData {
     identifier: any;
     owner: any;
     repo: any;
+    show_token?: any;
     active?: number;
     bandwidth: Record<string, any>;
     downloads: Record<string, any>;
@@ -652,6 +688,7 @@ export interface FileCreateData {
     identifier?: any;
     owner: any;
     repo: any;
+    data?: Record<string, any>;
 }
 export interface Format {
     description: string;
@@ -710,10 +747,13 @@ export interface GonLoadMatch {
 export interface GonListMatch {
     identifier: any;
     owner: any;
+    page?: number;
+    page_size?: number;
 }
 export interface GonCreateData {
     identifier: any;
     owner: any;
+    data?: Record<string, any>;
     auth_mode?: string;
     auth_secret?: string;
     auth_username?: string;
@@ -737,6 +777,7 @@ export interface GonUpdateData {
     identifier: any;
     owner: any;
     slug_perm: any;
+    data?: Record<string, any>;
     auth_mode?: string;
     auth_secret?: string;
     auth_username?: string;
@@ -788,10 +829,13 @@ export interface HelmLoadMatch {
 export interface HelmListMatch {
     identifier: any;
     owner: any;
+    page?: number;
+    page_size?: number;
 }
 export interface HelmCreateData {
     identifier: any;
     owner: any;
+    data?: Record<string, any>;
     auth_mode?: string;
     auth_secret?: string;
     auth_username?: string;
@@ -816,6 +860,7 @@ export interface HelmUpdateData {
     id: string;
     identifier: any;
     owner: any;
+    data?: Record<string, any>;
     auth_mode?: string;
     auth_secret?: string;
     auth_username?: string;
@@ -864,10 +909,13 @@ export interface HexLoadMatch {
 export interface HexListMatch {
     identifier: any;
     owner: any;
+    page?: number;
+    page_size?: number;
 }
 export interface HexCreateData {
     identifier: any;
     owner: any;
+    data?: Record<string, any>;
     auth_mode?: string;
     auth_secret?: string;
     auth_username?: string;
@@ -892,6 +940,7 @@ export interface HexUpdateData {
     id: string;
     identifier: any;
     owner: any;
+    data?: Record<string, any>;
     auth_mode?: string;
     auth_secret?: string;
     auth_username?: string;
@@ -942,10 +991,13 @@ export interface HuggingfaceLoadMatch {
 export interface HuggingfaceListMatch {
     identifier: any;
     owner: any;
+    page?: number;
+    page_size?: number;
 }
 export interface HuggingfaceCreateData {
     identifier: any;
     owner: any;
+    data?: Record<string, any>;
     auth_mode?: string;
     auth_secret?: string;
     auth_username?: string;
@@ -970,6 +1022,7 @@ export interface HuggingfaceUpdateData {
     id: string;
     identifier: any;
     owner: any;
+    data?: Record<string, any>;
     auth_mode?: string;
     auth_secret?: string;
     auth_username?: string;
@@ -1032,10 +1085,13 @@ export interface MavenLoadMatch {
 export interface MavenListMatch {
     identifier: any;
     owner: any;
+    page?: number;
+    page_size?: number;
 }
 export interface MavenCreateData {
     identifier: any;
     owner: any;
+    data?: Record<string, any>;
     auth_mode?: string;
     auth_secret?: string;
     auth_username?: string;
@@ -1064,6 +1120,7 @@ export interface MavenUpdateData {
     id: string;
     identifier: any;
     owner: any;
+    data?: Record<string, any>;
     auth_mode?: string;
     auth_secret?: string;
     auth_username?: string;
@@ -1102,11 +1159,8 @@ export interface NamespaceLoadMatch {
     id: string;
 }
 export interface NamespaceListMatch {
-    id?: string;
-    name?: string;
-    slug?: string;
-    slug_perm?: string;
-    type_name?: string;
+    page?: number;
+    page_size?: number;
 }
 export interface NamespaceAuditLog {
     actor: string;
@@ -1129,6 +1183,9 @@ export interface NamespaceAuditLog {
 }
 export interface NamespaceAuditLogLoadMatch {
     id: string;
+    page?: number;
+    page_size?: number;
+    query?: any;
 }
 export interface Npm {
     auth_mode?: string;
@@ -1159,10 +1216,13 @@ export interface NpmLoadMatch {
 export interface NpmListMatch {
     identifier: any;
     owner: any;
+    page?: number;
+    page_size?: number;
 }
 export interface NpmCreateData {
     identifier: any;
     owner: any;
+    data?: Record<string, any>;
     auth_mode?: string;
     auth_secret?: string;
     auth_username?: string;
@@ -1187,6 +1247,7 @@ export interface NpmUpdateData {
     id: string;
     identifier: any;
     owner: any;
+    data?: Record<string, any>;
     auth_mode?: string;
     auth_secret?: string;
     auth_username?: string;
@@ -1235,10 +1296,13 @@ export interface NugetLoadMatch {
 export interface NugetListMatch {
     identifier: any;
     owner: any;
+    page?: number;
+    page_size?: number;
 }
 export interface NugetCreateData {
     identifier: any;
     owner: any;
+    data?: Record<string, any>;
     auth_mode?: string;
     auth_secret?: string;
     auth_username?: string;
@@ -1263,6 +1327,7 @@ export interface NugetUpdateData {
     id: string;
     identifier: any;
     owner: any;
+    data?: Record<string, any>;
     auth_mode?: string;
     auth_secret?: string;
     auth_username?: string;
@@ -1304,19 +1369,8 @@ export interface OrgLoadMatch {
     member_id?: string;
 }
 export interface OrgListMatch {
-    country?: string;
-    created_at?: string;
-    event_at?: string;
-    id?: string;
-    location?: string;
-    name?: string;
-    package?: Record<string, any>;
-    policy?: Record<string, any>;
-    reasons?: any[];
-    slug?: string;
-    slug_perm?: string;
-    tagline?: string;
-    vulnerability_scan_results?: Record<string, any>;
+    page?: number;
+    page_size?: number;
     $action?: string;
     [action: string]: any;
 }
@@ -1339,6 +1393,7 @@ export interface OrgCreateData {
 export interface OrgUpdateData {
     id: string;
     team_id: string;
+    data?: Record<string, any>;
     country?: string;
     created_at?: string;
     event_at?: string;
@@ -1368,9 +1423,12 @@ export interface OrganizationGroupSync {
 }
 export interface OrganizationGroupSyncListMatch {
     org_id: string;
+    page?: number;
+    page_size?: number;
 }
 export interface OrganizationGroupSyncCreateData {
     org_id: string;
+    data?: Record<string, any>;
     idp_key: string;
     idp_value: string;
     role?: string;
@@ -1398,9 +1456,12 @@ export interface OrganizationInvite {
 }
 export interface OrganizationInviteListMatch {
     org_id: string;
+    page?: number;
+    page_size?: number;
 }
 export interface OrganizationInviteCreateData {
     org_id: string;
+    data?: Record<string, any>;
     email?: string;
     expires_at?: string;
     id?: string;
@@ -1416,6 +1477,7 @@ export interface OrganizationInviteCreateData {
 export interface OrganizationInviteUpdateData {
     id: string;
     org_id: string;
+    data?: Record<string, any>;
     email?: string;
     expires_at?: string;
     inviter?: string;
@@ -1472,10 +1534,16 @@ export interface OrganizationMembershipLoadMatch {
 }
 export interface OrganizationMembershipListMatch {
     org_id: string;
+    is_active?: boolean;
+    page?: number;
+    page_size?: number;
+    query?: any;
+    sort?: any;
 }
 export interface OrganizationMembershipUpdateData {
     member: any;
     org_id: string;
+    data?: Record<string, any>;
     email?: string;
     has_two_factor?: boolean;
     is_active?: boolean;
@@ -1505,6 +1573,7 @@ export interface OrganizationMembershipRoleUpdate {
 export interface OrganizationMembershipRoleUpdateUpdateData {
     member_id: string;
     org_id: string;
+    data?: Record<string, any>;
     email?: string;
     has_two_factor?: boolean;
     joined_at?: string;
@@ -1533,6 +1602,7 @@ export interface OrganizationMembershipVisibilityUpdate {
 export interface OrganizationMembershipVisibilityUpdateUpdateData {
     member_id: string;
     org_id: string;
+    data?: Record<string, any>;
     email?: string;
     has_two_factor?: boolean;
     joined_at?: string;
@@ -1563,9 +1633,12 @@ export interface OrganizationPackageLicensePolicyLoadMatch {
 }
 export interface OrganizationPackageLicensePolicyListMatch {
     org_id: string;
+    page?: number;
+    page_size?: number;
 }
 export interface OrganizationPackageLicensePolicyCreateData {
     org_id: string;
+    data?: Record<string, any>;
     allow_unknown_licenses?: boolean;
     created_at?: string;
     description?: string;
@@ -1580,6 +1653,7 @@ export interface OrganizationPackageLicensePolicyCreateData {
 export interface OrganizationPackageLicensePolicyUpdateData {
     id: string;
     org_id: string;
+    data?: Record<string, any>;
     allow_unknown_licenses?: boolean;
     created_at?: string;
     description?: string;
@@ -1608,9 +1682,12 @@ export interface OrganizationPackageVulnerabilityPolicyLoadMatch {
 }
 export interface OrganizationPackageVulnerabilityPolicyListMatch {
     org_id: string;
+    page?: number;
+    page_size?: number;
 }
 export interface OrganizationPackageVulnerabilityPolicyCreateData {
     org_id: string;
+    data?: Record<string, any>;
     allow_unknown_severity?: boolean;
     created_at?: string;
     description?: string;
@@ -1625,6 +1702,7 @@ export interface OrganizationPackageVulnerabilityPolicyCreateData {
 export interface OrganizationPackageVulnerabilityPolicyUpdateData {
     id: string;
     org_id: string;
+    data?: Record<string, any>;
     allow_unknown_severity?: boolean;
     created_at?: string;
     description?: string;
@@ -1646,6 +1724,7 @@ export interface OrganizationSamlAuthLoadMatch {
 }
 export interface OrganizationSamlAuthUpdateData {
     org_id: string;
+    data?: Record<string, any>;
     saml_auth_enabled?: boolean;
     saml_auth_enforced?: boolean;
     saml_metadata_inline?: string;
@@ -1665,9 +1744,15 @@ export interface OrganizationTeamLoadMatch {
 }
 export interface OrganizationTeamListMatch {
     org_id: string;
+    for_user?: any;
+    page?: number;
+    page_size?: number;
+    query?: any;
+    sort?: any;
 }
 export interface OrganizationTeamCreateData {
     org_id: string;
+    data?: Record<string, any>;
     description?: string;
     id?: string;
     name: string;
@@ -1678,6 +1763,7 @@ export interface OrganizationTeamCreateData {
 export interface OrganizationTeamUpdateData {
     id: string;
     org_id: string;
+    data?: Record<string, any>;
     description?: string;
     name?: string;
     slug?: string;
@@ -1695,6 +1781,7 @@ export interface OrganizationTeamMemberListMatch {
 export interface OrganizationTeamMemberCreateData {
     org_id: string;
     team_id: string;
+    data?: Record<string, any>;
     role: string;
     user: string;
 }
@@ -1729,6 +1816,7 @@ export interface Package {
     format_url?: string;
     freeable_storage?: number;
     fully_qualified_name?: string;
+    id?: string;
     identifier_perm?: string;
     identifiers?: Record<string, any>;
     inactive?: number;
@@ -1798,17 +1886,28 @@ export interface Package {
 export interface PackageLoadMatch {
     owner: any;
     repo: any;
+    finish?: any;
+    package?: any;
+    page?: number;
+    page_size?: number;
+    start?: any;
     identifier?: any;
 }
 export interface PackageListMatch {
     owner: any;
     repo: any;
+    group_by?: any;
+    page?: number;
+    page_size?: number;
+    query?: any;
+    sort?: any;
     identifier?: any;
 }
 export interface PackageCreateData {
     identifier?: any;
     owner: any;
     repo: any;
+    data?: Record<string, any>;
     active?: number;
     architectures?: any[];
     backend_kind?: number;
@@ -1835,6 +1934,7 @@ export interface PackageCreateData {
     format_url?: string;
     freeable_storage?: number;
     fully_qualified_name?: string;
+    id?: string;
     identifier_perm?: string;
     identifiers?: Record<string, any>;
     inactive?: number;
@@ -1924,9 +2024,12 @@ export interface PackageDenyPolicyLoadMatch {
 }
 export interface PackageDenyPolicyListMatch {
     org_id: string;
+    page?: number;
+    page_size?: number;
 }
 export interface PackageDenyPolicyCreateData {
     org_id: string;
+    data?: Record<string, any>;
     action?: string;
     created_at?: string;
     description?: string;
@@ -1941,6 +2044,7 @@ export interface PackageDenyPolicyCreateData {
 export interface PackageDenyPolicyUpdateData {
     id: string;
     org_id: string;
+    data?: Record<string, any>;
     action?: string;
     created_at?: string;
     description?: string;
@@ -1960,6 +2064,8 @@ export interface PackageFilePartsUploadLoadMatch {
     identifier: any;
     owner: any;
     repo: any;
+    filename: any;
+    part_number?: number;
 }
 export interface PackageFileUpload {
 }
@@ -1967,6 +2073,7 @@ export interface PackageFileUploadCreateData {
     identifier: any;
     owner: any;
     repo: any;
+    data?: Record<string, any>;
 }
 export interface PackageLicensePolicyEvaluation {
     allow_unknown_licenses?: boolean;
@@ -1993,10 +2100,13 @@ export interface PackageLicensePolicyEvaluationLoadMatch {
 export interface PackageLicensePolicyEvaluationListMatch {
     org_id: string;
     policy_slug_perm: any;
+    page?: number;
+    page_size?: number;
 }
 export interface PackageLicensePolicyEvaluationCreateData {
     org_id: string;
     policy_slug_perm: any;
+    data?: Record<string, any>;
     allow_unknown_licenses?: boolean;
     created_at?: string;
     description?: string;
@@ -2014,6 +2124,7 @@ export interface PackageLicensePolicyEvaluationCreateData {
     violation_count?: number;
 }
 export interface PackageVersionBadge {
+    id?: string;
 }
 export interface PackageVersionBadgeLoadMatch {
     owner: any;
@@ -2022,6 +2133,17 @@ export interface PackageVersionBadgeLoadMatch {
     package_name: any;
     package_version: any;
     repo: any;
+    badge_token?: any;
+    cache_second?: any;
+    color?: any;
+    label?: string;
+    label_color?: any;
+    logo_color?: any;
+    logo_width?: any;
+    render?: any;
+    shield?: any;
+    show_latest?: any;
+    style?: any;
 }
 export interface PackageVulnerabilityPolicyEvaluation {
     allow_unknown_severity?: boolean;
@@ -2048,10 +2170,13 @@ export interface PackageVulnerabilityPolicyEvaluationLoadMatch {
 export interface PackageVulnerabilityPolicyEvaluationListMatch {
     org_id: string;
     policy_slug_perm: any;
+    page?: number;
+    page_size?: number;
 }
 export interface PackageVulnerabilityPolicyEvaluationCreateData {
     org_id: string;
     policy_slug_perm: any;
+    data?: Record<string, any>;
     allow_unknown_severity?: boolean;
     created_at?: string;
     description?: string;
@@ -2088,6 +2213,10 @@ export interface ProviderSettingLoadMatch {
 }
 export interface ProviderSettingListMatch {
     org_id: string;
+    page?: number;
+    page_size?: number;
+    query?: any;
+    sort?: any;
 }
 export interface ProviderSettingsWrite {
     claims: Record<string, any>;
@@ -2102,6 +2231,7 @@ export interface ProviderSettingsWrite {
 }
 export interface ProviderSettingsWriteCreateData {
     org_id: string;
+    data?: Record<string, any>;
     claims: Record<string, any>;
     dynamic_mappings?: any[];
     enabled: boolean;
@@ -2115,6 +2245,7 @@ export interface ProviderSettingsWriteCreateData {
 export interface ProviderSettingsWriteUpdateData {
     org_id: string;
     slug_perm: any;
+    data?: Record<string, any>;
     claims?: Record<string, any>;
     dynamic_mappings?: any[];
     enabled?: boolean;
@@ -2153,10 +2284,13 @@ export interface PythonLoadMatch {
 export interface PythonListMatch {
     identifier: any;
     owner: any;
+    page?: number;
+    page_size?: number;
 }
 export interface PythonCreateData {
     identifier: any;
     owner: any;
+    data?: Record<string, any>;
     auth_mode?: string;
     auth_secret?: string;
     auth_username?: string;
@@ -2181,6 +2315,7 @@ export interface PythonUpdateData {
     id: string;
     identifier: any;
     owner: any;
+    data?: Record<string, any>;
     auth_mode?: string;
     auth_secret?: string;
     auth_username?: string;
@@ -2287,77 +2422,16 @@ export interface Repo {
 }
 export interface RepoLoadMatch {
     id: string;
+    page?: number;
+    page_size?: number;
 }
 export interface RepoListMatch {
-    cdn_url?: string;
-    content_kind?: string;
-    contextual_auth_realm?: boolean;
-    copy_own?: boolean;
-    copy_packages?: string;
-    cosign_signing_enabled?: boolean;
-    created_at?: string;
-    default_privilege?: string;
-    delete_own?: boolean;
-    delete_packages?: string;
-    deleted_at?: string;
-    description?: string;
-    distributes?: any[];
-    docker_refresh_tokens_enabled?: boolean;
-    ecdsa_keys?: any[];
-    enforce_eula?: boolean;
-    gpg_keys?: any[];
-    id?: string;
-    index_files?: boolean;
-    is_open_source?: boolean;
-    is_private?: boolean;
-    is_public?: boolean;
-    manage_entitlements_privilege?: string;
-    move_own?: boolean;
-    move_packages?: string;
-    name?: string;
-    namespace?: string;
-    namespace_url?: string;
-    nuget_native_signing_enabled?: boolean;
-    num_downloads?: number;
-    num_policy_violated_packages?: number;
-    num_quarantined_packages?: number;
-    open_source_license?: string;
-    open_source_project_url?: string;
-    package_count?: number;
-    package_group_count?: number;
-    proxy_npmjs?: boolean;
-    proxy_pypi?: boolean;
-    raw_package_index_enabled?: boolean;
-    raw_package_index_signatures_enabled?: boolean;
-    replace_packages?: string;
-    replace_packages_by_default?: boolean;
-    repository_type?: number;
-    repository_type_str?: string;
-    resync_own?: boolean;
-    resync_packages?: string;
-    scan_own?: boolean;
-    scan_packages?: string;
-    self_html_url?: string;
-    self_url?: string;
-    show_setup_all?: boolean;
-    size?: number;
-    size_str?: string;
-    slug?: string;
-    slug_perm?: string;
-    storage_region?: string;
-    strict_npm_validation?: boolean;
-    tag_pre_releases_as_latest?: boolean;
-    use_debian_labels?: boolean;
-    use_default_cargo_upstream?: boolean;
-    use_entitlements_privilege?: string;
-    use_noarch_packages?: boolean;
-    use_source_packages?: boolean;
-    use_vulnerability_scanning?: boolean;
-    user_entitlements_enabled?: boolean;
-    view_statistics?: string;
+    page?: number;
+    page_size?: number;
 }
 export interface RepoCreateData {
     id: string;
+    data?: Record<string, any>;
     cdn_url?: string;
     content_kind?: string;
     contextual_auth_realm?: boolean;
@@ -2429,6 +2503,7 @@ export interface RepoCreateData {
 export interface RepoUpdateData {
     identifier: any;
     owner: any;
+    data?: Record<string, any>;
     cdn_url?: string;
     content_kind?: string;
     contextual_auth_realm?: boolean;
@@ -2519,6 +2594,9 @@ export interface RepositoryAuditLog {
 export interface RepositoryAuditLogListMatch {
     owner: any;
     repo: any;
+    page?: number;
+    page_size?: number;
+    query?: any;
 }
 export interface RepositoryEcdsaKey {
     active?: boolean;
@@ -2536,6 +2614,7 @@ export interface RepositoryEcdsaKeyLoadMatch {
 export interface RepositoryEcdsaKeyCreateData {
     identifier: any;
     owner: any;
+    data?: Record<string, any>;
     active?: boolean;
     created_at?: string;
     default?: boolean;
@@ -2555,6 +2634,7 @@ export interface RepositoryGeoIpRuleLoadMatch {
 export interface RepositoryGeoIpRuleUpdateData {
     identifier: any;
     owner: any;
+    data?: Record<string, any>;
     cidr?: Record<string, any>;
     country_code?: Record<string, any>;
 }
@@ -2570,6 +2650,7 @@ export interface RepositoryGeoIpTestAddress {
 export interface RepositoryGeoIpTestAddressCreateData {
     identifier: any;
     owner: any;
+    data?: Record<string, any>;
 }
 export interface RepositoryGpgKey {
     active?: boolean;
@@ -2587,6 +2668,7 @@ export interface RepositoryGpgKeyLoadMatch {
 export interface RepositoryGpgKeyCreateData {
     identifier: any;
     owner: any;
+    data?: Record<string, any>;
     active?: boolean;
     comment: string;
     created_at?: string;
@@ -2604,6 +2686,8 @@ export interface RepositoryPrivilegeInput {
 export interface RepositoryPrivilegeInputListMatch {
     identifier: any;
     owner: any;
+    page?: number;
+    page_size?: number;
 }
 export interface RepositoryRetentionRule {
     retention_count_limit?: number;
@@ -2622,6 +2706,7 @@ export interface RepositoryRetentionRuleLoadMatch {
 export interface RepositoryRetentionRuleUpdateData {
     owner: any;
     repo: any;
+    data?: Record<string, any>;
     retention_count_limit?: number;
     retention_days_limit?: number;
     retention_enabled?: boolean;
@@ -2647,6 +2732,7 @@ export interface RepositoryRsaKeyLoadMatch {
 export interface RepositoryRsaKeyCreateData {
     identifier: any;
     owner: any;
+    data?: Record<string, any>;
     active?: boolean;
     created_at?: string;
     default?: boolean;
@@ -2669,6 +2755,7 @@ export interface RepositoryToken {
     eula_accepted_from?: string;
     eula_required?: boolean;
     has_limits?: boolean;
+    id?: string;
     identifier?: number;
     is_active?: boolean;
     is_limited?: boolean;
@@ -2700,14 +2787,24 @@ export interface RepositoryTokenLoadMatch {
     identifier: any;
     owner: any;
     repo: any;
+    fuzzy?: any;
+    show_token?: any;
 }
 export interface RepositoryTokenListMatch {
     owner: any;
     repo: any;
+    active?: boolean;
+    page?: number;
+    page_size?: number;
+    query?: any;
+    show_token?: any;
+    sort?: any;
 }
 export interface RepositoryTokenCreateData {
     owner: any;
     repo: any;
+    data?: Record<string, any>;
+    show_token?: any;
     clients?: number;
     created_at?: string;
     created_by?: string;
@@ -2721,6 +2818,7 @@ export interface RepositoryTokenCreateData {
     eula_accepted_from?: string;
     eula_required?: boolean;
     has_limits?: boolean;
+    id?: string;
     identifier?: number;
     is_active?: boolean;
     is_limited?: boolean;
@@ -2752,6 +2850,8 @@ export interface RepositoryTokenUpdateData {
     identifier: any;
     owner: any;
     repo: any;
+    data?: Record<string, any>;
+    show_token?: any;
     clients?: number;
     created_at?: string;
     created_by?: string;
@@ -2765,6 +2865,7 @@ export interface RepositoryTokenUpdateData {
     eula_accepted_from?: string;
     eula_required?: boolean;
     has_limits?: boolean;
+    id?: string;
     is_active?: boolean;
     is_limited?: boolean;
     limit_bandwidth?: number;
@@ -2836,6 +2937,8 @@ export interface RepositoryTokenRefreshCreateData {
     identifier: any;
     owner: any;
     repo: any;
+    data?: Record<string, any>;
+    show_token?: any;
     clients?: number;
     created_at?: string;
     created_by?: string;
@@ -2881,6 +2984,8 @@ export interface RepositoryTokenSync {
 export interface RepositoryTokenSyncCreateData {
     owner: any;
     repo: any;
+    data?: Record<string, any>;
+    show_token?: any;
     tokens?: any[];
 }
 export interface RepositoryWebhook {
@@ -2890,6 +2995,7 @@ export interface RepositoryWebhook {
     disable_reason?: number;
     disable_reason_str?: string;
     events: any[];
+    id?: string;
     identifier?: number;
     is_active?: boolean;
     is_last_response_bad?: boolean;
@@ -2920,16 +3026,20 @@ export interface RepositoryWebhookLoadMatch {
 export interface RepositoryWebhookListMatch {
     owner: any;
     repo: any;
+    page?: number;
+    page_size?: number;
 }
 export interface RepositoryWebhookCreateData {
     owner: any;
     repo: any;
+    data?: Record<string, any>;
     created_at?: string;
     created_by?: string;
     created_by_url?: string;
     disable_reason?: number;
     disable_reason_str?: string;
     events: any[];
+    id?: string;
     identifier?: number;
     is_active?: boolean;
     is_last_response_bad?: boolean;
@@ -2956,12 +3066,14 @@ export interface RepositoryWebhookUpdateData {
     identifier: any;
     owner: any;
     repo: any;
+    data?: Record<string, any>;
     created_at?: string;
     created_by?: string;
     created_by_url?: string;
     disable_reason?: number;
     disable_reason_str?: string;
     events?: any[];
+    id?: string;
     is_active?: boolean;
     is_last_response_bad?: boolean;
     last_response_status?: number;
@@ -3072,10 +3184,13 @@ export interface RpmLoadMatch {
 export interface RpmListMatch {
     identifier: any;
     owner: any;
+    page?: number;
+    page_size?: number;
 }
 export interface RpmCreateData {
     identifier: any;
     owner: any;
+    data?: Record<string, any>;
     auth_mode?: string;
     auth_secret?: string;
     auth_username?: string;
@@ -3106,6 +3221,7 @@ export interface RpmUpdateData {
     id: string;
     identifier: any;
     owner: any;
+    data?: Record<string, any>;
     auth_mode?: string;
     auth_secret?: string;
     auth_username?: string;
@@ -3162,10 +3278,13 @@ export interface RubyLoadMatch {
 export interface RubyListMatch {
     identifier: any;
     owner: any;
+    page?: number;
+    page_size?: number;
 }
 export interface RubyCreateData {
     identifier: any;
     owner: any;
+    data?: Record<string, any>;
     auth_mode?: string;
     auth_secret?: string;
     auth_username?: string;
@@ -3190,6 +3309,7 @@ export interface RubyUpdateData {
     id: string;
     identifier: any;
     owner: any;
+    data?: Record<string, any>;
     auth_mode?: string;
     auth_secret?: string;
     auth_username?: string;
@@ -3234,9 +3354,14 @@ export interface ServiceLoadMatch {
 }
 export interface ServiceListMatch {
     org_id: string;
+    page?: number;
+    page_size?: number;
+    query?: any;
+    sort?: any;
 }
 export interface ServiceCreateData {
     org_id: string;
+    data?: Record<string, any>;
     created_at?: string;
     created_by?: string;
     created_by_url?: string;
@@ -3254,6 +3379,7 @@ export interface ServiceCreateData {
 export interface ServiceUpdateData {
     id: string;
     org_id: string;
+    data?: Record<string, any>;
     created_at?: string;
     created_by?: string;
     created_by_url?: string;
@@ -3317,10 +3443,13 @@ export interface SwiftLoadMatch {
 export interface SwiftListMatch {
     identifier: any;
     owner: any;
+    page?: number;
+    page_size?: number;
 }
 export interface SwiftCreateData {
     identifier: any;
     owner: any;
+    data?: Record<string, any>;
     auth_mode?: string;
     auth_secret?: string;
     auth_username?: string;
@@ -3345,6 +3474,7 @@ export interface SwiftUpdateData {
     id: string;
     identifier: any;
     owner: any;
+    data?: Record<string, any>;
     auth_mode?: string;
     auth_secret?: string;
     auth_username?: string;
@@ -3384,15 +3514,15 @@ export interface User {
     slug_perm?: string;
 }
 export interface UserListMatch {
-    created?: string;
-    key?: string;
-    slug_perm?: string;
+    page?: number;
+    page_size?: number;
     $action?: string;
     [action: string]: any;
 }
 export interface UserAuthToken {
 }
 export interface UserAuthTokenCreateData {
+    data?: Record<string, any>;
 }
 export interface UserAuthenticationToken {
     created?: string;
@@ -3462,15 +3592,20 @@ export interface Vulnerability {
 }
 export interface VulnerabilityLoadMatch {
     id: string;
+    page?: number;
+    page_size?: number;
 }
 export interface VulnerabilityListMatch {
     owner: any;
     package?: any;
     repo: any;
+    page?: number;
+    page_size?: number;
 }
 export interface VulnerabilityPolicy {
 }
 export interface Webhook {
+    id?: string;
 }
 export interface WebhookRemoveMatch {
     identifier: any;

@@ -24,13 +24,16 @@ main: kit: entity: gon: {
       type: "`$STRING`"
     }
     {
+      format: "date-time"
       name: "created_at"
+      readOnly: true
       req: false
       short: "The datetime the upstream source was created."
       type: "`$STRING`"
     }
     {
       name: "disable_reason"
+      readOnly: true
       req: false
       type: "`$STRING`"
     }
@@ -78,6 +81,7 @@ main: kit: entity: gon: {
     }
     {
       name: "pending_validation"
+      readOnly: true
       req: false
       short: "When true, this upstream source is pending validation."
       type: "`$BOOLEAN`"
@@ -89,16 +93,21 @@ main: kit: entity: gon: {
       type: "`$INTEGER`"
     }
     {
+      format: "slug"
       name: "slug_perm"
+      readOnly: true
       req: false
       type: "`$STRING`"
     }
     {
+      format: "date-time"
       name: "updated_at"
+      readOnly: true
       req: false
       type: "`$STRING`"
     }
     {
+      format: "uri"
       name: "upstream_url"
       req: true
       short: "The URL for this upstream source."
@@ -147,12 +156,22 @@ main: kit: entity: gon: {
           }
           method: "POST"
           orig: "/repos/{owner}/{identifier}/upstream/go/"
-          parts: [
-            "repos"
-            "{owner}"
-            "{identifier}"
-            "upstream"
-            "go"
+          segments: [
+            {
+              lit: "repos"
+            }
+            {
+              var: "owner"
+            }
+            {
+              var: "identifier"
+            }
+            {
+              lit: "upstream"
+            }
+            {
+              lit: "go"
+            }
           ]
           select: {
             exist: [
@@ -208,12 +227,22 @@ main: kit: entity: gon: {
           }
           method: "GET"
           orig: "/repos/{owner}/{identifier}/upstream/go/"
-          parts: [
-            "repos"
-            "{owner}"
-            "{identifier}"
-            "upstream"
-            "go"
+          segments: [
+            {
+              lit: "repos"
+            }
+            {
+              var: "owner"
+            }
+            {
+              var: "identifier"
+            }
+            {
+              lit: "upstream"
+            }
+            {
+              lit: "go"
+            }
           ]
           select: {
             exist: [
@@ -261,13 +290,25 @@ main: kit: entity: gon: {
           }
           method: "GET"
           orig: "/repos/{owner}/{identifier}/upstream/go/{slug_perm}/"
-          parts: [
-            "repos"
-            "{owner}"
-            "{identifier}"
-            "upstream"
-            "go"
-            "{slug_perm}"
+          segments: [
+            {
+              lit: "repos"
+            }
+            {
+              var: "owner"
+            }
+            {
+              var: "identifier"
+            }
+            {
+              lit: "upstream"
+            }
+            {
+              lit: "go"
+            }
+            {
+              var: "slug_perm"
+            }
           ]
           select: {
             exist: [
@@ -323,13 +364,25 @@ main: kit: entity: gon: {
           }
           method: "PATCH"
           orig: "/repos/{owner}/{identifier}/upstream/go/{slug_perm}/"
-          parts: [
-            "repos"
-            "{owner}"
-            "{identifier}"
-            "upstream"
-            "go"
-            "{slug_perm}"
+          segments: [
+            {
+              lit: "repos"
+            }
+            {
+              var: "owner"
+            }
+            {
+              var: "identifier"
+            }
+            {
+              lit: "upstream"
+            }
+            {
+              lit: "go"
+            }
+            {
+              var: "slug_perm"
+            }
           ]
           select: {
             exist: [
@@ -386,13 +439,25 @@ main: kit: entity: gon: {
           }
           method: "PUT"
           orig: "/repos/{owner}/{identifier}/upstream/go/{slug_perm}/"
-          parts: [
-            "repos"
-            "{owner}"
-            "{identifier}"
-            "upstream"
-            "go"
-            "{slug_perm}"
+          segments: [
+            {
+              lit: "repos"
+            }
+            {
+              var: "owner"
+            }
+            {
+              var: "identifier"
+            }
+            {
+              lit: "upstream"
+            }
+            {
+              lit: "go"
+            }
+            {
+              var: "slug_perm"
+            }
           ]
           select: {
             exist: [

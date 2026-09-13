@@ -4604,6 +4604,7 @@ $package = $client->Package();
 | `format_url` | `string` | No |  |
 | `freeable_storage` | `int` | No | Amount of storage that will be freed if this package is deleted |
 | `fully_qualified_name` | `string` | No |  |
+| `id` | `string` | No |  |
 | `identifier_perm` | `string` | No | Unique and permanent identifier for the package. |
 | `identifiers` | `array` | No | Return a map of identifier field names and their values. |
 | `inactive` | `int` | No | Packages with zero downloads |
@@ -4700,6 +4701,7 @@ $package = $client->Package();
 | `format_url` | - | - | - | - |
 | `freeable_storage` | - | - | - | - |
 | `fully_qualified_name` | - | - | - | - |
+| `id` | - | - | - | - |
 | `identifier_perm` | - | - | - | - |
 | `identifiers` | - | - | - | - |
 | `inactive` | - | - | - | - |
@@ -4952,7 +4954,7 @@ $package_file_parts_upload = $client->PackageFilePartsUpload();
 Load a single entity matching the given criteria. Throws on error.
 
 ```php
-$result = $client->PackageFilePartsUpload()->load(["identifier" => "identifier", "owner" => "owner", "repo" => "repo"]);
+$result = $client->PackageFilePartsUpload()->load(["identifier" => "identifier", "owner" => "owner", "repo" => "repo", "filename" => "filename"]);
 ```
 
 ### Common Methods
@@ -5127,6 +5129,12 @@ Return the entity name.
 ```php
 $package_version_badge = $client->PackageVersionBadge();
 ```
+
+### Fields
+
+| Field | Type | Required | Description |
+| --- | --- | --- | --- |
+| `id` | `string` | No |  |
 
 ### Operations
 
@@ -6517,6 +6525,7 @@ $repository_token = $client->RepositoryToken();
 | `eula_accepted_from` | `string` | No |  |
 | `eula_required` | `bool` | No | If checked, a EULA acceptance is required for this token. |
 | `has_limits` | `bool` | No |  |
+| `id` | `string` | No |  |
 | `identifier` | `int` | No | Deprecated (23-05-15): Please use 'slug_perm' instead. |
 | `is_active` | `bool` | No | If enabled, the token will allow downloads based on configured restrictions (if any). |
 | `is_limited` | `bool` | No |  |
@@ -6782,6 +6791,7 @@ $repository_webhook = $client->RepositoryWebhook();
 | `disable_reason` | `int` | No |  |
 | `disable_reason_str` | `string` | No |  |
 | `events` | `array` | Yes |  |
+| `id` | `string` | No |  |
 | `identifier` | `int` | No | Deprecated (23-05-15): Please use 'slug_perm' instead. |
 | `is_active` | `bool` | No | If enabled, the webhook will trigger on subscribed events and send payloads to the configured target URL. |
 | `is_last_response_bad` | `bool` | No |  |
@@ -8630,6 +8640,12 @@ Return the entity name.
 $webhook = $client->Webhook();
 ```
 
+### Fields
+
+| Field | Type | Required | Description |
+| --- | --- | --- | --- |
+| `id` | `string` | No |  |
+
 ### Operations
 
 #### `remove(array $reqmatch, ?array $ctrl = null): mixed`
@@ -8758,4 +8774,42 @@ $client = new CloudsmithSDK([
   ],
 ]);
 ```
+
+
+### Configuring features
+
+Each feature is inactive until switched on, and an SDK with no feature
+configured does no feature work at all. Every option below keeps its default
+unless you name it.
+
+The array form of \`feature\` is significant: several features wrap the
+transport, and the order you list them in is the order they nest.
+
+#### `test`
+
+In-memory mock transport for testing without a live server.
+
+**Configuration**
+
+| Option | Default |
+|---|---|
+| `active` | `false` |
+
+Options above are those the model carries a default for. A feature may
+also accept callback options — a `sink` to receive each record, for
+instance — which have no default and are covered in the full feature
+reference.
+
+**Usage**
+
+Set `feature.test.active` to true in the client options, and override any option above in the same entry. Every option keeps
+its default unless you name it.
+
+**Considerations**
+
+- Attaches to pipeline hooks, not the transport, so activation order does
+  not change what it observes.
+- Installs the BASE transport that the wrapping features wrap, so it must be
+  activated before them.
+- Inactive by default: leaving it out costs nothing at runtime.
 

@@ -101,7 +101,7 @@ func TestOrganizationPackageLicensePolicyEntity(t *testing.T) {
 		// CREATE
 		organizationPackageLicensePolicyRef01Ent := client.OrganizationPackageLicensePolicy(nil)
 		organizationPackageLicensePolicyRef01Data := core.ToMapAny(vs.GetProp(
-			vs.GetPath([]any{"new", "organization_package_license_policy"}, setup.data), "organization_package_license_policy_ref01"))
+			vs.GetPath(setup.data, []any{"new", "organization_package_license_policy"}), "organization_package_license_policy_ref01"))
 		organizationPackageLicensePolicyRef01Data["org_id"] = setup.idmap["org01"]
 
 		organizationPackageLicensePolicyRef01DataResult, err := organizationPackageLicensePolicyRef01Ent.Create(organizationPackageLicensePolicyRef01Data, nil)
@@ -203,7 +203,7 @@ func organization_package_license_policyBasicSetup(extra map[string]any) *entity
 	client := sdk.TestSDK(options, extra)
 
 	// Generate idmap via transform, matching TS pattern.
-	idmap := vs.Transform(
+	idmap, _ := vs.Transform(
 		[]any{"organization_package_license_policy01", "organization_package_license_policy02", "organization_package_license_policy03", "org01", "org02", "org03"},
 		map[string]any{
 			"`$PACK`": []any{"", map[string]any{
@@ -223,7 +223,7 @@ func organization_package_license_policyBasicSetup(extra map[string]any) *entity
 		"CLOUDSMITH_TEST_ORGANIZATION_PACKAGE_LICENSE_POLICY_ENTID": idmap,
 		"CLOUDSMITH_TEST_LIVE":      "FALSE",
 		"CLOUDSMITH_TEST_EXPLAIN":   "FALSE",
-		"CLOUDSMITH_APIKEY":         "NONE",
+		"CLOUDSMITH_APIKEY":         "",
 	})
 
 	idmapResolved := core.ToMapAny(env["CLOUDSMITH_TEST_ORGANIZATION_PACKAGE_LICENSE_POLICY_ENTID"])
@@ -236,11 +236,23 @@ func organization_package_license_policyBasicSetup(extra map[string]any) *entity
 	}
 
 	if env["CLOUDSMITH_TEST_LIVE"] == "TRUE" {
+		// An empty map, not a nil one: Merge returns nil when its last entry
+		// is nil, and BasicSetup is normally called with no extras - so a
+		// bare nil silently discarded the apikey and server values below.
+		extraOpts := extra
+		if extraOpts == nil {
+			extraOpts = map[string]any{}
+		}
+
 		mergedOpts := vs.Merge([]any{
+			// liveClientOptions() FIRST, so the generated fields below win:
+			// sdk-test-control.json's test.client.options adds to the live
+			// client, it does not redirect it.
+			liveClientOptions(),
 			map[string]any{
 				"apikey": env["CLOUDSMITH_APIKEY"],
 			},
-			extra,
+			extraOpts,
 		})
 		client = sdk.NewCloudsmithSDK(core.ToMapAny(mergedOpts))
 	}

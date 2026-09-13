@@ -36,14 +36,17 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-const envlocal = __dirname + '/../../../.env.local';
-require('dotenv').config({ quiet: true, path: [envlocal] });
 const node_path_1 = __importDefault(require("node:path"));
 const Fs = __importStar(require("node:fs"));
 const node_test_1 = require("node:test");
 const node_assert_1 = __importDefault(require("node:assert"));
 const __1 = require("../../..");
 const utility_1 = require("../../utility");
+// AFTER the imports on purpose: TypeScript hoists `import` above any
+// statement in the emitted CommonJS, so a loader placed above them would
+// run only after every imported module had already been evaluated - and
+// anything reading process.env at module scope would miss these values.
+(0, utility_1.loadEnvLocal)(__dirname + '/../../../.env.local');
 (0, node_test_1.describe)('PackageEntity', async () => {
     // Per-test live pacing. Delay is read from sdk-test-control.json's
     // `test.live.delayMs`; only sleeps when CLOUDSMITH_TEST_LIVE=TRUE.
@@ -78,19 +81,29 @@ const utility_1 = require("../../utility");
         package_ref01_data['owner'] = setup.idmap['owner01'];
         package_ref01_data['repo'] = setup.idmap['repo01'];
         package_ref01_data = (await package_ref01_ent.create(package_ref01_data)).data();
-        (0, node_assert_1.default)(null != package_ref01_data);
+        (0, node_assert_1.default)(null != package_ref01_data.id);
         // LIST
         const package_ref01_match = {};
         package_ref01_match['identifier'] = setup.idmap['identifier01'];
         package_ref01_match['owner'] = setup.idmap['owner01'];
         package_ref01_match['repo'] = setup.idmap['repo01'];
         const package_ref01_list = (await package_ref01_ent.list(package_ref01_match)).map((e) => e.data());
+        (0, node_assert_1.default)(!isempty(select(package_ref01_list, { id: package_ref01_data.id })));
+        // LOAD
+        const package_ref01_match_dt0 = {};
+        package_ref01_match_dt0.id = package_ref01_data.id;
+        const package_ref01_data_dt0 = (await package_ref01_ent.load(package_ref01_match_dt0)).data();
+        (0, node_assert_1.default)(package_ref01_data_dt0.id === package_ref01_data.id);
+        // REMOVE
+        const package_ref01_match_rm0 = { id: package_ref01_data.id };
+        await package_ref01_ent.remove(package_ref01_match_rm0);
         // LIST
         const package_ref01_match_rt0 = {};
         package_ref01_match_rt0['identifier'] = setup.idmap['identifier01'];
         package_ref01_match_rt0['owner'] = setup.idmap['owner01'];
         package_ref01_match_rt0['repo'] = setup.idmap['repo01'];
         const package_ref01_list_rt0 = (await package_ref01_ent.list(package_ref01_match_rt0)).map((e) => e.data());
+        (0, node_assert_1.default)(isempty(select(package_ref01_list_rt0, { id: package_ref01_data.id })));
     });
 });
 function basicSetup(extra) {
@@ -123,16 +136,24 @@ function basicSetup(extra) {
         'CLOUDSMITH_TEST_PACKAGE_ENTID': idmap,
         'CLOUDSMITH_TEST_LIVE': 'FALSE',
         'CLOUDSMITH_TEST_EXPLAIN': 'FALSE',
-        'CLOUDSMITH_APIKEY': 'NONE',
+        'CLOUDSMITH_APIKEY': '',
     });
     idmap = env['CLOUDSMITH_TEST_PACKAGE_ENTID'];
     const live = 'TRUE' === env.CLOUDSMITH_TEST_LIVE;
     if (live) {
         client = new __1.CloudsmithSDK(merge([
+            // FIRST, so the generated fields below win: sdk-test-control.json's
+            // test.client.options adds to the live client, it does not redirect it.
+            (0, utility_1.liveClientOptions)(),
             {
                 apikey: env.CLOUDSMITH_APIKEY,
             },
-            extra
+            // 'extra || {}', not a bare 'extra': struct.merge returns UNDEFINED when the
+            // last entry is undefined, and basicSetup is normally called with no
+            // argument at all - so a bare 'extra' silently discarded the apikey
+            // and server values above and handed the SDK undefined. Harmless
+            // while there was nothing in that object; not harmless now.
+            extra || {}
         ]));
     }
     const setup = {

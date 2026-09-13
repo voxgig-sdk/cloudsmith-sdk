@@ -77,6 +77,7 @@ class RepositoryWebhookEntityTest < Minitest::Test
     repository_webhook_ref01_data_result = repository_webhook_ref01_ent.create(repository_webhook_ref01_data, nil)
     repository_webhook_ref01_data = Helpers.to_map(repository_webhook_ref01_data_result.respond_to?(:data_get) ? repository_webhook_ref01_data_result.data_get : repository_webhook_ref01_data_result)
     assert !repository_webhook_ref01_data.nil?
+    assert !repository_webhook_ref01_data["id"].nil?
 
     # LIST
     repository_webhook_ref01_match = {
@@ -87,8 +88,14 @@ class RepositoryWebhookEntityTest < Minitest::Test
     repository_webhook_ref01_list_result = repository_webhook_ref01_ent.list(repository_webhook_ref01_match, nil)
     assert repository_webhook_ref01_list_result.is_a?(Array)
 
+    found_item = Vs.select(
+      Runner.entity_list_to_data(repository_webhook_ref01_list_result),
+      { "id" => repository_webhook_ref01_data["id"] })
+    assert !Vs.isempty(found_item)
+
     # UPDATE
     repository_webhook_ref01_data_up0_up = {
+      "id" => repository_webhook_ref01_data["id"],
       "owner" => setup[:idmap]["owner"],
       "repo" => setup[:idmap]["repo"],
     }
@@ -100,12 +107,17 @@ class RepositoryWebhookEntityTest < Minitest::Test
     repository_webhook_ref01_resdata_up0_result = repository_webhook_ref01_ent.update(repository_webhook_ref01_data_up0_up, nil)
     repository_webhook_ref01_resdata_up0 = Helpers.to_map(repository_webhook_ref01_resdata_up0_result.respond_to?(:data_get) ? repository_webhook_ref01_resdata_up0_result.data_get : repository_webhook_ref01_resdata_up0_result)
     assert !repository_webhook_ref01_resdata_up0.nil?
+    assert_equal repository_webhook_ref01_resdata_up0["id"], repository_webhook_ref01_data_up0_up["id"]
     assert_equal repository_webhook_ref01_resdata_up0[repository_webhook_ref01_markdef_up0_name], repository_webhook_ref01_markdef_up0_value
 
     # LOAD
-    repository_webhook_ref01_match_dt0 = {}
+    repository_webhook_ref01_match_dt0 = {
+      "id" => repository_webhook_ref01_data["id"],
+    }
     repository_webhook_ref01_data_dt0_loaded = repository_webhook_ref01_ent.load(repository_webhook_ref01_match_dt0, nil)
-    assert !repository_webhook_ref01_data_dt0_loaded.nil?
+    repository_webhook_ref01_data_dt0_load_result = Helpers.to_map(repository_webhook_ref01_data_dt0_loaded.respond_to?(:data_get) ? repository_webhook_ref01_data_dt0_loaded.data_get : repository_webhook_ref01_data_dt0_loaded)
+    assert !repository_webhook_ref01_data_dt0_load_result.nil?
+    assert_equal repository_webhook_ref01_data_dt0_load_result["id"], repository_webhook_ref01_data["id"]
 
   end
 end
@@ -143,7 +155,7 @@ def repository_webhook_basic_setup(extra)
     "CLOUDSMITH_TEST_REPOSITORY_WEBHOOK_ENTID" => idmap,
     "CLOUDSMITH_TEST_LIVE" => "FALSE",
     "CLOUDSMITH_TEST_EXPLAIN" => "FALSE",
-    "CLOUDSMITH_APIKEY" => "NONE",
+    "CLOUDSMITH_APIKEY" => "",
   })
 
   idmap_resolved = Helpers.to_map(
@@ -160,6 +172,9 @@ def repository_webhook_basic_setup(extra)
 
   if env["CLOUDSMITH_TEST_LIVE"] == "TRUE"
     merged_opts = Vs.merge([
+      # FIRST, so the generated fields below win: sdk-test-control.json's
+      # test.client.options adds to the live client, it does not redirect it.
+      Runner.live_client_options,
       {
         "apikey" => env["CLOUDSMITH_APIKEY"],
       },

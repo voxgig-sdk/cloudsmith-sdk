@@ -51,15 +51,19 @@ main: kit: entity: quota: {
           }
           method: "GET"
           orig: "/quota/{owner}/"
-          parts: [
-            "quota"
-            "{id}"
-          ]
           rename: {
             param: {
               owner: "id"
             }
           }
+          segments: [
+            {
+              lit: "quota"
+            }
+            {
+              var: "id"
+            }
+          ]
           select: {
             exist: [
               "id"
@@ -84,10 +88,16 @@ main: kit: entity: quota: {
           }
           method: "GET"
           orig: "/quota/history/{owner}/"
-          parts: [
-            "quota"
-            "history"
-            "{owner}"
+          segments: [
+            {
+              lit: "quota"
+            }
+            {
+              lit: "history"
+            }
+            {
+              var: "owner"
+            }
           ]
           select: {
             exist: [
@@ -113,11 +123,19 @@ main: kit: entity: quota: {
           }
           method: "GET"
           orig: "/quota/oss/history/{owner}/"
-          parts: [
-            "quota"
-            "oss"
-            "history"
-            "{owner}"
+          segments: [
+            {
+              lit: "quota"
+            }
+            {
+              lit: "oss"
+            }
+            {
+              lit: "history"
+            }
+            {
+              var: "owner"
+            }
           ]
           select: {
             exist: [
@@ -143,10 +161,16 @@ main: kit: entity: quota: {
           }
           method: "GET"
           orig: "/quota/oss/{owner}/"
-          parts: [
-            "quota"
-            "oss"
-            "{owner}"
+          segments: [
+            {
+              lit: "quota"
+            }
+            {
+              lit: "oss"
+            }
+            {
+              var: "owner"
+            }
           ]
           select: {
             exist: [

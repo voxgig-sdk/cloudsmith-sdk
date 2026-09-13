@@ -156,7 +156,7 @@ function package_license_policy_evaluation_basic_setup(extra)
     ["CLOUDSMITH_TEST_PACKAGE_LICENSE_POLICY_EVALUATION_ENTID"] = idmap,
     ["CLOUDSMITH_TEST_LIVE"] = "FALSE",
     ["CLOUDSMITH_TEST_EXPLAIN"] = "FALSE",
-    ["CLOUDSMITH_APIKEY"] = "NONE",
+    ["CLOUDSMITH_APIKEY"] = "",
   })
 
   local idmap_resolved = helpers.to_map(
@@ -167,6 +167,9 @@ function package_license_policy_evaluation_basic_setup(extra)
 
   if env["CLOUDSMITH_TEST_LIVE"] == "TRUE" then
     local merged_opts = vs.merge({
+      -- FIRST, so the generated fields below win: sdk-test-control.json's
+      -- test.client.options adds to the live client, it does not redirect it.
+      runner.live_client_options(),
       {
         apikey = env["CLOUDSMITH_APIKEY"],
       },

@@ -62,12 +62,15 @@ type CargoLoadMatch struct {
 type CargoListMatch struct {
 	Identifier any `json:"identifier"`
 	Owner any `json:"owner"`
+	Page *int `json:"page,omitempty"`
+	PageSize *int `json:"page_size,omitempty"`
 }
 
 // CargoCreateData is the typed request payload for Cargo.CreateTyped.
 type CargoCreateData struct {
 	Identifier any `json:"identifier"`
 	Owner any `json:"owner"`
+	Data *map[string]any `json:"data,omitempty"`
 	AuthMode *string `json:"auth_mode,omitempty"`
 	AuthSecret *string `json:"auth_secret,omitempty"`
 	AuthUsername *string `json:"auth_username,omitempty"`
@@ -94,6 +97,7 @@ type CargoUpdateData struct {
 	Id string `json:"id"`
 	Identifier any `json:"identifier"`
 	Owner any `json:"owner"`
+	Data *map[string]any `json:"data,omitempty"`
 	AuthMode *string `json:"auth_mode,omitempty"`
 	AuthSecret *string `json:"auth_secret,omitempty"`
 	AuthUsername *string `json:"auth_username,omitempty"`
@@ -156,12 +160,15 @@ type ComposerLoadMatch struct {
 type ComposerListMatch struct {
 	Identifier any `json:"identifier"`
 	Owner any `json:"owner"`
+	Page *int `json:"page,omitempty"`
+	PageSize *int `json:"page_size,omitempty"`
 }
 
 // ComposerCreateData is the typed request payload for Composer.CreateTyped.
 type ComposerCreateData struct {
 	Identifier any `json:"identifier"`
 	Owner any `json:"owner"`
+	Data *map[string]any `json:"data,omitempty"`
 	AuthMode *string `json:"auth_mode,omitempty"`
 	AuthSecret *string `json:"auth_secret,omitempty"`
 	AuthUsername *string `json:"auth_username,omitempty"`
@@ -188,6 +195,7 @@ type ComposerUpdateData struct {
 	Id string `json:"id"`
 	Identifier any `json:"identifier"`
 	Owner any `json:"owner"`
+	Data *map[string]any `json:"data,omitempty"`
 	AuthMode *string `json:"auth_mode,omitempty"`
 	AuthSecret *string `json:"auth_secret,omitempty"`
 	AuthUsername *string `json:"auth_username,omitempty"`
@@ -246,12 +254,15 @@ type CondaLoadMatch struct {
 type CondaListMatch struct {
 	Identifier any `json:"identifier"`
 	Owner any `json:"owner"`
+	Page *int `json:"page,omitempty"`
+	PageSize *int `json:"page_size,omitempty"`
 }
 
 // CondaCreateData is the typed request payload for Conda.CreateTyped.
 type CondaCreateData struct {
 	Identifier any `json:"identifier"`
 	Owner any `json:"owner"`
+	Data *map[string]any `json:"data,omitempty"`
 	AuthMode *string `json:"auth_mode,omitempty"`
 	AuthSecret *string `json:"auth_secret,omitempty"`
 	AuthUsername *string `json:"auth_username,omitempty"`
@@ -278,6 +289,7 @@ type CondaUpdateData struct {
 	Id string `json:"id"`
 	Identifier any `json:"identifier"`
 	Owner any `json:"owner"`
+	Data *map[string]any `json:"data,omitempty"`
 	AuthMode *string `json:"auth_mode,omitempty"`
 	AuthSecret *string `json:"auth_secret,omitempty"`
 	AuthUsername *string `json:"auth_username,omitempty"`
@@ -336,12 +348,15 @@ type CranLoadMatch struct {
 type CranListMatch struct {
 	Identifier any `json:"identifier"`
 	Owner any `json:"owner"`
+	Page *int `json:"page,omitempty"`
+	PageSize *int `json:"page_size,omitempty"`
 }
 
 // CranCreateData is the typed request payload for Cran.CreateTyped.
 type CranCreateData struct {
 	Identifier any `json:"identifier"`
 	Owner any `json:"owner"`
+	Data *map[string]any `json:"data,omitempty"`
 	AuthMode *string `json:"auth_mode,omitempty"`
 	AuthSecret *string `json:"auth_secret,omitempty"`
 	AuthUsername *string `json:"auth_username,omitempty"`
@@ -368,6 +383,7 @@ type CranUpdateData struct {
 	Id string `json:"id"`
 	Identifier any `json:"identifier"`
 	Owner any `json:"owner"`
+	Data *map[string]any `json:"data,omitempty"`
 	AuthMode *string `json:"auth_mode,omitempty"`
 	AuthSecret *string `json:"auth_secret,omitempty"`
 	AuthUsername *string `json:"auth_username,omitempty"`
@@ -422,12 +438,15 @@ type DartLoadMatch struct {
 type DartListMatch struct {
 	Identifier any `json:"identifier"`
 	Owner any `json:"owner"`
+	Page *int `json:"page,omitempty"`
+	PageSize *int `json:"page_size,omitempty"`
 }
 
 // DartCreateData is the typed request payload for Dart.CreateTyped.
 type DartCreateData struct {
 	Identifier any `json:"identifier"`
 	Owner any `json:"owner"`
+	Data *map[string]any `json:"data,omitempty"`
 	AuthMode *string `json:"auth_mode,omitempty"`
 	AuthSecret *string `json:"auth_secret,omitempty"`
 	AuthUsername *string `json:"auth_username,omitempty"`
@@ -454,6 +473,7 @@ type DartUpdateData struct {
 	Id string `json:"id"`
 	Identifier any `json:"identifier"`
 	Owner any `json:"owner"`
+	Data *map[string]any `json:"data,omitempty"`
 	AuthMode *string `json:"auth_mode,omitempty"`
 	AuthSecret *string `json:"auth_secret,omitempty"`
 	AuthUsername *string `json:"auth_username,omitempty"`
@@ -516,12 +536,15 @@ type DebLoadMatch struct {
 type DebListMatch struct {
 	Identifier any `json:"identifier"`
 	Owner any `json:"owner"`
+	Page *int `json:"page,omitempty"`
+	PageSize *int `json:"page_size,omitempty"`
 }
 
 // DebCreateData is the typed request payload for Deb.CreateTyped.
 type DebCreateData struct {
 	Identifier any `json:"identifier"`
 	Owner any `json:"owner"`
+	Data *map[string]any `json:"data,omitempty"`
 	AuthMode *string `json:"auth_mode,omitempty"`
 	AuthSecret *string `json:"auth_secret,omitempty"`
 	AuthUsername *string `json:"auth_username,omitempty"`
@@ -556,6 +579,7 @@ type DebUpdateData struct {
 	Id string `json:"id"`
 	Identifier any `json:"identifier"`
 	Owner any `json:"owner"`
+	Data *map[string]any `json:"data,omitempty"`
 	AuthMode *string `json:"auth_mode,omitempty"`
 	AuthSecret *string `json:"auth_secret,omitempty"`
 	AuthUsername *string `json:"auth_username,omitempty"`
@@ -661,12 +685,15 @@ type DockerLoadMatch struct {
 type DockerListMatch struct {
 	Identifier any `json:"identifier"`
 	Owner any `json:"owner"`
+	Page *int `json:"page,omitempty"`
+	PageSize *int `json:"page_size,omitempty"`
 }
 
 // DockerCreateData is the typed request payload for Docker.CreateTyped.
 type DockerCreateData struct {
 	Identifier any `json:"identifier"`
 	Owner any `json:"owner"`
+	Data *map[string]any `json:"data,omitempty"`
 	AuthMode *string `json:"auth_mode,omitempty"`
 	AuthSecret *string `json:"auth_secret,omitempty"`
 	AuthUsername *string `json:"auth_username,omitempty"`
@@ -693,6 +720,7 @@ type DockerUpdateData struct {
 	Id string `json:"id"`
 	Identifier any `json:"identifier"`
 	Owner any `json:"owner"`
+	Data *map[string]any `json:"data,omitempty"`
 	AuthMode *string `json:"auth_mode,omitempty"`
 	AuthSecret *string `json:"auth_secret,omitempty"`
 	AuthUsername *string `json:"auth_username,omitempty"`
@@ -731,6 +759,8 @@ type DynamicMappingLoadMatch struct {
 type DynamicMappingListMatch struct {
 	OrgId string `json:"org_id"`
 	ProviderSetting any `json:"provider_setting"`
+	Page *int `json:"page,omitempty"`
+	PageSize *int `json:"page_size,omitempty"`
 }
 
 // Ecdsa is the typed data model for the ecdsa entity.
@@ -754,6 +784,11 @@ type Entitlement struct {
 // EntitlementLoadMatch is the typed request payload for Entitlement.LoadTyped.
 type EntitlementLoadMatch struct {
 	Id string `json:"id"`
+	Finish *any `json:"finish,omitempty"`
+	Page *int `json:"page,omitempty"`
+	PageSize *int `json:"page_size,omitempty"`
+	Start *any `json:"start,omitempty"`
+	Token *string `json:"token,omitempty"`
 }
 
 // EntitlementCreateData is the typed request payload for Entitlement.CreateTyped.
@@ -761,6 +796,7 @@ type EntitlementCreateData struct {
 	Identifier any `json:"identifier"`
 	Owner any `json:"owner"`
 	Repo any `json:"repo"`
+	ShowToken *any `json:"show_token,omitempty"`
 	Active *int `json:"active,omitempty"`
 	Bandwidth map[string]any `json:"bandwidth"`
 	Downloads map[string]any `json:"downloads"`
@@ -789,6 +825,7 @@ type FileCreateData struct {
 	Identifier *any `json:"identifier,omitempty"`
 	Owner any `json:"owner"`
 	Repo any `json:"repo"`
+	Data *map[string]any `json:"data,omitempty"`
 }
 
 // Format is the typed data model for the format entity.
@@ -861,12 +898,15 @@ type GonLoadMatch struct {
 type GonListMatch struct {
 	Identifier any `json:"identifier"`
 	Owner any `json:"owner"`
+	Page *int `json:"page,omitempty"`
+	PageSize *int `json:"page_size,omitempty"`
 }
 
 // GonCreateData is the typed request payload for Gon.CreateTyped.
 type GonCreateData struct {
 	Identifier any `json:"identifier"`
 	Owner any `json:"owner"`
+	Data *map[string]any `json:"data,omitempty"`
 	AuthMode *string `json:"auth_mode,omitempty"`
 	AuthSecret *string `json:"auth_secret,omitempty"`
 	AuthUsername *string `json:"auth_username,omitempty"`
@@ -892,6 +932,7 @@ type GonUpdateData struct {
 	Identifier any `json:"identifier"`
 	Owner any `json:"owner"`
 	SlugPerm any `json:"slug_perm"`
+	Data *map[string]any `json:"data,omitempty"`
 	AuthMode *string `json:"auth_mode,omitempty"`
 	AuthSecret *string `json:"auth_secret,omitempty"`
 	AuthUsername *string `json:"auth_username,omitempty"`
@@ -953,12 +994,15 @@ type HelmLoadMatch struct {
 type HelmListMatch struct {
 	Identifier any `json:"identifier"`
 	Owner any `json:"owner"`
+	Page *int `json:"page,omitempty"`
+	PageSize *int `json:"page_size,omitempty"`
 }
 
 // HelmCreateData is the typed request payload for Helm.CreateTyped.
 type HelmCreateData struct {
 	Identifier any `json:"identifier"`
 	Owner any `json:"owner"`
+	Data *map[string]any `json:"data,omitempty"`
 	AuthMode *string `json:"auth_mode,omitempty"`
 	AuthSecret *string `json:"auth_secret,omitempty"`
 	AuthUsername *string `json:"auth_username,omitempty"`
@@ -985,6 +1029,7 @@ type HelmUpdateData struct {
 	Id string `json:"id"`
 	Identifier any `json:"identifier"`
 	Owner any `json:"owner"`
+	Data *map[string]any `json:"data,omitempty"`
 	AuthMode *string `json:"auth_mode,omitempty"`
 	AuthSecret *string `json:"auth_secret,omitempty"`
 	AuthUsername *string `json:"auth_username,omitempty"`
@@ -1039,12 +1084,15 @@ type HexLoadMatch struct {
 type HexListMatch struct {
 	Identifier any `json:"identifier"`
 	Owner any `json:"owner"`
+	Page *int `json:"page,omitempty"`
+	PageSize *int `json:"page_size,omitempty"`
 }
 
 // HexCreateData is the typed request payload for Hex.CreateTyped.
 type HexCreateData struct {
 	Identifier any `json:"identifier"`
 	Owner any `json:"owner"`
+	Data *map[string]any `json:"data,omitempty"`
 	AuthMode *string `json:"auth_mode,omitempty"`
 	AuthSecret *string `json:"auth_secret,omitempty"`
 	AuthUsername *string `json:"auth_username,omitempty"`
@@ -1071,6 +1119,7 @@ type HexUpdateData struct {
 	Id string `json:"id"`
 	Identifier any `json:"identifier"`
 	Owner any `json:"owner"`
+	Data *map[string]any `json:"data,omitempty"`
 	AuthMode *string `json:"auth_mode,omitempty"`
 	AuthSecret *string `json:"auth_secret,omitempty"`
 	AuthUsername *string `json:"auth_username,omitempty"`
@@ -1129,12 +1178,15 @@ type HuggingfaceLoadMatch struct {
 type HuggingfaceListMatch struct {
 	Identifier any `json:"identifier"`
 	Owner any `json:"owner"`
+	Page *int `json:"page,omitempty"`
+	PageSize *int `json:"page_size,omitempty"`
 }
 
 // HuggingfaceCreateData is the typed request payload for Huggingface.CreateTyped.
 type HuggingfaceCreateData struct {
 	Identifier any `json:"identifier"`
 	Owner any `json:"owner"`
+	Data *map[string]any `json:"data,omitempty"`
 	AuthMode *string `json:"auth_mode,omitempty"`
 	AuthSecret *string `json:"auth_secret,omitempty"`
 	AuthUsername *string `json:"auth_username,omitempty"`
@@ -1161,6 +1213,7 @@ type HuggingfaceUpdateData struct {
 	Id string `json:"id"`
 	Identifier any `json:"identifier"`
 	Owner any `json:"owner"`
+	Data *map[string]any `json:"data,omitempty"`
 	AuthMode *string `json:"auth_mode,omitempty"`
 	AuthSecret *string `json:"auth_secret,omitempty"`
 	AuthUsername *string `json:"auth_username,omitempty"`
@@ -1239,12 +1292,15 @@ type MavenLoadMatch struct {
 type MavenListMatch struct {
 	Identifier any `json:"identifier"`
 	Owner any `json:"owner"`
+	Page *int `json:"page,omitempty"`
+	PageSize *int `json:"page_size,omitempty"`
 }
 
 // MavenCreateData is the typed request payload for Maven.CreateTyped.
 type MavenCreateData struct {
 	Identifier any `json:"identifier"`
 	Owner any `json:"owner"`
+	Data *map[string]any `json:"data,omitempty"`
 	AuthMode *string `json:"auth_mode,omitempty"`
 	AuthSecret *string `json:"auth_secret,omitempty"`
 	AuthUsername *string `json:"auth_username,omitempty"`
@@ -1275,6 +1331,7 @@ type MavenUpdateData struct {
 	Id string `json:"id"`
 	Identifier any `json:"identifier"`
 	Owner any `json:"owner"`
+	Data *map[string]any `json:"data,omitempty"`
 	AuthMode *string `json:"auth_mode,omitempty"`
 	AuthSecret *string `json:"auth_secret,omitempty"`
 	AuthUsername *string `json:"auth_username,omitempty"`
@@ -1323,11 +1380,8 @@ type NamespaceLoadMatch struct {
 
 // NamespaceListMatch is the typed request payload for Namespace.ListTyped.
 type NamespaceListMatch struct {
-	Id *string `json:"id,omitempty"`
-	Name *string `json:"name,omitempty"`
-	Slug *string `json:"slug,omitempty"`
-	SlugPerm *string `json:"slug_perm,omitempty"`
-	TypeName *string `json:"type_name,omitempty"`
+	Page *int `json:"page,omitempty"`
+	PageSize *int `json:"page_size,omitempty"`
 }
 
 // NamespaceAuditLog is the typed data model for the namespace_audit_log entity.
@@ -1354,6 +1408,9 @@ type NamespaceAuditLog struct {
 // NamespaceAuditLogLoadMatch is the typed request payload for NamespaceAuditLog.LoadTyped.
 type NamespaceAuditLogLoadMatch struct {
 	Id string `json:"id"`
+	Page *int `json:"page,omitempty"`
+	PageSize *int `json:"page_size,omitempty"`
+	Query *any `json:"query,omitempty"`
 }
 
 // Npm is the typed data model for the npm entity.
@@ -1390,12 +1447,15 @@ type NpmLoadMatch struct {
 type NpmListMatch struct {
 	Identifier any `json:"identifier"`
 	Owner any `json:"owner"`
+	Page *int `json:"page,omitempty"`
+	PageSize *int `json:"page_size,omitempty"`
 }
 
 // NpmCreateData is the typed request payload for Npm.CreateTyped.
 type NpmCreateData struct {
 	Identifier any `json:"identifier"`
 	Owner any `json:"owner"`
+	Data *map[string]any `json:"data,omitempty"`
 	AuthMode *string `json:"auth_mode,omitempty"`
 	AuthSecret *string `json:"auth_secret,omitempty"`
 	AuthUsername *string `json:"auth_username,omitempty"`
@@ -1422,6 +1482,7 @@ type NpmUpdateData struct {
 	Id string `json:"id"`
 	Identifier any `json:"identifier"`
 	Owner any `json:"owner"`
+	Data *map[string]any `json:"data,omitempty"`
 	AuthMode *string `json:"auth_mode,omitempty"`
 	AuthSecret *string `json:"auth_secret,omitempty"`
 	AuthUsername *string `json:"auth_username,omitempty"`
@@ -1476,12 +1537,15 @@ type NugetLoadMatch struct {
 type NugetListMatch struct {
 	Identifier any `json:"identifier"`
 	Owner any `json:"owner"`
+	Page *int `json:"page,omitempty"`
+	PageSize *int `json:"page_size,omitempty"`
 }
 
 // NugetCreateData is the typed request payload for Nuget.CreateTyped.
 type NugetCreateData struct {
 	Identifier any `json:"identifier"`
 	Owner any `json:"owner"`
+	Data *map[string]any `json:"data,omitempty"`
 	AuthMode *string `json:"auth_mode,omitempty"`
 	AuthSecret *string `json:"auth_secret,omitempty"`
 	AuthUsername *string `json:"auth_username,omitempty"`
@@ -1508,6 +1572,7 @@ type NugetUpdateData struct {
 	Id string `json:"id"`
 	Identifier any `json:"identifier"`
 	Owner any `json:"owner"`
+	Data *map[string]any `json:"data,omitempty"`
 	AuthMode *string `json:"auth_mode,omitempty"`
 	AuthSecret *string `json:"auth_secret,omitempty"`
 	AuthUsername *string `json:"auth_username,omitempty"`
@@ -1557,19 +1622,8 @@ type OrgLoadMatch struct {
 
 // OrgListMatch is the typed request payload for Org.ListTyped.
 type OrgListMatch struct {
-	Country *string `json:"country,omitempty"`
-	CreatedAt *string `json:"created_at,omitempty"`
-	EventAt *string `json:"event_at,omitempty"`
-	Id *string `json:"id,omitempty"`
-	Location *string `json:"location,omitempty"`
-	Name *string `json:"name,omitempty"`
-	Package *map[string]any `json:"package,omitempty"`
-	Policy *map[string]any `json:"policy,omitempty"`
-	Reasons *[]any `json:"reasons,omitempty"`
-	Slug *string `json:"slug,omitempty"`
-	SlugPerm *string `json:"slug_perm,omitempty"`
-	Tagline *string `json:"tagline,omitempty"`
-	VulnerabilityScanResults *map[string]any `json:"vulnerability_scan_results,omitempty"`
+	Page *int `json:"page,omitempty"`
+	PageSize *int `json:"page_size,omitempty"`
 }
 
 // OrgCreateData is the typed request payload for Org.CreateTyped.
@@ -1594,6 +1648,7 @@ type OrgCreateData struct {
 type OrgUpdateData struct {
 	Id string `json:"id"`
 	TeamId string `json:"team_id"`
+	Data *map[string]any `json:"data,omitempty"`
 	Country *string `json:"country,omitempty"`
 	CreatedAt *string `json:"created_at,omitempty"`
 	EventAt *string `json:"event_at,omitempty"`
@@ -1629,11 +1684,14 @@ type OrganizationGroupSync struct {
 // OrganizationGroupSyncListMatch is the typed request payload for OrganizationGroupSync.ListTyped.
 type OrganizationGroupSyncListMatch struct {
 	OrgId string `json:"org_id"`
+	Page *int `json:"page,omitempty"`
+	PageSize *int `json:"page_size,omitempty"`
 }
 
 // OrganizationGroupSyncCreateData is the typed request payload for OrganizationGroupSync.CreateTyped.
 type OrganizationGroupSyncCreateData struct {
 	OrgId string `json:"org_id"`
+	Data *map[string]any `json:"data,omitempty"`
 	IdpKey string `json:"idp_key"`
 	IdpValue string `json:"idp_value"`
 	Role *string `json:"role,omitempty"`
@@ -1669,11 +1727,14 @@ type OrganizationInvite struct {
 // OrganizationInviteListMatch is the typed request payload for OrganizationInvite.ListTyped.
 type OrganizationInviteListMatch struct {
 	OrgId string `json:"org_id"`
+	Page *int `json:"page,omitempty"`
+	PageSize *int `json:"page_size,omitempty"`
 }
 
 // OrganizationInviteCreateData is the typed request payload for OrganizationInvite.CreateTyped.
 type OrganizationInviteCreateData struct {
 	OrgId string `json:"org_id"`
+	Data *map[string]any `json:"data,omitempty"`
 	Email *string `json:"email,omitempty"`
 	ExpiresAt *string `json:"expires_at,omitempty"`
 	Id *string `json:"id,omitempty"`
@@ -1691,6 +1752,7 @@ type OrganizationInviteCreateData struct {
 type OrganizationInviteUpdateData struct {
 	Id string `json:"id"`
 	OrgId string `json:"org_id"`
+	Data *map[string]any `json:"data,omitempty"`
 	Email *string `json:"email,omitempty"`
 	ExpiresAt *string `json:"expires_at,omitempty"`
 	Inviter *string `json:"inviter,omitempty"`
@@ -1757,12 +1819,18 @@ type OrganizationMembershipLoadMatch struct {
 // OrganizationMembershipListMatch is the typed request payload for OrganizationMembership.ListTyped.
 type OrganizationMembershipListMatch struct {
 	OrgId string `json:"org_id"`
+	IsActive *bool `json:"is_active,omitempty"`
+	Page *int `json:"page,omitempty"`
+	PageSize *int `json:"page_size,omitempty"`
+	Query *any `json:"query,omitempty"`
+	Sort *any `json:"sort,omitempty"`
 }
 
 // OrganizationMembershipUpdateData is the typed request payload for OrganizationMembership.UpdateTyped.
 type OrganizationMembershipUpdateData struct {
 	Member any `json:"member"`
 	OrgId string `json:"org_id"`
+	Data *map[string]any `json:"data,omitempty"`
 	Email *string `json:"email,omitempty"`
 	HasTwoFactor *bool `json:"has_two_factor,omitempty"`
 	IsActive *bool `json:"is_active,omitempty"`
@@ -1796,6 +1864,7 @@ type OrganizationMembershipRoleUpdate struct {
 type OrganizationMembershipRoleUpdateUpdateData struct {
 	MemberId string `json:"member_id"`
 	OrgId string `json:"org_id"`
+	Data *map[string]any `json:"data,omitempty"`
 	Email *string `json:"email,omitempty"`
 	HasTwoFactor *bool `json:"has_two_factor,omitempty"`
 	JoinedAt *string `json:"joined_at,omitempty"`
@@ -1828,6 +1897,7 @@ type OrganizationMembershipVisibilityUpdate struct {
 type OrganizationMembershipVisibilityUpdateUpdateData struct {
 	MemberId string `json:"member_id"`
 	OrgId string `json:"org_id"`
+	Data *map[string]any `json:"data,omitempty"`
 	Email *string `json:"email,omitempty"`
 	HasTwoFactor *bool `json:"has_two_factor,omitempty"`
 	JoinedAt *string `json:"joined_at,omitempty"`
@@ -1864,11 +1934,14 @@ type OrganizationPackageLicensePolicyLoadMatch struct {
 // OrganizationPackageLicensePolicyListMatch is the typed request payload for OrganizationPackageLicensePolicy.ListTyped.
 type OrganizationPackageLicensePolicyListMatch struct {
 	OrgId string `json:"org_id"`
+	Page *int `json:"page,omitempty"`
+	PageSize *int `json:"page_size,omitempty"`
 }
 
 // OrganizationPackageLicensePolicyCreateData is the typed request payload for OrganizationPackageLicensePolicy.CreateTyped.
 type OrganizationPackageLicensePolicyCreateData struct {
 	OrgId string `json:"org_id"`
+	Data *map[string]any `json:"data,omitempty"`
 	AllowUnknownLicenses *bool `json:"allow_unknown_licenses,omitempty"`
 	CreatedAt *string `json:"created_at,omitempty"`
 	Description *string `json:"description,omitempty"`
@@ -1885,6 +1958,7 @@ type OrganizationPackageLicensePolicyCreateData struct {
 type OrganizationPackageLicensePolicyUpdateData struct {
 	Id string `json:"id"`
 	OrgId string `json:"org_id"`
+	Data *map[string]any `json:"data,omitempty"`
 	AllowUnknownLicenses *bool `json:"allow_unknown_licenses,omitempty"`
 	CreatedAt *string `json:"created_at,omitempty"`
 	Description *string `json:"description,omitempty"`
@@ -1919,11 +1993,14 @@ type OrganizationPackageVulnerabilityPolicyLoadMatch struct {
 // OrganizationPackageVulnerabilityPolicyListMatch is the typed request payload for OrganizationPackageVulnerabilityPolicy.ListTyped.
 type OrganizationPackageVulnerabilityPolicyListMatch struct {
 	OrgId string `json:"org_id"`
+	Page *int `json:"page,omitempty"`
+	PageSize *int `json:"page_size,omitempty"`
 }
 
 // OrganizationPackageVulnerabilityPolicyCreateData is the typed request payload for OrganizationPackageVulnerabilityPolicy.CreateTyped.
 type OrganizationPackageVulnerabilityPolicyCreateData struct {
 	OrgId string `json:"org_id"`
+	Data *map[string]any `json:"data,omitempty"`
 	AllowUnknownSeverity *bool `json:"allow_unknown_severity,omitempty"`
 	CreatedAt *string `json:"created_at,omitempty"`
 	Description *string `json:"description,omitempty"`
@@ -1940,6 +2017,7 @@ type OrganizationPackageVulnerabilityPolicyCreateData struct {
 type OrganizationPackageVulnerabilityPolicyUpdateData struct {
 	Id string `json:"id"`
 	OrgId string `json:"org_id"`
+	Data *map[string]any `json:"data,omitempty"`
 	AllowUnknownSeverity *bool `json:"allow_unknown_severity,omitempty"`
 	CreatedAt *string `json:"created_at,omitempty"`
 	Description *string `json:"description,omitempty"`
@@ -1967,6 +2045,7 @@ type OrganizationSamlAuthLoadMatch struct {
 // OrganizationSamlAuthUpdateData is the typed request payload for OrganizationSamlAuth.UpdateTyped.
 type OrganizationSamlAuthUpdateData struct {
 	OrgId string `json:"org_id"`
+	Data *map[string]any `json:"data,omitempty"`
 	SamlAuthEnabled *bool `json:"saml_auth_enabled,omitempty"`
 	SamlAuthEnforced *bool `json:"saml_auth_enforced,omitempty"`
 	SamlMetadataInline *string `json:"saml_metadata_inline,omitempty"`
@@ -1992,11 +2071,17 @@ type OrganizationTeamLoadMatch struct {
 // OrganizationTeamListMatch is the typed request payload for OrganizationTeam.ListTyped.
 type OrganizationTeamListMatch struct {
 	OrgId string `json:"org_id"`
+	ForUser *any `json:"for_user,omitempty"`
+	Page *int `json:"page,omitempty"`
+	PageSize *int `json:"page_size,omitempty"`
+	Query *any `json:"query,omitempty"`
+	Sort *any `json:"sort,omitempty"`
 }
 
 // OrganizationTeamCreateData is the typed request payload for OrganizationTeam.CreateTyped.
 type OrganizationTeamCreateData struct {
 	OrgId string `json:"org_id"`
+	Data *map[string]any `json:"data,omitempty"`
 	Description *string `json:"description,omitempty"`
 	Id *string `json:"id,omitempty"`
 	Name string `json:"name"`
@@ -2009,6 +2094,7 @@ type OrganizationTeamCreateData struct {
 type OrganizationTeamUpdateData struct {
 	Id string `json:"id"`
 	OrgId string `json:"org_id"`
+	Data *map[string]any `json:"data,omitempty"`
 	Description *string `json:"description,omitempty"`
 	Name *string `json:"name,omitempty"`
 	Slug *string `json:"slug,omitempty"`
@@ -2032,6 +2118,7 @@ type OrganizationTeamMemberListMatch struct {
 type OrganizationTeamMemberCreateData struct {
 	OrgId string `json:"org_id"`
 	TeamId string `json:"team_id"`
+	Data *map[string]any `json:"data,omitempty"`
 	Role string `json:"role"`
 	User string `json:"user"`
 }
@@ -2072,6 +2159,7 @@ type Package struct {
 	FormatUrl *string `json:"format_url,omitempty"`
 	FreeableStorage *int `json:"freeable_storage,omitempty"`
 	FullyQualifiedName *string `json:"fully_qualified_name,omitempty"`
+	Id *string `json:"id,omitempty"`
 	IdentifierPerm *string `json:"identifier_perm,omitempty"`
 	Identifiers *map[string]any `json:"identifiers,omitempty"`
 	Inactive *int `json:"inactive,omitempty"`
@@ -2143,6 +2231,11 @@ type Package struct {
 type PackageLoadMatch struct {
 	Owner any `json:"owner"`
 	Repo any `json:"repo"`
+	Finish *any `json:"finish,omitempty"`
+	Package *any `json:"package,omitempty"`
+	Page *int `json:"page,omitempty"`
+	PageSize *int `json:"page_size,omitempty"`
+	Start *any `json:"start,omitempty"`
 	Identifier *any `json:"identifier,omitempty"`
 }
 
@@ -2150,6 +2243,11 @@ type PackageLoadMatch struct {
 type PackageListMatch struct {
 	Owner any `json:"owner"`
 	Repo any `json:"repo"`
+	GroupBy *any `json:"group_by,omitempty"`
+	Page *int `json:"page,omitempty"`
+	PageSize *int `json:"page_size,omitempty"`
+	Query *any `json:"query,omitempty"`
+	Sort *any `json:"sort,omitempty"`
 	Identifier *any `json:"identifier,omitempty"`
 }
 
@@ -2158,6 +2256,7 @@ type PackageCreateData struct {
 	Identifier *any `json:"identifier,omitempty"`
 	Owner any `json:"owner"`
 	Repo any `json:"repo"`
+	Data *map[string]any `json:"data,omitempty"`
 	Active *int `json:"active,omitempty"`
 	Architectures *[]any `json:"architectures,omitempty"`
 	BackendKind *int `json:"backend_kind,omitempty"`
@@ -2184,6 +2283,7 @@ type PackageCreateData struct {
 	FormatUrl *string `json:"format_url,omitempty"`
 	FreeableStorage *int `json:"freeable_storage,omitempty"`
 	FullyQualifiedName *string `json:"fully_qualified_name,omitempty"`
+	Id *string `json:"id,omitempty"`
 	IdentifierPerm *string `json:"identifier_perm,omitempty"`
 	Identifiers *map[string]any `json:"identifiers,omitempty"`
 	Inactive *int `json:"inactive,omitempty"`
@@ -2281,11 +2381,14 @@ type PackageDenyPolicyLoadMatch struct {
 // PackageDenyPolicyListMatch is the typed request payload for PackageDenyPolicy.ListTyped.
 type PackageDenyPolicyListMatch struct {
 	OrgId string `json:"org_id"`
+	Page *int `json:"page,omitempty"`
+	PageSize *int `json:"page_size,omitempty"`
 }
 
 // PackageDenyPolicyCreateData is the typed request payload for PackageDenyPolicy.CreateTyped.
 type PackageDenyPolicyCreateData struct {
 	OrgId string `json:"org_id"`
+	Data *map[string]any `json:"data,omitempty"`
 	Action *string `json:"action,omitempty"`
 	CreatedAt *string `json:"created_at,omitempty"`
 	Description *string `json:"description,omitempty"`
@@ -2302,6 +2405,7 @@ type PackageDenyPolicyCreateData struct {
 type PackageDenyPolicyUpdateData struct {
 	Id string `json:"id"`
 	OrgId string `json:"org_id"`
+	Data *map[string]any `json:"data,omitempty"`
 	Action *string `json:"action,omitempty"`
 	CreatedAt *string `json:"created_at,omitempty"`
 	Description *string `json:"description,omitempty"`
@@ -2325,6 +2429,8 @@ type PackageFilePartsUploadLoadMatch struct {
 	Identifier any `json:"identifier"`
 	Owner any `json:"owner"`
 	Repo any `json:"repo"`
+	Filename any `json:"filename"`
+	PartNumber *int `json:"part_number,omitempty"`
 }
 
 // PackageFileUpload is the typed data model for the package_file_upload entity.
@@ -2336,6 +2442,7 @@ type PackageFileUploadCreateData struct {
 	Identifier any `json:"identifier"`
 	Owner any `json:"owner"`
 	Repo any `json:"repo"`
+	Data *map[string]any `json:"data,omitempty"`
 }
 
 // PackageLicensePolicyEvaluation is the typed data model for the package_license_policy_evaluation entity.
@@ -2368,12 +2475,15 @@ type PackageLicensePolicyEvaluationLoadMatch struct {
 type PackageLicensePolicyEvaluationListMatch struct {
 	OrgId string `json:"org_id"`
 	PolicySlugPerm any `json:"policy_slug_perm"`
+	Page *int `json:"page,omitempty"`
+	PageSize *int `json:"page_size,omitempty"`
 }
 
 // PackageLicensePolicyEvaluationCreateData is the typed request payload for PackageLicensePolicyEvaluation.CreateTyped.
 type PackageLicensePolicyEvaluationCreateData struct {
 	OrgId string `json:"org_id"`
 	PolicySlugPerm any `json:"policy_slug_perm"`
+	Data *map[string]any `json:"data,omitempty"`
 	AllowUnknownLicenses *bool `json:"allow_unknown_licenses,omitempty"`
 	CreatedAt *string `json:"created_at,omitempty"`
 	Description *string `json:"description,omitempty"`
@@ -2393,6 +2503,7 @@ type PackageLicensePolicyEvaluationCreateData struct {
 
 // PackageVersionBadge is the typed data model for the package_version_badge entity.
 type PackageVersionBadge struct {
+	Id *string `json:"id,omitempty"`
 }
 
 // PackageVersionBadgeLoadMatch is the typed request payload for PackageVersionBadge.LoadTyped.
@@ -2403,6 +2514,17 @@ type PackageVersionBadgeLoadMatch struct {
 	PackageName any `json:"package_name"`
 	PackageVersion any `json:"package_version"`
 	Repo any `json:"repo"`
+	BadgeToken *any `json:"badge_token,omitempty"`
+	CacheSecond *any `json:"cache_second,omitempty"`
+	Color *any `json:"color,omitempty"`
+	Label *string `json:"label,omitempty"`
+	LabelColor *any `json:"label_color,omitempty"`
+	LogoColor *any `json:"logo_color,omitempty"`
+	LogoWidth *any `json:"logo_width,omitempty"`
+	Render *any `json:"render,omitempty"`
+	Shield *any `json:"shield,omitempty"`
+	ShowLatest *any `json:"show_latest,omitempty"`
+	Style *any `json:"style,omitempty"`
 }
 
 // PackageVulnerabilityPolicyEvaluation is the typed data model for the package_vulnerability_policy_evaluation entity.
@@ -2435,12 +2557,15 @@ type PackageVulnerabilityPolicyEvaluationLoadMatch struct {
 type PackageVulnerabilityPolicyEvaluationListMatch struct {
 	OrgId string `json:"org_id"`
 	PolicySlugPerm any `json:"policy_slug_perm"`
+	Page *int `json:"page,omitempty"`
+	PageSize *int `json:"page_size,omitempty"`
 }
 
 // PackageVulnerabilityPolicyEvaluationCreateData is the typed request payload for PackageVulnerabilityPolicyEvaluation.CreateTyped.
 type PackageVulnerabilityPolicyEvaluationCreateData struct {
 	OrgId string `json:"org_id"`
 	PolicySlugPerm any `json:"policy_slug_perm"`
+	Data *map[string]any `json:"data,omitempty"`
 	AllowUnknownSeverity *bool `json:"allow_unknown_severity,omitempty"`
 	CreatedAt *string `json:"created_at,omitempty"`
 	Description *string `json:"description,omitempty"`
@@ -2487,6 +2612,10 @@ type ProviderSettingLoadMatch struct {
 // ProviderSettingListMatch is the typed request payload for ProviderSetting.ListTyped.
 type ProviderSettingListMatch struct {
 	OrgId string `json:"org_id"`
+	Page *int `json:"page,omitempty"`
+	PageSize *int `json:"page_size,omitempty"`
+	Query *any `json:"query,omitempty"`
+	Sort *any `json:"sort,omitempty"`
 }
 
 // ProviderSettingsWrite is the typed data model for the provider_settings_write entity.
@@ -2505,6 +2634,7 @@ type ProviderSettingsWrite struct {
 // ProviderSettingsWriteCreateData is the typed request payload for ProviderSettingsWrite.CreateTyped.
 type ProviderSettingsWriteCreateData struct {
 	OrgId string `json:"org_id"`
+	Data *map[string]any `json:"data,omitempty"`
 	Claims map[string]any `json:"claims"`
 	DynamicMappings *[]any `json:"dynamic_mappings,omitempty"`
 	Enabled bool `json:"enabled"`
@@ -2520,6 +2650,7 @@ type ProviderSettingsWriteCreateData struct {
 type ProviderSettingsWriteUpdateData struct {
 	OrgId string `json:"org_id"`
 	SlugPerm any `json:"slug_perm"`
+	Data *map[string]any `json:"data,omitempty"`
 	Claims *map[string]any `json:"claims,omitempty"`
 	DynamicMappings *[]any `json:"dynamic_mappings,omitempty"`
 	Enabled *bool `json:"enabled,omitempty"`
@@ -2564,12 +2695,15 @@ type PythonLoadMatch struct {
 type PythonListMatch struct {
 	Identifier any `json:"identifier"`
 	Owner any `json:"owner"`
+	Page *int `json:"page,omitempty"`
+	PageSize *int `json:"page_size,omitempty"`
 }
 
 // PythonCreateData is the typed request payload for Python.CreateTyped.
 type PythonCreateData struct {
 	Identifier any `json:"identifier"`
 	Owner any `json:"owner"`
+	Data *map[string]any `json:"data,omitempty"`
 	AuthMode *string `json:"auth_mode,omitempty"`
 	AuthSecret *string `json:"auth_secret,omitempty"`
 	AuthUsername *string `json:"auth_username,omitempty"`
@@ -2596,6 +2730,7 @@ type PythonUpdateData struct {
 	Id string `json:"id"`
 	Identifier any `json:"identifier"`
 	Owner any `json:"owner"`
+	Data *map[string]any `json:"data,omitempty"`
 	AuthMode *string `json:"auth_mode,omitempty"`
 	AuthSecret *string `json:"auth_secret,omitempty"`
 	AuthUsername *string `json:"auth_username,omitempty"`
@@ -2718,81 +2853,20 @@ type Repo struct {
 // RepoLoadMatch is the typed request payload for Repo.LoadTyped.
 type RepoLoadMatch struct {
 	Id string `json:"id"`
+	Page *int `json:"page,omitempty"`
+	PageSize *int `json:"page_size,omitempty"`
 }
 
 // RepoListMatch is the typed request payload for Repo.ListTyped.
 type RepoListMatch struct {
-	CdnUrl *string `json:"cdn_url,omitempty"`
-	ContentKind *string `json:"content_kind,omitempty"`
-	ContextualAuthRealm *bool `json:"contextual_auth_realm,omitempty"`
-	CopyOwn *bool `json:"copy_own,omitempty"`
-	CopyPackages *string `json:"copy_packages,omitempty"`
-	CosignSigningEnabled *bool `json:"cosign_signing_enabled,omitempty"`
-	CreatedAt *string `json:"created_at,omitempty"`
-	DefaultPrivilege *string `json:"default_privilege,omitempty"`
-	DeleteOwn *bool `json:"delete_own,omitempty"`
-	DeletePackages *string `json:"delete_packages,omitempty"`
-	DeletedAt *string `json:"deleted_at,omitempty"`
-	Description *string `json:"description,omitempty"`
-	Distributes *[]any `json:"distributes,omitempty"`
-	DockerRefreshTokensEnabled *bool `json:"docker_refresh_tokens_enabled,omitempty"`
-	EcdsaKeys *[]any `json:"ecdsa_keys,omitempty"`
-	EnforceEula *bool `json:"enforce_eula,omitempty"`
-	GpgKeys *[]any `json:"gpg_keys,omitempty"`
-	Id *string `json:"id,omitempty"`
-	IndexFiles *bool `json:"index_files,omitempty"`
-	IsOpenSource *bool `json:"is_open_source,omitempty"`
-	IsPrivate *bool `json:"is_private,omitempty"`
-	IsPublic *bool `json:"is_public,omitempty"`
-	ManageEntitlementsPrivilege *string `json:"manage_entitlements_privilege,omitempty"`
-	MoveOwn *bool `json:"move_own,omitempty"`
-	MovePackages *string `json:"move_packages,omitempty"`
-	Name *string `json:"name,omitempty"`
-	Namespace *string `json:"namespace,omitempty"`
-	NamespaceUrl *string `json:"namespace_url,omitempty"`
-	NugetNativeSigningEnabled *bool `json:"nuget_native_signing_enabled,omitempty"`
-	NumDownloads *int `json:"num_downloads,omitempty"`
-	NumPolicyViolatedPackages *int `json:"num_policy_violated_packages,omitempty"`
-	NumQuarantinedPackages *int `json:"num_quarantined_packages,omitempty"`
-	OpenSourceLicense *string `json:"open_source_license,omitempty"`
-	OpenSourceProjectUrl *string `json:"open_source_project_url,omitempty"`
-	PackageCount *int `json:"package_count,omitempty"`
-	PackageGroupCount *int `json:"package_group_count,omitempty"`
-	ProxyNpmjs *bool `json:"proxy_npmjs,omitempty"`
-	ProxyPypi *bool `json:"proxy_pypi,omitempty"`
-	RawPackageIndexEnabled *bool `json:"raw_package_index_enabled,omitempty"`
-	RawPackageIndexSignaturesEnabled *bool `json:"raw_package_index_signatures_enabled,omitempty"`
-	ReplacePackages *string `json:"replace_packages,omitempty"`
-	ReplacePackagesByDefault *bool `json:"replace_packages_by_default,omitempty"`
-	RepositoryType *int `json:"repository_type,omitempty"`
-	RepositoryTypeStr *string `json:"repository_type_str,omitempty"`
-	ResyncOwn *bool `json:"resync_own,omitempty"`
-	ResyncPackages *string `json:"resync_packages,omitempty"`
-	ScanOwn *bool `json:"scan_own,omitempty"`
-	ScanPackages *string `json:"scan_packages,omitempty"`
-	SelfHtmlUrl *string `json:"self_html_url,omitempty"`
-	SelfUrl *string `json:"self_url,omitempty"`
-	ShowSetupAll *bool `json:"show_setup_all,omitempty"`
-	Size *int `json:"size,omitempty"`
-	SizeStr *string `json:"size_str,omitempty"`
-	Slug *string `json:"slug,omitempty"`
-	SlugPerm *string `json:"slug_perm,omitempty"`
-	StorageRegion *string `json:"storage_region,omitempty"`
-	StrictNpmValidation *bool `json:"strict_npm_validation,omitempty"`
-	TagPreReleasesAsLatest *bool `json:"tag_pre_releases_as_latest,omitempty"`
-	UseDebianLabels *bool `json:"use_debian_labels,omitempty"`
-	UseDefaultCargoUpstream *bool `json:"use_default_cargo_upstream,omitempty"`
-	UseEntitlementsPrivilege *string `json:"use_entitlements_privilege,omitempty"`
-	UseNoarchPackages *bool `json:"use_noarch_packages,omitempty"`
-	UseSourcePackages *bool `json:"use_source_packages,omitempty"`
-	UseVulnerabilityScanning *bool `json:"use_vulnerability_scanning,omitempty"`
-	UserEntitlementsEnabled *bool `json:"user_entitlements_enabled,omitempty"`
-	ViewStatistics *string `json:"view_statistics,omitempty"`
+	Page *int `json:"page,omitempty"`
+	PageSize *int `json:"page_size,omitempty"`
 }
 
 // RepoCreateData is the typed request payload for Repo.CreateTyped.
 type RepoCreateData struct {
 	Id string `json:"id"`
+	Data *map[string]any `json:"data,omitempty"`
 	CdnUrl *string `json:"cdn_url,omitempty"`
 	ContentKind *string `json:"content_kind,omitempty"`
 	ContextualAuthRealm *bool `json:"contextual_auth_realm,omitempty"`
@@ -2864,6 +2938,7 @@ type RepoCreateData struct {
 type RepoUpdateData struct {
 	Identifier any `json:"identifier"`
 	Owner any `json:"owner"`
+	Data *map[string]any `json:"data,omitempty"`
 	CdnUrl *string `json:"cdn_url,omitempty"`
 	ContentKind *string `json:"content_kind,omitempty"`
 	ContextualAuthRealm *bool `json:"contextual_auth_realm,omitempty"`
@@ -2960,6 +3035,9 @@ type RepositoryAuditLog struct {
 type RepositoryAuditLogListMatch struct {
 	Owner any `json:"owner"`
 	Repo any `json:"repo"`
+	Page *int `json:"page,omitempty"`
+	PageSize *int `json:"page_size,omitempty"`
+	Query *any `json:"query,omitempty"`
 }
 
 // RepositoryEcdsaKey is the typed data model for the repository_ecdsa_key entity.
@@ -2983,6 +3061,7 @@ type RepositoryEcdsaKeyLoadMatch struct {
 type RepositoryEcdsaKeyCreateData struct {
 	Identifier any `json:"identifier"`
 	Owner any `json:"owner"`
+	Data *map[string]any `json:"data,omitempty"`
 	Active *bool `json:"active,omitempty"`
 	CreatedAt *string `json:"created_at,omitempty"`
 	Default *bool `json:"default,omitempty"`
@@ -3008,6 +3087,7 @@ type RepositoryGeoIpRuleLoadMatch struct {
 type RepositoryGeoIpRuleUpdateData struct {
 	Identifier any `json:"identifier"`
 	Owner any `json:"owner"`
+	Data *map[string]any `json:"data,omitempty"`
 	Cidr *map[string]any `json:"cidr,omitempty"`
 	CountryCode *map[string]any `json:"country_code,omitempty"`
 }
@@ -3031,6 +3111,7 @@ type RepositoryGeoIpTestAddress struct {
 type RepositoryGeoIpTestAddressCreateData struct {
 	Identifier any `json:"identifier"`
 	Owner any `json:"owner"`
+	Data *map[string]any `json:"data,omitempty"`
 }
 
 // RepositoryGpgKey is the typed data model for the repository_gpg_key entity.
@@ -3054,6 +3135,7 @@ type RepositoryGpgKeyLoadMatch struct {
 type RepositoryGpgKeyCreateData struct {
 	Identifier any `json:"identifier"`
 	Owner any `json:"owner"`
+	Data *map[string]any `json:"data,omitempty"`
 	Active *bool `json:"active,omitempty"`
 	Comment string `json:"comment"`
 	CreatedAt *string `json:"created_at,omitempty"`
@@ -3075,6 +3157,8 @@ type RepositoryPrivilegeInput struct {
 type RepositoryPrivilegeInputListMatch struct {
 	Identifier any `json:"identifier"`
 	Owner any `json:"owner"`
+	Page *int `json:"page,omitempty"`
+	PageSize *int `json:"page_size,omitempty"`
 }
 
 // RepositoryRetentionRule is the typed data model for the repository_retention_rule entity.
@@ -3099,6 +3183,7 @@ type RepositoryRetentionRuleLoadMatch struct {
 type RepositoryRetentionRuleUpdateData struct {
 	Owner any `json:"owner"`
 	Repo any `json:"repo"`
+	Data *map[string]any `json:"data,omitempty"`
 	RetentionCountLimit *int `json:"retention_count_limit,omitempty"`
 	RetentionDaysLimit *int `json:"retention_days_limit,omitempty"`
 	RetentionEnabled *bool `json:"retention_enabled,omitempty"`
@@ -3130,6 +3215,7 @@ type RepositoryRsaKeyLoadMatch struct {
 type RepositoryRsaKeyCreateData struct {
 	Identifier any `json:"identifier"`
 	Owner any `json:"owner"`
+	Data *map[string]any `json:"data,omitempty"`
 	Active *bool `json:"active,omitempty"`
 	CreatedAt *string `json:"created_at,omitempty"`
 	Default *bool `json:"default,omitempty"`
@@ -3154,6 +3240,7 @@ type RepositoryToken struct {
 	EulaAcceptedFrom *string `json:"eula_accepted_from,omitempty"`
 	EulaRequired *bool `json:"eula_required,omitempty"`
 	HasLimits *bool `json:"has_limits,omitempty"`
+	Id *string `json:"id,omitempty"`
 	Identifier *int `json:"identifier,omitempty"`
 	IsActive *bool `json:"is_active,omitempty"`
 	IsLimited *bool `json:"is_limited,omitempty"`
@@ -3187,18 +3274,28 @@ type RepositoryTokenLoadMatch struct {
 	Identifier any `json:"identifier"`
 	Owner any `json:"owner"`
 	Repo any `json:"repo"`
+	Fuzzy *any `json:"fuzzy,omitempty"`
+	ShowToken *any `json:"show_token,omitempty"`
 }
 
 // RepositoryTokenListMatch is the typed request payload for RepositoryToken.ListTyped.
 type RepositoryTokenListMatch struct {
 	Owner any `json:"owner"`
 	Repo any `json:"repo"`
+	Active *bool `json:"active,omitempty"`
+	Page *int `json:"page,omitempty"`
+	PageSize *int `json:"page_size,omitempty"`
+	Query *any `json:"query,omitempty"`
+	ShowToken *any `json:"show_token,omitempty"`
+	Sort *any `json:"sort,omitempty"`
 }
 
 // RepositoryTokenCreateData is the typed request payload for RepositoryToken.CreateTyped.
 type RepositoryTokenCreateData struct {
 	Owner any `json:"owner"`
 	Repo any `json:"repo"`
+	Data *map[string]any `json:"data,omitempty"`
+	ShowToken *any `json:"show_token,omitempty"`
 	Clients *int `json:"clients,omitempty"`
 	CreatedAt *string `json:"created_at,omitempty"`
 	CreatedBy *string `json:"created_by,omitempty"`
@@ -3212,6 +3309,7 @@ type RepositoryTokenCreateData struct {
 	EulaAcceptedFrom *string `json:"eula_accepted_from,omitempty"`
 	EulaRequired *bool `json:"eula_required,omitempty"`
 	HasLimits *bool `json:"has_limits,omitempty"`
+	Id *string `json:"id,omitempty"`
 	Identifier *int `json:"identifier,omitempty"`
 	IsActive *bool `json:"is_active,omitempty"`
 	IsLimited *bool `json:"is_limited,omitempty"`
@@ -3245,6 +3343,8 @@ type RepositoryTokenUpdateData struct {
 	Identifier any `json:"identifier"`
 	Owner any `json:"owner"`
 	Repo any `json:"repo"`
+	Data *map[string]any `json:"data,omitempty"`
+	ShowToken *any `json:"show_token,omitempty"`
 	Clients *int `json:"clients,omitempty"`
 	CreatedAt *string `json:"created_at,omitempty"`
 	CreatedBy *string `json:"created_by,omitempty"`
@@ -3258,6 +3358,7 @@ type RepositoryTokenUpdateData struct {
 	EulaAcceptedFrom *string `json:"eula_accepted_from,omitempty"`
 	EulaRequired *bool `json:"eula_required,omitempty"`
 	HasLimits *bool `json:"has_limits,omitempty"`
+	Id *string `json:"id,omitempty"`
 	IsActive *bool `json:"is_active,omitempty"`
 	IsLimited *bool `json:"is_limited,omitempty"`
 	LimitBandwidth *int `json:"limit_bandwidth,omitempty"`
@@ -3333,6 +3434,8 @@ type RepositoryTokenRefreshCreateData struct {
 	Identifier any `json:"identifier"`
 	Owner any `json:"owner"`
 	Repo any `json:"repo"`
+	Data *map[string]any `json:"data,omitempty"`
+	ShowToken *any `json:"show_token,omitempty"`
 	Clients *int `json:"clients,omitempty"`
 	CreatedAt *string `json:"created_at,omitempty"`
 	CreatedBy *string `json:"created_by,omitempty"`
@@ -3382,6 +3485,8 @@ type RepositoryTokenSync struct {
 type RepositoryTokenSyncCreateData struct {
 	Owner any `json:"owner"`
 	Repo any `json:"repo"`
+	Data *map[string]any `json:"data,omitempty"`
+	ShowToken *any `json:"show_token,omitempty"`
 	Tokens *[]any `json:"tokens,omitempty"`
 }
 
@@ -3393,6 +3498,7 @@ type RepositoryWebhook struct {
 	DisableReason *int `json:"disable_reason,omitempty"`
 	DisableReasonStr *string `json:"disable_reason_str,omitempty"`
 	Events []any `json:"events"`
+	Id *string `json:"id,omitempty"`
 	Identifier *int `json:"identifier,omitempty"`
 	IsActive *bool `json:"is_active,omitempty"`
 	IsLastResponseBad *bool `json:"is_last_response_bad,omitempty"`
@@ -3427,18 +3533,22 @@ type RepositoryWebhookLoadMatch struct {
 type RepositoryWebhookListMatch struct {
 	Owner any `json:"owner"`
 	Repo any `json:"repo"`
+	Page *int `json:"page,omitempty"`
+	PageSize *int `json:"page_size,omitempty"`
 }
 
 // RepositoryWebhookCreateData is the typed request payload for RepositoryWebhook.CreateTyped.
 type RepositoryWebhookCreateData struct {
 	Owner any `json:"owner"`
 	Repo any `json:"repo"`
+	Data *map[string]any `json:"data,omitempty"`
 	CreatedAt *string `json:"created_at,omitempty"`
 	CreatedBy *string `json:"created_by,omitempty"`
 	CreatedByUrl *string `json:"created_by_url,omitempty"`
 	DisableReason *int `json:"disable_reason,omitempty"`
 	DisableReasonStr *string `json:"disable_reason_str,omitempty"`
 	Events []any `json:"events"`
+	Id *string `json:"id,omitempty"`
 	Identifier *int `json:"identifier,omitempty"`
 	IsActive *bool `json:"is_active,omitempty"`
 	IsLastResponseBad *bool `json:"is_last_response_bad,omitempty"`
@@ -3467,12 +3577,14 @@ type RepositoryWebhookUpdateData struct {
 	Identifier any `json:"identifier"`
 	Owner any `json:"owner"`
 	Repo any `json:"repo"`
+	Data *map[string]any `json:"data,omitempty"`
 	CreatedAt *string `json:"created_at,omitempty"`
 	CreatedBy *string `json:"created_by,omitempty"`
 	CreatedByUrl *string `json:"created_by_url,omitempty"`
 	DisableReason *int `json:"disable_reason,omitempty"`
 	DisableReasonStr *string `json:"disable_reason_str,omitempty"`
 	Events *[]any `json:"events,omitempty"`
+	Id *string `json:"id,omitempty"`
 	IsActive *bool `json:"is_active,omitempty"`
 	IsLastResponseBad *bool `json:"is_last_response_bad,omitempty"`
 	LastResponseStatus *int `json:"last_response_status,omitempty"`
@@ -3607,12 +3719,15 @@ type RpmLoadMatch struct {
 type RpmListMatch struct {
 	Identifier any `json:"identifier"`
 	Owner any `json:"owner"`
+	Page *int `json:"page,omitempty"`
+	PageSize *int `json:"page_size,omitempty"`
 }
 
 // RpmCreateData is the typed request payload for Rpm.CreateTyped.
 type RpmCreateData struct {
 	Identifier any `json:"identifier"`
 	Owner any `json:"owner"`
+	Data *map[string]any `json:"data,omitempty"`
 	AuthMode *string `json:"auth_mode,omitempty"`
 	AuthSecret *string `json:"auth_secret,omitempty"`
 	AuthUsername *string `json:"auth_username,omitempty"`
@@ -3645,6 +3760,7 @@ type RpmUpdateData struct {
 	Id string `json:"id"`
 	Identifier any `json:"identifier"`
 	Owner any `json:"owner"`
+	Data *map[string]any `json:"data,omitempty"`
 	AuthMode *string `json:"auth_mode,omitempty"`
 	AuthSecret *string `json:"auth_secret,omitempty"`
 	AuthUsername *string `json:"auth_username,omitempty"`
@@ -3709,12 +3825,15 @@ type RubyLoadMatch struct {
 type RubyListMatch struct {
 	Identifier any `json:"identifier"`
 	Owner any `json:"owner"`
+	Page *int `json:"page,omitempty"`
+	PageSize *int `json:"page_size,omitempty"`
 }
 
 // RubyCreateData is the typed request payload for Ruby.CreateTyped.
 type RubyCreateData struct {
 	Identifier any `json:"identifier"`
 	Owner any `json:"owner"`
+	Data *map[string]any `json:"data,omitempty"`
 	AuthMode *string `json:"auth_mode,omitempty"`
 	AuthSecret *string `json:"auth_secret,omitempty"`
 	AuthUsername *string `json:"auth_username,omitempty"`
@@ -3741,6 +3860,7 @@ type RubyUpdateData struct {
 	Id string `json:"id"`
 	Identifier any `json:"identifier"`
 	Owner any `json:"owner"`
+	Data *map[string]any `json:"data,omitempty"`
 	AuthMode *string `json:"auth_mode,omitempty"`
 	AuthSecret *string `json:"auth_secret,omitempty"`
 	AuthUsername *string `json:"auth_username,omitempty"`
@@ -3797,11 +3917,16 @@ type ServiceLoadMatch struct {
 // ServiceListMatch is the typed request payload for Service.ListTyped.
 type ServiceListMatch struct {
 	OrgId string `json:"org_id"`
+	Page *int `json:"page,omitempty"`
+	PageSize *int `json:"page_size,omitempty"`
+	Query *any `json:"query,omitempty"`
+	Sort *any `json:"sort,omitempty"`
 }
 
 // ServiceCreateData is the typed request payload for Service.CreateTyped.
 type ServiceCreateData struct {
 	OrgId string `json:"org_id"`
+	Data *map[string]any `json:"data,omitempty"`
 	CreatedAt *string `json:"created_at,omitempty"`
 	CreatedBy *string `json:"created_by,omitempty"`
 	CreatedByUrl *string `json:"created_by_url,omitempty"`
@@ -3819,6 +3944,7 @@ type ServiceCreateData struct {
 type ServiceUpdateData struct {
 	Id string `json:"id"`
 	OrgId string `json:"org_id"`
+	Data *map[string]any `json:"data,omitempty"`
 	CreatedAt *string `json:"created_at,omitempty"`
 	CreatedBy *string `json:"created_by,omitempty"`
 	CreatedByUrl *string `json:"created_by_url,omitempty"`
@@ -3900,12 +4026,15 @@ type SwiftLoadMatch struct {
 type SwiftListMatch struct {
 	Identifier any `json:"identifier"`
 	Owner any `json:"owner"`
+	Page *int `json:"page,omitempty"`
+	PageSize *int `json:"page_size,omitempty"`
 }
 
 // SwiftCreateData is the typed request payload for Swift.CreateTyped.
 type SwiftCreateData struct {
 	Identifier any `json:"identifier"`
 	Owner any `json:"owner"`
+	Data *map[string]any `json:"data,omitempty"`
 	AuthMode *string `json:"auth_mode,omitempty"`
 	AuthSecret *string `json:"auth_secret,omitempty"`
 	AuthUsername *string `json:"auth_username,omitempty"`
@@ -3932,6 +4061,7 @@ type SwiftUpdateData struct {
 	Id string `json:"id"`
 	Identifier any `json:"identifier"`
 	Owner any `json:"owner"`
+	Data *map[string]any `json:"data,omitempty"`
 	AuthMode *string `json:"auth_mode,omitempty"`
 	AuthSecret *string `json:"auth_secret,omitempty"`
 	AuthUsername *string `json:"auth_username,omitempty"`
@@ -3989,9 +4119,8 @@ type User struct {
 
 // UserListMatch is the typed request payload for User.ListTyped.
 type UserListMatch struct {
-	Created *string `json:"created,omitempty"`
-	Key *string `json:"key,omitempty"`
-	SlugPerm *string `json:"slug_perm,omitempty"`
+	Page *int `json:"page,omitempty"`
+	PageSize *int `json:"page_size,omitempty"`
 }
 
 // UserAuthToken is the typed data model for the user_auth_token entity.
@@ -4000,6 +4129,7 @@ type UserAuthToken struct {
 
 // UserAuthTokenCreateData is the typed request payload for UserAuthToken.CreateTyped.
 type UserAuthTokenCreateData struct {
+	Data *map[string]any `json:"data,omitempty"`
 }
 
 // UserAuthenticationToken is the typed data model for the user_authentication_token entity.
@@ -4093,6 +4223,8 @@ type Vulnerability struct {
 // VulnerabilityLoadMatch is the typed request payload for Vulnerability.LoadTyped.
 type VulnerabilityLoadMatch struct {
 	Id string `json:"id"`
+	Page *int `json:"page,omitempty"`
+	PageSize *int `json:"page_size,omitempty"`
 }
 
 // VulnerabilityListMatch is the typed request payload for Vulnerability.ListTyped.
@@ -4100,6 +4232,8 @@ type VulnerabilityListMatch struct {
 	Owner any `json:"owner"`
 	Package *any `json:"package,omitempty"`
 	Repo any `json:"repo"`
+	Page *int `json:"page,omitempty"`
+	PageSize *int `json:"page_size,omitempty"`
 }
 
 // VulnerabilityPolicy is the typed data model for the vulnerability_policy entity.
@@ -4108,6 +4242,7 @@ type VulnerabilityPolicy struct {
 
 // Webhook is the typed data model for the webhook entity.
 type Webhook struct {
+	Id *string `json:"id,omitempty"`
 }
 
 // WebhookRemoveMatch is the typed request payload for Webhook.RemoveTyped.

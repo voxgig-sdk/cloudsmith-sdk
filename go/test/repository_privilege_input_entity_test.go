@@ -98,7 +98,7 @@ func TestRepositoryPrivilegeInputEntity(t *testing.T) {
 		client := setup.client
 
 		// Bootstrap entity data from existing test data (no create step in flow).
-		repositoryPrivilegeInputRef01DataRaw := vs.Items(core.ToMapAny(vs.GetPath("existing.repository_privilege_input", setup.data)))
+		repositoryPrivilegeInputRef01DataRaw := vs.Items(core.ToMapAny(vs.GetPath(setup.data, "existing.repository_privilege_input")))
 		var repositoryPrivilegeInputRef01Data map[string]any
 		if len(repositoryPrivilegeInputRef01DataRaw) > 0 {
 			repositoryPrivilegeInputRef01Data = core.ToMapAny(repositoryPrivilegeInputRef01DataRaw[0][1])
@@ -150,7 +150,7 @@ func repository_privilege_inputBasicSetup(extra map[string]any) *entityTestSetup
 	client := sdk.TestSDK(options, extra)
 
 	// Generate idmap via transform, matching TS pattern.
-	idmap := vs.Transform(
+	idmap, _ := vs.Transform(
 		[]any{"repository_privilege_input01", "repository_privilege_input02", "repository_privilege_input03", "repo01", "repo02", "repo03", "identifier01", "owner01"},
 		map[string]any{
 			"`$PACK`": []any{"", map[string]any{
@@ -170,7 +170,7 @@ func repository_privilege_inputBasicSetup(extra map[string]any) *entityTestSetup
 		"CLOUDSMITH_TEST_REPOSITORY_PRIVILEGE_INPUT_ENTID": idmap,
 		"CLOUDSMITH_TEST_LIVE":      "FALSE",
 		"CLOUDSMITH_TEST_EXPLAIN":   "FALSE",
-		"CLOUDSMITH_APIKEY":         "NONE",
+		"CLOUDSMITH_APIKEY":         "",
 	})
 
 	idmapResolved := core.ToMapAny(env["CLOUDSMITH_TEST_REPOSITORY_PRIVILEGE_INPUT_ENTID"])
@@ -179,11 +179,23 @@ func repository_privilege_inputBasicSetup(extra map[string]any) *entityTestSetup
 	}
 
 	if env["CLOUDSMITH_TEST_LIVE"] == "TRUE" {
+		// An empty map, not a nil one: Merge returns nil when its last entry
+		// is nil, and BasicSetup is normally called with no extras - so a
+		// bare nil silently discarded the apikey and server values below.
+		extraOpts := extra
+		if extraOpts == nil {
+			extraOpts = map[string]any{}
+		}
+
 		mergedOpts := vs.Merge([]any{
+			// liveClientOptions() FIRST, so the generated fields below win:
+			// sdk-test-control.json's test.client.options adds to the live
+			// client, it does not redirect it.
+			liveClientOptions(),
 			map[string]any{
 				"apikey": env["CLOUDSMITH_APIKEY"],
 			},
-			extra,
+			extraOpts,
 		})
 		client = sdk.NewCloudsmithSDK(core.ToMapAny(mergedOpts))
 	}

@@ -52,7 +52,7 @@ func TestRepositoryGeoIpTestAddressEntity(t *testing.T) {
 		// CREATE
 		repositoryGeoIpTestAddressRef01Ent := client.RepositoryGeoIpTestAddress(nil)
 		repositoryGeoIpTestAddressRef01Data := core.ToMapAny(vs.GetProp(
-			vs.GetPath([]any{"new", "repository_geo_ip_test_address"}, setup.data), "repository_geo_ip_test_address_ref01"))
+			vs.GetPath(setup.data, []any{"new", "repository_geo_ip_test_address"}), "repository_geo_ip_test_address_ref01"))
 		repositoryGeoIpTestAddressRef01Data["identifier"] = setup.idmap["identifier01"]
 		repositoryGeoIpTestAddressRef01Data["owner"] = setup.idmap["owner01"]
 
@@ -92,7 +92,7 @@ func repository_geo_ip_test_addressBasicSetup(extra map[string]any) *entityTestS
 	client := sdk.TestSDK(options, extra)
 
 	// Generate idmap via transform, matching TS pattern.
-	idmap := vs.Transform(
+	idmap, _ := vs.Transform(
 		[]any{"repository_geo_ip_test_address01", "repository_geo_ip_test_address02", "repository_geo_ip_test_address03", "repo01", "repo02", "repo03", "identifier01", "owner01"},
 		map[string]any{
 			"`$PACK`": []any{"", map[string]any{
@@ -112,7 +112,7 @@ func repository_geo_ip_test_addressBasicSetup(extra map[string]any) *entityTestS
 		"CLOUDSMITH_TEST_REPOSITORY_GEO_IP_TEST_ADDRESS_ENTID": idmap,
 		"CLOUDSMITH_TEST_LIVE":      "FALSE",
 		"CLOUDSMITH_TEST_EXPLAIN":   "FALSE",
-		"CLOUDSMITH_APIKEY":         "NONE",
+		"CLOUDSMITH_APIKEY":         "",
 	})
 
 	idmapResolved := core.ToMapAny(env["CLOUDSMITH_TEST_REPOSITORY_GEO_IP_TEST_ADDRESS_ENTID"])
@@ -121,11 +121,23 @@ func repository_geo_ip_test_addressBasicSetup(extra map[string]any) *entityTestS
 	}
 
 	if env["CLOUDSMITH_TEST_LIVE"] == "TRUE" {
+		// An empty map, not a nil one: Merge returns nil when its last entry
+		// is nil, and BasicSetup is normally called with no extras - so a
+		// bare nil silently discarded the apikey and server values below.
+		extraOpts := extra
+		if extraOpts == nil {
+			extraOpts = map[string]any{}
+		}
+
 		mergedOpts := vs.Merge([]any{
+			// liveClientOptions() FIRST, so the generated fields below win:
+			// sdk-test-control.json's test.client.options adds to the live
+			// client, it does not redirect it.
+			liveClientOptions(),
 			map[string]any{
 				"apikey": env["CLOUDSMITH_APIKEY"],
 			},
-			extra,
+			extraOpts,
 		})
 		client = sdk.NewCloudsmithSDK(core.ToMapAny(mergedOpts))
 	}

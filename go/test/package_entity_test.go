@@ -100,7 +100,7 @@ func TestPackageEntity(t *testing.T) {
 		// CREATE
 		packageRef01Ent := client.Package(nil)
 		packageRef01Data := core.ToMapAny(vs.GetProp(
-			vs.GetPath([]any{"new", "package"}, setup.data), "package_ref01"))
+			vs.GetPath(setup.data, []any{"new", "package"}), "package_ref01"))
 		packageRef01Data["identifier"] = setup.idmap["identifier01"]
 		packageRef01Data["owner"] = setup.idmap["owner01"]
 		packageRef01Data["repo"] = setup.idmap["repo01"]
@@ -112,6 +112,9 @@ func TestPackageEntity(t *testing.T) {
 		packageRef01Data = core.ToMapAny(entityData(packageRef01DataResult))
 		if packageRef01Data == nil {
 			t.Fatal("expected create result to be a map")
+		}
+		if packageRef01Data["id"] == nil {
+			t.Fatal("expected created entity to have an id")
 		}
 
 		// LIST
@@ -125,21 +128,40 @@ func TestPackageEntity(t *testing.T) {
 		if err != nil {
 			t.Fatalf("list failed: %v", err)
 		}
-		_, packageRef01ListOk := packageRef01ListResult.([]any)
+		packageRef01List, packageRef01ListOk := packageRef01ListResult.([]any)
 		if !packageRef01ListOk {
 			t.Fatalf("expected list result to be an array, got %T", packageRef01ListResult)
 		}
 
+		foundItem := vs.Select(entityListToData(packageRef01List), map[string]any{"id": packageRef01Data["id"]})
+		if vs.IsEmpty(foundItem) {
+			t.Fatal("expected to find created entity in list")
+		}
+
 		// LOAD
-		packageRef01MatchDt0 := map[string]any{}
+		packageRef01MatchDt0 := map[string]any{
+			"id": packageRef01Data["id"],
+		}
 		packageRef01DataDt0Loaded, err := packageRef01Ent.Load(packageRef01MatchDt0, nil)
 		if err != nil {
 			t.Fatalf("load failed: %v", err)
 		}
-		if packageRef01DataDt0Loaded == nil {
-			t.Fatal("expected load result to be non-nil")
+		packageRef01DataDt0LoadResult := core.ToMapAny(entityData(packageRef01DataDt0Loaded))
+		if packageRef01DataDt0LoadResult == nil {
+			t.Fatal("expected load result to be a map")
+		}
+		if packageRef01DataDt0LoadResult["id"] != packageRef01Data["id"] {
+			t.Fatal("expected load result id to match")
 		}
 
+		// REMOVE
+		packageRef01MatchRm0 := map[string]any{
+			"id": packageRef01Data["id"],
+		}
+		_, err = packageRef01Ent.Remove(packageRef01MatchRm0, nil)
+		if err != nil {
+			t.Fatalf("remove failed: %v", err)
+		}
 
 		// LIST
 		packageRef01MatchRt0 := map[string]any{
@@ -152,9 +174,14 @@ func TestPackageEntity(t *testing.T) {
 		if err != nil {
 			t.Fatalf("list failed: %v", err)
 		}
-		_, packageRef01ListRt0Ok := packageRef01ListRt0Result.([]any)
+		packageRef01ListRt0, packageRef01ListRt0Ok := packageRef01ListRt0Result.([]any)
 		if !packageRef01ListRt0Ok {
 			t.Fatalf("expected list result to be an array, got %T", packageRef01ListRt0Result)
+		}
+
+		notFoundItem := vs.Select(entityListToData(packageRef01ListRt0), map[string]any{"id": packageRef01Data["id"]})
+		if !vs.IsEmpty(notFoundItem) {
+			t.Fatal("expected removed entity to not be in list")
 		}
 
 	})
@@ -184,7 +211,7 @@ func packageBasicSetup(extra map[string]any) *entityTestSetup {
 	client := sdk.TestSDK(options, extra)
 
 	// Generate idmap via transform, matching TS pattern.
-	idmap := vs.Transform(
+	idmap, _ := vs.Transform(
 		[]any{"package01", "package02", "package03", "identifier01", "owner01", "repo01"},
 		map[string]any{
 			"`$PACK`": []any{"", map[string]any{
@@ -204,7 +231,7 @@ func packageBasicSetup(extra map[string]any) *entityTestSetup {
 		"CLOUDSMITH_TEST_PACKAGE_ENTID": idmap,
 		"CLOUDSMITH_TEST_LIVE":      "FALSE",
 		"CLOUDSMITH_TEST_EXPLAIN":   "FALSE",
-		"CLOUDSMITH_APIKEY":         "NONE",
+		"CLOUDSMITH_APIKEY":         "",
 	})
 
 	idmapResolved := core.ToMapAny(env["CLOUDSMITH_TEST_PACKAGE_ENTID"])
@@ -213,11 +240,23 @@ func packageBasicSetup(extra map[string]any) *entityTestSetup {
 	}
 
 	if env["CLOUDSMITH_TEST_LIVE"] == "TRUE" {
+		// An empty map, not a nil one: Merge returns nil when its last entry
+		// is nil, and BasicSetup is normally called with no extras - so a
+		// bare nil silently discarded the apikey and server values below.
+		extraOpts := extra
+		if extraOpts == nil {
+			extraOpts = map[string]any{}
+		}
+
 		mergedOpts := vs.Merge([]any{
+			// liveClientOptions() FIRST, so the generated fields below win:
+			// sdk-test-control.json's test.client.options adds to the live
+			// client, it does not redirect it.
+			liveClientOptions(),
 			map[string]any{
 				"apikey": env["CLOUDSMITH_APIKEY"],
 			},
-			extra,
+			extraOpts,
 		})
 		client = sdk.NewCloudsmithSDK(core.ToMapAny(mergedOpts))
 	}

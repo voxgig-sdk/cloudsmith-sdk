@@ -87,6 +87,7 @@ class RepositoryTokenEntityTest extends TestCase
         $repository_token_ref01_data_result = $repository_token_ref01_ent->create($repository_token_ref01_data, null);
         $repository_token_ref01_data = Helpers::to_map(is_object($repository_token_ref01_data_result) && method_exists($repository_token_ref01_data_result, 'data_get') ? $repository_token_ref01_data_result->data_get() : $repository_token_ref01_data_result);
         $this->assertNotNull($repository_token_ref01_data);
+        $this->assertNotNull($repository_token_ref01_data["id"]);
 
         // LIST
         $repository_token_ref01_match = [
@@ -97,8 +98,14 @@ class RepositoryTokenEntityTest extends TestCase
         $repository_token_ref01_list_result = $repository_token_ref01_ent->list($repository_token_ref01_match, null);
         $this->assertIsArray($repository_token_ref01_list_result);
 
+        $found_item = sdk_select(
+            Runner::entity_list_to_data($repository_token_ref01_list_result),
+            ["id" => $repository_token_ref01_data["id"]]);
+        $this->assertNotEmpty($found_item);
+
         // UPDATE
         $repository_token_ref01_data_up0_up = [
+            "id" => $repository_token_ref01_data["id"],
             "owner" => $setup["idmap"]["owner"],
             "repo" => $setup["idmap"]["repo"],
         ];
@@ -110,12 +117,17 @@ class RepositoryTokenEntityTest extends TestCase
         $repository_token_ref01_resdata_up0_result = $repository_token_ref01_ent->update($repository_token_ref01_data_up0_up, null);
         $repository_token_ref01_resdata_up0 = Helpers::to_map(is_object($repository_token_ref01_resdata_up0_result) && method_exists($repository_token_ref01_resdata_up0_result, 'data_get') ? $repository_token_ref01_resdata_up0_result->data_get() : $repository_token_ref01_resdata_up0_result);
         $this->assertNotNull($repository_token_ref01_resdata_up0);
+        $this->assertEquals($repository_token_ref01_resdata_up0["id"], $repository_token_ref01_data_up0_up["id"]);
         $this->assertEquals($repository_token_ref01_resdata_up0[$repository_token_ref01_markdef_up0_name], $repository_token_ref01_markdef_up0_value);
 
         // LOAD
-        $repository_token_ref01_match_dt0 = [];
+        $repository_token_ref01_match_dt0 = [
+            "id" => $repository_token_ref01_data["id"],
+        ];
         $repository_token_ref01_data_dt0_loaded = $repository_token_ref01_ent->load($repository_token_ref01_match_dt0, null);
-        $this->assertNotNull($repository_token_ref01_data_dt0_loaded);
+        $repository_token_ref01_data_dt0_load_result = Helpers::to_map(is_object($repository_token_ref01_data_dt0_loaded) && method_exists($repository_token_ref01_data_dt0_loaded, 'data_get') ? $repository_token_ref01_data_dt0_loaded->data_get() : $repository_token_ref01_data_dt0_loaded);
+        $this->assertNotNull($repository_token_ref01_data_dt0_load_result);
+        $this->assertEquals($repository_token_ref01_data_dt0_load_result["id"], $repository_token_ref01_data["id"]);
 
     }
 }
@@ -149,7 +161,7 @@ function repository_token_basic_setup($extra)
         "CLOUDSMITH_TEST_REPOSITORY_TOKEN_ENTID" => $idmap,
         "CLOUDSMITH_TEST_LIVE" => "FALSE",
         "CLOUDSMITH_TEST_EXPLAIN" => "FALSE",
-        "CLOUDSMITH_APIKEY" => "NONE",
+        "CLOUDSMITH_APIKEY" => "",
     ]);
 
     $idmap_resolved = Helpers::to_map(
@@ -166,12 +178,27 @@ function repository_token_basic_setup($extra)
 
     if ($env["CLOUDSMITH_TEST_LIVE"] === "TRUE") {
         $merged_opts = Vs::merge([
+            // FIRST, so the generated fields below win: sdk-test-control.json's
+            // test.client.options adds to the live client, it does not redirect it.
+            Runner::live_client_options(),
             [
                 "apikey" => $env["CLOUDSMITH_APIKEY"],
             ],
-            $extra ?? [],
+            // ismap, not a plain "?? []" default: an empty PHP array is a
+            // LIST, and a non-map later entry REPLACES the accumulated map in
+            // merge - so the no-extras call discarded live_client_options()
+            // and the apikey/server map above it.
+            Vs::ismap($extra) ? $extra : new \stdClass(),
         ]);
-        $client = new CloudsmithSDK(Helpers::to_map($merged_opts));
+        // "?? []" because merge legitimately answers with a stdClass when every
+        // contributing entry is an EMPTY map - an SDK with no apikey and no
+        // server variables generates an empty middle entry, so that is the
+        // common case, not the edge one. to_map returns null for a non-array by
+        // design, and the constructor takes a non-nullable array, so without the
+        // fallback every such SDK died on "must be of type array, null given"
+        // the moment live mode was switched on. Offline mode never reaches this
+        // branch, which is why the offline suite stayed green.
+        $client = new CloudsmithSDK(Helpers::to_map($merged_opts) ?? []);
     }
 
     $live = $env["CLOUDSMITH_TEST_LIVE"] === "TRUE";

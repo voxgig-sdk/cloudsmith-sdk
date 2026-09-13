@@ -83,6 +83,7 @@ class TestPackageEntity:
 
         package_ref01_data = helpers.to_map(runner.entity_data(package_ref01_ent.create(package_ref01_data, None)))
         assert package_ref01_data is not None
+        assert package_ref01_data["id"] is not None
 
         # LIST
         package_ref01_match = {
@@ -94,11 +95,25 @@ class TestPackageEntity:
         package_ref01_list_result = package_ref01_ent.list(package_ref01_match, None)
         assert isinstance(package_ref01_list_result, list)
 
-        # LOAD
-        package_ref01_match_dt0 = {}
-        package_ref01_data_dt0_loaded = package_ref01_ent.load(package_ref01_match_dt0, None)
-        assert package_ref01_data_dt0_loaded is not None
+        found_item = vs.select(
+            runner.entity_list_to_data(package_ref01_list_result),
+            {"id": package_ref01_data["id"]})
+        assert not vs.isempty(found_item)
 
+        # LOAD
+        package_ref01_match_dt0 = {
+            "id": package_ref01_data["id"],
+        }
+        package_ref01_data_dt0_loaded = package_ref01_ent.load(package_ref01_match_dt0, None)
+        package_ref01_data_dt0_load_result = helpers.to_map(runner.entity_data(package_ref01_data_dt0_loaded))
+        assert package_ref01_data_dt0_load_result is not None
+        assert package_ref01_data_dt0_load_result["id"] == package_ref01_data["id"]
+
+        # REMOVE
+        package_ref01_match_rm0 = {
+            "id": package_ref01_data["id"],
+        }
+        package_ref01_ent.remove(package_ref01_match_rm0, None)
 
         # LIST
         package_ref01_match_rt0 = {
@@ -109,6 +124,11 @@ class TestPackageEntity:
 
         package_ref01_list_rt0_result = package_ref01_ent.list(package_ref01_match_rt0, None)
         assert isinstance(package_ref01_list_rt0_result, list)
+
+        not_found_item = vs.select(
+            runner.entity_list_to_data(package_ref01_list_rt0_result),
+            {"id": package_ref01_data["id"]})
+        assert vs.isempty(not_found_item)
 
 
 
@@ -148,7 +168,7 @@ def _package_basic_setup(extra):
         "CLOUDSMITH_TEST_PACKAGE_ENTID": idmap,
         "CLOUDSMITH_TEST_LIVE": "FALSE",
         "CLOUDSMITH_TEST_EXPLAIN": "FALSE",
-        "CLOUDSMITH_APIKEY": "NONE",
+        "CLOUDSMITH_APIKEY": "",
     })
 
     idmap_resolved = helpers.to_map(
@@ -158,6 +178,10 @@ def _package_basic_setup(extra):
 
     if env.get("CLOUDSMITH_TEST_LIVE") == "TRUE":
         merged_opts = vs.merge([
+            # FIRST, so the generated fields below win: sdk-test-control.json's
+            # test.client.options adds to the live client, it does not
+            # redirect it.
+            runner.live_client_options(),
             {
                 "apikey": env.get("CLOUDSMITH_APIKEY"),
             },

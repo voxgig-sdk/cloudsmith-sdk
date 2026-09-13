@@ -100,7 +100,7 @@ func TestOrganizationGroupSyncEntity(t *testing.T) {
 		// CREATE
 		organizationGroupSyncRef01Ent := client.OrganizationGroupSync(nil)
 		organizationGroupSyncRef01Data := core.ToMapAny(vs.GetProp(
-			vs.GetPath([]any{"new", "organization_group_sync"}, setup.data), "organization_group_sync_ref01"))
+			vs.GetPath(setup.data, []any{"new", "organization_group_sync"}), "organization_group_sync_ref01"))
 		organizationGroupSyncRef01Data["org_id"] = setup.idmap["org01"]
 
 		organizationGroupSyncRef01DataResult, err := organizationGroupSyncRef01Ent.Create(organizationGroupSyncRef01Data, nil)
@@ -153,7 +153,7 @@ func organization_group_syncBasicSetup(extra map[string]any) *entityTestSetup {
 	client := sdk.TestSDK(options, extra)
 
 	// Generate idmap via transform, matching TS pattern.
-	idmap := vs.Transform(
+	idmap, _ := vs.Transform(
 		[]any{"organization_group_sync01", "organization_group_sync02", "organization_group_sync03", "org01", "org02", "org03"},
 		map[string]any{
 			"`$PACK`": []any{"", map[string]any{
@@ -173,7 +173,7 @@ func organization_group_syncBasicSetup(extra map[string]any) *entityTestSetup {
 		"CLOUDSMITH_TEST_ORGANIZATION_GROUP_SYNC_ENTID": idmap,
 		"CLOUDSMITH_TEST_LIVE":      "FALSE",
 		"CLOUDSMITH_TEST_EXPLAIN":   "FALSE",
-		"CLOUDSMITH_APIKEY":         "NONE",
+		"CLOUDSMITH_APIKEY":         "",
 	})
 
 	idmapResolved := core.ToMapAny(env["CLOUDSMITH_TEST_ORGANIZATION_GROUP_SYNC_ENTID"])
@@ -182,11 +182,23 @@ func organization_group_syncBasicSetup(extra map[string]any) *entityTestSetup {
 	}
 
 	if env["CLOUDSMITH_TEST_LIVE"] == "TRUE" {
+		// An empty map, not a nil one: Merge returns nil when its last entry
+		// is nil, and BasicSetup is normally called with no extras - so a
+		// bare nil silently discarded the apikey and server values below.
+		extraOpts := extra
+		if extraOpts == nil {
+			extraOpts = map[string]any{}
+		}
+
 		mergedOpts := vs.Merge([]any{
+			// liveClientOptions() FIRST, so the generated fields below win:
+			// sdk-test-control.json's test.client.options adds to the live
+			// client, it does not redirect it.
+			liveClientOptions(),
 			map[string]any{
 				"apikey": env["CLOUDSMITH_APIKEY"],
 			},
-			extra,
+			extraOpts,
 		})
 		client = sdk.NewCloudsmithSDK(core.ToMapAny(mergedOpts))
 	}

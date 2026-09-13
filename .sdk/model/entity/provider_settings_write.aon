@@ -36,6 +36,7 @@ main: kit: entity: provider_settings_write: {
       type: "`$STRING`"
     }
     {
+      format: "uri"
       name: "provider_url"
       req: true
       short: "The URL from the provider that serves as the base for the OpenID configuration."
@@ -48,13 +49,17 @@ main: kit: entity: provider_settings_write: {
       type: "`$ARRAY`"
     }
     {
+      format: "slug"
       name: "slug"
+      readOnly: true
       req: false
       short: "The slug of the provider settings"
       type: "`$STRING`"
     }
     {
+      format: "slug"
       name: "slug_perm"
+      readOnly: true
       req: false
       short: "The unique, immutable identifier of the provider settings."
       type: "`$STRING`"
@@ -89,16 +94,22 @@ main: kit: entity: provider_settings_write: {
           }
           method: "POST"
           orig: "/orgs/{org}/openid-connect/"
-          parts: [
-            "orgs"
-            "{org_id}"
-            "openid-connect"
-          ]
           rename: {
             param: {
               org: "org_id"
             }
           }
+          segments: [
+            {
+              lit: "orgs"
+            }
+            {
+              var: "org_id"
+            }
+            {
+              lit: "openid-connect"
+            }
+          ]
           select: {
             exist: [
               "data"
@@ -145,17 +156,25 @@ main: kit: entity: provider_settings_write: {
           }
           method: "PATCH"
           orig: "/orgs/{org}/openid-connect/{slug_perm}/"
-          parts: [
-            "orgs"
-            "{org_id}"
-            "openid-connect"
-            "{slug_perm}"
-          ]
           rename: {
             param: {
               org: "org_id"
             }
           }
+          segments: [
+            {
+              lit: "orgs"
+            }
+            {
+              var: "org_id"
+            }
+            {
+              lit: "openid-connect"
+            }
+            {
+              var: "slug_perm"
+            }
+          ]
           select: {
             exist: [
               "data"
@@ -203,17 +222,25 @@ main: kit: entity: provider_settings_write: {
           }
           method: "PUT"
           orig: "/orgs/{org}/openid-connect/{slug_perm}/"
-          parts: [
-            "orgs"
-            "{org_id}"
-            "openid-connect"
-            "{slug_perm}"
-          ]
           rename: {
             param: {
               org: "org_id"
             }
           }
+          segments: [
+            {
+              lit: "orgs"
+            }
+            {
+              var: "org_id"
+            }
+            {
+              lit: "openid-connect"
+            }
+            {
+              var: "slug_perm"
+            }
+          ]
           select: {
             exist: [
               "data"

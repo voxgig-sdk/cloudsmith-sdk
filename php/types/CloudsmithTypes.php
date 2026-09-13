@@ -69,6 +69,8 @@ class CargoListMatch
 {
     public mixed $identifier;
     public mixed $owner;
+    public ?int $page = null;
+    public ?int $page_size = null;
 }
 
 /** Request payload for Cargo#create. */
@@ -76,6 +78,7 @@ class CargoCreateData
 {
     public mixed $identifier;
     public mixed $owner;
+    public ?array $data = null;
     public ?string $auth_mode = null;
     public ?string $auth_secret = null;
     public ?string $auth_username = null;
@@ -103,6 +106,7 @@ class CargoUpdateData
     public string $id;
     public mixed $identifier;
     public mixed $owner;
+    public ?array $data = null;
     public ?string $auth_mode = null;
     public ?string $auth_secret = null;
     public ?string $auth_username = null;
@@ -170,6 +174,8 @@ class ComposerListMatch
 {
     public mixed $identifier;
     public mixed $owner;
+    public ?int $page = null;
+    public ?int $page_size = null;
 }
 
 /** Request payload for Composer#create. */
@@ -177,6 +183,7 @@ class ComposerCreateData
 {
     public mixed $identifier;
     public mixed $owner;
+    public ?array $data = null;
     public ?string $auth_mode = null;
     public ?string $auth_secret = null;
     public ?string $auth_username = null;
@@ -204,6 +211,7 @@ class ComposerUpdateData
     public string $id;
     public mixed $identifier;
     public mixed $owner;
+    public ?array $data = null;
     public ?string $auth_mode = null;
     public ?string $auth_secret = null;
     public ?string $auth_username = null;
@@ -266,6 +274,8 @@ class CondaListMatch
 {
     public mixed $identifier;
     public mixed $owner;
+    public ?int $page = null;
+    public ?int $page_size = null;
 }
 
 /** Request payload for Conda#create. */
@@ -273,6 +283,7 @@ class CondaCreateData
 {
     public mixed $identifier;
     public mixed $owner;
+    public ?array $data = null;
     public ?string $auth_mode = null;
     public ?string $auth_secret = null;
     public ?string $auth_username = null;
@@ -300,6 +311,7 @@ class CondaUpdateData
     public string $id;
     public mixed $identifier;
     public mixed $owner;
+    public ?array $data = null;
     public ?string $auth_mode = null;
     public ?string $auth_secret = null;
     public ?string $auth_username = null;
@@ -362,6 +374,8 @@ class CranListMatch
 {
     public mixed $identifier;
     public mixed $owner;
+    public ?int $page = null;
+    public ?int $page_size = null;
 }
 
 /** Request payload for Cran#create. */
@@ -369,6 +383,7 @@ class CranCreateData
 {
     public mixed $identifier;
     public mixed $owner;
+    public ?array $data = null;
     public ?string $auth_mode = null;
     public ?string $auth_secret = null;
     public ?string $auth_username = null;
@@ -396,6 +411,7 @@ class CranUpdateData
     public string $id;
     public mixed $identifier;
     public mixed $owner;
+    public ?array $data = null;
     public ?string $auth_mode = null;
     public ?string $auth_secret = null;
     public ?string $auth_username = null;
@@ -453,6 +469,8 @@ class DartListMatch
 {
     public mixed $identifier;
     public mixed $owner;
+    public ?int $page = null;
+    public ?int $page_size = null;
 }
 
 /** Request payload for Dart#create. */
@@ -460,6 +478,7 @@ class DartCreateData
 {
     public mixed $identifier;
     public mixed $owner;
+    public ?array $data = null;
     public ?string $auth_mode = null;
     public ?string $auth_secret = null;
     public ?string $auth_username = null;
@@ -487,6 +506,7 @@ class DartUpdateData
     public string $id;
     public mixed $identifier;
     public mixed $owner;
+    public ?array $data = null;
     public ?string $auth_mode = null;
     public ?string $auth_secret = null;
     public ?string $auth_username = null;
@@ -552,6 +572,8 @@ class DebListMatch
 {
     public mixed $identifier;
     public mixed $owner;
+    public ?int $page = null;
+    public ?int $page_size = null;
 }
 
 /** Request payload for Deb#create. */
@@ -559,6 +581,7 @@ class DebCreateData
 {
     public mixed $identifier;
     public mixed $owner;
+    public ?array $data = null;
     public ?string $auth_mode = null;
     public ?string $auth_secret = null;
     public ?string $auth_username = null;
@@ -594,6 +617,7 @@ class DebUpdateData
     public string $id;
     public mixed $identifier;
     public mixed $owner;
+    public ?array $data = null;
     public ?string $auth_mode = null;
     public ?string $auth_secret = null;
     public ?string $auth_username = null;
@@ -709,6 +733,8 @@ class DockerListMatch
 {
     public mixed $identifier;
     public mixed $owner;
+    public ?int $page = null;
+    public ?int $page_size = null;
 }
 
 /** Request payload for Docker#create. */
@@ -716,6 +742,7 @@ class DockerCreateData
 {
     public mixed $identifier;
     public mixed $owner;
+    public ?array $data = null;
     public ?string $auth_mode = null;
     public ?string $auth_secret = null;
     public ?string $auth_username = null;
@@ -743,6 +770,7 @@ class DockerUpdateData
     public string $id;
     public mixed $identifier;
     public mixed $owner;
+    public ?array $data = null;
     public ?string $auth_mode = null;
     public ?string $auth_secret = null;
     public ?string $auth_username = null;
@@ -784,6 +812,8 @@ class DynamicMappingListMatch
 {
     public string $org_id;
     public mixed $provider_setting;
+    public ?int $page = null;
+    public ?int $page_size = null;
 }
 
 /** Ecdsa entity data model. */
@@ -811,6 +841,11 @@ class Entitlement
 class EntitlementLoadMatch
 {
     public string $id;
+    public mixed $finish = null;
+    public ?int $page = null;
+    public ?int $page_size = null;
+    public mixed $start = null;
+    public ?string $token = null;
 }
 
 /** Request payload for Entitlement#create. */
@@ -819,6 +854,7 @@ class EntitlementCreateData
     public mixed $identifier;
     public mixed $owner;
     public mixed $repo;
+    public mixed $show_token = null;
     public ?int $active = null;
     public array $bandwidth;
     public array $downloads;
@@ -851,6 +887,7 @@ class FileCreateData
     public mixed $identifier = null;
     public mixed $owner;
     public mixed $repo;
+    public ?array $data = null;
 }
 
 /** Format entity data model. */
@@ -930,6 +967,8 @@ class GonListMatch
 {
     public mixed $identifier;
     public mixed $owner;
+    public ?int $page = null;
+    public ?int $page_size = null;
 }
 
 /** Request payload for Gon#create. */
@@ -937,6 +976,7 @@ class GonCreateData
 {
     public mixed $identifier;
     public mixed $owner;
+    public ?array $data = null;
     public ?string $auth_mode = null;
     public ?string $auth_secret = null;
     public ?string $auth_username = null;
@@ -963,6 +1003,7 @@ class GonUpdateData
     public mixed $identifier;
     public mixed $owner;
     public mixed $slug_perm;
+    public ?array $data = null;
     public ?string $auth_mode = null;
     public ?string $auth_secret = null;
     public ?string $auth_username = null;
@@ -1029,6 +1070,8 @@ class HelmListMatch
 {
     public mixed $identifier;
     public mixed $owner;
+    public ?int $page = null;
+    public ?int $page_size = null;
 }
 
 /** Request payload for Helm#create. */
@@ -1036,6 +1079,7 @@ class HelmCreateData
 {
     public mixed $identifier;
     public mixed $owner;
+    public ?array $data = null;
     public ?string $auth_mode = null;
     public ?string $auth_secret = null;
     public ?string $auth_username = null;
@@ -1063,6 +1107,7 @@ class HelmUpdateData
     public string $id;
     public mixed $identifier;
     public mixed $owner;
+    public ?array $data = null;
     public ?string $auth_mode = null;
     public ?string $auth_secret = null;
     public ?string $auth_username = null;
@@ -1120,6 +1165,8 @@ class HexListMatch
 {
     public mixed $identifier;
     public mixed $owner;
+    public ?int $page = null;
+    public ?int $page_size = null;
 }
 
 /** Request payload for Hex#create. */
@@ -1127,6 +1174,7 @@ class HexCreateData
 {
     public mixed $identifier;
     public mixed $owner;
+    public ?array $data = null;
     public ?string $auth_mode = null;
     public ?string $auth_secret = null;
     public ?string $auth_username = null;
@@ -1154,6 +1202,7 @@ class HexUpdateData
     public string $id;
     public mixed $identifier;
     public mixed $owner;
+    public ?array $data = null;
     public ?string $auth_mode = null;
     public ?string $auth_secret = null;
     public ?string $auth_username = null;
@@ -1216,6 +1265,8 @@ class HuggingfaceListMatch
 {
     public mixed $identifier;
     public mixed $owner;
+    public ?int $page = null;
+    public ?int $page_size = null;
 }
 
 /** Request payload for Huggingface#create. */
@@ -1223,6 +1274,7 @@ class HuggingfaceCreateData
 {
     public mixed $identifier;
     public mixed $owner;
+    public ?array $data = null;
     public ?string $auth_mode = null;
     public ?string $auth_secret = null;
     public ?string $auth_username = null;
@@ -1250,6 +1302,7 @@ class HuggingfaceUpdateData
     public string $id;
     public mixed $identifier;
     public mixed $owner;
+    public ?array $data = null;
     public ?string $auth_mode = null;
     public ?string $auth_secret = null;
     public ?string $auth_username = null;
@@ -1336,6 +1389,8 @@ class MavenListMatch
 {
     public mixed $identifier;
     public mixed $owner;
+    public ?int $page = null;
+    public ?int $page_size = null;
 }
 
 /** Request payload for Maven#create. */
@@ -1343,6 +1398,7 @@ class MavenCreateData
 {
     public mixed $identifier;
     public mixed $owner;
+    public ?array $data = null;
     public ?string $auth_mode = null;
     public ?string $auth_secret = null;
     public ?string $auth_username = null;
@@ -1374,6 +1430,7 @@ class MavenUpdateData
     public string $id;
     public mixed $identifier;
     public mixed $owner;
+    public ?array $data = null;
     public ?string $auth_mode = null;
     public ?string $auth_secret = null;
     public ?string $auth_username = null;
@@ -1427,11 +1484,8 @@ class NamespaceLoadMatch
 /** Request payload for Namespace#list. */
 class NamespaceListMatch
 {
-    public ?string $id = null;
-    public ?string $name = null;
-    public ?string $slug = null;
-    public ?string $slug_perm = null;
-    public ?string $type_name = null;
+    public ?int $page = null;
+    public ?int $page_size = null;
 }
 
 /** NamespaceAuditLog entity data model. */
@@ -1460,6 +1514,9 @@ class NamespaceAuditLog
 class NamespaceAuditLogLoadMatch
 {
     public string $id;
+    public ?int $page = null;
+    public ?int $page_size = null;
+    public mixed $query = null;
 }
 
 /** Npm entity data model. */
@@ -1499,6 +1556,8 @@ class NpmListMatch
 {
     public mixed $identifier;
     public mixed $owner;
+    public ?int $page = null;
+    public ?int $page_size = null;
 }
 
 /** Request payload for Npm#create. */
@@ -1506,6 +1565,7 @@ class NpmCreateData
 {
     public mixed $identifier;
     public mixed $owner;
+    public ?array $data = null;
     public ?string $auth_mode = null;
     public ?string $auth_secret = null;
     public ?string $auth_username = null;
@@ -1533,6 +1593,7 @@ class NpmUpdateData
     public string $id;
     public mixed $identifier;
     public mixed $owner;
+    public ?array $data = null;
     public ?string $auth_mode = null;
     public ?string $auth_secret = null;
     public ?string $auth_username = null;
@@ -1590,6 +1651,8 @@ class NugetListMatch
 {
     public mixed $identifier;
     public mixed $owner;
+    public ?int $page = null;
+    public ?int $page_size = null;
 }
 
 /** Request payload for Nuget#create. */
@@ -1597,6 +1660,7 @@ class NugetCreateData
 {
     public mixed $identifier;
     public mixed $owner;
+    public ?array $data = null;
     public ?string $auth_mode = null;
     public ?string $auth_secret = null;
     public ?string $auth_username = null;
@@ -1624,6 +1688,7 @@ class NugetUpdateData
     public string $id;
     public mixed $identifier;
     public mixed $owner;
+    public ?array $data = null;
     public ?string $auth_mode = null;
     public ?string $auth_secret = null;
     public ?string $auth_username = null;
@@ -1677,19 +1742,8 @@ class OrgLoadMatch
 /** Request payload for Org#list. */
 class OrgListMatch
 {
-    public ?string $country = null;
-    public ?string $created_at = null;
-    public ?string $event_at = null;
-    public ?string $id = null;
-    public ?string $location = null;
-    public ?string $name = null;
-    public ?array $package = null;
-    public ?array $policy = null;
-    public ?array $reasons = null;
-    public ?string $slug = null;
-    public ?string $slug_perm = null;
-    public ?string $tagline = null;
-    public ?array $vulnerability_scan_results = null;
+    public ?int $page = null;
+    public ?int $page_size = null;
 }
 
 /** Request payload for Org#create. */
@@ -1716,6 +1770,7 @@ class OrgUpdateData
 {
     public string $id;
     public string $team_id;
+    public ?array $data = null;
     public ?string $country = null;
     public ?string $created_at = null;
     public ?string $event_at = null;
@@ -1754,12 +1809,15 @@ class OrganizationGroupSync
 class OrganizationGroupSyncListMatch
 {
     public string $org_id;
+    public ?int $page = null;
+    public ?int $page_size = null;
 }
 
 /** Request payload for OrganizationGroupSync#create. */
 class OrganizationGroupSyncCreateData
 {
     public string $org_id;
+    public ?array $data = null;
     public string $idp_key;
     public string $idp_value;
     public ?string $role = null;
@@ -1799,12 +1857,15 @@ class OrganizationInvite
 class OrganizationInviteListMatch
 {
     public string $org_id;
+    public ?int $page = null;
+    public ?int $page_size = null;
 }
 
 /** Request payload for OrganizationInvite#create. */
 class OrganizationInviteCreateData
 {
     public string $org_id;
+    public ?array $data = null;
     public ?string $email = null;
     public ?string $expires_at = null;
     public ?string $id = null;
@@ -1823,6 +1884,7 @@ class OrganizationInviteUpdateData
 {
     public string $id;
     public string $org_id;
+    public ?array $data = null;
     public ?string $email = null;
     public ?string $expires_at = null;
     public ?string $inviter = null;
@@ -1894,6 +1956,11 @@ class OrganizationMembershipLoadMatch
 class OrganizationMembershipListMatch
 {
     public string $org_id;
+    public ?bool $is_active = null;
+    public ?int $page = null;
+    public ?int $page_size = null;
+    public mixed $query = null;
+    public mixed $sort = null;
 }
 
 /** Request payload for OrganizationMembership#update. */
@@ -1901,6 +1968,7 @@ class OrganizationMembershipUpdateData
 {
     public mixed $member;
     public string $org_id;
+    public ?array $data = null;
     public ?string $email = null;
     public ?bool $has_two_factor = null;
     public ?bool $is_active = null;
@@ -1936,6 +2004,7 @@ class OrganizationMembershipRoleUpdateUpdateData
 {
     public string $member_id;
     public string $org_id;
+    public ?array $data = null;
     public ?string $email = null;
     public ?bool $has_two_factor = null;
     public ?string $joined_at = null;
@@ -1970,6 +2039,7 @@ class OrganizationMembershipVisibilityUpdateUpdateData
 {
     public string $member_id;
     public string $org_id;
+    public ?array $data = null;
     public ?string $email = null;
     public ?bool $has_two_factor = null;
     public ?string $joined_at = null;
@@ -2009,12 +2079,15 @@ class OrganizationPackageLicensePolicyLoadMatch
 class OrganizationPackageLicensePolicyListMatch
 {
     public string $org_id;
+    public ?int $page = null;
+    public ?int $page_size = null;
 }
 
 /** Request payload for OrganizationPackageLicensePolicy#create. */
 class OrganizationPackageLicensePolicyCreateData
 {
     public string $org_id;
+    public ?array $data = null;
     public ?bool $allow_unknown_licenses = null;
     public ?string $created_at = null;
     public ?string $description = null;
@@ -2032,6 +2105,7 @@ class OrganizationPackageLicensePolicyUpdateData
 {
     public string $id;
     public string $org_id;
+    public ?array $data = null;
     public ?bool $allow_unknown_licenses = null;
     public ?string $created_at = null;
     public ?string $description = null;
@@ -2069,12 +2143,15 @@ class OrganizationPackageVulnerabilityPolicyLoadMatch
 class OrganizationPackageVulnerabilityPolicyListMatch
 {
     public string $org_id;
+    public ?int $page = null;
+    public ?int $page_size = null;
 }
 
 /** Request payload for OrganizationPackageVulnerabilityPolicy#create. */
 class OrganizationPackageVulnerabilityPolicyCreateData
 {
     public string $org_id;
+    public ?array $data = null;
     public ?bool $allow_unknown_severity = null;
     public ?string $created_at = null;
     public ?string $description = null;
@@ -2092,6 +2169,7 @@ class OrganizationPackageVulnerabilityPolicyUpdateData
 {
     public string $id;
     public string $org_id;
+    public ?array $data = null;
     public ?bool $allow_unknown_severity = null;
     public ?string $created_at = null;
     public ?string $description = null;
@@ -2122,6 +2200,7 @@ class OrganizationSamlAuthLoadMatch
 class OrganizationSamlAuthUpdateData
 {
     public string $org_id;
+    public ?array $data = null;
     public ?bool $saml_auth_enabled = null;
     public ?bool $saml_auth_enforced = null;
     public ?string $saml_metadata_inline = null;
@@ -2150,12 +2229,18 @@ class OrganizationTeamLoadMatch
 class OrganizationTeamListMatch
 {
     public string $org_id;
+    public mixed $for_user = null;
+    public ?int $page = null;
+    public ?int $page_size = null;
+    public mixed $query = null;
+    public mixed $sort = null;
 }
 
 /** Request payload for OrganizationTeam#create. */
 class OrganizationTeamCreateData
 {
     public string $org_id;
+    public ?array $data = null;
     public ?string $description = null;
     public ?string $id = null;
     public string $name;
@@ -2169,6 +2254,7 @@ class OrganizationTeamUpdateData
 {
     public string $id;
     public string $org_id;
+    public ?array $data = null;
     public ?string $description = null;
     public ?string $name = null;
     public ?string $slug = null;
@@ -2195,6 +2281,7 @@ class OrganizationTeamMemberCreateData
 {
     public string $org_id;
     public string $team_id;
+    public ?array $data = null;
     public string $role;
     public string $user;
 }
@@ -2238,6 +2325,7 @@ class Package
     public ?string $format_url = null;
     public ?int $freeable_storage = null;
     public ?string $fully_qualified_name = null;
+    public ?string $id = null;
     public ?string $identifier_perm = null;
     public ?array $identifiers = null;
     public ?int $inactive = null;
@@ -2310,6 +2398,11 @@ class PackageLoadMatch
 {
     public mixed $owner;
     public mixed $repo;
+    public mixed $finish = null;
+    public mixed $package = null;
+    public ?int $page = null;
+    public ?int $page_size = null;
+    public mixed $start = null;
     public mixed $identifier = null;
 }
 
@@ -2318,6 +2411,11 @@ class PackageListMatch
 {
     public mixed $owner;
     public mixed $repo;
+    public mixed $group_by = null;
+    public ?int $page = null;
+    public ?int $page_size = null;
+    public mixed $query = null;
+    public mixed $sort = null;
     public mixed $identifier = null;
 }
 
@@ -2327,6 +2425,7 @@ class PackageCreateData
     public mixed $identifier = null;
     public mixed $owner;
     public mixed $repo;
+    public ?array $data = null;
     public ?int $active = null;
     public ?array $architectures = null;
     public ?int $backend_kind = null;
@@ -2353,6 +2452,7 @@ class PackageCreateData
     public ?string $format_url = null;
     public ?int $freeable_storage = null;
     public ?string $fully_qualified_name = null;
+    public ?string $id = null;
     public ?string $identifier_perm = null;
     public ?array $identifiers = null;
     public ?int $inactive = null;
@@ -2454,12 +2554,15 @@ class PackageDenyPolicyLoadMatch
 class PackageDenyPolicyListMatch
 {
     public string $org_id;
+    public ?int $page = null;
+    public ?int $page_size = null;
 }
 
 /** Request payload for PackageDenyPolicy#create. */
 class PackageDenyPolicyCreateData
 {
     public string $org_id;
+    public ?array $data = null;
     public ?string $action = null;
     public ?string $created_at = null;
     public ?string $description = null;
@@ -2477,6 +2580,7 @@ class PackageDenyPolicyUpdateData
 {
     public string $id;
     public string $org_id;
+    public ?array $data = null;
     public ?string $action = null;
     public ?string $created_at = null;
     public ?string $description = null;
@@ -2502,6 +2606,8 @@ class PackageFilePartsUploadLoadMatch
     public mixed $identifier;
     public mixed $owner;
     public mixed $repo;
+    public mixed $filename;
+    public ?int $part_number = null;
 }
 
 /** PackageFileUpload entity data model. */
@@ -2515,6 +2621,7 @@ class PackageFileUploadCreateData
     public mixed $identifier;
     public mixed $owner;
     public mixed $repo;
+    public ?array $data = null;
 }
 
 /** PackageLicensePolicyEvaluation entity data model. */
@@ -2550,6 +2657,8 @@ class PackageLicensePolicyEvaluationListMatch
 {
     public string $org_id;
     public mixed $policy_slug_perm;
+    public ?int $page = null;
+    public ?int $page_size = null;
 }
 
 /** Request payload for PackageLicensePolicyEvaluation#create. */
@@ -2557,6 +2666,7 @@ class PackageLicensePolicyEvaluationCreateData
 {
     public string $org_id;
     public mixed $policy_slug_perm;
+    public ?array $data = null;
     public ?bool $allow_unknown_licenses = null;
     public ?string $created_at = null;
     public ?string $description = null;
@@ -2577,6 +2687,7 @@ class PackageLicensePolicyEvaluationCreateData
 /** PackageVersionBadge entity data model. */
 class PackageVersionBadge
 {
+    public ?string $id = null;
 }
 
 /** Request payload for PackageVersionBadge#load. */
@@ -2588,6 +2699,17 @@ class PackageVersionBadgeLoadMatch
     public mixed $package_name;
     public mixed $package_version;
     public mixed $repo;
+    public mixed $badge_token = null;
+    public mixed $cache_second = null;
+    public mixed $color = null;
+    public ?string $label = null;
+    public mixed $label_color = null;
+    public mixed $logo_color = null;
+    public mixed $logo_width = null;
+    public mixed $render = null;
+    public mixed $shield = null;
+    public mixed $show_latest = null;
+    public mixed $style = null;
 }
 
 /** PackageVulnerabilityPolicyEvaluation entity data model. */
@@ -2623,6 +2745,8 @@ class PackageVulnerabilityPolicyEvaluationListMatch
 {
     public string $org_id;
     public mixed $policy_slug_perm;
+    public ?int $page = null;
+    public ?int $page_size = null;
 }
 
 /** Request payload for PackageVulnerabilityPolicyEvaluation#create. */
@@ -2630,6 +2754,7 @@ class PackageVulnerabilityPolicyEvaluationCreateData
 {
     public string $org_id;
     public mixed $policy_slug_perm;
+    public ?array $data = null;
     public ?bool $allow_unknown_severity = null;
     public ?string $created_at = null;
     public ?string $description = null;
@@ -2681,6 +2806,10 @@ class ProviderSettingLoadMatch
 class ProviderSettingListMatch
 {
     public string $org_id;
+    public ?int $page = null;
+    public ?int $page_size = null;
+    public mixed $query = null;
+    public mixed $sort = null;
 }
 
 /** ProviderSettingsWrite entity data model. */
@@ -2701,6 +2830,7 @@ class ProviderSettingsWrite
 class ProviderSettingsWriteCreateData
 {
     public string $org_id;
+    public ?array $data = null;
     public array $claims;
     public ?array $dynamic_mappings = null;
     public bool $enabled;
@@ -2717,6 +2847,7 @@ class ProviderSettingsWriteUpdateData
 {
     public string $org_id;
     public mixed $slug_perm;
+    public ?array $data = null;
     public ?array $claims = null;
     public ?array $dynamic_mappings = null;
     public ?bool $enabled = null;
@@ -2764,6 +2895,8 @@ class PythonListMatch
 {
     public mixed $identifier;
     public mixed $owner;
+    public ?int $page = null;
+    public ?int $page_size = null;
 }
 
 /** Request payload for Python#create. */
@@ -2771,6 +2904,7 @@ class PythonCreateData
 {
     public mixed $identifier;
     public mixed $owner;
+    public ?array $data = null;
     public ?string $auth_mode = null;
     public ?string $auth_secret = null;
     public ?string $auth_username = null;
@@ -2798,6 +2932,7 @@ class PythonUpdateData
     public string $id;
     public mixed $identifier;
     public mixed $owner;
+    public ?array $data = null;
     public ?string $auth_mode = null;
     public ?string $auth_secret = null;
     public ?string $auth_username = null;
@@ -2928,83 +3063,22 @@ class Repo
 class RepoLoadMatch
 {
     public string $id;
+    public ?int $page = null;
+    public ?int $page_size = null;
 }
 
 /** Request payload for Repo#list. */
 class RepoListMatch
 {
-    public ?string $cdn_url = null;
-    public ?string $content_kind = null;
-    public ?bool $contextual_auth_realm = null;
-    public ?bool $copy_own = null;
-    public ?string $copy_packages = null;
-    public ?bool $cosign_signing_enabled = null;
-    public ?string $created_at = null;
-    public ?string $default_privilege = null;
-    public ?bool $delete_own = null;
-    public ?string $delete_packages = null;
-    public ?string $deleted_at = null;
-    public ?string $description = null;
-    public ?array $distributes = null;
-    public ?bool $docker_refresh_tokens_enabled = null;
-    public ?array $ecdsa_keys = null;
-    public ?bool $enforce_eula = null;
-    public ?array $gpg_keys = null;
-    public ?string $id = null;
-    public ?bool $index_files = null;
-    public ?bool $is_open_source = null;
-    public ?bool $is_private = null;
-    public ?bool $is_public = null;
-    public ?string $manage_entitlements_privilege = null;
-    public ?bool $move_own = null;
-    public ?string $move_packages = null;
-    public ?string $name = null;
-    public ?string $namespace = null;
-    public ?string $namespace_url = null;
-    public ?bool $nuget_native_signing_enabled = null;
-    public ?int $num_downloads = null;
-    public ?int $num_policy_violated_packages = null;
-    public ?int $num_quarantined_packages = null;
-    public ?string $open_source_license = null;
-    public ?string $open_source_project_url = null;
-    public ?int $package_count = null;
-    public ?int $package_group_count = null;
-    public ?bool $proxy_npmjs = null;
-    public ?bool $proxy_pypi = null;
-    public ?bool $raw_package_index_enabled = null;
-    public ?bool $raw_package_index_signatures_enabled = null;
-    public ?string $replace_packages = null;
-    public ?bool $replace_packages_by_default = null;
-    public ?int $repository_type = null;
-    public ?string $repository_type_str = null;
-    public ?bool $resync_own = null;
-    public ?string $resync_packages = null;
-    public ?bool $scan_own = null;
-    public ?string $scan_packages = null;
-    public ?string $self_html_url = null;
-    public ?string $self_url = null;
-    public ?bool $show_setup_all = null;
-    public ?int $size = null;
-    public ?string $size_str = null;
-    public ?string $slug = null;
-    public ?string $slug_perm = null;
-    public ?string $storage_region = null;
-    public ?bool $strict_npm_validation = null;
-    public ?bool $tag_pre_releases_as_latest = null;
-    public ?bool $use_debian_labels = null;
-    public ?bool $use_default_cargo_upstream = null;
-    public ?string $use_entitlements_privilege = null;
-    public ?bool $use_noarch_packages = null;
-    public ?bool $use_source_packages = null;
-    public ?bool $use_vulnerability_scanning = null;
-    public ?bool $user_entitlements_enabled = null;
-    public ?string $view_statistics = null;
+    public ?int $page = null;
+    public ?int $page_size = null;
 }
 
 /** Request payload for Repo#create. */
 class RepoCreateData
 {
     public string $id;
+    public ?array $data = null;
     public ?string $cdn_url = null;
     public ?string $content_kind = null;
     public ?bool $contextual_auth_realm = null;
@@ -3077,6 +3151,7 @@ class RepoUpdateData
 {
     public mixed $identifier;
     public mixed $owner;
+    public ?array $data = null;
     public ?string $cdn_url = null;
     public ?string $content_kind = null;
     public ?bool $contextual_auth_realm = null;
@@ -3176,6 +3251,9 @@ class RepositoryAuditLogListMatch
 {
     public mixed $owner;
     public mixed $repo;
+    public ?int $page = null;
+    public ?int $page_size = null;
+    public mixed $query = null;
 }
 
 /** RepositoryEcdsaKey entity data model. */
@@ -3202,6 +3280,7 @@ class RepositoryEcdsaKeyCreateData
 {
     public mixed $identifier;
     public mixed $owner;
+    public ?array $data = null;
     public ?bool $active = null;
     public ?string $created_at = null;
     public ?bool $default = null;
@@ -3230,6 +3309,7 @@ class RepositoryGeoIpRuleUpdateData
 {
     public mixed $identifier;
     public mixed $owner;
+    public ?array $data = null;
     public ?array $cidr = null;
     public ?array $country_code = null;
 }
@@ -3257,6 +3337,7 @@ class RepositoryGeoIpTestAddressCreateData
 {
     public mixed $identifier;
     public mixed $owner;
+    public ?array $data = null;
 }
 
 /** RepositoryGpgKey entity data model. */
@@ -3283,6 +3364,7 @@ class RepositoryGpgKeyCreateData
 {
     public mixed $identifier;
     public mixed $owner;
+    public ?array $data = null;
     public ?bool $active = null;
     public string $comment;
     public ?string $created_at = null;
@@ -3306,6 +3388,8 @@ class RepositoryPrivilegeInputListMatch
 {
     public mixed $identifier;
     public mixed $owner;
+    public ?int $page = null;
+    public ?int $page_size = null;
 }
 
 /** RepositoryRetentionRule entity data model. */
@@ -3333,6 +3417,7 @@ class RepositoryRetentionRuleUpdateData
 {
     public mixed $owner;
     public mixed $repo;
+    public ?array $data = null;
     public ?int $retention_count_limit = null;
     public ?int $retention_days_limit = null;
     public ?bool $retention_enabled = null;
@@ -3367,6 +3452,7 @@ class RepositoryRsaKeyCreateData
 {
     public mixed $identifier;
     public mixed $owner;
+    public ?array $data = null;
     public ?bool $active = null;
     public ?string $created_at = null;
     public ?bool $default = null;
@@ -3392,6 +3478,7 @@ class RepositoryToken
     public ?string $eula_accepted_from = null;
     public ?bool $eula_required = null;
     public ?bool $has_limits = null;
+    public ?string $id = null;
     public ?int $identifier = null;
     public ?bool $is_active = null;
     public ?bool $is_limited = null;
@@ -3426,6 +3513,8 @@ class RepositoryTokenLoadMatch
     public mixed $identifier;
     public mixed $owner;
     public mixed $repo;
+    public mixed $fuzzy = null;
+    public mixed $show_token = null;
 }
 
 /** Request payload for RepositoryToken#list. */
@@ -3433,6 +3522,12 @@ class RepositoryTokenListMatch
 {
     public mixed $owner;
     public mixed $repo;
+    public ?bool $active = null;
+    public ?int $page = null;
+    public ?int $page_size = null;
+    public mixed $query = null;
+    public mixed $show_token = null;
+    public mixed $sort = null;
 }
 
 /** Request payload for RepositoryToken#create. */
@@ -3440,6 +3535,8 @@ class RepositoryTokenCreateData
 {
     public mixed $owner;
     public mixed $repo;
+    public ?array $data = null;
+    public mixed $show_token = null;
     public ?int $clients = null;
     public ?string $created_at = null;
     public ?string $created_by = null;
@@ -3453,6 +3550,7 @@ class RepositoryTokenCreateData
     public ?string $eula_accepted_from = null;
     public ?bool $eula_required = null;
     public ?bool $has_limits = null;
+    public ?string $id = null;
     public ?int $identifier = null;
     public ?bool $is_active = null;
     public ?bool $is_limited = null;
@@ -3487,6 +3585,8 @@ class RepositoryTokenUpdateData
     public mixed $identifier;
     public mixed $owner;
     public mixed $repo;
+    public ?array $data = null;
+    public mixed $show_token = null;
     public ?int $clients = null;
     public ?string $created_at = null;
     public ?string $created_by = null;
@@ -3500,6 +3600,7 @@ class RepositoryTokenUpdateData
     public ?string $eula_accepted_from = null;
     public ?bool $eula_required = null;
     public ?bool $has_limits = null;
+    public ?string $id = null;
     public ?bool $is_active = null;
     public ?bool $is_limited = null;
     public ?int $limit_bandwidth = null;
@@ -3577,6 +3678,8 @@ class RepositoryTokenRefreshCreateData
     public mixed $identifier;
     public mixed $owner;
     public mixed $repo;
+    public ?array $data = null;
+    public mixed $show_token = null;
     public ?int $clients = null;
     public ?string $created_at = null;
     public ?string $created_by = null;
@@ -3628,6 +3731,8 @@ class RepositoryTokenSyncCreateData
 {
     public mixed $owner;
     public mixed $repo;
+    public ?array $data = null;
+    public mixed $show_token = null;
     public ?array $tokens = null;
 }
 
@@ -3640,6 +3745,7 @@ class RepositoryWebhook
     public ?int $disable_reason = null;
     public ?string $disable_reason_str = null;
     public array $events;
+    public ?string $id = null;
     public ?int $identifier = null;
     public ?bool $is_active = null;
     public ?bool $is_last_response_bad = null;
@@ -3676,6 +3782,8 @@ class RepositoryWebhookListMatch
 {
     public mixed $owner;
     public mixed $repo;
+    public ?int $page = null;
+    public ?int $page_size = null;
 }
 
 /** Request payload for RepositoryWebhook#create. */
@@ -3683,12 +3791,14 @@ class RepositoryWebhookCreateData
 {
     public mixed $owner;
     public mixed $repo;
+    public ?array $data = null;
     public ?string $created_at = null;
     public ?string $created_by = null;
     public ?string $created_by_url = null;
     public ?int $disable_reason = null;
     public ?string $disable_reason_str = null;
     public array $events;
+    public ?string $id = null;
     public ?int $identifier = null;
     public ?bool $is_active = null;
     public ?bool $is_last_response_bad = null;
@@ -3718,12 +3828,14 @@ class RepositoryWebhookUpdateData
     public mixed $identifier;
     public mixed $owner;
     public mixed $repo;
+    public ?array $data = null;
     public ?string $created_at = null;
     public ?string $created_by = null;
     public ?string $created_by_url = null;
     public ?int $disable_reason = null;
     public ?string $disable_reason_str = null;
     public ?array $events = null;
+    public ?string $id = null;
     public ?bool $is_active = null;
     public ?bool $is_last_response_bad = null;
     public ?int $last_response_status = null;
@@ -3870,6 +3982,8 @@ class RpmListMatch
 {
     public mixed $identifier;
     public mixed $owner;
+    public ?int $page = null;
+    public ?int $page_size = null;
 }
 
 /** Request payload for Rpm#create. */
@@ -3877,6 +3991,7 @@ class RpmCreateData
 {
     public mixed $identifier;
     public mixed $owner;
+    public ?array $data = null;
     public ?string $auth_mode = null;
     public ?string $auth_secret = null;
     public ?string $auth_username = null;
@@ -3910,6 +4025,7 @@ class RpmUpdateData
     public string $id;
     public mixed $identifier;
     public mixed $owner;
+    public ?array $data = null;
     public ?string $auth_mode = null;
     public ?string $auth_secret = null;
     public ?string $auth_username = null;
@@ -3978,6 +4094,8 @@ class RubyListMatch
 {
     public mixed $identifier;
     public mixed $owner;
+    public ?int $page = null;
+    public ?int $page_size = null;
 }
 
 /** Request payload for Ruby#create. */
@@ -3985,6 +4103,7 @@ class RubyCreateData
 {
     public mixed $identifier;
     public mixed $owner;
+    public ?array $data = null;
     public ?string $auth_mode = null;
     public ?string $auth_secret = null;
     public ?string $auth_username = null;
@@ -4012,6 +4131,7 @@ class RubyUpdateData
     public string $id;
     public mixed $identifier;
     public mixed $owner;
+    public ?array $data = null;
     public ?string $auth_mode = null;
     public ?string $auth_secret = null;
     public ?string $auth_username = null;
@@ -4074,12 +4194,17 @@ class ServiceLoadMatch
 class ServiceListMatch
 {
     public string $org_id;
+    public ?int $page = null;
+    public ?int $page_size = null;
+    public mixed $query = null;
+    public mixed $sort = null;
 }
 
 /** Request payload for Service#create. */
 class ServiceCreateData
 {
     public string $org_id;
+    public ?array $data = null;
     public ?string $created_at = null;
     public ?string $created_by = null;
     public ?string $created_by_url = null;
@@ -4098,6 +4223,7 @@ class ServiceUpdateData
 {
     public string $id;
     public string $org_id;
+    public ?array $data = null;
     public ?string $created_at = null;
     public ?string $created_by = null;
     public ?string $created_by_url = null;
@@ -4188,6 +4314,8 @@ class SwiftListMatch
 {
     public mixed $identifier;
     public mixed $owner;
+    public ?int $page = null;
+    public ?int $page_size = null;
 }
 
 /** Request payload for Swift#create. */
@@ -4195,6 +4323,7 @@ class SwiftCreateData
 {
     public mixed $identifier;
     public mixed $owner;
+    public ?array $data = null;
     public ?string $auth_mode = null;
     public ?string $auth_secret = null;
     public ?string $auth_username = null;
@@ -4222,6 +4351,7 @@ class SwiftUpdateData
     public string $id;
     public mixed $identifier;
     public mixed $owner;
+    public ?array $data = null;
     public ?string $auth_mode = null;
     public ?string $auth_secret = null;
     public ?string $auth_username = null;
@@ -4288,9 +4418,8 @@ class User
 /** Request payload for User#list. */
 class UserListMatch
 {
-    public ?string $created = null;
-    public ?string $key = null;
-    public ?string $slug_perm = null;
+    public ?int $page = null;
+    public ?int $page_size = null;
 }
 
 /** UserAuthToken entity data model. */
@@ -4301,6 +4430,7 @@ class UserAuthToken
 /** Request payload for UserAuthToken#create. */
 class UserAuthTokenCreateData
 {
+    public ?array $data = null;
 }
 
 /** UserAuthenticationToken entity data model. */
@@ -4406,6 +4536,8 @@ class Vulnerability
 class VulnerabilityLoadMatch
 {
     public string $id;
+    public ?int $page = null;
+    public ?int $page_size = null;
 }
 
 /** Request payload for Vulnerability#list. */
@@ -4414,6 +4546,8 @@ class VulnerabilityListMatch
     public mixed $owner;
     public mixed $package = null;
     public mixed $repo;
+    public ?int $page = null;
+    public ?int $page_size = null;
 }
 
 /** VulnerabilityPolicy entity data model. */
@@ -4424,6 +4558,7 @@ class VulnerabilityPolicy
 /** Webhook entity data model. */
 class Webhook
 {
+    public ?string $id = null;
 }
 
 /** Request payload for Webhook#remove. */

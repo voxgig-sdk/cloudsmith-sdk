@@ -11,7 +11,9 @@ main: kit: entity: organization_package_license_policy: {
       type: "`$BOOLEAN`"
     }
     {
+      format: "date-time"
       name: "created_at"
+      readOnly: true
       req: false
       type: "`$STRING`"
     }
@@ -41,7 +43,9 @@ main: kit: entity: organization_package_license_policy: {
       type: "`$STRING`"
     }
     {
+      format: "slug"
       name: "slug_perm"
+      readOnly: true
       req: false
       type: "`$STRING`"
     }
@@ -51,7 +55,9 @@ main: kit: entity: organization_package_license_policy: {
       type: "`$ARRAY`"
     }
     {
+      format: "date-time"
       name: "updated_at"
+      readOnly: true
       req: false
       type: "`$STRING`"
     }
@@ -90,16 +96,22 @@ main: kit: entity: organization_package_license_policy: {
           }
           method: "POST"
           orig: "/orgs/{org}/license-policy/"
-          parts: [
-            "orgs"
-            "{org_id}"
-            "license-policy"
-          ]
           rename: {
             param: {
               org: "org_id"
             }
           }
+          segments: [
+            {
+              lit: "orgs"
+            }
+            {
+              var: "org_id"
+            }
+            {
+              lit: "license-policy"
+            }
+          ]
           select: {
             exist: [
               "data"
@@ -146,16 +158,22 @@ main: kit: entity: organization_package_license_policy: {
           }
           method: "GET"
           orig: "/orgs/{org}/license-policy/"
-          parts: [
-            "orgs"
-            "{org_id}"
-            "license-policy"
-          ]
           rename: {
             param: {
               org: "org_id"
             }
           }
+          segments: [
+            {
+              lit: "orgs"
+            }
+            {
+              var: "org_id"
+            }
+            {
+              lit: "license-policy"
+            }
+          ]
           select: {
             exist: [
               "org_id"
@@ -194,18 +212,26 @@ main: kit: entity: organization_package_license_policy: {
           }
           method: "GET"
           orig: "/orgs/{org}/license-policy/{slug_perm}/"
-          parts: [
-            "orgs"
-            "{org_id}"
-            "license-policy"
-            "{id}"
-          ]
           rename: {
             param: {
               org: "org_id"
               slug_perm: "id"
             }
           }
+          segments: [
+            {
+              lit: "orgs"
+            }
+            {
+              var: "org_id"
+            }
+            {
+              lit: "license-policy"
+            }
+            {
+              var: "id"
+            }
+          ]
           select: {
             exist: [
               "id"
@@ -252,18 +278,26 @@ main: kit: entity: organization_package_license_policy: {
           }
           method: "PATCH"
           orig: "/orgs/{org}/license-policy/{slug_perm}/"
-          parts: [
-            "orgs"
-            "{org_id}"
-            "license-policy"
-            "{id}"
-          ]
           rename: {
             param: {
               org: "org_id"
               slug_perm: "id"
             }
           }
+          segments: [
+            {
+              lit: "orgs"
+            }
+            {
+              var: "org_id"
+            }
+            {
+              lit: "license-policy"
+            }
+            {
+              var: "id"
+            }
+          ]
           select: {
             exist: [
               "data"
@@ -311,18 +345,26 @@ main: kit: entity: organization_package_license_policy: {
           }
           method: "PUT"
           orig: "/orgs/{org}/license-policy/{slug_perm}/"
-          parts: [
-            "orgs"
-            "{org_id}"
-            "license-policy"
-            "{id}"
-          ]
           rename: {
             param: {
               org: "org_id"
               slug_perm: "id"
             }
           }
+          segments: [
+            {
+              lit: "orgs"
+            }
+            {
+              var: "org_id"
+            }
+            {
+              lit: "license-policy"
+            }
+            {
+              var: "id"
+            }
+          ]
           select: {
             exist: [
               "data"

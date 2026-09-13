@@ -48,7 +48,7 @@ func TestOpenidConnectEntity(t *testing.T) {
 			return
 		}
 		// Bootstrap entity data from existing test data (no create step in flow).
-		openidConnectRef01DataRaw := vs.Items(core.ToMapAny(vs.GetPath("existing.openid_connect", setup.data)))
+		openidConnectRef01DataRaw := vs.Items(core.ToMapAny(vs.GetPath(setup.data, "existing.openid_connect")))
 		var openidConnectRef01Data map[string]any
 		if len(openidConnectRef01DataRaw) > 0 {
 			openidConnectRef01Data = core.ToMapAny(openidConnectRef01DataRaw[0][1])
@@ -84,7 +84,7 @@ func openid_connectBasicSetup(extra map[string]any) *entityTestSetup {
 	client := sdk.TestSDK(options, extra)
 
 	// Generate idmap via transform, matching TS pattern.
-	idmap := vs.Transform(
+	idmap, _ := vs.Transform(
 		[]any{"openid_connect01", "openid_connect02", "openid_connect03", "org01", "org02", "org03"},
 		map[string]any{
 			"`$PACK`": []any{"", map[string]any{
@@ -104,7 +104,7 @@ func openid_connectBasicSetup(extra map[string]any) *entityTestSetup {
 		"CLOUDSMITH_TEST_OPENID_CONNECT_ENTID": idmap,
 		"CLOUDSMITH_TEST_LIVE":      "FALSE",
 		"CLOUDSMITH_TEST_EXPLAIN":   "FALSE",
-		"CLOUDSMITH_APIKEY":         "NONE",
+		"CLOUDSMITH_APIKEY":         "",
 	})
 
 	idmapResolved := core.ToMapAny(env["CLOUDSMITH_TEST_OPENID_CONNECT_ENTID"])
@@ -113,11 +113,23 @@ func openid_connectBasicSetup(extra map[string]any) *entityTestSetup {
 	}
 
 	if env["CLOUDSMITH_TEST_LIVE"] == "TRUE" {
+		// An empty map, not a nil one: Merge returns nil when its last entry
+		// is nil, and BasicSetup is normally called with no extras - so a
+		// bare nil silently discarded the apikey and server values below.
+		extraOpts := extra
+		if extraOpts == nil {
+			extraOpts = map[string]any{}
+		}
+
 		mergedOpts := vs.Merge([]any{
+			// liveClientOptions() FIRST, so the generated fields below win:
+			// sdk-test-control.json's test.client.options adds to the live
+			// client, it does not redirect it.
+			liveClientOptions(),
 			map[string]any{
 				"apikey": env["CLOUDSMITH_APIKEY"],
 			},
-			extra,
+			extraOpts,
 		})
 		client = sdk.NewCloudsmithSDK(core.ToMapAny(mergedOpts))
 	}

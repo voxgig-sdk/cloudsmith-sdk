@@ -63,9 +63,14 @@ class CargoLoadMatch(TypedDict):
     owner: Any
 
 
-class CargoListMatch(TypedDict):
+class CargoListMatchRequired(TypedDict):
     identifier: Any
     owner: Any
+
+
+class CargoListMatch(CargoListMatchRequired, total=False):
+    page: int
+    page_size: int
 
 
 class CargoCreateDataRequired(TypedDict):
@@ -76,6 +81,7 @@ class CargoCreateDataRequired(TypedDict):
 
 
 class CargoCreateData(CargoCreateDataRequired, total=False):
+    data: dict
     auth_mode: str
     auth_secret: str
     auth_username: str
@@ -102,6 +108,7 @@ class CargoUpdateDataRequired(TypedDict):
 
 
 class CargoUpdateData(CargoUpdateDataRequired, total=False):
+    data: dict
     auth_mode: str
     auth_secret: str
     auth_username: str
@@ -161,9 +168,14 @@ class ComposerLoadMatch(TypedDict):
     owner: Any
 
 
-class ComposerListMatch(TypedDict):
+class ComposerListMatchRequired(TypedDict):
     identifier: Any
     owner: Any
+
+
+class ComposerListMatch(ComposerListMatchRequired, total=False):
+    page: int
+    page_size: int
 
 
 class ComposerCreateDataRequired(TypedDict):
@@ -174,6 +186,7 @@ class ComposerCreateDataRequired(TypedDict):
 
 
 class ComposerCreateData(ComposerCreateDataRequired, total=False):
+    data: dict
     auth_mode: str
     auth_secret: str
     auth_username: str
@@ -200,6 +213,7 @@ class ComposerUpdateDataRequired(TypedDict):
 
 
 class ComposerUpdateData(ComposerUpdateDataRequired, total=False):
+    data: dict
     auth_mode: str
     auth_secret: str
     auth_username: str
@@ -255,9 +269,14 @@ class CondaLoadMatch(TypedDict):
     owner: Any
 
 
-class CondaListMatch(TypedDict):
+class CondaListMatchRequired(TypedDict):
     identifier: Any
     owner: Any
+
+
+class CondaListMatch(CondaListMatchRequired, total=False):
+    page: int
+    page_size: int
 
 
 class CondaCreateDataRequired(TypedDict):
@@ -268,6 +287,7 @@ class CondaCreateDataRequired(TypedDict):
 
 
 class CondaCreateData(CondaCreateDataRequired, total=False):
+    data: dict
     auth_mode: str
     auth_secret: str
     auth_username: str
@@ -294,6 +314,7 @@ class CondaUpdateDataRequired(TypedDict):
 
 
 class CondaUpdateData(CondaUpdateDataRequired, total=False):
+    data: dict
     auth_mode: str
     auth_secret: str
     auth_username: str
@@ -349,9 +370,14 @@ class CranLoadMatch(TypedDict):
     owner: Any
 
 
-class CranListMatch(TypedDict):
+class CranListMatchRequired(TypedDict):
     identifier: Any
     owner: Any
+
+
+class CranListMatch(CranListMatchRequired, total=False):
+    page: int
+    page_size: int
 
 
 class CranCreateDataRequired(TypedDict):
@@ -362,6 +388,7 @@ class CranCreateDataRequired(TypedDict):
 
 
 class CranCreateData(CranCreateDataRequired, total=False):
+    data: dict
     auth_mode: str
     auth_secret: str
     auth_username: str
@@ -388,6 +415,7 @@ class CranUpdateDataRequired(TypedDict):
 
 
 class CranUpdateData(CranUpdateDataRequired, total=False):
+    data: dict
     auth_mode: str
     auth_secret: str
     auth_username: str
@@ -439,9 +467,14 @@ class DartLoadMatch(TypedDict):
     owner: Any
 
 
-class DartListMatch(TypedDict):
+class DartListMatchRequired(TypedDict):
     identifier: Any
     owner: Any
+
+
+class DartListMatch(DartListMatchRequired, total=False):
+    page: int
+    page_size: int
 
 
 class DartCreateDataRequired(TypedDict):
@@ -452,6 +485,7 @@ class DartCreateDataRequired(TypedDict):
 
 
 class DartCreateData(DartCreateDataRequired, total=False):
+    data: dict
     auth_mode: str
     auth_secret: str
     auth_username: str
@@ -478,6 +512,7 @@ class DartUpdateDataRequired(TypedDict):
 
 
 class DartUpdateData(DartUpdateDataRequired, total=False):
+    data: dict
     auth_mode: str
     auth_secret: str
     auth_username: str
@@ -537,9 +572,14 @@ class DebLoadMatch(TypedDict):
     owner: Any
 
 
-class DebListMatch(TypedDict):
+class DebListMatchRequired(TypedDict):
     identifier: Any
     owner: Any
+
+
+class DebListMatch(DebListMatchRequired, total=False):
+    page: int
+    page_size: int
 
 
 class DebCreateDataRequired(TypedDict):
@@ -551,6 +591,7 @@ class DebCreateDataRequired(TypedDict):
 
 
 class DebCreateData(DebCreateDataRequired, total=False):
+    data: dict
     auth_mode: str
     auth_secret: str
     auth_username: str
@@ -584,6 +625,7 @@ class DebUpdateDataRequired(TypedDict):
 
 
 class DebUpdateData(DebUpdateDataRequired, total=False):
+    data: dict
     auth_mode: str
     auth_secret: str
     auth_username: str
@@ -686,9 +728,14 @@ class DockerLoadMatch(TypedDict):
     owner: Any
 
 
-class DockerListMatch(TypedDict):
+class DockerListMatchRequired(TypedDict):
     identifier: Any
     owner: Any
+
+
+class DockerListMatch(DockerListMatchRequired, total=False):
+    page: int
+    page_size: int
 
 
 class DockerCreateDataRequired(TypedDict):
@@ -699,6 +746,7 @@ class DockerCreateDataRequired(TypedDict):
 
 
 class DockerCreateData(DockerCreateDataRequired, total=False):
+    data: dict
     auth_mode: str
     auth_secret: str
     auth_username: str
@@ -725,6 +773,7 @@ class DockerUpdateDataRequired(TypedDict):
 
 
 class DockerUpdateData(DockerUpdateDataRequired, total=False):
+    data: dict
     auth_mode: str
     auth_secret: str
     auth_username: str
@@ -760,9 +809,14 @@ class DynamicMappingLoadMatch(TypedDict):
     org_id: str
 
 
-class DynamicMappingListMatch(TypedDict):
+class DynamicMappingListMatchRequired(TypedDict):
     org_id: str
     provider_setting: Any
+
+
+class DynamicMappingListMatch(DynamicMappingListMatchRequired, total=False):
+    page: int
+    page_size: int
 
 
 class Ecdsa(TypedDict):
@@ -785,8 +839,16 @@ class Entitlement(EntitlementRequired, total=False):
     total: int
 
 
-class EntitlementLoadMatch(TypedDict):
+class EntitlementLoadMatchRequired(TypedDict):
     id: str
+
+
+class EntitlementLoadMatch(EntitlementLoadMatchRequired, total=False):
+    finish: Any
+    page: int
+    page_size: int
+    start: Any
+    token: str
 
 
 class EntitlementCreateDataRequired(TypedDict):
@@ -798,6 +860,7 @@ class EntitlementCreateDataRequired(TypedDict):
 
 
 class EntitlementCreateData(EntitlementCreateDataRequired, total=False):
+    show_token: Any
     active: int
     id: str
     inactive: int
@@ -825,6 +888,7 @@ class FileCreateDataRequired(TypedDict):
 
 class FileCreateData(FileCreateDataRequired, total=False):
     identifier: Any
+    data: dict
 
 
 class FormatRequired(TypedDict):
@@ -894,9 +958,14 @@ class GonLoadMatch(TypedDict):
     slug_perm: Any
 
 
-class GonListMatch(TypedDict):
+class GonListMatchRequired(TypedDict):
     identifier: Any
     owner: Any
+
+
+class GonListMatch(GonListMatchRequired, total=False):
+    page: int
+    page_size: int
 
 
 class GonCreateDataRequired(TypedDict):
@@ -907,6 +976,7 @@ class GonCreateDataRequired(TypedDict):
 
 
 class GonCreateData(GonCreateDataRequired, total=False):
+    data: dict
     auth_mode: str
     auth_secret: str
     auth_username: str
@@ -932,6 +1002,7 @@ class GonUpdateDataRequired(TypedDict):
 
 
 class GonUpdateData(GonUpdateDataRequired, total=False):
+    data: dict
     auth_mode: str
     auth_secret: str
     auth_username: str
@@ -990,9 +1061,14 @@ class HelmLoadMatch(TypedDict):
     owner: Any
 
 
-class HelmListMatch(TypedDict):
+class HelmListMatchRequired(TypedDict):
     identifier: Any
     owner: Any
+
+
+class HelmListMatch(HelmListMatchRequired, total=False):
+    page: int
+    page_size: int
 
 
 class HelmCreateDataRequired(TypedDict):
@@ -1003,6 +1079,7 @@ class HelmCreateDataRequired(TypedDict):
 
 
 class HelmCreateData(HelmCreateDataRequired, total=False):
+    data: dict
     auth_mode: str
     auth_secret: str
     auth_username: str
@@ -1029,6 +1106,7 @@ class HelmUpdateDataRequired(TypedDict):
 
 
 class HelmUpdateData(HelmUpdateDataRequired, total=False):
+    data: dict
     auth_mode: str
     auth_secret: str
     auth_username: str
@@ -1080,9 +1158,14 @@ class HexLoadMatch(TypedDict):
     owner: Any
 
 
-class HexListMatch(TypedDict):
+class HexListMatchRequired(TypedDict):
     identifier: Any
     owner: Any
+
+
+class HexListMatch(HexListMatchRequired, total=False):
+    page: int
+    page_size: int
 
 
 class HexCreateDataRequired(TypedDict):
@@ -1093,6 +1176,7 @@ class HexCreateDataRequired(TypedDict):
 
 
 class HexCreateData(HexCreateDataRequired, total=False):
+    data: dict
     auth_mode: str
     auth_secret: str
     auth_username: str
@@ -1119,6 +1203,7 @@ class HexUpdateDataRequired(TypedDict):
 
 
 class HexUpdateData(HexUpdateDataRequired, total=False):
+    data: dict
     auth_mode: str
     auth_secret: str
     auth_username: str
@@ -1174,9 +1259,14 @@ class HuggingfaceLoadMatch(TypedDict):
     owner: Any
 
 
-class HuggingfaceListMatch(TypedDict):
+class HuggingfaceListMatchRequired(TypedDict):
     identifier: Any
     owner: Any
+
+
+class HuggingfaceListMatch(HuggingfaceListMatchRequired, total=False):
+    page: int
+    page_size: int
 
 
 class HuggingfaceCreateDataRequired(TypedDict):
@@ -1187,6 +1277,7 @@ class HuggingfaceCreateDataRequired(TypedDict):
 
 
 class HuggingfaceCreateData(HuggingfaceCreateDataRequired, total=False):
+    data: dict
     auth_mode: str
     auth_secret: str
     auth_username: str
@@ -1213,6 +1304,7 @@ class HuggingfaceUpdateDataRequired(TypedDict):
 
 
 class HuggingfaceUpdateData(HuggingfaceUpdateDataRequired, total=False):
+    data: dict
     auth_mode: str
     auth_secret: str
     auth_username: str
@@ -1288,9 +1380,14 @@ class MavenLoadMatch(TypedDict):
     owner: Any
 
 
-class MavenListMatch(TypedDict):
+class MavenListMatchRequired(TypedDict):
     identifier: Any
     owner: Any
+
+
+class MavenListMatch(MavenListMatchRequired, total=False):
+    page: int
+    page_size: int
 
 
 class MavenCreateDataRequired(TypedDict):
@@ -1301,6 +1398,7 @@ class MavenCreateDataRequired(TypedDict):
 
 
 class MavenCreateData(MavenCreateDataRequired, total=False):
+    data: dict
     auth_mode: str
     auth_secret: str
     auth_username: str
@@ -1331,6 +1429,7 @@ class MavenUpdateDataRequired(TypedDict):
 
 
 class MavenUpdateData(MavenUpdateDataRequired, total=False):
+    data: dict
     auth_mode: str
     auth_secret: str
     auth_username: str
@@ -1376,11 +1475,8 @@ class NamespaceLoadMatch(TypedDict):
 
 
 class NamespaceListMatch(TypedDict, total=False):
-    id: str
-    name: str
-    slug: str
-    slug_perm: str
-    type_name: str
+    page: int
+    page_size: int
 
 
 class NamespaceAuditLogRequired(TypedDict):
@@ -1406,8 +1502,14 @@ class NamespaceAuditLog(NamespaceAuditLogRequired, total=False):
     uuid: str
 
 
-class NamespaceAuditLogLoadMatch(TypedDict):
+class NamespaceAuditLogLoadMatchRequired(TypedDict):
     id: str
+
+
+class NamespaceAuditLogLoadMatch(NamespaceAuditLogLoadMatchRequired, total=False):
+    page: int
+    page_size: int
+    query: Any
 
 
 class NpmRequired(TypedDict):
@@ -1441,9 +1543,14 @@ class NpmLoadMatch(TypedDict):
     owner: Any
 
 
-class NpmListMatch(TypedDict):
+class NpmListMatchRequired(TypedDict):
     identifier: Any
     owner: Any
+
+
+class NpmListMatch(NpmListMatchRequired, total=False):
+    page: int
+    page_size: int
 
 
 class NpmCreateDataRequired(TypedDict):
@@ -1454,6 +1561,7 @@ class NpmCreateDataRequired(TypedDict):
 
 
 class NpmCreateData(NpmCreateDataRequired, total=False):
+    data: dict
     auth_mode: str
     auth_secret: str
     auth_username: str
@@ -1480,6 +1588,7 @@ class NpmUpdateDataRequired(TypedDict):
 
 
 class NpmUpdateData(NpmUpdateDataRequired, total=False):
+    data: dict
     auth_mode: str
     auth_secret: str
     auth_username: str
@@ -1531,9 +1640,14 @@ class NugetLoadMatch(TypedDict):
     owner: Any
 
 
-class NugetListMatch(TypedDict):
+class NugetListMatchRequired(TypedDict):
     identifier: Any
     owner: Any
+
+
+class NugetListMatch(NugetListMatchRequired, total=False):
+    page: int
+    page_size: int
 
 
 class NugetCreateDataRequired(TypedDict):
@@ -1544,6 +1658,7 @@ class NugetCreateDataRequired(TypedDict):
 
 
 class NugetCreateData(NugetCreateDataRequired, total=False):
+    data: dict
     auth_mode: str
     auth_secret: str
     auth_username: str
@@ -1570,6 +1685,7 @@ class NugetUpdateDataRequired(TypedDict):
 
 
 class NugetUpdateData(NugetUpdateDataRequired, total=False):
+    data: dict
     auth_mode: str
     auth_secret: str
     auth_username: str
@@ -1622,19 +1738,8 @@ class OrgLoadMatch(OrgLoadMatchRequired, total=False):
 
 
 class OrgListMatch(TypedDict, total=False):
-    country: str
-    created_at: str
-    event_at: str
-    id: str
-    location: str
-    name: str
-    package: dict
-    policy: dict
-    reasons: list
-    slug: str
-    slug_perm: str
-    tagline: str
-    vulnerability_scan_results: dict
+    page: int
+    page_size: int
 
 
 class OrgCreateDataRequired(TypedDict):
@@ -1663,6 +1768,7 @@ class OrgUpdateDataRequired(TypedDict):
 
 
 class OrgUpdateData(OrgUpdateDataRequired, total=False):
+    data: dict
     country: str
     created_at: str
     event_at: str
@@ -1699,8 +1805,13 @@ class OrganizationGroupSync(OrganizationGroupSyncRequired, total=False):
     slug_perm: str
 
 
-class OrganizationGroupSyncListMatch(TypedDict):
+class OrganizationGroupSyncListMatchRequired(TypedDict):
     org_id: str
+
+
+class OrganizationGroupSyncListMatch(OrganizationGroupSyncListMatchRequired, total=False):
+    page: int
+    page_size: int
 
 
 class OrganizationGroupSyncCreateDataRequired(TypedDict):
@@ -1711,6 +1822,7 @@ class OrganizationGroupSyncCreateDataRequired(TypedDict):
 
 
 class OrganizationGroupSyncCreateData(OrganizationGroupSyncCreateDataRequired, total=False):
+    data: dict
     role: str
     slug_perm: str
 
@@ -1737,8 +1849,13 @@ class OrganizationInvite(TypedDict, total=False):
     user_url: str
 
 
-class OrganizationInviteListMatch(TypedDict):
+class OrganizationInviteListMatchRequired(TypedDict):
     org_id: str
+
+
+class OrganizationInviteListMatch(OrganizationInviteListMatchRequired, total=False):
+    page: int
+    page_size: int
 
 
 class OrganizationInviteCreateDataRequired(TypedDict):
@@ -1746,6 +1863,7 @@ class OrganizationInviteCreateDataRequired(TypedDict):
 
 
 class OrganizationInviteCreateData(OrganizationInviteCreateDataRequired, total=False):
+    data: dict
     email: str
     expires_at: str
     id: str
@@ -1765,6 +1883,7 @@ class OrganizationInviteUpdateDataRequired(TypedDict):
 
 
 class OrganizationInviteUpdateData(OrganizationInviteUpdateDataRequired, total=False):
+    data: dict
     email: str
     expires_at: str
     inviter: str
@@ -1827,8 +1946,16 @@ class OrganizationMembershipLoadMatch(TypedDict):
     org_id: str
 
 
-class OrganizationMembershipListMatch(TypedDict):
+class OrganizationMembershipListMatchRequired(TypedDict):
     org_id: str
+
+
+class OrganizationMembershipListMatch(OrganizationMembershipListMatchRequired, total=False):
+    is_active: bool
+    page: int
+    page_size: int
+    query: Any
+    sort: Any
 
 
 class OrganizationMembershipUpdateDataRequired(TypedDict):
@@ -1837,6 +1964,7 @@ class OrganizationMembershipUpdateDataRequired(TypedDict):
 
 
 class OrganizationMembershipUpdateData(OrganizationMembershipUpdateDataRequired, total=False):
+    data: dict
     email: str
     has_two_factor: bool
     is_active: bool
@@ -1871,6 +1999,7 @@ class OrganizationMembershipRoleUpdateUpdateDataRequired(TypedDict):
 
 
 class OrganizationMembershipRoleUpdateUpdateData(OrganizationMembershipRoleUpdateUpdateDataRequired, total=False):
+    data: dict
     email: str
     has_two_factor: bool
     joined_at: str
@@ -1904,6 +2033,7 @@ class OrganizationMembershipVisibilityUpdateUpdateDataRequired(TypedDict):
 
 
 class OrganizationMembershipVisibilityUpdateUpdateData(OrganizationMembershipVisibilityUpdateUpdateDataRequired, total=False):
+    data: dict
     email: str
     has_two_factor: bool
     joined_at: str
@@ -1938,8 +2068,13 @@ class OrganizationPackageLicensePolicyLoadMatch(TypedDict):
     org_id: str
 
 
-class OrganizationPackageLicensePolicyListMatch(TypedDict):
+class OrganizationPackageLicensePolicyListMatchRequired(TypedDict):
     org_id: str
+
+
+class OrganizationPackageLicensePolicyListMatch(OrganizationPackageLicensePolicyListMatchRequired, total=False):
+    page: int
+    page_size: int
 
 
 class OrganizationPackageLicensePolicyCreateDataRequired(TypedDict):
@@ -1949,6 +2084,7 @@ class OrganizationPackageLicensePolicyCreateDataRequired(TypedDict):
 
 
 class OrganizationPackageLicensePolicyCreateData(OrganizationPackageLicensePolicyCreateDataRequired, total=False):
+    data: dict
     allow_unknown_licenses: bool
     created_at: str
     description: str
@@ -1965,6 +2101,7 @@ class OrganizationPackageLicensePolicyUpdateDataRequired(TypedDict):
 
 
 class OrganizationPackageLicensePolicyUpdateData(OrganizationPackageLicensePolicyUpdateDataRequired, total=False):
+    data: dict
     allow_unknown_licenses: bool
     created_at: str
     description: str
@@ -1997,8 +2134,13 @@ class OrganizationPackageVulnerabilityPolicyLoadMatch(TypedDict):
     org_id: str
 
 
-class OrganizationPackageVulnerabilityPolicyListMatch(TypedDict):
+class OrganizationPackageVulnerabilityPolicyListMatchRequired(TypedDict):
     org_id: str
+
+
+class OrganizationPackageVulnerabilityPolicyListMatch(OrganizationPackageVulnerabilityPolicyListMatchRequired, total=False):
+    page: int
+    page_size: int
 
 
 class OrganizationPackageVulnerabilityPolicyCreateDataRequired(TypedDict):
@@ -2007,6 +2149,7 @@ class OrganizationPackageVulnerabilityPolicyCreateDataRequired(TypedDict):
 
 
 class OrganizationPackageVulnerabilityPolicyCreateData(OrganizationPackageVulnerabilityPolicyCreateDataRequired, total=False):
+    data: dict
     allow_unknown_severity: bool
     created_at: str
     description: str
@@ -2024,6 +2167,7 @@ class OrganizationPackageVulnerabilityPolicyUpdateDataRequired(TypedDict):
 
 
 class OrganizationPackageVulnerabilityPolicyUpdateData(OrganizationPackageVulnerabilityPolicyUpdateDataRequired, total=False):
+    data: dict
     allow_unknown_severity: bool
     created_at: str
     description: str
@@ -2054,6 +2198,7 @@ class OrganizationSamlAuthUpdateDataRequired(TypedDict):
 
 
 class OrganizationSamlAuthUpdateData(OrganizationSamlAuthUpdateDataRequired, total=False):
+    data: dict
     saml_auth_enabled: bool
     saml_auth_enforced: bool
     saml_metadata_inline: str
@@ -2077,8 +2222,16 @@ class OrganizationTeamLoadMatch(TypedDict):
     org_id: str
 
 
-class OrganizationTeamListMatch(TypedDict):
+class OrganizationTeamListMatchRequired(TypedDict):
     org_id: str
+
+
+class OrganizationTeamListMatch(OrganizationTeamListMatchRequired, total=False):
+    for_user: Any
+    page: int
+    page_size: int
+    query: Any
+    sort: Any
 
 
 class OrganizationTeamCreateDataRequired(TypedDict):
@@ -2087,6 +2240,7 @@ class OrganizationTeamCreateDataRequired(TypedDict):
 
 
 class OrganizationTeamCreateData(OrganizationTeamCreateDataRequired, total=False):
+    data: dict
     description: str
     id: str
     slug: str
@@ -2100,6 +2254,7 @@ class OrganizationTeamUpdateDataRequired(TypedDict):
 
 
 class OrganizationTeamUpdateData(OrganizationTeamUpdateDataRequired, total=False):
+    data: dict
     description: str
     name: str
     slug: str
@@ -2117,11 +2272,15 @@ class OrganizationTeamMemberListMatch(TypedDict):
     team_id: str
 
 
-class OrganizationTeamMemberCreateData(TypedDict):
+class OrganizationTeamMemberCreateDataRequired(TypedDict):
     org_id: str
     team_id: str
     role: str
     user: str
+
+
+class OrganizationTeamMemberCreateData(OrganizationTeamMemberCreateDataRequired, total=False):
+    data: dict
 
 
 class Oss(TypedDict):
@@ -2164,6 +2323,7 @@ class Package(PackageRequired, total=False):
     format_url: str
     freeable_storage: int
     fully_qualified_name: str
+    id: str
     identifier_perm: str
     identifiers: dict
     inactive: int
@@ -2235,6 +2395,11 @@ class PackageLoadMatchRequired(TypedDict):
 
 
 class PackageLoadMatch(PackageLoadMatchRequired, total=False):
+    finish: Any
+    package: Any
+    page: int
+    page_size: int
+    start: Any
     identifier: Any
 
 
@@ -2244,6 +2409,11 @@ class PackageListMatchRequired(TypedDict):
 
 
 class PackageListMatch(PackageListMatchRequired, total=False):
+    group_by: Any
+    page: int
+    page_size: int
+    query: Any
+    sort: Any
     identifier: Any
 
 
@@ -2260,6 +2430,7 @@ class PackageCreateDataRequired(TypedDict):
 
 class PackageCreateData(PackageCreateDataRequired, total=False):
     identifier: Any
+    data: dict
     active: int
     architectures: list
     backend_kind: int
@@ -2282,6 +2453,7 @@ class PackageCreateData(PackageCreateDataRequired, total=False):
     format_url: str
     freeable_storage: int
     fully_qualified_name: str
+    id: str
     identifier_perm: str
     identifiers: dict
     inactive: int
@@ -2374,8 +2546,13 @@ class PackageDenyPolicyLoadMatch(TypedDict):
     org_id: str
 
 
-class PackageDenyPolicyListMatch(TypedDict):
+class PackageDenyPolicyListMatchRequired(TypedDict):
     org_id: str
+
+
+class PackageDenyPolicyListMatch(PackageDenyPolicyListMatchRequired, total=False):
+    page: int
+    page_size: int
 
 
 class PackageDenyPolicyCreateDataRequired(TypedDict):
@@ -2384,6 +2561,7 @@ class PackageDenyPolicyCreateDataRequired(TypedDict):
 
 
 class PackageDenyPolicyCreateData(PackageDenyPolicyCreateDataRequired, total=False):
+    data: dict
     action: str
     created_at: str
     description: str
@@ -2401,6 +2579,7 @@ class PackageDenyPolicyUpdateDataRequired(TypedDict):
 
 
 class PackageDenyPolicyUpdateData(PackageDenyPolicyUpdateDataRequired, total=False):
+    data: dict
     action: str
     created_at: str
     description: str
@@ -2418,20 +2597,29 @@ class PackageFilePartsUpload(TypedDict, total=False):
     upload_url: str
 
 
-class PackageFilePartsUploadLoadMatch(TypedDict):
+class PackageFilePartsUploadLoadMatchRequired(TypedDict):
     identifier: Any
     owner: Any
     repo: Any
+    filename: Any
+
+
+class PackageFilePartsUploadLoadMatch(PackageFilePartsUploadLoadMatchRequired, total=False):
+    part_number: int
 
 
 class PackageFileUpload(TypedDict):
     pass
 
 
-class PackageFileUploadCreateData(TypedDict):
+class PackageFileUploadCreateDataRequired(TypedDict):
     identifier: Any
     owner: Any
     repo: Any
+
+
+class PackageFileUploadCreateData(PackageFileUploadCreateDataRequired, total=False):
+    data: dict
 
 
 class PackageLicensePolicyEvaluationRequired(TypedDict):
@@ -2461,9 +2649,14 @@ class PackageLicensePolicyEvaluationLoadMatch(TypedDict):
     org_id: str
 
 
-class PackageLicensePolicyEvaluationListMatch(TypedDict):
+class PackageLicensePolicyEvaluationListMatchRequired(TypedDict):
     org_id: str
     policy_slug_perm: Any
+
+
+class PackageLicensePolicyEvaluationListMatch(PackageLicensePolicyEvaluationListMatchRequired, total=False):
+    page: int
+    page_size: int
 
 
 class PackageLicensePolicyEvaluationCreateDataRequired(TypedDict):
@@ -2474,6 +2667,7 @@ class PackageLicensePolicyEvaluationCreateDataRequired(TypedDict):
 
 
 class PackageLicensePolicyEvaluationCreateData(PackageLicensePolicyEvaluationCreateDataRequired, total=False):
+    data: dict
     allow_unknown_licenses: bool
     created_at: str
     description: str
@@ -2489,17 +2683,31 @@ class PackageLicensePolicyEvaluationCreateData(PackageLicensePolicyEvaluationCre
     violation_count: int
 
 
-class PackageVersionBadge(TypedDict):
-    pass
+class PackageVersionBadge(TypedDict, total=False):
+    id: str
 
 
-class PackageVersionBadgeLoadMatch(TypedDict):
+class PackageVersionBadgeLoadMatchRequired(TypedDict):
     owner: Any
     package_format: Any
     package_identifier: Any
     package_name: Any
     package_version: Any
     repo: Any
+
+
+class PackageVersionBadgeLoadMatch(PackageVersionBadgeLoadMatchRequired, total=False):
+    badge_token: Any
+    cache_second: Any
+    color: Any
+    label: str
+    label_color: Any
+    logo_color: Any
+    logo_width: Any
+    render: Any
+    shield: Any
+    show_latest: Any
+    style: Any
 
 
 class PackageVulnerabilityPolicyEvaluation(TypedDict, total=False):
@@ -2526,9 +2734,14 @@ class PackageVulnerabilityPolicyEvaluationLoadMatch(TypedDict):
     vulnerability_policy_id: str
 
 
-class PackageVulnerabilityPolicyEvaluationListMatch(TypedDict):
+class PackageVulnerabilityPolicyEvaluationListMatchRequired(TypedDict):
     org_id: str
     policy_slug_perm: Any
+
+
+class PackageVulnerabilityPolicyEvaluationListMatch(PackageVulnerabilityPolicyEvaluationListMatchRequired, total=False):
+    page: int
+    page_size: int
 
 
 class PackageVulnerabilityPolicyEvaluationCreateDataRequired(TypedDict):
@@ -2537,6 +2750,7 @@ class PackageVulnerabilityPolicyEvaluationCreateDataRequired(TypedDict):
 
 
 class PackageVulnerabilityPolicyEvaluationCreateData(PackageVulnerabilityPolicyEvaluationCreateDataRequired, total=False):
+    data: dict
     allow_unknown_severity: bool
     created_at: str
     description: str
@@ -2581,8 +2795,15 @@ class ProviderSettingLoadMatch(TypedDict):
     slug_perm: Any
 
 
-class ProviderSettingListMatch(TypedDict):
+class ProviderSettingListMatchRequired(TypedDict):
     org_id: str
+
+
+class ProviderSettingListMatch(ProviderSettingListMatchRequired, total=False):
+    page: int
+    page_size: int
+    query: Any
+    sort: Any
 
 
 class ProviderSettingsWriteRequired(TypedDict):
@@ -2609,6 +2830,7 @@ class ProviderSettingsWriteCreateDataRequired(TypedDict):
 
 
 class ProviderSettingsWriteCreateData(ProviderSettingsWriteCreateDataRequired, total=False):
+    data: dict
     dynamic_mappings: list
     mapping_claim: str
     service_accounts: list
@@ -2622,6 +2844,7 @@ class ProviderSettingsWriteUpdateDataRequired(TypedDict):
 
 
 class ProviderSettingsWriteUpdateData(ProviderSettingsWriteUpdateDataRequired, total=False):
+    data: dict
     claims: dict
     dynamic_mappings: list
     enabled: bool
@@ -2663,9 +2886,14 @@ class PythonLoadMatch(TypedDict):
     owner: Any
 
 
-class PythonListMatch(TypedDict):
+class PythonListMatchRequired(TypedDict):
     identifier: Any
     owner: Any
+
+
+class PythonListMatch(PythonListMatchRequired, total=False):
+    page: int
+    page_size: int
 
 
 class PythonCreateDataRequired(TypedDict):
@@ -2676,6 +2904,7 @@ class PythonCreateDataRequired(TypedDict):
 
 
 class PythonCreateData(PythonCreateDataRequired, total=False):
+    data: dict
     auth_mode: str
     auth_secret: str
     auth_username: str
@@ -2702,6 +2931,7 @@ class PythonUpdateDataRequired(TypedDict):
 
 
 class PythonUpdateData(PythonUpdateDataRequired, total=False):
+    data: dict
     auth_mode: str
     auth_secret: str
     auth_username: str
@@ -2824,77 +3054,18 @@ class Repo(RepoRequired, total=False):
     view_statistics: str
 
 
-class RepoLoadMatch(TypedDict):
+class RepoLoadMatchRequired(TypedDict):
     id: str
+
+
+class RepoLoadMatch(RepoLoadMatchRequired, total=False):
+    page: int
+    page_size: int
 
 
 class RepoListMatch(TypedDict, total=False):
-    cdn_url: str
-    content_kind: str
-    contextual_auth_realm: bool
-    copy_own: bool
-    copy_packages: str
-    cosign_signing_enabled: bool
-    created_at: str
-    default_privilege: str
-    delete_own: bool
-    delete_packages: str
-    deleted_at: str
-    description: str
-    distributes: list
-    docker_refresh_tokens_enabled: bool
-    ecdsa_keys: list
-    enforce_eula: bool
-    gpg_keys: list
-    id: str
-    index_files: bool
-    is_open_source: bool
-    is_private: bool
-    is_public: bool
-    manage_entitlements_privilege: str
-    move_own: bool
-    move_packages: str
-    name: str
-    namespace: str
-    namespace_url: str
-    nuget_native_signing_enabled: bool
-    num_downloads: int
-    num_policy_violated_packages: int
-    num_quarantined_packages: int
-    open_source_license: str
-    open_source_project_url: str
-    package_count: int
-    package_group_count: int
-    proxy_npmjs: bool
-    proxy_pypi: bool
-    raw_package_index_enabled: bool
-    raw_package_index_signatures_enabled: bool
-    replace_packages: str
-    replace_packages_by_default: bool
-    repository_type: int
-    repository_type_str: str
-    resync_own: bool
-    resync_packages: str
-    scan_own: bool
-    scan_packages: str
-    self_html_url: str
-    self_url: str
-    show_setup_all: bool
-    size: int
-    size_str: str
-    slug: str
-    slug_perm: str
-    storage_region: str
-    strict_npm_validation: bool
-    tag_pre_releases_as_latest: bool
-    use_debian_labels: bool
-    use_default_cargo_upstream: bool
-    use_entitlements_privilege: str
-    use_noarch_packages: bool
-    use_source_packages: bool
-    use_vulnerability_scanning: bool
-    user_entitlements_enabled: bool
-    view_statistics: str
+    page: int
+    page_size: int
 
 
 class RepoCreateDataRequired(TypedDict):
@@ -2903,6 +3074,7 @@ class RepoCreateDataRequired(TypedDict):
 
 
 class RepoCreateData(RepoCreateDataRequired, total=False):
+    data: dict
     cdn_url: str
     content_kind: str
     contextual_auth_realm: bool
@@ -2975,6 +3147,7 @@ class RepoUpdateDataRequired(TypedDict):
 
 
 class RepoUpdateData(RepoUpdateDataRequired, total=False):
+    data: dict
     cdn_url: str
     content_kind: str
     contextual_auth_realm: bool
@@ -3071,9 +3244,15 @@ class RepositoryAuditLog(RepositoryAuditLogRequired, total=False):
     uuid: str
 
 
-class RepositoryAuditLogListMatch(TypedDict):
+class RepositoryAuditLogListMatchRequired(TypedDict):
     owner: Any
     repo: Any
+
+
+class RepositoryAuditLogListMatch(RepositoryAuditLogListMatchRequired, total=False):
+    page: int
+    page_size: int
+    query: Any
 
 
 class RepositoryEcdsaKey(TypedDict, total=False):
@@ -3097,6 +3276,7 @@ class RepositoryEcdsaKeyCreateDataRequired(TypedDict):
 
 
 class RepositoryEcdsaKeyCreateData(RepositoryEcdsaKeyCreateDataRequired, total=False):
+    data: dict
     active: bool
     created_at: str
     default: bool
@@ -3122,6 +3302,7 @@ class RepositoryGeoIpRuleUpdateDataRequired(TypedDict):
 
 
 class RepositoryGeoIpRuleUpdateData(RepositoryGeoIpRuleUpdateDataRequired, total=False):
+    data: dict
     cidr: dict
     country_code: dict
 
@@ -3139,9 +3320,13 @@ class RepositoryGeoIpTestAddress(TypedDict):
     pass
 
 
-class RepositoryGeoIpTestAddressCreateData(TypedDict):
+class RepositoryGeoIpTestAddressCreateDataRequired(TypedDict):
     identifier: Any
     owner: Any
+
+
+class RepositoryGeoIpTestAddressCreateData(RepositoryGeoIpTestAddressCreateDataRequired, total=False):
+    data: dict
 
 
 class RepositoryGpgKeyRequired(TypedDict):
@@ -3169,6 +3354,7 @@ class RepositoryGpgKeyCreateDataRequired(TypedDict):
 
 
 class RepositoryGpgKeyCreateData(RepositoryGpgKeyCreateDataRequired, total=False):
+    data: dict
     active: bool
     created_at: str
     default: bool
@@ -3187,9 +3373,14 @@ class RepositoryPrivilegeInput(RepositoryPrivilegeInputRequired, total=False):
     user: str
 
 
-class RepositoryPrivilegeInputListMatch(TypedDict):
+class RepositoryPrivilegeInputListMatchRequired(TypedDict):
     identifier: Any
     owner: Any
+
+
+class RepositoryPrivilegeInputListMatch(RepositoryPrivilegeInputListMatchRequired, total=False):
+    page: int
+    page_size: int
 
 
 class RepositoryRetentionRule(TypedDict, total=False):
@@ -3214,6 +3405,7 @@ class RepositoryRetentionRuleUpdateDataRequired(TypedDict):
 
 
 class RepositoryRetentionRuleUpdateData(RepositoryRetentionRuleUpdateDataRequired, total=False):
+    data: dict
     retention_count_limit: int
     retention_days_limit: int
     retention_enabled: bool
@@ -3245,6 +3437,7 @@ class RepositoryRsaKeyCreateDataRequired(TypedDict):
 
 
 class RepositoryRsaKeyCreateData(RepositoryRsaKeyCreateDataRequired, total=False):
+    data: dict
     active: bool
     created_at: str
     default: bool
@@ -3272,6 +3465,7 @@ class RepositoryToken(RepositoryTokenRequired, total=False):
     eula_accepted_from: str
     eula_required: bool
     has_limits: bool
+    id: str
     identifier: int
     is_active: bool
     is_limited: bool
@@ -3299,15 +3493,29 @@ class RepositoryToken(RepositoryTokenRequired, total=False):
     user_url: str
 
 
-class RepositoryTokenLoadMatch(TypedDict):
+class RepositoryTokenLoadMatchRequired(TypedDict):
     identifier: Any
     owner: Any
     repo: Any
 
 
-class RepositoryTokenListMatch(TypedDict):
+class RepositoryTokenLoadMatch(RepositoryTokenLoadMatchRequired, total=False):
+    fuzzy: Any
+    show_token: Any
+
+
+class RepositoryTokenListMatchRequired(TypedDict):
     owner: Any
     repo: Any
+
+
+class RepositoryTokenListMatch(RepositoryTokenListMatchRequired, total=False):
+    active: bool
+    page: int
+    page_size: int
+    query: Any
+    show_token: Any
+    sort: Any
 
 
 class RepositoryTokenCreateDataRequired(TypedDict):
@@ -3317,6 +3525,8 @@ class RepositoryTokenCreateDataRequired(TypedDict):
 
 
 class RepositoryTokenCreateData(RepositoryTokenCreateDataRequired, total=False):
+    data: dict
+    show_token: Any
     clients: int
     created_at: str
     created_by: str
@@ -3330,6 +3540,7 @@ class RepositoryTokenCreateData(RepositoryTokenCreateDataRequired, total=False):
     eula_accepted_from: str
     eula_required: bool
     has_limits: bool
+    id: str
     identifier: int
     is_active: bool
     is_limited: bool
@@ -3364,6 +3575,8 @@ class RepositoryTokenUpdateDataRequired(TypedDict):
 
 
 class RepositoryTokenUpdateData(RepositoryTokenUpdateDataRequired, total=False):
+    data: dict
+    show_token: Any
     clients: int
     created_at: str
     created_by: str
@@ -3377,6 +3590,7 @@ class RepositoryTokenUpdateData(RepositoryTokenUpdateDataRequired, total=False):
     eula_accepted_from: str
     eula_required: bool
     has_limits: bool
+    id: str
     is_active: bool
     is_limited: bool
     limit_bandwidth: int
@@ -3453,6 +3667,8 @@ class RepositoryTokenRefreshCreateDataRequired(TypedDict):
 
 
 class RepositoryTokenRefreshCreateData(RepositoryTokenRefreshCreateDataRequired, total=False):
+    data: dict
+    show_token: Any
     clients: int
     created_at: str
     created_by: str
@@ -3503,6 +3719,8 @@ class RepositoryTokenSyncCreateDataRequired(TypedDict):
 
 
 class RepositoryTokenSyncCreateData(RepositoryTokenSyncCreateDataRequired, total=False):
+    data: dict
+    show_token: Any
     tokens: list
 
 
@@ -3518,6 +3736,7 @@ class RepositoryWebhook(RepositoryWebhookRequired, total=False):
     created_by_url: str
     disable_reason: int
     disable_reason_str: str
+    id: str
     identifier: int
     is_active: bool
     is_last_response_bad: bool
@@ -3545,9 +3764,14 @@ class RepositoryWebhookLoadMatch(TypedDict):
     repo: Any
 
 
-class RepositoryWebhookListMatch(TypedDict):
+class RepositoryWebhookListMatchRequired(TypedDict):
     owner: Any
     repo: Any
+
+
+class RepositoryWebhookListMatch(RepositoryWebhookListMatchRequired, total=False):
+    page: int
+    page_size: int
 
 
 class RepositoryWebhookCreateDataRequired(TypedDict):
@@ -3559,11 +3783,13 @@ class RepositoryWebhookCreateDataRequired(TypedDict):
 
 
 class RepositoryWebhookCreateData(RepositoryWebhookCreateDataRequired, total=False):
+    data: dict
     created_at: str
     created_by: str
     created_by_url: str
     disable_reason: int
     disable_reason_str: str
+    id: str
     identifier: int
     is_active: bool
     is_last_response_bad: bool
@@ -3592,12 +3818,14 @@ class RepositoryWebhookUpdateDataRequired(TypedDict):
 
 
 class RepositoryWebhookUpdateData(RepositoryWebhookUpdateDataRequired, total=False):
+    data: dict
     created_at: str
     created_by: str
     created_by_url: str
     disable_reason: int
     disable_reason_str: str
     events: list
+    id: str
     is_active: bool
     is_last_response_bad: bool
     last_response_status: int
@@ -3723,9 +3951,14 @@ class RpmLoadMatch(TypedDict):
     owner: Any
 
 
-class RpmListMatch(TypedDict):
+class RpmListMatchRequired(TypedDict):
     identifier: Any
     owner: Any
+
+
+class RpmListMatch(RpmListMatchRequired, total=False):
+    page: int
+    page_size: int
 
 
 class RpmCreateDataRequired(TypedDict):
@@ -3737,6 +3970,7 @@ class RpmCreateDataRequired(TypedDict):
 
 
 class RpmCreateData(RpmCreateDataRequired, total=False):
+    data: dict
     auth_mode: str
     auth_secret: str
     auth_username: str
@@ -3768,6 +4002,7 @@ class RpmUpdateDataRequired(TypedDict):
 
 
 class RpmUpdateData(RpmUpdateDataRequired, total=False):
+    data: dict
     auth_mode: str
     auth_secret: str
     auth_username: str
@@ -3829,9 +4064,14 @@ class RubyLoadMatch(TypedDict):
     owner: Any
 
 
-class RubyListMatch(TypedDict):
+class RubyListMatchRequired(TypedDict):
     identifier: Any
     owner: Any
+
+
+class RubyListMatch(RubyListMatchRequired, total=False):
+    page: int
+    page_size: int
 
 
 class RubyCreateDataRequired(TypedDict):
@@ -3842,6 +4082,7 @@ class RubyCreateDataRequired(TypedDict):
 
 
 class RubyCreateData(RubyCreateDataRequired, total=False):
+    data: dict
     auth_mode: str
     auth_secret: str
     auth_username: str
@@ -3868,6 +4109,7 @@ class RubyUpdateDataRequired(TypedDict):
 
 
 class RubyUpdateData(RubyUpdateDataRequired, total=False):
+    data: dict
     auth_mode: str
     auth_secret: str
     auth_username: str
@@ -3922,8 +4164,15 @@ class ServiceLoadMatch(TypedDict):
     org_id: str
 
 
-class ServiceListMatch(TypedDict):
+class ServiceListMatchRequired(TypedDict):
     org_id: str
+
+
+class ServiceListMatch(ServiceListMatchRequired, total=False):
+    page: int
+    page_size: int
+    query: Any
+    sort: Any
 
 
 class ServiceCreateDataRequired(TypedDict):
@@ -3932,6 +4181,7 @@ class ServiceCreateDataRequired(TypedDict):
 
 
 class ServiceCreateData(ServiceCreateDataRequired, total=False):
+    data: dict
     created_at: str
     created_by: str
     created_by_url: str
@@ -3950,6 +4200,7 @@ class ServiceUpdateDataRequired(TypedDict):
 
 
 class ServiceUpdateData(ServiceUpdateDataRequired, total=False):
+    data: dict
     created_at: str
     created_by: str
     created_by_url: str
@@ -4026,9 +4277,14 @@ class SwiftLoadMatch(TypedDict):
     owner: Any
 
 
-class SwiftListMatch(TypedDict):
+class SwiftListMatchRequired(TypedDict):
     identifier: Any
     owner: Any
+
+
+class SwiftListMatch(SwiftListMatchRequired, total=False):
+    page: int
+    page_size: int
 
 
 class SwiftCreateDataRequired(TypedDict):
@@ -4039,6 +4295,7 @@ class SwiftCreateDataRequired(TypedDict):
 
 
 class SwiftCreateData(SwiftCreateDataRequired, total=False):
+    data: dict
     auth_mode: str
     auth_secret: str
     auth_username: str
@@ -4065,6 +4322,7 @@ class SwiftUpdateDataRequired(TypedDict):
 
 
 class SwiftUpdateData(SwiftUpdateDataRequired, total=False):
+    data: dict
     auth_mode: str
     auth_secret: str
     auth_username: str
@@ -4120,17 +4378,16 @@ class User(TypedDict, total=False):
 
 
 class UserListMatch(TypedDict, total=False):
-    created: str
-    key: str
-    slug_perm: str
+    page: int
+    page_size: int
 
 
 class UserAuthToken(TypedDict):
     pass
 
 
-class UserAuthTokenCreateData(TypedDict):
-    pass
+class UserAuthTokenCreateData(TypedDict, total=False):
+    data: dict
 
 
 class UserAuthenticationToken(TypedDict, total=False):
@@ -4222,8 +4479,13 @@ class Vulnerability(VulnerabilityRequired, total=False):
     num_vulnerabilities: int
 
 
-class VulnerabilityLoadMatch(TypedDict):
+class VulnerabilityLoadMatchRequired(TypedDict):
     id: str
+
+
+class VulnerabilityLoadMatch(VulnerabilityLoadMatchRequired, total=False):
+    page: int
+    page_size: int
 
 
 class VulnerabilityListMatchRequired(TypedDict):
@@ -4233,14 +4495,16 @@ class VulnerabilityListMatchRequired(TypedDict):
 
 class VulnerabilityListMatch(VulnerabilityListMatchRequired, total=False):
     package: Any
+    page: int
+    page_size: int
 
 
 class VulnerabilityPolicy(TypedDict):
     pass
 
 
-class Webhook(TypedDict):
-    pass
+class Webhook(TypedDict, total=False):
+    id: str
 
 
 class WebhookRemoveMatch(TypedDict):

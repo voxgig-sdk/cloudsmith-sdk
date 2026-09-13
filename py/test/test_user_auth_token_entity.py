@@ -85,7 +85,7 @@ def _user_auth_token_basic_setup(extra):
         "CLOUDSMITH_TEST_USER_AUTH_TOKEN_ENTID": idmap,
         "CLOUDSMITH_TEST_LIVE": "FALSE",
         "CLOUDSMITH_TEST_EXPLAIN": "FALSE",
-        "CLOUDSMITH_APIKEY": "NONE",
+        "CLOUDSMITH_APIKEY": "",
     })
 
     idmap_resolved = helpers.to_map(
@@ -95,6 +95,10 @@ def _user_auth_token_basic_setup(extra):
 
     if env.get("CLOUDSMITH_TEST_LIVE") == "TRUE":
         merged_opts = vs.merge([
+            # FIRST, so the generated fields below win: sdk-test-control.json's
+            # test.client.options adds to the live client, it does not
+            # redirect it.
+            runner.live_client_options(),
             {
                 "apikey": env.get("CLOUDSMITH_APIKEY"),
             },

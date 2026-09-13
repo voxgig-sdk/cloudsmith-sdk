@@ -52,7 +52,7 @@ func TestUserAuthTokenEntity(t *testing.T) {
 		// CREATE
 		userAuthTokenRef01Ent := client.UserAuthToken(nil)
 		userAuthTokenRef01Data := core.ToMapAny(vs.GetProp(
-			vs.GetPath([]any{"new", "user_auth_token"}, setup.data), "user_auth_token_ref01"))
+			vs.GetPath(setup.data, []any{"new", "user_auth_token"}), "user_auth_token_ref01"))
 
 		userAuthTokenRef01DataResult, err := userAuthTokenRef01Ent.Create(userAuthTokenRef01Data, nil)
 		if err != nil {
@@ -90,7 +90,7 @@ func user_auth_tokenBasicSetup(extra map[string]any) *entityTestSetup {
 	client := sdk.TestSDK(options, extra)
 
 	// Generate idmap via transform, matching TS pattern.
-	idmap := vs.Transform(
+	idmap, _ := vs.Transform(
 		[]any{"user_auth_token01", "user_auth_token02", "user_auth_token03"},
 		map[string]any{
 			"`$PACK`": []any{"", map[string]any{
@@ -110,7 +110,7 @@ func user_auth_tokenBasicSetup(extra map[string]any) *entityTestSetup {
 		"CLOUDSMITH_TEST_USER_AUTH_TOKEN_ENTID": idmap,
 		"CLOUDSMITH_TEST_LIVE":      "FALSE",
 		"CLOUDSMITH_TEST_EXPLAIN":   "FALSE",
-		"CLOUDSMITH_APIKEY":         "NONE",
+		"CLOUDSMITH_APIKEY":         "",
 	})
 
 	idmapResolved := core.ToMapAny(env["CLOUDSMITH_TEST_USER_AUTH_TOKEN_ENTID"])
@@ -119,11 +119,23 @@ func user_auth_tokenBasicSetup(extra map[string]any) *entityTestSetup {
 	}
 
 	if env["CLOUDSMITH_TEST_LIVE"] == "TRUE" {
+		// An empty map, not a nil one: Merge returns nil when its last entry
+		// is nil, and BasicSetup is normally called with no extras - so a
+		// bare nil silently discarded the apikey and server values below.
+		extraOpts := extra
+		if extraOpts == nil {
+			extraOpts = map[string]any{}
+		}
+
 		mergedOpts := vs.Merge([]any{
+			// liveClientOptions() FIRST, so the generated fields below win:
+			// sdk-test-control.json's test.client.options adds to the live
+			// client, it does not redirect it.
+			liveClientOptions(),
 			map[string]any{
 				"apikey": env["CLOUDSMITH_APIKEY"],
 			},
-			extra,
+			extraOpts,
 		})
 		client = sdk.NewCloudsmithSDK(core.ToMapAny(mergedOpts))
 	}

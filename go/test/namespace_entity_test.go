@@ -98,7 +98,7 @@ func TestNamespaceEntity(t *testing.T) {
 		client := setup.client
 
 		// Bootstrap entity data from existing test data (no create step in flow).
-		namespaceRef01DataRaw := vs.Items(core.ToMapAny(vs.GetPath("existing.namespace", setup.data)))
+		namespaceRef01DataRaw := vs.Items(core.ToMapAny(vs.GetPath(setup.data, "existing.namespace")))
 		var namespaceRef01Data map[string]any
 		if len(namespaceRef01DataRaw) > 0 {
 			namespaceRef01Data = core.ToMapAny(namespaceRef01DataRaw[0][1])
@@ -163,7 +163,7 @@ func namespaceBasicSetup(extra map[string]any) *entityTestSetup {
 	client := sdk.TestSDK(options, extra)
 
 	// Generate idmap via transform, matching TS pattern.
-	idmap := vs.Transform(
+	idmap, _ := vs.Transform(
 		[]any{"namespace01", "namespace02", "namespace03"},
 		map[string]any{
 			"`$PACK`": []any{"", map[string]any{
@@ -183,7 +183,7 @@ func namespaceBasicSetup(extra map[string]any) *entityTestSetup {
 		"CLOUDSMITH_TEST_NAMESPACE_ENTID": idmap,
 		"CLOUDSMITH_TEST_LIVE":      "FALSE",
 		"CLOUDSMITH_TEST_EXPLAIN":   "FALSE",
-		"CLOUDSMITH_APIKEY":         "NONE",
+		"CLOUDSMITH_APIKEY":         "",
 	})
 
 	idmapResolved := core.ToMapAny(env["CLOUDSMITH_TEST_NAMESPACE_ENTID"])
@@ -192,11 +192,23 @@ func namespaceBasicSetup(extra map[string]any) *entityTestSetup {
 	}
 
 	if env["CLOUDSMITH_TEST_LIVE"] == "TRUE" {
+		// An empty map, not a nil one: Merge returns nil when its last entry
+		// is nil, and BasicSetup is normally called with no extras - so a
+		// bare nil silently discarded the apikey and server values below.
+		extraOpts := extra
+		if extraOpts == nil {
+			extraOpts = map[string]any{}
+		}
+
 		mergedOpts := vs.Merge([]any{
+			// liveClientOptions() FIRST, so the generated fields below win:
+			// sdk-test-control.json's test.client.options adds to the live
+			// client, it does not redirect it.
+			liveClientOptions(),
 			map[string]any{
 				"apikey": env["CLOUDSMITH_APIKEY"],
 			},
-			extra,
+			extraOpts,
 		})
 		client = sdk.NewCloudsmithSDK(core.ToMapAny(mergedOpts))
 	}

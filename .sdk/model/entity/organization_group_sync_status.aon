@@ -7,6 +7,7 @@ main: kit: entity: organization_group_sync_status: {
   fields: [
     {
       name: "saml_group_sync_status"
+      readOnly: true
       req: false
       type: "`$BOOLEAN`"
     }
@@ -31,17 +32,25 @@ main: kit: entity: organization_group_sync_status: {
           }
           method: "GET"
           orig: "/orgs/{org}/saml-group-sync/status/"
-          parts: [
-            "orgs"
-            "{org_id}"
-            "saml-group-sync"
-            "status"
-          ]
           rename: {
             param: {
               org: "org_id"
             }
           }
+          segments: [
+            {
+              lit: "orgs"
+            }
+            {
+              var: "org_id"
+            }
+            {
+              lit: "saml-group-sync"
+            }
+            {
+              lit: "status"
+            }
+          ]
           select: {
             exist: [
               "org_id"

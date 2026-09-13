@@ -48,9 +48,13 @@ class PackageVersionBadgeEntityTest extends TestCase
 
         // LOAD
         $package_version_badge_ref01_ent = $client->PackageVersionBadge(null);
-        $package_version_badge_ref01_match_dt0 = [];
+        $package_version_badge_ref01_match_dt0 = [
+            "id" => $package_version_badge_ref01_data["id"],
+        ];
         $package_version_badge_ref01_data_dt0_loaded = $package_version_badge_ref01_ent->load($package_version_badge_ref01_match_dt0, null);
-        $this->assertNotNull($package_version_badge_ref01_data_dt0_loaded);
+        $package_version_badge_ref01_data_dt0_load_result = Helpers::to_map(is_object($package_version_badge_ref01_data_dt0_loaded) && method_exists($package_version_badge_ref01_data_dt0_loaded, 'data_get') ? $package_version_badge_ref01_data_dt0_loaded->data_get() : $package_version_badge_ref01_data_dt0_loaded);
+        $this->assertNotNull($package_version_badge_ref01_data_dt0_load_result);
+        $this->assertEquals($package_version_badge_ref01_data_dt0_load_result["id"], $package_version_badge_ref01_data["id"]);
 
     }
 }
@@ -84,7 +88,7 @@ function package_version_badge_basic_setup($extra)
         "CLOUDSMITH_TEST_PACKAGE_VERSION_BADGE_ENTID" => $idmap,
         "CLOUDSMITH_TEST_LIVE" => "FALSE",
         "CLOUDSMITH_TEST_EXPLAIN" => "FALSE",
-        "CLOUDSMITH_APIKEY" => "NONE",
+        "CLOUDSMITH_APIKEY" => "",
     ]);
 
     $idmap_resolved = Helpers::to_map(
@@ -95,12 +99,27 @@ function package_version_badge_basic_setup($extra)
 
     if ($env["CLOUDSMITH_TEST_LIVE"] === "TRUE") {
         $merged_opts = Vs::merge([
+            // FIRST, so the generated fields below win: sdk-test-control.json's
+            // test.client.options adds to the live client, it does not redirect it.
+            Runner::live_client_options(),
             [
                 "apikey" => $env["CLOUDSMITH_APIKEY"],
             ],
-            $extra ?? [],
+            // ismap, not a plain "?? []" default: an empty PHP array is a
+            // LIST, and a non-map later entry REPLACES the accumulated map in
+            // merge - so the no-extras call discarded live_client_options()
+            // and the apikey/server map above it.
+            Vs::ismap($extra) ? $extra : new \stdClass(),
         ]);
-        $client = new CloudsmithSDK(Helpers::to_map($merged_opts));
+        // "?? []" because merge legitimately answers with a stdClass when every
+        // contributing entry is an EMPTY map - an SDK with no apikey and no
+        // server variables generates an empty middle entry, so that is the
+        // common case, not the edge one. to_map returns null for a non-array by
+        // design, and the constructor takes a non-nullable array, so without the
+        // fallback every such SDK died on "must be of type array, null given"
+        // the moment live mode was switched on. Offline mode never reaches this
+        // branch, which is why the offline suite stayed green.
+        $client = new CloudsmithSDK(Helpers::to_map($merged_opts) ?? []);
     }
 
     $live = $env["CLOUDSMITH_TEST_LIVE"] === "TRUE";

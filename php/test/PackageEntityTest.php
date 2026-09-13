@@ -88,6 +88,7 @@ class PackageEntityTest extends TestCase
         $package_ref01_data_result = $package_ref01_ent->create($package_ref01_data, null);
         $package_ref01_data = Helpers::to_map(is_object($package_ref01_data_result) && method_exists($package_ref01_data_result, 'data_get') ? $package_ref01_data_result->data_get() : $package_ref01_data_result);
         $this->assertNotNull($package_ref01_data);
+        $this->assertNotNull($package_ref01_data["id"]);
 
         // LIST
         $package_ref01_match = [
@@ -99,11 +100,25 @@ class PackageEntityTest extends TestCase
         $package_ref01_list_result = $package_ref01_ent->list($package_ref01_match, null);
         $this->assertIsArray($package_ref01_list_result);
 
-        // LOAD
-        $package_ref01_match_dt0 = [];
-        $package_ref01_data_dt0_loaded = $package_ref01_ent->load($package_ref01_match_dt0, null);
-        $this->assertNotNull($package_ref01_data_dt0_loaded);
+        $found_item = sdk_select(
+            Runner::entity_list_to_data($package_ref01_list_result),
+            ["id" => $package_ref01_data["id"]]);
+        $this->assertNotEmpty($found_item);
 
+        // LOAD
+        $package_ref01_match_dt0 = [
+            "id" => $package_ref01_data["id"],
+        ];
+        $package_ref01_data_dt0_loaded = $package_ref01_ent->load($package_ref01_match_dt0, null);
+        $package_ref01_data_dt0_load_result = Helpers::to_map(is_object($package_ref01_data_dt0_loaded) && method_exists($package_ref01_data_dt0_loaded, 'data_get') ? $package_ref01_data_dt0_loaded->data_get() : $package_ref01_data_dt0_loaded);
+        $this->assertNotNull($package_ref01_data_dt0_load_result);
+        $this->assertEquals($package_ref01_data_dt0_load_result["id"], $package_ref01_data["id"]);
+
+        // REMOVE
+        $package_ref01_match_rm0 = [
+            "id" => $package_ref01_data["id"],
+        ];
+        $package_ref01_ent->remove($package_ref01_match_rm0, null);
 
         // LIST
         $package_ref01_match_rt0 = [
@@ -114,6 +129,11 @@ class PackageEntityTest extends TestCase
 
         $package_ref01_list_rt0_result = $package_ref01_ent->list($package_ref01_match_rt0, null);
         $this->assertIsArray($package_ref01_list_rt0_result);
+
+        $not_found_item = sdk_select(
+            Runner::entity_list_to_data($package_ref01_list_rt0_result),
+            ["id" => $package_ref01_data["id"]]);
+        $this->assertEmpty($not_found_item);
 
     }
 }
@@ -147,7 +167,7 @@ function package_basic_setup($extra)
         "CLOUDSMITH_TEST_PACKAGE_ENTID" => $idmap,
         "CLOUDSMITH_TEST_LIVE" => "FALSE",
         "CLOUDSMITH_TEST_EXPLAIN" => "FALSE",
-        "CLOUDSMITH_APIKEY" => "NONE",
+        "CLOUDSMITH_APIKEY" => "",
     ]);
 
     $idmap_resolved = Helpers::to_map(
@@ -158,12 +178,27 @@ function package_basic_setup($extra)
 
     if ($env["CLOUDSMITH_TEST_LIVE"] === "TRUE") {
         $merged_opts = Vs::merge([
+            // FIRST, so the generated fields below win: sdk-test-control.json's
+            // test.client.options adds to the live client, it does not redirect it.
+            Runner::live_client_options(),
             [
                 "apikey" => $env["CLOUDSMITH_APIKEY"],
             ],
-            $extra ?? [],
+            // ismap, not a plain "?? []" default: an empty PHP array is a
+            // LIST, and a non-map later entry REPLACES the accumulated map in
+            // merge - so the no-extras call discarded live_client_options()
+            // and the apikey/server map above it.
+            Vs::ismap($extra) ? $extra : new \stdClass(),
         ]);
-        $client = new CloudsmithSDK(Helpers::to_map($merged_opts));
+        // "?? []" because merge legitimately answers with a stdClass when every
+        // contributing entry is an EMPTY map - an SDK with no apikey and no
+        // server variables generates an empty middle entry, so that is the
+        // common case, not the edge one. to_map returns null for a non-array by
+        // design, and the constructor takes a non-nullable array, so without the
+        // fallback every such SDK died on "must be of type array, null given"
+        // the moment live mode was switched on. Offline mode never reaches this
+        // branch, which is why the offline suite stayed green.
+        $client = new CloudsmithSDK(Helpers::to_map($merged_opts) ?? []);
     }
 
     $live = $env["CLOUDSMITH_TEST_LIVE"] === "TRUE";

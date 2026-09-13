@@ -48,7 +48,7 @@ func TestAuditLogEntity(t *testing.T) {
 			return
 		}
 		// Bootstrap entity data from existing test data (no create step in flow).
-		auditLogRef01DataRaw := vs.Items(core.ToMapAny(vs.GetPath("existing.audit_log", setup.data)))
+		auditLogRef01DataRaw := vs.Items(core.ToMapAny(vs.GetPath(setup.data, "existing.audit_log")))
 		var auditLogRef01Data map[string]any
 		if len(auditLogRef01DataRaw) > 0 {
 			auditLogRef01Data = core.ToMapAny(auditLogRef01DataRaw[0][1])
@@ -84,7 +84,7 @@ func audit_logBasicSetup(extra map[string]any) *entityTestSetup {
 	client := sdk.TestSDK(options, extra)
 
 	// Generate idmap via transform, matching TS pattern.
-	idmap := vs.Transform(
+	idmap, _ := vs.Transform(
 		[]any{"audit_log01", "audit_log02", "audit_log03"},
 		map[string]any{
 			"`$PACK`": []any{"", map[string]any{
@@ -104,7 +104,7 @@ func audit_logBasicSetup(extra map[string]any) *entityTestSetup {
 		"CLOUDSMITH_TEST_AUDIT_LOG_ENTID": idmap,
 		"CLOUDSMITH_TEST_LIVE":      "FALSE",
 		"CLOUDSMITH_TEST_EXPLAIN":   "FALSE",
-		"CLOUDSMITH_APIKEY":         "NONE",
+		"CLOUDSMITH_APIKEY":         "",
 	})
 
 	idmapResolved := core.ToMapAny(env["CLOUDSMITH_TEST_AUDIT_LOG_ENTID"])
@@ -113,11 +113,23 @@ func audit_logBasicSetup(extra map[string]any) *entityTestSetup {
 	}
 
 	if env["CLOUDSMITH_TEST_LIVE"] == "TRUE" {
+		// An empty map, not a nil one: Merge returns nil when its last entry
+		// is nil, and BasicSetup is normally called with no extras - so a
+		// bare nil silently discarded the apikey and server values below.
+		extraOpts := extra
+		if extraOpts == nil {
+			extraOpts = map[string]any{}
+		}
+
 		mergedOpts := vs.Merge([]any{
+			// liveClientOptions() FIRST, so the generated fields below win:
+			// sdk-test-control.json's test.client.options adds to the live
+			// client, it does not redirect it.
+			liveClientOptions(),
 			map[string]any{
 				"apikey": env["CLOUDSMITH_APIKEY"],
 			},
-			extra,
+			extraOpts,
 		})
 		client = sdk.NewCloudsmithSDK(core.ToMapAny(mergedOpts))
 	}

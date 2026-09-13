@@ -107,15 +107,18 @@ def _distribution_full_direct_setup(mockres):
     env = runner.env_override({
         "CLOUDSMITH_TEST_DISTRIBUTION_FULL_ENTID": {},
         "CLOUDSMITH_TEST_LIVE": "FALSE",
-        "CLOUDSMITH_APIKEY": "NONE",
+        "CLOUDSMITH_APIKEY": "",
     })
 
     live = env.get("CLOUDSMITH_TEST_LIVE") == "TRUE"
 
     if live:
-        merged_opts = {
+        # sdk-test-control.json's test.client.options seeds the live
+        # client; the generated fields below overwrite anything they name.
+        merged_opts = dict(runner.live_client_options())
+        merged_opts.update({
             "apikey": env.get("CLOUDSMITH_APIKEY"),
-        }
+        })
         client = CloudsmithSDK(merged_opts)
         return {
             "client": client,

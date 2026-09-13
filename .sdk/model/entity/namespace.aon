@@ -12,21 +12,27 @@ main: kit: entity: namespace: {
     }
     {
       name: "name"
+      readOnly: true
       req: false
       type: "`$STRING`"
     }
     {
+      format: "slug"
       name: "slug"
+      readOnly: true
       req: false
       type: "`$STRING`"
     }
     {
+      format: "slug"
       name: "slug_perm"
+      readOnly: true
       req: false
       type: "`$STRING`"
     }
     {
       name: "type_name"
+      readOnly: true
       req: false
       type: "`$STRING`"
     }
@@ -63,8 +69,10 @@ main: kit: entity: namespace: {
           }
           method: "GET"
           orig: "/namespaces/"
-          parts: [
-            "namespaces"
+          segments: [
+            {
+              lit: "namespaces"
+            }
           ]
           select: {
             exist: [
@@ -96,15 +104,19 @@ main: kit: entity: namespace: {
           }
           method: "GET"
           orig: "/namespaces/{slug}/"
-          parts: [
-            "namespaces"
-            "{id}"
-          ]
           rename: {
             param: {
               slug: "id"
             }
           }
+          segments: [
+            {
+              lit: "namespaces"
+            }
+            {
+              var: "id"
+            }
+          ]
           select: {
             exist: [
               "id"

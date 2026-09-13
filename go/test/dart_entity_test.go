@@ -101,7 +101,7 @@ func TestDartEntity(t *testing.T) {
 		// CREATE
 		dartRef01Ent := client.Dart(nil)
 		dartRef01Data := core.ToMapAny(vs.GetProp(
-			vs.GetPath([]any{"new", "dart"}, setup.data), "dart_ref01"))
+			vs.GetPath(setup.data, []any{"new", "dart"}), "dart_ref01"))
 		dartRef01Data["identifier"] = setup.idmap["identifier01"]
 		dartRef01Data["owner"] = setup.idmap["owner01"]
 
@@ -206,7 +206,7 @@ func dartBasicSetup(extra map[string]any) *entityTestSetup {
 	client := sdk.TestSDK(options, extra)
 
 	// Generate idmap via transform, matching TS pattern.
-	idmap := vs.Transform(
+	idmap, _ := vs.Transform(
 		[]any{"dart01", "dart02", "dart03", "package01", "package02", "package03", "repo01", "repo02", "repo03", "identifier01", "owner01"},
 		map[string]any{
 			"`$PACK`": []any{"", map[string]any{
@@ -226,7 +226,7 @@ func dartBasicSetup(extra map[string]any) *entityTestSetup {
 		"CLOUDSMITH_TEST_DART_ENTID": idmap,
 		"CLOUDSMITH_TEST_LIVE":      "FALSE",
 		"CLOUDSMITH_TEST_EXPLAIN":   "FALSE",
-		"CLOUDSMITH_APIKEY":         "NONE",
+		"CLOUDSMITH_APIKEY":         "",
 	})
 
 	idmapResolved := core.ToMapAny(env["CLOUDSMITH_TEST_DART_ENTID"])
@@ -243,11 +243,23 @@ func dartBasicSetup(extra map[string]any) *entityTestSetup {
 	}
 
 	if env["CLOUDSMITH_TEST_LIVE"] == "TRUE" {
+		// An empty map, not a nil one: Merge returns nil when its last entry
+		// is nil, and BasicSetup is normally called with no extras - so a
+		// bare nil silently discarded the apikey and server values below.
+		extraOpts := extra
+		if extraOpts == nil {
+			extraOpts = map[string]any{}
+		}
+
 		mergedOpts := vs.Merge([]any{
+			// liveClientOptions() FIRST, so the generated fields below win:
+			// sdk-test-control.json's test.client.options adds to the live
+			// client, it does not redirect it.
+			liveClientOptions(),
 			map[string]any{
 				"apikey": env["CLOUDSMITH_APIKEY"],
 			},
-			extra,
+			extraOpts,
 		})
 		client = sdk.NewCloudsmithSDK(core.ToMapAny(mergedOpts))
 	}

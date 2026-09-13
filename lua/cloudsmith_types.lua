@@ -43,10 +43,13 @@
 ---@class CargoListMatch
 ---@field identifier any
 ---@field owner any
+---@field page? number
+---@field page_size? number
 
 ---@class CargoCreateData
 ---@field identifier any
 ---@field owner any
+---@field data? table
 ---@field auth_mode? string
 ---@field auth_secret? string
 ---@field auth_username? string
@@ -71,6 +74,7 @@
 ---@field id string
 ---@field identifier any
 ---@field owner any
+---@field data? table
 ---@field auth_mode? string
 ---@field auth_secret? string
 ---@field auth_username? string
@@ -123,10 +127,13 @@
 ---@class ComposerListMatch
 ---@field identifier any
 ---@field owner any
+---@field page? number
+---@field page_size? number
 
 ---@class ComposerCreateData
 ---@field identifier any
 ---@field owner any
+---@field data? table
 ---@field auth_mode? string
 ---@field auth_secret? string
 ---@field auth_username? string
@@ -151,6 +158,7 @@
 ---@field id string
 ---@field identifier any
 ---@field owner any
+---@field data? table
 ---@field auth_mode? string
 ---@field auth_secret? string
 ---@field auth_username? string
@@ -201,10 +209,13 @@
 ---@class CondaListMatch
 ---@field identifier any
 ---@field owner any
+---@field page? number
+---@field page_size? number
 
 ---@class CondaCreateData
 ---@field identifier any
 ---@field owner any
+---@field data? table
 ---@field auth_mode? string
 ---@field auth_secret? string
 ---@field auth_username? string
@@ -229,6 +240,7 @@
 ---@field id string
 ---@field identifier any
 ---@field owner any
+---@field data? table
 ---@field auth_mode? string
 ---@field auth_secret? string
 ---@field auth_username? string
@@ -279,10 +291,13 @@
 ---@class CranListMatch
 ---@field identifier any
 ---@field owner any
+---@field page? number
+---@field page_size? number
 
 ---@class CranCreateData
 ---@field identifier any
 ---@field owner any
+---@field data? table
 ---@field auth_mode? string
 ---@field auth_secret? string
 ---@field auth_username? string
@@ -307,6 +322,7 @@
 ---@field id string
 ---@field identifier any
 ---@field owner any
+---@field data? table
 ---@field auth_mode? string
 ---@field auth_secret? string
 ---@field auth_username? string
@@ -355,10 +371,13 @@
 ---@class DartListMatch
 ---@field identifier any
 ---@field owner any
+---@field page? number
+---@field page_size? number
 
 ---@class DartCreateData
 ---@field identifier any
 ---@field owner any
+---@field data? table
 ---@field auth_mode? string
 ---@field auth_secret? string
 ---@field auth_username? string
@@ -383,6 +402,7 @@
 ---@field id string
 ---@field identifier any
 ---@field owner any
+---@field data? table
 ---@field auth_mode? string
 ---@field auth_secret? string
 ---@field auth_username? string
@@ -439,10 +459,13 @@
 ---@class DebListMatch
 ---@field identifier any
 ---@field owner any
+---@field page? number
+---@field page_size? number
 
 ---@class DebCreateData
 ---@field identifier any
 ---@field owner any
+---@field data? table
 ---@field auth_mode? string
 ---@field auth_secret? string
 ---@field auth_username? string
@@ -475,6 +498,7 @@
 ---@field id string
 ---@field identifier any
 ---@field owner any
+---@field data? table
 ---@field auth_mode? string
 ---@field auth_secret? string
 ---@field auth_username? string
@@ -560,10 +584,13 @@
 ---@class DockerListMatch
 ---@field identifier any
 ---@field owner any
+---@field page? number
+---@field page_size? number
 
 ---@class DockerCreateData
 ---@field identifier any
 ---@field owner any
+---@field data? table
 ---@field auth_mode? string
 ---@field auth_secret? string
 ---@field auth_username? string
@@ -588,6 +615,7 @@
 ---@field id string
 ---@field identifier any
 ---@field owner any
+---@field data? table
 ---@field auth_mode? string
 ---@field auth_secret? string
 ---@field auth_username? string
@@ -620,6 +648,8 @@
 ---@class DynamicMappingListMatch
 ---@field org_id string
 ---@field provider_setting any
+---@field page? number
+---@field page_size? number
 
 ---@class Ecdsa
 
@@ -635,11 +665,17 @@
 
 ---@class EntitlementLoadMatch
 ---@field id string
+---@field finish? any
+---@field page? number
+---@field page_size? number
+---@field start? any
+---@field token? string
 
 ---@class EntitlementCreateData
 ---@field identifier any
 ---@field owner any
 ---@field repo any
+---@field show_token? any
 ---@field active? number
 ---@field bandwidth table
 ---@field downloads table
@@ -660,6 +696,7 @@
 ---@field identifier? any
 ---@field owner any
 ---@field repo any
+---@field data? table
 
 ---@class Format
 ---@field description string
@@ -718,10 +755,13 @@
 ---@class GonListMatch
 ---@field identifier any
 ---@field owner any
+---@field page? number
+---@field page_size? number
 
 ---@class GonCreateData
 ---@field identifier any
 ---@field owner any
+---@field data? table
 ---@field auth_mode? string
 ---@field auth_secret? string
 ---@field auth_username? string
@@ -745,6 +785,7 @@
 ---@field identifier any
 ---@field owner any
 ---@field slug_perm any
+---@field data? table
 ---@field auth_mode? string
 ---@field auth_secret? string
 ---@field auth_username? string
@@ -796,10 +837,13 @@
 ---@class HelmListMatch
 ---@field identifier any
 ---@field owner any
+---@field page? number
+---@field page_size? number
 
 ---@class HelmCreateData
 ---@field identifier any
 ---@field owner any
+---@field data? table
 ---@field auth_mode? string
 ---@field auth_secret? string
 ---@field auth_username? string
@@ -824,6 +868,7 @@
 ---@field id string
 ---@field identifier any
 ---@field owner any
+---@field data? table
 ---@field auth_mode? string
 ---@field auth_secret? string
 ---@field auth_username? string
@@ -872,10 +917,13 @@
 ---@class HexListMatch
 ---@field identifier any
 ---@field owner any
+---@field page? number
+---@field page_size? number
 
 ---@class HexCreateData
 ---@field identifier any
 ---@field owner any
+---@field data? table
 ---@field auth_mode? string
 ---@field auth_secret? string
 ---@field auth_username? string
@@ -900,6 +948,7 @@
 ---@field id string
 ---@field identifier any
 ---@field owner any
+---@field data? table
 ---@field auth_mode? string
 ---@field auth_secret? string
 ---@field auth_username? string
@@ -950,10 +999,13 @@
 ---@class HuggingfaceListMatch
 ---@field identifier any
 ---@field owner any
+---@field page? number
+---@field page_size? number
 
 ---@class HuggingfaceCreateData
 ---@field identifier any
 ---@field owner any
+---@field data? table
 ---@field auth_mode? string
 ---@field auth_secret? string
 ---@field auth_username? string
@@ -978,6 +1030,7 @@
 ---@field id string
 ---@field identifier any
 ---@field owner any
+---@field data? table
 ---@field auth_mode? string
 ---@field auth_secret? string
 ---@field auth_username? string
@@ -1040,10 +1093,13 @@
 ---@class MavenListMatch
 ---@field identifier any
 ---@field owner any
+---@field page? number
+---@field page_size? number
 
 ---@class MavenCreateData
 ---@field identifier any
 ---@field owner any
+---@field data? table
 ---@field auth_mode? string
 ---@field auth_secret? string
 ---@field auth_username? string
@@ -1072,6 +1128,7 @@
 ---@field id string
 ---@field identifier any
 ---@field owner any
+---@field data? table
 ---@field auth_mode? string
 ---@field auth_secret? string
 ---@field auth_username? string
@@ -1110,11 +1167,8 @@
 ---@field id string
 
 ---@class NamespaceListMatch
----@field id? string
----@field name? string
----@field slug? string
----@field slug_perm? string
----@field type_name? string
+---@field page? number
+---@field page_size? number
 
 ---@class NamespaceAuditLog
 ---@field actor string
@@ -1137,6 +1191,9 @@
 
 ---@class NamespaceAuditLogLoadMatch
 ---@field id string
+---@field page? number
+---@field page_size? number
+---@field query? any
 
 ---@class Npm
 ---@field auth_mode? string
@@ -1167,10 +1224,13 @@
 ---@class NpmListMatch
 ---@field identifier any
 ---@field owner any
+---@field page? number
+---@field page_size? number
 
 ---@class NpmCreateData
 ---@field identifier any
 ---@field owner any
+---@field data? table
 ---@field auth_mode? string
 ---@field auth_secret? string
 ---@field auth_username? string
@@ -1195,6 +1255,7 @@
 ---@field id string
 ---@field identifier any
 ---@field owner any
+---@field data? table
 ---@field auth_mode? string
 ---@field auth_secret? string
 ---@field auth_username? string
@@ -1243,10 +1304,13 @@
 ---@class NugetListMatch
 ---@field identifier any
 ---@field owner any
+---@field page? number
+---@field page_size? number
 
 ---@class NugetCreateData
 ---@field identifier any
 ---@field owner any
+---@field data? table
 ---@field auth_mode? string
 ---@field auth_secret? string
 ---@field auth_username? string
@@ -1271,6 +1335,7 @@
 ---@field id string
 ---@field identifier any
 ---@field owner any
+---@field data? table
 ---@field auth_mode? string
 ---@field auth_secret? string
 ---@field auth_username? string
@@ -1312,19 +1377,8 @@
 ---@field member_id? string
 
 ---@class OrgListMatch
----@field country? string
----@field created_at? string
----@field event_at? string
----@field id? string
----@field location? string
----@field name? string
----@field package? table
----@field policy? table
----@field reasons? table
----@field slug? string
----@field slug_perm? string
----@field tagline? string
----@field vulnerability_scan_results? table
+---@field page? number
+---@field page_size? number
 
 ---@class OrgCreateData
 ---@field id string
@@ -1345,6 +1399,7 @@
 ---@class OrgUpdateData
 ---@field id string
 ---@field team_id string
+---@field data? table
 ---@field country? string
 ---@field created_at? string
 ---@field event_at? string
@@ -1374,9 +1429,12 @@
 
 ---@class OrganizationGroupSyncListMatch
 ---@field org_id string
+---@field page? number
+---@field page_size? number
 
 ---@class OrganizationGroupSyncCreateData
 ---@field org_id string
+---@field data? table
 ---@field idp_key string
 ---@field idp_value string
 ---@field role? string
@@ -1404,9 +1462,12 @@
 
 ---@class OrganizationInviteListMatch
 ---@field org_id string
+---@field page? number
+---@field page_size? number
 
 ---@class OrganizationInviteCreateData
 ---@field org_id string
+---@field data? table
 ---@field email? string
 ---@field expires_at? string
 ---@field id? string
@@ -1422,6 +1483,7 @@
 ---@class OrganizationInviteUpdateData
 ---@field id string
 ---@field org_id string
+---@field data? table
 ---@field email? string
 ---@field expires_at? string
 ---@field inviter? string
@@ -1478,10 +1540,16 @@
 
 ---@class OrganizationMembershipListMatch
 ---@field org_id string
+---@field is_active? boolean
+---@field page? number
+---@field page_size? number
+---@field query? any
+---@field sort? any
 
 ---@class OrganizationMembershipUpdateData
 ---@field member any
 ---@field org_id string
+---@field data? table
 ---@field email? string
 ---@field has_two_factor? boolean
 ---@field is_active? boolean
@@ -1511,6 +1579,7 @@
 ---@class OrganizationMembershipRoleUpdateUpdateData
 ---@field member_id string
 ---@field org_id string
+---@field data? table
 ---@field email? string
 ---@field has_two_factor? boolean
 ---@field joined_at? string
@@ -1539,6 +1608,7 @@
 ---@class OrganizationMembershipVisibilityUpdateUpdateData
 ---@field member_id string
 ---@field org_id string
+---@field data? table
 ---@field email? string
 ---@field has_two_factor? boolean
 ---@field joined_at? string
@@ -1569,9 +1639,12 @@
 
 ---@class OrganizationPackageLicensePolicyListMatch
 ---@field org_id string
+---@field page? number
+---@field page_size? number
 
 ---@class OrganizationPackageLicensePolicyCreateData
 ---@field org_id string
+---@field data? table
 ---@field allow_unknown_licenses? boolean
 ---@field created_at? string
 ---@field description? string
@@ -1586,6 +1659,7 @@
 ---@class OrganizationPackageLicensePolicyUpdateData
 ---@field id string
 ---@field org_id string
+---@field data? table
 ---@field allow_unknown_licenses? boolean
 ---@field created_at? string
 ---@field description? string
@@ -1614,9 +1688,12 @@
 
 ---@class OrganizationPackageVulnerabilityPolicyListMatch
 ---@field org_id string
+---@field page? number
+---@field page_size? number
 
 ---@class OrganizationPackageVulnerabilityPolicyCreateData
 ---@field org_id string
+---@field data? table
 ---@field allow_unknown_severity? boolean
 ---@field created_at? string
 ---@field description? string
@@ -1631,6 +1708,7 @@
 ---@class OrganizationPackageVulnerabilityPolicyUpdateData
 ---@field id string
 ---@field org_id string
+---@field data? table
 ---@field allow_unknown_severity? boolean
 ---@field created_at? string
 ---@field description? string
@@ -1652,6 +1730,7 @@
 
 ---@class OrganizationSamlAuthUpdateData
 ---@field org_id string
+---@field data? table
 ---@field saml_auth_enabled? boolean
 ---@field saml_auth_enforced? boolean
 ---@field saml_metadata_inline? string
@@ -1671,9 +1750,15 @@
 
 ---@class OrganizationTeamListMatch
 ---@field org_id string
+---@field for_user? any
+---@field page? number
+---@field page_size? number
+---@field query? any
+---@field sort? any
 
 ---@class OrganizationTeamCreateData
 ---@field org_id string
+---@field data? table
 ---@field description? string
 ---@field id? string
 ---@field name string
@@ -1684,6 +1769,7 @@
 ---@class OrganizationTeamUpdateData
 ---@field id string
 ---@field org_id string
+---@field data? table
 ---@field description? string
 ---@field name? string
 ---@field slug? string
@@ -1701,6 +1787,7 @@
 ---@class OrganizationTeamMemberCreateData
 ---@field org_id string
 ---@field team_id string
+---@field data? table
 ---@field role string
 ---@field user string
 
@@ -1735,6 +1822,7 @@
 ---@field format_url? string
 ---@field freeable_storage? number
 ---@field fully_qualified_name? string
+---@field id? string
 ---@field identifier_perm? string
 ---@field identifiers? table
 ---@field inactive? number
@@ -1804,17 +1892,28 @@
 ---@class PackageLoadMatch
 ---@field owner any
 ---@field repo any
+---@field finish? any
+---@field package? any
+---@field page? number
+---@field page_size? number
+---@field start? any
 ---@field identifier? any
 
 ---@class PackageListMatch
 ---@field owner any
 ---@field repo any
+---@field group_by? any
+---@field page? number
+---@field page_size? number
+---@field query? any
+---@field sort? any
 ---@field identifier? any
 
 ---@class PackageCreateData
 ---@field identifier? any
 ---@field owner any
 ---@field repo any
+---@field data? table
 ---@field active? number
 ---@field architectures? table
 ---@field backend_kind? number
@@ -1841,6 +1940,7 @@
 ---@field format_url? string
 ---@field freeable_storage? number
 ---@field fully_qualified_name? string
+---@field id? string
 ---@field identifier_perm? string
 ---@field identifiers? table
 ---@field inactive? number
@@ -1930,9 +2030,12 @@
 
 ---@class PackageDenyPolicyListMatch
 ---@field org_id string
+---@field page? number
+---@field page_size? number
 
 ---@class PackageDenyPolicyCreateData
 ---@field org_id string
+---@field data? table
 ---@field action? string
 ---@field created_at? string
 ---@field description? string
@@ -1947,6 +2050,7 @@
 ---@class PackageDenyPolicyUpdateData
 ---@field id string
 ---@field org_id string
+---@field data? table
 ---@field action? string
 ---@field created_at? string
 ---@field description? string
@@ -1966,6 +2070,8 @@
 ---@field identifier any
 ---@field owner any
 ---@field repo any
+---@field filename any
+---@field part_number? number
 
 ---@class PackageFileUpload
 
@@ -1973,6 +2079,7 @@
 ---@field identifier any
 ---@field owner any
 ---@field repo any
+---@field data? table
 
 ---@class PackageLicensePolicyEvaluation
 ---@field allow_unknown_licenses? boolean
@@ -1999,10 +2106,13 @@
 ---@class PackageLicensePolicyEvaluationListMatch
 ---@field org_id string
 ---@field policy_slug_perm any
+---@field page? number
+---@field page_size? number
 
 ---@class PackageLicensePolicyEvaluationCreateData
 ---@field org_id string
 ---@field policy_slug_perm any
+---@field data? table
 ---@field allow_unknown_licenses? boolean
 ---@field created_at? string
 ---@field description? string
@@ -2020,6 +2130,7 @@
 ---@field violation_count? number
 
 ---@class PackageVersionBadge
+---@field id? string
 
 ---@class PackageVersionBadgeLoadMatch
 ---@field owner any
@@ -2028,6 +2139,17 @@
 ---@field package_name any
 ---@field package_version any
 ---@field repo any
+---@field badge_token? any
+---@field cache_second? any
+---@field color? any
+---@field label? string
+---@field label_color? any
+---@field logo_color? any
+---@field logo_width? any
+---@field render? any
+---@field shield? any
+---@field show_latest? any
+---@field style? any
 
 ---@class PackageVulnerabilityPolicyEvaluation
 ---@field allow_unknown_severity? boolean
@@ -2054,10 +2176,13 @@
 ---@class PackageVulnerabilityPolicyEvaluationListMatch
 ---@field org_id string
 ---@field policy_slug_perm any
+---@field page? number
+---@field page_size? number
 
 ---@class PackageVulnerabilityPolicyEvaluationCreateData
 ---@field org_id string
 ---@field policy_slug_perm any
+---@field data? table
 ---@field allow_unknown_severity? boolean
 ---@field created_at? string
 ---@field description? string
@@ -2094,6 +2219,10 @@
 
 ---@class ProviderSettingListMatch
 ---@field org_id string
+---@field page? number
+---@field page_size? number
+---@field query? any
+---@field sort? any
 
 ---@class ProviderSettingsWrite
 ---@field claims table
@@ -2108,6 +2237,7 @@
 
 ---@class ProviderSettingsWriteCreateData
 ---@field org_id string
+---@field data? table
 ---@field claims table
 ---@field dynamic_mappings? table
 ---@field enabled boolean
@@ -2121,6 +2251,7 @@
 ---@class ProviderSettingsWriteUpdateData
 ---@field org_id string
 ---@field slug_perm any
+---@field data? table
 ---@field claims? table
 ---@field dynamic_mappings? table
 ---@field enabled? boolean
@@ -2159,10 +2290,13 @@
 ---@class PythonListMatch
 ---@field identifier any
 ---@field owner any
+---@field page? number
+---@field page_size? number
 
 ---@class PythonCreateData
 ---@field identifier any
 ---@field owner any
+---@field data? table
 ---@field auth_mode? string
 ---@field auth_secret? string
 ---@field auth_username? string
@@ -2187,6 +2321,7 @@
 ---@field id string
 ---@field identifier any
 ---@field owner any
+---@field data? table
 ---@field auth_mode? string
 ---@field auth_secret? string
 ---@field auth_username? string
@@ -2293,77 +2428,16 @@
 
 ---@class RepoLoadMatch
 ---@field id string
+---@field page? number
+---@field page_size? number
 
 ---@class RepoListMatch
----@field cdn_url? string
----@field content_kind? string
----@field contextual_auth_realm? boolean
----@field copy_own? boolean
----@field copy_packages? string
----@field cosign_signing_enabled? boolean
----@field created_at? string
----@field default_privilege? string
----@field delete_own? boolean
----@field delete_packages? string
----@field deleted_at? string
----@field description? string
----@field distributes? table
----@field docker_refresh_tokens_enabled? boolean
----@field ecdsa_keys? table
----@field enforce_eula? boolean
----@field gpg_keys? table
----@field id? string
----@field index_files? boolean
----@field is_open_source? boolean
----@field is_private? boolean
----@field is_public? boolean
----@field manage_entitlements_privilege? string
----@field move_own? boolean
----@field move_packages? string
----@field name? string
----@field namespace? string
----@field namespace_url? string
----@field nuget_native_signing_enabled? boolean
----@field num_downloads? number
----@field num_policy_violated_packages? number
----@field num_quarantined_packages? number
----@field open_source_license? string
----@field open_source_project_url? string
----@field package_count? number
----@field package_group_count? number
----@field proxy_npmjs? boolean
----@field proxy_pypi? boolean
----@field raw_package_index_enabled? boolean
----@field raw_package_index_signatures_enabled? boolean
----@field replace_packages? string
----@field replace_packages_by_default? boolean
----@field repository_type? number
----@field repository_type_str? string
----@field resync_own? boolean
----@field resync_packages? string
----@field scan_own? boolean
----@field scan_packages? string
----@field self_html_url? string
----@field self_url? string
----@field show_setup_all? boolean
----@field size? number
----@field size_str? string
----@field slug? string
----@field slug_perm? string
----@field storage_region? string
----@field strict_npm_validation? boolean
----@field tag_pre_releases_as_latest? boolean
----@field use_debian_labels? boolean
----@field use_default_cargo_upstream? boolean
----@field use_entitlements_privilege? string
----@field use_noarch_packages? boolean
----@field use_source_packages? boolean
----@field use_vulnerability_scanning? boolean
----@field user_entitlements_enabled? boolean
----@field view_statistics? string
+---@field page? number
+---@field page_size? number
 
 ---@class RepoCreateData
 ---@field id string
+---@field data? table
 ---@field cdn_url? string
 ---@field content_kind? string
 ---@field contextual_auth_realm? boolean
@@ -2433,6 +2507,7 @@
 ---@class RepoUpdateData
 ---@field identifier any
 ---@field owner any
+---@field data? table
 ---@field cdn_url? string
 ---@field content_kind? string
 ---@field contextual_auth_realm? boolean
@@ -2523,6 +2598,9 @@
 ---@class RepositoryAuditLogListMatch
 ---@field owner any
 ---@field repo any
+---@field page? number
+---@field page_size? number
+---@field query? any
 
 ---@class RepositoryEcdsaKey
 ---@field active? boolean
@@ -2540,6 +2618,7 @@
 ---@class RepositoryEcdsaKeyCreateData
 ---@field identifier any
 ---@field owner any
+---@field data? table
 ---@field active? boolean
 ---@field created_at? string
 ---@field default? boolean
@@ -2559,6 +2638,7 @@
 ---@class RepositoryGeoIpRuleUpdateData
 ---@field identifier any
 ---@field owner any
+---@field data? table
 ---@field cidr? table
 ---@field country_code? table
 
@@ -2574,6 +2654,7 @@
 ---@class RepositoryGeoIpTestAddressCreateData
 ---@field identifier any
 ---@field owner any
+---@field data? table
 
 ---@class RepositoryGpgKey
 ---@field active? boolean
@@ -2591,6 +2672,7 @@
 ---@class RepositoryGpgKeyCreateData
 ---@field identifier any
 ---@field owner any
+---@field data? table
 ---@field active? boolean
 ---@field comment string
 ---@field created_at? string
@@ -2608,6 +2690,8 @@
 ---@class RepositoryPrivilegeInputListMatch
 ---@field identifier any
 ---@field owner any
+---@field page? number
+---@field page_size? number
 
 ---@class RepositoryRetentionRule
 ---@field retention_count_limit? number
@@ -2626,6 +2710,7 @@
 ---@class RepositoryRetentionRuleUpdateData
 ---@field owner any
 ---@field repo any
+---@field data? table
 ---@field retention_count_limit? number
 ---@field retention_days_limit? number
 ---@field retention_enabled? boolean
@@ -2651,6 +2736,7 @@
 ---@class RepositoryRsaKeyCreateData
 ---@field identifier any
 ---@field owner any
+---@field data? table
 ---@field active? boolean
 ---@field created_at? string
 ---@field default? boolean
@@ -2673,6 +2759,7 @@
 ---@field eula_accepted_from? string
 ---@field eula_required? boolean
 ---@field has_limits? boolean
+---@field id? string
 ---@field identifier? number
 ---@field is_active? boolean
 ---@field is_limited? boolean
@@ -2704,14 +2791,24 @@
 ---@field identifier any
 ---@field owner any
 ---@field repo any
+---@field fuzzy? any
+---@field show_token? any
 
 ---@class RepositoryTokenListMatch
 ---@field owner any
 ---@field repo any
+---@field active? boolean
+---@field page? number
+---@field page_size? number
+---@field query? any
+---@field show_token? any
+---@field sort? any
 
 ---@class RepositoryTokenCreateData
 ---@field owner any
 ---@field repo any
+---@field data? table
+---@field show_token? any
 ---@field clients? number
 ---@field created_at? string
 ---@field created_by? string
@@ -2725,6 +2822,7 @@
 ---@field eula_accepted_from? string
 ---@field eula_required? boolean
 ---@field has_limits? boolean
+---@field id? string
 ---@field identifier? number
 ---@field is_active? boolean
 ---@field is_limited? boolean
@@ -2756,6 +2854,8 @@
 ---@field identifier any
 ---@field owner any
 ---@field repo any
+---@field data? table
+---@field show_token? any
 ---@field clients? number
 ---@field created_at? string
 ---@field created_by? string
@@ -2769,6 +2869,7 @@
 ---@field eula_accepted_from? string
 ---@field eula_required? boolean
 ---@field has_limits? boolean
+---@field id? string
 ---@field is_active? boolean
 ---@field is_limited? boolean
 ---@field limit_bandwidth? number
@@ -2840,6 +2941,8 @@
 ---@field identifier any
 ---@field owner any
 ---@field repo any
+---@field data? table
+---@field show_token? any
 ---@field clients? number
 ---@field created_at? string
 ---@field created_by? string
@@ -2885,6 +2988,8 @@
 ---@class RepositoryTokenSyncCreateData
 ---@field owner any
 ---@field repo any
+---@field data? table
+---@field show_token? any
 ---@field tokens? table
 
 ---@class RepositoryWebhook
@@ -2894,6 +2999,7 @@
 ---@field disable_reason? number
 ---@field disable_reason_str? string
 ---@field events table
+---@field id? string
 ---@field identifier? number
 ---@field is_active? boolean
 ---@field is_last_response_bad? boolean
@@ -2924,16 +3030,20 @@
 ---@class RepositoryWebhookListMatch
 ---@field owner any
 ---@field repo any
+---@field page? number
+---@field page_size? number
 
 ---@class RepositoryWebhookCreateData
 ---@field owner any
 ---@field repo any
+---@field data? table
 ---@field created_at? string
 ---@field created_by? string
 ---@field created_by_url? string
 ---@field disable_reason? number
 ---@field disable_reason_str? string
 ---@field events table
+---@field id? string
 ---@field identifier? number
 ---@field is_active? boolean
 ---@field is_last_response_bad? boolean
@@ -2960,12 +3070,14 @@
 ---@field identifier any
 ---@field owner any
 ---@field repo any
+---@field data? table
 ---@field created_at? string
 ---@field created_by? string
 ---@field created_by_url? string
 ---@field disable_reason? number
 ---@field disable_reason_str? string
 ---@field events? table
+---@field id? string
 ---@field is_active? boolean
 ---@field is_last_response_bad? boolean
 ---@field last_response_status? number
@@ -3076,10 +3188,13 @@
 ---@class RpmListMatch
 ---@field identifier any
 ---@field owner any
+---@field page? number
+---@field page_size? number
 
 ---@class RpmCreateData
 ---@field identifier any
 ---@field owner any
+---@field data? table
 ---@field auth_mode? string
 ---@field auth_secret? string
 ---@field auth_username? string
@@ -3110,6 +3225,7 @@
 ---@field id string
 ---@field identifier any
 ---@field owner any
+---@field data? table
 ---@field auth_mode? string
 ---@field auth_secret? string
 ---@field auth_username? string
@@ -3166,10 +3282,13 @@
 ---@class RubyListMatch
 ---@field identifier any
 ---@field owner any
+---@field page? number
+---@field page_size? number
 
 ---@class RubyCreateData
 ---@field identifier any
 ---@field owner any
+---@field data? table
 ---@field auth_mode? string
 ---@field auth_secret? string
 ---@field auth_username? string
@@ -3194,6 +3313,7 @@
 ---@field id string
 ---@field identifier any
 ---@field owner any
+---@field data? table
 ---@field auth_mode? string
 ---@field auth_secret? string
 ---@field auth_username? string
@@ -3238,9 +3358,14 @@
 
 ---@class ServiceListMatch
 ---@field org_id string
+---@field page? number
+---@field page_size? number
+---@field query? any
+---@field sort? any
 
 ---@class ServiceCreateData
 ---@field org_id string
+---@field data? table
 ---@field created_at? string
 ---@field created_by? string
 ---@field created_by_url? string
@@ -3256,6 +3381,7 @@
 ---@class ServiceUpdateData
 ---@field id string
 ---@field org_id string
+---@field data? table
 ---@field created_at? string
 ---@field created_by? string
 ---@field created_by_url? string
@@ -3319,10 +3445,13 @@
 ---@class SwiftListMatch
 ---@field identifier any
 ---@field owner any
+---@field page? number
+---@field page_size? number
 
 ---@class SwiftCreateData
 ---@field identifier any
 ---@field owner any
+---@field data? table
 ---@field auth_mode? string
 ---@field auth_secret? string
 ---@field auth_username? string
@@ -3347,6 +3476,7 @@
 ---@field id string
 ---@field identifier any
 ---@field owner any
+---@field data? table
 ---@field auth_mode? string
 ---@field auth_secret? string
 ---@field auth_username? string
@@ -3386,13 +3516,13 @@
 ---@field slug_perm? string
 
 ---@class UserListMatch
----@field created? string
----@field key? string
----@field slug_perm? string
+---@field page? number
+---@field page_size? number
 
 ---@class UserAuthToken
 
 ---@class UserAuthTokenCreateData
+---@field data? table
 
 ---@class UserAuthenticationToken
 ---@field created? string
@@ -3462,15 +3592,20 @@
 
 ---@class VulnerabilityLoadMatch
 ---@field id string
+---@field page? number
+---@field page_size? number
 
 ---@class VulnerabilityListMatch
 ---@field owner any
 ---@field package? any
 ---@field repo any
+---@field page? number
+---@field page_size? number
 
 ---@class VulnerabilityPolicy
 
 ---@class Webhook
+---@field id? string
 
 ---@class WebhookRemoveMatch
 ---@field identifier any

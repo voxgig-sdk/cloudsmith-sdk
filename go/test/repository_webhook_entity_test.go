@@ -101,7 +101,7 @@ func TestRepositoryWebhookEntity(t *testing.T) {
 		// CREATE
 		repositoryWebhookRef01Ent := client.RepositoryWebhook(nil)
 		repositoryWebhookRef01Data := core.ToMapAny(vs.GetProp(
-			vs.GetPath([]any{"new", "repository_webhook"}, setup.data), "repository_webhook_ref01"))
+			vs.GetPath(setup.data, []any{"new", "repository_webhook"}), "repository_webhook_ref01"))
 		repositoryWebhookRef01Data["owner"] = setup.idmap["owner01"]
 		repositoryWebhookRef01Data["repo"] = setup.idmap["repo01"]
 
@@ -112,6 +112,9 @@ func TestRepositoryWebhookEntity(t *testing.T) {
 		repositoryWebhookRef01Data = core.ToMapAny(entityData(repositoryWebhookRef01DataResult))
 		if repositoryWebhookRef01Data == nil {
 			t.Fatal("expected create result to be a map")
+		}
+		if repositoryWebhookRef01Data["id"] == nil {
+			t.Fatal("expected created entity to have an id")
 		}
 
 		// LIST
@@ -124,13 +127,19 @@ func TestRepositoryWebhookEntity(t *testing.T) {
 		if err != nil {
 			t.Fatalf("list failed: %v", err)
 		}
-		_, repositoryWebhookRef01ListOk := repositoryWebhookRef01ListResult.([]any)
+		repositoryWebhookRef01List, repositoryWebhookRef01ListOk := repositoryWebhookRef01ListResult.([]any)
 		if !repositoryWebhookRef01ListOk {
 			t.Fatalf("expected list result to be an array, got %T", repositoryWebhookRef01ListResult)
 		}
 
+		foundItem := vs.Select(entityListToData(repositoryWebhookRef01List), map[string]any{"id": repositoryWebhookRef01Data["id"]})
+		if vs.IsEmpty(foundItem) {
+			t.Fatal("expected to find created entity in list")
+		}
+
 		// UPDATE
 		repositoryWebhookRef01DataUp0Up := map[string]any{
+			"id": repositoryWebhookRef01Data["id"],
 			"owner": setup.idmap["owner"],
 			"repo": setup.idmap["repo"],
 		}
@@ -147,18 +156,27 @@ func TestRepositoryWebhookEntity(t *testing.T) {
 		if repositoryWebhookRef01ResdataUp0 == nil {
 			t.Fatal("expected update result to be a map")
 		}
+		if repositoryWebhookRef01ResdataUp0["id"] != repositoryWebhookRef01DataUp0Up["id"] {
+			t.Fatal("expected update result id to match")
+		}
 		if repositoryWebhookRef01ResdataUp0[repositoryWebhookRef01MarkdefUp0Name] != repositoryWebhookRef01MarkdefUp0Value {
 			t.Fatalf("expected %s to be updated, got %v", repositoryWebhookRef01MarkdefUp0Name, repositoryWebhookRef01ResdataUp0[repositoryWebhookRef01MarkdefUp0Name])
 		}
 
 		// LOAD
-		repositoryWebhookRef01MatchDt0 := map[string]any{}
+		repositoryWebhookRef01MatchDt0 := map[string]any{
+			"id": repositoryWebhookRef01Data["id"],
+		}
 		repositoryWebhookRef01DataDt0Loaded, err := repositoryWebhookRef01Ent.Load(repositoryWebhookRef01MatchDt0, nil)
 		if err != nil {
 			t.Fatalf("load failed: %v", err)
 		}
-		if repositoryWebhookRef01DataDt0Loaded == nil {
-			t.Fatal("expected load result to be non-nil")
+		repositoryWebhookRef01DataDt0LoadResult := core.ToMapAny(entityData(repositoryWebhookRef01DataDt0Loaded))
+		if repositoryWebhookRef01DataDt0LoadResult == nil {
+			t.Fatal("expected load result to be a map")
+		}
+		if repositoryWebhookRef01DataDt0LoadResult["id"] != repositoryWebhookRef01Data["id"] {
+			t.Fatal("expected load result id to match")
 		}
 
 	})
@@ -188,7 +206,7 @@ func repository_webhookBasicSetup(extra map[string]any) *entityTestSetup {
 	client := sdk.TestSDK(options, extra)
 
 	// Generate idmap via transform, matching TS pattern.
-	idmap := vs.Transform(
+	idmap, _ := vs.Transform(
 		[]any{"repository_webhook01", "repository_webhook02", "repository_webhook03", "webhook01", "webhook02", "webhook03", "owner01", "repo01"},
 		map[string]any{
 			"`$PACK`": []any{"", map[string]any{
@@ -208,7 +226,7 @@ func repository_webhookBasicSetup(extra map[string]any) *entityTestSetup {
 		"CLOUDSMITH_TEST_REPOSITORY_WEBHOOK_ENTID": idmap,
 		"CLOUDSMITH_TEST_LIVE":      "FALSE",
 		"CLOUDSMITH_TEST_EXPLAIN":   "FALSE",
-		"CLOUDSMITH_APIKEY":         "NONE",
+		"CLOUDSMITH_APIKEY":         "",
 	})
 
 	idmapResolved := core.ToMapAny(env["CLOUDSMITH_TEST_REPOSITORY_WEBHOOK_ENTID"])
@@ -225,11 +243,23 @@ func repository_webhookBasicSetup(extra map[string]any) *entityTestSetup {
 	}
 
 	if env["CLOUDSMITH_TEST_LIVE"] == "TRUE" {
+		// An empty map, not a nil one: Merge returns nil when its last entry
+		// is nil, and BasicSetup is normally called with no extras - so a
+		// bare nil silently discarded the apikey and server values below.
+		extraOpts := extra
+		if extraOpts == nil {
+			extraOpts = map[string]any{}
+		}
+
 		mergedOpts := vs.Merge([]any{
+			// liveClientOptions() FIRST, so the generated fields below win:
+			// sdk-test-control.json's test.client.options adds to the live
+			// client, it does not redirect it.
+			liveClientOptions(),
 			map[string]any{
 				"apikey": env["CLOUDSMITH_APIKEY"],
 			},
-			extra,
+			extraOpts,
 		})
 		client = sdk.NewCloudsmithSDK(core.ToMapAny(mergedOpts))
 	}

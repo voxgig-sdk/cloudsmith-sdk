@@ -86,6 +86,7 @@ describe("RepositoryWebhookEntity", function()
     assert.is_nil(err)
     repository_webhook_ref01_data = helpers.to_map(type(repository_webhook_ref01_data_result) == 'table' and repository_webhook_ref01_data_result.data_get and repository_webhook_ref01_data_result:data_get() or repository_webhook_ref01_data_result)
     assert.is_not_nil(repository_webhook_ref01_data)
+    assert.is_not_nil(repository_webhook_ref01_data["id"])
 
     -- LIST
     local repository_webhook_ref01_match = {
@@ -97,8 +98,14 @@ describe("RepositoryWebhookEntity", function()
     assert.is_nil(err)
     assert.is_table(repository_webhook_ref01_list_result)
 
+    local found_item = vs.select(
+      runner.entity_list_to_data(repository_webhook_ref01_list_result),
+      { id = repository_webhook_ref01_data["id"] })
+    assert.is_false(vs.isempty(found_item))
+
     -- UPDATE
     local repository_webhook_ref01_data_up0_up = {
+      id = repository_webhook_ref01_data["id"],
       ["owner"] = setup.idmap["owner"],
       ["repo"] = setup.idmap["repo"],
     }
@@ -111,13 +118,18 @@ describe("RepositoryWebhookEntity", function()
     assert.is_nil(err)
     local repository_webhook_ref01_resdata_up0 = helpers.to_map(type(repository_webhook_ref01_resdata_up0_result) == 'table' and repository_webhook_ref01_resdata_up0_result.data_get and repository_webhook_ref01_resdata_up0_result:data_get() or repository_webhook_ref01_resdata_up0_result)
     assert.is_not_nil(repository_webhook_ref01_resdata_up0)
+    assert.are.equal(repository_webhook_ref01_resdata_up0["id"], repository_webhook_ref01_data_up0_up["id"])
     assert.are.equal(repository_webhook_ref01_resdata_up0[repository_webhook_ref01_markdef_up0_name], repository_webhook_ref01_markdef_up0_value)
 
     -- LOAD
-    local repository_webhook_ref01_match_dt0 = {}
+    local repository_webhook_ref01_match_dt0 = {
+      id = repository_webhook_ref01_data["id"],
+    }
     local repository_webhook_ref01_data_dt0_loaded, err = repository_webhook_ref01_ent:load(repository_webhook_ref01_match_dt0, nil)
     assert.is_nil(err)
-    assert.is_not_nil(repository_webhook_ref01_data_dt0_loaded)
+    local repository_webhook_ref01_data_dt0_load_result = helpers.to_map(type(repository_webhook_ref01_data_dt0_loaded) == 'table' and repository_webhook_ref01_data_dt0_loaded.data_get and repository_webhook_ref01_data_dt0_loaded:data_get() or repository_webhook_ref01_data_dt0_loaded)
+    assert.is_not_nil(repository_webhook_ref01_data_dt0_load_result)
+    assert.are.equal(repository_webhook_ref01_data_dt0_load_result["id"], repository_webhook_ref01_data["id"])
 
   end)
 end)
@@ -161,7 +173,7 @@ function repository_webhook_basic_setup(extra)
     ["CLOUDSMITH_TEST_REPOSITORY_WEBHOOK_ENTID"] = idmap,
     ["CLOUDSMITH_TEST_LIVE"] = "FALSE",
     ["CLOUDSMITH_TEST_EXPLAIN"] = "FALSE",
-    ["CLOUDSMITH_APIKEY"] = "NONE",
+    ["CLOUDSMITH_APIKEY"] = "",
   })
 
   local idmap_resolved = helpers.to_map(
@@ -178,6 +190,9 @@ function repository_webhook_basic_setup(extra)
 
   if env["CLOUDSMITH_TEST_LIVE"] == "TRUE" then
     local merged_opts = vs.merge({
+      -- FIRST, so the generated fields below win: sdk-test-control.json's
+      -- test.client.options adds to the live client, it does not redirect it.
+      runner.live_client_options(),
       {
         apikey = env["CLOUDSMITH_APIKEY"],
       },

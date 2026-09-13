@@ -43,6 +43,12 @@ main: kit: entity: entitlement: {
   id: {
     field: "id"
     name: "id"
+    parts: [
+      "owner"
+      "repo"
+      "identifier"
+    ]
+    sep: "/"
   }
 
   name: "entitlement"
@@ -87,12 +93,22 @@ main: kit: entity: entitlement: {
           }
           method: "POST"
           orig: "/entitlements/{owner}/{repo}/{identifier}/reset/"
-          parts: [
-            "entitlements"
-            "{owner}"
-            "{repo}"
-            "{identifier}"
-            "reset"
+          segments: [
+            {
+              lit: "entitlements"
+            }
+            {
+              var: "owner"
+            }
+            {
+              var: "repo"
+            }
+            {
+              var: "identifier"
+            }
+            {
+              lit: "reset"
+            }
           ]
           select: {
             exist: [
@@ -135,12 +151,22 @@ main: kit: entity: entitlement: {
           }
           method: "POST"
           orig: "/entitlements/{owner}/{repo}/{identifier}/disable/"
-          parts: [
-            "entitlements"
-            "{owner}"
-            "{repo}"
-            "{identifier}"
-            "disable"
+          segments: [
+            {
+              lit: "entitlements"
+            }
+            {
+              var: "owner"
+            }
+            {
+              var: "repo"
+            }
+            {
+              var: "identifier"
+            }
+            {
+              lit: "disable"
+            }
           ]
           select: {
             exist: [
@@ -182,12 +208,22 @@ main: kit: entity: entitlement: {
           }
           method: "POST"
           orig: "/entitlements/{owner}/{repo}/{identifier}/enable/"
-          parts: [
-            "entitlements"
-            "{owner}"
-            "{repo}"
-            "{identifier}"
-            "enable"
+          segments: [
+            {
+              lit: "entitlements"
+            }
+            {
+              var: "owner"
+            }
+            {
+              var: "repo"
+            }
+            {
+              var: "identifier"
+            }
+            {
+              lit: "enable"
+            }
           ]
           select: {
             exist: [
@@ -264,11 +300,19 @@ main: kit: entity: entitlement: {
           }
           method: "GET"
           orig: "/metrics/entitlements/{owner}/{repo}/"
-          parts: [
-            "metrics"
-            "entitlements"
-            "{owner}"
-            "{repo}"
+          segments: [
+            {
+              lit: "metrics"
+            }
+            {
+              lit: "entitlements"
+            }
+            {
+              var: "owner"
+            }
+            {
+              var: "repo"
+            }
           ]
           select: {
             exist: [
@@ -337,16 +381,22 @@ main: kit: entity: entitlement: {
           }
           method: "GET"
           orig: "/metrics/entitlements/{owner}/"
-          parts: [
-            "metrics"
-            "entitlements"
-            "{id}"
-          ]
           rename: {
             param: {
               owner: "id"
             }
           }
+          segments: [
+            {
+              lit: "metrics"
+            }
+            {
+              lit: "entitlements"
+            }
+            {
+              var: "id"
+            }
+          ]
           select: {
             exist: [
               "finish"
@@ -395,11 +445,19 @@ main: kit: entity: entitlement: {
           }
           method: "DELETE"
           orig: "/entitlements/{owner}/{repo}/{identifier}/"
-          parts: [
-            "entitlements"
-            "{owner}"
-            "{repo}"
-            "{identifier}"
+          segments: [
+            {
+              lit: "entitlements"
+            }
+            {
+              var: "owner"
+            }
+            {
+              var: "repo"
+            }
+            {
+              var: "identifier"
+            }
           ]
           select: {
             exist: [

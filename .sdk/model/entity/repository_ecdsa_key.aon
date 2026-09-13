@@ -7,40 +7,48 @@ main: kit: entity: repository_ecdsa_key: {
   fields: [
     {
       name: "active"
+      readOnly: true
       req: false
       short: "If selected this is the active key for this repository."
       type: "`$BOOLEAN`"
     }
     {
+      format: "date-time"
       name: "created_at"
+      readOnly: true
       req: false
       type: "`$STRING`"
     }
     {
       name: "default"
+      readOnly: true
       req: false
       short: "If selected this is the default key for this repository."
       type: "`$BOOLEAN`"
     }
     {
       name: "fingerprint"
+      readOnly: true
       req: false
       short: "The long identifier used by ECDSA for this key."
       type: "`$STRING`"
     }
     {
       name: "fingerprint_short"
+      readOnly: true
       req: false
       type: "`$STRING`"
     }
     {
       name: "public_key"
+      readOnly: true
       req: false
       short: "The public key given to repository users."
       type: "`$STRING`"
     }
     {
       name: "ssh_fingerprint"
+      readOnly: true
       req: false
       short: "The SSH fingerprint used by ECDSA for this key."
       type: "`$STRING`"
@@ -82,11 +90,19 @@ main: kit: entity: repository_ecdsa_key: {
           }
           method: "POST"
           orig: "/repos/{owner}/{identifier}/ecdsa/"
-          parts: [
-            "repos"
-            "{owner}"
-            "{identifier}"
-            "ecdsa"
+          segments: [
+            {
+              lit: "repos"
+            }
+            {
+              var: "owner"
+            }
+            {
+              var: "identifier"
+            }
+            {
+              lit: "ecdsa"
+            }
           ]
           select: {
             exist: [
@@ -121,12 +137,22 @@ main: kit: entity: repository_ecdsa_key: {
           }
           method: "POST"
           orig: "/repos/{owner}/{identifier}/ecdsa/regenerate/"
-          parts: [
-            "repos"
-            "{owner}"
-            "{identifier}"
-            "ecdsa"
-            "regenerate"
+          segments: [
+            {
+              lit: "repos"
+            }
+            {
+              var: "owner"
+            }
+            {
+              var: "identifier"
+            }
+            {
+              lit: "ecdsa"
+            }
+            {
+              lit: "regenerate"
+            }
           ]
           select: {
             exist: [
@@ -165,11 +191,19 @@ main: kit: entity: repository_ecdsa_key: {
           }
           method: "GET"
           orig: "/repos/{owner}/{identifier}/ecdsa/"
-          parts: [
-            "repos"
-            "{owner}"
-            "{identifier}"
-            "ecdsa"
+          segments: [
+            {
+              lit: "repos"
+            }
+            {
+              var: "owner"
+            }
+            {
+              var: "identifier"
+            }
+            {
+              lit: "ecdsa"
+            }
           ]
           select: {
             exist: [

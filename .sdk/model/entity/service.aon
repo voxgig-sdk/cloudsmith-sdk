@@ -6,17 +6,22 @@ main: kit: entity: service: {
 
   fields: [
     {
+      format: "date-time"
       name: "created_at"
+      readOnly: true
       req: false
       type: "`$STRING`"
     }
     {
       name: "created_by"
+      readOnly: true
       req: false
       type: "`$STRING`"
     }
     {
+      format: "uri"
       name: "created_by_url"
+      readOnly: true
       req: false
       type: "`$STRING`"
     }
@@ -33,12 +38,15 @@ main: kit: entity: service: {
     }
     {
       name: "key"
+      readOnly: true
       req: false
       short: "The API key of the service"
       type: "`$STRING`"
     }
     {
+      format: "date-time"
       name: "key_expires_at"
+      readOnly: true
       req: false
       short: "The time at which the API key will expire."
       type: "`$STRING`"
@@ -56,7 +64,9 @@ main: kit: entity: service: {
       type: "`$STRING`"
     }
     {
+      format: "slug"
       name: "slug"
+      readOnly: true
       req: false
       short: "The slug of the service"
       type: "`$STRING`"
@@ -101,16 +111,22 @@ main: kit: entity: service: {
           }
           method: "POST"
           orig: "/orgs/{org}/services/"
-          parts: [
-            "orgs"
-            "{org_id}"
-            "services"
-          ]
           rename: {
             param: {
               org: "org_id"
             }
           }
+          segments: [
+            {
+              lit: "orgs"
+            }
+            {
+              var: "org_id"
+            }
+            {
+              lit: "services"
+            }
+          ]
           select: {
             exist: [
               "data"
@@ -143,19 +159,29 @@ main: kit: entity: service: {
           }
           method: "POST"
           orig: "/orgs/{org}/services/{service}/refresh/"
-          parts: [
-            "orgs"
-            "{org_id}"
-            "services"
-            "{id}"
-            "refresh"
-          ]
           rename: {
             param: {
               org: "org_id"
               service: "id"
             }
           }
+          segments: [
+            {
+              lit: "orgs"
+            }
+            {
+              var: "org_id"
+            }
+            {
+              lit: "services"
+            }
+            {
+              var: "id"
+            }
+            {
+              lit: "refresh"
+            }
+          ]
           select: {
             "$action": "refresh"
             exist: [
@@ -217,16 +243,22 @@ main: kit: entity: service: {
           }
           method: "GET"
           orig: "/orgs/{org}/services/"
-          parts: [
-            "orgs"
-            "{org_id}"
-            "services"
-          ]
           rename: {
             param: {
               org: "org_id"
             }
           }
+          segments: [
+            {
+              lit: "orgs"
+            }
+            {
+              var: "org_id"
+            }
+            {
+              lit: "services"
+            }
+          ]
           select: {
             exist: [
               "org_id"
@@ -267,18 +299,26 @@ main: kit: entity: service: {
           }
           method: "GET"
           orig: "/orgs/{org}/services/{service}/"
-          parts: [
-            "orgs"
-            "{org_id}"
-            "services"
-            "{id}"
-          ]
           rename: {
             param: {
               org: "org_id"
               service: "id"
             }
           }
+          segments: [
+            {
+              lit: "orgs"
+            }
+            {
+              var: "org_id"
+            }
+            {
+              lit: "services"
+            }
+            {
+              var: "id"
+            }
+          ]
           select: {
             exist: [
               "id"
@@ -325,18 +365,26 @@ main: kit: entity: service: {
           }
           method: "PATCH"
           orig: "/orgs/{org}/services/{service}/"
-          parts: [
-            "orgs"
-            "{org_id}"
-            "services"
-            "{id}"
-          ]
           rename: {
             param: {
               org: "org_id"
               service: "id"
             }
           }
+          segments: [
+            {
+              lit: "orgs"
+            }
+            {
+              var: "org_id"
+            }
+            {
+              lit: "services"
+            }
+            {
+              var: "id"
+            }
+          ]
           select: {
             exist: [
               "data"
