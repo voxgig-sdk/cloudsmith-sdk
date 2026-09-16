@@ -46,7 +46,7 @@ main: kit: flow: BasicRepositoryTokenFlow:
         ref: "repository_token_ref01",
         srcdatavar: "repository_token_ref01_data",
         suffix: "_up0",
-        textfield: "created_at"
+        textfield: "limit_bandwidth_unit"
       }
 
       op: "update",

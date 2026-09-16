@@ -15,7 +15,7 @@ main: kit: flow: BasicOrganizationMembershipRoleUpdateFlow:
         ref: "organization_membership_role_update_ref01",
         srcdatavar: "organization_membership_role_update_ref01_data",
         suffix: "_up0",
-        textfield: "email"
+        textfield: "role"
       }
 
       op: "update",

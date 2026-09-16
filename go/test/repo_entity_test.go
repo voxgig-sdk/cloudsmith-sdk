@@ -140,7 +140,7 @@ func TestRepoEntity(t *testing.T) {
 			"owner": setup.idmap["owner"],
 		}
 
-		repoRef01MarkdefUp0Name := "cdn_url"
+		repoRef01MarkdefUp0Name := "content_kind"
 		repoRef01MarkdefUp0Value := fmt.Sprintf("Mark01-repo_ref01_%d", setup.now)
 		repoRef01DataUp0Up[repoRef01MarkdefUp0Name] = repoRef01MarkdefUp0Value
 

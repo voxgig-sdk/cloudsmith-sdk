@@ -5,6 +5,8 @@ import * as Fs from 'node:fs'
 
 import { test, describe, afterEach } from 'node:test'
 import assert from 'node:assert'
+import { createLiveTransport } from '../../live-runner'
+import { runLiveEntity } from '../../live-entity'
 
 
 import { CloudsmithSDK, BaseFeature, stdutil } from '../../..'
@@ -47,16 +49,13 @@ describe('UserProfileEntity', async () => {
 
     const live = 'TRUE' === process.env.CLOUDSMITH_TEST_LIVE
     for (const op of ['load']) {
-      if (maybeSkipControl(t, 'entityOp', 'user_profile.' + op, live)) return
+      if (!live && maybeSkipControl(t, 'entityOp', 'user_profile.' + op, live)) return
     }
 
+    
     const setup = basicSetup()
-    // The basic flow consumes synthetic IDs and field values from the
-    // fixture (entity TestData.json). Those don't exist on the live API.
-    // Skip live runs unless the user provided a real ENTID env override.
-    if (setup.syntheticOnly) {
-      t.skip('live entity test uses synthetic IDs from fixture — set CLOUDSMITH_TEST_USER_PROFILE_ENTID JSON to run live')
-      return
+    if (setup.live) {
+      return runLiveEntity(setup, {"active":true,"alias":{"field":{}},"fields":[{"active":true,"name":"company","req":false,"type":"`$STRING`","index$":0},{"active":true,"name":"first_name","req":true,"type":"`$STRING`","index$":1},{"active":true,"name":"id","req":false,"type":"`$STRING`","index$":2},{"active":true,"name":"job_title","req":false,"type":"`$STRING`","index$":3},{"active":true,"format":"date-time","name":"joined_at","req":false,"type":"`$STRING`","index$":4},{"active":true,"name":"last_name","req":true,"type":"`$STRING`","index$":5},{"active":true,"name":"name","readOnly":true,"req":false,"type":"`$STRING`","index$":6},{"active":true,"name":"slug","readOnly":true,"req":false,"type":"`$STRING`","index$":7},{"active":true,"name":"slug_perm","readOnly":true,"req":false,"type":"`$STRING`","index$":8},{"active":true,"name":"tagline","req":false,"short":"Your tagline is a sentence about you.","type":"`$STRING`","index$":9},{"active":true,"format":"uri","name":"url","readOnly":true,"req":false,"type":"`$STRING`","index$":10}],"id":{"field":"id","name":"id"},"name":"user_profile","op":{"load":{"input":"data","name":"load","points":[{"active":true,"args":{"params":[{"active":true,"kind":"param","name":"id","orig":"slug","reqd":true,"type":"`$STRING`","index$":0}]},"contract":{"id":"GET /users/profile/{slug}/","json":"{\"consumes\":[\"application/json\"],\"operationId\":\"users_profile_read\",\"parameters\":[{\"in\":\"path\",\"name\":\"slug\",\"required\":true,\"type\":\"string\"}],\"produces\":[\"application/json\"],\"protocol\":\"http\",\"responses\":{\"200\":{\"description\":\"Retrieved details for the specified user (or current user, if none was specified)\",\"schema\":{\"properties\":{\"company\":{\"maxLength\":64,\"title\":\"Company\",\"type\":\"string\"},\"first_name\":{\"maxLength\":120,\"minLength\":1,\"title\":\"First name\",\"type\":\"string\"},\"job_title\":{\"maxLength\":64,\"title\":\"Job title\",\"type\":\"string\"},\"joined_at\":{\"format\":\"date-time\",\"title\":\"Joined at\",\"type\":\"string\"},\"last_name\":{\"maxLength\":120,\"minLength\":1,\"title\":\"Last name\",\"type\":\"string\"},\"name\":{\"minLength\":1,\"readOnly\":true,\"title\":\"Name\",\"type\":\"string\"},\"slug\":{\"readOnly\":true,\"title\":\"Slug\",\"type\":\"string\"},\"slug_perm\":{\"readOnly\":true,\"title\":\"Slug perm\",\"type\":\"string\"},\"tagline\":{\"description\":\"Your tagline is a sentence about you. Make it funny. Make it professional. Either way, it's public and it represents who you are.\",\"maxLength\":1024,\"title\":\"Tagline\",\"type\":\"string\"},\"url\":{\"format\":\"uri\",\"readOnly\":true,\"title\":\"Url\",\"type\":\"string\"}},\"required\":[\"first_name\",\"last_name\"],\"type\":\"object\"}},\"400\":{\"description\":\"Request could not be processed (see detail).\",\"schema\":{\"properties\":{\"detail\":{\"description\":\"An extended message for the response.\",\"minLength\":1,\"title\":\"Detail\",\"type\":\"string\"},\"fields\":{\"additionalProperties\":{\"items\":{\"minLength\":1,\"type\":\"string\"},\"type\":\"array\"},\"description\":\"A Dictionary of related errors where key: Field and value: Array of Errors related to that field\",\"title\":\"Fields\",\"type\":\"object\"}},\"required\":[\"detail\"],\"type\":\"object\"}},\"422\":{\"description\":\"Missing or invalid parameters (see detail).\",\"schema\":{\"properties\":{\"detail\":{\"description\":\"An extended message for the response.\",\"minLength\":1,\"title\":\"Detail\",\"type\":\"string\"},\"fields\":{\"additionalProperties\":{\"items\":{\"minLength\":1,\"type\":\"string\"},\"type\":\"array\"},\"description\":\"A Dictionary of related errors where key: Field and value: Array of Errors related to that field\",\"title\":\"Fields\",\"type\":\"object\"}},\"required\":[\"detail\"],\"type\":\"object\"}}},\"security\":[{\"apikey\":[]},{\"basic\":[]}],\"securitySchemes\":{\"apikey\":{\"in\":\"header\",\"name\":\"X-Api-Key\",\"type\":\"apiKey\"},\"basic\":{\"type\":\"basic\"}},\"securitySource\":\"definition\"}","source":"swagger2","version":1},"kind":"http","method":"GET","orig":"/users/profile/{slug}/","rename":{"param":{"slug":"id"}},"segments":[{"lit":"users"},{"lit":"profile"},{"var":"id"}],"select":{"exist":["id"]},"transform":{"req":"`reqdata`","res":"`body`"},"index$":0}],"key$":"load"}},"relations":{"ancestors":[]},"key$":"user_profile","name__orig":"user_profile","Name":"UserProfile","name_":"user_profile","name-":"user-profile","NAME":"USER_PROFILE","index$":122}, {"active":true,"entity":"user_profile","key$":"BasicUserProfileFlow","kind":"basic","name":"BasicUserProfileFlow","param":{},"step":[{"active":true,"data":{},"input":{"ref":"user_profile_ref01","srcdatavar":"user_profile_ref01_data","suffix":"_dt0"},"match":{"id":"user_profile01"},"op":"load","spec":[],"valid":[{"apply":"TextFieldMark","def":{"mark":"Mark01-user_profile_ref01"}}],"index$":0}]}, 'UserProfile')
     }
     const client = setup.client
     const struct = setup.struct
@@ -110,13 +109,6 @@ function basicSetup(extra?: any) {
       }]
     })
 
-  // Detect whether the user provided a real ENTID JSON via env var. The
-  // basic flow consumes synthetic IDs from the fixture file; without an
-  // override those synthetic IDs reach the live API and 4xx. Surface this
-  // to the test so it can skip rather than fail.
-  const idmapEnvVal = process.env['CLOUDSMITH_TEST_USER_PROFILE_ENTID']
-  const idmapOverridden = null != idmapEnvVal && idmapEnvVal.trim().startsWith('{')
-
   const env = envOverride({
     'CLOUDSMITH_TEST_USER_PROFILE_ENTID': idmap,
     'CLOUDSMITH_TEST_LIVE': 'FALSE',
@@ -128,7 +120,13 @@ function basicSetup(extra?: any) {
 
   const live = 'TRUE' === env.CLOUDSMITH_TEST_LIVE
 
+  const transport = createLiveTransport()
   if (live) {
+    const rawIds = process.env['CLOUDSMITH_TEST_USER_PROFILE_ENTID']
+    idmap = rawIds && rawIds.trim() ? JSON.parse(rawIds) : {}
+    if (!idmap || Array.isArray(idmap) || typeof idmap !== 'object') {
+      throw new Error('Live ENTID must be a JSON object')
+    }
     client = new CloudsmithSDK(merge([
       // FIRST, so the generated fields below win: sdk-test-control.json's
       // test.client.options adds to the live client, it does not redirect it.
@@ -141,7 +139,8 @@ function basicSetup(extra?: any) {
       // argument at all - so a bare 'extra' silently discarded the apikey
       // and server values above and handed the SDK undefined. Harmless
       // while there was nothing in that object; not harmless now.
-      extra || {}
+      extra || {},
+      { system: { fetch: transport.fetch } }
     ]))
   }
 
@@ -154,7 +153,7 @@ function basicSetup(extra?: any) {
     data: entityData,
     explain: 'TRUE' === env.CLOUDSMITH_TEST_EXPLAIN,
     live,
-    syntheticOnly: live && !idmapOverridden,
+    transport,
     now: Date.now(),
   }
 

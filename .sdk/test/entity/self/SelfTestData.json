@@ -10,5 +10,6 @@
     "self": {
       "self_ref01": {}
     }
-  }
+  },
+  "requests": {}
 }

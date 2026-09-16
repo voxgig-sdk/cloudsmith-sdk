@@ -10,5 +10,6 @@
     "resync": {
       "resync_ref01": {}
     }
-  }
+  },
+  "requests": {}
 }

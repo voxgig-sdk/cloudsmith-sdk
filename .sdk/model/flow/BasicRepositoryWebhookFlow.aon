@@ -46,7 +46,7 @@ main: kit: flow: BasicRepositoryWebhookFlow:
         ref: "repository_webhook_ref01",
         srcdatavar: "repository_webhook_ref01_data",
         suffix: "_up0",
-        textfield: "created_at"
+        textfield: "package_query"
       }
 
       op: "update",

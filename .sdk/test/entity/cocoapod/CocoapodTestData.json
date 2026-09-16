@@ -10,5 +10,6 @@
     "cocoapod": {
       "cocoapod_ref01": {}
     }
-  }
+  },
+  "requests": {}
 }

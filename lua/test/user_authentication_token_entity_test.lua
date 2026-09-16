@@ -48,15 +48,10 @@ describe("UserAuthenticationTokenEntity", function()
     local user_authentication_token_ref01_data_up0_up = {
     }
 
-    local user_authentication_token_ref01_markdef_up0_name = "created"
-    local user_authentication_token_ref01_markdef_up0_value = "Mark01-user_authentication_token_ref01_" .. tostring(setup.now)
-    user_authentication_token_ref01_data_up0_up[user_authentication_token_ref01_markdef_up0_name] = user_authentication_token_ref01_markdef_up0_value
-
     local user_authentication_token_ref01_resdata_up0_result, err = user_authentication_token_ref01_ent:update(user_authentication_token_ref01_data_up0_up, nil)
     assert.is_nil(err)
     local user_authentication_token_ref01_resdata_up0 = helpers.to_map(type(user_authentication_token_ref01_resdata_up0_result) == 'table' and user_authentication_token_ref01_resdata_up0_result.data_get and user_authentication_token_ref01_resdata_up0_result:data_get() or user_authentication_token_ref01_resdata_up0_result)
     assert.is_not_nil(user_authentication_token_ref01_resdata_up0)
-    assert.are.equal(user_authentication_token_ref01_resdata_up0[user_authentication_token_ref01_markdef_up0_name], user_authentication_token_ref01_markdef_up0_value)
 
   end)
 end)

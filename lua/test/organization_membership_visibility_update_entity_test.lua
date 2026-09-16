@@ -48,7 +48,7 @@ describe("OrganizationMembershipVisibilityUpdateEntity", function()
       ["org_id"] = setup.idmap["org_id"],
     }
 
-    local organization_membership_visibility_update_ref01_markdef_up0_name = "email"
+    local organization_membership_visibility_update_ref01_markdef_up0_name = "visibility"
     local organization_membership_visibility_update_ref01_markdef_up0_value = "Mark01-organization_membership_visibility_update_ref01_" .. tostring(setup.now)
     organization_membership_visibility_update_ref01_data_up0_up[organization_membership_visibility_update_ref01_markdef_up0_name] = organization_membership_visibility_update_ref01_markdef_up0_value
 

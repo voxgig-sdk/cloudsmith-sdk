@@ -144,7 +144,7 @@ func TestRepositoryWebhookEntity(t *testing.T) {
 			"repo": setup.idmap["repo"],
 		}
 
-		repositoryWebhookRef01MarkdefUp0Name := "created_at"
+		repositoryWebhookRef01MarkdefUp0Name := "package_query"
 		repositoryWebhookRef01MarkdefUp0Value := fmt.Sprintf("Mark01-repository_webhook_ref01_%d", setup.now)
 		repositoryWebhookRef01DataUp0Up[repositoryWebhookRef01MarkdefUp0Name] = repositoryWebhookRef01MarkdefUp0Value
 

@@ -108,7 +108,7 @@ describe("ServiceEntity", function()
       ["org_id"] = setup.idmap["org_id"],
     }
 
-    local service_ref01_markdef_up0_name = "created_at"
+    local service_ref01_markdef_up0_name = "description"
     local service_ref01_markdef_up0_value = "Mark01-service_ref01_" .. tostring(setup.now)
     service_ref01_data_up0_up[service_ref01_markdef_up0_name] = service_ref01_markdef_up0_value
 

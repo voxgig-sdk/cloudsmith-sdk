@@ -40,7 +40,7 @@ main: kit: flow: BasicRepoFlow:
         ref: "repo_ref01",
         srcdatavar: "repo_ref01_data",
         suffix: "_up0",
-        textfield: "cdn_url"
+        textfield: "content_kind"
       }
 
       op: "update",

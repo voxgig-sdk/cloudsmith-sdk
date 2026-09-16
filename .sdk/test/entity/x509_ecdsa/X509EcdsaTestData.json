@@ -10,5 +10,6 @@
     "x509_ecdsa": {
       "x509_ecdsa_ref01": {}
     }
-  }
+  },
+  "requests": {}
 }

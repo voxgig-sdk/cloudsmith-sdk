@@ -142,7 +142,7 @@ func TestServiceEntity(t *testing.T) {
 			"org_id": setup.idmap["org_id"],
 		}
 
-		serviceRef01MarkdefUp0Name := "created_at"
+		serviceRef01MarkdefUp0Name := "description"
 		serviceRef01MarkdefUp0Value := fmt.Sprintf("Mark01-service_ref01_%d", setup.now)
 		serviceRef01DataUp0Up[serviceRef01MarkdefUp0Name] = serviceRef01MarkdefUp0Value
 

@@ -10,5 +10,6 @@
     "copy": {
       "copy_ref01": {}
     }
-  }
+  },
+  "requests": {}
 }

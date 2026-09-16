@@ -96,7 +96,7 @@ class RepoEntityTest < Minitest::Test
       "owner" => setup[:idmap]["owner"],
     }
 
-    repo_ref01_markdef_up0_name = "cdn_url"
+    repo_ref01_markdef_up0_name = "content_kind"
     repo_ref01_markdef_up0_value = "Mark01-repo_ref01_#{setup[:now]}"
     repo_ref01_data_up0_up[repo_ref01_markdef_up0_name] = repo_ref01_markdef_up0_value
 

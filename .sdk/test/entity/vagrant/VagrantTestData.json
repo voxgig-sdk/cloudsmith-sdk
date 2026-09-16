@@ -10,5 +10,6 @@
     "vagrant": {
       "vagrant_ref01": {}
     }
-  }
+  },
+  "requests": {}
 }

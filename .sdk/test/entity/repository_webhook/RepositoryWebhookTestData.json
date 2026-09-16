@@ -5,20 +5,20 @@
         "created_at": "s118",
         "created_by": "s119",
         "created_by_url": "s11a",
-        "disable_reason": "s11b",
+        "disable_reason": 283,
         "disable_reason_str": "s11c",
         "events": [],
         "id": "REPOSITORY_WEBHOOK00",
-        "identifier": "s11f",
+        "identifier": 287,
         "is_active": true,
         "is_last_response_bad": false,
-        "last_response_status": "s122",
+        "last_response_status": 290,
         "last_response_status_str": "s123",
-        "num_sent": "s124",
+        "num_sent": 292,
         "package_query": "s125",
-        "request_body_format": "s126",
+        "request_body_format": 294,
         "request_body_format_str": "s127",
-        "request_body_template_format": "s128",
+        "request_body_template_format": 296,
         "request_body_template_format_str": "s129",
         "request_content_type": "s12a",
         "secret_header": "s12b",
@@ -37,20 +37,20 @@
         "created_at": "s230",
         "created_by": "s231",
         "created_by_url": "s232",
-        "disable_reason": "s233",
+        "disable_reason": 563,
         "disable_reason_str": "s234",
         "events": [],
         "id": "REPOSITORY_WEBHOOK01",
-        "identifier": "s237",
+        "identifier": 567,
         "is_active": true,
         "is_last_response_bad": false,
-        "last_response_status": "s23a",
+        "last_response_status": 570,
         "last_response_status_str": "s23b",
-        "num_sent": "s23c",
+        "num_sent": 572,
         "package_query": "s23d",
-        "request_body_format": "s23e",
+        "request_body_format": 574,
         "request_body_format_str": "s23f",
-        "request_body_template_format": "s240",
+        "request_body_template_format": 576,
         "request_body_template_format_str": "s241",
         "request_content_type": "s242",
         "secret_header": "s243",
@@ -69,20 +69,20 @@
         "created_at": "s348",
         "created_by": "s349",
         "created_by_url": "s34a",
-        "disable_reason": "s34b",
+        "disable_reason": 843,
         "disable_reason_str": "s34c",
         "events": [],
         "id": "REPOSITORY_WEBHOOK02",
-        "identifier": "s34f",
+        "identifier": 847,
         "is_active": true,
         "is_last_response_bad": false,
-        "last_response_status": "s352",
+        "last_response_status": 850,
         "last_response_status_str": "s353",
-        "num_sent": "s354",
+        "num_sent": 852,
         "package_query": "s355",
-        "request_body_format": "s356",
+        "request_body_format": 854,
         "request_body_format_str": "s357",
-        "request_body_template_format": "s358",
+        "request_body_template_format": 856,
         "request_body_template_format_str": "s359",
         "request_content_type": "s35a",
         "secret_header": "s35b",
@@ -105,19 +105,19 @@
         "created_at": "s460",
         "created_by": "s461",
         "created_by_url": "s462",
-        "disable_reason": "s463",
+        "disable_reason": 1123,
         "disable_reason_str": "s464",
         "events": [],
-        "identifier": "s467",
+        "identifier": 1127,
         "is_active": true,
         "is_last_response_bad": false,
-        "last_response_status": "s46a",
+        "last_response_status": 1130,
         "last_response_status_str": "s46b",
-        "num_sent": "s46c",
+        "num_sent": 1132,
         "package_query": "s46d",
-        "request_body_format": "s46e",
+        "request_body_format": 1134,
         "request_body_format_str": "s46f",
-        "request_body_template_format": "s470",
+        "request_body_template_format": 1136,
         "request_body_template_format_str": "s471",
         "request_content_type": "s472",
         "secret_header": "s473",
@@ -129,6 +129,1689 @@
         "updated_by": "s479",
         "updated_by_url": "s47a",
         "verify_ssl": false
+      }
+    }
+  },
+  "requests": {
+    "POST /webhooks/{owner}/{repo}/": {
+      "provenance": "operation-contract",
+      "contract": {
+        "consumes": [
+          "application/json"
+        ],
+        "operationId": "webhooks_create",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "owner",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "path",
+            "name": "repo",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "body",
+            "name": "data",
+            "required": false,
+            "schema": {
+              "properties": {
+                "events": {
+                  "items": {
+                    "enum": [
+                      "*",
+                      "package.created",
+                      "package.deleted",
+                      "package.downloaded",
+                      "package.failed",
+                      "package.quarantined",
+                      "package.released",
+                      "package.restored",
+                      "package.security_scanned",
+                      "package.synced",
+                      "package.syncing",
+                      "package.tags_updated"
+                    ],
+                    "type": "string"
+                  },
+                  "type": "array"
+                },
+                "is_active": {
+                  "description": "If enabled, the webhook will trigger on subscribed events and send payloads to the configured target URL.",
+                  "title": "Webhook Active",
+                  "type": "boolean"
+                },
+                "package_query": {
+                  "description": "The package-based search query for webhooks to fire. This uses the same syntax as the standard search used for repositories, and also supports boolean logic operators such as OR/AND/NOT and parentheses for grouping. If a package does not match, the webhook will not fire.",
+                  "maxLength": 1024,
+                  "title": "Package query",
+                  "type": "string"
+                },
+                "request_body_format": {
+                  "description": "The format of the payloads for webhook requests. Valid options are: (0) JSON, (1) JSON array, (2) form encoded JSON and (3) Handlebars template.",
+                  "enum": [
+                    0,
+                    1,
+                    2,
+                    3
+                  ],
+                  "title": "Payload Format",
+                  "type": "integer"
+                },
+                "request_body_template_format": {
+                  "description": "The format of the payloads for webhook requests. Valid options are: (0) Generic/user defined, (1) JSON and (2) XML.",
+                  "enum": [
+                    0,
+                    1,
+                    2
+                  ],
+                  "title": "Payload Template Format",
+                  "type": "integer"
+                },
+                "request_content_type": {
+                  "description": "The value that will be sent for the 'Content Type' header. ",
+                  "maxLength": 128,
+                  "title": "Content Type Header Value",
+                  "type": "string"
+                },
+                "secret_header": {
+                  "description": "The header to send the predefined secret in. This must be unique from existing headers or it won't be sent. You can use this as a form of authentication on the endpoint side.",
+                  "maxLength": 64,
+                  "pattern": "^[-\\w]+$",
+                  "title": "Secret Header",
+                  "type": "string"
+                },
+                "secret_value": {
+                  "description": "The value for the predefined secret (note: this is treated as a passphrase and is encrypted when we store it). You can use this as a form of authentication on the endpoint side.",
+                  "maxLength": 512,
+                  "pattern": "^[^\\n\\r]+$",
+                  "title": "Secret Value",
+                  "type": "string"
+                },
+                "signature_key": {
+                  "description": "The value for the signature key - This is used to generate an HMAC-based hex digest of the request body, which we send as the X-Cloudsmith-Signature header so that you can ensure that the request wasn't modified by a malicious party (note: this is treated as a passphrase and is encrypted when we store it).",
+                  "maxLength": 512,
+                  "minLength": 1,
+                  "title": "HMAC Signature Key",
+                  "type": "string"
+                },
+                "target_url": {
+                  "description": "The destination URL that webhook payloads will be POST'ed to.",
+                  "format": "uri",
+                  "maxLength": 255,
+                  "minLength": 1,
+                  "title": "Payload URL",
+                  "type": "string"
+                },
+                "templates": {
+                  "items": {
+                    "properties": {
+                      "event": {
+                        "maxLength": 128,
+                        "minLength": 1,
+                        "title": "Event",
+                        "type": "string"
+                      },
+                      "template": {
+                        "maxLength": 4096,
+                        "title": "Template",
+                        "type": "string"
+                      }
+                    },
+                    "required": [
+                      "event"
+                    ],
+                    "type": "object"
+                  },
+                  "type": "array"
+                },
+                "verify_ssl": {
+                  "description": "If enabled, SSL certificates is verified when webhooks are sent. It's recommended to leave this enabled as not verifying the integrity of SSL certificates leaves you susceptible to Man-in-the-Middle (MITM) attacks.",
+                  "title": "Verify SSL Certificates",
+                  "type": "boolean"
+                }
+              },
+              "required": [
+                "events",
+                "target_url",
+                "templates"
+              ],
+              "type": "object"
+            }
+          }
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "protocol": "http",
+        "responses": {
+          "201": {
+            "description": "Created the specified webhook",
+            "schema": {
+              "properties": {
+                "created_at": {
+                  "format": "date-time",
+                  "readOnly": true,
+                  "title": "Created at",
+                  "type": "string"
+                },
+                "created_by": {
+                  "minLength": 1,
+                  "readOnly": true,
+                  "title": "Created by",
+                  "type": "string"
+                },
+                "created_by_url": {
+                  "format": "uri",
+                  "readOnly": true,
+                  "title": "Created by url",
+                  "type": "string"
+                },
+                "disable_reason": {
+                  "enum": [
+                    0,
+                    1,
+                    2,
+                    3,
+                    4,
+                    5,
+                    6
+                  ],
+                  "readOnly": true,
+                  "title": "Disable reason",
+                  "type": "integer"
+                },
+                "disable_reason_str": {
+                  "minLength": 1,
+                  "readOnly": true,
+                  "title": "Disable reason str",
+                  "type": "string"
+                },
+                "events": {
+                  "items": {
+                    "enum": [
+                      "*",
+                      "package.created",
+                      "package.deleted",
+                      "package.downloaded",
+                      "package.failed",
+                      "package.quarantined",
+                      "package.released",
+                      "package.restored",
+                      "package.security_scanned",
+                      "package.synced",
+                      "package.syncing",
+                      "package.tags_updated"
+                    ],
+                    "type": "string"
+                  },
+                  "type": "array"
+                },
+                "identifier": {
+                  "description": "Deprecated (23-05-15): Please use 'slug_perm' instead. Previously: A monotonically increasing number that identified a webhook request within a repository.",
+                  "readOnly": true,
+                  "title": "Identifier",
+                  "type": "integer"
+                },
+                "is_active": {
+                  "description": "If enabled, the webhook will trigger on subscribed events and send payloads to the configured target URL.",
+                  "title": "Webhook Active",
+                  "type": "boolean"
+                },
+                "is_last_response_bad": {
+                  "readOnly": true,
+                  "title": "Is last response bad",
+                  "type": "boolean"
+                },
+                "last_response_status": {
+                  "readOnly": true,
+                  "title": "Last response status",
+                  "type": "integer"
+                },
+                "last_response_status_str": {
+                  "minLength": 1,
+                  "readOnly": true,
+                  "title": "Last response status str",
+                  "type": "string"
+                },
+                "num_sent": {
+                  "readOnly": true,
+                  "title": "Num sent",
+                  "type": "integer"
+                },
+                "package_query": {
+                  "description": "The package-based search query for webhooks to fire. This uses the same syntax as the standard search used for repositories, and also supports boolean logic operators such as OR/AND/NOT and parentheses for grouping. If a package does not match, the webhook will not fire.",
+                  "maxLength": 1024,
+                  "title": "Package query",
+                  "type": "string"
+                },
+                "request_body_format": {
+                  "description": "The format of the payloads for webhook requests. Valid options are: (0) JSON, (1) JSON array, (2) form encoded JSON and (3) Handlebars template.",
+                  "enum": [
+                    0,
+                    1,
+                    2,
+                    3
+                  ],
+                  "title": "Payload Format",
+                  "type": "integer"
+                },
+                "request_body_format_str": {
+                  "minLength": 1,
+                  "readOnly": true,
+                  "title": "Request body format str",
+                  "type": "string"
+                },
+                "request_body_template_format": {
+                  "description": "The format of the payloads for webhook requests. Valid options are: (0) Generic/user defined, (1) JSON and (2) XML.",
+                  "enum": [
+                    0,
+                    1,
+                    2
+                  ],
+                  "title": "Payload Template Format",
+                  "type": "integer"
+                },
+                "request_body_template_format_str": {
+                  "minLength": 1,
+                  "readOnly": true,
+                  "title": "Request body template format str",
+                  "type": "string"
+                },
+                "request_content_type": {
+                  "description": "The value that will be sent for the 'Content Type' header. ",
+                  "maxLength": 128,
+                  "title": "Content Type Header Value",
+                  "type": "string"
+                },
+                "secret_header": {
+                  "description": "The header to send the predefined secret in. This must be unique from existing headers or it won't be sent. You can use this as a form of authentication on the endpoint side.",
+                  "maxLength": 64,
+                  "pattern": "^[-\\w]+$",
+                  "title": "Secret Header",
+                  "type": "string"
+                },
+                "self_url": {
+                  "format": "uri",
+                  "readOnly": true,
+                  "title": "Self url",
+                  "type": "string"
+                },
+                "slug_perm": {
+                  "format": "slug",
+                  "minLength": 1,
+                  "pattern": "^[-a-zA-Z0-9_]+$",
+                  "readOnly": true,
+                  "title": "Slug perm",
+                  "type": "string"
+                },
+                "target_url": {
+                  "description": "The destination URL that webhook payloads will be POST'ed to.",
+                  "format": "uri",
+                  "maxLength": 255,
+                  "minLength": 1,
+                  "title": "Payload URL",
+                  "type": "string"
+                },
+                "templates": {
+                  "items": {
+                    "properties": {
+                      "event": {
+                        "maxLength": 128,
+                        "minLength": 1,
+                        "title": "Event",
+                        "type": "string"
+                      },
+                      "template": {
+                        "maxLength": 4096,
+                        "title": "Template",
+                        "type": "string"
+                      }
+                    },
+                    "required": [
+                      "event"
+                    ],
+                    "type": "object"
+                  },
+                  "type": "array"
+                },
+                "updated_at": {
+                  "format": "date-time",
+                  "readOnly": true,
+                  "title": "Updated at",
+                  "type": "string"
+                },
+                "updated_by": {
+                  "minLength": 1,
+                  "readOnly": true,
+                  "title": "Updated by",
+                  "type": "string"
+                },
+                "updated_by_url": {
+                  "format": "uri",
+                  "readOnly": true,
+                  "title": "Updated by url",
+                  "type": "string"
+                },
+                "verify_ssl": {
+                  "description": "If enabled, SSL certificates is verified when webhooks are sent. It's recommended to leave this enabled as not verifying the integrity of SSL certificates leaves you susceptible to Man-in-the-Middle (MITM) attacks.",
+                  "title": "Verify SSL Certificates",
+                  "type": "boolean"
+                }
+              },
+              "required": [
+                "events",
+                "target_url",
+                "templates"
+              ],
+              "type": "object"
+            }
+          },
+          "400": {
+            "description": "Request could not be processed (see detail).",
+            "schema": {
+              "properties": {
+                "detail": {
+                  "description": "An extended message for the response.",
+                  "minLength": 1,
+                  "title": "Detail",
+                  "type": "string"
+                },
+                "fields": {
+                  "additionalProperties": {
+                    "items": {
+                      "minLength": 1,
+                      "type": "string"
+                    },
+                    "type": "array"
+                  },
+                  "description": "A Dictionary of related errors where key: Field and value: Array of Errors related to that field",
+                  "title": "Fields",
+                  "type": "object"
+                }
+              },
+              "required": [
+                "detail"
+              ],
+              "type": "object"
+            }
+          },
+          "404": {
+            "description": "Owner namespace or repository not found",
+            "schema": {
+              "properties": {
+                "detail": {
+                  "description": "An extended message for the response.",
+                  "minLength": 1,
+                  "title": "Detail",
+                  "type": "string"
+                },
+                "fields": {
+                  "additionalProperties": {
+                    "items": {
+                      "minLength": 1,
+                      "type": "string"
+                    },
+                    "type": "array"
+                  },
+                  "description": "A Dictionary of related errors where key: Field and value: Array of Errors related to that field",
+                  "title": "Fields",
+                  "type": "object"
+                }
+              },
+              "required": [
+                "detail"
+              ],
+              "type": "object"
+            }
+          },
+          "422": {
+            "description": "Missing or invalid parameters (see detail).",
+            "schema": {
+              "properties": {
+                "detail": {
+                  "description": "An extended message for the response.",
+                  "minLength": 1,
+                  "title": "Detail",
+                  "type": "string"
+                },
+                "fields": {
+                  "additionalProperties": {
+                    "items": {
+                      "minLength": 1,
+                      "type": "string"
+                    },
+                    "type": "array"
+                  },
+                  "description": "A Dictionary of related errors where key: Field and value: Array of Errors related to that field",
+                  "title": "Fields",
+                  "type": "object"
+                }
+              },
+              "required": [
+                "detail"
+              ],
+              "type": "object"
+            }
+          }
+        },
+        "security": [
+          {
+            "apikey": []
+          },
+          {
+            "basic": []
+          }
+        ],
+        "securitySchemes": {
+          "apikey": {
+            "in": "header",
+            "name": "X-Api-Key",
+            "type": "apiKey"
+          },
+          "basic": {
+            "type": "basic"
+          }
+        },
+        "securitySource": "definition"
+      }
+    },
+    "GET /webhooks/{owner}/{repo}/": {
+      "provenance": "operation-contract",
+      "contract": {
+        "consumes": [
+          "application/json"
+        ],
+        "operationId": "webhooks_list",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "owner",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "path",
+            "name": "repo",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "description": "A page number within the paginated result set.",
+            "in": "query",
+            "name": "page",
+            "required": false,
+            "type": "integer"
+          },
+          {
+            "description": "Number of results to return per page.",
+            "in": "query",
+            "name": "page_size",
+            "required": false,
+            "type": "integer"
+          }
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "protocol": "http",
+        "responses": {
+          "200": {
+            "description": "Retrieved the list of webhooks",
+            "schema": {
+              "items": {
+                "properties": {
+                  "created_at": {
+                    "format": "date-time",
+                    "readOnly": true,
+                    "title": "Created at",
+                    "type": "string"
+                  },
+                  "created_by": {
+                    "minLength": 1,
+                    "readOnly": true,
+                    "title": "Created by",
+                    "type": "string"
+                  },
+                  "created_by_url": {
+                    "format": "uri",
+                    "readOnly": true,
+                    "title": "Created by url",
+                    "type": "string"
+                  },
+                  "disable_reason": {
+                    "enum": [
+                      0,
+                      1,
+                      2,
+                      3,
+                      4,
+                      5,
+                      6
+                    ],
+                    "readOnly": true,
+                    "title": "Disable reason",
+                    "type": "integer"
+                  },
+                  "disable_reason_str": {
+                    "minLength": 1,
+                    "readOnly": true,
+                    "title": "Disable reason str",
+                    "type": "string"
+                  },
+                  "events": {
+                    "items": {
+                      "enum": [
+                        "*",
+                        "package.created",
+                        "package.deleted",
+                        "package.downloaded",
+                        "package.failed",
+                        "package.quarantined",
+                        "package.released",
+                        "package.restored",
+                        "package.security_scanned",
+                        "package.synced",
+                        "package.syncing",
+                        "package.tags_updated"
+                      ],
+                      "type": "string"
+                    },
+                    "type": "array"
+                  },
+                  "identifier": {
+                    "description": "Deprecated (23-05-15): Please use 'slug_perm' instead. Previously: A monotonically increasing number that identified a webhook request within a repository.",
+                    "readOnly": true,
+                    "title": "Identifier",
+                    "type": "integer"
+                  },
+                  "is_active": {
+                    "description": "If enabled, the webhook will trigger on subscribed events and send payloads to the configured target URL.",
+                    "title": "Webhook Active",
+                    "type": "boolean"
+                  },
+                  "is_last_response_bad": {
+                    "readOnly": true,
+                    "title": "Is last response bad",
+                    "type": "boolean"
+                  },
+                  "last_response_status": {
+                    "readOnly": true,
+                    "title": "Last response status",
+                    "type": "integer"
+                  },
+                  "last_response_status_str": {
+                    "minLength": 1,
+                    "readOnly": true,
+                    "title": "Last response status str",
+                    "type": "string"
+                  },
+                  "num_sent": {
+                    "readOnly": true,
+                    "title": "Num sent",
+                    "type": "integer"
+                  },
+                  "package_query": {
+                    "description": "The package-based search query for webhooks to fire. This uses the same syntax as the standard search used for repositories, and also supports boolean logic operators such as OR/AND/NOT and parentheses for grouping. If a package does not match, the webhook will not fire.",
+                    "maxLength": 1024,
+                    "title": "Package query",
+                    "type": "string"
+                  },
+                  "request_body_format": {
+                    "description": "The format of the payloads for webhook requests. Valid options are: (0) JSON, (1) JSON array, (2) form encoded JSON and (3) Handlebars template.",
+                    "enum": [
+                      0,
+                      1,
+                      2,
+                      3
+                    ],
+                    "title": "Payload Format",
+                    "type": "integer"
+                  },
+                  "request_body_format_str": {
+                    "minLength": 1,
+                    "readOnly": true,
+                    "title": "Request body format str",
+                    "type": "string"
+                  },
+                  "request_body_template_format": {
+                    "description": "The format of the payloads for webhook requests. Valid options are: (0) Generic/user defined, (1) JSON and (2) XML.",
+                    "enum": [
+                      0,
+                      1,
+                      2
+                    ],
+                    "title": "Payload Template Format",
+                    "type": "integer"
+                  },
+                  "request_body_template_format_str": {
+                    "minLength": 1,
+                    "readOnly": true,
+                    "title": "Request body template format str",
+                    "type": "string"
+                  },
+                  "request_content_type": {
+                    "description": "The value that will be sent for the 'Content Type' header. ",
+                    "maxLength": 128,
+                    "title": "Content Type Header Value",
+                    "type": "string"
+                  },
+                  "secret_header": {
+                    "description": "The header to send the predefined secret in. This must be unique from existing headers or it won't be sent. You can use this as a form of authentication on the endpoint side.",
+                    "maxLength": 64,
+                    "pattern": "^[-\\w]+$",
+                    "title": "Secret Header",
+                    "type": "string"
+                  },
+                  "self_url": {
+                    "format": "uri",
+                    "readOnly": true,
+                    "title": "Self url",
+                    "type": "string"
+                  },
+                  "slug_perm": {
+                    "format": "slug",
+                    "minLength": 1,
+                    "pattern": "^[-a-zA-Z0-9_]+$",
+                    "readOnly": true,
+                    "title": "Slug perm",
+                    "type": "string"
+                  },
+                  "target_url": {
+                    "description": "The destination URL that webhook payloads will be POST'ed to.",
+                    "format": "uri",
+                    "maxLength": 255,
+                    "minLength": 1,
+                    "title": "Payload URL",
+                    "type": "string"
+                  },
+                  "templates": {
+                    "items": {
+                      "properties": {
+                        "event": {
+                          "maxLength": 128,
+                          "minLength": 1,
+                          "title": "Event",
+                          "type": "string"
+                        },
+                        "template": {
+                          "maxLength": 4096,
+                          "title": "Template",
+                          "type": "string"
+                        }
+                      },
+                      "required": [
+                        "event"
+                      ],
+                      "type": "object"
+                    },
+                    "type": "array"
+                  },
+                  "updated_at": {
+                    "format": "date-time",
+                    "readOnly": true,
+                    "title": "Updated at",
+                    "type": "string"
+                  },
+                  "updated_by": {
+                    "minLength": 1,
+                    "readOnly": true,
+                    "title": "Updated by",
+                    "type": "string"
+                  },
+                  "updated_by_url": {
+                    "format": "uri",
+                    "readOnly": true,
+                    "title": "Updated by url",
+                    "type": "string"
+                  },
+                  "verify_ssl": {
+                    "description": "If enabled, SSL certificates is verified when webhooks are sent. It's recommended to leave this enabled as not verifying the integrity of SSL certificates leaves you susceptible to Man-in-the-Middle (MITM) attacks.",
+                    "title": "Verify SSL Certificates",
+                    "type": "boolean"
+                  }
+                },
+                "required": [
+                  "events",
+                  "target_url",
+                  "templates"
+                ],
+                "type": "object"
+              },
+              "type": "array"
+            }
+          },
+          "400": {
+            "description": "Request could not be processed (see detail).",
+            "schema": {
+              "properties": {
+                "detail": {
+                  "description": "An extended message for the response.",
+                  "minLength": 1,
+                  "title": "Detail",
+                  "type": "string"
+                },
+                "fields": {
+                  "additionalProperties": {
+                    "items": {
+                      "minLength": 1,
+                      "type": "string"
+                    },
+                    "type": "array"
+                  },
+                  "description": "A Dictionary of related errors where key: Field and value: Array of Errors related to that field",
+                  "title": "Fields",
+                  "type": "object"
+                }
+              },
+              "required": [
+                "detail"
+              ],
+              "type": "object"
+            }
+          },
+          "404": {
+            "description": "Owner namespace or repository not found",
+            "schema": {
+              "properties": {
+                "detail": {
+                  "description": "An extended message for the response.",
+                  "minLength": 1,
+                  "title": "Detail",
+                  "type": "string"
+                },
+                "fields": {
+                  "additionalProperties": {
+                    "items": {
+                      "minLength": 1,
+                      "type": "string"
+                    },
+                    "type": "array"
+                  },
+                  "description": "A Dictionary of related errors where key: Field and value: Array of Errors related to that field",
+                  "title": "Fields",
+                  "type": "object"
+                }
+              },
+              "required": [
+                "detail"
+              ],
+              "type": "object"
+            }
+          },
+          "422": {
+            "description": "Missing or invalid parameters (see detail).",
+            "schema": {
+              "properties": {
+                "detail": {
+                  "description": "An extended message for the response.",
+                  "minLength": 1,
+                  "title": "Detail",
+                  "type": "string"
+                },
+                "fields": {
+                  "additionalProperties": {
+                    "items": {
+                      "minLength": 1,
+                      "type": "string"
+                    },
+                    "type": "array"
+                  },
+                  "description": "A Dictionary of related errors where key: Field and value: Array of Errors related to that field",
+                  "title": "Fields",
+                  "type": "object"
+                }
+              },
+              "required": [
+                "detail"
+              ],
+              "type": "object"
+            }
+          }
+        },
+        "security": [
+          {
+            "apikey": []
+          },
+          {
+            "basic": []
+          }
+        ],
+        "securitySchemes": {
+          "apikey": {
+            "in": "header",
+            "name": "X-Api-Key",
+            "type": "apiKey"
+          },
+          "basic": {
+            "type": "basic"
+          }
+        },
+        "securitySource": "definition"
+      }
+    },
+    "GET /webhooks/{owner}/{repo}/{identifier}/": {
+      "provenance": "operation-contract",
+      "contract": {
+        "consumes": [
+          "application/json"
+        ],
+        "operationId": "webhooks_read",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "owner",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "path",
+            "name": "repo",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "path",
+            "name": "identifier",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "protocol": "http",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "properties": {
+                "created_at": {
+                  "format": "date-time",
+                  "readOnly": true,
+                  "title": "Created at",
+                  "type": "string"
+                },
+                "created_by": {
+                  "minLength": 1,
+                  "readOnly": true,
+                  "title": "Created by",
+                  "type": "string"
+                },
+                "created_by_url": {
+                  "format": "uri",
+                  "readOnly": true,
+                  "title": "Created by url",
+                  "type": "string"
+                },
+                "disable_reason": {
+                  "enum": [
+                    0,
+                    1,
+                    2,
+                    3,
+                    4,
+                    5,
+                    6
+                  ],
+                  "readOnly": true,
+                  "title": "Disable reason",
+                  "type": "integer"
+                },
+                "disable_reason_str": {
+                  "minLength": 1,
+                  "readOnly": true,
+                  "title": "Disable reason str",
+                  "type": "string"
+                },
+                "events": {
+                  "items": {
+                    "enum": [
+                      "*",
+                      "package.created",
+                      "package.deleted",
+                      "package.downloaded",
+                      "package.failed",
+                      "package.quarantined",
+                      "package.released",
+                      "package.restored",
+                      "package.security_scanned",
+                      "package.synced",
+                      "package.syncing",
+                      "package.tags_updated"
+                    ],
+                    "type": "string"
+                  },
+                  "type": "array"
+                },
+                "identifier": {
+                  "description": "Deprecated (23-05-15): Please use 'slug_perm' instead. Previously: A monotonically increasing number that identified a webhook request within a repository.",
+                  "readOnly": true,
+                  "title": "Identifier",
+                  "type": "integer"
+                },
+                "is_active": {
+                  "description": "If enabled, the webhook will trigger on subscribed events and send payloads to the configured target URL.",
+                  "title": "Webhook Active",
+                  "type": "boolean"
+                },
+                "is_last_response_bad": {
+                  "readOnly": true,
+                  "title": "Is last response bad",
+                  "type": "boolean"
+                },
+                "last_response_status": {
+                  "readOnly": true,
+                  "title": "Last response status",
+                  "type": "integer"
+                },
+                "last_response_status_str": {
+                  "minLength": 1,
+                  "readOnly": true,
+                  "title": "Last response status str",
+                  "type": "string"
+                },
+                "num_sent": {
+                  "readOnly": true,
+                  "title": "Num sent",
+                  "type": "integer"
+                },
+                "package_query": {
+                  "description": "The package-based search query for webhooks to fire. This uses the same syntax as the standard search used for repositories, and also supports boolean logic operators such as OR/AND/NOT and parentheses for grouping. If a package does not match, the webhook will not fire.",
+                  "maxLength": 1024,
+                  "title": "Package query",
+                  "type": "string"
+                },
+                "request_body_format": {
+                  "description": "The format of the payloads for webhook requests. Valid options are: (0) JSON, (1) JSON array, (2) form encoded JSON and (3) Handlebars template.",
+                  "enum": [
+                    0,
+                    1,
+                    2,
+                    3
+                  ],
+                  "title": "Payload Format",
+                  "type": "integer"
+                },
+                "request_body_format_str": {
+                  "minLength": 1,
+                  "readOnly": true,
+                  "title": "Request body format str",
+                  "type": "string"
+                },
+                "request_body_template_format": {
+                  "description": "The format of the payloads for webhook requests. Valid options are: (0) Generic/user defined, (1) JSON and (2) XML.",
+                  "enum": [
+                    0,
+                    1,
+                    2
+                  ],
+                  "title": "Payload Template Format",
+                  "type": "integer"
+                },
+                "request_body_template_format_str": {
+                  "minLength": 1,
+                  "readOnly": true,
+                  "title": "Request body template format str",
+                  "type": "string"
+                },
+                "request_content_type": {
+                  "description": "The value that will be sent for the 'Content Type' header. ",
+                  "maxLength": 128,
+                  "title": "Content Type Header Value",
+                  "type": "string"
+                },
+                "secret_header": {
+                  "description": "The header to send the predefined secret in. This must be unique from existing headers or it won't be sent. You can use this as a form of authentication on the endpoint side.",
+                  "maxLength": 64,
+                  "pattern": "^[-\\w]+$",
+                  "title": "Secret Header",
+                  "type": "string"
+                },
+                "self_url": {
+                  "format": "uri",
+                  "readOnly": true,
+                  "title": "Self url",
+                  "type": "string"
+                },
+                "slug_perm": {
+                  "format": "slug",
+                  "minLength": 1,
+                  "pattern": "^[-a-zA-Z0-9_]+$",
+                  "readOnly": true,
+                  "title": "Slug perm",
+                  "type": "string"
+                },
+                "target_url": {
+                  "description": "The destination URL that webhook payloads will be POST'ed to.",
+                  "format": "uri",
+                  "maxLength": 255,
+                  "minLength": 1,
+                  "title": "Payload URL",
+                  "type": "string"
+                },
+                "templates": {
+                  "items": {
+                    "properties": {
+                      "event": {
+                        "maxLength": 128,
+                        "minLength": 1,
+                        "title": "Event",
+                        "type": "string"
+                      },
+                      "template": {
+                        "maxLength": 4096,
+                        "title": "Template",
+                        "type": "string"
+                      }
+                    },
+                    "required": [
+                      "event"
+                    ],
+                    "type": "object"
+                  },
+                  "type": "array"
+                },
+                "updated_at": {
+                  "format": "date-time",
+                  "readOnly": true,
+                  "title": "Updated at",
+                  "type": "string"
+                },
+                "updated_by": {
+                  "minLength": 1,
+                  "readOnly": true,
+                  "title": "Updated by",
+                  "type": "string"
+                },
+                "updated_by_url": {
+                  "format": "uri",
+                  "readOnly": true,
+                  "title": "Updated by url",
+                  "type": "string"
+                },
+                "verify_ssl": {
+                  "description": "If enabled, SSL certificates is verified when webhooks are sent. It's recommended to leave this enabled as not verifying the integrity of SSL certificates leaves you susceptible to Man-in-the-Middle (MITM) attacks.",
+                  "title": "Verify SSL Certificates",
+                  "type": "boolean"
+                }
+              },
+              "required": [
+                "events",
+                "target_url",
+                "templates"
+              ],
+              "type": "object"
+            }
+          },
+          "400": {
+            "description": "Request could not be processed (see detail).",
+            "schema": {
+              "properties": {
+                "detail": {
+                  "description": "An extended message for the response.",
+                  "minLength": 1,
+                  "title": "Detail",
+                  "type": "string"
+                },
+                "fields": {
+                  "additionalProperties": {
+                    "items": {
+                      "minLength": 1,
+                      "type": "string"
+                    },
+                    "type": "array"
+                  },
+                  "description": "A Dictionary of related errors where key: Field and value: Array of Errors related to that field",
+                  "title": "Fields",
+                  "type": "object"
+                }
+              },
+              "required": [
+                "detail"
+              ],
+              "type": "object"
+            }
+          },
+          "422": {
+            "description": "Missing or invalid parameters (see detail).",
+            "schema": {
+              "properties": {
+                "detail": {
+                  "description": "An extended message for the response.",
+                  "minLength": 1,
+                  "title": "Detail",
+                  "type": "string"
+                },
+                "fields": {
+                  "additionalProperties": {
+                    "items": {
+                      "minLength": 1,
+                      "type": "string"
+                    },
+                    "type": "array"
+                  },
+                  "description": "A Dictionary of related errors where key: Field and value: Array of Errors related to that field",
+                  "title": "Fields",
+                  "type": "object"
+                }
+              },
+              "required": [
+                "detail"
+              ],
+              "type": "object"
+            }
+          }
+        },
+        "security": [
+          {
+            "apikey": []
+          },
+          {
+            "basic": []
+          }
+        ],
+        "securitySchemes": {
+          "apikey": {
+            "in": "header",
+            "name": "X-Api-Key",
+            "type": "apiKey"
+          },
+          "basic": {
+            "type": "basic"
+          }
+        },
+        "securitySource": "definition"
+      }
+    },
+    "PATCH /webhooks/{owner}/{repo}/{identifier}/": {
+      "provenance": "operation-contract",
+      "contract": {
+        "consumes": [
+          "application/json"
+        ],
+        "operationId": "webhooks_partial_update",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "owner",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "path",
+            "name": "repo",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "path",
+            "name": "identifier",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "body",
+            "name": "data",
+            "required": false,
+            "schema": {
+              "properties": {
+                "events": {
+                  "items": {
+                    "enum": [
+                      "*",
+                      "package.created",
+                      "package.deleted",
+                      "package.downloaded",
+                      "package.failed",
+                      "package.quarantined",
+                      "package.released",
+                      "package.restored",
+                      "package.security_scanned",
+                      "package.synced",
+                      "package.syncing",
+                      "package.tags_updated"
+                    ],
+                    "type": "string"
+                  },
+                  "type": "array"
+                },
+                "is_active": {
+                  "description": "If enabled, the webhook will trigger on subscribed events and send payloads to the configured target URL.",
+                  "title": "Webhook Active",
+                  "type": "boolean"
+                },
+                "package_query": {
+                  "description": "The package-based search query for webhooks to fire. This uses the same syntax as the standard search used for repositories, and also supports boolean logic operators such as OR/AND/NOT and parentheses for grouping. If a package does not match, the webhook will not fire.",
+                  "maxLength": 1024,
+                  "title": "Package query",
+                  "type": "string"
+                },
+                "request_body_format": {
+                  "description": "The format of the payloads for webhook requests. Valid options are: (0) JSON, (1) JSON array, (2) form encoded JSON and (3) Handlebars template.",
+                  "enum": [
+                    0,
+                    1,
+                    2,
+                    3
+                  ],
+                  "title": "Payload Format",
+                  "type": "integer"
+                },
+                "request_body_template_format": {
+                  "description": "The format of the payloads for webhook requests. Valid options are: (0) Generic/user defined, (1) JSON and (2) XML.",
+                  "enum": [
+                    0,
+                    1,
+                    2
+                  ],
+                  "title": "Payload Template Format",
+                  "type": "integer"
+                },
+                "request_content_type": {
+                  "description": "The value that will be sent for the 'Content Type' header. ",
+                  "maxLength": 128,
+                  "title": "Content Type Header Value",
+                  "type": "string"
+                },
+                "secret_header": {
+                  "description": "The header to send the predefined secret in. This must be unique from existing headers or it won't be sent. You can use this as a form of authentication on the endpoint side.",
+                  "maxLength": 64,
+                  "pattern": "^[-\\w]+$",
+                  "title": "Secret Header",
+                  "type": "string"
+                },
+                "secret_value": {
+                  "description": "The value for the predefined secret (note: this is treated as a passphrase and is encrypted when we store it). You can use this as a form of authentication on the endpoint side.",
+                  "maxLength": 512,
+                  "pattern": "^[^\\n\\r]+$",
+                  "title": "Secret Value",
+                  "type": "string"
+                },
+                "signature_key": {
+                  "description": "The value for the signature key - This is used to generate an HMAC-based hex digest of the request body, which we send as the X-Cloudsmith-Signature header so that you can ensure that the request wasn't modified by a malicious party (note: this is treated as a passphrase and is encrypted when we store it).",
+                  "maxLength": 512,
+                  "minLength": 1,
+                  "title": "HMAC Signature Key",
+                  "type": "string"
+                },
+                "target_url": {
+                  "description": "The destination URL that webhook payloads will be POST'ed to.",
+                  "format": "uri",
+                  "maxLength": 255,
+                  "minLength": 1,
+                  "title": "Payload URL",
+                  "type": "string"
+                },
+                "templates": {
+                  "items": {
+                    "properties": {
+                      "event": {
+                        "maxLength": 128,
+                        "minLength": 1,
+                        "title": "Event",
+                        "type": "string"
+                      },
+                      "template": {
+                        "maxLength": 4096,
+                        "title": "Template",
+                        "type": "string"
+                      }
+                    },
+                    "required": [
+                      "event"
+                    ],
+                    "type": "object"
+                  },
+                  "type": "array"
+                },
+                "verify_ssl": {
+                  "description": "If enabled, SSL certificates is verified when webhooks are sent. It's recommended to leave this enabled as not verifying the integrity of SSL certificates leaves you susceptible to Man-in-the-Middle (MITM) attacks.",
+                  "title": "Verify SSL Certificates",
+                  "type": "boolean"
+                }
+              },
+              "type": "object"
+            }
+          }
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "protocol": "http",
+        "responses": {
+          "200": {
+            "description": "Updated the specified webhook",
+            "schema": {
+              "properties": {
+                "created_at": {
+                  "format": "date-time",
+                  "readOnly": true,
+                  "title": "Created at",
+                  "type": "string"
+                },
+                "created_by": {
+                  "minLength": 1,
+                  "readOnly": true,
+                  "title": "Created by",
+                  "type": "string"
+                },
+                "created_by_url": {
+                  "format": "uri",
+                  "readOnly": true,
+                  "title": "Created by url",
+                  "type": "string"
+                },
+                "disable_reason": {
+                  "enum": [
+                    0,
+                    1,
+                    2,
+                    3,
+                    4,
+                    5,
+                    6
+                  ],
+                  "readOnly": true,
+                  "title": "Disable reason",
+                  "type": "integer"
+                },
+                "disable_reason_str": {
+                  "minLength": 1,
+                  "readOnly": true,
+                  "title": "Disable reason str",
+                  "type": "string"
+                },
+                "events": {
+                  "items": {
+                    "enum": [
+                      "*",
+                      "package.created",
+                      "package.deleted",
+                      "package.downloaded",
+                      "package.failed",
+                      "package.quarantined",
+                      "package.released",
+                      "package.restored",
+                      "package.security_scanned",
+                      "package.synced",
+                      "package.syncing",
+                      "package.tags_updated"
+                    ],
+                    "type": "string"
+                  },
+                  "type": "array"
+                },
+                "identifier": {
+                  "description": "Deprecated (23-05-15): Please use 'slug_perm' instead. Previously: A monotonically increasing number that identified a webhook request within a repository.",
+                  "readOnly": true,
+                  "title": "Identifier",
+                  "type": "integer"
+                },
+                "is_active": {
+                  "description": "If enabled, the webhook will trigger on subscribed events and send payloads to the configured target URL.",
+                  "title": "Webhook Active",
+                  "type": "boolean"
+                },
+                "is_last_response_bad": {
+                  "readOnly": true,
+                  "title": "Is last response bad",
+                  "type": "boolean"
+                },
+                "last_response_status": {
+                  "readOnly": true,
+                  "title": "Last response status",
+                  "type": "integer"
+                },
+                "last_response_status_str": {
+                  "minLength": 1,
+                  "readOnly": true,
+                  "title": "Last response status str",
+                  "type": "string"
+                },
+                "num_sent": {
+                  "readOnly": true,
+                  "title": "Num sent",
+                  "type": "integer"
+                },
+                "package_query": {
+                  "description": "The package-based search query for webhooks to fire. This uses the same syntax as the standard search used for repositories, and also supports boolean logic operators such as OR/AND/NOT and parentheses for grouping. If a package does not match, the webhook will not fire.",
+                  "maxLength": 1024,
+                  "title": "Package query",
+                  "type": "string"
+                },
+                "request_body_format": {
+                  "description": "The format of the payloads for webhook requests. Valid options are: (0) JSON, (1) JSON array, (2) form encoded JSON and (3) Handlebars template.",
+                  "enum": [
+                    0,
+                    1,
+                    2,
+                    3
+                  ],
+                  "title": "Payload Format",
+                  "type": "integer"
+                },
+                "request_body_format_str": {
+                  "minLength": 1,
+                  "readOnly": true,
+                  "title": "Request body format str",
+                  "type": "string"
+                },
+                "request_body_template_format": {
+                  "description": "The format of the payloads for webhook requests. Valid options are: (0) Generic/user defined, (1) JSON and (2) XML.",
+                  "enum": [
+                    0,
+                    1,
+                    2
+                  ],
+                  "title": "Payload Template Format",
+                  "type": "integer"
+                },
+                "request_body_template_format_str": {
+                  "minLength": 1,
+                  "readOnly": true,
+                  "title": "Request body template format str",
+                  "type": "string"
+                },
+                "request_content_type": {
+                  "description": "The value that will be sent for the 'Content Type' header. ",
+                  "maxLength": 128,
+                  "title": "Content Type Header Value",
+                  "type": "string"
+                },
+                "secret_header": {
+                  "description": "The header to send the predefined secret in. This must be unique from existing headers or it won't be sent. You can use this as a form of authentication on the endpoint side.",
+                  "maxLength": 64,
+                  "pattern": "^[-\\w]+$",
+                  "title": "Secret Header",
+                  "type": "string"
+                },
+                "self_url": {
+                  "format": "uri",
+                  "readOnly": true,
+                  "title": "Self url",
+                  "type": "string"
+                },
+                "slug_perm": {
+                  "format": "slug",
+                  "minLength": 1,
+                  "pattern": "^[-a-zA-Z0-9_]+$",
+                  "readOnly": true,
+                  "title": "Slug perm",
+                  "type": "string"
+                },
+                "target_url": {
+                  "description": "The destination URL that webhook payloads will be POST'ed to.",
+                  "format": "uri",
+                  "maxLength": 255,
+                  "minLength": 1,
+                  "title": "Payload URL",
+                  "type": "string"
+                },
+                "templates": {
+                  "items": {
+                    "properties": {
+                      "event": {
+                        "maxLength": 128,
+                        "minLength": 1,
+                        "title": "Event",
+                        "type": "string"
+                      },
+                      "template": {
+                        "maxLength": 4096,
+                        "title": "Template",
+                        "type": "string"
+                      }
+                    },
+                    "required": [
+                      "event"
+                    ],
+                    "type": "object"
+                  },
+                  "type": "array"
+                },
+                "updated_at": {
+                  "format": "date-time",
+                  "readOnly": true,
+                  "title": "Updated at",
+                  "type": "string"
+                },
+                "updated_by": {
+                  "minLength": 1,
+                  "readOnly": true,
+                  "title": "Updated by",
+                  "type": "string"
+                },
+                "updated_by_url": {
+                  "format": "uri",
+                  "readOnly": true,
+                  "title": "Updated by url",
+                  "type": "string"
+                },
+                "verify_ssl": {
+                  "description": "If enabled, SSL certificates is verified when webhooks are sent. It's recommended to leave this enabled as not verifying the integrity of SSL certificates leaves you susceptible to Man-in-the-Middle (MITM) attacks.",
+                  "title": "Verify SSL Certificates",
+                  "type": "boolean"
+                }
+              },
+              "required": [
+                "events",
+                "target_url",
+                "templates"
+              ],
+              "type": "object"
+            }
+          },
+          "400": {
+            "description": "Request could not be processed (see detail).",
+            "schema": {
+              "properties": {
+                "detail": {
+                  "description": "An extended message for the response.",
+                  "minLength": 1,
+                  "title": "Detail",
+                  "type": "string"
+                },
+                "fields": {
+                  "additionalProperties": {
+                    "items": {
+                      "minLength": 1,
+                      "type": "string"
+                    },
+                    "type": "array"
+                  },
+                  "description": "A Dictionary of related errors where key: Field and value: Array of Errors related to that field",
+                  "title": "Fields",
+                  "type": "object"
+                }
+              },
+              "required": [
+                "detail"
+              ],
+              "type": "object"
+            }
+          },
+          "404": {
+            "description": "Owner namespace or repository not found",
+            "schema": {
+              "properties": {
+                "detail": {
+                  "description": "An extended message for the response.",
+                  "minLength": 1,
+                  "title": "Detail",
+                  "type": "string"
+                },
+                "fields": {
+                  "additionalProperties": {
+                    "items": {
+                      "minLength": 1,
+                      "type": "string"
+                    },
+                    "type": "array"
+                  },
+                  "description": "A Dictionary of related errors where key: Field and value: Array of Errors related to that field",
+                  "title": "Fields",
+                  "type": "object"
+                }
+              },
+              "required": [
+                "detail"
+              ],
+              "type": "object"
+            }
+          },
+          "422": {
+            "description": "Missing or invalid parameters (see detail).",
+            "schema": {
+              "properties": {
+                "detail": {
+                  "description": "An extended message for the response.",
+                  "minLength": 1,
+                  "title": "Detail",
+                  "type": "string"
+                },
+                "fields": {
+                  "additionalProperties": {
+                    "items": {
+                      "minLength": 1,
+                      "type": "string"
+                    },
+                    "type": "array"
+                  },
+                  "description": "A Dictionary of related errors where key: Field and value: Array of Errors related to that field",
+                  "title": "Fields",
+                  "type": "object"
+                }
+              },
+              "required": [
+                "detail"
+              ],
+              "type": "object"
+            }
+          }
+        },
+        "security": [
+          {
+            "apikey": []
+          },
+          {
+            "basic": []
+          }
+        ],
+        "securitySchemes": {
+          "apikey": {
+            "in": "header",
+            "name": "X-Api-Key",
+            "type": "apiKey"
+          },
+          "basic": {
+            "type": "basic"
+          }
+        },
+        "securitySource": "definition"
       }
     }
   }

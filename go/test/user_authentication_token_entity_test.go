@@ -2,7 +2,6 @@ package sdktest
 
 import (
 	"encoding/json"
-	"fmt"
 	"os"
 	"path/filepath"
 	"runtime"
@@ -68,10 +67,6 @@ func TestUserAuthenticationTokenEntity(t *testing.T) {
 		userAuthenticationTokenRef01DataUp0Up := map[string]any{
 		}
 
-		userAuthenticationTokenRef01MarkdefUp0Name := "created"
-		userAuthenticationTokenRef01MarkdefUp0Value := fmt.Sprintf("Mark01-user_authentication_token_ref01_%d", setup.now)
-		userAuthenticationTokenRef01DataUp0Up[userAuthenticationTokenRef01MarkdefUp0Name] = userAuthenticationTokenRef01MarkdefUp0Value
-
 		userAuthenticationTokenRef01ResdataUp0Result, err := userAuthenticationTokenRef01Ent.Update(userAuthenticationTokenRef01DataUp0Up, nil)
 		if err != nil {
 			t.Fatalf("update failed: %v", err)
@@ -79,9 +74,6 @@ func TestUserAuthenticationTokenEntity(t *testing.T) {
 		userAuthenticationTokenRef01ResdataUp0 := core.ToMapAny(entityData(userAuthenticationTokenRef01ResdataUp0Result))
 		if userAuthenticationTokenRef01ResdataUp0 == nil {
 			t.Fatal("expected update result to be a map")
-		}
-		if userAuthenticationTokenRef01ResdataUp0[userAuthenticationTokenRef01MarkdefUp0Name] != userAuthenticationTokenRef01MarkdefUp0Value {
-			t.Fatalf("expected %s to be updated, got %v", userAuthenticationTokenRef01MarkdefUp0Name, userAuthenticationTokenRef01ResdataUp0[userAuthenticationTokenRef01MarkdefUp0Name])
 		}
 
 	})

@@ -10,5 +10,6 @@
     "geoip": {
       "geoip_ref01": {}
     }
-  }
+  },
+  "requests": {}
 }

@@ -10,5 +10,6 @@
     "audit_log": {
       "audit_log_ref01": {}
     }
-  }
+  },
+  "requests": {}
 }

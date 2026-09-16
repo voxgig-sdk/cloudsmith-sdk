@@ -10,5 +10,6 @@
     "ecdsa": {
       "ecdsa_ref01": {}
     }
-  }
+  },
+  "requests": {}
 }

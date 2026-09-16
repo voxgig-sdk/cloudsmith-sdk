@@ -10,5 +10,6 @@
     "distro": {
       "distro_ref01": {}
     }
-  }
+  },
+  "requests": {}
 }

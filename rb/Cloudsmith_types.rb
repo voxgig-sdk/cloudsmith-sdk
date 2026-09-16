@@ -5041,9 +5041,6 @@ end
 # @!attribute [rw] created_at
 #   @return [String, nil]
 #
-# @!attribute [rw] event_at
-#   @return [String, nil]
-#
 # @!attribute [rw] id
 #   @return [String, nil]
 #
@@ -5053,15 +5050,6 @@ end
 # @!attribute [rw] name
 #   @return [String]
 #
-# @!attribute [rw] package
-#   @return [Hash]
-#
-# @!attribute [rw] policy
-#   @return [Hash]
-#
-# @!attribute [rw] reasons
-#   @return [Array]
-#
 # @!attribute [rw] slug
 #   @return [String, nil]
 #
@@ -5070,23 +5058,15 @@ end
 #
 # @!attribute [rw] tagline
 #   @return [String, nil]
-#
-# @!attribute [rw] vulnerability_scan_results
-#   @return [Hash]
 Org = Struct.new(
   :country,
   :created_at,
-  :event_at,
   :id,
   :location,
   :name,
-  :package,
-  :policy,
-  :reasons,
   :slug,
   :slug_perm,
   :tagline,
-  :vulnerability_scan_results,
   keyword_init: true
 )
 
@@ -5130,23 +5110,11 @@ OrgListMatch = Struct.new(
 # @!attribute [rw] created_at
 #   @return [String, nil]
 #
-# @!attribute [rw] event_at
-#   @return [String, nil]
-#
 # @!attribute [rw] location
 #   @return [String, nil]
 #
 # @!attribute [rw] name
 #   @return [String]
-#
-# @!attribute [rw] package
-#   @return [Hash]
-#
-# @!attribute [rw] policy
-#   @return [Hash]
-#
-# @!attribute [rw] reasons
-#   @return [Array]
 #
 # @!attribute [rw] slug
 #   @return [String, nil]
@@ -5156,24 +5124,16 @@ OrgListMatch = Struct.new(
 #
 # @!attribute [rw] tagline
 #   @return [String, nil]
-#
-# @!attribute [rw] vulnerability_scan_results
-#   @return [Hash]
 OrgCreateData = Struct.new(
   :id,
   :member_id,
   :country,
   :created_at,
-  :event_at,
   :location,
   :name,
-  :package,
-  :policy,
-  :reasons,
   :slug,
   :slug_perm,
   :tagline,
-  :vulnerability_scan_results,
   keyword_init: true
 )
 
@@ -5194,23 +5154,11 @@ OrgCreateData = Struct.new(
 # @!attribute [rw] created_at
 #   @return [String, nil]
 #
-# @!attribute [rw] event_at
-#   @return [String, nil]
-#
 # @!attribute [rw] location
 #   @return [String, nil]
 #
 # @!attribute [rw] name
 #   @return [String, nil]
-#
-# @!attribute [rw] package
-#   @return [Hash, nil]
-#
-# @!attribute [rw] policy
-#   @return [Hash, nil]
-#
-# @!attribute [rw] reasons
-#   @return [Array, nil]
 #
 # @!attribute [rw] slug
 #   @return [String, nil]
@@ -5220,25 +5168,17 @@ OrgCreateData = Struct.new(
 #
 # @!attribute [rw] tagline
 #   @return [String, nil]
-#
-# @!attribute [rw] vulnerability_scan_results
-#   @return [Hash, nil]
 OrgUpdateData = Struct.new(
   :id,
   :team_id,
   :data,
   :country,
   :created_at,
-  :event_at,
   :location,
   :name,
-  :package,
-  :policy,
-  :reasons,
   :slug,
   :slug_perm,
   :tagline,
-  :vulnerability_scan_results,
   keyword_init: true
 )
 
@@ -13081,21 +13021,8 @@ class TransferRegion
 end
 
 # User entity data model.
-#
-# @!attribute [rw] created
-#   @return [String, nil]
-#
-# @!attribute [rw] key
-#   @return [String, nil]
-#
-# @!attribute [rw] slug_perm
-#   @return [String, nil]
-User = Struct.new(
-  :created,
-  :key,
-  :slug_perm,
-  keyword_init: true
-)
+class User
+end
 
 # Request payload for User#list.
 #

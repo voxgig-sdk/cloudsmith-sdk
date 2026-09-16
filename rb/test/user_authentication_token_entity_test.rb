@@ -44,14 +44,9 @@ class UserAuthenticationTokenEntityTest < Minitest::Test
     user_authentication_token_ref01_data_up0_up = {
     }
 
-    user_authentication_token_ref01_markdef_up0_name = "created"
-    user_authentication_token_ref01_markdef_up0_value = "Mark01-user_authentication_token_ref01_#{setup[:now]}"
-    user_authentication_token_ref01_data_up0_up[user_authentication_token_ref01_markdef_up0_name] = user_authentication_token_ref01_markdef_up0_value
-
     user_authentication_token_ref01_resdata_up0_result = user_authentication_token_ref01_ent.update(user_authentication_token_ref01_data_up0_up, nil)
     user_authentication_token_ref01_resdata_up0 = Helpers.to_map(user_authentication_token_ref01_resdata_up0_result.respond_to?(:data_get) ? user_authentication_token_ref01_resdata_up0_result.data_get : user_authentication_token_ref01_resdata_up0_result)
     assert !user_authentication_token_ref01_resdata_up0.nil?
-    assert_equal user_authentication_token_ref01_resdata_up0[user_authentication_token_ref01_markdef_up0_name], user_authentication_token_ref01_markdef_up0_value
 
   end
 end

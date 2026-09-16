@@ -44,7 +44,7 @@ main: kit: flow: BasicServiceFlow:
         ref: "service_ref01",
         srcdatavar: "service_ref01_data",
         suffix: "_up0",
-        textfield: "created_at"
+        textfield: "description"
       }
 
       op: "update",

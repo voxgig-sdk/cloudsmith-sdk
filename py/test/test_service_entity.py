@@ -103,7 +103,7 @@ class TestServiceEntity:
             "org_id": setup["idmap"]["org_id"],
         }
 
-        service_ref01_markdef_up0_name = "created_at"
+        service_ref01_markdef_up0_name = "description"
         service_ref01_markdef_up0_value = "Mark01-service_ref01_" + str(setup["now"])
         service_ref01_data_up0_up[service_ref01_markdef_up0_name] = service_ref01_markdef_up0_value
 

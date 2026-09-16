@@ -10,5 +10,6 @@
     "saml_group_sync": {
       "saml_group_sync_ref01": {}
     }
-  }
+  },
+  "requests": {}
 }

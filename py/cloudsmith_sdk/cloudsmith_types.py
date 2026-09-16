@@ -1712,16 +1712,11 @@ class OpenidConnect(TypedDict):
 
 class OrgRequired(TypedDict):
     name: str
-    package: dict
-    policy: dict
-    reasons: list
-    vulnerability_scan_results: dict
 
 
 class Org(OrgRequired, total=False):
     country: str
     created_at: str
-    event_at: str
     id: str
     location: str
     slug: str
@@ -1745,17 +1740,12 @@ class OrgListMatch(TypedDict, total=False):
 class OrgCreateDataRequired(TypedDict):
     id: str
     name: str
-    package: dict
-    policy: dict
-    reasons: list
-    vulnerability_scan_results: dict
 
 
 class OrgCreateData(OrgCreateDataRequired, total=False):
     member_id: str
     country: str
     created_at: str
-    event_at: str
     location: str
     slug: str
     slug_perm: str
@@ -1771,16 +1761,11 @@ class OrgUpdateData(OrgUpdateDataRequired, total=False):
     data: dict
     country: str
     created_at: str
-    event_at: str
     location: str
     name: str
-    package: dict
-    policy: dict
-    reasons: list
     slug: str
     slug_perm: str
     tagline: str
-    vulnerability_scan_results: dict
 
 
 class OrgRemoveMatchRequired(TypedDict):
@@ -4371,10 +4356,8 @@ class TransferRegion(TypedDict):
     pass
 
 
-class User(TypedDict, total=False):
-    created: str
-    key: str
-    slug_perm: str
+class User(TypedDict):
+    pass
 
 
 class UserListMatch(TypedDict, total=False):

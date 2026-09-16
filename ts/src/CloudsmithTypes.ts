@@ -1476,17 +1476,12 @@ export interface OpenidConnect {
 export interface Org {
   country?: string
   created_at?: string
-  event_at?: string
   id?: string
   location?: string
   name: string
-  package: Record<string, any>
-  policy: Record<string, any>
-  reasons: any[]
   slug?: string
   slug_perm?: string
   tagline?: string
-  vulnerability_scan_results: Record<string, any>
 }
 
 export interface OrgLoadMatch {
@@ -1510,16 +1505,11 @@ export interface OrgCreateData {
   member_id?: string
   country?: string
   created_at?: string
-  event_at?: string
   location?: string
   name: string
-  package: Record<string, any>
-  policy: Record<string, any>
-  reasons: any[]
   slug?: string
   slug_perm?: string
   tagline?: string
-  vulnerability_scan_results: Record<string, any>
 }
 
 export interface OrgUpdateData {
@@ -1528,16 +1518,11 @@ export interface OrgUpdateData {
   data?: Record<string, any>
   country?: string
   created_at?: string
-  event_at?: string
   location?: string
   name?: string
-  package?: Record<string, any>
-  policy?: Record<string, any>
-  reasons?: any[]
   slug?: string
   slug_perm?: string
   tagline?: string
-  vulnerability_scan_results?: Record<string, any>
 }
 
 export interface OrgRemoveMatch {
@@ -3825,9 +3810,6 @@ export interface TransferRegion {
 }
 
 export interface User {
-  created?: string
-  key?: string
-  slug_perm?: string
 }
 
 export interface UserListMatch {

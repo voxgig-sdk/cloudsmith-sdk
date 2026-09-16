@@ -1719,17 +1719,12 @@ class Org
 {
     public ?string $country = null;
     public ?string $created_at = null;
-    public ?string $event_at = null;
     public ?string $id = null;
     public ?string $location = null;
     public string $name;
-    public array $package;
-    public array $policy;
-    public array $reasons;
     public ?string $slug = null;
     public ?string $slug_perm = null;
     public ?string $tagline = null;
-    public array $vulnerability_scan_results;
 }
 
 /** Request payload for Org#load. */
@@ -1753,16 +1748,11 @@ class OrgCreateData
     public ?string $member_id = null;
     public ?string $country = null;
     public ?string $created_at = null;
-    public ?string $event_at = null;
     public ?string $location = null;
     public string $name;
-    public array $package;
-    public array $policy;
-    public array $reasons;
     public ?string $slug = null;
     public ?string $slug_perm = null;
     public ?string $tagline = null;
-    public array $vulnerability_scan_results;
 }
 
 /** Request payload for Org#update. */
@@ -1773,16 +1763,11 @@ class OrgUpdateData
     public ?array $data = null;
     public ?string $country = null;
     public ?string $created_at = null;
-    public ?string $event_at = null;
     public ?string $location = null;
     public ?string $name = null;
-    public ?array $package = null;
-    public ?array $policy = null;
-    public ?array $reasons = null;
     public ?string $slug = null;
     public ?string $slug_perm = null;
     public ?string $tagline = null;
-    public ?array $vulnerability_scan_results = null;
 }
 
 /** Request payload for Org#remove. */
@@ -4410,9 +4395,6 @@ class TransferRegion
 /** User entity data model. */
 class User
 {
-    public ?string $created = null;
-    public ?string $key = null;
-    public ?string $slug_perm = null;
 }
 
 /** Request payload for User#list. */

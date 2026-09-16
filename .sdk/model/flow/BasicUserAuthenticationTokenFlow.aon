@@ -18,8 +18,7 @@ main: kit: flow: BasicUserAuthenticationTokenFlow:
       input: {
         ref: "user_authentication_token_ref01",
         srcdatavar: "user_authentication_token_ref01_data",
-        suffix: "_up0",
-        textfield: "created"
+        suffix: "_up0"
       }
 
       op: "update",

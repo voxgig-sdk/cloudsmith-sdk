@@ -2,13 +2,13 @@
   "existing": {
     "repository_token": {
       "REPOSITORY_TOKEN00": {
-        "clients": "s190",
+        "clients": 400,
         "created_at": "s191",
         "created_by": "s192",
         "created_by_url": "s193",
         "default": true,
         "disable_url": "s195",
-        "downloads": "s196",
+        "downloads": 406,
         "enable_url": "s197",
         "eula_accepted": {},
         "eula_accepted_at": "s199",
@@ -16,15 +16,15 @@
         "eula_required": false,
         "has_limits": true,
         "id": "REPOSITORY_TOKEN00",
-        "identifier": "s19e",
+        "identifier": 414,
         "is_active": false,
         "is_limited": true,
-        "limit_bandwidth": "s1a1",
+        "limit_bandwidth": 417,
         "limit_bandwidth_unit": "s1a2",
         "limit_date_range_from": "s1a3",
         "limit_date_range_to": "s1a4",
-        "limit_num_clients": "s1a5",
-        "limit_num_downloads": "s1a6",
+        "limit_num_clients": 421,
+        "limit_num_downloads": 422,
         "limit_package_query": "s1a7",
         "limit_path_query": "s1a8",
         "metadata": {},
@@ -46,13 +46,13 @@
         "repo": "REPO01"
       },
       "REPOSITORY_TOKEN01": {
-        "clients": "s320",
+        "clients": 800,
         "created_at": "s321",
         "created_by": "s322",
         "created_by_url": "s323",
         "default": true,
         "disable_url": "s325",
-        "downloads": "s326",
+        "downloads": 806,
         "enable_url": "s327",
         "eula_accepted": {},
         "eula_accepted_at": "s329",
@@ -60,15 +60,15 @@
         "eula_required": false,
         "has_limits": true,
         "id": "REPOSITORY_TOKEN01",
-        "identifier": "s32e",
+        "identifier": 814,
         "is_active": false,
         "is_limited": true,
-        "limit_bandwidth": "s331",
+        "limit_bandwidth": 817,
         "limit_bandwidth_unit": "s332",
         "limit_date_range_from": "s333",
         "limit_date_range_to": "s334",
-        "limit_num_clients": "s335",
-        "limit_num_downloads": "s336",
+        "limit_num_clients": 821,
+        "limit_num_downloads": 822,
         "limit_package_query": "s337",
         "limit_path_query": "s338",
         "metadata": {},
@@ -90,13 +90,13 @@
         "repo": "REPO01"
       },
       "REPOSITORY_TOKEN02": {
-        "clients": "s4b0",
+        "clients": 1200,
         "created_at": "s4b1",
         "created_by": "s4b2",
         "created_by_url": "s4b3",
         "default": true,
         "disable_url": "s4b5",
-        "downloads": "s4b6",
+        "downloads": 1206,
         "enable_url": "s4b7",
         "eula_accepted": {},
         "eula_accepted_at": "s4b9",
@@ -104,15 +104,15 @@
         "eula_required": false,
         "has_limits": true,
         "id": "REPOSITORY_TOKEN02",
-        "identifier": "s4be",
+        "identifier": 1214,
         "is_active": false,
         "is_limited": true,
-        "limit_bandwidth": "s4c1",
+        "limit_bandwidth": 1217,
         "limit_bandwidth_unit": "s4c2",
         "limit_date_range_from": "s4c3",
         "limit_date_range_to": "s4c4",
-        "limit_num_clients": "s4c5",
-        "limit_num_downloads": "s4c6",
+        "limit_num_clients": 1221,
+        "limit_num_downloads": 1222,
         "limit_package_query": "s4c7",
         "limit_path_query": "s4c8",
         "metadata": {},
@@ -138,28 +138,28 @@
   "new": {
     "repository_token": {
       "repository_token_ref01": {
-        "clients": "s640",
+        "clients": 1600,
         "created_at": "s641",
         "created_by": "s642",
         "created_by_url": "s643",
         "default": true,
         "disable_url": "s645",
-        "downloads": "s646",
+        "downloads": 1606,
         "enable_url": "s647",
         "eula_accepted": {},
         "eula_accepted_at": "s649",
         "eula_accepted_from": "s64a",
         "eula_required": false,
         "has_limits": true,
-        "identifier": "s64e",
+        "identifier": 1614,
         "is_active": false,
         "is_limited": true,
-        "limit_bandwidth": "s651",
+        "limit_bandwidth": 1617,
         "limit_bandwidth_unit": "s652",
         "limit_date_range_from": "s653",
         "limit_date_range_to": "s654",
-        "limit_num_clients": "s655",
-        "limit_num_downloads": "s656",
+        "limit_num_clients": 1621,
+        "limit_num_downloads": 1622,
         "limit_package_query": "s657",
         "limit_path_query": "s658",
         "metadata": {},
@@ -177,6 +177,1985 @@
         "usage": "s665",
         "user": "s666",
         "user_url": "s667"
+      }
+    }
+  },
+  "requests": {
+    "POST /entitlements/{owner}/{repo}/": {
+      "provenance": "operation-contract",
+      "contract": {
+        "consumes": [
+          "application/json"
+        ],
+        "operationId": "entitlements_create",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "owner",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "path",
+            "name": "repo",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "body",
+            "name": "data",
+            "required": false,
+            "schema": {
+              "properties": {
+                "eula_required": {
+                  "description": "If checked, a EULA acceptance is required for this token.",
+                  "title": "Eula required",
+                  "type": "boolean"
+                },
+                "is_active": {
+                  "description": "If enabled, the token will allow downloads based on configured restrictions (if any).",
+                  "title": "Token Active",
+                  "type": "boolean"
+                },
+                "limit_bandwidth": {
+                  "description": "The maximum download bandwidth allowed for the token. Values are expressed as the selected unit of bandwidth. Please note that since downloads are calculated asynchronously (after the download happens), the limit may not be imposed immediately but at a later point. ",
+                  "maximum": 9223372036854776000,
+                  "minimum": -9223372036854776000,
+                  "title": "Limit bandwidth",
+                  "type": "integer"
+                },
+                "limit_bandwidth_unit": {
+                  "default": "Byte",
+                  "enum": [
+                    "Byte",
+                    "Kilobyte",
+                    "Megabyte",
+                    "Gigabyte",
+                    "Terabyte",
+                    "Petabyte",
+                    "Exabyte",
+                    "Zettabyte",
+                    "Yottabyte"
+                  ],
+                  "title": "Limit bandwidth unit",
+                  "type": "string"
+                },
+                "limit_date_range_from": {
+                  "description": "The starting date/time the token is allowed to be used from.",
+                  "format": "date-time",
+                  "title": "Limit date range from",
+                  "type": "string"
+                },
+                "limit_date_range_to": {
+                  "description": "The ending date/time the token is allowed to be used until.",
+                  "format": "date-time",
+                  "title": "Limit date range to",
+                  "type": "string"
+                },
+                "limit_num_clients": {
+                  "description": "The maximum number of unique clients allowed for the token. Please note that since clients are calculated asynchronously (after the download happens), the limit may not be imposed immediately but at a later point.",
+                  "maximum": 9223372036854776000,
+                  "minimum": -9223372036854776000,
+                  "title": "Limit num clients",
+                  "type": "integer"
+                },
+                "limit_num_downloads": {
+                  "description": "The maximum number of downloads allowed for the token. Please note that since downloads are calculated asynchronously (after the download happens), the limit may not be imposed immediately but at a later point.",
+                  "maximum": 9223372036854776000,
+                  "minimum": -9223372036854776000,
+                  "title": "Limit num downloads",
+                  "type": "integer"
+                },
+                "limit_package_query": {
+                  "description": "The package-based search query to apply to restrict downloads to. This uses the same syntax as the standard search used for repositories, and also supports boolean logic operators such as OR/AND/NOT and parentheses for grouping. This will still allow access to non-package files, such as metadata.",
+                  "maxLength": 1024,
+                  "title": "Limit package query",
+                  "type": "string"
+                },
+                "limit_path_query": {
+                  "description": "THIS WILL SOON BE DEPRECATED, please use limit_package_query instead. The path-based search query to apply to restrict downloads to. This supports boolean logic operators such as OR/AND/NOT and parentheses for grouping. The path evaluated does not include the domain name, the namespace, the entitlement code used, the package format, etc. and it always starts with a forward slash.",
+                  "maxLength": 1024,
+                  "title": "Limit path query",
+                  "type": "string"
+                },
+                "metadata": {
+                  "title": "Metadata",
+                  "type": "object"
+                },
+                "name": {
+                  "minLength": 1,
+                  "title": "Name",
+                  "type": "string"
+                },
+                "scheduled_reset_at": {
+                  "description": "The time at which the scheduled reset period has elapsed and the token limits were automatically reset to zero.",
+                  "format": "date-time",
+                  "title": "Scheduled reset at",
+                  "type": "string"
+                },
+                "scheduled_reset_period": {
+                  "default": "Never Reset",
+                  "enum": [
+                    "Never Reset",
+                    "Daily",
+                    "Weekly",
+                    "Fortnightly",
+                    "Monthly",
+                    "Bi-Monthly",
+                    "Quarterly",
+                    "Every 6 months",
+                    "Annual"
+                  ],
+                  "title": "Scheduled reset period",
+                  "type": "string"
+                },
+                "token": {
+                  "minLength": 1,
+                  "title": "Token",
+                  "type": "string"
+                }
+              },
+              "required": [
+                "name"
+              ],
+              "type": "object"
+            }
+          },
+          {
+            "default": false,
+            "description": "Show entitlement token strings in results",
+            "in": "query",
+            "name": "show_tokens",
+            "required": false,
+            "type": "boolean"
+          }
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "protocol": "http",
+        "responses": {
+          "201": {
+            "description": "Created the specified entitlement",
+            "schema": {
+              "properties": {
+                "clients": {
+                  "readOnly": true,
+                  "title": "Clients",
+                  "type": "integer"
+                },
+                "created_at": {
+                  "description": "The datetime the token was updated at.",
+                  "format": "date-time",
+                  "readOnly": true,
+                  "title": "Created at",
+                  "type": "string"
+                },
+                "created_by": {
+                  "minLength": 1,
+                  "readOnly": true,
+                  "title": "Created by",
+                  "type": "string"
+                },
+                "created_by_url": {
+                  "format": "uri",
+                  "readOnly": true,
+                  "title": "Created by url",
+                  "type": "string"
+                },
+                "default": {
+                  "description": "If selected this is the default token for this repository.",
+                  "readOnly": true,
+                  "title": "Default",
+                  "type": "boolean"
+                },
+                "disable_url": {
+                  "format": "uri",
+                  "readOnly": true,
+                  "title": "Disable url",
+                  "type": "string"
+                },
+                "downloads": {
+                  "readOnly": true,
+                  "title": "Downloads",
+                  "type": "integer"
+                },
+                "enable_url": {
+                  "format": "uri",
+                  "readOnly": true,
+                  "title": "Enable url",
+                  "type": "string"
+                },
+                "eula_accepted": {
+                  "properties": {
+                    "identifier": {
+                      "description": "A unique identifier that you can use for your own EULA tracking purposes. This might be a date, or a semantic version, etc. The only requirement is that it is unique across multiple EULAs.",
+                      "format": "slug",
+                      "maxLength": 16,
+                      "pattern": "^[-a-zA-Z0-9_]+$",
+                      "title": "Identifier",
+                      "type": "string"
+                    },
+                    "number": {
+                      "description": "A sequential identifier that increments by one for each new commit in a repository.",
+                      "maximum": 2147483647,
+                      "minimum": 0,
+                      "title": "Number",
+                      "type": "integer"
+                    }
+                  },
+                  "type": "object"
+                },
+                "eula_accepted_at": {
+                  "description": "The datetime the EULA was accepted at.",
+                  "format": "date-time",
+                  "readOnly": true,
+                  "title": "Eula accepted at",
+                  "type": "string"
+                },
+                "eula_accepted_from": {
+                  "minLength": 1,
+                  "readOnly": true,
+                  "title": "Eula accepted from",
+                  "type": "string"
+                },
+                "eula_required": {
+                  "description": "If checked, a EULA acceptance is required for this token.",
+                  "title": "Eula required",
+                  "type": "boolean"
+                },
+                "has_limits": {
+                  "readOnly": true,
+                  "title": "Has limits",
+                  "type": "boolean"
+                },
+                "identifier": {
+                  "description": "Deprecated (23-05-15): Please use 'slug_perm' instead. Previously: A monotonically increasing number that identified an entitlement within a repository.",
+                  "readOnly": true,
+                  "title": "Identifier",
+                  "type": "integer"
+                },
+                "is_active": {
+                  "description": "If enabled, the token will allow downloads based on configured restrictions (if any).",
+                  "title": "Token Active",
+                  "type": "boolean"
+                },
+                "is_limited": {
+                  "readOnly": true,
+                  "title": "Is limited",
+                  "type": "boolean"
+                },
+                "limit_bandwidth": {
+                  "description": "The maximum download bandwidth allowed for the token. Values are expressed as the selected unit of bandwidth. Please note that since downloads are calculated asynchronously (after the download happens), the limit may not be imposed immediately but at a later point. ",
+                  "maximum": 9223372036854776000,
+                  "minimum": -9223372036854776000,
+                  "title": "Limit bandwidth",
+                  "type": "integer"
+                },
+                "limit_bandwidth_unit": {
+                  "default": "Byte",
+                  "enum": [
+                    "Byte",
+                    "Kilobyte",
+                    "Megabyte",
+                    "Gigabyte",
+                    "Terabyte",
+                    "Petabyte",
+                    "Exabyte",
+                    "Zettabyte",
+                    "Yottabyte"
+                  ],
+                  "title": "Limit bandwidth unit",
+                  "type": "string"
+                },
+                "limit_date_range_from": {
+                  "description": "The starting date/time the token is allowed to be used from.",
+                  "format": "date-time",
+                  "title": "Limit date range from",
+                  "type": "string"
+                },
+                "limit_date_range_to": {
+                  "description": "The ending date/time the token is allowed to be used until.",
+                  "format": "date-time",
+                  "title": "Limit date range to",
+                  "type": "string"
+                },
+                "limit_num_clients": {
+                  "description": "The maximum number of unique clients allowed for the token. Please note that since clients are calculated asynchronously (after the download happens), the limit may not be imposed immediately but at a later point.",
+                  "maximum": 9223372036854776000,
+                  "minimum": -9223372036854776000,
+                  "title": "Limit num clients",
+                  "type": "integer"
+                },
+                "limit_num_downloads": {
+                  "description": "The maximum number of downloads allowed for the token. Please note that since downloads are calculated asynchronously (after the download happens), the limit may not be imposed immediately but at a later point.",
+                  "maximum": 9223372036854776000,
+                  "minimum": -9223372036854776000,
+                  "title": "Limit num downloads",
+                  "type": "integer"
+                },
+                "limit_package_query": {
+                  "description": "The package-based search query to apply to restrict downloads to. This uses the same syntax as the standard search used for repositories, and also supports boolean logic operators such as OR/AND/NOT and parentheses for grouping. This will still allow access to non-package files, such as metadata.",
+                  "maxLength": 1024,
+                  "title": "Limit package query",
+                  "type": "string"
+                },
+                "limit_path_query": {
+                  "description": "THIS WILL SOON BE DEPRECATED, please use limit_package_query instead. The path-based search query to apply to restrict downloads to. This supports boolean logic operators such as OR/AND/NOT and parentheses for grouping. The path evaluated does not include the domain name, the namespace, the entitlement code used, the package format, etc. and it always starts with a forward slash.",
+                  "maxLength": 1024,
+                  "title": "Limit path query",
+                  "type": "string"
+                },
+                "metadata": {
+                  "title": "Metadata",
+                  "type": "object"
+                },
+                "name": {
+                  "minLength": 1,
+                  "title": "Name",
+                  "type": "string"
+                },
+                "refresh_url": {
+                  "format": "uri",
+                  "readOnly": true,
+                  "title": "Refresh url",
+                  "type": "string"
+                },
+                "reset_url": {
+                  "format": "uri",
+                  "readOnly": true,
+                  "title": "Reset url",
+                  "type": "string"
+                },
+                "scheduled_reset_at": {
+                  "description": "The time at which the scheduled reset period has elapsed and the token limits were automatically reset to zero.",
+                  "format": "date-time",
+                  "title": "Scheduled reset at",
+                  "type": "string"
+                },
+                "scheduled_reset_period": {
+                  "default": "Never Reset",
+                  "enum": [
+                    "Never Reset",
+                    "Daily",
+                    "Weekly",
+                    "Fortnightly",
+                    "Monthly",
+                    "Bi-Monthly",
+                    "Quarterly",
+                    "Every 6 months",
+                    "Annual"
+                  ],
+                  "title": "Scheduled reset period",
+                  "type": "string"
+                },
+                "self_url": {
+                  "format": "uri",
+                  "readOnly": true,
+                  "title": "Self url",
+                  "type": "string"
+                },
+                "slug_perm": {
+                  "format": "slug",
+                  "minLength": 1,
+                  "pattern": "^[-a-zA-Z0-9_]+$",
+                  "readOnly": true,
+                  "title": "Slug perm",
+                  "type": "string"
+                },
+                "token": {
+                  "minLength": 1,
+                  "title": "Token",
+                  "type": "string"
+                },
+                "updated_at": {
+                  "description": "The datetime the token was updated at.",
+                  "format": "date-time",
+                  "readOnly": true,
+                  "title": "Updated at",
+                  "type": "string"
+                },
+                "updated_by": {
+                  "minLength": 1,
+                  "readOnly": true,
+                  "title": "Updated by",
+                  "type": "string"
+                },
+                "updated_by_url": {
+                  "format": "uri",
+                  "readOnly": true,
+                  "title": "Updated by url",
+                  "type": "string"
+                },
+                "usage": {
+                  "minLength": 1,
+                  "readOnly": true,
+                  "title": "Usage",
+                  "type": "string"
+                },
+                "user": {
+                  "minLength": 1,
+                  "readOnly": true,
+                  "title": "User",
+                  "type": "string"
+                },
+                "user_url": {
+                  "format": "uri",
+                  "readOnly": true,
+                  "title": "User url",
+                  "type": "string"
+                }
+              },
+              "required": [
+                "name"
+              ],
+              "type": "object"
+            }
+          },
+          "400": {
+            "description": "Request could not be processed (see detail).",
+            "schema": {
+              "properties": {
+                "detail": {
+                  "description": "An extended message for the response.",
+                  "minLength": 1,
+                  "title": "Detail",
+                  "type": "string"
+                },
+                "fields": {
+                  "additionalProperties": {
+                    "items": {
+                      "minLength": 1,
+                      "type": "string"
+                    },
+                    "type": "array"
+                  },
+                  "description": "A Dictionary of related errors where key: Field and value: Array of Errors related to that field",
+                  "title": "Fields",
+                  "type": "object"
+                }
+              },
+              "required": [
+                "detail"
+              ],
+              "type": "object"
+            }
+          },
+          "404": {
+            "description": "Owner namespace or repository not found",
+            "schema": {
+              "properties": {
+                "detail": {
+                  "description": "An extended message for the response.",
+                  "minLength": 1,
+                  "title": "Detail",
+                  "type": "string"
+                },
+                "fields": {
+                  "additionalProperties": {
+                    "items": {
+                      "minLength": 1,
+                      "type": "string"
+                    },
+                    "type": "array"
+                  },
+                  "description": "A Dictionary of related errors where key: Field and value: Array of Errors related to that field",
+                  "title": "Fields",
+                  "type": "object"
+                }
+              },
+              "required": [
+                "detail"
+              ],
+              "type": "object"
+            }
+          },
+          "422": {
+            "description": "Missing or invalid parameters (see detail).",
+            "schema": {
+              "properties": {
+                "detail": {
+                  "description": "An extended message for the response.",
+                  "minLength": 1,
+                  "title": "Detail",
+                  "type": "string"
+                },
+                "fields": {
+                  "additionalProperties": {
+                    "items": {
+                      "minLength": 1,
+                      "type": "string"
+                    },
+                    "type": "array"
+                  },
+                  "description": "A Dictionary of related errors where key: Field and value: Array of Errors related to that field",
+                  "title": "Fields",
+                  "type": "object"
+                }
+              },
+              "required": [
+                "detail"
+              ],
+              "type": "object"
+            }
+          }
+        },
+        "security": [
+          {
+            "apikey": []
+          },
+          {
+            "basic": []
+          }
+        ],
+        "securitySchemes": {
+          "apikey": {
+            "in": "header",
+            "name": "X-Api-Key",
+            "type": "apiKey"
+          },
+          "basic": {
+            "type": "basic"
+          }
+        },
+        "securitySource": "definition"
+      }
+    },
+    "GET /entitlements/{owner}/{repo}/": {
+      "provenance": "operation-contract",
+      "contract": {
+        "consumes": [
+          "application/json"
+        ],
+        "operationId": "entitlements_list",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "owner",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "path",
+            "name": "repo",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "description": "A page number within the paginated result set.",
+            "in": "query",
+            "name": "page",
+            "required": false,
+            "type": "integer"
+          },
+          {
+            "description": "Number of results to return per page.",
+            "in": "query",
+            "name": "page_size",
+            "required": false,
+            "type": "integer"
+          },
+          {
+            "default": false,
+            "description": "Show entitlement token strings in results",
+            "in": "query",
+            "name": "show_tokens",
+            "required": false,
+            "type": "boolean"
+          },
+          {
+            "description": "A search term for querying names of entitlements.",
+            "in": "query",
+            "name": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "default": false,
+            "description": "If true, only include active tokens",
+            "in": "query",
+            "name": "active",
+            "required": false,
+            "type": "boolean"
+          },
+          {
+            "default": "name",
+            "description": "A field for sorting objects in ascending or descending order. Use `-` prefix for descending order (e.g., `-name`). Available options: name.",
+            "in": "query",
+            "name": "sort",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "protocol": "http",
+        "responses": {
+          "200": {
+            "description": "Retrieved the list of entitlement tokens",
+            "schema": {
+              "items": {
+                "properties": {
+                  "clients": {
+                    "readOnly": true,
+                    "title": "Clients",
+                    "type": "integer"
+                  },
+                  "created_at": {
+                    "description": "The datetime the token was updated at.",
+                    "format": "date-time",
+                    "readOnly": true,
+                    "title": "Created at",
+                    "type": "string"
+                  },
+                  "created_by": {
+                    "minLength": 1,
+                    "readOnly": true,
+                    "title": "Created by",
+                    "type": "string"
+                  },
+                  "created_by_url": {
+                    "format": "uri",
+                    "readOnly": true,
+                    "title": "Created by url",
+                    "type": "string"
+                  },
+                  "default": {
+                    "description": "If selected this is the default token for this repository.",
+                    "readOnly": true,
+                    "title": "Default",
+                    "type": "boolean"
+                  },
+                  "disable_url": {
+                    "format": "uri",
+                    "readOnly": true,
+                    "title": "Disable url",
+                    "type": "string"
+                  },
+                  "downloads": {
+                    "readOnly": true,
+                    "title": "Downloads",
+                    "type": "integer"
+                  },
+                  "enable_url": {
+                    "format": "uri",
+                    "readOnly": true,
+                    "title": "Enable url",
+                    "type": "string"
+                  },
+                  "eula_accepted": {
+                    "properties": {
+                      "identifier": {
+                        "description": "A unique identifier that you can use for your own EULA tracking purposes. This might be a date, or a semantic version, etc. The only requirement is that it is unique across multiple EULAs.",
+                        "format": "slug",
+                        "maxLength": 16,
+                        "pattern": "^[-a-zA-Z0-9_]+$",
+                        "title": "Identifier",
+                        "type": "string"
+                      },
+                      "number": {
+                        "description": "A sequential identifier that increments by one for each new commit in a repository.",
+                        "maximum": 2147483647,
+                        "minimum": 0,
+                        "title": "Number",
+                        "type": "integer"
+                      }
+                    },
+                    "type": "object"
+                  },
+                  "eula_accepted_at": {
+                    "description": "The datetime the EULA was accepted at.",
+                    "format": "date-time",
+                    "readOnly": true,
+                    "title": "Eula accepted at",
+                    "type": "string"
+                  },
+                  "eula_accepted_from": {
+                    "minLength": 1,
+                    "readOnly": true,
+                    "title": "Eula accepted from",
+                    "type": "string"
+                  },
+                  "eula_required": {
+                    "description": "If checked, a EULA acceptance is required for this token.",
+                    "title": "Eula required",
+                    "type": "boolean"
+                  },
+                  "has_limits": {
+                    "readOnly": true,
+                    "title": "Has limits",
+                    "type": "boolean"
+                  },
+                  "identifier": {
+                    "description": "Deprecated (23-05-15): Please use 'slug_perm' instead. Previously: A monotonically increasing number that identified an entitlement within a repository.",
+                    "readOnly": true,
+                    "title": "Identifier",
+                    "type": "integer"
+                  },
+                  "is_active": {
+                    "description": "If enabled, the token will allow downloads based on configured restrictions (if any).",
+                    "title": "Token Active",
+                    "type": "boolean"
+                  },
+                  "is_limited": {
+                    "readOnly": true,
+                    "title": "Is limited",
+                    "type": "boolean"
+                  },
+                  "limit_bandwidth": {
+                    "description": "The maximum download bandwidth allowed for the token. Values are expressed as the selected unit of bandwidth. Please note that since downloads are calculated asynchronously (after the download happens), the limit may not be imposed immediately but at a later point. ",
+                    "maximum": 9223372036854776000,
+                    "minimum": -9223372036854776000,
+                    "title": "Limit bandwidth",
+                    "type": "integer"
+                  },
+                  "limit_bandwidth_unit": {
+                    "default": "Byte",
+                    "enum": [
+                      "Byte",
+                      "Kilobyte",
+                      "Megabyte",
+                      "Gigabyte",
+                      "Terabyte",
+                      "Petabyte",
+                      "Exabyte",
+                      "Zettabyte",
+                      "Yottabyte"
+                    ],
+                    "title": "Limit bandwidth unit",
+                    "type": "string"
+                  },
+                  "limit_date_range_from": {
+                    "description": "The starting date/time the token is allowed to be used from.",
+                    "format": "date-time",
+                    "title": "Limit date range from",
+                    "type": "string"
+                  },
+                  "limit_date_range_to": {
+                    "description": "The ending date/time the token is allowed to be used until.",
+                    "format": "date-time",
+                    "title": "Limit date range to",
+                    "type": "string"
+                  },
+                  "limit_num_clients": {
+                    "description": "The maximum number of unique clients allowed for the token. Please note that since clients are calculated asynchronously (after the download happens), the limit may not be imposed immediately but at a later point.",
+                    "maximum": 9223372036854776000,
+                    "minimum": -9223372036854776000,
+                    "title": "Limit num clients",
+                    "type": "integer"
+                  },
+                  "limit_num_downloads": {
+                    "description": "The maximum number of downloads allowed for the token. Please note that since downloads are calculated asynchronously (after the download happens), the limit may not be imposed immediately but at a later point.",
+                    "maximum": 9223372036854776000,
+                    "minimum": -9223372036854776000,
+                    "title": "Limit num downloads",
+                    "type": "integer"
+                  },
+                  "limit_package_query": {
+                    "description": "The package-based search query to apply to restrict downloads to. This uses the same syntax as the standard search used for repositories, and also supports boolean logic operators such as OR/AND/NOT and parentheses for grouping. This will still allow access to non-package files, such as metadata.",
+                    "maxLength": 1024,
+                    "title": "Limit package query",
+                    "type": "string"
+                  },
+                  "limit_path_query": {
+                    "description": "THIS WILL SOON BE DEPRECATED, please use limit_package_query instead. The path-based search query to apply to restrict downloads to. This supports boolean logic operators such as OR/AND/NOT and parentheses for grouping. The path evaluated does not include the domain name, the namespace, the entitlement code used, the package format, etc. and it always starts with a forward slash.",
+                    "maxLength": 1024,
+                    "title": "Limit path query",
+                    "type": "string"
+                  },
+                  "metadata": {
+                    "title": "Metadata",
+                    "type": "object"
+                  },
+                  "name": {
+                    "minLength": 1,
+                    "title": "Name",
+                    "type": "string"
+                  },
+                  "refresh_url": {
+                    "format": "uri",
+                    "readOnly": true,
+                    "title": "Refresh url",
+                    "type": "string"
+                  },
+                  "reset_url": {
+                    "format": "uri",
+                    "readOnly": true,
+                    "title": "Reset url",
+                    "type": "string"
+                  },
+                  "scheduled_reset_at": {
+                    "description": "The time at which the scheduled reset period has elapsed and the token limits were automatically reset to zero.",
+                    "format": "date-time",
+                    "title": "Scheduled reset at",
+                    "type": "string"
+                  },
+                  "scheduled_reset_period": {
+                    "default": "Never Reset",
+                    "enum": [
+                      "Never Reset",
+                      "Daily",
+                      "Weekly",
+                      "Fortnightly",
+                      "Monthly",
+                      "Bi-Monthly",
+                      "Quarterly",
+                      "Every 6 months",
+                      "Annual"
+                    ],
+                    "title": "Scheduled reset period",
+                    "type": "string"
+                  },
+                  "self_url": {
+                    "format": "uri",
+                    "readOnly": true,
+                    "title": "Self url",
+                    "type": "string"
+                  },
+                  "slug_perm": {
+                    "format": "slug",
+                    "minLength": 1,
+                    "pattern": "^[-a-zA-Z0-9_]+$",
+                    "readOnly": true,
+                    "title": "Slug perm",
+                    "type": "string"
+                  },
+                  "token": {
+                    "minLength": 1,
+                    "title": "Token",
+                    "type": "string"
+                  },
+                  "updated_at": {
+                    "description": "The datetime the token was updated at.",
+                    "format": "date-time",
+                    "readOnly": true,
+                    "title": "Updated at",
+                    "type": "string"
+                  },
+                  "updated_by": {
+                    "minLength": 1,
+                    "readOnly": true,
+                    "title": "Updated by",
+                    "type": "string"
+                  },
+                  "updated_by_url": {
+                    "format": "uri",
+                    "readOnly": true,
+                    "title": "Updated by url",
+                    "type": "string"
+                  },
+                  "usage": {
+                    "minLength": 1,
+                    "readOnly": true,
+                    "title": "Usage",
+                    "type": "string"
+                  },
+                  "user": {
+                    "minLength": 1,
+                    "readOnly": true,
+                    "title": "User",
+                    "type": "string"
+                  },
+                  "user_url": {
+                    "format": "uri",
+                    "readOnly": true,
+                    "title": "User url",
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "name"
+                ],
+                "type": "object"
+              },
+              "type": "array"
+            }
+          },
+          "400": {
+            "description": "Request could not be processed (see detail).",
+            "schema": {
+              "properties": {
+                "detail": {
+                  "description": "An extended message for the response.",
+                  "minLength": 1,
+                  "title": "Detail",
+                  "type": "string"
+                },
+                "fields": {
+                  "additionalProperties": {
+                    "items": {
+                      "minLength": 1,
+                      "type": "string"
+                    },
+                    "type": "array"
+                  },
+                  "description": "A Dictionary of related errors where key: Field and value: Array of Errors related to that field",
+                  "title": "Fields",
+                  "type": "object"
+                }
+              },
+              "required": [
+                "detail"
+              ],
+              "type": "object"
+            }
+          },
+          "404": {
+            "description": "Owner namespace or repository not found",
+            "schema": {
+              "properties": {
+                "detail": {
+                  "description": "An extended message for the response.",
+                  "minLength": 1,
+                  "title": "Detail",
+                  "type": "string"
+                },
+                "fields": {
+                  "additionalProperties": {
+                    "items": {
+                      "minLength": 1,
+                      "type": "string"
+                    },
+                    "type": "array"
+                  },
+                  "description": "A Dictionary of related errors where key: Field and value: Array of Errors related to that field",
+                  "title": "Fields",
+                  "type": "object"
+                }
+              },
+              "required": [
+                "detail"
+              ],
+              "type": "object"
+            }
+          },
+          "422": {
+            "description": "Missing or invalid parameters (see detail).",
+            "schema": {
+              "properties": {
+                "detail": {
+                  "description": "An extended message for the response.",
+                  "minLength": 1,
+                  "title": "Detail",
+                  "type": "string"
+                },
+                "fields": {
+                  "additionalProperties": {
+                    "items": {
+                      "minLength": 1,
+                      "type": "string"
+                    },
+                    "type": "array"
+                  },
+                  "description": "A Dictionary of related errors where key: Field and value: Array of Errors related to that field",
+                  "title": "Fields",
+                  "type": "object"
+                }
+              },
+              "required": [
+                "detail"
+              ],
+              "type": "object"
+            }
+          }
+        },
+        "security": [
+          {
+            "apikey": []
+          },
+          {
+            "basic": []
+          }
+        ],
+        "securitySchemes": {
+          "apikey": {
+            "in": "header",
+            "name": "X-Api-Key",
+            "type": "apiKey"
+          },
+          "basic": {
+            "type": "basic"
+          }
+        },
+        "securitySource": "definition"
+      }
+    },
+    "GET /entitlements/{owner}/{repo}/{identifier}/": {
+      "provenance": "operation-contract",
+      "contract": {
+        "consumes": [
+          "application/json"
+        ],
+        "operationId": "entitlements_read",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "owner",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "path",
+            "name": "repo",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "path",
+            "name": "identifier",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "default": false,
+            "description": "If true, entitlement identifiers including name will be fuzzy matched.",
+            "in": "query",
+            "name": "fuzzy",
+            "required": false,
+            "type": "boolean"
+          },
+          {
+            "default": false,
+            "description": "Show entitlement token strings in results",
+            "in": "query",
+            "name": "show_tokens",
+            "required": false,
+            "type": "boolean"
+          }
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "protocol": "http",
+        "responses": {
+          "200": {
+            "description": "Retrieved the specified entitlement",
+            "schema": {
+              "properties": {
+                "clients": {
+                  "readOnly": true,
+                  "title": "Clients",
+                  "type": "integer"
+                },
+                "created_at": {
+                  "description": "The datetime the token was updated at.",
+                  "format": "date-time",
+                  "readOnly": true,
+                  "title": "Created at",
+                  "type": "string"
+                },
+                "created_by": {
+                  "minLength": 1,
+                  "readOnly": true,
+                  "title": "Created by",
+                  "type": "string"
+                },
+                "created_by_url": {
+                  "format": "uri",
+                  "readOnly": true,
+                  "title": "Created by url",
+                  "type": "string"
+                },
+                "default": {
+                  "description": "If selected this is the default token for this repository.",
+                  "readOnly": true,
+                  "title": "Default",
+                  "type": "boolean"
+                },
+                "disable_url": {
+                  "format": "uri",
+                  "readOnly": true,
+                  "title": "Disable url",
+                  "type": "string"
+                },
+                "downloads": {
+                  "readOnly": true,
+                  "title": "Downloads",
+                  "type": "integer"
+                },
+                "enable_url": {
+                  "format": "uri",
+                  "readOnly": true,
+                  "title": "Enable url",
+                  "type": "string"
+                },
+                "eula_accepted": {
+                  "properties": {
+                    "identifier": {
+                      "description": "A unique identifier that you can use for your own EULA tracking purposes. This might be a date, or a semantic version, etc. The only requirement is that it is unique across multiple EULAs.",
+                      "format": "slug",
+                      "maxLength": 16,
+                      "pattern": "^[-a-zA-Z0-9_]+$",
+                      "title": "Identifier",
+                      "type": "string"
+                    },
+                    "number": {
+                      "description": "A sequential identifier that increments by one for each new commit in a repository.",
+                      "maximum": 2147483647,
+                      "minimum": 0,
+                      "title": "Number",
+                      "type": "integer"
+                    }
+                  },
+                  "type": "object"
+                },
+                "eula_accepted_at": {
+                  "description": "The datetime the EULA was accepted at.",
+                  "format": "date-time",
+                  "readOnly": true,
+                  "title": "Eula accepted at",
+                  "type": "string"
+                },
+                "eula_accepted_from": {
+                  "minLength": 1,
+                  "readOnly": true,
+                  "title": "Eula accepted from",
+                  "type": "string"
+                },
+                "eula_required": {
+                  "description": "If checked, a EULA acceptance is required for this token.",
+                  "title": "Eula required",
+                  "type": "boolean"
+                },
+                "has_limits": {
+                  "readOnly": true,
+                  "title": "Has limits",
+                  "type": "boolean"
+                },
+                "identifier": {
+                  "description": "Deprecated (23-05-15): Please use 'slug_perm' instead. Previously: A monotonically increasing number that identified an entitlement within a repository.",
+                  "readOnly": true,
+                  "title": "Identifier",
+                  "type": "integer"
+                },
+                "is_active": {
+                  "description": "If enabled, the token will allow downloads based on configured restrictions (if any).",
+                  "title": "Token Active",
+                  "type": "boolean"
+                },
+                "is_limited": {
+                  "readOnly": true,
+                  "title": "Is limited",
+                  "type": "boolean"
+                },
+                "limit_bandwidth": {
+                  "description": "The maximum download bandwidth allowed for the token. Values are expressed as the selected unit of bandwidth. Please note that since downloads are calculated asynchronously (after the download happens), the limit may not be imposed immediately but at a later point. ",
+                  "maximum": 9223372036854776000,
+                  "minimum": -9223372036854776000,
+                  "title": "Limit bandwidth",
+                  "type": "integer"
+                },
+                "limit_bandwidth_unit": {
+                  "default": "Byte",
+                  "enum": [
+                    "Byte",
+                    "Kilobyte",
+                    "Megabyte",
+                    "Gigabyte",
+                    "Terabyte",
+                    "Petabyte",
+                    "Exabyte",
+                    "Zettabyte",
+                    "Yottabyte"
+                  ],
+                  "title": "Limit bandwidth unit",
+                  "type": "string"
+                },
+                "limit_date_range_from": {
+                  "description": "The starting date/time the token is allowed to be used from.",
+                  "format": "date-time",
+                  "title": "Limit date range from",
+                  "type": "string"
+                },
+                "limit_date_range_to": {
+                  "description": "The ending date/time the token is allowed to be used until.",
+                  "format": "date-time",
+                  "title": "Limit date range to",
+                  "type": "string"
+                },
+                "limit_num_clients": {
+                  "description": "The maximum number of unique clients allowed for the token. Please note that since clients are calculated asynchronously (after the download happens), the limit may not be imposed immediately but at a later point.",
+                  "maximum": 9223372036854776000,
+                  "minimum": -9223372036854776000,
+                  "title": "Limit num clients",
+                  "type": "integer"
+                },
+                "limit_num_downloads": {
+                  "description": "The maximum number of downloads allowed for the token. Please note that since downloads are calculated asynchronously (after the download happens), the limit may not be imposed immediately but at a later point.",
+                  "maximum": 9223372036854776000,
+                  "minimum": -9223372036854776000,
+                  "title": "Limit num downloads",
+                  "type": "integer"
+                },
+                "limit_package_query": {
+                  "description": "The package-based search query to apply to restrict downloads to. This uses the same syntax as the standard search used for repositories, and also supports boolean logic operators such as OR/AND/NOT and parentheses for grouping. This will still allow access to non-package files, such as metadata.",
+                  "maxLength": 1024,
+                  "title": "Limit package query",
+                  "type": "string"
+                },
+                "limit_path_query": {
+                  "description": "THIS WILL SOON BE DEPRECATED, please use limit_package_query instead. The path-based search query to apply to restrict downloads to. This supports boolean logic operators such as OR/AND/NOT and parentheses for grouping. The path evaluated does not include the domain name, the namespace, the entitlement code used, the package format, etc. and it always starts with a forward slash.",
+                  "maxLength": 1024,
+                  "title": "Limit path query",
+                  "type": "string"
+                },
+                "metadata": {
+                  "title": "Metadata",
+                  "type": "object"
+                },
+                "name": {
+                  "minLength": 1,
+                  "title": "Name",
+                  "type": "string"
+                },
+                "refresh_url": {
+                  "format": "uri",
+                  "readOnly": true,
+                  "title": "Refresh url",
+                  "type": "string"
+                },
+                "reset_url": {
+                  "format": "uri",
+                  "readOnly": true,
+                  "title": "Reset url",
+                  "type": "string"
+                },
+                "scheduled_reset_at": {
+                  "description": "The time at which the scheduled reset period has elapsed and the token limits were automatically reset to zero.",
+                  "format": "date-time",
+                  "title": "Scheduled reset at",
+                  "type": "string"
+                },
+                "scheduled_reset_period": {
+                  "default": "Never Reset",
+                  "enum": [
+                    "Never Reset",
+                    "Daily",
+                    "Weekly",
+                    "Fortnightly",
+                    "Monthly",
+                    "Bi-Monthly",
+                    "Quarterly",
+                    "Every 6 months",
+                    "Annual"
+                  ],
+                  "title": "Scheduled reset period",
+                  "type": "string"
+                },
+                "self_url": {
+                  "format": "uri",
+                  "readOnly": true,
+                  "title": "Self url",
+                  "type": "string"
+                },
+                "slug_perm": {
+                  "format": "slug",
+                  "minLength": 1,
+                  "pattern": "^[-a-zA-Z0-9_]+$",
+                  "readOnly": true,
+                  "title": "Slug perm",
+                  "type": "string"
+                },
+                "token": {
+                  "minLength": 1,
+                  "title": "Token",
+                  "type": "string"
+                },
+                "updated_at": {
+                  "description": "The datetime the token was updated at.",
+                  "format": "date-time",
+                  "readOnly": true,
+                  "title": "Updated at",
+                  "type": "string"
+                },
+                "updated_by": {
+                  "minLength": 1,
+                  "readOnly": true,
+                  "title": "Updated by",
+                  "type": "string"
+                },
+                "updated_by_url": {
+                  "format": "uri",
+                  "readOnly": true,
+                  "title": "Updated by url",
+                  "type": "string"
+                },
+                "usage": {
+                  "minLength": 1,
+                  "readOnly": true,
+                  "title": "Usage",
+                  "type": "string"
+                },
+                "user": {
+                  "minLength": 1,
+                  "readOnly": true,
+                  "title": "User",
+                  "type": "string"
+                },
+                "user_url": {
+                  "format": "uri",
+                  "readOnly": true,
+                  "title": "User url",
+                  "type": "string"
+                }
+              },
+              "required": [
+                "name"
+              ],
+              "type": "object"
+            }
+          },
+          "400": {
+            "description": "Couldn't retrieve the specified token because the request contains an error.",
+            "schema": {
+              "properties": {
+                "detail": {
+                  "description": "An extended message for the response.",
+                  "minLength": 1,
+                  "title": "Detail",
+                  "type": "string"
+                },
+                "fields": {
+                  "additionalProperties": {
+                    "items": {
+                      "minLength": 1,
+                      "type": "string"
+                    },
+                    "type": "array"
+                  },
+                  "description": "A Dictionary of related errors where key: Field and value: Array of Errors related to that field",
+                  "title": "Fields",
+                  "type": "object"
+                }
+              },
+              "required": [
+                "detail"
+              ],
+              "type": "object"
+            }
+          },
+          "404": {
+            "description": "Owner namespace or repository not found",
+            "schema": {
+              "properties": {
+                "detail": {
+                  "description": "An extended message for the response.",
+                  "minLength": 1,
+                  "title": "Detail",
+                  "type": "string"
+                },
+                "fields": {
+                  "additionalProperties": {
+                    "items": {
+                      "minLength": 1,
+                      "type": "string"
+                    },
+                    "type": "array"
+                  },
+                  "description": "A Dictionary of related errors where key: Field and value: Array of Errors related to that field",
+                  "title": "Fields",
+                  "type": "object"
+                }
+              },
+              "required": [
+                "detail"
+              ],
+              "type": "object"
+            }
+          },
+          "422": {
+            "description": "Missing or invalid parameters (see detail).",
+            "schema": {
+              "properties": {
+                "detail": {
+                  "description": "An extended message for the response.",
+                  "minLength": 1,
+                  "title": "Detail",
+                  "type": "string"
+                },
+                "fields": {
+                  "additionalProperties": {
+                    "items": {
+                      "minLength": 1,
+                      "type": "string"
+                    },
+                    "type": "array"
+                  },
+                  "description": "A Dictionary of related errors where key: Field and value: Array of Errors related to that field",
+                  "title": "Fields",
+                  "type": "object"
+                }
+              },
+              "required": [
+                "detail"
+              ],
+              "type": "object"
+            }
+          }
+        },
+        "security": [
+          {
+            "apikey": []
+          },
+          {
+            "basic": []
+          }
+        ],
+        "securitySchemes": {
+          "apikey": {
+            "in": "header",
+            "name": "X-Api-Key",
+            "type": "apiKey"
+          },
+          "basic": {
+            "type": "basic"
+          }
+        },
+        "securitySource": "definition"
+      }
+    },
+    "PATCH /entitlements/{owner}/{repo}/{identifier}/": {
+      "provenance": "operation-contract",
+      "contract": {
+        "consumes": [
+          "application/json"
+        ],
+        "operationId": "entitlements_partial_update",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "owner",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "path",
+            "name": "repo",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "path",
+            "name": "identifier",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "body",
+            "name": "data",
+            "required": false,
+            "schema": {
+              "properties": {
+                "eula_required": {
+                  "description": "If checked, a EULA acceptance is required for this token.",
+                  "title": "Eula required",
+                  "type": "boolean"
+                },
+                "is_active": {
+                  "description": "If enabled, the token will allow downloads based on configured restrictions (if any).",
+                  "title": "Token Active",
+                  "type": "boolean"
+                },
+                "limit_bandwidth": {
+                  "description": "The maximum download bandwidth allowed for the token. Values are expressed as the selected unit of bandwidth. Please note that since downloads are calculated asynchronously (after the download happens), the limit may not be imposed immediately but at a later point. ",
+                  "maximum": 9223372036854776000,
+                  "minimum": -9223372036854776000,
+                  "title": "Limit bandwidth",
+                  "type": "integer"
+                },
+                "limit_bandwidth_unit": {
+                  "default": "Byte",
+                  "enum": [
+                    "Byte",
+                    "Kilobyte",
+                    "Megabyte",
+                    "Gigabyte",
+                    "Terabyte",
+                    "Petabyte",
+                    "Exabyte",
+                    "Zettabyte",
+                    "Yottabyte"
+                  ],
+                  "title": "Limit bandwidth unit",
+                  "type": "string"
+                },
+                "limit_date_range_from": {
+                  "description": "The starting date/time the token is allowed to be used from.",
+                  "format": "date-time",
+                  "title": "Limit date range from",
+                  "type": "string"
+                },
+                "limit_date_range_to": {
+                  "description": "The ending date/time the token is allowed to be used until.",
+                  "format": "date-time",
+                  "title": "Limit date range to",
+                  "type": "string"
+                },
+                "limit_num_clients": {
+                  "description": "The maximum number of unique clients allowed for the token. Please note that since clients are calculated asynchronously (after the download happens), the limit may not be imposed immediately but at a later point.",
+                  "maximum": 9223372036854776000,
+                  "minimum": -9223372036854776000,
+                  "title": "Limit num clients",
+                  "type": "integer"
+                },
+                "limit_num_downloads": {
+                  "description": "The maximum number of downloads allowed for the token. Please note that since downloads are calculated asynchronously (after the download happens), the limit may not be imposed immediately but at a later point.",
+                  "maximum": 9223372036854776000,
+                  "minimum": -9223372036854776000,
+                  "title": "Limit num downloads",
+                  "type": "integer"
+                },
+                "limit_package_query": {
+                  "description": "The package-based search query to apply to restrict downloads to. This uses the same syntax as the standard search used for repositories, and also supports boolean logic operators such as OR/AND/NOT and parentheses for grouping. This will still allow access to non-package files, such as metadata.",
+                  "maxLength": 1024,
+                  "title": "Limit package query",
+                  "type": "string"
+                },
+                "limit_path_query": {
+                  "description": "THIS WILL SOON BE DEPRECATED, please use limit_package_query instead. The path-based search query to apply to restrict downloads to. This supports boolean logic operators such as OR/AND/NOT and parentheses for grouping. The path evaluated does not include the domain name, the namespace, the entitlement code used, the package format, etc. and it always starts with a forward slash.",
+                  "maxLength": 1024,
+                  "title": "Limit path query",
+                  "type": "string"
+                },
+                "metadata": {
+                  "title": "Metadata",
+                  "type": "object"
+                },
+                "name": {
+                  "minLength": 1,
+                  "title": "Name",
+                  "type": "string"
+                },
+                "scheduled_reset_at": {
+                  "description": "The time at which the scheduled reset period has elapsed and the token limits were automatically reset to zero.",
+                  "format": "date-time",
+                  "title": "Scheduled reset at",
+                  "type": "string"
+                },
+                "scheduled_reset_period": {
+                  "default": "Never Reset",
+                  "enum": [
+                    "Never Reset",
+                    "Daily",
+                    "Weekly",
+                    "Fortnightly",
+                    "Monthly",
+                    "Bi-Monthly",
+                    "Quarterly",
+                    "Every 6 months",
+                    "Annual"
+                  ],
+                  "title": "Scheduled reset period",
+                  "type": "string"
+                },
+                "token": {
+                  "minLength": 1,
+                  "title": "Token",
+                  "type": "string"
+                }
+              },
+              "type": "object"
+            }
+          },
+          {
+            "default": false,
+            "description": "Show entitlement token strings in results",
+            "in": "query",
+            "name": "show_tokens",
+            "required": false,
+            "type": "boolean"
+          }
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "protocol": "http",
+        "responses": {
+          "200": {
+            "description": "Updated the specified entitlement",
+            "schema": {
+              "properties": {
+                "clients": {
+                  "readOnly": true,
+                  "title": "Clients",
+                  "type": "integer"
+                },
+                "created_at": {
+                  "description": "The datetime the token was updated at.",
+                  "format": "date-time",
+                  "readOnly": true,
+                  "title": "Created at",
+                  "type": "string"
+                },
+                "created_by": {
+                  "minLength": 1,
+                  "readOnly": true,
+                  "title": "Created by",
+                  "type": "string"
+                },
+                "created_by_url": {
+                  "format": "uri",
+                  "readOnly": true,
+                  "title": "Created by url",
+                  "type": "string"
+                },
+                "default": {
+                  "description": "If selected this is the default token for this repository.",
+                  "readOnly": true,
+                  "title": "Default",
+                  "type": "boolean"
+                },
+                "disable_url": {
+                  "format": "uri",
+                  "readOnly": true,
+                  "title": "Disable url",
+                  "type": "string"
+                },
+                "downloads": {
+                  "readOnly": true,
+                  "title": "Downloads",
+                  "type": "integer"
+                },
+                "enable_url": {
+                  "format": "uri",
+                  "readOnly": true,
+                  "title": "Enable url",
+                  "type": "string"
+                },
+                "eula_accepted": {
+                  "properties": {
+                    "identifier": {
+                      "description": "A unique identifier that you can use for your own EULA tracking purposes. This might be a date, or a semantic version, etc. The only requirement is that it is unique across multiple EULAs.",
+                      "format": "slug",
+                      "maxLength": 16,
+                      "pattern": "^[-a-zA-Z0-9_]+$",
+                      "title": "Identifier",
+                      "type": "string"
+                    },
+                    "number": {
+                      "description": "A sequential identifier that increments by one for each new commit in a repository.",
+                      "maximum": 2147483647,
+                      "minimum": 0,
+                      "title": "Number",
+                      "type": "integer"
+                    }
+                  },
+                  "type": "object"
+                },
+                "eula_accepted_at": {
+                  "description": "The datetime the EULA was accepted at.",
+                  "format": "date-time",
+                  "readOnly": true,
+                  "title": "Eula accepted at",
+                  "type": "string"
+                },
+                "eula_accepted_from": {
+                  "minLength": 1,
+                  "readOnly": true,
+                  "title": "Eula accepted from",
+                  "type": "string"
+                },
+                "eula_required": {
+                  "description": "If checked, a EULA acceptance is required for this token.",
+                  "title": "Eula required",
+                  "type": "boolean"
+                },
+                "has_limits": {
+                  "readOnly": true,
+                  "title": "Has limits",
+                  "type": "boolean"
+                },
+                "identifier": {
+                  "description": "Deprecated (23-05-15): Please use 'slug_perm' instead. Previously: A monotonically increasing number that identified an entitlement within a repository.",
+                  "readOnly": true,
+                  "title": "Identifier",
+                  "type": "integer"
+                },
+                "is_active": {
+                  "description": "If enabled, the token will allow downloads based on configured restrictions (if any).",
+                  "title": "Token Active",
+                  "type": "boolean"
+                },
+                "is_limited": {
+                  "readOnly": true,
+                  "title": "Is limited",
+                  "type": "boolean"
+                },
+                "limit_bandwidth": {
+                  "description": "The maximum download bandwidth allowed for the token. Values are expressed as the selected unit of bandwidth. Please note that since downloads are calculated asynchronously (after the download happens), the limit may not be imposed immediately but at a later point. ",
+                  "maximum": 9223372036854776000,
+                  "minimum": -9223372036854776000,
+                  "title": "Limit bandwidth",
+                  "type": "integer"
+                },
+                "limit_bandwidth_unit": {
+                  "default": "Byte",
+                  "enum": [
+                    "Byte",
+                    "Kilobyte",
+                    "Megabyte",
+                    "Gigabyte",
+                    "Terabyte",
+                    "Petabyte",
+                    "Exabyte",
+                    "Zettabyte",
+                    "Yottabyte"
+                  ],
+                  "title": "Limit bandwidth unit",
+                  "type": "string"
+                },
+                "limit_date_range_from": {
+                  "description": "The starting date/time the token is allowed to be used from.",
+                  "format": "date-time",
+                  "title": "Limit date range from",
+                  "type": "string"
+                },
+                "limit_date_range_to": {
+                  "description": "The ending date/time the token is allowed to be used until.",
+                  "format": "date-time",
+                  "title": "Limit date range to",
+                  "type": "string"
+                },
+                "limit_num_clients": {
+                  "description": "The maximum number of unique clients allowed for the token. Please note that since clients are calculated asynchronously (after the download happens), the limit may not be imposed immediately but at a later point.",
+                  "maximum": 9223372036854776000,
+                  "minimum": -9223372036854776000,
+                  "title": "Limit num clients",
+                  "type": "integer"
+                },
+                "limit_num_downloads": {
+                  "description": "The maximum number of downloads allowed for the token. Please note that since downloads are calculated asynchronously (after the download happens), the limit may not be imposed immediately but at a later point.",
+                  "maximum": 9223372036854776000,
+                  "minimum": -9223372036854776000,
+                  "title": "Limit num downloads",
+                  "type": "integer"
+                },
+                "limit_package_query": {
+                  "description": "The package-based search query to apply to restrict downloads to. This uses the same syntax as the standard search used for repositories, and also supports boolean logic operators such as OR/AND/NOT and parentheses for grouping. This will still allow access to non-package files, such as metadata.",
+                  "maxLength": 1024,
+                  "title": "Limit package query",
+                  "type": "string"
+                },
+                "limit_path_query": {
+                  "description": "THIS WILL SOON BE DEPRECATED, please use limit_package_query instead. The path-based search query to apply to restrict downloads to. This supports boolean logic operators such as OR/AND/NOT and parentheses for grouping. The path evaluated does not include the domain name, the namespace, the entitlement code used, the package format, etc. and it always starts with a forward slash.",
+                  "maxLength": 1024,
+                  "title": "Limit path query",
+                  "type": "string"
+                },
+                "metadata": {
+                  "title": "Metadata",
+                  "type": "object"
+                },
+                "name": {
+                  "minLength": 1,
+                  "title": "Name",
+                  "type": "string"
+                },
+                "refresh_url": {
+                  "format": "uri",
+                  "readOnly": true,
+                  "title": "Refresh url",
+                  "type": "string"
+                },
+                "reset_url": {
+                  "format": "uri",
+                  "readOnly": true,
+                  "title": "Reset url",
+                  "type": "string"
+                },
+                "scheduled_reset_at": {
+                  "description": "The time at which the scheduled reset period has elapsed and the token limits were automatically reset to zero.",
+                  "format": "date-time",
+                  "title": "Scheduled reset at",
+                  "type": "string"
+                },
+                "scheduled_reset_period": {
+                  "default": "Never Reset",
+                  "enum": [
+                    "Never Reset",
+                    "Daily",
+                    "Weekly",
+                    "Fortnightly",
+                    "Monthly",
+                    "Bi-Monthly",
+                    "Quarterly",
+                    "Every 6 months",
+                    "Annual"
+                  ],
+                  "title": "Scheduled reset period",
+                  "type": "string"
+                },
+                "self_url": {
+                  "format": "uri",
+                  "readOnly": true,
+                  "title": "Self url",
+                  "type": "string"
+                },
+                "slug_perm": {
+                  "format": "slug",
+                  "minLength": 1,
+                  "pattern": "^[-a-zA-Z0-9_]+$",
+                  "readOnly": true,
+                  "title": "Slug perm",
+                  "type": "string"
+                },
+                "token": {
+                  "minLength": 1,
+                  "title": "Token",
+                  "type": "string"
+                },
+                "updated_at": {
+                  "description": "The datetime the token was updated at.",
+                  "format": "date-time",
+                  "readOnly": true,
+                  "title": "Updated at",
+                  "type": "string"
+                },
+                "updated_by": {
+                  "minLength": 1,
+                  "readOnly": true,
+                  "title": "Updated by",
+                  "type": "string"
+                },
+                "updated_by_url": {
+                  "format": "uri",
+                  "readOnly": true,
+                  "title": "Updated by url",
+                  "type": "string"
+                },
+                "usage": {
+                  "minLength": 1,
+                  "readOnly": true,
+                  "title": "Usage",
+                  "type": "string"
+                },
+                "user": {
+                  "minLength": 1,
+                  "readOnly": true,
+                  "title": "User",
+                  "type": "string"
+                },
+                "user_url": {
+                  "format": "uri",
+                  "readOnly": true,
+                  "title": "User url",
+                  "type": "string"
+                }
+              },
+              "required": [
+                "name"
+              ],
+              "type": "object"
+            }
+          },
+          "400": {
+            "description": "The entitlement cannot be edited.",
+            "schema": {
+              "properties": {
+                "detail": {
+                  "description": "An extended message for the response.",
+                  "minLength": 1,
+                  "title": "Detail",
+                  "type": "string"
+                },
+                "fields": {
+                  "additionalProperties": {
+                    "items": {
+                      "minLength": 1,
+                      "type": "string"
+                    },
+                    "type": "array"
+                  },
+                  "description": "A Dictionary of related errors where key: Field and value: Array of Errors related to that field",
+                  "title": "Fields",
+                  "type": "object"
+                }
+              },
+              "required": [
+                "detail"
+              ],
+              "type": "object"
+            }
+          },
+          "404": {
+            "description": "Owner namespace or repository not found",
+            "schema": {
+              "properties": {
+                "detail": {
+                  "description": "An extended message for the response.",
+                  "minLength": 1,
+                  "title": "Detail",
+                  "type": "string"
+                },
+                "fields": {
+                  "additionalProperties": {
+                    "items": {
+                      "minLength": 1,
+                      "type": "string"
+                    },
+                    "type": "array"
+                  },
+                  "description": "A Dictionary of related errors where key: Field and value: Array of Errors related to that field",
+                  "title": "Fields",
+                  "type": "object"
+                }
+              },
+              "required": [
+                "detail"
+              ],
+              "type": "object"
+            }
+          },
+          "422": {
+            "description": "Missing or invalid parameters (see detail).",
+            "schema": {
+              "properties": {
+                "detail": {
+                  "description": "An extended message for the response.",
+                  "minLength": 1,
+                  "title": "Detail",
+                  "type": "string"
+                },
+                "fields": {
+                  "additionalProperties": {
+                    "items": {
+                      "minLength": 1,
+                      "type": "string"
+                    },
+                    "type": "array"
+                  },
+                  "description": "A Dictionary of related errors where key: Field and value: Array of Errors related to that field",
+                  "title": "Fields",
+                  "type": "object"
+                }
+              },
+              "required": [
+                "detail"
+              ],
+              "type": "object"
+            }
+          }
+        },
+        "security": [
+          {
+            "apikey": []
+          },
+          {
+            "basic": []
+          }
+        ],
+        "securitySchemes": {
+          "apikey": {
+            "in": "header",
+            "name": "X-Api-Key",
+            "type": "apiKey"
+          },
+          "basic": {
+            "type": "basic"
+          }
+        },
+        "securitySource": "definition"
       }
     }
   }

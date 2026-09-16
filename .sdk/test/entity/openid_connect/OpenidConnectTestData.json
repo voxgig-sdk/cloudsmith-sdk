@@ -10,5 +10,6 @@
     "openid_connect": {
       "openid_connect_ref01": {}
     }
-  }
+  },
+  "requests": {}
 }

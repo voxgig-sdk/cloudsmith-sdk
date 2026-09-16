@@ -52,7 +52,7 @@ class TestOrganizationMembershipVisibilityUpdateEntity:
             "org_id": setup["idmap"]["org_id"],
         }
 
-        organization_membership_visibility_update_ref01_markdef_up0_name = "email"
+        organization_membership_visibility_update_ref01_markdef_up0_name = "visibility"
         organization_membership_visibility_update_ref01_markdef_up0_value = "Mark01-organization_membership_visibility_update_ref01_" + str(setup["now"])
         organization_membership_visibility_update_ref01_data_up0_up[organization_membership_visibility_update_ref01_markdef_up0_name] = organization_membership_visibility_update_ref01_markdef_up0_value
 

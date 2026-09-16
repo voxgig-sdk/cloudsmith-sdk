@@ -1360,17 +1360,12 @@
 ---@class Org
 ---@field country? string
 ---@field created_at? string
----@field event_at? string
 ---@field id? string
 ---@field location? string
 ---@field name string
----@field package table
----@field policy table
----@field reasons table
 ---@field slug? string
 ---@field slug_perm? string
 ---@field tagline? string
----@field vulnerability_scan_results table
 
 ---@class OrgLoadMatch
 ---@field id string
@@ -1385,16 +1380,11 @@
 ---@field member_id? string
 ---@field country? string
 ---@field created_at? string
----@field event_at? string
 ---@field location? string
 ---@field name string
----@field package table
----@field policy table
----@field reasons table
 ---@field slug? string
 ---@field slug_perm? string
 ---@field tagline? string
----@field vulnerability_scan_results table
 
 ---@class OrgUpdateData
 ---@field id string
@@ -1402,16 +1392,11 @@
 ---@field data? table
 ---@field country? string
 ---@field created_at? string
----@field event_at? string
 ---@field location? string
 ---@field name? string
----@field package? table
----@field policy? table
----@field reasons? table
 ---@field slug? string
 ---@field slug_perm? string
 ---@field tagline? string
----@field vulnerability_scan_results? table
 
 ---@class OrgRemoveMatch
 ---@field id string
@@ -3511,9 +3496,6 @@
 ---@class TransferRegion
 
 ---@class User
----@field created? string
----@field key? string
----@field slug_perm? string
 
 ---@class UserListMatch
 ---@field page? number

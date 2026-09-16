@@ -10,5 +10,6 @@
     "dependency": {
       "dependency_ref01": {}
     }
-  }
+  },
+  "requests": {}
 }

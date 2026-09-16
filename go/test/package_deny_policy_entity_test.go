@@ -141,7 +141,7 @@ func TestPackageDenyPolicyEntity(t *testing.T) {
 			"org_id": setup.idmap["org_id"],
 		}
 
-		packageDenyPolicyRef01MarkdefUp0Name := "action"
+		packageDenyPolicyRef01MarkdefUp0Name := "description"
 		packageDenyPolicyRef01MarkdefUp0Value := fmt.Sprintf("Mark01-package_deny_policy_ref01_%d", setup.now)
 		packageDenyPolicyRef01DataUp0Up[packageDenyPolicyRef01MarkdefUp0Name] = packageDenyPolicyRef01MarkdefUp0Value
 

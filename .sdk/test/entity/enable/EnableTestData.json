@@ -10,5 +10,6 @@
     "enable": {
       "enable_ref01": {}
     }
-  }
+  },
+  "requests": {}
 }

@@ -5,6 +5,8 @@ import * as Fs from 'node:fs'
 
 import { test, describe, afterEach } from 'node:test'
 import assert from 'node:assert'
+import { createLiveTransport } from '../../live-runner'
+import { runLiveEntity } from '../../live-entity'
 
 
 import { CloudsmithSDK, BaseFeature, stdutil } from '../../..'
@@ -47,16 +49,13 @@ describe('OrganizationSamlAuthEntity', async () => {
 
     const live = 'TRUE' === process.env.CLOUDSMITH_TEST_LIVE
     for (const op of ['update', 'load']) {
-      if (maybeSkipControl(t, 'entityOp', 'organization_saml_auth.' + op, live)) return
+      if (!live && maybeSkipControl(t, 'entityOp', 'organization_saml_auth.' + op, live)) return
     }
 
+    
     const setup = basicSetup()
-    // The basic flow consumes synthetic IDs and field values from the
-    // fixture (entity TestData.json). Those don't exist on the live API.
-    // Skip live runs unless the user provided a real ENTID env override.
-    if (setup.syntheticOnly) {
-      t.skip('live entity test uses synthetic IDs from fixture — set CLOUDSMITH_TEST_ORGANIZATION_SAML_AUTH_ENTID JSON to run live')
-      return
+    if (setup.live) {
+      return runLiveEntity(setup, {"active":true,"alias":{"field":{}},"fields":[{"active":true,"name":"saml_auth_enabled","req":true,"type":"`$BOOLEAN`","index$":0},{"active":true,"name":"saml_auth_enforced","req":true,"type":"`$BOOLEAN`","index$":1},{"active":true,"name":"saml_metadata_inline","req":false,"short":"If configured, SAML metadata will be used as entered instead of retrieved from a remote URL.","type":"`$STRING`","index$":2},{"active":true,"format":"uri","name":"saml_metadata_url","req":false,"short":"If configured, SAML metadata be retrieved from a remote URL.","type":"`$STRING`","index$":3}],"name":"organization_saml_auth","op":{"load":{"input":"data","name":"load","points":[{"active":true,"args":{"params":[{"active":true,"kind":"param","name":"org_id","orig":"org","reqd":true,"type":"`$STRING`","index$":0}]},"contract":{"id":"GET /orgs/{org}/saml-authentication","json":"{\"consumes\":[\"application/json\"],\"operationId\":\"orgs_saml-authentication_read\",\"parameters\":[{\"in\":\"path\",\"name\":\"org\",\"required\":true,\"type\":\"string\"}],\"produces\":[\"application/json\"],\"protocol\":\"http\",\"responses\":{\"200\":{\"description\":\"Retrieved the SAML Authentication settings.\",\"schema\":{\"properties\":{\"saml_auth_enabled\":{\"title\":\"Saml auth enabled\",\"type\":\"boolean\"},\"saml_auth_enforced\":{\"title\":\"Saml auth enforced\",\"type\":\"boolean\"},\"saml_metadata_inline\":{\"description\":\"If configured, SAML metadata will be used as entered instead of retrieved from a remote URL.\",\"maxLength\":32000,\"title\":\"Inline SAML metadata\",\"type\":\"string\"},\"saml_metadata_url\":{\"description\":\"If configured, SAML metadata be retrieved from a remote URL.\",\"format\":\"uri\",\"maxLength\":254,\"title\":\"Saml metadata url\",\"type\":\"string\"}},\"required\":[\"saml_auth_enabled\",\"saml_auth_enforced\"],\"type\":\"object\"}},\"400\":{\"description\":\"Request could not be processed (see detail).\",\"schema\":{\"properties\":{\"detail\":{\"description\":\"An extended message for the response.\",\"minLength\":1,\"title\":\"Detail\",\"type\":\"string\"},\"fields\":{\"additionalProperties\":{\"items\":{\"minLength\":1,\"type\":\"string\"},\"type\":\"array\"},\"description\":\"A Dictionary of related errors where key: Field and value: Array of Errors related to that field\",\"title\":\"Fields\",\"type\":\"object\"}},\"required\":[\"detail\"],\"type\":\"object\"}},\"402\":{\"description\":\"SAML Authentication is not available; please upgrade your account!\",\"schema\":{\"properties\":{\"detail\":{\"description\":\"An extended message for the response.\",\"minLength\":1,\"title\":\"Detail\",\"type\":\"string\"},\"fields\":{\"additionalProperties\":{\"items\":{\"minLength\":1,\"type\":\"string\"},\"type\":\"array\"},\"description\":\"A Dictionary of related errors where key: Field and value: Array of Errors related to that field\",\"title\":\"Fields\",\"type\":\"object\"}},\"required\":[\"detail\"],\"type\":\"object\"}},\"404\":{\"description\":\"Organization not found.\",\"schema\":{\"properties\":{\"detail\":{\"description\":\"An extended message for the response.\",\"minLength\":1,\"title\":\"Detail\",\"type\":\"string\"},\"fields\":{\"additionalProperties\":{\"items\":{\"minLength\":1,\"type\":\"string\"},\"type\":\"array\"},\"description\":\"A Dictionary of related errors where key: Field and value: Array of Errors related to that field\",\"title\":\"Fields\",\"type\":\"object\"}},\"required\":[\"detail\"],\"type\":\"object\"}},\"422\":{\"description\":\"Missing or invalid parameters (see detail).\",\"schema\":{\"properties\":{\"detail\":{\"description\":\"An extended message for the response.\",\"minLength\":1,\"title\":\"Detail\",\"type\":\"string\"},\"fields\":{\"additionalProperties\":{\"items\":{\"minLength\":1,\"type\":\"string\"},\"type\":\"array\"},\"description\":\"A Dictionary of related errors where key: Field and value: Array of Errors related to that field\",\"title\":\"Fields\",\"type\":\"object\"}},\"required\":[\"detail\"],\"type\":\"object\"}}},\"security\":[{\"apikey\":[]},{\"basic\":[]}],\"securitySchemes\":{\"apikey\":{\"in\":\"header\",\"name\":\"X-Api-Key\",\"type\":\"apiKey\"},\"basic\":{\"type\":\"basic\"}},\"securitySource\":\"definition\"}","source":"swagger2","version":1},"kind":"http","method":"GET","orig":"/orgs/{org}/saml-authentication","rename":{"param":{"org":"org_id"}},"segments":[{"lit":"orgs"},{"var":"org_id"},{"lit":"saml-authentication"}],"select":{"exist":["org_id"]},"transform":{"req":"`reqdata`","res":"`body`"},"index$":0}],"key$":"load"},"update":{"input":"data","name":"update","points":[{"active":true,"args":{"params":[{"active":true,"kind":"param","name":"org_id","orig":"org","reqd":true,"type":"`$STRING`","index$":0}],"query":[{"active":true,"kind":"query","name":"data","orig":"data","reqd":false,"type":"`$OBJECT`","index$":0}]},"contract":{"id":"PATCH /orgs/{org}/saml-authentication","json":"{\"consumes\":[\"application/json\"],\"operationId\":\"orgs_saml-authentication_partial_update\",\"parameters\":[{\"in\":\"path\",\"name\":\"org\",\"required\":true,\"type\":\"string\"},{\"in\":\"body\",\"name\":\"data\",\"required\":false,\"schema\":{\"properties\":{\"saml_auth_enabled\":{\"title\":\"Saml auth enabled\",\"type\":\"boolean\"},\"saml_auth_enforced\":{\"title\":\"Saml auth enforced\",\"type\":\"boolean\"},\"saml_metadata_inline\":{\"description\":\"If configured, SAML metadata will be used as entered instead of retrieved from a remote URL.\",\"maxLength\":32000,\"title\":\"Inline SAML metadata\",\"type\":\"string\"},\"saml_metadata_url\":{\"description\":\"If configured, SAML metadata be retrieved from a remote URL.\",\"format\":\"uri\",\"maxLength\":254,\"title\":\"Saml metadata url\",\"type\":\"string\"}},\"type\":\"object\"}}],\"produces\":[\"application/json\"],\"protocol\":\"http\",\"responses\":{\"200\":{\"description\":\"Updated the SAML Authentication settings.\",\"schema\":{\"properties\":{\"saml_auth_enabled\":{\"title\":\"Saml auth enabled\",\"type\":\"boolean\"},\"saml_auth_enforced\":{\"title\":\"Saml auth enforced\",\"type\":\"boolean\"},\"saml_metadata_inline\":{\"description\":\"If configured, SAML metadata will be used as entered instead of retrieved from a remote URL.\",\"maxLength\":32000,\"title\":\"Inline SAML metadata\",\"type\":\"string\"},\"saml_metadata_url\":{\"description\":\"If configured, SAML metadata be retrieved from a remote URL.\",\"format\":\"uri\",\"maxLength\":254,\"title\":\"Saml metadata url\",\"type\":\"string\"}},\"required\":[\"saml_auth_enabled\",\"saml_auth_enforced\"],\"type\":\"object\"}},\"400\":{\"description\":\"Request could not be processed (see detail).\",\"schema\":{\"properties\":{\"detail\":{\"description\":\"An extended message for the response.\",\"minLength\":1,\"title\":\"Detail\",\"type\":\"string\"},\"fields\":{\"additionalProperties\":{\"items\":{\"minLength\":1,\"type\":\"string\"},\"type\":\"array\"},\"description\":\"A Dictionary of related errors where key: Field and value: Array of Errors related to that field\",\"title\":\"Fields\",\"type\":\"object\"}},\"required\":[\"detail\"],\"type\":\"object\"}},\"402\":{\"description\":\"SAML Authentication is not available; please upgrade your account!\",\"schema\":{\"properties\":{\"detail\":{\"description\":\"An extended message for the response.\",\"minLength\":1,\"title\":\"Detail\",\"type\":\"string\"},\"fields\":{\"additionalProperties\":{\"items\":{\"minLength\":1,\"type\":\"string\"},\"type\":\"array\"},\"description\":\"A Dictionary of related errors where key: Field and value: Array of Errors related to that field\",\"title\":\"Fields\",\"type\":\"object\"}},\"required\":[\"detail\"],\"type\":\"object\"}},\"404\":{\"description\":\"Organization not found.\",\"schema\":{\"properties\":{\"detail\":{\"description\":\"An extended message for the response.\",\"minLength\":1,\"title\":\"Detail\",\"type\":\"string\"},\"fields\":{\"additionalProperties\":{\"items\":{\"minLength\":1,\"type\":\"string\"},\"type\":\"array\"},\"description\":\"A Dictionary of related errors where key: Field and value: Array of Errors related to that field\",\"title\":\"Fields\",\"type\":\"object\"}},\"required\":[\"detail\"],\"type\":\"object\"}},\"422\":{\"description\":\"Missing or invalid parameters (see detail).\",\"schema\":{\"properties\":{\"detail\":{\"description\":\"An extended message for the response.\",\"minLength\":1,\"title\":\"Detail\",\"type\":\"string\"},\"fields\":{\"additionalProperties\":{\"items\":{\"minLength\":1,\"type\":\"string\"},\"type\":\"array\"},\"description\":\"A Dictionary of related errors where key: Field and value: Array of Errors related to that field\",\"title\":\"Fields\",\"type\":\"object\"}},\"required\":[\"detail\"],\"type\":\"object\"}}},\"security\":[{\"apikey\":[]},{\"basic\":[]}],\"securitySchemes\":{\"apikey\":{\"in\":\"header\",\"name\":\"X-Api-Key\",\"type\":\"apiKey\"},\"basic\":{\"type\":\"basic\"}},\"securitySource\":\"definition\"}","source":"swagger2","version":1},"kind":"http","method":"PATCH","orig":"/orgs/{org}/saml-authentication","rename":{"param":{"org":"org_id"}},"segments":[{"lit":"orgs"},{"var":"org_id"},{"lit":"saml-authentication"}],"select":{"exist":["data","org_id"]},"transform":{"req":"`reqdata`","res":"`body`"},"index$":0}],"key$":"update"}},"relations":{"ancestors":[["org"]]},"key$":"organization_saml_auth","name__orig":"organization_saml_auth","Name":"OrganizationSamlAuth","name_":"organization_saml_auth","name-":"organization-saml-auth","NAME":"ORGANIZATION_SAML_AUTH","index$":58}, {"active":true,"entity":"organization_saml_auth","key$":"BasicOrganizationSamlAuthFlow","kind":"basic","name":"BasicOrganizationSamlAuthFlow","param":{},"step":[{"active":true,"data":{},"input":{"ref":"organization_saml_auth_ref01","srcdatavar":"organization_saml_auth_ref01_data","suffix":"_up0","textfield":"saml_metadata_inline"},"match":{},"op":"update","spec":[{"apply":"TextFieldMark","def":{"mark":"Mark01-organization_saml_auth_ref01"}}],"valid":[],"index$":0},{"active":true,"data":{},"input":{"ref":"organization_saml_auth_ref01","srcdatavar":"organization_saml_auth_ref01_data","suffix":"_dt0"},"match":{"id":"organization_saml_auth01"},"op":"load","spec":[],"valid":[{"apply":"TextFieldMark","def":{"mark":"Mark01-organization_saml_auth_ref01"}}],"index$":1}]}, 'OrganizationSamlAuth')
     }
     const client = setup.client
     const struct = setup.struct
@@ -116,13 +115,6 @@ function basicSetup(extra?: any) {
       }]
     })
 
-  // Detect whether the user provided a real ENTID JSON via env var. The
-  // basic flow consumes synthetic IDs from the fixture file; without an
-  // override those synthetic IDs reach the live API and 4xx. Surface this
-  // to the test so it can skip rather than fail.
-  const idmapEnvVal = process.env['CLOUDSMITH_TEST_ORGANIZATION_SAML_AUTH_ENTID']
-  const idmapOverridden = null != idmapEnvVal && idmapEnvVal.trim().startsWith('{')
-
   const env = envOverride({
     'CLOUDSMITH_TEST_ORGANIZATION_SAML_AUTH_ENTID': idmap,
     'CLOUDSMITH_TEST_LIVE': 'FALSE',
@@ -134,7 +126,13 @@ function basicSetup(extra?: any) {
 
   const live = 'TRUE' === env.CLOUDSMITH_TEST_LIVE
 
+  const transport = createLiveTransport()
   if (live) {
+    const rawIds = process.env['CLOUDSMITH_TEST_ORGANIZATION_SAML_AUTH_ENTID']
+    idmap = rawIds && rawIds.trim() ? JSON.parse(rawIds) : {}
+    if (!idmap || Array.isArray(idmap) || typeof idmap !== 'object') {
+      throw new Error('Live ENTID must be a JSON object')
+    }
     client = new CloudsmithSDK(merge([
       // FIRST, so the generated fields below win: sdk-test-control.json's
       // test.client.options adds to the live client, it does not redirect it.
@@ -147,7 +145,8 @@ function basicSetup(extra?: any) {
       // argument at all - so a bare 'extra' silently discarded the apikey
       // and server values above and handed the SDK undefined. Harmless
       // while there was nothing in that object; not harmless now.
-      extra || {}
+      extra || {},
+      { system: { fetch: transport.fetch } }
     ]))
   }
 
@@ -160,7 +159,7 @@ function basicSetup(extra?: any) {
     data: entityData,
     explain: 'TRUE' === env.CLOUDSMITH_TEST_EXPLAIN,
     live,
-    syntheticOnly: live && !idmapOverridden,
+    transport,
     now: Date.now(),
   }
 

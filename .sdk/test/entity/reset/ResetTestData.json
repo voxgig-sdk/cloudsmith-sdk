@@ -10,5 +10,6 @@
     "reset": {
       "reset_ref01": {}
     }
-  }
+  },
+  "requests": {}
 }

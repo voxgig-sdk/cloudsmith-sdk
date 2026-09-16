@@ -15,7 +15,7 @@ main: kit: flow: BasicOrganizationMembershipVisibilityUpdateFlow:
         ref: "organization_membership_visibility_update_ref01",
         srcdatavar: "organization_membership_visibility_update_ref01_data",
         suffix: "_up0",
-        textfield: "email"
+        textfield: "visibility"
       }
 
       op: "update",

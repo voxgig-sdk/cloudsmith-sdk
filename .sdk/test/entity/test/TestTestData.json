@@ -10,5 +10,6 @@
     "test": {
       "test_ref01": {}
     }
-  }
+  },
+  "requests": {}
 }

@@ -102,7 +102,7 @@ class TestOrganizationPackageLicensePolicyEntity:
             "org_id": setup["idmap"]["org_id"],
         }
 
-        organization_package_license_policy_ref01_markdef_up0_name = "created_at"
+        organization_package_license_policy_ref01_markdef_up0_name = "description"
         organization_package_license_policy_ref01_markdef_up0_value = "Mark01-organization_package_license_policy_ref01_" + str(setup["now"])
         organization_package_license_policy_ref01_data_up0_up[organization_package_license_policy_ref01_markdef_up0_name] = organization_package_license_policy_ref01_markdef_up0_value
 

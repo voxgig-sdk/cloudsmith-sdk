@@ -10,5 +10,6 @@
     "alpine": {
       "alpine_ref01": {}
     }
-  }
+  },
+  "requests": {}
 }

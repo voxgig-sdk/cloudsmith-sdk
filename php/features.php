@@ -4,7 +4,14 @@ declare(strict_types=1);
 // Cloudsmith SDK feature factory
 
 require_once __DIR__ . '/feature/BaseFeature.php';
+require_once __DIR__ . '/feature/DebugFeature.php';
+require_once __DIR__ . '/feature/IdempotencyFeature.php';
+require_once __DIR__ . '/feature/MetricsFeature.php';
+require_once __DIR__ . '/feature/PagingFeature.php';
+require_once __DIR__ . '/feature/RatelimitFeature.php';
+require_once __DIR__ . '/feature/RetryFeature.php';
 require_once __DIR__ . '/feature/TestFeature.php';
+require_once __DIR__ . '/feature/TimeoutFeature.php';
 
 
 class CloudsmithFeatures
@@ -14,8 +21,22 @@ class CloudsmithFeatures
         switch ($name) {
             case "base":
                 return new CloudsmithBaseFeature();
+            case "debug":
+                return new CloudsmithDebugFeature();
+            case "idempotency":
+                return new CloudsmithIdempotencyFeature();
+            case "metrics":
+                return new CloudsmithMetricsFeature();
+            case "paging":
+                return new CloudsmithPagingFeature();
+            case "ratelimit":
+                return new CloudsmithRatelimitFeature();
+            case "retry":
+                return new CloudsmithRetryFeature();
             case "test":
                 return new CloudsmithTestFeature();
+            case "timeout":
+                return new CloudsmithTimeoutFeature();
             default:
                 return new CloudsmithBaseFeature();
         }
@@ -31,7 +52,14 @@ class CloudsmithFeatures
     {
         switch ($name) {
             case "base":
+            case "debug":
+            case "idempotency":
+            case "metrics":
+            case "paging":
+            case "ratelimit":
+            case "retry":
             case "test":
+            case "timeout":
                 return true;
             default:
                 return false;

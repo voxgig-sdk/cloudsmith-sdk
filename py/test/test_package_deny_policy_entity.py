@@ -102,7 +102,7 @@ class TestPackageDenyPolicyEntity:
             "org_id": setup["idmap"]["org_id"],
         }
 
-        package_deny_policy_ref01_markdef_up0_name = "action"
+        package_deny_policy_ref01_markdef_up0_name = "description"
         package_deny_policy_ref01_markdef_up0_value = "Mark01-package_deny_policy_ref01_" + str(setup["now"])
         package_deny_policy_ref01_data_up0_up[package_deny_policy_ref01_markdef_up0_name] = package_deny_policy_ref01_markdef_up0_value
 

@@ -1601,17 +1601,12 @@ type OpenidConnect struct {
 type Org struct {
 	Country *string `json:"country,omitempty"`
 	CreatedAt *string `json:"created_at,omitempty"`
-	EventAt *string `json:"event_at,omitempty"`
 	Id *string `json:"id,omitempty"`
 	Location *string `json:"location,omitempty"`
 	Name string `json:"name"`
-	Package map[string]any `json:"package"`
-	Policy map[string]any `json:"policy"`
-	Reasons []any `json:"reasons"`
 	Slug *string `json:"slug,omitempty"`
 	SlugPerm *string `json:"slug_perm,omitempty"`
 	Tagline *string `json:"tagline,omitempty"`
-	VulnerabilityScanResults map[string]any `json:"vulnerability_scan_results"`
 }
 
 // OrgLoadMatch is the typed request payload for Org.LoadTyped.
@@ -1632,16 +1627,11 @@ type OrgCreateData struct {
 	MemberId *string `json:"member_id,omitempty"`
 	Country *string `json:"country,omitempty"`
 	CreatedAt *string `json:"created_at,omitempty"`
-	EventAt *string `json:"event_at,omitempty"`
 	Location *string `json:"location,omitempty"`
 	Name string `json:"name"`
-	Package map[string]any `json:"package"`
-	Policy map[string]any `json:"policy"`
-	Reasons []any `json:"reasons"`
 	Slug *string `json:"slug,omitempty"`
 	SlugPerm *string `json:"slug_perm,omitempty"`
 	Tagline *string `json:"tagline,omitempty"`
-	VulnerabilityScanResults map[string]any `json:"vulnerability_scan_results"`
 }
 
 // OrgUpdateData is the typed request payload for Org.UpdateTyped.
@@ -1651,16 +1641,11 @@ type OrgUpdateData struct {
 	Data *map[string]any `json:"data,omitempty"`
 	Country *string `json:"country,omitempty"`
 	CreatedAt *string `json:"created_at,omitempty"`
-	EventAt *string `json:"event_at,omitempty"`
 	Location *string `json:"location,omitempty"`
 	Name *string `json:"name,omitempty"`
-	Package *map[string]any `json:"package,omitempty"`
-	Policy *map[string]any `json:"policy,omitempty"`
-	Reasons *[]any `json:"reasons,omitempty"`
 	Slug *string `json:"slug,omitempty"`
 	SlugPerm *string `json:"slug_perm,omitempty"`
 	Tagline *string `json:"tagline,omitempty"`
-	VulnerabilityScanResults *map[string]any `json:"vulnerability_scan_results,omitempty"`
 }
 
 // OrgRemoveMatch is the typed request payload for Org.RemoveTyped.
@@ -4112,9 +4097,6 @@ type TransferRegion struct {
 
 // User is the typed data model for the user entity.
 type User struct {
-	Created *string `json:"created,omitempty"`
-	Key *string `json:"key,omitempty"`
-	SlugPerm *string `json:"slug_perm,omitempty"`
 }
 
 // UserListMatch is the typed request payload for User.ListTyped.

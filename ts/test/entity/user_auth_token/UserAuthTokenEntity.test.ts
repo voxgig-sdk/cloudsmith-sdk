@@ -5,6 +5,8 @@ import * as Fs from 'node:fs'
 
 import { test, describe, afterEach } from 'node:test'
 import assert from 'node:assert'
+import { createLiveTransport } from '../../live-runner'
+import { runLiveEntity } from '../../live-entity'
 
 
 import { CloudsmithSDK, BaseFeature, stdutil } from '../../..'
@@ -47,16 +49,13 @@ describe('UserAuthTokenEntity', async () => {
 
     const live = 'TRUE' === process.env.CLOUDSMITH_TEST_LIVE
     for (const op of ['create']) {
-      if (maybeSkipControl(t, 'entityOp', 'user_auth_token.' + op, live)) return
+      if (!live && maybeSkipControl(t, 'entityOp', 'user_auth_token.' + op, live)) return
     }
 
+    
     const setup = basicSetup()
-    // The basic flow consumes synthetic IDs and field values from the
-    // fixture (entity TestData.json). Those don't exist on the live API.
-    // Skip live runs unless the user provided a real ENTID env override.
-    if (setup.syntheticOnly) {
-      t.skip('live entity test uses synthetic IDs from fixture — set CLOUDSMITH_TEST_USER_AUTH_TOKEN_ENTID JSON to run live')
-      return
+    if (setup.live) {
+      return runLiveEntity(setup, {"active":true,"alias":{"field":{}},"fields":[],"name":"user_auth_token","op":{"create":{"input":"data","name":"create","points":[{"active":true,"args":{"query":[{"active":true,"kind":"query","name":"data","orig":"data","reqd":false,"type":"`$OBJECT`","index$":0}]},"contract":{"id":"POST /user/token/","json":"{\"consumes\":[\"application/json\"],\"operationId\":\"user_token_create\",\"parameters\":[{\"in\":\"body\",\"name\":\"data\",\"required\":false,\"schema\":{\"properties\":{\"email\":{\"description\":\"Email address to authenticate with\",\"format\":\"email\",\"minLength\":1,\"title\":\"Email\",\"type\":\"string\"},\"password\":{\"description\":\"Password to authenticate with\",\"minLength\":1,\"title\":\"Password\",\"type\":\"string\"},\"totp_token\":{\"description\":\"Two-factor authentication code\",\"minLength\":1,\"title\":\"Two-factor code\",\"type\":\"string\"}},\"type\":\"object\"}}],\"produces\":[\"application/json\"],\"protocol\":\"http\",\"responses\":{\"201\":{\"description\":\"Retrieved/created user API token/key.\",\"schema\":{\"properties\":{\"token\":{\"description\":\"API token for the authenticated user\",\"minLength\":1,\"readOnly\":true,\"title\":\"Token\",\"type\":\"string\"},\"two_factor_required\":{\"description\":\"Flag indicating whether a 2FA code is required to complete authentication\",\"readOnly\":true,\"title\":\"Two factor required\",\"type\":\"boolean\"},\"two_factor_token\":{\"description\":\"Token to use when providing 2FA code\",\"minLength\":1,\"readOnly\":true,\"title\":\"Two factor token\",\"type\":\"string\"}},\"type\":\"object\"}},\"400\":{\"description\":\"Request could not be processed (see detail).\",\"schema\":{\"properties\":{\"detail\":{\"description\":\"An extended message for the response.\",\"minLength\":1,\"title\":\"Detail\",\"type\":\"string\"},\"fields\":{\"additionalProperties\":{\"items\":{\"minLength\":1,\"type\":\"string\"},\"type\":\"array\"},\"description\":\"A Dictionary of related errors where key: Field and value: Array of Errors related to that field\",\"title\":\"Fields\",\"type\":\"object\"}},\"required\":[\"detail\"],\"type\":\"object\"}},\"403\":{\"description\":\"Locked out.\",\"schema\":{\"properties\":{\"detail\":{\"description\":\"An extended message for the response.\",\"minLength\":1,\"title\":\"Detail\",\"type\":\"string\"},\"fields\":{\"additionalProperties\":{\"items\":{\"minLength\":1,\"type\":\"string\"},\"type\":\"array\"},\"description\":\"A Dictionary of related errors where key: Field and value: Array of Errors related to that field\",\"title\":\"Fields\",\"type\":\"object\"}},\"required\":[\"detail\"],\"type\":\"object\"}},\"422\":{\"description\":\"Failed to authenticate.\",\"schema\":{\"properties\":{\"detail\":{\"description\":\"An extended message for the response.\",\"minLength\":1,\"title\":\"Detail\",\"type\":\"string\"},\"fields\":{\"additionalProperties\":{\"items\":{\"minLength\":1,\"type\":\"string\"},\"type\":\"array\"},\"description\":\"A Dictionary of related errors where key: Field and value: Array of Errors related to that field\",\"title\":\"Fields\",\"type\":\"object\"}},\"required\":[\"detail\"],\"type\":\"object\"}}},\"security\":[{\"basic\":[]}],\"securitySchemes\":{\"apikey\":{\"in\":\"header\",\"name\":\"X-Api-Key\",\"type\":\"apiKey\"},\"basic\":{\"type\":\"basic\"}},\"securitySource\":\"operation\"}","source":"swagger2","version":1},"kind":"http","method":"POST","orig":"/user/token/","segments":[{"lit":"user"},{"lit":"token"}],"select":{"exist":["data"]},"transform":{"req":"`reqdata`","res":"`body`"},"index$":0}],"key$":"create"}},"relations":{"ancestors":[]},"key$":"user_auth_token","name__orig":"user_auth_token","Name":"UserAuthToken","name_":"user_auth_token","name-":"user-auth-token","NAME":"USER_AUTH_TOKEN","index$":119}, {"active":true,"entity":"user_auth_token","key$":"BasicUserAuthTokenFlow","kind":"basic","name":"BasicUserAuthTokenFlow","param":{},"step":[{"active":true,"data":{},"input":{"ref":"user_auth_token_ref01"},"match":{},"op":"create","spec":[],"valid":[],"index$":0}]}, 'UserAuthToken')
     }
     const client = setup.client
     const struct = setup.struct
@@ -109,13 +108,6 @@ function basicSetup(extra?: any) {
       }]
     })
 
-  // Detect whether the user provided a real ENTID JSON via env var. The
-  // basic flow consumes synthetic IDs from the fixture file; without an
-  // override those synthetic IDs reach the live API and 4xx. Surface this
-  // to the test so it can skip rather than fail.
-  const idmapEnvVal = process.env['CLOUDSMITH_TEST_USER_AUTH_TOKEN_ENTID']
-  const idmapOverridden = null != idmapEnvVal && idmapEnvVal.trim().startsWith('{')
-
   const env = envOverride({
     'CLOUDSMITH_TEST_USER_AUTH_TOKEN_ENTID': idmap,
     'CLOUDSMITH_TEST_LIVE': 'FALSE',
@@ -127,7 +119,13 @@ function basicSetup(extra?: any) {
 
   const live = 'TRUE' === env.CLOUDSMITH_TEST_LIVE
 
+  const transport = createLiveTransport()
   if (live) {
+    const rawIds = process.env['CLOUDSMITH_TEST_USER_AUTH_TOKEN_ENTID']
+    idmap = rawIds && rawIds.trim() ? JSON.parse(rawIds) : {}
+    if (!idmap || Array.isArray(idmap) || typeof idmap !== 'object') {
+      throw new Error('Live ENTID must be a JSON object')
+    }
     client = new CloudsmithSDK(merge([
       // FIRST, so the generated fields below win: sdk-test-control.json's
       // test.client.options adds to the live client, it does not redirect it.
@@ -140,7 +138,8 @@ function basicSetup(extra?: any) {
       // argument at all - so a bare 'extra' silently discarded the apikey
       // and server values above and handed the SDK undefined. Harmless
       // while there was nothing in that object; not harmless now.
-      extra || {}
+      extra || {},
+      { system: { fetch: transport.fetch } }
     ]))
   }
 
@@ -153,7 +152,7 @@ function basicSetup(extra?: any) {
     data: entityData,
     explain: 'TRUE' === env.CLOUDSMITH_TEST_EXPLAIN,
     live,
-    syntheticOnly: live && !idmapOverridden,
+    transport,
     now: Date.now(),
   }
 

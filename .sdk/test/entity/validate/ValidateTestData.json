@@ -10,5 +10,6 @@
     "validate": {
       "validate_ref01": {}
     }
-  }
+  },
+  "requests": {}
 }

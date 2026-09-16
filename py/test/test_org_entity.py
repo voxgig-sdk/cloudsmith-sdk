@@ -99,7 +99,7 @@ class TestOrgEntity:
             "id": org_ref01_data["id"],
         }
 
-        org_ref01_markdef_up0_name = "country"
+        org_ref01_markdef_up0_name = "name"
         org_ref01_markdef_up0_value = "Mark01-org_ref01_" + str(setup["now"])
         org_ref01_data_up0_up[org_ref01_markdef_up0_name] = org_ref01_markdef_up0_value
 

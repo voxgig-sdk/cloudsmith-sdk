@@ -144,7 +144,7 @@ func TestRepositoryTokenEntity(t *testing.T) {
 			"repo": setup.idmap["repo"],
 		}
 
-		repositoryTokenRef01MarkdefUp0Name := "created_at"
+		repositoryTokenRef01MarkdefUp0Name := "limit_bandwidth_unit"
 		repositoryTokenRef01MarkdefUp0Value := fmt.Sprintf("Mark01-repository_token_ref01_%d", setup.now)
 		repositoryTokenRef01DataUp0Up[repositoryTokenRef01MarkdefUp0Name] = repositoryTokenRef01MarkdefUp0Value
 

@@ -1,29 +1,161 @@
 {
   "existing": {
     "user": {
-      "USER00": {
-        "created": "s1e",
-        "key": "s1f",
-        "slug_perm": "s20"
-      },
-      "USER01": {
-        "created": "s3c",
-        "key": "s3d",
-        "slug_perm": "s3e"
-      },
-      "USER02": {
-        "created": "s5a",
-        "key": "s5b",
-        "slug_perm": "s5c"
-      }
+      "USER00": {},
+      "USER01": {},
+      "USER02": {}
     }
   },
   "new": {
     "user": {
-      "user_ref01": {
-        "created": "s78",
-        "key": "s79",
-        "slug_perm": "s7a"
+      "user_ref01": {}
+    }
+  },
+  "requests": {
+    "GET /user/tokens/": {
+      "provenance": "operation-contract",
+      "contract": {
+        "consumes": [
+          "application/json"
+        ],
+        "operationId": "user_tokens_list",
+        "parameters": [
+          {
+            "description": "A page number within the paginated result set.",
+            "in": "query",
+            "name": "page",
+            "required": false,
+            "type": "integer"
+          },
+          {
+            "description": "Number of results to return per page.",
+            "in": "query",
+            "name": "page_size",
+            "required": false,
+            "type": "integer"
+          }
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "protocol": "http",
+        "responses": {
+          "200": {
+            "description": "Retrieved the API key for the user that is currently authenticated.",
+            "schema": {
+              "properties": {
+                "results": {
+                  "items": {
+                    "properties": {
+                      "created": {
+                        "description": "The time at which the API key was created.",
+                        "format": "date-time",
+                        "readOnly": true,
+                        "title": "Created",
+                        "type": "string"
+                      },
+                      "key": {
+                        "description": "The unique API key used for authentication. This will be obfuscated on read-only HTTP methods.",
+                        "readOnly": true,
+                        "title": "Key",
+                        "type": "string"
+                      },
+                      "slug_perm": {
+                        "description": "The slug_perm for token.",
+                        "readOnly": true,
+                        "title": "Slug perm",
+                        "type": "string"
+                      }
+                    },
+                    "type": "object"
+                  },
+                  "type": "array"
+                }
+              },
+              "required": [
+                "results"
+              ],
+              "type": "object"
+            }
+          },
+          "400": {
+            "description": "Request could not be processed (see detail).",
+            "schema": {
+              "properties": {
+                "detail": {
+                  "description": "An extended message for the response.",
+                  "minLength": 1,
+                  "title": "Detail",
+                  "type": "string"
+                },
+                "fields": {
+                  "additionalProperties": {
+                    "items": {
+                      "minLength": 1,
+                      "type": "string"
+                    },
+                    "type": "array"
+                  },
+                  "description": "A Dictionary of related errors where key: Field and value: Array of Errors related to that field",
+                  "title": "Fields",
+                  "type": "object"
+                }
+              },
+              "required": [
+                "detail"
+              ],
+              "type": "object"
+            }
+          },
+          "422": {
+            "description": "Missing or invalid parameters (see detail).",
+            "schema": {
+              "properties": {
+                "detail": {
+                  "description": "An extended message for the response.",
+                  "minLength": 1,
+                  "title": "Detail",
+                  "type": "string"
+                },
+                "fields": {
+                  "additionalProperties": {
+                    "items": {
+                      "minLength": 1,
+                      "type": "string"
+                    },
+                    "type": "array"
+                  },
+                  "description": "A Dictionary of related errors where key: Field and value: Array of Errors related to that field",
+                  "title": "Fields",
+                  "type": "object"
+                }
+              },
+              "required": [
+                "detail"
+              ],
+              "type": "object"
+            }
+          }
+        },
+        "security": [
+          {
+            "apikey": []
+          },
+          {
+            "basic": []
+          }
+        ],
+        "securitySchemes": {
+          "apikey": {
+            "in": "header",
+            "name": "X-Api-Key",
+            "type": "apiKey"
+          },
+          "basic": {
+            "type": "basic"
+          }
+        },
+        "securitySource": "definition"
       }
     }
   }

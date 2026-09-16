@@ -3,27 +3,27 @@
     "resources_rate_check": {
       "RESOURCES_RATE_CHECK00": {
         "interval": 60,
-        "limit": "s3d",
-        "remaining": "s3e",
-        "reset": "s3f",
+        "limit": 61,
+        "remaining": 62,
+        "reset": 63,
         "reset_iso_8601": "s40",
         "throttled": false,
         "id": "RESOURCES_RATE_CHECK00"
       },
       "RESOURCES_RATE_CHECK01": {
         "interval": 120,
-        "limit": "s79",
-        "remaining": "s7a",
-        "reset": "s7b",
+        "limit": 121,
+        "remaining": 122,
+        "reset": 123,
         "reset_iso_8601": "s7c",
         "throttled": false,
         "id": "RESOURCES_RATE_CHECK01"
       },
       "RESOURCES_RATE_CHECK02": {
         "interval": 180,
-        "limit": "sb5",
-        "remaining": "sb6",
-        "reset": "sb7",
+        "limit": 181,
+        "remaining": 182,
+        "reset": 183,
         "reset_iso_8601": "sb8",
         "throttled": false,
         "id": "RESOURCES_RATE_CHECK02"
@@ -34,11 +34,162 @@
     "resources_rate_check": {
       "resources_rate_check_ref01": {
         "interval": 240,
-        "limit": "sf1",
-        "remaining": "sf2",
-        "reset": "sf3",
+        "limit": 241,
+        "remaining": 242,
+        "reset": 243,
         "reset_iso_8601": "sf4",
         "throttled": false
+      }
+    }
+  },
+  "requests": {
+    "GET /rates/limits/": {
+      "provenance": "operation-contract",
+      "contract": {
+        "consumes": [
+          "application/json"
+        ],
+        "operationId": "rates_limits_list",
+        "parameters": [],
+        "produces": [
+          "application/json"
+        ],
+        "protocol": "http",
+        "responses": {
+          "200": {
+            "description": "Rate check was successful",
+            "schema": {
+              "properties": {
+                "resources": {
+                  "additionalProperties": {
+                    "properties": {
+                      "interval": {
+                        "description": "The time in seconds that you are suggested to wait until the next request in order to avoid consuming too much within the rate limit window.",
+                        "readOnly": true,
+                        "title": "Interval",
+                        "type": "number"
+                      },
+                      "limit": {
+                        "description": "The maximum number of requests that you are permitted to send per hour",
+                        "readOnly": true,
+                        "title": "Limit",
+                        "type": "integer"
+                      },
+                      "remaining": {
+                        "description": "The number of requests that are remaining in the current rate limit window",
+                        "readOnly": true,
+                        "title": "Remaining",
+                        "type": "integer"
+                      },
+                      "reset": {
+                        "description": "The UTC epoch timestamp at which the current rate limit window will reset",
+                        "readOnly": true,
+                        "title": "Reset",
+                        "type": "integer"
+                      },
+                      "reset_iso_8601": {
+                        "description": "The ISO 8601 datetime at which the current rate limit window will reset",
+                        "minLength": 1,
+                        "readOnly": true,
+                        "title": "Reset iso 8601",
+                        "type": "string"
+                      },
+                      "throttled": {
+                        "description": "If true, throttling is currently being enforced.",
+                        "readOnly": true,
+                        "title": "Throttled",
+                        "type": "boolean"
+                      }
+                    },
+                    "type": "object"
+                  },
+                  "description": "Rate limit values per resource",
+                  "readOnly": true,
+                  "title": "Resources",
+                  "type": "object"
+                }
+              },
+              "type": "object"
+            }
+          },
+          "400": {
+            "description": "Request could not be processed (see detail).",
+            "schema": {
+              "properties": {
+                "detail": {
+                  "description": "An extended message for the response.",
+                  "minLength": 1,
+                  "title": "Detail",
+                  "type": "string"
+                },
+                "fields": {
+                  "additionalProperties": {
+                    "items": {
+                      "minLength": 1,
+                      "type": "string"
+                    },
+                    "type": "array"
+                  },
+                  "description": "A Dictionary of related errors where key: Field and value: Array of Errors related to that field",
+                  "title": "Fields",
+                  "type": "object"
+                }
+              },
+              "required": [
+                "detail"
+              ],
+              "type": "object"
+            }
+          },
+          "422": {
+            "description": "Missing or invalid parameters (see detail).",
+            "schema": {
+              "properties": {
+                "detail": {
+                  "description": "An extended message for the response.",
+                  "minLength": 1,
+                  "title": "Detail",
+                  "type": "string"
+                },
+                "fields": {
+                  "additionalProperties": {
+                    "items": {
+                      "minLength": 1,
+                      "type": "string"
+                    },
+                    "type": "array"
+                  },
+                  "description": "A Dictionary of related errors where key: Field and value: Array of Errors related to that field",
+                  "title": "Fields",
+                  "type": "object"
+                }
+              },
+              "required": [
+                "detail"
+              ],
+              "type": "object"
+            }
+          }
+        },
+        "security": [
+          {
+            "apikey": []
+          },
+          {
+            "basic": []
+          }
+        ],
+        "securitySchemes": {
+          "apikey": {
+            "in": "header",
+            "name": "X-Api-Key",
+            "type": "apiKey"
+          },
+          "basic": {
+            "type": "basic"
+          }
+        },
+        "securitySource": "definition"
       }
     }
   }

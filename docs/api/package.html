@@ -1,0 +1,2111 @@
+<!doctype html>
+<html lang="en">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Package | Cloudsmith API (v1)</title><link rel="stylesheet" href="../assets/style.css"></head>
+<body><a class="skip" href="#content">Skip to content</a>
+<header class="site-header"><a class="site-title" href="../index.html">Cloudsmith API (v1)<span>SDK documentation</span></a><div class="site-links"><a class="repo-link" href="https://github.com/voxgig-sdk/cloudsmith-sdk">voxgig-sdk/cloudsmith-sdk</a></div></header>
+<div class="site-notice" role="note"></div>
+<div class="shell"><nav class="site-nav" aria-label="Documentation"><div class="search"><label for="search">Search documentation</label><input id="search" type="search" data-base="../" placeholder="Find a guide or reference"><div id="results" aria-live="polite"></div></div><details><summary>Overview</summary><a href="../index.html">Cloudsmith API (v1)</a></details>
+<details open><summary>API</summary><a href="../api/index.html">API overview</a>
+<a href="../api/abort.html">Abort</a>
+<a href="../api/alpine.html">Alpine</a>
+<a href="../api/audit_log.html">AuditLog</a>
+<a href="../api/basic.html">Basic</a>
+<a href="../api/cargo.html">Cargo</a>
+<a href="../api/cocoapod.html">Cocoapod</a>
+<a href="../api/complete.html">Complete</a>
+<a href="../api/composer.html">Composer</a>
+<a href="../api/conan.html">Conan</a>
+<a href="../api/conda.html">Conda</a>
+<a href="../api/copy.html">Copy</a>
+<a href="../api/cran.html">Cran</a>
+<a href="../api/dart.html">Dart</a>
+<a href="../api/deb.html">Deb</a>
+<a href="../api/deny_policy.html">DenyPolicy</a>
+<a href="../api/dependency.html">Dependency</a>
+<a href="../api/disable.html">Disable</a>
+<a href="../api/distribution_full.html">DistributionFull</a>
+<a href="../api/distro.html">Distro</a>
+<a href="../api/docker.html">Docker</a>
+<a href="../api/dynamic_mapping.html">DynamicMapping</a>
+<a href="../api/ecdsa.html">Ecdsa</a>
+<a href="../api/enable.html">Enable</a>
+<a href="../api/entitlement.html">Entitlement</a>
+<a href="../api/evaluation.html">Evaluation</a>
+<a href="../api/file.html">File</a>
+<a href="../api/format.html">Format</a>
+<a href="../api/geoip.html">Geoip</a>
+<a href="../api/gon.html">Gon</a>
+<a href="../api/gpg.html">Gpg</a>
+<a href="../api/group.html">Group</a>
+<a href="../api/helm.html">Helm</a>
+<a href="../api/hex.html">Hex</a>
+<a href="../api/history.html">History</a>
+<a href="../api/huggingface.html">Huggingface</a>
+<a href="../api/info.html">Info</a>
+<a href="../api/invite.html">Invite</a>
+<a href="../api/license_policy.html">LicensePolicy</a>
+<a href="../api/limit.html">Limit</a>
+<a href="../api/luarock.html">Luarock</a>
+<a href="../api/maven.html">Maven</a>
+<a href="../api/member.html">Member</a>
+<a href="../api/move.html">Move</a>
+<a href="../api/namespace.html">Namespace</a>
+<a href="../api/namespace_audit_log.html">NamespaceAuditLog</a>
+<a href="../api/npm.html">Npm</a>
+<a href="../api/nuget.html">Nuget</a>
+<a href="../api/openid_connect.html">OpenidConnect</a>
+<a href="../api/org.html">Org</a>
+<a href="../api/organization_group_sync.html">OrganizationGroupSync</a>
+<a href="../api/organization_group_sync_status.html">OrganizationGroupSyncStatus</a>
+<a href="../api/organization_invite.html">OrganizationInvite</a>
+<a href="../api/organization_invite_extend.html">OrganizationInviteExtend</a>
+<a href="../api/organization_membership.html">OrganizationMembership</a>
+<a href="../api/organization_membership_role_update.html">OrganizationMembershipRoleUpdate</a>
+<a href="../api/organization_membership_visibility_update.html">OrganizationMembershipVisibilityUpdate</a>
+<a href="../api/organization_package_license_policy.html">OrganizationPackageLicensePolicy</a>
+<a href="../api/organization_package_vulnerability_policy.html">OrganizationPackageVulnerabilityPolicy</a>
+<a href="../api/organization_saml_auth.html">OrganizationSamlAuth</a>
+<a href="../api/organization_team.html">OrganizationTeam</a>
+<a href="../api/organization_team_member.html">OrganizationTeamMember</a>
+<a href="../api/oss.html">Oss</a>
+<a href="../api/p2n.html">P2n</a>
+<a aria-current="page" href="../api/package.html">Package</a><div class="nav-sections"><a class="nav-section" href="#post-packagesownerrepoidentifiercopy">POST /packages/{owner}/{repo}/{identifier}/copy/</a>
+<a class="nav-section" href="#post-packagesownerrepoidentifiermove">POST /packages/{owner}/{repo}/{identifier}/move/</a>
+<a class="nav-section" href="#post-packagesownerrepoidentifierquarantine">POST /packages/{owner}/{repo}/{identifier}/quarantine/</a>
+<a class="nav-section" href="#post-packagesownerrepoidentifiertag">POST /packages/{owner}/{repo}/{identifier}/tag/</a>
+<a class="nav-section" href="#post-packagesownerrepouploadalpine">POST /packages/{owner}/{repo}/upload/alpine/</a>
+<a class="nav-section" href="#post-packagesownerrepouploadcargo">POST /packages/{owner}/{repo}/upload/cargo/</a>
+<a class="nav-section" href="#post-packagesownerrepouploadcocoapods">POST /packages/{owner}/{repo}/upload/cocoapods/</a>
+<a class="nav-section" href="#post-packagesownerrepouploadcomposer">POST /packages/{owner}/{repo}/upload/composer/</a>
+<a class="nav-section" href="#post-packagesownerrepouploadconan">POST /packages/{owner}/{repo}/upload/conan/</a>
+<a class="nav-section" href="#post-packagesownerrepouploadconda">POST /packages/{owner}/{repo}/upload/conda/</a>
+<a class="nav-section" href="#post-packagesownerrepouploadcran">POST /packages/{owner}/{repo}/upload/cran/</a>
+<a class="nav-section" href="#post-packagesownerrepouploaddart">POST /packages/{owner}/{repo}/upload/dart/</a>
+<a class="nav-section" href="#post-packagesownerrepouploaddeb">POST /packages/{owner}/{repo}/upload/deb/</a>
+<a class="nav-section" href="#post-packagesownerrepouploaddocker">POST /packages/{owner}/{repo}/upload/docker/</a>
+<a class="nav-section" href="#post-packagesownerrepouploadgo">POST /packages/{owner}/{repo}/upload/go/</a>
+<a class="nav-section" href="#post-packagesownerrepouploadhelm">POST /packages/{owner}/{repo}/upload/helm/</a>
+<a class="nav-section" href="#post-packagesownerrepouploadhex">POST /packages/{owner}/{repo}/upload/hex/</a>
+<a class="nav-section" href="#post-packagesownerrepouploadhuggingface">POST /packages/{owner}/{repo}/upload/huggingface/</a>
+<a class="nav-section" href="#post-packagesownerrepouploadluarocks">POST /packages/{owner}/{repo}/upload/luarocks/</a>
+<a class="nav-section" href="#post-packagesownerrepouploadmaven">POST /packages/{owner}/{repo}/upload/maven/</a>
+<a class="nav-section" href="#post-packagesownerrepouploadnpm">POST /packages/{owner}/{repo}/upload/npm/</a>
+<a class="nav-section" href="#post-packagesownerrepouploadnuget">POST /packages/{owner}/{repo}/upload/nuget/</a>
+<a class="nav-section" href="#post-packagesownerrepouploadp2">POST /packages/{owner}/{repo}/upload/p2/</a>
+<a class="nav-section" href="#post-packagesownerrepouploadpython">POST /packages/{owner}/{repo}/upload/python/</a>
+<a class="nav-section" href="#post-packagesownerrepouploadraw">POST /packages/{owner}/{repo}/upload/raw/</a>
+<a class="nav-section" href="#post-packagesownerrepouploadrpm">POST /packages/{owner}/{repo}/upload/rpm/</a>
+<a class="nav-section" href="#post-packagesownerrepouploadruby">POST /packages/{owner}/{repo}/upload/ruby/</a>
+<a class="nav-section" href="#post-packagesownerrepouploadswift">POST /packages/{owner}/{repo}/upload/swift/</a>
+<a class="nav-section" href="#post-packagesownerrepouploadterraform">POST /packages/{owner}/{repo}/upload/terraform/</a>
+<a class="nav-section" href="#post-packagesownerrepouploadvagrant">POST /packages/{owner}/{repo}/upload/vagrant/</a>
+<a class="nav-section" href="#post-packagesownerrepovalidate-uploadalpine">POST /packages/{owner}/{repo}/validate-upload/alpine/</a>
+<a class="nav-section" href="#post-packagesownerrepovalidate-uploadcargo">POST /packages/{owner}/{repo}/validate-upload/cargo/</a>
+<a class="nav-section" href="#post-packagesownerrepovalidate-uploadcocoapods">POST /packages/{owner}/{repo}/validate-upload/cocoapods/</a>
+<a class="nav-section" href="#post-packagesownerrepovalidate-uploadcomposer">POST /packages/{owner}/{repo}/validate-upload/composer/</a>
+<a class="nav-section" href="#post-packagesownerrepovalidate-uploadconan">POST /packages/{owner}/{repo}/validate-upload/conan/</a>
+<a class="nav-section" href="#post-packagesownerrepovalidate-uploadconda">POST /packages/{owner}/{repo}/validate-upload/conda/</a>
+<a class="nav-section" href="#post-packagesownerrepovalidate-uploadcran">POST /packages/{owner}/{repo}/validate-upload/cran/</a>
+<a class="nav-section" href="#post-packagesownerrepovalidate-uploaddart">POST /packages/{owner}/{repo}/validate-upload/dart/</a>
+<a class="nav-section" href="#post-packagesownerrepovalidate-uploaddeb">POST /packages/{owner}/{repo}/validate-upload/deb/</a>
+<a class="nav-section" href="#post-packagesownerrepovalidate-uploaddocker">POST /packages/{owner}/{repo}/validate-upload/docker/</a>
+<a class="nav-section" href="#post-packagesownerrepovalidate-uploadgo">POST /packages/{owner}/{repo}/validate-upload/go/</a>
+<a class="nav-section" href="#post-packagesownerrepovalidate-uploadhelm">POST /packages/{owner}/{repo}/validate-upload/helm/</a>
+<a class="nav-section" href="#post-packagesownerrepovalidate-uploadhex">POST /packages/{owner}/{repo}/validate-upload/hex/</a>
+<a class="nav-section" href="#post-packagesownerrepovalidate-uploadhuggingface">POST /packages/{owner}/{repo}/validate-upload/huggingface/</a>
+<a class="nav-section" href="#post-packagesownerrepovalidate-uploadluarocks">POST /packages/{owner}/{repo}/validate-upload/luarocks/</a>
+<a class="nav-section" href="#post-packagesownerrepovalidate-uploadmaven">POST /packages/{owner}/{repo}/validate-upload/maven/</a>
+<a class="nav-section" href="#post-packagesownerrepovalidate-uploadnpm">POST /packages/{owner}/{repo}/validate-upload/npm/</a>
+<a class="nav-section" href="#post-packagesownerrepovalidate-uploadnuget">POST /packages/{owner}/{repo}/validate-upload/nuget/</a>
+<a class="nav-section" href="#post-packagesownerrepovalidate-uploadp2">POST /packages/{owner}/{repo}/validate-upload/p2/</a>
+<a class="nav-section" href="#post-packagesownerrepovalidate-uploadpython">POST /packages/{owner}/{repo}/validate-upload/python/</a>
+<a class="nav-section" href="#post-packagesownerrepovalidate-uploadraw">POST /packages/{owner}/{repo}/validate-upload/raw/</a>
+<a class="nav-section" href="#post-packagesownerrepovalidate-uploadrpm">POST /packages/{owner}/{repo}/validate-upload/rpm/</a>
+<a class="nav-section" href="#post-packagesownerrepovalidate-uploadruby">POST /packages/{owner}/{repo}/validate-upload/ruby/</a>
+<a class="nav-section" href="#post-packagesownerrepovalidate-uploadswift">POST /packages/{owner}/{repo}/validate-upload/swift/</a>
+<a class="nav-section" href="#post-packagesownerrepovalidate-uploadterraform">POST /packages/{owner}/{repo}/validate-upload/terraform/</a>
+<a class="nav-section" href="#post-packagesownerrepovalidate-uploadvagrant">POST /packages/{owner}/{repo}/validate-upload/vagrant/</a>
+<a class="nav-section" href="#post-packagesownerrepoidentifierresync">POST /packages/{owner}/{repo}/{identifier}/resync/</a>
+<a class="nav-section" href="#post-packagesownerrepoidentifierscan">POST /packages/{owner}/{repo}/{identifier}/scan/</a>
+<a class="nav-section" href="#get-packagesownerrepogroups">GET /packages/{owner}/{repo}/groups/</a>
+<a class="nav-section" href="#get-packagesownerrepo">GET /packages/{owner}/{repo}/</a>
+<a class="nav-section" href="#get-packagesownerrepoidentifierdependencies">GET /packages/{owner}/{repo}/{identifier}/dependencies/</a>
+<a class="nav-section" href="#get-metricspackagesownerrepo">GET /metrics/packages/{owner}/{repo}/</a>
+<a class="nav-section" href="#get-packagesownerrepoidentifier">GET /packages/{owner}/{repo}/{identifier}/</a>
+<a class="nav-section" href="#get-packagesownerrepoidentifierstatus">GET /packages/{owner}/{repo}/{identifier}/status/</a>
+<a class="nav-section" href="#delete-packagesownerrepoidentifier">DELETE /packages/{owner}/{repo}/{identifier}/</a></div>
+<a href="../api/package_deny_policy.html">PackageDenyPolicy</a>
+<a href="../api/package_file_parts_upload.html">PackageFilePartsUpload</a>
+<a href="../api/package_file_upload.html">PackageFileUpload</a>
+<a href="../api/package_license_policy_evaluation.html">PackageLicensePolicyEvaluation</a>
+<a href="../api/package_version_badge.html">PackageVersionBadge</a>
+<a href="../api/package_vulnerability_policy_evaluation.html">PackageVulnerabilityPolicyEvaluation</a>
+<a href="../api/privilege.html">Privilege</a>
+<a href="../api/profile.html">Profile</a>
+<a href="../api/provider_setting.html">ProviderSetting</a>
+<a href="../api/provider_settings_write.html">ProviderSettingsWrite</a>
+<a href="../api/python.html">Python</a>
+<a href="../api/quarantine.html">Quarantine</a>
+<a href="../api/quota.html">Quota</a>
+<a href="../api/raw.html">Raw</a>
+<a href="../api/refresh.html">Refresh</a>
+<a href="../api/regenerate.html">Regenerate</a>
+<a href="../api/repo.html">Repo</a>
+<a href="../api/repository_audit_log.html">RepositoryAuditLog</a>
+<a href="../api/repository_ecdsa_key.html">RepositoryEcdsaKey</a>
+<a href="../api/repository_geo_ip_rule.html">RepositoryGeoIpRule</a>
+<a href="../api/repository_geo_ip_status.html">RepositoryGeoIpStatus</a>
+<a href="../api/repository_geo_ip_test_address.html">RepositoryGeoIpTestAddress</a>
+<a href="../api/repository_gpg_key.html">RepositoryGpgKey</a>
+<a href="../api/repository_privilege_input.html">RepositoryPrivilegeInput</a>
+<a href="../api/repository_retention_rule.html">RepositoryRetentionRule</a>
+<a href="../api/repository_rsa_key.html">RepositoryRsaKey</a>
+<a href="../api/repository_token.html">RepositoryToken</a>
+<a href="../api/repository_token_refresh.html">RepositoryTokenRefresh</a>
+<a href="../api/repository_token_sync.html">RepositoryTokenSync</a>
+<a href="../api/repository_webhook.html">RepositoryWebhook</a>
+<a href="../api/repository_x509_ecdsa_certificate.html">RepositoryX509EcdsaCertificate</a>
+<a href="../api/repository_x509_rsa_certificate.html">RepositoryX509RsaCertificate</a>
+<a href="../api/reset.html">Reset</a>
+<a href="../api/resources_rate_check.html">ResourcesRateCheck</a>
+<a href="../api/resync.html">Resync</a>
+<a href="../api/retention.html">Retention</a>
+<a href="../api/rpm.html">Rpm</a>
+<a href="../api/rsa.html">Rsa</a>
+<a href="../api/ruby.html">Ruby</a>
+<a href="../api/saml_group_sync.html">SamlGroupSync</a>
+<a href="../api/scan.html">Scan</a>
+<a href="../api/self.html">Self</a>
+<a href="../api/service.html">Service</a>
+<a href="../api/status.html">Status</a>
+<a href="../api/status_basic.html">StatusBasic</a>
+<a href="../api/storage_region.html">StorageRegion</a>
+<a href="../api/swift.html">Swift</a>
+<a href="../api/sync.html">Sync</a>
+<a href="../api/tag.html">Tag</a>
+<a href="../api/team.html">Team</a>
+<a href="../api/terraform.html">Terraform</a>
+<a href="../api/test.html">Test</a>
+<a href="../api/token.html">Token</a>
+<a href="../api/transfer_region.html">TransferRegion</a>
+<a href="../api/user.html">User</a>
+<a href="../api/user_auth_token.html">UserAuthToken</a>
+<a href="../api/user_authentication_token.html">UserAuthenticationToken</a>
+<a href="../api/user_brief.html">UserBrief</a>
+<a href="../api/user_profile.html">UserProfile</a>
+<a href="../api/vagrant.html">Vagrant</a>
+<a href="../api/validate.html">Validate</a>
+<a href="../api/version.html">Version</a>
+<a href="../api/vulnerability.html">Vulnerability</a>
+<a href="../api/vulnerability_policy.html">VulnerabilityPolicy</a>
+<a href="../api/webhook.html">Webhook</a>
+<a href="../api/x509_ecdsa.html">X509Ecdsa</a>
+<a href="../api/x509_rsa.html">X509Rsa</a></details>
+<details><summary>Guides</summary><a href="../guides/authentication.html">Authentication</a>
+<a href="../guides/first-call.html">Make your first API call</a>
+<a href="../guides/errors.html">Handle errors</a>
+<a href="../guides/concepts.html">Entities, SDKs, and tools</a></details>
+<details><summary>SDKs</summary><a href="../sdks/go.html">Golang</a>
+<a href="../sdks/lua.html">Lua</a>
+<a href="../sdks/php.html">PHP</a>
+<a href="../sdks/py.html">Python</a>
+<a href="../sdks/rb.html">Ruby</a>
+<a href="../sdks/ts.html">TypeScript</a></details>
+<details><summary>Tools</summary><a href="../tools/go-cli.html">Go CLI</a>
+<a href="../tools/go-mcp.html">Go MCP server</a></details>
+<details><summary>Features</summary><a href="../features/debug.html">Request/response capture ring buffer for debugging</a>
+<a href="../features/idempotency.html">Idempotency keys for safe retries of mutating operations</a>
+<a href="../features/metrics.html">Statistics capture: per-operation counters and latency</a>
+<a href="../features/paging.html">Pagination signals for list operations</a>
+<a href="../features/ratelimit.html">Client-side rate limiting via a token bucket</a>
+<a href="../features/retry.html">Automatic retry of transient failures with exponential backoff</a>
+<a href="../features/test.html">In-memory mock transport for testing without a live server</a>
+<a href="../features/timeout.html">Per-request timeout with transport abort</a></details></nav><main id="content"><div class="page-context"><span class="section-dot" aria-hidden="true"></span>API</div><h1 id="package">Package</h1>
+<h2 id="operations">Operations</h2>
+<p>Every route this entity exposes. Each route links to its own reference on this page.</p>
+<table>
+<thead>
+<tr>
+<th>Method</th>
+<th>Route</th>
+<th>SDK operation</th>
+<th>Returns</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>POST</code></td>
+<td><a href="#post-packagesownerrepoidentifiercopy"><code>/packages/{owner}/{repo}/{identifier}/copy/</code></a></td>
+<td><code>create</code></td>
+<td>Copied specified package to destination repository</td>
+</tr>
+<tr>
+<td><code>POST</code></td>
+<td><a href="#post-packagesownerrepoidentifiermove"><code>/packages/{owner}/{repo}/{identifier}/move/</code></a></td>
+<td><code>create</code></td>
+<td>Moved specified package to destination repository</td>
+</tr>
+<tr>
+<td><code>POST</code></td>
+<td><a href="#post-packagesownerrepoidentifierquarantine"><code>/packages/{owner}/{repo}/{identifier}/quarantine/</code></a></td>
+<td><code>create</code></td>
+<td>Changed the package's quarantine status</td>
+</tr>
+<tr>
+<td><code>POST</code></td>
+<td><a href="#post-packagesownerrepoidentifiertag"><code>/packages/{owner}/{repo}/{identifier}/tag/</code></a></td>
+<td><code>create</code></td>
+<td>Modified tags for the package</td>
+</tr>
+<tr>
+<td><code>POST</code></td>
+<td><a href="#post-packagesownerrepouploadalpine"><code>/packages/{owner}/{repo}/upload/alpine/</code></a></td>
+<td><code>create</code></td>
+<td>Upload acknowledged and queued for synchronization</td>
+</tr>
+<tr>
+<td><code>POST</code></td>
+<td><a href="#post-packagesownerrepouploadcargo"><code>/packages/{owner}/{repo}/upload/cargo/</code></a></td>
+<td><code>create</code></td>
+<td>Upload acknowledged and queued for synchronization</td>
+</tr>
+<tr>
+<td><code>POST</code></td>
+<td><a href="#post-packagesownerrepouploadcocoapods"><code>/packages/{owner}/{repo}/upload/cocoapods/</code></a></td>
+<td><code>create</code></td>
+<td>Upload acknowledged and queued for synchronization</td>
+</tr>
+<tr>
+<td><code>POST</code></td>
+<td><a href="#post-packagesownerrepouploadcomposer"><code>/packages/{owner}/{repo}/upload/composer/</code></a></td>
+<td><code>create</code></td>
+<td>Upload acknowledged and queued for synchronization</td>
+</tr>
+<tr>
+<td><code>POST</code></td>
+<td><a href="#post-packagesownerrepouploadconan"><code>/packages/{owner}/{repo}/upload/conan/</code></a></td>
+<td><code>create</code></td>
+<td>Upload acknowledged and queued for synchronization</td>
+</tr>
+<tr>
+<td><code>POST</code></td>
+<td><a href="#post-packagesownerrepouploadconda"><code>/packages/{owner}/{repo}/upload/conda/</code></a></td>
+<td><code>create</code></td>
+<td>Upload acknowledged and queued for synchronization</td>
+</tr>
+<tr>
+<td><code>POST</code></td>
+<td><a href="#post-packagesownerrepouploadcran"><code>/packages/{owner}/{repo}/upload/cran/</code></a></td>
+<td><code>create</code></td>
+<td>Upload acknowledged and queued for synchronization</td>
+</tr>
+<tr>
+<td><code>POST</code></td>
+<td><a href="#post-packagesownerrepouploaddart"><code>/packages/{owner}/{repo}/upload/dart/</code></a></td>
+<td><code>create</code></td>
+<td>Upload acknowledged and queued for synchronization</td>
+</tr>
+<tr>
+<td><code>POST</code></td>
+<td><a href="#post-packagesownerrepouploaddeb"><code>/packages/{owner}/{repo}/upload/deb/</code></a></td>
+<td><code>create</code></td>
+<td>Upload acknowledged and queued for synchronization</td>
+</tr>
+<tr>
+<td><code>POST</code></td>
+<td><a href="#post-packagesownerrepouploaddocker"><code>/packages/{owner}/{repo}/upload/docker/</code></a></td>
+<td><code>create</code></td>
+<td>Upload acknowledged and queued for synchronization</td>
+</tr>
+<tr>
+<td><code>POST</code></td>
+<td><a href="#post-packagesownerrepouploadgo"><code>/packages/{owner}/{repo}/upload/go/</code></a></td>
+<td><code>create</code></td>
+<td>Upload acknowledged and queued for synchronization</td>
+</tr>
+<tr>
+<td><code>POST</code></td>
+<td><a href="#post-packagesownerrepouploadhelm"><code>/packages/{owner}/{repo}/upload/helm/</code></a></td>
+<td><code>create</code></td>
+<td>Upload acknowledged and queued for synchronization</td>
+</tr>
+<tr>
+<td><code>POST</code></td>
+<td><a href="#post-packagesownerrepouploadhex"><code>/packages/{owner}/{repo}/upload/hex/</code></a></td>
+<td><code>create</code></td>
+<td>Upload acknowledged and queued for synchronization</td>
+</tr>
+<tr>
+<td><code>POST</code></td>
+<td><a href="#post-packagesownerrepouploadhuggingface"><code>/packages/{owner}/{repo}/upload/huggingface/</code></a></td>
+<td><code>create</code></td>
+<td>Upload acknowledged and queued for synchronization</td>
+</tr>
+<tr>
+<td><code>POST</code></td>
+<td><a href="#post-packagesownerrepouploadluarocks"><code>/packages/{owner}/{repo}/upload/luarocks/</code></a></td>
+<td><code>create</code></td>
+<td>Upload acknowledged and queued for synchronization</td>
+</tr>
+<tr>
+<td><code>POST</code></td>
+<td><a href="#post-packagesownerrepouploadmaven"><code>/packages/{owner}/{repo}/upload/maven/</code></a></td>
+<td><code>create</code></td>
+<td>Upload acknowledged and queued for synchronization</td>
+</tr>
+<tr>
+<td><code>POST</code></td>
+<td><a href="#post-packagesownerrepouploadnpm"><code>/packages/{owner}/{repo}/upload/npm/</code></a></td>
+<td><code>create</code></td>
+<td>Upload acknowledged and queued for synchronization</td>
+</tr>
+<tr>
+<td><code>POST</code></td>
+<td><a href="#post-packagesownerrepouploadnuget"><code>/packages/{owner}/{repo}/upload/nuget/</code></a></td>
+<td><code>create</code></td>
+<td>Upload acknowledged and queued for synchronization</td>
+</tr>
+<tr>
+<td><code>POST</code></td>
+<td><a href="#post-packagesownerrepouploadp2"><code>/packages/{owner}/{repo}/upload/p2/</code></a></td>
+<td><code>create</code></td>
+<td>Upload acknowledged and queued for synchronization</td>
+</tr>
+<tr>
+<td><code>POST</code></td>
+<td><a href="#post-packagesownerrepouploadpython"><code>/packages/{owner}/{repo}/upload/python/</code></a></td>
+<td><code>create</code></td>
+<td>Upload acknowledged and queued for synchronization</td>
+</tr>
+<tr>
+<td><code>POST</code></td>
+<td><a href="#post-packagesownerrepouploadraw"><code>/packages/{owner}/{repo}/upload/raw/</code></a></td>
+<td><code>create</code></td>
+<td>Upload acknowledged and queued for synchronization</td>
+</tr>
+<tr>
+<td><code>POST</code></td>
+<td><a href="#post-packagesownerrepouploadrpm"><code>/packages/{owner}/{repo}/upload/rpm/</code></a></td>
+<td><code>create</code></td>
+<td>Upload acknowledged and queued for synchronization</td>
+</tr>
+<tr>
+<td><code>POST</code></td>
+<td><a href="#post-packagesownerrepouploadruby"><code>/packages/{owner}/{repo}/upload/ruby/</code></a></td>
+<td><code>create</code></td>
+<td>Upload acknowledged and queued for synchronization</td>
+</tr>
+<tr>
+<td><code>POST</code></td>
+<td><a href="#post-packagesownerrepouploadswift"><code>/packages/{owner}/{repo}/upload/swift/</code></a></td>
+<td><code>create</code></td>
+<td>Upload acknowledged and queued for synchronization</td>
+</tr>
+<tr>
+<td><code>POST</code></td>
+<td><a href="#post-packagesownerrepouploadterraform"><code>/packages/{owner}/{repo}/upload/terraform/</code></a></td>
+<td><code>create</code></td>
+<td>Upload acknowledged and queued for synchronization</td>
+</tr>
+<tr>
+<td><code>POST</code></td>
+<td><a href="#post-packagesownerrepouploadvagrant"><code>/packages/{owner}/{repo}/upload/vagrant/</code></a></td>
+<td><code>create</code></td>
+<td>Upload acknowledged and queued for synchronization</td>
+</tr>
+<tr>
+<td><code>POST</code></td>
+<td><a href="#post-packagesownerrepovalidate-uploadalpine"><code>/packages/{owner}/{repo}/validate-upload/alpine/</code></a></td>
+<td><code>create</code></td>
+<td>Validation was successful, parameters are OK</td>
+</tr>
+<tr>
+<td><code>POST</code></td>
+<td><a href="#post-packagesownerrepovalidate-uploadcargo"><code>/packages/{owner}/{repo}/validate-upload/cargo/</code></a></td>
+<td><code>create</code></td>
+<td>Validation was successful, parameters are OK</td>
+</tr>
+<tr>
+<td><code>POST</code></td>
+<td><a href="#post-packagesownerrepovalidate-uploadcocoapods"><code>/packages/{owner}/{repo}/validate-upload/cocoapods/</code></a></td>
+<td><code>create</code></td>
+<td>Validation was successful, parameters are OK</td>
+</tr>
+<tr>
+<td><code>POST</code></td>
+<td><a href="#post-packagesownerrepovalidate-uploadcomposer"><code>/packages/{owner}/{repo}/validate-upload/composer/</code></a></td>
+<td><code>create</code></td>
+<td>Validation was successful, parameters are OK</td>
+</tr>
+<tr>
+<td><code>POST</code></td>
+<td><a href="#post-packagesownerrepovalidate-uploadconan"><code>/packages/{owner}/{repo}/validate-upload/conan/</code></a></td>
+<td><code>create</code></td>
+<td>Validation was successful, parameters are OK</td>
+</tr>
+<tr>
+<td><code>POST</code></td>
+<td><a href="#post-packagesownerrepovalidate-uploadconda"><code>/packages/{owner}/{repo}/validate-upload/conda/</code></a></td>
+<td><code>create</code></td>
+<td>Validation was successful, parameters are OK</td>
+</tr>
+<tr>
+<td><code>POST</code></td>
+<td><a href="#post-packagesownerrepovalidate-uploadcran"><code>/packages/{owner}/{repo}/validate-upload/cran/</code></a></td>
+<td><code>create</code></td>
+<td>Validation was successful, parameters are OK</td>
+</tr>
+<tr>
+<td><code>POST</code></td>
+<td><a href="#post-packagesownerrepovalidate-uploaddart"><code>/packages/{owner}/{repo}/validate-upload/dart/</code></a></td>
+<td><code>create</code></td>
+<td>Validation was successful, parameters are OK</td>
+</tr>
+<tr>
+<td><code>POST</code></td>
+<td><a href="#post-packagesownerrepovalidate-uploaddeb"><code>/packages/{owner}/{repo}/validate-upload/deb/</code></a></td>
+<td><code>create</code></td>
+<td>Validation was successful, parameters are OK</td>
+</tr>
+<tr>
+<td><code>POST</code></td>
+<td><a href="#post-packagesownerrepovalidate-uploaddocker"><code>/packages/{owner}/{repo}/validate-upload/docker/</code></a></td>
+<td><code>create</code></td>
+<td>Validation was successful, parameters are OK</td>
+</tr>
+<tr>
+<td><code>POST</code></td>
+<td><a href="#post-packagesownerrepovalidate-uploadgo"><code>/packages/{owner}/{repo}/validate-upload/go/</code></a></td>
+<td><code>create</code></td>
+<td>Validation was successful, parameters are OK</td>
+</tr>
+<tr>
+<td><code>POST</code></td>
+<td><a href="#post-packagesownerrepovalidate-uploadhelm"><code>/packages/{owner}/{repo}/validate-upload/helm/</code></a></td>
+<td><code>create</code></td>
+<td>Validation was successful, parameters are OK</td>
+</tr>
+<tr>
+<td><code>POST</code></td>
+<td><a href="#post-packagesownerrepovalidate-uploadhex"><code>/packages/{owner}/{repo}/validate-upload/hex/</code></a></td>
+<td><code>create</code></td>
+<td>Validation was successful, parameters are OK</td>
+</tr>
+<tr>
+<td><code>POST</code></td>
+<td><a href="#post-packagesownerrepovalidate-uploadhuggingface"><code>/packages/{owner}/{repo}/validate-upload/huggingface/</code></a></td>
+<td><code>create</code></td>
+<td>Validation was successful, parameters are OK</td>
+</tr>
+<tr>
+<td><code>POST</code></td>
+<td><a href="#post-packagesownerrepovalidate-uploadluarocks"><code>/packages/{owner}/{repo}/validate-upload/luarocks/</code></a></td>
+<td><code>create</code></td>
+<td>Validation was successful, parameters are OK</td>
+</tr>
+<tr>
+<td><code>POST</code></td>
+<td><a href="#post-packagesownerrepovalidate-uploadmaven"><code>/packages/{owner}/{repo}/validate-upload/maven/</code></a></td>
+<td><code>create</code></td>
+<td>Validation was successful, parameters are OK</td>
+</tr>
+<tr>
+<td><code>POST</code></td>
+<td><a href="#post-packagesownerrepovalidate-uploadnpm"><code>/packages/{owner}/{repo}/validate-upload/npm/</code></a></td>
+<td><code>create</code></td>
+<td>Validation was successful, parameters are OK</td>
+</tr>
+<tr>
+<td><code>POST</code></td>
+<td><a href="#post-packagesownerrepovalidate-uploadnuget"><code>/packages/{owner}/{repo}/validate-upload/nuget/</code></a></td>
+<td><code>create</code></td>
+<td>Validation was successful, parameters are OK</td>
+</tr>
+<tr>
+<td><code>POST</code></td>
+<td><a href="#post-packagesownerrepovalidate-uploadp2"><code>/packages/{owner}/{repo}/validate-upload/p2/</code></a></td>
+<td><code>create</code></td>
+<td>Validation was successful, parameters are OK</td>
+</tr>
+<tr>
+<td><code>POST</code></td>
+<td><a href="#post-packagesownerrepovalidate-uploadpython"><code>/packages/{owner}/{repo}/validate-upload/python/</code></a></td>
+<td><code>create</code></td>
+<td>Validation was successful, parameters are OK</td>
+</tr>
+<tr>
+<td><code>POST</code></td>
+<td><a href="#post-packagesownerrepovalidate-uploadraw"><code>/packages/{owner}/{repo}/validate-upload/raw/</code></a></td>
+<td><code>create</code></td>
+<td>Validation was successful, parameters are OK</td>
+</tr>
+<tr>
+<td><code>POST</code></td>
+<td><a href="#post-packagesownerrepovalidate-uploadrpm"><code>/packages/{owner}/{repo}/validate-upload/rpm/</code></a></td>
+<td><code>create</code></td>
+<td>Validation was successful, parameters are OK</td>
+</tr>
+<tr>
+<td><code>POST</code></td>
+<td><a href="#post-packagesownerrepovalidate-uploadruby"><code>/packages/{owner}/{repo}/validate-upload/ruby/</code></a></td>
+<td><code>create</code></td>
+<td>Validation was successful, parameters are OK</td>
+</tr>
+<tr>
+<td><code>POST</code></td>
+<td><a href="#post-packagesownerrepovalidate-uploadswift"><code>/packages/{owner}/{repo}/validate-upload/swift/</code></a></td>
+<td><code>create</code></td>
+<td>Validation was successful, parameters are OK</td>
+</tr>
+<tr>
+<td><code>POST</code></td>
+<td><a href="#post-packagesownerrepovalidate-uploadterraform"><code>/packages/{owner}/{repo}/validate-upload/terraform/</code></a></td>
+<td><code>create</code></td>
+<td>Validation was successful, parameters are OK</td>
+</tr>
+<tr>
+<td><code>POST</code></td>
+<td><a href="#post-packagesownerrepovalidate-uploadvagrant"><code>/packages/{owner}/{repo}/validate-upload/vagrant/</code></a></td>
+<td><code>create</code></td>
+<td>Validation was successful, parameters are OK</td>
+</tr>
+<tr>
+<td><code>POST</code></td>
+<td><a href="#post-packagesownerrepoidentifierresync"><code>/packages/{owner}/{repo}/{identifier}/resync/</code></a></td>
+<td><code>create</code></td>
+<td>Scheduled the package for resynchronisation</td>
+</tr>
+<tr>
+<td><code>POST</code></td>
+<td><a href="#post-packagesownerrepoidentifierscan"><code>/packages/{owner}/{repo}/{identifier}/scan/</code></a></td>
+<td><code>create</code></td>
+<td>Scheduled the package for scanning</td>
+</tr>
+<tr>
+<td><code>GET</code></td>
+<td><a href="#get-packagesownerrepogroups"><code>/packages/{owner}/{repo}/groups/</code></a></td>
+<td><code>list</code></td>
+<td>Retrieved the list of package groups</td>
+</tr>
+<tr>
+<td><code>GET</code></td>
+<td><a href="#get-packagesownerrepo"><code>/packages/{owner}/{repo}/</code></a></td>
+<td><code>list</code></td>
+<td>Retrieved the list of packages</td>
+</tr>
+<tr>
+<td><code>GET</code></td>
+<td><a href="#get-packagesownerrepoidentifierdependencies"><code>/packages/{owner}/{repo}/{identifier}/dependencies/</code></a></td>
+<td><code>list</code></td>
+<td>Retrieved stored dependencies for specified package</td>
+</tr>
+<tr>
+<td><code>GET</code></td>
+<td><a href="#get-metricspackagesownerrepo"><code>/metrics/packages/{owner}/{repo}/</code></a></td>
+<td><code>load</code></td>
+<td>Retrieved the metrics for packages</td>
+</tr>
+<tr>
+<td><code>GET</code></td>
+<td><a href="#get-packagesownerrepoidentifier"><code>/packages/{owner}/{repo}/{identifier}/</code></a></td>
+<td><code>load</code></td>
+<td>Retrieved the specified package successfully</td>
+</tr>
+<tr>
+<td><code>GET</code></td>
+<td><a href="#get-packagesownerrepoidentifierstatus"><code>/packages/{owner}/{repo}/{identifier}/status/</code></a></td>
+<td><code>load</code></td>
+<td>Retrieved status for specified package</td>
+</tr>
+<tr>
+<td><code>DELETE</code></td>
+<td><a href="#delete-packagesownerrepoidentifier"><code>/packages/{owner}/{repo}/{identifier}/</code></a></td>
+<td><code>remove</code></td>
+<td>Deleted the specified package successfully</td>
+</tr>
+</tbody>
+</table>
+<h2 id="fields">Fields</h2>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>active</code></td>
+<td><code>integer</code></td>
+<td>No</td>
+<td>Number of packages with at least 1 download</td>
+</tr>
+<tr>
+<td><code>architectures</code></td>
+<td><code>array</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>backend_kind</code></td>
+<td><code>integer</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>bandwidth</code></td>
+<td><code>object</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>cdn_url</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>checksum_md5</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>checksum_sha1</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>checksum_sha256</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>checksum_sha512</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>count</code></td>
+<td><code>integer</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>dep_type</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>dependencies_checksum_md5</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>A checksum of all of the package's dependencies.</td>
+</tr>
+<tr>
+<td><code>dependencies_url</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>description</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>A textual description of this package.</td>
+</tr>
+<tr>
+<td><code>display_name</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>distro</code></td>
+<td><code>object</code></td>
+<td>Yes</td>
+<td>The distributions supported by this package format</td>
+</tr>
+<tr>
+<td><code>distro_version</code></td>
+<td><code>object</code></td>
+<td>No</td>
+<td>A list of the versions for this distribution</td>
+</tr>
+<tr>
+<td><code>downloads</code></td>
+<td><code>object</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>epoch</code></td>
+<td><code>integer</code></td>
+<td>No</td>
+<td>The epoch of the package version (if any).</td>
+</tr>
+<tr>
+<td><code>extension</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>filename</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>files</code></td>
+<td><code>array</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>format</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>format_url</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>freeable_storage</code></td>
+<td><code>integer</code></td>
+<td>No</td>
+<td>Amount of storage that will be freed if this package is deleted</td>
+</tr>
+<tr>
+<td><code>fully_qualified_name</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>id</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>identifier_perm</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>Unique and permanent identifier for the package.</td>
+</tr>
+<tr>
+<td><code>identifiers</code></td>
+<td><code>object</code></td>
+<td>No</td>
+<td>Return a map of identifier field names and their values.</td>
+</tr>
+<tr>
+<td><code>inactive</code></td>
+<td><code>integer</code></td>
+<td>No</td>
+<td>Packages with zero downloads</td>
+</tr>
+<tr>
+<td><code>indexed</code></td>
+<td><code>boolean</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>is_cancellable</code></td>
+<td><code>boolean</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>is_copyable</code></td>
+<td><code>boolean</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>is_deleteable</code></td>
+<td><code>boolean</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>is_downloadable</code></td>
+<td><code>boolean</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>is_moveable</code></td>
+<td><code>boolean</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>is_quarantinable</code></td>
+<td><code>boolean</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>is_quarantined</code></td>
+<td><code>boolean</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>is_resyncable</code></td>
+<td><code>boolean</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>is_security_scannable</code></td>
+<td><code>boolean</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>is_sync_awaiting</code></td>
+<td><code>boolean</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>is_sync_completed</code></td>
+<td><code>boolean</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>is_sync_failed</code></td>
+<td><code>boolean</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>is_sync_in_flight</code></td>
+<td><code>boolean</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>is_sync_in_progress</code></td>
+<td><code>boolean</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>last_push</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>license</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>The license of this package.</td>
+</tr>
+<tr>
+<td><code>name</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>The name of this package.</td>
+</tr>
+<tr>
+<td><code>namespace</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>namespace_url</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>num_downloads</code></td>
+<td><code>integer</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>num_files</code></td>
+<td><code>integer</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>operator</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>origin_repository</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>origin_repository_url</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>package_type</code></td>
+<td><code>integer</code></td>
+<td>No</td>
+<td>The type of package contents.</td>
+</tr>
+<tr>
+<td><code>policy_violated</code></td>
+<td><code>boolean</code></td>
+<td>No</td>
+<td>Whether or not the package has violated any policy.</td>
+</tr>
+<tr>
+<td><code>release</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>The release of the package version (if any).</td>
+</tr>
+<tr>
+<td><code>repository</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>The repository the package will be copied to.</td>
+</tr>
+<tr>
+<td><code>repository_url</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>security_scan_completed_at</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>The datetime the security scanning was completed.</td>
+</tr>
+<tr>
+<td><code>security_scan_started_at</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>The datetime the security scanning was started.</td>
+</tr>
+<tr>
+<td><code>security_scan_status</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>security_scan_status_updated_at</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>The datetime the security scanning status was updated.</td>
+</tr>
+<tr>
+<td><code>self_html_url</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>self_url</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>signature_url</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>size</code></td>
+<td><code>integer</code></td>
+<td>No</td>
+<td>The calculated size of the package.</td>
+</tr>
+<tr>
+<td><code>slug</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>The public unique identifier for the package.</td>
+</tr>
+<tr>
+<td><code>slug_perm</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>stage</code></td>
+<td><code>integer</code></td>
+<td>No</td>
+<td>The synchronisation (in progress) stage of the package.</td>
+</tr>
+<tr>
+<td><code>stage_str</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>stage_updated_at</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>The datetime the package stage was updated at.</td>
+</tr>
+<tr>
+<td><code>status</code></td>
+<td><code>integer</code></td>
+<td>No</td>
+<td>The synchronisation status of the package.</td>
+</tr>
+<tr>
+<td><code>status_reason</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>A textual description for the synchronous status reason (if any</td>
+</tr>
+<tr>
+<td><code>status_str</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>status_updated_at</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>The datetime the package status was updated at.</td>
+</tr>
+<tr>
+<td><code>status_url</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>subtype</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>summary</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>A one-liner synopsis of this package.</td>
+</tr>
+<tr>
+<td><code>sync_finished_at</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>The datetime the package sync was finished at.</td>
+</tr>
+<tr>
+<td><code>sync_progress</code></td>
+<td><code>integer</code></td>
+<td>No</td>
+<td>Synchronisation progress (from 0-100)</td>
+</tr>
+<tr>
+<td><code>tags</code></td>
+<td><code>object</code></td>
+<td>No</td>
+<td>All tags on the package, grouped by tag type.</td>
+</tr>
+<tr>
+<td><code>tags_immutable</code></td>
+<td><code>object</code></td>
+<td>No</td>
+<td>All tags on the package, grouped by tag type.</td>
+</tr>
+<tr>
+<td><code>total</code></td>
+<td><code>integer</code></td>
+<td>No</td>
+<td>Total number of packages in repo</td>
+</tr>
+<tr>
+<td><code>type_display</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>uploaded_at</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>The date this package was uploaded.</td>
+</tr>
+<tr>
+<td><code>uploader</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>uploader_url</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>version</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>The raw version for this package.</td>
+</tr>
+<tr>
+<td><code>version_orig</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>vulnerability_scan_results_url</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h2 id="create">create</h2>
+<h3 id="post-packagesownerrepoidentifiercopy" class="operation" data-method="post"><code>POST</code> /packages/{owner}/{repo}/{identifier}/copy/</h3>
+<p>Operation ID: <code>packages_copy</code>.</p>
+<p>Authentication: API key in the header (<code>apikey</code>) or basic (<code>basic</code>).</p>
+<h4 id="parameters">Parameters</h4>
+<p>| Parameter | In | Type | Required | Description |
+| --- | --- | --- | --- |
+| <code>owner</code> | <code>path</code> | <code>any</code> | Yes |  |
+| <code>repo</code> | <code>path</code> | <code>any</code> | Yes |  |
+| <code>identifier</code> | <code>path</code> | <code>any</code> | Yes |  |
+| <code>data</code> | <code>body</code> | <code>object</code> | No |  |</p>
+<h4 id="responses">Responses</h4>
+<h5 id="200-copied-specified-package-to-destination-repository" class="status" data-status="2xx">200: Copied specified package to destination repository</h5>
+<h5 id="400-the-package-is-in-the-wrong-state-for-the-requested-operation" class="status" data-status="4xx">400: The package is in the wrong state for the requested operation</h5>
+<h5 id="422-missing-or-invalid-parameters-see-detail" class="status" data-status="4xx">422: Missing or invalid parameters (see detail)</h5>
+<h3 id="post-packagesownerrepoidentifiermove" class="operation" data-method="post"><code>POST</code> /packages/{owner}/{repo}/{identifier}/move/</h3>
+<p>Operation ID: <code>packages_move</code>.</p>
+<p>Authentication: API key in the header (<code>apikey</code>) or basic (<code>basic</code>).</p>
+<h4 id="parameters-1">Parameters</h4>
+<p>| Parameter | In | Type | Required | Description |
+| --- | --- | --- | --- |
+| <code>owner</code> | <code>path</code> | <code>any</code> | Yes |  |
+| <code>repo</code> | <code>path</code> | <code>any</code> | Yes |  |
+| <code>identifier</code> | <code>path</code> | <code>any</code> | Yes |  |
+| <code>data</code> | <code>body</code> | <code>object</code> | No |  |</p>
+<h4 id="responses-1">Responses</h4>
+<h5 id="200-moved-specified-package-to-destination-repository" class="status" data-status="2xx">200: Moved specified package to destination repository</h5>
+<h5 id="400-the-package-is-in-the-wrong-state-for-the-requested-operation-1" class="status" data-status="4xx">400: The package is in the wrong state for the requested operation</h5>
+<h5 id="422-missing-or-invalid-parameters-see-detail-1" class="status" data-status="4xx">422: Missing or invalid parameters (see detail)</h5>
+<h3 id="post-packagesownerrepoidentifierquarantine" class="operation" data-method="post"><code>POST</code> /packages/{owner}/{repo}/{identifier}/quarantine/</h3>
+<p>Operation ID: <code>packages_quarantine</code>.</p>
+<p>Authentication: API key in the header (<code>apikey</code>) or basic (<code>basic</code>).</p>
+<h4 id="parameters-2">Parameters</h4>
+<p>| Parameter | In | Type | Required | Description |
+| --- | --- | --- | --- |
+| <code>owner</code> | <code>path</code> | <code>any</code> | Yes |  |
+| <code>repo</code> | <code>path</code> | <code>any</code> | Yes |  |
+| <code>identifier</code> | <code>path</code> | <code>any</code> | Yes |  |
+| <code>data</code> | <code>body</code> | <code>object</code> | No |  |</p>
+<h4 id="responses-2">Responses</h4>
+<h5 id="200-changed-the-package39s-quarantine-status" class="status" data-status="2xx">200: Changed the package's quarantine status</h5>
+<h5 id="400-the-package-is-in-the-wrong-state-for-the-requested-operation-2" class="status" data-status="4xx">400: The package is in the wrong state for the requested operation</h5>
+<h5 id="422-missing-or-invalid-parameters-see-detail-2" class="status" data-status="4xx">422: Missing or invalid parameters (see detail)</h5>
+<h3 id="post-packagesownerrepoidentifiertag" class="operation" data-method="post"><code>POST</code> /packages/{owner}/{repo}/{identifier}/tag/</h3>
+<p>Operation ID: <code>packages_tag</code>.</p>
+<p>Authentication: API key in the header (<code>apikey</code>) or basic (<code>basic</code>).</p>
+<h4 id="parameters-3">Parameters</h4>
+<p>| Parameter | In | Type | Required | Description |
+| --- | --- | --- | --- |
+| <code>owner</code> | <code>path</code> | <code>any</code> | Yes |  |
+| <code>repo</code> | <code>path</code> | <code>any</code> | Yes |  |
+| <code>identifier</code> | <code>path</code> | <code>any</code> | Yes |  |
+| <code>data</code> | <code>body</code> | <code>object</code> | No |  |</p>
+<h4 id="responses-3">Responses</h4>
+<h5 id="200-modified-tags-for-the-package" class="status" data-status="2xx">200: Modified tags for the package</h5>
+<h5 id="400-request-could-not-be-processed-see-detail" class="status" data-status="4xx">400: Request could not be processed (see detail)</h5>
+<h5 id="422-missing-or-invalid-parameters-see-detail-3" class="status" data-status="4xx">422: Missing or invalid parameters (see detail)</h5>
+<h3 id="post-packagesownerrepouploadalpine" class="operation" data-method="post"><code>POST</code> /packages/{owner}/{repo}/upload/alpine/</h3>
+<p>Operation ID: <code>packages_upload_alpine</code>.</p>
+<p>Authentication: API key in the header (<code>apikey</code>) or basic (<code>basic</code>).</p>
+<h4 id="parameters-4">Parameters</h4>
+<p>| Parameter | In | Type | Required | Description |
+| --- | --- | --- | --- |
+| <code>owner</code> | <code>path</code> | <code>any</code> | Yes |  |
+| <code>repo</code> | <code>path</code> | <code>any</code> | Yes |  |
+| <code>data</code> | <code>body</code> | <code>object</code> | No |  |</p>
+<h4 id="responses-4">Responses</h4>
+<h5 id="201-upload-acknowledged-and-queued-for-synchronization" class="status" data-status="2xx">201: Upload acknowledged and queued for synchronization</h5>
+<h5 id="400-request-could-not-be-processed-see-detail-1" class="status" data-status="4xx">400: Request could not be processed (see detail)</h5>
+<h5 id="404-namespace-owner-or-repository-not-found" class="status" data-status="4xx">404: Namespace (owner) or repository not found</h5>
+<h5 id="422-missing-or-invalid-parameters-see-detail-4" class="status" data-status="4xx">422: Missing or invalid parameters (see detail)</h5>
+<h3 id="post-packagesownerrepouploadcargo" class="operation" data-method="post"><code>POST</code> /packages/{owner}/{repo}/upload/cargo/</h3>
+<p>Operation ID: <code>packages_upload_cargo</code>.</p>
+<p>Authentication: API key in the header (<code>apikey</code>) or basic (<code>basic</code>).</p>
+<h4 id="parameters-5">Parameters</h4>
+<p>| Parameter | In | Type | Required | Description |
+| --- | --- | --- | --- |
+| <code>owner</code> | <code>path</code> | <code>any</code> | Yes |  |
+| <code>repo</code> | <code>path</code> | <code>any</code> | Yes |  |
+| <code>data</code> | <code>body</code> | <code>object</code> | No |  |</p>
+<h4 id="responses-5">Responses</h4>
+<h5 id="201-upload-acknowledged-and-queued-for-synchronization-1" class="status" data-status="2xx">201: Upload acknowledged and queued for synchronization</h5>
+<h5 id="400-request-could-not-be-processed-see-detail-2" class="status" data-status="4xx">400: Request could not be processed (see detail)</h5>
+<h5 id="404-namespace-owner-or-repository-not-found-1" class="status" data-status="4xx">404: Namespace (owner) or repository not found</h5>
+<h5 id="422-missing-or-invalid-parameters-see-detail-5" class="status" data-status="4xx">422: Missing or invalid parameters (see detail)</h5>
+<h3 id="post-packagesownerrepouploadcocoapods" class="operation" data-method="post"><code>POST</code> /packages/{owner}/{repo}/upload/cocoapods/</h3>
+<p>Operation ID: <code>packages_upload_cocoapods</code>.</p>
+<p>Authentication: API key in the header (<code>apikey</code>) or basic (<code>basic</code>).</p>
+<h4 id="parameters-6">Parameters</h4>
+<p>| Parameter | In | Type | Required | Description |
+| --- | --- | --- | --- |
+| <code>owner</code> | <code>path</code> | <code>any</code> | Yes |  |
+| <code>repo</code> | <code>path</code> | <code>any</code> | Yes |  |
+| <code>data</code> | <code>body</code> | <code>object</code> | No |  |</p>
+<h4 id="responses-6">Responses</h4>
+<h5 id="201-upload-acknowledged-and-queued-for-synchronization-2" class="status" data-status="2xx">201: Upload acknowledged and queued for synchronization</h5>
+<h5 id="400-request-could-not-be-processed-see-detail-3" class="status" data-status="4xx">400: Request could not be processed (see detail)</h5>
+<h5 id="404-namespace-owner-or-repository-not-found-2" class="status" data-status="4xx">404: Namespace (owner) or repository not found</h5>
+<h5 id="422-missing-or-invalid-parameters-see-detail-6" class="status" data-status="4xx">422: Missing or invalid parameters (see detail)</h5>
+<h3 id="post-packagesownerrepouploadcomposer" class="operation" data-method="post"><code>POST</code> /packages/{owner}/{repo}/upload/composer/</h3>
+<p>Operation ID: <code>packages_upload_composer</code>.</p>
+<p>Authentication: API key in the header (<code>apikey</code>) or basic (<code>basic</code>).</p>
+<h4 id="parameters-7">Parameters</h4>
+<p>| Parameter | In | Type | Required | Description |
+| --- | --- | --- | --- |
+| <code>owner</code> | <code>path</code> | <code>any</code> | Yes |  |
+| <code>repo</code> | <code>path</code> | <code>any</code> | Yes |  |
+| <code>data</code> | <code>body</code> | <code>object</code> | No |  |</p>
+<h4 id="responses-7">Responses</h4>
+<h5 id="201-upload-acknowledged-and-queued-for-synchronization-3" class="status" data-status="2xx">201: Upload acknowledged and queued for synchronization</h5>
+<h5 id="400-request-could-not-be-processed-see-detail-4" class="status" data-status="4xx">400: Request could not be processed (see detail)</h5>
+<h5 id="404-namespace-owner-or-repository-not-found-3" class="status" data-status="4xx">404: Namespace (owner) or repository not found</h5>
+<h5 id="422-missing-or-invalid-parameters-see-detail-7" class="status" data-status="4xx">422: Missing or invalid parameters (see detail)</h5>
+<h3 id="post-packagesownerrepouploadconan" class="operation" data-method="post"><code>POST</code> /packages/{owner}/{repo}/upload/conan/</h3>
+<p>Operation ID: <code>packages_upload_conan</code>.</p>
+<p>Authentication: API key in the header (<code>apikey</code>) or basic (<code>basic</code>).</p>
+<h4 id="parameters-8">Parameters</h4>
+<p>| Parameter | In | Type | Required | Description |
+| --- | --- | --- | --- |
+| <code>owner</code> | <code>path</code> | <code>any</code> | Yes |  |
+| <code>repo</code> | <code>path</code> | <code>any</code> | Yes |  |
+| <code>data</code> | <code>body</code> | <code>object</code> | No |  |</p>
+<h4 id="responses-8">Responses</h4>
+<h5 id="201-upload-acknowledged-and-queued-for-synchronization-4" class="status" data-status="2xx">201: Upload acknowledged and queued for synchronization</h5>
+<h5 id="400-request-could-not-be-processed-see-detail-5" class="status" data-status="4xx">400: Request could not be processed (see detail)</h5>
+<h5 id="404-namespace-owner-or-repository-not-found-4" class="status" data-status="4xx">404: Namespace (owner) or repository not found</h5>
+<h5 id="422-missing-or-invalid-parameters-see-detail-8" class="status" data-status="4xx">422: Missing or invalid parameters (see detail)</h5>
+<h3 id="post-packagesownerrepouploadconda" class="operation" data-method="post"><code>POST</code> /packages/{owner}/{repo}/upload/conda/</h3>
+<p>Operation ID: <code>packages_upload_conda</code>.</p>
+<p>Authentication: API key in the header (<code>apikey</code>) or basic (<code>basic</code>).</p>
+<h4 id="parameters-9">Parameters</h4>
+<p>| Parameter | In | Type | Required | Description |
+| --- | --- | --- | --- |
+| <code>owner</code> | <code>path</code> | <code>any</code> | Yes |  |
+| <code>repo</code> | <code>path</code> | <code>any</code> | Yes |  |
+| <code>data</code> | <code>body</code> | <code>object</code> | No |  |</p>
+<h4 id="responses-9">Responses</h4>
+<h5 id="201-upload-acknowledged-and-queued-for-synchronization-5" class="status" data-status="2xx">201: Upload acknowledged and queued for synchronization</h5>
+<h5 id="400-request-could-not-be-processed-see-detail-6" class="status" data-status="4xx">400: Request could not be processed (see detail)</h5>
+<h5 id="404-namespace-owner-or-repository-not-found-5" class="status" data-status="4xx">404: Namespace (owner) or repository not found</h5>
+<h5 id="422-missing-or-invalid-parameters-see-detail-9" class="status" data-status="4xx">422: Missing or invalid parameters (see detail)</h5>
+<h3 id="post-packagesownerrepouploadcran" class="operation" data-method="post"><code>POST</code> /packages/{owner}/{repo}/upload/cran/</h3>
+<p>Operation ID: <code>packages_upload_cran</code>.</p>
+<p>Authentication: API key in the header (<code>apikey</code>) or basic (<code>basic</code>).</p>
+<h4 id="parameters-10">Parameters</h4>
+<p>| Parameter | In | Type | Required | Description |
+| --- | --- | --- | --- |
+| <code>owner</code> | <code>path</code> | <code>any</code> | Yes |  |
+| <code>repo</code> | <code>path</code> | <code>any</code> | Yes |  |
+| <code>data</code> | <code>body</code> | <code>object</code> | No |  |</p>
+<h4 id="responses-10">Responses</h4>
+<h5 id="201-upload-acknowledged-and-queued-for-synchronization-6" class="status" data-status="2xx">201: Upload acknowledged and queued for synchronization</h5>
+<h5 id="400-request-could-not-be-processed-see-detail-7" class="status" data-status="4xx">400: Request could not be processed (see detail)</h5>
+<h5 id="404-namespace-owner-or-repository-not-found-6" class="status" data-status="4xx">404: Namespace (owner) or repository not found</h5>
+<h5 id="422-missing-or-invalid-parameters-see-detail-10" class="status" data-status="4xx">422: Missing or invalid parameters (see detail)</h5>
+<h3 id="post-packagesownerrepouploaddart" class="operation" data-method="post"><code>POST</code> /packages/{owner}/{repo}/upload/dart/</h3>
+<p>Operation ID: <code>packages_upload_dart</code>.</p>
+<p>Authentication: API key in the header (<code>apikey</code>) or basic (<code>basic</code>).</p>
+<h4 id="parameters-11">Parameters</h4>
+<p>| Parameter | In | Type | Required | Description |
+| --- | --- | --- | --- |
+| <code>owner</code> | <code>path</code> | <code>any</code> | Yes |  |
+| <code>repo</code> | <code>path</code> | <code>any</code> | Yes |  |
+| <code>data</code> | <code>body</code> | <code>object</code> | No |  |</p>
+<h4 id="responses-11">Responses</h4>
+<h5 id="201-upload-acknowledged-and-queued-for-synchronization-7" class="status" data-status="2xx">201: Upload acknowledged and queued for synchronization</h5>
+<h5 id="400-request-could-not-be-processed-see-detail-8" class="status" data-status="4xx">400: Request could not be processed (see detail)</h5>
+<h5 id="404-namespace-owner-or-repository-not-found-7" class="status" data-status="4xx">404: Namespace (owner) or repository not found</h5>
+<h5 id="422-missing-or-invalid-parameters-see-detail-11" class="status" data-status="4xx">422: Missing or invalid parameters (see detail)</h5>
+<h3 id="post-packagesownerrepouploaddeb" class="operation" data-method="post"><code>POST</code> /packages/{owner}/{repo}/upload/deb/</h3>
+<p>Operation ID: <code>packages_upload_deb</code>.</p>
+<p>Authentication: API key in the header (<code>apikey</code>) or basic (<code>basic</code>).</p>
+<h4 id="parameters-12">Parameters</h4>
+<p>| Parameter | In | Type | Required | Description |
+| --- | --- | --- | --- |
+| <code>owner</code> | <code>path</code> | <code>any</code> | Yes |  |
+| <code>repo</code> | <code>path</code> | <code>any</code> | Yes |  |
+| <code>data</code> | <code>body</code> | <code>object</code> | No |  |</p>
+<h4 id="responses-12">Responses</h4>
+<h5 id="201-upload-acknowledged-and-queued-for-synchronization-8" class="status" data-status="2xx">201: Upload acknowledged and queued for synchronization</h5>
+<h5 id="400-request-could-not-be-processed-see-detail-9" class="status" data-status="4xx">400: Request could not be processed (see detail)</h5>
+<h5 id="404-namespace-owner-or-repository-not-found-8" class="status" data-status="4xx">404: Namespace (owner) or repository not found</h5>
+<h5 id="422-missing-or-invalid-parameters-see-detail-12" class="status" data-status="4xx">422: Missing or invalid parameters (see detail)</h5>
+<h3 id="post-packagesownerrepouploaddocker" class="operation" data-method="post"><code>POST</code> /packages/{owner}/{repo}/upload/docker/</h3>
+<p>Operation ID: <code>packages_upload_docker</code>.</p>
+<p>Authentication: API key in the header (<code>apikey</code>) or basic (<code>basic</code>).</p>
+<h4 id="parameters-13">Parameters</h4>
+<p>| Parameter | In | Type | Required | Description |
+| --- | --- | --- | --- |
+| <code>owner</code> | <code>path</code> | <code>any</code> | Yes |  |
+| <code>repo</code> | <code>path</code> | <code>any</code> | Yes |  |
+| <code>data</code> | <code>body</code> | <code>object</code> | No |  |</p>
+<h4 id="responses-13">Responses</h4>
+<h5 id="201-upload-acknowledged-and-queued-for-synchronization-9" class="status" data-status="2xx">201: Upload acknowledged and queued for synchronization</h5>
+<h5 id="400-request-could-not-be-processed-see-detail-10" class="status" data-status="4xx">400: Request could not be processed (see detail)</h5>
+<h5 id="404-namespace-owner-or-repository-not-found-9" class="status" data-status="4xx">404: Namespace (owner) or repository not found</h5>
+<h5 id="422-missing-or-invalid-parameters-see-detail-13" class="status" data-status="4xx">422: Missing or invalid parameters (see detail)</h5>
+<h3 id="post-packagesownerrepouploadgo" class="operation" data-method="post"><code>POST</code> /packages/{owner}/{repo}/upload/go/</h3>
+<p>Operation ID: <code>packages_upload_go</code>.</p>
+<p>Authentication: API key in the header (<code>apikey</code>) or basic (<code>basic</code>).</p>
+<h4 id="parameters-14">Parameters</h4>
+<p>| Parameter | In | Type | Required | Description |
+| --- | --- | --- | --- |
+| <code>owner</code> | <code>path</code> | <code>any</code> | Yes |  |
+| <code>repo</code> | <code>path</code> | <code>any</code> | Yes |  |
+| <code>data</code> | <code>body</code> | <code>object</code> | No |  |</p>
+<h4 id="responses-14">Responses</h4>
+<h5 id="201-upload-acknowledged-and-queued-for-synchronization-10" class="status" data-status="2xx">201: Upload acknowledged and queued for synchronization</h5>
+<h5 id="400-request-could-not-be-processed-see-detail-11" class="status" data-status="4xx">400: Request could not be processed (see detail)</h5>
+<h5 id="404-namespace-owner-or-repository-not-found-10" class="status" data-status="4xx">404: Namespace (owner) or repository not found</h5>
+<h5 id="422-missing-or-invalid-parameters-see-detail-14" class="status" data-status="4xx">422: Missing or invalid parameters (see detail)</h5>
+<h3 id="post-packagesownerrepouploadhelm" class="operation" data-method="post"><code>POST</code> /packages/{owner}/{repo}/upload/helm/</h3>
+<p>Operation ID: <code>packages_upload_helm</code>.</p>
+<p>Authentication: API key in the header (<code>apikey</code>) or basic (<code>basic</code>).</p>
+<h4 id="parameters-15">Parameters</h4>
+<p>| Parameter | In | Type | Required | Description |
+| --- | --- | --- | --- |
+| <code>owner</code> | <code>path</code> | <code>any</code> | Yes |  |
+| <code>repo</code> | <code>path</code> | <code>any</code> | Yes |  |
+| <code>data</code> | <code>body</code> | <code>object</code> | No |  |</p>
+<h4 id="responses-15">Responses</h4>
+<h5 id="201-upload-acknowledged-and-queued-for-synchronization-11" class="status" data-status="2xx">201: Upload acknowledged and queued for synchronization</h5>
+<h5 id="400-request-could-not-be-processed-see-detail-12" class="status" data-status="4xx">400: Request could not be processed (see detail)</h5>
+<h5 id="404-namespace-owner-or-repository-not-found-11" class="status" data-status="4xx">404: Namespace (owner) or repository not found</h5>
+<h5 id="422-missing-or-invalid-parameters-see-detail-15" class="status" data-status="4xx">422: Missing or invalid parameters (see detail)</h5>
+<h3 id="post-packagesownerrepouploadhex" class="operation" data-method="post"><code>POST</code> /packages/{owner}/{repo}/upload/hex/</h3>
+<p>Operation ID: <code>packages_upload_hex</code>.</p>
+<p>Authentication: API key in the header (<code>apikey</code>) or basic (<code>basic</code>).</p>
+<h4 id="parameters-16">Parameters</h4>
+<p>| Parameter | In | Type | Required | Description |
+| --- | --- | --- | --- |
+| <code>owner</code> | <code>path</code> | <code>any</code> | Yes |  |
+| <code>repo</code> | <code>path</code> | <code>any</code> | Yes |  |
+| <code>data</code> | <code>body</code> | <code>object</code> | No |  |</p>
+<h4 id="responses-16">Responses</h4>
+<h5 id="201-upload-acknowledged-and-queued-for-synchronization-12" class="status" data-status="2xx">201: Upload acknowledged and queued for synchronization</h5>
+<h5 id="400-request-could-not-be-processed-see-detail-13" class="status" data-status="4xx">400: Request could not be processed (see detail)</h5>
+<h5 id="404-namespace-owner-or-repository-not-found-12" class="status" data-status="4xx">404: Namespace (owner) or repository not found</h5>
+<h5 id="422-missing-or-invalid-parameters-see-detail-16" class="status" data-status="4xx">422: Missing or invalid parameters (see detail)</h5>
+<h3 id="post-packagesownerrepouploadhuggingface" class="operation" data-method="post"><code>POST</code> /packages/{owner}/{repo}/upload/huggingface/</h3>
+<p>Operation ID: <code>packages_upload_huggingface</code>.</p>
+<p>Authentication: API key in the header (<code>apikey</code>) or basic (<code>basic</code>).</p>
+<h4 id="parameters-17">Parameters</h4>
+<p>| Parameter | In | Type | Required | Description |
+| --- | --- | --- | --- |
+| <code>owner</code> | <code>path</code> | <code>any</code> | Yes |  |
+| <code>repo</code> | <code>path</code> | <code>any</code> | Yes |  |
+| <code>data</code> | <code>body</code> | <code>object</code> | No |  |</p>
+<h4 id="responses-17">Responses</h4>
+<h5 id="201-upload-acknowledged-and-queued-for-synchronization-13" class="status" data-status="2xx">201: Upload acknowledged and queued for synchronization</h5>
+<h5 id="400-request-could-not-be-processed-see-detail-14" class="status" data-status="4xx">400: Request could not be processed (see detail)</h5>
+<h5 id="404-namespace-owner-or-repository-not-found-13" class="status" data-status="4xx">404: Namespace (owner) or repository not found</h5>
+<h5 id="422-missing-or-invalid-parameters-see-detail-17" class="status" data-status="4xx">422: Missing or invalid parameters (see detail)</h5>
+<h3 id="post-packagesownerrepouploadluarocks" class="operation" data-method="post"><code>POST</code> /packages/{owner}/{repo}/upload/luarocks/</h3>
+<p>Operation ID: <code>packages_upload_luarocks</code>.</p>
+<p>Authentication: API key in the header (<code>apikey</code>) or basic (<code>basic</code>).</p>
+<h4 id="parameters-18">Parameters</h4>
+<p>| Parameter | In | Type | Required | Description |
+| --- | --- | --- | --- |
+| <code>owner</code> | <code>path</code> | <code>any</code> | Yes |  |
+| <code>repo</code> | <code>path</code> | <code>any</code> | Yes |  |
+| <code>data</code> | <code>body</code> | <code>object</code> | No |  |</p>
+<h4 id="responses-18">Responses</h4>
+<h5 id="201-upload-acknowledged-and-queued-for-synchronization-14" class="status" data-status="2xx">201: Upload acknowledged and queued for synchronization</h5>
+<h5 id="400-request-could-not-be-processed-see-detail-15" class="status" data-status="4xx">400: Request could not be processed (see detail)</h5>
+<h5 id="404-namespace-owner-or-repository-not-found-14" class="status" data-status="4xx">404: Namespace (owner) or repository not found</h5>
+<h5 id="422-missing-or-invalid-parameters-see-detail-18" class="status" data-status="4xx">422: Missing or invalid parameters (see detail)</h5>
+<h3 id="post-packagesownerrepouploadmaven" class="operation" data-method="post"><code>POST</code> /packages/{owner}/{repo}/upload/maven/</h3>
+<p>Operation ID: <code>packages_upload_maven</code>.</p>
+<p>Authentication: API key in the header (<code>apikey</code>) or basic (<code>basic</code>).</p>
+<h4 id="parameters-19">Parameters</h4>
+<p>| Parameter | In | Type | Required | Description |
+| --- | --- | --- | --- |
+| <code>owner</code> | <code>path</code> | <code>any</code> | Yes |  |
+| <code>repo</code> | <code>path</code> | <code>any</code> | Yes |  |
+| <code>data</code> | <code>body</code> | <code>object</code> | No |  |</p>
+<h4 id="responses-19">Responses</h4>
+<h5 id="201-upload-acknowledged-and-queued-for-synchronization-15" class="status" data-status="2xx">201: Upload acknowledged and queued for synchronization</h5>
+<h5 id="400-request-could-not-be-processed-see-detail-16" class="status" data-status="4xx">400: Request could not be processed (see detail)</h5>
+<h5 id="404-namespace-owner-or-repository-not-found-15" class="status" data-status="4xx">404: Namespace (owner) or repository not found</h5>
+<h5 id="422-missing-or-invalid-parameters-see-detail-19" class="status" data-status="4xx">422: Missing or invalid parameters (see detail)</h5>
+<h3 id="post-packagesownerrepouploadnpm" class="operation" data-method="post"><code>POST</code> /packages/{owner}/{repo}/upload/npm/</h3>
+<p>Operation ID: <code>packages_upload_npm</code>.</p>
+<p>Authentication: API key in the header (<code>apikey</code>) or basic (<code>basic</code>).</p>
+<h4 id="parameters-20">Parameters</h4>
+<p>| Parameter | In | Type | Required | Description |
+| --- | --- | --- | --- |
+| <code>owner</code> | <code>path</code> | <code>any</code> | Yes |  |
+| <code>repo</code> | <code>path</code> | <code>any</code> | Yes |  |
+| <code>data</code> | <code>body</code> | <code>object</code> | No |  |</p>
+<h4 id="responses-20">Responses</h4>
+<h5 id="201-upload-acknowledged-and-queued-for-synchronization-16" class="status" data-status="2xx">201: Upload acknowledged and queued for synchronization</h5>
+<h5 id="400-request-could-not-be-processed-see-detail-17" class="status" data-status="4xx">400: Request could not be processed (see detail)</h5>
+<h5 id="404-namespace-owner-or-repository-not-found-16" class="status" data-status="4xx">404: Namespace (owner) or repository not found</h5>
+<h5 id="422-missing-or-invalid-parameters-see-detail-20" class="status" data-status="4xx">422: Missing or invalid parameters (see detail)</h5>
+<h3 id="post-packagesownerrepouploadnuget" class="operation" data-method="post"><code>POST</code> /packages/{owner}/{repo}/upload/nuget/</h3>
+<p>Operation ID: <code>packages_upload_nuget</code>.</p>
+<p>Authentication: API key in the header (<code>apikey</code>) or basic (<code>basic</code>).</p>
+<h4 id="parameters-21">Parameters</h4>
+<p>| Parameter | In | Type | Required | Description |
+| --- | --- | --- | --- |
+| <code>owner</code> | <code>path</code> | <code>any</code> | Yes |  |
+| <code>repo</code> | <code>path</code> | <code>any</code> | Yes |  |
+| <code>data</code> | <code>body</code> | <code>object</code> | No |  |</p>
+<h4 id="responses-21">Responses</h4>
+<h5 id="201-upload-acknowledged-and-queued-for-synchronization-17" class="status" data-status="2xx">201: Upload acknowledged and queued for synchronization</h5>
+<h5 id="400-request-could-not-be-processed-see-detail-18" class="status" data-status="4xx">400: Request could not be processed (see detail)</h5>
+<h5 id="404-namespace-owner-or-repository-not-found-17" class="status" data-status="4xx">404: Namespace (owner) or repository not found</h5>
+<h5 id="422-missing-or-invalid-parameters-see-detail-21" class="status" data-status="4xx">422: Missing or invalid parameters (see detail)</h5>
+<h3 id="post-packagesownerrepouploadp2" class="operation" data-method="post"><code>POST</code> /packages/{owner}/{repo}/upload/p2/</h3>
+<p>Operation ID: <code>packages_upload_p2</code>.</p>
+<p>Authentication: API key in the header (<code>apikey</code>) or basic (<code>basic</code>).</p>
+<h4 id="parameters-22">Parameters</h4>
+<p>| Parameter | In | Type | Required | Description |
+| --- | --- | --- | --- |
+| <code>owner</code> | <code>path</code> | <code>any</code> | Yes |  |
+| <code>repo</code> | <code>path</code> | <code>any</code> | Yes |  |
+| <code>data</code> | <code>body</code> | <code>object</code> | No |  |</p>
+<h4 id="responses-22">Responses</h4>
+<h5 id="201-upload-acknowledged-and-queued-for-synchronization-18" class="status" data-status="2xx">201: Upload acknowledged and queued for synchronization</h5>
+<h5 id="400-request-could-not-be-processed-see-detail-19" class="status" data-status="4xx">400: Request could not be processed (see detail)</h5>
+<h5 id="404-namespace-owner-or-repository-not-found-18" class="status" data-status="4xx">404: Namespace (owner) or repository not found</h5>
+<h5 id="422-missing-or-invalid-parameters-see-detail-22" class="status" data-status="4xx">422: Missing or invalid parameters (see detail)</h5>
+<h3 id="post-packagesownerrepouploadpython" class="operation" data-method="post"><code>POST</code> /packages/{owner}/{repo}/upload/python/</h3>
+<p>Operation ID: <code>packages_upload_python</code>.</p>
+<p>Authentication: API key in the header (<code>apikey</code>) or basic (<code>basic</code>).</p>
+<h4 id="parameters-23">Parameters</h4>
+<p>| Parameter | In | Type | Required | Description |
+| --- | --- | --- | --- |
+| <code>owner</code> | <code>path</code> | <code>any</code> | Yes |  |
+| <code>repo</code> | <code>path</code> | <code>any</code> | Yes |  |
+| <code>data</code> | <code>body</code> | <code>object</code> | No |  |</p>
+<h4 id="responses-23">Responses</h4>
+<h5 id="201-upload-acknowledged-and-queued-for-synchronization-19" class="status" data-status="2xx">201: Upload acknowledged and queued for synchronization</h5>
+<h5 id="400-request-could-not-be-processed-see-detail-20" class="status" data-status="4xx">400: Request could not be processed (see detail)</h5>
+<h5 id="404-namespace-owner-or-repository-not-found-19" class="status" data-status="4xx">404: Namespace (owner) or repository not found</h5>
+<h5 id="422-missing-or-invalid-parameters-see-detail-23" class="status" data-status="4xx">422: Missing or invalid parameters (see detail)</h5>
+<h3 id="post-packagesownerrepouploadraw" class="operation" data-method="post"><code>POST</code> /packages/{owner}/{repo}/upload/raw/</h3>
+<p>Operation ID: <code>packages_upload_raw</code>.</p>
+<p>Authentication: API key in the header (<code>apikey</code>) or basic (<code>basic</code>).</p>
+<h4 id="parameters-24">Parameters</h4>
+<p>| Parameter | In | Type | Required | Description |
+| --- | --- | --- | --- |
+| <code>owner</code> | <code>path</code> | <code>any</code> | Yes |  |
+| <code>repo</code> | <code>path</code> | <code>any</code> | Yes |  |
+| <code>data</code> | <code>body</code> | <code>object</code> | No |  |</p>
+<h4 id="responses-24">Responses</h4>
+<h5 id="201-upload-acknowledged-and-queued-for-synchronization-20" class="status" data-status="2xx">201: Upload acknowledged and queued for synchronization</h5>
+<h5 id="400-request-could-not-be-processed-see-detail-21" class="status" data-status="4xx">400: Request could not be processed (see detail)</h5>
+<h5 id="404-namespace-owner-or-repository-not-found-20" class="status" data-status="4xx">404: Namespace (owner) or repository not found</h5>
+<h5 id="422-missing-or-invalid-parameters-see-detail-24" class="status" data-status="4xx">422: Missing or invalid parameters (see detail)</h5>
+<h3 id="post-packagesownerrepouploadrpm" class="operation" data-method="post"><code>POST</code> /packages/{owner}/{repo}/upload/rpm/</h3>
+<p>Operation ID: <code>packages_upload_rpm</code>.</p>
+<p>Authentication: API key in the header (<code>apikey</code>) or basic (<code>basic</code>).</p>
+<h4 id="parameters-25">Parameters</h4>
+<p>| Parameter | In | Type | Required | Description |
+| --- | --- | --- | --- |
+| <code>owner</code> | <code>path</code> | <code>any</code> | Yes |  |
+| <code>repo</code> | <code>path</code> | <code>any</code> | Yes |  |
+| <code>data</code> | <code>body</code> | <code>object</code> | No |  |</p>
+<h4 id="responses-25">Responses</h4>
+<h5 id="201-upload-acknowledged-and-queued-for-synchronization-21" class="status" data-status="2xx">201: Upload acknowledged and queued for synchronization</h5>
+<h5 id="400-request-could-not-be-processed-see-detail-22" class="status" data-status="4xx">400: Request could not be processed (see detail)</h5>
+<h5 id="404-namespace-owner-or-repository-not-found-21" class="status" data-status="4xx">404: Namespace (owner) or repository not found</h5>
+<h5 id="422-missing-or-invalid-parameters-see-detail-25" class="status" data-status="4xx">422: Missing or invalid parameters (see detail)</h5>
+<h3 id="post-packagesownerrepouploadruby" class="operation" data-method="post"><code>POST</code> /packages/{owner}/{repo}/upload/ruby/</h3>
+<p>Operation ID: <code>packages_upload_ruby</code>.</p>
+<p>Authentication: API key in the header (<code>apikey</code>) or basic (<code>basic</code>).</p>
+<h4 id="parameters-26">Parameters</h4>
+<p>| Parameter | In | Type | Required | Description |
+| --- | --- | --- | --- |
+| <code>owner</code> | <code>path</code> | <code>any</code> | Yes |  |
+| <code>repo</code> | <code>path</code> | <code>any</code> | Yes |  |
+| <code>data</code> | <code>body</code> | <code>object</code> | No |  |</p>
+<h4 id="responses-26">Responses</h4>
+<h5 id="201-upload-acknowledged-and-queued-for-synchronization-22" class="status" data-status="2xx">201: Upload acknowledged and queued for synchronization</h5>
+<h5 id="400-request-could-not-be-processed-see-detail-23" class="status" data-status="4xx">400: Request could not be processed (see detail)</h5>
+<h5 id="404-namespace-owner-or-repository-not-found-22" class="status" data-status="4xx">404: Namespace (owner) or repository not found</h5>
+<h5 id="422-missing-or-invalid-parameters-see-detail-26" class="status" data-status="4xx">422: Missing or invalid parameters (see detail)</h5>
+<h3 id="post-packagesownerrepouploadswift" class="operation" data-method="post"><code>POST</code> /packages/{owner}/{repo}/upload/swift/</h3>
+<p>Operation ID: <code>packages_upload_swift</code>.</p>
+<p>Authentication: API key in the header (<code>apikey</code>) or basic (<code>basic</code>).</p>
+<h4 id="parameters-27">Parameters</h4>
+<p>| Parameter | In | Type | Required | Description |
+| --- | --- | --- | --- |
+| <code>owner</code> | <code>path</code> | <code>any</code> | Yes |  |
+| <code>repo</code> | <code>path</code> | <code>any</code> | Yes |  |
+| <code>data</code> | <code>body</code> | <code>object</code> | No |  |</p>
+<h4 id="responses-27">Responses</h4>
+<h5 id="201-upload-acknowledged-and-queued-for-synchronization-23" class="status" data-status="2xx">201: Upload acknowledged and queued for synchronization</h5>
+<h5 id="400-request-could-not-be-processed-see-detail-24" class="status" data-status="4xx">400: Request could not be processed (see detail)</h5>
+<h5 id="404-namespace-owner-or-repository-not-found-23" class="status" data-status="4xx">404: Namespace (owner) or repository not found</h5>
+<h5 id="422-missing-or-invalid-parameters-see-detail-27" class="status" data-status="4xx">422: Missing or invalid parameters (see detail)</h5>
+<h3 id="post-packagesownerrepouploadterraform" class="operation" data-method="post"><code>POST</code> /packages/{owner}/{repo}/upload/terraform/</h3>
+<p>Operation ID: <code>packages_upload_terraform</code>.</p>
+<p>Authentication: API key in the header (<code>apikey</code>) or basic (<code>basic</code>).</p>
+<h4 id="parameters-28">Parameters</h4>
+<p>| Parameter | In | Type | Required | Description |
+| --- | --- | --- | --- |
+| <code>owner</code> | <code>path</code> | <code>any</code> | Yes |  |
+| <code>repo</code> | <code>path</code> | <code>any</code> | Yes |  |
+| <code>data</code> | <code>body</code> | <code>object</code> | No |  |</p>
+<h4 id="responses-28">Responses</h4>
+<h5 id="201-upload-acknowledged-and-queued-for-synchronization-24" class="status" data-status="2xx">201: Upload acknowledged and queued for synchronization</h5>
+<h5 id="400-request-could-not-be-processed-see-detail-25" class="status" data-status="4xx">400: Request could not be processed (see detail)</h5>
+<h5 id="404-namespace-owner-or-repository-not-found-24" class="status" data-status="4xx">404: Namespace (owner) or repository not found</h5>
+<h5 id="422-missing-or-invalid-parameters-see-detail-28" class="status" data-status="4xx">422: Missing or invalid parameters (see detail)</h5>
+<h3 id="post-packagesownerrepouploadvagrant" class="operation" data-method="post"><code>POST</code> /packages/{owner}/{repo}/upload/vagrant/</h3>
+<p>Operation ID: <code>packages_upload_vagrant</code>.</p>
+<p>Authentication: API key in the header (<code>apikey</code>) or basic (<code>basic</code>).</p>
+<h4 id="parameters-29">Parameters</h4>
+<p>| Parameter | In | Type | Required | Description |
+| --- | --- | --- | --- |
+| <code>owner</code> | <code>path</code> | <code>any</code> | Yes |  |
+| <code>repo</code> | <code>path</code> | <code>any</code> | Yes |  |
+| <code>data</code> | <code>body</code> | <code>object</code> | No |  |</p>
+<h4 id="responses-29">Responses</h4>
+<h5 id="201-upload-acknowledged-and-queued-for-synchronization-25" class="status" data-status="2xx">201: Upload acknowledged and queued for synchronization</h5>
+<h5 id="400-request-could-not-be-processed-see-detail-26" class="status" data-status="4xx">400: Request could not be processed (see detail)</h5>
+<h5 id="404-namespace-owner-or-repository-not-found-25" class="status" data-status="4xx">404: Namespace (owner) or repository not found</h5>
+<h5 id="422-missing-or-invalid-parameters-see-detail-29" class="status" data-status="4xx">422: Missing or invalid parameters (see detail)</h5>
+<h3 id="post-packagesownerrepovalidate-uploadalpine" class="operation" data-method="post"><code>POST</code> /packages/{owner}/{repo}/validate-upload/alpine/</h3>
+<p>Operation ID: <code>packages_validate-upload_alpine</code>.</p>
+<p>Authentication: API key in the header (<code>apikey</code>) or basic (<code>basic</code>).</p>
+<h4 id="parameters-30">Parameters</h4>
+<p>| Parameter | In | Type | Required | Description |
+| --- | --- | --- | --- |
+| <code>owner</code> | <code>path</code> | <code>any</code> | Yes |  |
+| <code>repo</code> | <code>path</code> | <code>any</code> | Yes |  |
+| <code>data</code> | <code>body</code> | <code>object</code> | No |  |</p>
+<h4 id="responses-30">Responses</h4>
+<h5 id="204-validation-was-successful-parameters-are-ok" class="status" data-status="2xx">204: Validation was successful, parameters are OK</h5>
+<h5 id="400-request-could-not-be-processed-see-detail-27" class="status" data-status="4xx">400: Request could not be processed (see detail)</h5>
+<h5 id="404-namespace-owner-or-repository-not-found-26" class="status" data-status="4xx">404: Namespace (owner) or repository not found</h5>
+<h5 id="422-missing-or-invalid-parameters-see-detail-30" class="status" data-status="4xx">422: Missing or invalid parameters (see detail)</h5>
+<h3 id="post-packagesownerrepovalidate-uploadcargo" class="operation" data-method="post"><code>POST</code> /packages/{owner}/{repo}/validate-upload/cargo/</h3>
+<p>Operation ID: <code>packages_validate-upload_cargo</code>.</p>
+<p>Authentication: API key in the header (<code>apikey</code>) or basic (<code>basic</code>).</p>
+<h4 id="parameters-31">Parameters</h4>
+<p>| Parameter | In | Type | Required | Description |
+| --- | --- | --- | --- |
+| <code>owner</code> | <code>path</code> | <code>any</code> | Yes |  |
+| <code>repo</code> | <code>path</code> | <code>any</code> | Yes |  |
+| <code>data</code> | <code>body</code> | <code>object</code> | No |  |</p>
+<h4 id="responses-31">Responses</h4>
+<h5 id="204-validation-was-successful-parameters-are-ok-1" class="status" data-status="2xx">204: Validation was successful, parameters are OK</h5>
+<h5 id="400-request-could-not-be-processed-see-detail-28" class="status" data-status="4xx">400: Request could not be processed (see detail)</h5>
+<h5 id="404-namespace-owner-or-repository-not-found-27" class="status" data-status="4xx">404: Namespace (owner) or repository not found</h5>
+<h5 id="422-missing-or-invalid-parameters-see-detail-31" class="status" data-status="4xx">422: Missing or invalid parameters (see detail)</h5>
+<h3 id="post-packagesownerrepovalidate-uploadcocoapods" class="operation" data-method="post"><code>POST</code> /packages/{owner}/{repo}/validate-upload/cocoapods/</h3>
+<p>Operation ID: <code>packages_validate-upload_cocoapods</code>.</p>
+<p>Authentication: API key in the header (<code>apikey</code>) or basic (<code>basic</code>).</p>
+<h4 id="parameters-32">Parameters</h4>
+<p>| Parameter | In | Type | Required | Description |
+| --- | --- | --- | --- |
+| <code>owner</code> | <code>path</code> | <code>any</code> | Yes |  |
+| <code>repo</code> | <code>path</code> | <code>any</code> | Yes |  |
+| <code>data</code> | <code>body</code> | <code>object</code> | No |  |</p>
+<h4 id="responses-32">Responses</h4>
+<h5 id="204-validation-was-successful-parameters-are-ok-2" class="status" data-status="2xx">204: Validation was successful, parameters are OK</h5>
+<h5 id="400-request-could-not-be-processed-see-detail-29" class="status" data-status="4xx">400: Request could not be processed (see detail)</h5>
+<h5 id="404-namespace-owner-or-repository-not-found-28" class="status" data-status="4xx">404: Namespace (owner) or repository not found</h5>
+<h5 id="422-missing-or-invalid-parameters-see-detail-32" class="status" data-status="4xx">422: Missing or invalid parameters (see detail)</h5>
+<h3 id="post-packagesownerrepovalidate-uploadcomposer" class="operation" data-method="post"><code>POST</code> /packages/{owner}/{repo}/validate-upload/composer/</h3>
+<p>Operation ID: <code>packages_validate-upload_composer</code>.</p>
+<p>Authentication: API key in the header (<code>apikey</code>) or basic (<code>basic</code>).</p>
+<h4 id="parameters-33">Parameters</h4>
+<p>| Parameter | In | Type | Required | Description |
+| --- | --- | --- | --- |
+| <code>owner</code> | <code>path</code> | <code>any</code> | Yes |  |
+| <code>repo</code> | <code>path</code> | <code>any</code> | Yes |  |
+| <code>data</code> | <code>body</code> | <code>object</code> | No |  |</p>
+<h4 id="responses-33">Responses</h4>
+<h5 id="204-validation-was-successful-parameters-are-ok-3" class="status" data-status="2xx">204: Validation was successful, parameters are OK</h5>
+<h5 id="400-request-could-not-be-processed-see-detail-30" class="status" data-status="4xx">400: Request could not be processed (see detail)</h5>
+<h5 id="404-namespace-owner-or-repository-not-found-29" class="status" data-status="4xx">404: Namespace (owner) or repository not found</h5>
+<h5 id="422-missing-or-invalid-parameters-see-detail-33" class="status" data-status="4xx">422: Missing or invalid parameters (see detail)</h5>
+<h3 id="post-packagesownerrepovalidate-uploadconan" class="operation" data-method="post"><code>POST</code> /packages/{owner}/{repo}/validate-upload/conan/</h3>
+<p>Operation ID: <code>packages_validate-upload_conan</code>.</p>
+<p>Authentication: API key in the header (<code>apikey</code>) or basic (<code>basic</code>).</p>
+<h4 id="parameters-34">Parameters</h4>
+<p>| Parameter | In | Type | Required | Description |
+| --- | --- | --- | --- |
+| <code>owner</code> | <code>path</code> | <code>any</code> | Yes |  |
+| <code>repo</code> | <code>path</code> | <code>any</code> | Yes |  |
+| <code>data</code> | <code>body</code> | <code>object</code> | No |  |</p>
+<h4 id="responses-34">Responses</h4>
+<h5 id="204-validation-was-successful-parameters-are-ok-4" class="status" data-status="2xx">204: Validation was successful, parameters are OK</h5>
+<h5 id="400-request-could-not-be-processed-see-detail-31" class="status" data-status="4xx">400: Request could not be processed (see detail)</h5>
+<h5 id="404-namespace-owner-or-repository-not-found-30" class="status" data-status="4xx">404: Namespace (owner) or repository not found</h5>
+<h5 id="422-missing-or-invalid-parameters-see-detail-34" class="status" data-status="4xx">422: Missing or invalid parameters (see detail)</h5>
+<h3 id="post-packagesownerrepovalidate-uploadconda" class="operation" data-method="post"><code>POST</code> /packages/{owner}/{repo}/validate-upload/conda/</h3>
+<p>Operation ID: <code>packages_validate-upload_conda</code>.</p>
+<p>Authentication: API key in the header (<code>apikey</code>) or basic (<code>basic</code>).</p>
+<h4 id="parameters-35">Parameters</h4>
+<p>| Parameter | In | Type | Required | Description |
+| --- | --- | --- | --- |
+| <code>owner</code> | <code>path</code> | <code>any</code> | Yes |  |
+| <code>repo</code> | <code>path</code> | <code>any</code> | Yes |  |
+| <code>data</code> | <code>body</code> | <code>object</code> | No |  |</p>
+<h4 id="responses-35">Responses</h4>
+<h5 id="204-validation-was-successful-parameters-are-ok-5" class="status" data-status="2xx">204: Validation was successful, parameters are OK</h5>
+<h5 id="400-request-could-not-be-processed-see-detail-32" class="status" data-status="4xx">400: Request could not be processed (see detail)</h5>
+<h5 id="404-namespace-owner-or-repository-not-found-31" class="status" data-status="4xx">404: Namespace (owner) or repository not found</h5>
+<h5 id="422-missing-or-invalid-parameters-see-detail-35" class="status" data-status="4xx">422: Missing or invalid parameters (see detail)</h5>
+<h3 id="post-packagesownerrepovalidate-uploadcran" class="operation" data-method="post"><code>POST</code> /packages/{owner}/{repo}/validate-upload/cran/</h3>
+<p>Operation ID: <code>packages_validate-upload_cran</code>.</p>
+<p>Authentication: API key in the header (<code>apikey</code>) or basic (<code>basic</code>).</p>
+<h4 id="parameters-36">Parameters</h4>
+<p>| Parameter | In | Type | Required | Description |
+| --- | --- | --- | --- |
+| <code>owner</code> | <code>path</code> | <code>any</code> | Yes |  |
+| <code>repo</code> | <code>path</code> | <code>any</code> | Yes |  |
+| <code>data</code> | <code>body</code> | <code>object</code> | No |  |</p>
+<h4 id="responses-36">Responses</h4>
+<h5 id="204-validation-was-successful-parameters-are-ok-6" class="status" data-status="2xx">204: Validation was successful, parameters are OK</h5>
+<h5 id="400-request-could-not-be-processed-see-detail-33" class="status" data-status="4xx">400: Request could not be processed (see detail)</h5>
+<h5 id="404-namespace-owner-or-repository-not-found-32" class="status" data-status="4xx">404: Namespace (owner) or repository not found</h5>
+<h5 id="422-missing-or-invalid-parameters-see-detail-36" class="status" data-status="4xx">422: Missing or invalid parameters (see detail)</h5>
+<h3 id="post-packagesownerrepovalidate-uploaddart" class="operation" data-method="post"><code>POST</code> /packages/{owner}/{repo}/validate-upload/dart/</h3>
+<p>Operation ID: <code>packages_validate-upload_dart</code>.</p>
+<p>Authentication: API key in the header (<code>apikey</code>) or basic (<code>basic</code>).</p>
+<h4 id="parameters-37">Parameters</h4>
+<p>| Parameter | In | Type | Required | Description |
+| --- | --- | --- | --- |
+| <code>owner</code> | <code>path</code> | <code>any</code> | Yes |  |
+| <code>repo</code> | <code>path</code> | <code>any</code> | Yes |  |
+| <code>data</code> | <code>body</code> | <code>object</code> | No |  |</p>
+<h4 id="responses-37">Responses</h4>
+<h5 id="204-validation-was-successful-parameters-are-ok-7" class="status" data-status="2xx">204: Validation was successful, parameters are OK</h5>
+<h5 id="400-request-could-not-be-processed-see-detail-34" class="status" data-status="4xx">400: Request could not be processed (see detail)</h5>
+<h5 id="404-namespace-owner-or-repository-not-found-33" class="status" data-status="4xx">404: Namespace (owner) or repository not found</h5>
+<h5 id="422-missing-or-invalid-parameters-see-detail-37" class="status" data-status="4xx">422: Missing or invalid parameters (see detail)</h5>
+<h3 id="post-packagesownerrepovalidate-uploaddeb" class="operation" data-method="post"><code>POST</code> /packages/{owner}/{repo}/validate-upload/deb/</h3>
+<p>Operation ID: <code>packages_validate-upload_deb</code>.</p>
+<p>Authentication: API key in the header (<code>apikey</code>) or basic (<code>basic</code>).</p>
+<h4 id="parameters-38">Parameters</h4>
+<p>| Parameter | In | Type | Required | Description |
+| --- | --- | --- | --- |
+| <code>owner</code> | <code>path</code> | <code>any</code> | Yes |  |
+| <code>repo</code> | <code>path</code> | <code>any</code> | Yes |  |
+| <code>data</code> | <code>body</code> | <code>object</code> | No |  |</p>
+<h4 id="responses-38">Responses</h4>
+<h5 id="204-validation-was-successful-parameters-are-ok-8" class="status" data-status="2xx">204: Validation was successful, parameters are OK</h5>
+<h5 id="400-request-could-not-be-processed-see-detail-35" class="status" data-status="4xx">400: Request could not be processed (see detail)</h5>
+<h5 id="404-namespace-owner-or-repository-not-found-34" class="status" data-status="4xx">404: Namespace (owner) or repository not found</h5>
+<h5 id="422-missing-or-invalid-parameters-see-detail-38" class="status" data-status="4xx">422: Missing or invalid parameters (see detail)</h5>
+<h3 id="post-packagesownerrepovalidate-uploaddocker" class="operation" data-method="post"><code>POST</code> /packages/{owner}/{repo}/validate-upload/docker/</h3>
+<p>Operation ID: <code>packages_validate-upload_docker</code>.</p>
+<p>Authentication: API key in the header (<code>apikey</code>) or basic (<code>basic</code>).</p>
+<h4 id="parameters-39">Parameters</h4>
+<p>| Parameter | In | Type | Required | Description |
+| --- | --- | --- | --- |
+| <code>owner</code> | <code>path</code> | <code>any</code> | Yes |  |
+| <code>repo</code> | <code>path</code> | <code>any</code> | Yes |  |
+| <code>data</code> | <code>body</code> | <code>object</code> | No |  |</p>
+<h4 id="responses-39">Responses</h4>
+<h5 id="204-validation-was-successful-parameters-are-ok-9" class="status" data-status="2xx">204: Validation was successful, parameters are OK</h5>
+<h5 id="400-request-could-not-be-processed-see-detail-36" class="status" data-status="4xx">400: Request could not be processed (see detail)</h5>
+<h5 id="404-namespace-owner-or-repository-not-found-35" class="status" data-status="4xx">404: Namespace (owner) or repository not found</h5>
+<h5 id="422-missing-or-invalid-parameters-see-detail-39" class="status" data-status="4xx">422: Missing or invalid parameters (see detail)</h5>
+<h3 id="post-packagesownerrepovalidate-uploadgo" class="operation" data-method="post"><code>POST</code> /packages/{owner}/{repo}/validate-upload/go/</h3>
+<p>Operation ID: <code>packages_validate-upload_go</code>.</p>
+<p>Authentication: API key in the header (<code>apikey</code>) or basic (<code>basic</code>).</p>
+<h4 id="parameters-40">Parameters</h4>
+<p>| Parameter | In | Type | Required | Description |
+| --- | --- | --- | --- |
+| <code>owner</code> | <code>path</code> | <code>any</code> | Yes |  |
+| <code>repo</code> | <code>path</code> | <code>any</code> | Yes |  |
+| <code>data</code> | <code>body</code> | <code>object</code> | No |  |</p>
+<h4 id="responses-40">Responses</h4>
+<h5 id="204-validation-was-successful-parameters-are-ok-10" class="status" data-status="2xx">204: Validation was successful, parameters are OK</h5>
+<h5 id="400-request-could-not-be-processed-see-detail-37" class="status" data-status="4xx">400: Request could not be processed (see detail)</h5>
+<h5 id="404-namespace-owner-or-repository-not-found-36" class="status" data-status="4xx">404: Namespace (owner) or repository not found</h5>
+<h5 id="422-missing-or-invalid-parameters-see-detail-40" class="status" data-status="4xx">422: Missing or invalid parameters (see detail)</h5>
+<h3 id="post-packagesownerrepovalidate-uploadhelm" class="operation" data-method="post"><code>POST</code> /packages/{owner}/{repo}/validate-upload/helm/</h3>
+<p>Operation ID: <code>packages_validate-upload_helm</code>.</p>
+<p>Authentication: API key in the header (<code>apikey</code>) or basic (<code>basic</code>).</p>
+<h4 id="parameters-41">Parameters</h4>
+<p>| Parameter | In | Type | Required | Description |
+| --- | --- | --- | --- |
+| <code>owner</code> | <code>path</code> | <code>any</code> | Yes |  |
+| <code>repo</code> | <code>path</code> | <code>any</code> | Yes |  |
+| <code>data</code> | <code>body</code> | <code>object</code> | No |  |</p>
+<h4 id="responses-41">Responses</h4>
+<h5 id="204-validation-was-successful-parameters-are-ok-11" class="status" data-status="2xx">204: Validation was successful, parameters are OK</h5>
+<h5 id="400-request-could-not-be-processed-see-detail-38" class="status" data-status="4xx">400: Request could not be processed (see detail)</h5>
+<h5 id="404-namespace-owner-or-repository-not-found-37" class="status" data-status="4xx">404: Namespace (owner) or repository not found</h5>
+<h5 id="422-missing-or-invalid-parameters-see-detail-41" class="status" data-status="4xx">422: Missing or invalid parameters (see detail)</h5>
+<h3 id="post-packagesownerrepovalidate-uploadhex" class="operation" data-method="post"><code>POST</code> /packages/{owner}/{repo}/validate-upload/hex/</h3>
+<p>Operation ID: <code>packages_validate-upload_hex</code>.</p>
+<p>Authentication: API key in the header (<code>apikey</code>) or basic (<code>basic</code>).</p>
+<h4 id="parameters-42">Parameters</h4>
+<p>| Parameter | In | Type | Required | Description |
+| --- | --- | --- | --- |
+| <code>owner</code> | <code>path</code> | <code>any</code> | Yes |  |
+| <code>repo</code> | <code>path</code> | <code>any</code> | Yes |  |
+| <code>data</code> | <code>body</code> | <code>object</code> | No |  |</p>
+<h4 id="responses-42">Responses</h4>
+<h5 id="204-validation-was-successful-parameters-are-ok-12" class="status" data-status="2xx">204: Validation was successful, parameters are OK</h5>
+<h5 id="400-request-could-not-be-processed-see-detail-39" class="status" data-status="4xx">400: Request could not be processed (see detail)</h5>
+<h5 id="404-namespace-owner-or-repository-not-found-38" class="status" data-status="4xx">404: Namespace (owner) or repository not found</h5>
+<h5 id="422-missing-or-invalid-parameters-see-detail-42" class="status" data-status="4xx">422: Missing or invalid parameters (see detail)</h5>
+<h3 id="post-packagesownerrepovalidate-uploadhuggingface" class="operation" data-method="post"><code>POST</code> /packages/{owner}/{repo}/validate-upload/huggingface/</h3>
+<p>Operation ID: <code>packages_validate-upload_huggingface</code>.</p>
+<p>Authentication: API key in the header (<code>apikey</code>) or basic (<code>basic</code>).</p>
+<h4 id="parameters-43">Parameters</h4>
+<p>| Parameter | In | Type | Required | Description |
+| --- | --- | --- | --- |
+| <code>owner</code> | <code>path</code> | <code>any</code> | Yes |  |
+| <code>repo</code> | <code>path</code> | <code>any</code> | Yes |  |
+| <code>data</code> | <code>body</code> | <code>object</code> | No |  |</p>
+<h4 id="responses-43">Responses</h4>
+<h5 id="204-validation-was-successful-parameters-are-ok-13" class="status" data-status="2xx">204: Validation was successful, parameters are OK</h5>
+<h5 id="400-request-could-not-be-processed-see-detail-40" class="status" data-status="4xx">400: Request could not be processed (see detail)</h5>
+<h5 id="404-namespace-owner-or-repository-not-found-39" class="status" data-status="4xx">404: Namespace (owner) or repository not found</h5>
+<h5 id="422-missing-or-invalid-parameters-see-detail-43" class="status" data-status="4xx">422: Missing or invalid parameters (see detail)</h5>
+<h3 id="post-packagesownerrepovalidate-uploadluarocks" class="operation" data-method="post"><code>POST</code> /packages/{owner}/{repo}/validate-upload/luarocks/</h3>
+<p>Operation ID: <code>packages_validate-upload_luarocks</code>.</p>
+<p>Authentication: API key in the header (<code>apikey</code>) or basic (<code>basic</code>).</p>
+<h4 id="parameters-44">Parameters</h4>
+<p>| Parameter | In | Type | Required | Description |
+| --- | --- | --- | --- |
+| <code>owner</code> | <code>path</code> | <code>any</code> | Yes |  |
+| <code>repo</code> | <code>path</code> | <code>any</code> | Yes |  |
+| <code>data</code> | <code>body</code> | <code>object</code> | No |  |</p>
+<h4 id="responses-44">Responses</h4>
+<h5 id="204-validation-was-successful-parameters-are-ok-14" class="status" data-status="2xx">204: Validation was successful, parameters are OK</h5>
+<h5 id="400-request-could-not-be-processed-see-detail-41" class="status" data-status="4xx">400: Request could not be processed (see detail)</h5>
+<h5 id="404-namespace-owner-or-repository-not-found-40" class="status" data-status="4xx">404: Namespace (owner) or repository not found</h5>
+<h5 id="422-missing-or-invalid-parameters-see-detail-44" class="status" data-status="4xx">422: Missing or invalid parameters (see detail)</h5>
+<h3 id="post-packagesownerrepovalidate-uploadmaven" class="operation" data-method="post"><code>POST</code> /packages/{owner}/{repo}/validate-upload/maven/</h3>
+<p>Operation ID: <code>packages_validate-upload_maven</code>.</p>
+<p>Authentication: API key in the header (<code>apikey</code>) or basic (<code>basic</code>).</p>
+<h4 id="parameters-45">Parameters</h4>
+<p>| Parameter | In | Type | Required | Description |
+| --- | --- | --- | --- |
+| <code>owner</code> | <code>path</code> | <code>any</code> | Yes |  |
+| <code>repo</code> | <code>path</code> | <code>any</code> | Yes |  |
+| <code>data</code> | <code>body</code> | <code>object</code> | No |  |</p>
+<h4 id="responses-45">Responses</h4>
+<h5 id="204-validation-was-successful-parameters-are-ok-15" class="status" data-status="2xx">204: Validation was successful, parameters are OK</h5>
+<h5 id="400-request-could-not-be-processed-see-detail-42" class="status" data-status="4xx">400: Request could not be processed (see detail)</h5>
+<h5 id="404-namespace-owner-or-repository-not-found-41" class="status" data-status="4xx">404: Namespace (owner) or repository not found</h5>
+<h5 id="422-missing-or-invalid-parameters-see-detail-45" class="status" data-status="4xx">422: Missing or invalid parameters (see detail)</h5>
+<h3 id="post-packagesownerrepovalidate-uploadnpm" class="operation" data-method="post"><code>POST</code> /packages/{owner}/{repo}/validate-upload/npm/</h3>
+<p>Operation ID: <code>packages_validate-upload_npm</code>.</p>
+<p>Authentication: API key in the header (<code>apikey</code>) or basic (<code>basic</code>).</p>
+<h4 id="parameters-46">Parameters</h4>
+<p>| Parameter | In | Type | Required | Description |
+| --- | --- | --- | --- |
+| <code>owner</code> | <code>path</code> | <code>any</code> | Yes |  |
+| <code>repo</code> | <code>path</code> | <code>any</code> | Yes |  |
+| <code>data</code> | <code>body</code> | <code>object</code> | No |  |</p>
+<h4 id="responses-46">Responses</h4>
+<h5 id="204-validation-was-successful-parameters-are-ok-16" class="status" data-status="2xx">204: Validation was successful, parameters are OK</h5>
+<h5 id="400-request-could-not-be-processed-see-detail-43" class="status" data-status="4xx">400: Request could not be processed (see detail)</h5>
+<h5 id="404-namespace-owner-or-repository-not-found-42" class="status" data-status="4xx">404: Namespace (owner) or repository not found</h5>
+<h5 id="422-missing-or-invalid-parameters-see-detail-46" class="status" data-status="4xx">422: Missing or invalid parameters (see detail)</h5>
+<h3 id="post-packagesownerrepovalidate-uploadnuget" class="operation" data-method="post"><code>POST</code> /packages/{owner}/{repo}/validate-upload/nuget/</h3>
+<p>Operation ID: <code>packages_validate-upload_nuget</code>.</p>
+<p>Authentication: API key in the header (<code>apikey</code>) or basic (<code>basic</code>).</p>
+<h4 id="parameters-47">Parameters</h4>
+<p>| Parameter | In | Type | Required | Description |
+| --- | --- | --- | --- |
+| <code>owner</code> | <code>path</code> | <code>any</code> | Yes |  |
+| <code>repo</code> | <code>path</code> | <code>any</code> | Yes |  |
+| <code>data</code> | <code>body</code> | <code>object</code> | No |  |</p>
+<h4 id="responses-47">Responses</h4>
+<h5 id="204-validation-was-successful-parameters-are-ok-17" class="status" data-status="2xx">204: Validation was successful, parameters are OK</h5>
+<h5 id="400-request-could-not-be-processed-see-detail-44" class="status" data-status="4xx">400: Request could not be processed (see detail)</h5>
+<h5 id="404-namespace-owner-or-repository-not-found-43" class="status" data-status="4xx">404: Namespace (owner) or repository not found</h5>
+<h5 id="422-missing-or-invalid-parameters-see-detail-47" class="status" data-status="4xx">422: Missing or invalid parameters (see detail)</h5>
+<h3 id="post-packagesownerrepovalidate-uploadp2" class="operation" data-method="post"><code>POST</code> /packages/{owner}/{repo}/validate-upload/p2/</h3>
+<p>Operation ID: <code>packages_validate-upload_p2</code>.</p>
+<p>Authentication: API key in the header (<code>apikey</code>) or basic (<code>basic</code>).</p>
+<h4 id="parameters-48">Parameters</h4>
+<p>| Parameter | In | Type | Required | Description |
+| --- | --- | --- | --- |
+| <code>owner</code> | <code>path</code> | <code>any</code> | Yes |  |
+| <code>repo</code> | <code>path</code> | <code>any</code> | Yes |  |
+| <code>data</code> | <code>body</code> | <code>object</code> | No |  |</p>
+<h4 id="responses-48">Responses</h4>
+<h5 id="204-validation-was-successful-parameters-are-ok-18" class="status" data-status="2xx">204: Validation was successful, parameters are OK</h5>
+<h5 id="400-request-could-not-be-processed-see-detail-45" class="status" data-status="4xx">400: Request could not be processed (see detail)</h5>
+<h5 id="404-namespace-owner-or-repository-not-found-44" class="status" data-status="4xx">404: Namespace (owner) or repository not found</h5>
+<h5 id="422-missing-or-invalid-parameters-see-detail-48" class="status" data-status="4xx">422: Missing or invalid parameters (see detail)</h5>
+<h3 id="post-packagesownerrepovalidate-uploadpython" class="operation" data-method="post"><code>POST</code> /packages/{owner}/{repo}/validate-upload/python/</h3>
+<p>Operation ID: <code>packages_validate-upload_python</code>.</p>
+<p>Authentication: API key in the header (<code>apikey</code>) or basic (<code>basic</code>).</p>
+<h4 id="parameters-49">Parameters</h4>
+<p>| Parameter | In | Type | Required | Description |
+| --- | --- | --- | --- |
+| <code>owner</code> | <code>path</code> | <code>any</code> | Yes |  |
+| <code>repo</code> | <code>path</code> | <code>any</code> | Yes |  |
+| <code>data</code> | <code>body</code> | <code>object</code> | No |  |</p>
+<h4 id="responses-49">Responses</h4>
+<h5 id="204-validation-was-successful-parameters-are-ok-19" class="status" data-status="2xx">204: Validation was successful, parameters are OK</h5>
+<h5 id="400-request-could-not-be-processed-see-detail-46" class="status" data-status="4xx">400: Request could not be processed (see detail)</h5>
+<h5 id="404-namespace-owner-or-repository-not-found-45" class="status" data-status="4xx">404: Namespace (owner) or repository not found</h5>
+<h5 id="422-missing-or-invalid-parameters-see-detail-49" class="status" data-status="4xx">422: Missing or invalid parameters (see detail)</h5>
+<h3 id="post-packagesownerrepovalidate-uploadraw" class="operation" data-method="post"><code>POST</code> /packages/{owner}/{repo}/validate-upload/raw/</h3>
+<p>Operation ID: <code>packages_validate-upload_raw</code>.</p>
+<p>Authentication: API key in the header (<code>apikey</code>) or basic (<code>basic</code>).</p>
+<h4 id="parameters-50">Parameters</h4>
+<p>| Parameter | In | Type | Required | Description |
+| --- | --- | --- | --- |
+| <code>owner</code> | <code>path</code> | <code>any</code> | Yes |  |
+| <code>repo</code> | <code>path</code> | <code>any</code> | Yes |  |
+| <code>data</code> | <code>body</code> | <code>object</code> | No |  |</p>
+<h4 id="responses-50">Responses</h4>
+<h5 id="204-validation-was-successful-parameters-are-ok-20" class="status" data-status="2xx">204: Validation was successful, parameters are OK</h5>
+<h5 id="400-request-could-not-be-processed-see-detail-47" class="status" data-status="4xx">400: Request could not be processed (see detail)</h5>
+<h5 id="404-namespace-owner-or-repository-not-found-46" class="status" data-status="4xx">404: Namespace (owner) or repository not found</h5>
+<h5 id="422-missing-or-invalid-parameters-see-detail-50" class="status" data-status="4xx">422: Missing or invalid parameters (see detail)</h5>
+<h3 id="post-packagesownerrepovalidate-uploadrpm" class="operation" data-method="post"><code>POST</code> /packages/{owner}/{repo}/validate-upload/rpm/</h3>
+<p>Operation ID: <code>packages_validate-upload_rpm</code>.</p>
+<p>Authentication: API key in the header (<code>apikey</code>) or basic (<code>basic</code>).</p>
+<h4 id="parameters-51">Parameters</h4>
+<p>| Parameter | In | Type | Required | Description |
+| --- | --- | --- | --- |
+| <code>owner</code> | <code>path</code> | <code>any</code> | Yes |  |
+| <code>repo</code> | <code>path</code> | <code>any</code> | Yes |  |
+| <code>data</code> | <code>body</code> | <code>object</code> | No |  |</p>
+<h4 id="responses-51">Responses</h4>
+<h5 id="204-validation-was-successful-parameters-are-ok-21" class="status" data-status="2xx">204: Validation was successful, parameters are OK</h5>
+<h5 id="400-request-could-not-be-processed-see-detail-48" class="status" data-status="4xx">400: Request could not be processed (see detail)</h5>
+<h5 id="404-namespace-owner-or-repository-not-found-47" class="status" data-status="4xx">404: Namespace (owner) or repository not found</h5>
+<h5 id="422-missing-or-invalid-parameters-see-detail-51" class="status" data-status="4xx">422: Missing or invalid parameters (see detail)</h5>
+<h3 id="post-packagesownerrepovalidate-uploadruby" class="operation" data-method="post"><code>POST</code> /packages/{owner}/{repo}/validate-upload/ruby/</h3>
+<p>Operation ID: <code>packages_validate-upload_ruby</code>.</p>
+<p>Authentication: API key in the header (<code>apikey</code>) or basic (<code>basic</code>).</p>
+<h4 id="parameters-52">Parameters</h4>
+<p>| Parameter | In | Type | Required | Description |
+| --- | --- | --- | --- |
+| <code>owner</code> | <code>path</code> | <code>any</code> | Yes |  |
+| <code>repo</code> | <code>path</code> | <code>any</code> | Yes |  |
+| <code>data</code> | <code>body</code> | <code>object</code> | No |  |</p>
+<h4 id="responses-52">Responses</h4>
+<h5 id="204-validation-was-successful-parameters-are-ok-22" class="status" data-status="2xx">204: Validation was successful, parameters are OK</h5>
+<h5 id="400-request-could-not-be-processed-see-detail-49" class="status" data-status="4xx">400: Request could not be processed (see detail)</h5>
+<h5 id="404-namespace-owner-or-repository-not-found-48" class="status" data-status="4xx">404: Namespace (owner) or repository not found</h5>
+<h5 id="422-missing-or-invalid-parameters-see-detail-52" class="status" data-status="4xx">422: Missing or invalid parameters (see detail)</h5>
+<h3 id="post-packagesownerrepovalidate-uploadswift" class="operation" data-method="post"><code>POST</code> /packages/{owner}/{repo}/validate-upload/swift/</h3>
+<p>Operation ID: <code>packages_validate-upload_swift</code>.</p>
+<p>Authentication: API key in the header (<code>apikey</code>) or basic (<code>basic</code>).</p>
+<h4 id="parameters-53">Parameters</h4>
+<p>| Parameter | In | Type | Required | Description |
+| --- | --- | --- | --- |
+| <code>owner</code> | <code>path</code> | <code>any</code> | Yes |  |
+| <code>repo</code> | <code>path</code> | <code>any</code> | Yes |  |
+| <code>data</code> | <code>body</code> | <code>object</code> | No |  |</p>
+<h4 id="responses-53">Responses</h4>
+<h5 id="204-validation-was-successful-parameters-are-ok-23" class="status" data-status="2xx">204: Validation was successful, parameters are OK</h5>
+<h5 id="400-request-could-not-be-processed-see-detail-50" class="status" data-status="4xx">400: Request could not be processed (see detail)</h5>
+<h5 id="404-namespace-owner-or-repository-not-found-49" class="status" data-status="4xx">404: Namespace (owner) or repository not found</h5>
+<h5 id="422-missing-or-invalid-parameters-see-detail-53" class="status" data-status="4xx">422: Missing or invalid parameters (see detail)</h5>
+<h3 id="post-packagesownerrepovalidate-uploadterraform" class="operation" data-method="post"><code>POST</code> /packages/{owner}/{repo}/validate-upload/terraform/</h3>
+<p>Operation ID: <code>packages_validate-upload_terraform</code>.</p>
+<p>Authentication: API key in the header (<code>apikey</code>) or basic (<code>basic</code>).</p>
+<h4 id="parameters-54">Parameters</h4>
+<p>| Parameter | In | Type | Required | Description |
+| --- | --- | --- | --- |
+| <code>owner</code> | <code>path</code> | <code>any</code> | Yes |  |
+| <code>repo</code> | <code>path</code> | <code>any</code> | Yes |  |
+| <code>data</code> | <code>body</code> | <code>object</code> | No |  |</p>
+<h4 id="responses-54">Responses</h4>
+<h5 id="204-validation-was-successful-parameters-are-ok-24" class="status" data-status="2xx">204: Validation was successful, parameters are OK</h5>
+<h5 id="400-request-could-not-be-processed-see-detail-51" class="status" data-status="4xx">400: Request could not be processed (see detail)</h5>
+<h5 id="404-namespace-owner-or-repository-not-found-50" class="status" data-status="4xx">404: Namespace (owner) or repository not found</h5>
+<h5 id="422-missing-or-invalid-parameters-see-detail-54" class="status" data-status="4xx">422: Missing or invalid parameters (see detail)</h5>
+<h3 id="post-packagesownerrepovalidate-uploadvagrant" class="operation" data-method="post"><code>POST</code> /packages/{owner}/{repo}/validate-upload/vagrant/</h3>
+<p>Operation ID: <code>packages_validate-upload_vagrant</code>.</p>
+<p>Authentication: API key in the header (<code>apikey</code>) or basic (<code>basic</code>).</p>
+<h4 id="parameters-55">Parameters</h4>
+<p>| Parameter | In | Type | Required | Description |
+| --- | --- | --- | --- |
+| <code>owner</code> | <code>path</code> | <code>any</code> | Yes |  |
+| <code>repo</code> | <code>path</code> | <code>any</code> | Yes |  |
+| <code>data</code> | <code>body</code> | <code>object</code> | No |  |</p>
+<h4 id="responses-55">Responses</h4>
+<h5 id="204-validation-was-successful-parameters-are-ok-25" class="status" data-status="2xx">204: Validation was successful, parameters are OK</h5>
+<h5 id="400-request-could-not-be-processed-see-detail-52" class="status" data-status="4xx">400: Request could not be processed (see detail)</h5>
+<h5 id="404-namespace-owner-or-repository-not-found-51" class="status" data-status="4xx">404: Namespace (owner) or repository not found</h5>
+<h5 id="422-missing-or-invalid-parameters-see-detail-55" class="status" data-status="4xx">422: Missing or invalid parameters (see detail)</h5>
+<h3 id="post-packagesownerrepoidentifierresync" class="operation" data-method="post"><code>POST</code> /packages/{owner}/{repo}/{identifier}/resync/</h3>
+<p>Operation ID: <code>packages_resync</code>.</p>
+<p>Authentication: API key in the header (<code>apikey</code>) or basic (<code>basic</code>).</p>
+<h4 id="parameters-56">Parameters</h4>
+<p>| Parameter | In | Type | Required | Description |
+| --- | --- | --- | --- |
+| <code>owner</code> | <code>path</code> | <code>any</code> | Yes |  |
+| <code>repo</code> | <code>path</code> | <code>any</code> | Yes |  |
+| <code>identifier</code> | <code>path</code> | <code>any</code> | Yes |  |</p>
+<h4 id="responses-56">Responses</h4>
+<h5 id="200-scheduled-the-package-for-resynchronisation" class="status" data-status="2xx">200: Scheduled the package for resynchronisation</h5>
+<h5 id="400-the-package-is-in-the-wrong-state-for-the-requested-operation-3" class="status" data-status="4xx">400: The package is in the wrong state for the requested operation</h5>
+<h5 id="422-missing-or-invalid-parameters-see-detail-56" class="status" data-status="4xx">422: Missing or invalid parameters (see detail)</h5>
+<h3 id="post-packagesownerrepoidentifierscan" class="operation" data-method="post"><code>POST</code> /packages/{owner}/{repo}/{identifier}/scan/</h3>
+<p>Operation ID: <code>packages_scan</code>.</p>
+<p>Authentication: API key in the header (<code>apikey</code>) or basic (<code>basic</code>).</p>
+<h4 id="parameters-57">Parameters</h4>
+<p>| Parameter | In | Type | Required | Description |
+| --- | --- | --- | --- |
+| <code>owner</code> | <code>path</code> | <code>any</code> | Yes |  |
+| <code>repo</code> | <code>path</code> | <code>any</code> | Yes |  |
+| <code>identifier</code> | <code>path</code> | <code>any</code> | Yes |  |</p>
+<h4 id="responses-57">Responses</h4>
+<h5 id="200-scheduled-the-package-for-scanning" class="status" data-status="2xx">200: Scheduled the package for scanning</h5>
+<h5 id="400-request-could-not-be-processed-see-detail-53" class="status" data-status="4xx">400: Request could not be processed (see detail)</h5>
+<h5 id="422-missing-or-invalid-parameters-see-detail-57" class="status" data-status="4xx">422: Missing or invalid parameters (see detail)</h5>
+<h2 id="list">list</h2>
+<h3 id="get-packagesownerrepogroups" class="operation" data-method="get"><code>GET</code> /packages/{owner}/{repo}/groups/</h3>
+<p>Operation ID: <code>packages_groups_list</code>.</p>
+<p>Authentication: API key in the header (<code>apikey</code>) or basic (<code>basic</code>).</p>
+<h4 id="parameters-58">Parameters</h4>
+<p>| Parameter | In | Type | Required | Description |
+| --- | --- | --- | --- |
+| <code>owner</code> | <code>path</code> | <code>any</code> | Yes |  |
+| <code>repo</code> | <code>path</code> | <code>any</code> | Yes |  |
+| <code>page</code> | <code>query</code> | <code>any</code> | No | A page number within the paginated result set. |
+| <code>page_size</code> | <code>query</code> | <code>any</code> | No | Number of results to return per page. |
+| <code>group_by</code> | <code>query</code> | <code>any</code> | No | A field to group packages by. Available options: name, backend_kind. |
+| <code>query</code> | <code>query</code> | <code>any</code> | No | A search term for querying names, filenames, versions, distributions, architectures, formats, or statuses of packages. |
+| <code>sort</code> | <code>query</code> | <code>any</code> | No | A field for sorting objects in ascending or descending order. Use <code>-</code> prefix for descending order (for example, <code>-name</code>). Available options: name, count, num_downloads, size, last_push, backend_kind. |</p>
+<h4 id="responses-58">Responses</h4>
+<h5 id="200-retrieved-the-list-of-package-groups" class="status" data-status="2xx">200: Retrieved the list of package groups</h5>
+<h5 id="400-request-could-not-be-processed-see-detail-54" class="status" data-status="4xx">400: Request could not be processed (see detail)</h5>
+<h5 id="404-owner-namespace-or-repository-not-found" class="status" data-status="4xx">404: Owner namespace or repository not found</h5>
+<h5 id="422-missing-or-invalid-parameters-see-detail-58" class="status" data-status="4xx">422: Missing or invalid parameters (see detail)</h5>
+<h3 id="get-packagesownerrepo" class="operation" data-method="get"><code>GET</code> /packages/{owner}/{repo}/</h3>
+<p>Operation ID: <code>packages_list</code>.</p>
+<p>Authentication: API key in the header (<code>apikey</code>) or basic (<code>basic</code>).</p>
+<h4 id="parameters-59">Parameters</h4>
+<p>| Parameter | In | Type | Required | Description |
+| --- | --- | --- | --- |
+| <code>owner</code> | <code>path</code> | <code>any</code> | Yes |  |
+| <code>repo</code> | <code>path</code> | <code>any</code> | Yes |  |
+| <code>page</code> | <code>query</code> | <code>any</code> | No | A page number within the paginated result set. |
+| <code>page_size</code> | <code>query</code> | <code>any</code> | No | Number of results to return per page. |
+| <code>query</code> | <code>query</code> | <code>any</code> | No | A search term for querying names, filenames, versions, distributions, architectures, formats or statuses of packages. |
+| <code>sort</code> | <code>query</code> | <code>any</code> | No | A field for sorting objects in ascending or descending order. |</p>
+<h4 id="responses-59">Responses</h4>
+<h5 id="200-retrieved-the-list-of-packages" class="status" data-status="2xx">200: Retrieved the list of packages</h5>
+<h5 id="400-request-could-not-be-processed-see-detail-55" class="status" data-status="4xx">400: Request could not be processed (see detail)</h5>
+<h5 id="422-missing-or-invalid-parameters-see-detail-59" class="status" data-status="4xx">422: Missing or invalid parameters (see detail)</h5>
+<h3 id="get-packagesownerrepoidentifierdependencies" class="operation" data-method="get"><code>GET</code> /packages/{owner}/{repo}/{identifier}/dependencies/</h3>
+<p>Operation ID: <code>packages_dependencies</code>.</p>
+<p>Authentication: API key in the header (<code>apikey</code>) or basic (<code>basic</code>).</p>
+<h4 id="parameters-60">Parameters</h4>
+<p>| Parameter | In | Type | Required | Description |
+| --- | --- | --- | --- |
+| <code>owner</code> | <code>path</code> | <code>any</code> | Yes |  |
+| <code>repo</code> | <code>path</code> | <code>any</code> | Yes |  |
+| <code>identifier</code> | <code>path</code> | <code>any</code> | Yes |  |</p>
+<h4 id="responses-60">Responses</h4>
+<h5 id="200-retrieved-stored-dependencies-for-specified-package" class="status" data-status="2xx">200: Retrieved stored dependencies for specified package</h5>
+<h5 id="400-request-could-not-be-processed-see-detail-56" class="status" data-status="4xx">400: Request could not be processed (see detail)</h5>
+<h5 id="422-missing-or-invalid-parameters-see-detail-60" class="status" data-status="4xx">422: Missing or invalid parameters (see detail)</h5>
+<h2 id="load">load</h2>
+<h3 id="get-metricspackagesownerrepo" class="operation" data-method="get"><code>GET</code> /metrics/packages/{owner}/{repo}/</h3>
+<p>Operation ID: <code>metrics_packages_list</code>.</p>
+<p>Authentication: API key in the header (<code>apikey</code>) or basic (<code>basic</code>).</p>
+<h4 id="parameters-61">Parameters</h4>
+<p>| Parameter | In | Type | Required | Description |
+| --- | --- | --- | --- |
+| <code>owner</code> | <code>path</code> | <code>any</code> | Yes |  |
+| <code>repo</code> | <code>path</code> | <code>any</code> | Yes |  |
+| <code>page</code> | <code>query</code> | <code>any</code> | No | A page number within the paginated result set. |
+| <code>page_size</code> | <code>query</code> | <code>any</code> | No | Number of results to return per page. |
+| <code>finish</code> | <code>query</code> | <code>any</code> | No | Include metrics upto and including this UTC date or UTC datetime. For example '2020-12-31' or '2021-12-13T00:00:00Z'. |
+| <code>packages</code> | <code>query</code> | <code>any</code> | No | A comma seperated list of packages (slug perm) to include in the results. |
+| <code>start</code> | <code>query</code> | <code>any</code> | No | Include metrics from and including this UTC date or UTC datetime. For example '2020-12-31' or '2021-12-13T00:00:00Z'. |</p>
+<h4 id="responses-61">Responses</h4>
+<h5 id="200-retrieved-the-metrics-for-packages" class="status" data-status="2xx">200: Retrieved the metrics for packages</h5>
+<h5 id="400-request-could-not-be-processed-see-detail-57" class="status" data-status="4xx">400: Request could not be processed (see detail)</h5>
+<h5 id="422-missing-or-invalid-parameters-see-detail-61" class="status" data-status="4xx">422: Missing or invalid parameters (see detail)</h5>
+<h3 id="get-packagesownerrepoidentifier" class="operation" data-method="get"><code>GET</code> /packages/{owner}/{repo}/{identifier}/</h3>
+<p>Operation ID: <code>packages_read</code>.</p>
+<p>Authentication: API key in the header (<code>apikey</code>) or basic (<code>basic</code>).</p>
+<h4 id="parameters-62">Parameters</h4>
+<p>| Parameter | In | Type | Required | Description |
+| --- | --- | --- | --- |
+| <code>owner</code> | <code>path</code> | <code>any</code> | Yes |  |
+| <code>repo</code> | <code>path</code> | <code>any</code> | Yes |  |
+| <code>identifier</code> | <code>path</code> | <code>any</code> | Yes |  |</p>
+<h4 id="responses-62">Responses</h4>
+<h5 id="200-retrieved-the-specified-package-successfully" class="status" data-status="2xx">200: Retrieved the specified package successfully</h5>
+<h5 id="400-request-could-not-be-processed-see-detail-58" class="status" data-status="4xx">400: Request could not be processed (see detail)</h5>
+<h5 id="422-missing-or-invalid-parameters-see-detail-62" class="status" data-status="4xx">422: Missing or invalid parameters (see detail)</h5>
+<h3 id="get-packagesownerrepoidentifierstatus" class="operation" data-method="get"><code>GET</code> /packages/{owner}/{repo}/{identifier}/status/</h3>
+<p>Operation ID: <code>packages_status</code>.</p>
+<p>Authentication: API key in the header (<code>apikey</code>) or basic (<code>basic</code>).</p>
+<h4 id="parameters-63">Parameters</h4>
+<p>| Parameter | In | Type | Required | Description |
+| --- | --- | --- | --- |
+| <code>owner</code> | <code>path</code> | <code>any</code> | Yes |  |
+| <code>repo</code> | <code>path</code> | <code>any</code> | Yes |  |
+| <code>identifier</code> | <code>path</code> | <code>any</code> | Yes |  |</p>
+<h4 id="responses-63">Responses</h4>
+<h5 id="200-retrieved-status-for-specified-package" class="status" data-status="2xx">200: Retrieved status for specified package</h5>
+<h5 id="400-request-could-not-be-processed-see-detail-59" class="status" data-status="4xx">400: Request could not be processed (see detail)</h5>
+<h5 id="422-missing-or-invalid-parameters-see-detail-63" class="status" data-status="4xx">422: Missing or invalid parameters (see detail)</h5>
+<h2 id="remove">remove</h2>
+<h3 id="delete-packagesownerrepoidentifier" class="operation" data-method="delete"><code>DELETE</code> /packages/{owner}/{repo}/{identifier}/</h3>
+<p>Operation ID: <code>packages_delete</code>.</p>
+<p>Authentication: API key in the header (<code>apikey</code>) or basic (<code>basic</code>).</p>
+<h4 id="parameters-64">Parameters</h4>
+<p>| Parameter | In | Type | Required | Description |
+| --- | --- | --- | --- |
+| <code>owner</code> | <code>path</code> | <code>any</code> | Yes |  |
+| <code>repo</code> | <code>path</code> | <code>any</code> | Yes |  |
+| <code>identifier</code> | <code>path</code> | <code>any</code> | Yes |  |</p>
+<h4 id="responses-64">Responses</h4>
+<h5 id="204-deleted-the-specified-package-successfully" class="status" data-status="2xx">204: Deleted the specified package successfully</h5>
+<h5 id="400-the-package-cannot-be-deleted" class="status" data-status="4xx">400: The package cannot be deleted</h5>
+<h5 id="422-missing-or-invalid-parameters-see-detail-64" class="status" data-status="4xx">422: Missing or invalid parameters (see detail)</h5>
+</main></div>
+<script src="../assets/search.js" defer></script></body></html>

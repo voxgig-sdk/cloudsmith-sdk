@@ -110,7 +110,7 @@ class RepositoryTokenEntityTest extends TestCase
             "repo" => $setup["idmap"]["repo"],
         ];
 
-        $repository_token_ref01_markdef_up0_name = "created_at";
+        $repository_token_ref01_markdef_up0_name = "limit_bandwidth_unit";
         $repository_token_ref01_markdef_up0_value = "Mark01-repository_token_ref01_" . $setup["now"];
         $repository_token_ref01_data_up0_up[$repository_token_ref01_markdef_up0_name] = $repository_token_ref01_markdef_up0_value;
 

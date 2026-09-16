@@ -10,5 +10,6 @@
     "retention": {
       "retention_ref01": {}
     }
-  }
+  },
+  "requests": {}
 }

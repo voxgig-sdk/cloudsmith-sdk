@@ -35,7 +35,7 @@ main: kit: flow: BasicOrgFlow:
         ref: "org_ref01",
         srcdatavar: "org_ref01_data",
         suffix: "_up0",
-        textfield: "country"
+        textfield: "name"
       }
 
       op: "update",

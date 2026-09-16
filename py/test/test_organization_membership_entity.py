@@ -94,13 +94,8 @@ class TestOrganizationMembershipEntity:
             "org_id": setup["idmap"]["org_id"],
         }
 
-        organization_membership_ref01_markdef_up0_name = "email"
-        organization_membership_ref01_markdef_up0_value = "Mark01-organization_membership_ref01_" + str(setup["now"])
-        organization_membership_ref01_data_up0_up[organization_membership_ref01_markdef_up0_name] = organization_membership_ref01_markdef_up0_value
-
         organization_membership_ref01_resdata_up0 = helpers.to_map(runner.entity_data(organization_membership_ref01_ent.update(organization_membership_ref01_data_up0_up, None)))
         assert organization_membership_ref01_resdata_up0 is not None
-        assert organization_membership_ref01_resdata_up0[organization_membership_ref01_markdef_up0_name] == organization_membership_ref01_markdef_up0_value
 
         # LOAD
         organization_membership_ref01_match_dt0 = {}

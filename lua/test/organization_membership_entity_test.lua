@@ -98,15 +98,10 @@ describe("OrganizationMembershipEntity", function()
       ["org_id"] = setup.idmap["org_id"],
     }
 
-    local organization_membership_ref01_markdef_up0_name = "email"
-    local organization_membership_ref01_markdef_up0_value = "Mark01-organization_membership_ref01_" .. tostring(setup.now)
-    organization_membership_ref01_data_up0_up[organization_membership_ref01_markdef_up0_name] = organization_membership_ref01_markdef_up0_value
-
     local organization_membership_ref01_resdata_up0_result, err = organization_membership_ref01_ent:update(organization_membership_ref01_data_up0_up, nil)
     assert.is_nil(err)
     local organization_membership_ref01_resdata_up0 = helpers.to_map(type(organization_membership_ref01_resdata_up0_result) == 'table' and organization_membership_ref01_resdata_up0_result.data_get and organization_membership_ref01_resdata_up0_result:data_get() or organization_membership_ref01_resdata_up0_result)
     assert.is_not_nil(organization_membership_ref01_resdata_up0)
-    assert.are.equal(organization_membership_ref01_resdata_up0[organization_membership_ref01_markdef_up0_name], organization_membership_ref01_markdef_up0_value)
 
     -- LOAD
     local organization_membership_ref01_match_dt0 = {}

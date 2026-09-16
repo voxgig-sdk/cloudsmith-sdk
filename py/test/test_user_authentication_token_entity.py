@@ -51,13 +51,8 @@ class TestUserAuthenticationTokenEntity:
         user_authentication_token_ref01_data_up0_up = {
         }
 
-        user_authentication_token_ref01_markdef_up0_name = "created"
-        user_authentication_token_ref01_markdef_up0_value = "Mark01-user_authentication_token_ref01_" + str(setup["now"])
-        user_authentication_token_ref01_data_up0_up[user_authentication_token_ref01_markdef_up0_name] = user_authentication_token_ref01_markdef_up0_value
-
         user_authentication_token_ref01_resdata_up0 = helpers.to_map(runner.entity_data(user_authentication_token_ref01_ent.update(user_authentication_token_ref01_data_up0_up, None)))
         assert user_authentication_token_ref01_resdata_up0 is not None
-        assert user_authentication_token_ref01_resdata_up0[user_authentication_token_ref01_markdef_up0_name] == user_authentication_token_ref01_markdef_up0_value
 
 
 

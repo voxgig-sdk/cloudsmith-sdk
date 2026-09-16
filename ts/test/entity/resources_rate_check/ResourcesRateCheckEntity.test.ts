@@ -5,6 +5,8 @@ import * as Fs from 'node:fs'
 
 import { test, describe, afterEach } from 'node:test'
 import assert from 'node:assert'
+import { createLiveTransport } from '../../live-runner'
+import { runLiveEntity } from '../../live-entity'
 
 
 import { CloudsmithSDK, BaseFeature, stdutil } from '../../..'
@@ -47,16 +49,13 @@ describe('ResourcesRateCheckEntity', async () => {
 
     const live = 'TRUE' === process.env.CLOUDSMITH_TEST_LIVE
     for (const op of ['load']) {
-      if (maybeSkipControl(t, 'entityOp', 'resources_rate_check.' + op, live)) return
+      if (!live && maybeSkipControl(t, 'entityOp', 'resources_rate_check.' + op, live)) return
     }
 
+    
     const setup = basicSetup()
-    // The basic flow consumes synthetic IDs and field values from the
-    // fixture (entity TestData.json). Those don't exist on the live API.
-    // Skip live runs unless the user provided a real ENTID env override.
-    if (setup.syntheticOnly) {
-      t.skip('live entity test uses synthetic IDs from fixture — set CLOUDSMITH_TEST_RESOURCES_RATE_CHECK_ENTID JSON to run live')
-      return
+    if (setup.live) {
+      return runLiveEntity(setup, {"active":true,"alias":{"field":{}},"fields":[{"active":true,"name":"interval","readOnly":true,"req":false,"short":"The time in seconds that you are suggested to wait until the next request in order to avoid consuming too much within the rate limit window.","type":"`$NUMBER`","index$":0},{"active":true,"name":"limit","readOnly":true,"req":false,"short":"The maximum number of requests that you are permitted to send per hour","type":"`$INTEGER`","index$":1},{"active":true,"name":"remaining","readOnly":true,"req":false,"short":"The number of requests that are remaining in the current rate limit window","type":"`$INTEGER`","index$":2},{"active":true,"name":"reset","readOnly":true,"req":false,"short":"The UTC epoch timestamp at which the current rate limit window will reset","type":"`$INTEGER`","index$":3},{"active":true,"name":"reset_iso_8601","readOnly":true,"req":false,"short":"The ISO 8601 datetime at which the current rate limit window will reset","type":"`$STRING`","index$":4},{"active":true,"name":"throttled","readOnly":true,"req":false,"short":"If true, throttling is currently being enforced.","type":"`$BOOLEAN`","index$":5}],"name":"resources_rate_check","op":{"load":{"input":"data","name":"load","points":[{"active":true,"args":{},"contract":{"id":"GET /rates/limits/","json":"{\"consumes\":[\"application/json\"],\"operationId\":\"rates_limits_list\",\"parameters\":[],\"produces\":[\"application/json\"],\"protocol\":\"http\",\"responses\":{\"200\":{\"description\":\"Rate check was successful\",\"schema\":{\"properties\":{\"resources\":{\"additionalProperties\":{\"properties\":{\"interval\":{\"description\":\"The time in seconds that you are suggested to wait until the next request in order to avoid consuming too much within the rate limit window.\",\"readOnly\":true,\"title\":\"Interval\",\"type\":\"number\"},\"limit\":{\"description\":\"The maximum number of requests that you are permitted to send per hour\",\"readOnly\":true,\"title\":\"Limit\",\"type\":\"integer\"},\"remaining\":{\"description\":\"The number of requests that are remaining in the current rate limit window\",\"readOnly\":true,\"title\":\"Remaining\",\"type\":\"integer\"},\"reset\":{\"description\":\"The UTC epoch timestamp at which the current rate limit window will reset\",\"readOnly\":true,\"title\":\"Reset\",\"type\":\"integer\"},\"reset_iso_8601\":{\"description\":\"The ISO 8601 datetime at which the current rate limit window will reset\",\"minLength\":1,\"readOnly\":true,\"title\":\"Reset iso 8601\",\"type\":\"string\"},\"throttled\":{\"description\":\"If true, throttling is currently being enforced.\",\"readOnly\":true,\"title\":\"Throttled\",\"type\":\"boolean\"}},\"type\":\"object\"},\"description\":\"Rate limit values per resource\",\"readOnly\":true,\"title\":\"Resources\",\"type\":\"object\"}},\"type\":\"object\"}},\"400\":{\"description\":\"Request could not be processed (see detail).\",\"schema\":{\"properties\":{\"detail\":{\"description\":\"An extended message for the response.\",\"minLength\":1,\"title\":\"Detail\",\"type\":\"string\"},\"fields\":{\"additionalProperties\":{\"items\":{\"minLength\":1,\"type\":\"string\"},\"type\":\"array\"},\"description\":\"A Dictionary of related errors where key: Field and value: Array of Errors related to that field\",\"title\":\"Fields\",\"type\":\"object\"}},\"required\":[\"detail\"],\"type\":\"object\"}},\"422\":{\"description\":\"Missing or invalid parameters (see detail).\",\"schema\":{\"properties\":{\"detail\":{\"description\":\"An extended message for the response.\",\"minLength\":1,\"title\":\"Detail\",\"type\":\"string\"},\"fields\":{\"additionalProperties\":{\"items\":{\"minLength\":1,\"type\":\"string\"},\"type\":\"array\"},\"description\":\"A Dictionary of related errors where key: Field and value: Array of Errors related to that field\",\"title\":\"Fields\",\"type\":\"object\"}},\"required\":[\"detail\"],\"type\":\"object\"}}},\"security\":[{\"apikey\":[]},{\"basic\":[]}],\"securitySchemes\":{\"apikey\":{\"in\":\"header\",\"name\":\"X-Api-Key\",\"type\":\"apiKey\"},\"basic\":{\"type\":\"basic\"}},\"securitySource\":\"definition\"}","source":"swagger2","version":1},"kind":"http","method":"GET","orig":"/rates/limits/","segments":[{"lit":"rates"},{"lit":"limits"}],"select":{},"transform":{"req":"`reqdata`","res":"`body.resources`"},"index$":0}],"key$":"load"}},"relations":{"ancestors":[]},"key$":"resources_rate_check","name__orig":"resources_rate_check","Name":"ResourcesRateCheck","name_":"resources_rate_check","name-":"resources-rate-check","NAME":"RESOURCES_RATE_CHECK","index$":97}, {"active":true,"entity":"resources_rate_check","key$":"BasicResourcesRateCheckFlow","kind":"basic","name":"BasicResourcesRateCheckFlow","param":{},"step":[{"active":true,"data":{},"input":{"ref":"resources_rate_check_ref01","srcdatavar":"resources_rate_check_ref01_data","suffix":"_dt0"},"match":{},"op":"load","spec":[],"valid":[{"apply":"TextFieldMark","def":{"mark":"Mark01-resources_rate_check_ref01"}}],"index$":0}]}, 'ResourcesRateCheck')
     }
     const client = setup.client
     const struct = setup.struct
@@ -109,13 +108,6 @@ function basicSetup(extra?: any) {
       }]
     })
 
-  // Detect whether the user provided a real ENTID JSON via env var. The
-  // basic flow consumes synthetic IDs from the fixture file; without an
-  // override those synthetic IDs reach the live API and 4xx. Surface this
-  // to the test so it can skip rather than fail.
-  const idmapEnvVal = process.env['CLOUDSMITH_TEST_RESOURCES_RATE_CHECK_ENTID']
-  const idmapOverridden = null != idmapEnvVal && idmapEnvVal.trim().startsWith('{')
-
   const env = envOverride({
     'CLOUDSMITH_TEST_RESOURCES_RATE_CHECK_ENTID': idmap,
     'CLOUDSMITH_TEST_LIVE': 'FALSE',
@@ -127,7 +119,13 @@ function basicSetup(extra?: any) {
 
   const live = 'TRUE' === env.CLOUDSMITH_TEST_LIVE
 
+  const transport = createLiveTransport()
   if (live) {
+    const rawIds = process.env['CLOUDSMITH_TEST_RESOURCES_RATE_CHECK_ENTID']
+    idmap = rawIds && rawIds.trim() ? JSON.parse(rawIds) : {}
+    if (!idmap || Array.isArray(idmap) || typeof idmap !== 'object') {
+      throw new Error('Live ENTID must be a JSON object')
+    }
     client = new CloudsmithSDK(merge([
       // FIRST, so the generated fields below win: sdk-test-control.json's
       // test.client.options adds to the live client, it does not redirect it.
@@ -140,7 +138,8 @@ function basicSetup(extra?: any) {
       // argument at all - so a bare 'extra' silently discarded the apikey
       // and server values above and handed the SDK undefined. Harmless
       // while there was nothing in that object; not harmless now.
-      extra || {}
+      extra || {},
+      { system: { fetch: transport.fetch } }
     ]))
   }
 
@@ -153,7 +152,7 @@ function basicSetup(extra?: any) {
     data: entityData,
     explain: 'TRUE' === env.CLOUDSMITH_TEST_EXPLAIN,
     live,
-    syntheticOnly: live && !idmapOverridden,
+    transport,
     now: Date.now(),
   }
 

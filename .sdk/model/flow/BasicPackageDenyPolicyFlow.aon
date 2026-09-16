@@ -43,7 +43,7 @@ main: kit: flow: BasicPackageDenyPolicyFlow:
         ref: "package_deny_policy_ref01",
         srcdatavar: "package_deny_policy_ref01_data",
         suffix: "_up0",
-        textfield: "action"
+        textfield: "description"
       }
 
       op: "update",

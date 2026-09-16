@@ -2,7 +2,6 @@ package sdktest
 
 import (
 	"encoding/json"
-	"fmt"
 	"os"
 	"path/filepath"
 	"runtime"
@@ -128,10 +127,6 @@ func TestOrganizationMembershipEntity(t *testing.T) {
 			"org_id": setup.idmap["org_id"],
 		}
 
-		organizationMembershipRef01MarkdefUp0Name := "email"
-		organizationMembershipRef01MarkdefUp0Value := fmt.Sprintf("Mark01-organization_membership_ref01_%d", setup.now)
-		organizationMembershipRef01DataUp0Up[organizationMembershipRef01MarkdefUp0Name] = organizationMembershipRef01MarkdefUp0Value
-
 		organizationMembershipRef01ResdataUp0Result, err := organizationMembershipRef01Ent.Update(organizationMembershipRef01DataUp0Up, nil)
 		if err != nil {
 			t.Fatalf("update failed: %v", err)
@@ -139,9 +134,6 @@ func TestOrganizationMembershipEntity(t *testing.T) {
 		organizationMembershipRef01ResdataUp0 := core.ToMapAny(entityData(organizationMembershipRef01ResdataUp0Result))
 		if organizationMembershipRef01ResdataUp0 == nil {
 			t.Fatal("expected update result to be a map")
-		}
-		if organizationMembershipRef01ResdataUp0[organizationMembershipRef01MarkdefUp0Name] != organizationMembershipRef01MarkdefUp0Value {
-			t.Fatalf("expected %s to be updated, got %v", organizationMembershipRef01MarkdefUp0Name, organizationMembershipRef01ResdataUp0[organizationMembershipRef01MarkdefUp0Name])
 		}
 
 		// LOAD

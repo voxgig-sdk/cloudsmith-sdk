@@ -51,14 +51,9 @@ class UserAuthenticationTokenEntityTest extends TestCase
         $user_authentication_token_ref01_data_up0_up = [
         ];
 
-        $user_authentication_token_ref01_markdef_up0_name = "created";
-        $user_authentication_token_ref01_markdef_up0_value = "Mark01-user_authentication_token_ref01_" . $setup["now"];
-        $user_authentication_token_ref01_data_up0_up[$user_authentication_token_ref01_markdef_up0_name] = $user_authentication_token_ref01_markdef_up0_value;
-
         $user_authentication_token_ref01_resdata_up0_result = $user_authentication_token_ref01_ent->update($user_authentication_token_ref01_data_up0_up, null);
         $user_authentication_token_ref01_resdata_up0 = Helpers::to_map(is_object($user_authentication_token_ref01_resdata_up0_result) && method_exists($user_authentication_token_ref01_resdata_up0_result, 'data_get') ? $user_authentication_token_ref01_resdata_up0_result->data_get() : $user_authentication_token_ref01_resdata_up0_result);
         $this->assertNotNull($user_authentication_token_ref01_resdata_up0);
-        $this->assertEquals($user_authentication_token_ref01_resdata_up0[$user_authentication_token_ref01_markdef_up0_name], $user_authentication_token_ref01_markdef_up0_value);
 
     }
 }

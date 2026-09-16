@@ -1,12 +1,26 @@
 # Cloudsmith SDK feature factory
 
 from cloudsmith_sdk.feature.base_feature import CloudsmithBaseFeature
+from cloudsmith_sdk.feature.debug_feature import CloudsmithDebugFeature
+from cloudsmith_sdk.feature.idempotency_feature import CloudsmithIdempotencyFeature
+from cloudsmith_sdk.feature.metrics_feature import CloudsmithMetricsFeature
+from cloudsmith_sdk.feature.paging_feature import CloudsmithPagingFeature
+from cloudsmith_sdk.feature.ratelimit_feature import CloudsmithRatelimitFeature
+from cloudsmith_sdk.feature.retry_feature import CloudsmithRetryFeature
 from cloudsmith_sdk.feature.test_feature import CloudsmithTestFeature
+from cloudsmith_sdk.feature.timeout_feature import CloudsmithTimeoutFeature
 
 
 _FEATURES = {
     "base": lambda: CloudsmithBaseFeature(),
+    "debug": lambda: CloudsmithDebugFeature(),
+    "idempotency": lambda: CloudsmithIdempotencyFeature(),
+    "metrics": lambda: CloudsmithMetricsFeature(),
+    "paging": lambda: CloudsmithPagingFeature(),
+    "ratelimit": lambda: CloudsmithRatelimitFeature(),
+    "retry": lambda: CloudsmithRetryFeature(),
     "test": lambda: CloudsmithTestFeature(),
+    "timeout": lambda: CloudsmithTimeoutFeature(),
 }
 
 

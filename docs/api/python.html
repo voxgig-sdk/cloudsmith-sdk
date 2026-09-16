@@ -1,0 +1,409 @@
+<!doctype html>
+<html lang="en">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Python | Cloudsmith API (v1)</title><link rel="stylesheet" href="../assets/style.css"></head>
+<body><a class="skip" href="#content">Skip to content</a>
+<header class="site-header"><a class="site-title" href="../index.html">Cloudsmith API (v1)<span>SDK documentation</span></a><div class="site-links"><a class="repo-link" href="https://github.com/voxgig-sdk/cloudsmith-sdk">voxgig-sdk/cloudsmith-sdk</a></div></header>
+<div class="site-notice" role="note"></div>
+<div class="shell"><nav class="site-nav" aria-label="Documentation"><div class="search"><label for="search">Search documentation</label><input id="search" type="search" data-base="../" placeholder="Find a guide or reference"><div id="results" aria-live="polite"></div></div><details><summary>Overview</summary><a href="../index.html">Cloudsmith API (v1)</a></details>
+<details open><summary>API</summary><a href="../api/index.html">API overview</a>
+<a href="../api/abort.html">Abort</a>
+<a href="../api/alpine.html">Alpine</a>
+<a href="../api/audit_log.html">AuditLog</a>
+<a href="../api/basic.html">Basic</a>
+<a href="../api/cargo.html">Cargo</a>
+<a href="../api/cocoapod.html">Cocoapod</a>
+<a href="../api/complete.html">Complete</a>
+<a href="../api/composer.html">Composer</a>
+<a href="../api/conan.html">Conan</a>
+<a href="../api/conda.html">Conda</a>
+<a href="../api/copy.html">Copy</a>
+<a href="../api/cran.html">Cran</a>
+<a href="../api/dart.html">Dart</a>
+<a href="../api/deb.html">Deb</a>
+<a href="../api/deny_policy.html">DenyPolicy</a>
+<a href="../api/dependency.html">Dependency</a>
+<a href="../api/disable.html">Disable</a>
+<a href="../api/distribution_full.html">DistributionFull</a>
+<a href="../api/distro.html">Distro</a>
+<a href="../api/docker.html">Docker</a>
+<a href="../api/dynamic_mapping.html">DynamicMapping</a>
+<a href="../api/ecdsa.html">Ecdsa</a>
+<a href="../api/enable.html">Enable</a>
+<a href="../api/entitlement.html">Entitlement</a>
+<a href="../api/evaluation.html">Evaluation</a>
+<a href="../api/file.html">File</a>
+<a href="../api/format.html">Format</a>
+<a href="../api/geoip.html">Geoip</a>
+<a href="../api/gon.html">Gon</a>
+<a href="../api/gpg.html">Gpg</a>
+<a href="../api/group.html">Group</a>
+<a href="../api/helm.html">Helm</a>
+<a href="../api/hex.html">Hex</a>
+<a href="../api/history.html">History</a>
+<a href="../api/huggingface.html">Huggingface</a>
+<a href="../api/info.html">Info</a>
+<a href="../api/invite.html">Invite</a>
+<a href="../api/license_policy.html">LicensePolicy</a>
+<a href="../api/limit.html">Limit</a>
+<a href="../api/luarock.html">Luarock</a>
+<a href="../api/maven.html">Maven</a>
+<a href="../api/member.html">Member</a>
+<a href="../api/move.html">Move</a>
+<a href="../api/namespace.html">Namespace</a>
+<a href="../api/namespace_audit_log.html">NamespaceAuditLog</a>
+<a href="../api/npm.html">Npm</a>
+<a href="../api/nuget.html">Nuget</a>
+<a href="../api/openid_connect.html">OpenidConnect</a>
+<a href="../api/org.html">Org</a>
+<a href="../api/organization_group_sync.html">OrganizationGroupSync</a>
+<a href="../api/organization_group_sync_status.html">OrganizationGroupSyncStatus</a>
+<a href="../api/organization_invite.html">OrganizationInvite</a>
+<a href="../api/organization_invite_extend.html">OrganizationInviteExtend</a>
+<a href="../api/organization_membership.html">OrganizationMembership</a>
+<a href="../api/organization_membership_role_update.html">OrganizationMembershipRoleUpdate</a>
+<a href="../api/organization_membership_visibility_update.html">OrganizationMembershipVisibilityUpdate</a>
+<a href="../api/organization_package_license_policy.html">OrganizationPackageLicensePolicy</a>
+<a href="../api/organization_package_vulnerability_policy.html">OrganizationPackageVulnerabilityPolicy</a>
+<a href="../api/organization_saml_auth.html">OrganizationSamlAuth</a>
+<a href="../api/organization_team.html">OrganizationTeam</a>
+<a href="../api/organization_team_member.html">OrganizationTeamMember</a>
+<a href="../api/oss.html">Oss</a>
+<a href="../api/p2n.html">P2n</a>
+<a href="../api/package.html">Package</a>
+<a href="../api/package_deny_policy.html">PackageDenyPolicy</a>
+<a href="../api/package_file_parts_upload.html">PackageFilePartsUpload</a>
+<a href="../api/package_file_upload.html">PackageFileUpload</a>
+<a href="../api/package_license_policy_evaluation.html">PackageLicensePolicyEvaluation</a>
+<a href="../api/package_version_badge.html">PackageVersionBadge</a>
+<a href="../api/package_vulnerability_policy_evaluation.html">PackageVulnerabilityPolicyEvaluation</a>
+<a href="../api/privilege.html">Privilege</a>
+<a href="../api/profile.html">Profile</a>
+<a href="../api/provider_setting.html">ProviderSetting</a>
+<a href="../api/provider_settings_write.html">ProviderSettingsWrite</a>
+<a aria-current="page" href="../api/python.html">Python</a><div class="nav-sections"><a class="nav-section" href="#post-reposowneridentifierupstreampython">POST /repos/{owner}/{identifier}/upstream/python/</a>
+<a class="nav-section" href="#get-reposowneridentifierupstreampython">GET /repos/{owner}/{identifier}/upstream/python/</a>
+<a class="nav-section" href="#get-reposowneridentifierupstreampythonslug_perm">GET /repos/{owner}/{identifier}/upstream/python/{slug_perm}/</a>
+<a class="nav-section" href="#patch-reposowneridentifierupstreampythonslug_perm">PATCH /repos/{owner}/{identifier}/upstream/python/{slug_perm}/</a>
+<a class="nav-section" href="#put-reposowneridentifierupstreampythonslug_perm">PUT /repos/{owner}/{identifier}/upstream/python/{slug_perm}/</a></div>
+<a href="../api/quarantine.html">Quarantine</a>
+<a href="../api/quota.html">Quota</a>
+<a href="../api/raw.html">Raw</a>
+<a href="../api/refresh.html">Refresh</a>
+<a href="../api/regenerate.html">Regenerate</a>
+<a href="../api/repo.html">Repo</a>
+<a href="../api/repository_audit_log.html">RepositoryAuditLog</a>
+<a href="../api/repository_ecdsa_key.html">RepositoryEcdsaKey</a>
+<a href="../api/repository_geo_ip_rule.html">RepositoryGeoIpRule</a>
+<a href="../api/repository_geo_ip_status.html">RepositoryGeoIpStatus</a>
+<a href="../api/repository_geo_ip_test_address.html">RepositoryGeoIpTestAddress</a>
+<a href="../api/repository_gpg_key.html">RepositoryGpgKey</a>
+<a href="../api/repository_privilege_input.html">RepositoryPrivilegeInput</a>
+<a href="../api/repository_retention_rule.html">RepositoryRetentionRule</a>
+<a href="../api/repository_rsa_key.html">RepositoryRsaKey</a>
+<a href="../api/repository_token.html">RepositoryToken</a>
+<a href="../api/repository_token_refresh.html">RepositoryTokenRefresh</a>
+<a href="../api/repository_token_sync.html">RepositoryTokenSync</a>
+<a href="../api/repository_webhook.html">RepositoryWebhook</a>
+<a href="../api/repository_x509_ecdsa_certificate.html">RepositoryX509EcdsaCertificate</a>
+<a href="../api/repository_x509_rsa_certificate.html">RepositoryX509RsaCertificate</a>
+<a href="../api/reset.html">Reset</a>
+<a href="../api/resources_rate_check.html">ResourcesRateCheck</a>
+<a href="../api/resync.html">Resync</a>
+<a href="../api/retention.html">Retention</a>
+<a href="../api/rpm.html">Rpm</a>
+<a href="../api/rsa.html">Rsa</a>
+<a href="../api/ruby.html">Ruby</a>
+<a href="../api/saml_group_sync.html">SamlGroupSync</a>
+<a href="../api/scan.html">Scan</a>
+<a href="../api/self.html">Self</a>
+<a href="../api/service.html">Service</a>
+<a href="../api/status.html">Status</a>
+<a href="../api/status_basic.html">StatusBasic</a>
+<a href="../api/storage_region.html">StorageRegion</a>
+<a href="../api/swift.html">Swift</a>
+<a href="../api/sync.html">Sync</a>
+<a href="../api/tag.html">Tag</a>
+<a href="../api/team.html">Team</a>
+<a href="../api/terraform.html">Terraform</a>
+<a href="../api/test.html">Test</a>
+<a href="../api/token.html">Token</a>
+<a href="../api/transfer_region.html">TransferRegion</a>
+<a href="../api/user.html">User</a>
+<a href="../api/user_auth_token.html">UserAuthToken</a>
+<a href="../api/user_authentication_token.html">UserAuthenticationToken</a>
+<a href="../api/user_brief.html">UserBrief</a>
+<a href="../api/user_profile.html">UserProfile</a>
+<a href="../api/vagrant.html">Vagrant</a>
+<a href="../api/validate.html">Validate</a>
+<a href="../api/version.html">Version</a>
+<a href="../api/vulnerability.html">Vulnerability</a>
+<a href="../api/vulnerability_policy.html">VulnerabilityPolicy</a>
+<a href="../api/webhook.html">Webhook</a>
+<a href="../api/x509_ecdsa.html">X509Ecdsa</a>
+<a href="../api/x509_rsa.html">X509Rsa</a></details>
+<details><summary>Guides</summary><a href="../guides/authentication.html">Authentication</a>
+<a href="../guides/first-call.html">Make your first API call</a>
+<a href="../guides/errors.html">Handle errors</a>
+<a href="../guides/concepts.html">Entities, SDKs, and tools</a></details>
+<details><summary>SDKs</summary><a href="../sdks/go.html">Golang</a>
+<a href="../sdks/lua.html">Lua</a>
+<a href="../sdks/php.html">PHP</a>
+<a href="../sdks/py.html">Python</a>
+<a href="../sdks/rb.html">Ruby</a>
+<a href="../sdks/ts.html">TypeScript</a></details>
+<details><summary>Tools</summary><a href="../tools/go-cli.html">Go CLI</a>
+<a href="../tools/go-mcp.html">Go MCP server</a></details>
+<details><summary>Features</summary><a href="../features/debug.html">Request/response capture ring buffer for debugging</a>
+<a href="../features/idempotency.html">Idempotency keys for safe retries of mutating operations</a>
+<a href="../features/metrics.html">Statistics capture: per-operation counters and latency</a>
+<a href="../features/paging.html">Pagination signals for list operations</a>
+<a href="../features/ratelimit.html">Client-side rate limiting via a token bucket</a>
+<a href="../features/retry.html">Automatic retry of transient failures with exponential backoff</a>
+<a href="../features/test.html">In-memory mock transport for testing without a live server</a>
+<a href="../features/timeout.html">Per-request timeout with transport abort</a></details></nav><main id="content"><div class="page-context"><span class="section-dot" aria-hidden="true"></span>API</div><h1 id="python">Python</h1>
+<h2 id="operations">Operations</h2>
+<p>Every route this entity exposes. Each route links to its own reference on this page.</p>
+<table>
+<thead>
+<tr>
+<th>Method</th>
+<th>Route</th>
+<th>SDK operation</th>
+<th>Returns</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>POST</code></td>
+<td><a href="#post-reposowneridentifierupstreampython"><code>/repos/{owner}/{identifier}/upstream/python/</code></a></td>
+<td><code>create</code></td>
+<td>Created</td>
+</tr>
+<tr>
+<td><code>GET</code></td>
+<td><a href="#get-reposowneridentifierupstreampython"><code>/repos/{owner}/{identifier}/upstream/python/</code></a></td>
+<td><code>list</code></td>
+<td>OK</td>
+</tr>
+<tr>
+<td><code>GET</code></td>
+<td><a href="#get-reposowneridentifierupstreampythonslug_perm"><code>/repos/{owner}/{identifier}/upstream/python/{slug_perm}/</code></a></td>
+<td><code>load</code></td>
+<td>OK</td>
+</tr>
+<tr>
+<td><code>PATCH</code></td>
+<td><a href="#patch-reposowneridentifierupstreampythonslug_perm"><code>/repos/{owner}/{identifier}/upstream/python/{slug_perm}/</code></a></td>
+<td><code>patch</code></td>
+<td>OK</td>
+</tr>
+<tr>
+<td><code>PUT</code></td>
+<td><a href="#put-reposowneridentifierupstreampythonslug_perm"><code>/repos/{owner}/{identifier}/upstream/python/{slug_perm}/</code></a></td>
+<td><code>update</code></td>
+<td>OK</td>
+</tr>
+</tbody>
+</table>
+<h2 id="fields">Fields</h2>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>auth_mode</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>The authentication mode to use when accessing this upstream.</td>
+</tr>
+<tr>
+<td><code>auth_secret</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>Secret to provide with requests to upstream.</td>
+</tr>
+<tr>
+<td><code>auth_username</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>Username to provide with requests to upstream.</td>
+</tr>
+<tr>
+<td><code>created_at</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>The datetime the upstream source was created.</td>
+</tr>
+<tr>
+<td><code>disable_reason</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>extra_header_1</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>The key for extra header #1 to send to upstream.</td>
+</tr>
+<tr>
+<td><code>extra_header_2</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>The key for extra header #2 to send to upstream.</td>
+</tr>
+<tr>
+<td><code>extra_value_1</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>The value for extra header #1 to send to upstream.</td>
+</tr>
+<tr>
+<td><code>extra_value_2</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>The value for extra header #2 to send to upstream.</td>
+</tr>
+<tr>
+<td><code>id</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>is_active</code></td>
+<td><code>boolean</code></td>
+<td>No</td>
+<td>Whether or not this upstream is active and ready for requests.</td>
+</tr>
+<tr>
+<td><code>mode</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>The mode that this upstream should operate in.</td>
+</tr>
+<tr>
+<td><code>name</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>A descriptive name for this upstream source.</td>
+</tr>
+<tr>
+<td><code>pending_validation</code></td>
+<td><code>boolean</code></td>
+<td>No</td>
+<td>When true, this upstream source is pending validation.</td>
+</tr>
+<tr>
+<td><code>priority</code></td>
+<td><code>integer</code></td>
+<td>No</td>
+<td>Upstream sources are selected for resolving requests by sequential order (1..n), followed by creation date.</td>
+</tr>
+<tr>
+<td><code>slug_perm</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>updated_at</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>upstream_url</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>The URL for this upstream source.</td>
+</tr>
+<tr>
+<td><code>verify_ssl</code></td>
+<td><code>boolean</code></td>
+<td>No</td>
+<td>If enabled, SSL certificates are verified when requests are made to this upstream.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="create">create</h2>
+<h3 id="post-reposowneridentifierupstreampython" class="operation" data-method="post"><code>POST</code> /repos/{owner}/{identifier}/upstream/python/</h3>
+<p>Operation ID: <code>repos_upstream_python_create</code>.</p>
+<p>Authentication: API key in the header (<code>apikey</code>) or basic (<code>basic</code>).</p>
+<h4 id="parameters">Parameters</h4>
+<p>| Parameter | In | Type | Required | Description |
+| --- | --- | --- | --- |
+| <code>owner</code> | <code>path</code> | <code>any</code> | Yes |  |
+| <code>identifier</code> | <code>path</code> | <code>any</code> | Yes |  |
+| <code>data</code> | <code>body</code> | <code>object</code> | No |  |</p>
+<h4 id="responses">Responses</h4>
+<h5 id="201-created" class="status" data-status="2xx">201: Created</h5>
+<h5 id="400-request-could-not-be-processed-see-detail" class="status" data-status="4xx">400: Request could not be processed (see detail)</h5>
+<h5 id="422-missing-or-invalid-parameters-see-detail" class="status" data-status="4xx">422: Missing or invalid parameters (see detail)</h5>
+<h2 id="list">list</h2>
+<h3 id="get-reposowneridentifierupstreampython" class="operation" data-method="get"><code>GET</code> /repos/{owner}/{identifier}/upstream/python/</h3>
+<p>Operation ID: <code>repos_upstream_python_list</code>.</p>
+<p>Authentication: API key in the header (<code>apikey</code>) or basic (<code>basic</code>).</p>
+<h4 id="parameters-1">Parameters</h4>
+<p>| Parameter | In | Type | Required | Description |
+| --- | --- | --- | --- |
+| <code>owner</code> | <code>path</code> | <code>any</code> | Yes |  |
+| <code>identifier</code> | <code>path</code> | <code>any</code> | Yes |  |
+| <code>page</code> | <code>query</code> | <code>any</code> | No | A page number within the paginated result set. |
+| <code>page_size</code> | <code>query</code> | <code>any</code> | No | Number of results to return per page. |</p>
+<h4 id="responses-1">Responses</h4>
+<h5 id="200-ok" class="status" data-status="2xx">200: OK</h5>
+<h5 id="400-request-could-not-be-processed-see-detail-1" class="status" data-status="4xx">400: Request could not be processed (see detail)</h5>
+<h5 id="422-missing-or-invalid-parameters-see-detail-1" class="status" data-status="4xx">422: Missing or invalid parameters (see detail)</h5>
+<h2 id="load">load</h2>
+<h3 id="get-reposowneridentifierupstreampythonslug_perm" class="operation" data-method="get"><code>GET</code> /repos/{owner}/{identifier}/upstream/python/{slug_perm}/</h3>
+<p>Operation ID: <code>repos_upstream_python_read</code>.</p>
+<p>Authentication: API key in the header (<code>apikey</code>) or basic (<code>basic</code>).</p>
+<h4 id="parameters-2">Parameters</h4>
+<p>| Parameter | In | Type | Required | Description |
+| --- | --- | --- | --- |
+| <code>owner</code> | <code>path</code> | <code>any</code> | Yes |  |
+| <code>identifier</code> | <code>path</code> | <code>any</code> | Yes |  |
+| <code>slug_perm</code> | <code>path</code> | <code>any</code> | Yes |  |</p>
+<h4 id="responses-2">Responses</h4>
+<h5 id="200-ok-1" class="status" data-status="2xx">200: OK</h5>
+<h5 id="400-request-could-not-be-processed-see-detail-2" class="status" data-status="4xx">400: Request could not be processed (see detail)</h5>
+<h5 id="422-missing-or-invalid-parameters-see-detail-2" class="status" data-status="4xx">422: Missing or invalid parameters (see detail)</h5>
+<h2 id="patch">patch</h2>
+<h3 id="patch-reposowneridentifierupstreampythonslug_perm" class="operation" data-method="patch"><code>PATCH</code> /repos/{owner}/{identifier}/upstream/python/{slug_perm}/</h3>
+<p>Operation ID: <code>repos_upstream_python_partial_update</code>.</p>
+<p>Authentication: API key in the header (<code>apikey</code>) or basic (<code>basic</code>).</p>
+<h4 id="parameters-3">Parameters</h4>
+<p>| Parameter | In | Type | Required | Description |
+| --- | --- | --- | --- |
+| <code>owner</code> | <code>path</code> | <code>any</code> | Yes |  |
+| <code>identifier</code> | <code>path</code> | <code>any</code> | Yes |  |
+| <code>slug_perm</code> | <code>path</code> | <code>any</code> | Yes |  |
+| <code>data</code> | <code>body</code> | <code>object</code> | No |  |</p>
+<h4 id="responses-3">Responses</h4>
+<h5 id="200-ok-2" class="status" data-status="2xx">200: OK</h5>
+<h5 id="400-request-could-not-be-processed-see-detail-3" class="status" data-status="4xx">400: Request could not be processed (see detail)</h5>
+<h5 id="422-missing-or-invalid-parameters-see-detail-3" class="status" data-status="4xx">422: Missing or invalid parameters (see detail)</h5>
+<h2 id="update">update</h2>
+<h3 id="put-reposowneridentifierupstreampythonslug_perm" class="operation" data-method="put"><code>PUT</code> /repos/{owner}/{identifier}/upstream/python/{slug_perm}/</h3>
+<p>Operation ID: <code>repos_upstream_python_update</code>.</p>
+<p>Authentication: API key in the header (<code>apikey</code>) or basic (<code>basic</code>).</p>
+<h4 id="parameters-4">Parameters</h4>
+<p>| Parameter | In | Type | Required | Description |
+| --- | --- | --- | --- |
+| <code>owner</code> | <code>path</code> | <code>any</code> | Yes |  |
+| <code>identifier</code> | <code>path</code> | <code>any</code> | Yes |  |
+| <code>slug_perm</code> | <code>path</code> | <code>any</code> | Yes |  |
+| <code>data</code> | <code>body</code> | <code>object</code> | No |  |</p>
+<h4 id="responses-4">Responses</h4>
+<h5 id="200-ok-3" class="status" data-status="2xx">200: OK</h5>
+<h5 id="400-request-could-not-be-processed-see-detail-4" class="status" data-status="4xx">400: Request could not be processed (see detail)</h5>
+<h5 id="422-missing-or-invalid-parameters-see-detail-4" class="status" data-status="4xx">422: Missing or invalid parameters (see detail)</h5>
+</main></div>
+<script src="../assets/search.js" defer></script></body></html>

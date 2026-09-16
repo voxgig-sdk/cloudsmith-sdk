@@ -110,7 +110,7 @@ describe("RepositoryWebhookEntity", function()
       ["repo"] = setup.idmap["repo"],
     }
 
-    local repository_webhook_ref01_markdef_up0_name = "created_at"
+    local repository_webhook_ref01_markdef_up0_name = "package_query"
     local repository_webhook_ref01_markdef_up0_value = "Mark01-repository_webhook_ref01_" .. tostring(setup.now)
     repository_webhook_ref01_data_up0_up[repository_webhook_ref01_markdef_up0_name] = repository_webhook_ref01_markdef_up0_value
 

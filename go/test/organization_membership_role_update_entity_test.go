@@ -66,7 +66,7 @@ func TestOrganizationMembershipRoleUpdateEntity(t *testing.T) {
 			"org_id": setup.idmap["org_id"],
 		}
 
-		organizationMembershipRoleUpdateRef01MarkdefUp0Name := "email"
+		organizationMembershipRoleUpdateRef01MarkdefUp0Name := "role"
 		organizationMembershipRoleUpdateRef01MarkdefUp0Value := fmt.Sprintf("Mark01-organization_membership_role_update_ref01_%d", setup.now)
 		organizationMembershipRoleUpdateRef01DataUp0Up[organizationMembershipRoleUpdateRef01MarkdefUp0Name] = organizationMembershipRoleUpdateRef01MarkdefUp0Value
 

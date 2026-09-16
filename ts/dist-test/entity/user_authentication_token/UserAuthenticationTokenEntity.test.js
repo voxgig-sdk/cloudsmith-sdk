@@ -40,6 +40,8 @@ const node_path_1 = __importDefault(require("node:path"));
 const Fs = __importStar(require("node:fs"));
 const node_test_1 = require("node:test");
 const node_assert_1 = __importDefault(require("node:assert"));
+const live_runner_1 = require("../../live-runner");
+const live_entity_1 = require("../../live-entity");
 const __1 = require("../../..");
 const utility_1 = require("../../utility");
 // AFTER the imports on purpose: TypeScript hoists `import` above any
@@ -59,16 +61,12 @@ const utility_1 = require("../../utility");
     (0, node_test_1.test)('basic', async (t) => {
         const live = 'TRUE' === process.env.CLOUDSMITH_TEST_LIVE;
         for (const op of ['create', 'update']) {
-            if ((0, utility_1.maybeSkipControl)(t, 'entityOp', 'user_authentication_token.' + op, live))
+            if (!live && (0, utility_1.maybeSkipControl)(t, 'entityOp', 'user_authentication_token.' + op, live))
                 return;
         }
         const setup = basicSetup();
-        // The basic flow consumes synthetic IDs and field values from the
-        // fixture (entity TestData.json). Those don't exist on the live API.
-        // Skip live runs unless the user provided a real ENTID env override.
-        if (setup.syntheticOnly) {
-            t.skip('live entity test uses synthetic IDs from fixture — set CLOUDSMITH_TEST_USER_AUTHENTICATION_TOKEN_ENTID JSON to run live');
-            return;
+        if (setup.live) {
+            return (0, live_entity_1.runLiveEntity)(setup, { "active": true, "alias": { "field": {} }, "fields": [{ "active": true, "format": "date-time", "name": "created", "readOnly": true, "req": false, "short": "The time at which the API key was created.", "type": "`$STRING`", "index$": 0 }, { "active": true, "name": "key", "readOnly": true, "req": false, "short": "The unique API key used for authentication.", "type": "`$STRING`", "index$": 1 }, { "active": true, "name": "slug_perm", "readOnly": true, "req": false, "short": "The slug_perm for token.", "type": "`$STRING`", "index$": 2 }], "name": "user_authentication_token", "op": { "create": { "input": "data", "name": "create", "points": [{ "active": true, "args": {}, "contract": { "id": "POST /user/tokens/", "json": "{\"consumes\":[\"application/json\"],\"operationId\":\"user_tokens_create\",\"parameters\":[],\"produces\":[\"application/json\"],\"protocol\":\"http\",\"responses\":{\"201\":{\"description\":\"Created an API key for the user that is currently authenticated.\",\"schema\":{\"properties\":{\"created\":{\"description\":\"The time at which the API key was created.\",\"format\":\"date-time\",\"readOnly\":true,\"title\":\"Created\",\"type\":\"string\"},\"key\":{\"description\":\"The unique API key used for authentication. This will be obfuscated on read-only HTTP methods.\",\"readOnly\":true,\"title\":\"Key\",\"type\":\"string\"},\"slug_perm\":{\"description\":\"The slug_perm for token.\",\"readOnly\":true,\"title\":\"Slug perm\",\"type\":\"string\"}},\"type\":\"object\"}},\"400\":{\"description\":\"User has already created an API key.\",\"schema\":{\"properties\":{\"detail\":{\"description\":\"An extended message for the response.\",\"minLength\":1,\"title\":\"Detail\",\"type\":\"string\"},\"fields\":{\"additionalProperties\":{\"items\":{\"minLength\":1,\"type\":\"string\"},\"type\":\"array\"},\"description\":\"A Dictionary of related errors where key: Field and value: Array of Errors related to that field\",\"title\":\"Fields\",\"type\":\"object\"}},\"required\":[\"detail\"],\"type\":\"object\"}},\"422\":{\"description\":\"Missing or invalid parameters (see detail).\",\"schema\":{\"properties\":{\"detail\":{\"description\":\"An extended message for the response.\",\"minLength\":1,\"title\":\"Detail\",\"type\":\"string\"},\"fields\":{\"additionalProperties\":{\"items\":{\"minLength\":1,\"type\":\"string\"},\"type\":\"array\"},\"description\":\"A Dictionary of related errors where key: Field and value: Array of Errors related to that field\",\"title\":\"Fields\",\"type\":\"object\"}},\"required\":[\"detail\"],\"type\":\"object\"}}},\"security\":[{\"apikey\":[]},{\"basic\":[]}],\"securitySchemes\":{\"apikey\":{\"in\":\"header\",\"name\":\"X-Api-Key\",\"type\":\"apiKey\"},\"basic\":{\"type\":\"basic\"}},\"securitySource\":\"definition\"}", "source": "swagger2", "version": 1 }, "kind": "http", "method": "POST", "orig": "/user/tokens/", "segments": [{ "lit": "user" }, { "lit": "tokens" }], "select": {}, "transform": { "req": "`reqdata`", "res": "`body`" }, "index$": 0 }], "key$": "create" }, "update": { "input": "data", "name": "update", "points": [{ "active": true, "args": { "params": [{ "active": true, "kind": "param", "name": "slug_perm", "orig": "slug_perm", "reqd": true, "type": "`$ANY`", "index$": 0 }] }, "contract": { "id": "PUT /user/tokens/{slug_perm}/refresh/", "json": "{\"consumes\":[\"application/json\"],\"operationId\":\"user_tokens_refresh\",\"parameters\":[{\"in\":\"path\",\"name\":\"slug_perm\",\"required\":true,\"type\":\"string\"}],\"produces\":[\"application/json\"],\"protocol\":\"http\",\"responses\":{\"200\":{\"description\":\"Successfully refreshed the API key.\",\"schema\":{\"properties\":{\"created\":{\"description\":\"The time at which the API key was created.\",\"format\":\"date-time\",\"readOnly\":true,\"title\":\"Created\",\"type\":\"string\"},\"key\":{\"description\":\"The unique API key used for authentication. This will be obfuscated on read-only HTTP methods.\",\"readOnly\":true,\"title\":\"Key\",\"type\":\"string\"},\"slug_perm\":{\"description\":\"The slug_perm for token.\",\"readOnly\":true,\"title\":\"Slug perm\",\"type\":\"string\"}},\"type\":\"object\"}},\"400\":{\"description\":\"Request could not be processed (see detail).\",\"schema\":{\"properties\":{\"detail\":{\"description\":\"An extended message for the response.\",\"minLength\":1,\"title\":\"Detail\",\"type\":\"string\"},\"fields\":{\"additionalProperties\":{\"items\":{\"minLength\":1,\"type\":\"string\"},\"type\":\"array\"},\"description\":\"A Dictionary of related errors where key: Field and value: Array of Errors related to that field\",\"title\":\"Fields\",\"type\":\"object\"}},\"required\":[\"detail\"],\"type\":\"object\"}},\"404\":{\"description\":\"The specified API key cannot be found.\",\"schema\":{\"properties\":{\"detail\":{\"description\":\"An extended message for the response.\",\"minLength\":1,\"title\":\"Detail\",\"type\":\"string\"},\"fields\":{\"additionalProperties\":{\"items\":{\"minLength\":1,\"type\":\"string\"},\"type\":\"array\"},\"description\":\"A Dictionary of related errors where key: Field and value: Array of Errors related to that field\",\"title\":\"Fields\",\"type\":\"object\"}},\"required\":[\"detail\"],\"type\":\"object\"}},\"422\":{\"description\":\"Missing or invalid parameters (see detail).\",\"schema\":{\"properties\":{\"detail\":{\"description\":\"An extended message for the response.\",\"minLength\":1,\"title\":\"Detail\",\"type\":\"string\"},\"fields\":{\"additionalProperties\":{\"items\":{\"minLength\":1,\"type\":\"string\"},\"type\":\"array\"},\"description\":\"A Dictionary of related errors where key: Field and value: Array of Errors related to that field\",\"title\":\"Fields\",\"type\":\"object\"}},\"required\":[\"detail\"],\"type\":\"object\"}}},\"security\":[{\"apikey\":[]},{\"basic\":[]}],\"securitySchemes\":{\"apikey\":{\"in\":\"header\",\"name\":\"X-Api-Key\",\"type\":\"apiKey\"},\"basic\":{\"type\":\"basic\"}},\"securitySource\":\"definition\"}", "source": "swagger2", "version": 1 }, "kind": "http", "method": "PUT", "orig": "/user/tokens/{slug_perm}/refresh/", "segments": [{ "lit": "user" }, { "lit": "tokens" }, { "var": "slug_perm" }, { "lit": "refresh" }], "select": { "exist": ["slug_perm"] }, "transform": { "req": "`reqdata`", "res": "`body`" }, "index$": 0 }], "key$": "update" } }, "relations": { "ancestors": [["token"]] }, "key$": "user_authentication_token", "name__orig": "user_authentication_token", "Name": "UserAuthenticationToken", "name_": "user_authentication_token", "name-": "user-authentication-token", "NAME": "USER_AUTHENTICATION_TOKEN", "index$": 120 }, { "active": true, "entity": "user_authentication_token", "key$": "BasicUserAuthenticationTokenFlow", "kind": "basic", "name": "BasicUserAuthenticationTokenFlow", "param": {}, "step": [{ "active": true, "data": {}, "input": { "ref": "user_authentication_token_ref01" }, "match": {}, "op": "create", "spec": [], "valid": [], "index$": 0 }, { "active": true, "data": {}, "input": { "ref": "user_authentication_token_ref01", "srcdatavar": "user_authentication_token_ref01_data", "suffix": "_up0" }, "match": {}, "op": "update", "spec": [{ "apply": "TextFieldMark", "def": { "mark": "Mark01-user_authentication_token_ref01" } }], "valid": [], "index$": 1 }] }, 'UserAuthenticationToken');
         }
         const client = setup.client;
         const struct = setup.struct;
@@ -81,11 +79,8 @@ const utility_1 = require("../../utility");
         (0, node_assert_1.default)(null != user_authentication_token_ref01_data);
         // UPDATE
         const user_authentication_token_ref01_data_up0 = {};
-        const user_authentication_token_ref01_markdef_up0 = { name: 'created', value: 'Mark01-user_authentication_token_ref01_' + setup.now };
-        user_authentication_token_ref01_data_up0[user_authentication_token_ref01_markdef_up0.name] = user_authentication_token_ref01_markdef_up0.value;
         const user_authentication_token_ref01_resdata_up0 = (await user_authentication_token_ref01_ent.update(user_authentication_token_ref01_data_up0)).data();
         (0, node_assert_1.default)(null != user_authentication_token_ref01_resdata_up0);
-        (0, node_assert_1.default)(user_authentication_token_ref01_resdata_up0[user_authentication_token_ref01_markdef_up0.name] === user_authentication_token_ref01_markdef_up0.value);
     });
 });
 function basicSetup(extra) {
@@ -108,12 +103,6 @@ function basicSetup(extra) {
                 '`$VAL`': ['`$FORMAT`', 'upper', '`$COPY`']
             }]
     });
-    // Detect whether the user provided a real ENTID JSON via env var. The
-    // basic flow consumes synthetic IDs from the fixture file; without an
-    // override those synthetic IDs reach the live API and 4xx. Surface this
-    // to the test so it can skip rather than fail.
-    const idmapEnvVal = process.env['CLOUDSMITH_TEST_USER_AUTHENTICATION_TOKEN_ENTID'];
-    const idmapOverridden = null != idmapEnvVal && idmapEnvVal.trim().startsWith('{');
     const env = (0, utility_1.envOverride)({
         'CLOUDSMITH_TEST_USER_AUTHENTICATION_TOKEN_ENTID': idmap,
         'CLOUDSMITH_TEST_LIVE': 'FALSE',
@@ -122,7 +111,13 @@ function basicSetup(extra) {
     });
     idmap = env['CLOUDSMITH_TEST_USER_AUTHENTICATION_TOKEN_ENTID'];
     const live = 'TRUE' === env.CLOUDSMITH_TEST_LIVE;
+    const transport = (0, live_runner_1.createLiveTransport)();
     if (live) {
+        const rawIds = process.env['CLOUDSMITH_TEST_USER_AUTHENTICATION_TOKEN_ENTID'];
+        idmap = rawIds && rawIds.trim() ? JSON.parse(rawIds) : {};
+        if (!idmap || Array.isArray(idmap) || typeof idmap !== 'object') {
+            throw new Error('Live ENTID must be a JSON object');
+        }
         client = new __1.CloudsmithSDK(merge([
             // FIRST, so the generated fields below win: sdk-test-control.json's
             // test.client.options adds to the live client, it does not redirect it.
@@ -135,7 +130,8 @@ function basicSetup(extra) {
             // argument at all - so a bare 'extra' silently discarded the apikey
             // and server values above and handed the SDK undefined. Harmless
             // while there was nothing in that object; not harmless now.
-            extra || {}
+            extra || {},
+            { system: { fetch: transport.fetch } }
         ]));
     }
     const setup = {
@@ -147,7 +143,7 @@ function basicSetup(extra) {
         data: entityData,
         explain: 'TRUE' === env.CLOUDSMITH_TEST_EXPLAIN,
         live,
-        syntheticOnly: live && !idmapOverridden,
+        transport,
         now: Date.now(),
     };
     return setup;

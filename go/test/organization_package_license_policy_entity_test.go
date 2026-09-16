@@ -141,7 +141,7 @@ func TestOrganizationPackageLicensePolicyEntity(t *testing.T) {
 			"org_id": setup.idmap["org_id"],
 		}
 
-		organizationPackageLicensePolicyRef01MarkdefUp0Name := "created_at"
+		organizationPackageLicensePolicyRef01MarkdefUp0Name := "description"
 		organizationPackageLicensePolicyRef01MarkdefUp0Value := fmt.Sprintf("Mark01-organization_package_license_policy_ref01_%d", setup.now)
 		organizationPackageLicensePolicyRef01DataUp0Up[organizationPackageLicensePolicyRef01MarkdefUp0Name] = organizationPackageLicensePolicyRef01MarkdefUp0Value
 

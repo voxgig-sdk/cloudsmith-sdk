@@ -5,7 +5,7 @@
         "allow_unknown_licenses": true,
         "created_at": "s97",
         "description": "s98",
-        "evaluation_count": "s99",
+        "evaluation_count": 153,
         "id": "PACKAGE_LICENSE_POLICY_EVALUATION00",
         "name": "s9b",
         "on_violation_quarantine": true,
@@ -16,7 +16,7 @@
         "status": "sa1",
         "updated_at": "sa2",
         "url": "sa3",
-        "violation_count": "sa4",
+        "violation_count": 164,
         "org_id": "ORG01",
         "policy_slug_perm": "POLICY_SLUG_PERM01",
         "license_policy_id": "LICENSE_POLICY01"
@@ -25,7 +25,7 @@
         "allow_unknown_licenses": true,
         "created_at": "s12d",
         "description": "s12e",
-        "evaluation_count": "s12f",
+        "evaluation_count": 303,
         "id": "PACKAGE_LICENSE_POLICY_EVALUATION01",
         "name": "s131",
         "on_violation_quarantine": true,
@@ -36,7 +36,7 @@
         "status": "s137",
         "updated_at": "s138",
         "url": "s139",
-        "violation_count": "s13a",
+        "violation_count": 314,
         "org_id": "ORG01",
         "policy_slug_perm": "POLICY_SLUG_PERM01",
         "license_policy_id": "LICENSE_POLICY01"
@@ -45,7 +45,7 @@
         "allow_unknown_licenses": true,
         "created_at": "s1c3",
         "description": "s1c4",
-        "evaluation_count": "s1c5",
+        "evaluation_count": 453,
         "id": "PACKAGE_LICENSE_POLICY_EVALUATION02",
         "name": "s1c7",
         "on_violation_quarantine": true,
@@ -56,7 +56,7 @@
         "status": "s1cd",
         "updated_at": "s1ce",
         "url": "s1cf",
-        "violation_count": "s1d0",
+        "violation_count": 464,
         "org_id": "ORG01",
         "policy_slug_perm": "POLICY_SLUG_PERM01",
         "license_policy_id": "LICENSE_POLICY01"
@@ -69,7 +69,7 @@
         "allow_unknown_licenses": true,
         "created_at": "s259",
         "description": "s25a",
-        "evaluation_count": "s25b",
+        "evaluation_count": 603,
         "name": "s25d",
         "on_violation_quarantine": true,
         "package_query_string": "s25f",
@@ -79,7 +79,719 @@
         "status": "s263",
         "updated_at": "s264",
         "url": "s265",
-        "violation_count": "s266"
+        "violation_count": 614
+      }
+    }
+  },
+  "requests": {
+    "POST /orgs/{org}/license-policy/{policy_slug_perm}/evaluation/": {
+      "provenance": "operation-contract",
+      "contract": {
+        "consumes": [
+          "application/json"
+        ],
+        "operationId": "orgs_license-policy_evaluation_create",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "org",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "path",
+            "name": "policy_slug_perm",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "body",
+            "name": "data",
+            "required": false,
+            "schema": {
+              "properties": {},
+              "type": "object"
+            }
+          }
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "protocol": "http",
+        "responses": {
+          "201": {
+            "description": "Created",
+            "schema": {
+              "properties": {
+                "created_at": {
+                  "format": "date-time",
+                  "readOnly": true,
+                  "title": "Created at",
+                  "type": "string"
+                },
+                "evaluation_count": {
+                  "readOnly": true,
+                  "title": "Evaluation count",
+                  "type": "integer"
+                },
+                "policy": {
+                  "properties": {
+                    "allow_unknown_licenses": {
+                      "readOnly": true,
+                      "title": "Allow unknown licenses",
+                      "type": "boolean"
+                    },
+                    "created_at": {
+                      "format": "date-time",
+                      "readOnly": true,
+                      "title": "Created at",
+                      "type": "string"
+                    },
+                    "description": {
+                      "minLength": 1,
+                      "readOnly": true,
+                      "title": "Description",
+                      "type": "string"
+                    },
+                    "name": {
+                      "minLength": 1,
+                      "readOnly": true,
+                      "title": "Name",
+                      "type": "string"
+                    },
+                    "on_violation_quarantine": {
+                      "readOnly": true,
+                      "title": "On violation quarantine",
+                      "type": "boolean"
+                    },
+                    "package_query_string": {
+                      "minLength": 1,
+                      "readOnly": true,
+                      "title": "Package query string",
+                      "type": "string"
+                    },
+                    "slug_perm": {
+                      "format": "slug",
+                      "minLength": 1,
+                      "pattern": "^[-a-zA-Z0-9_]+$",
+                      "readOnly": true,
+                      "title": "Slug perm",
+                      "type": "string"
+                    },
+                    "spdx_identifiers": {
+                      "items": {
+                        "type": "string"
+                      },
+                      "type": "array",
+                      "uniqueItems": true
+                    },
+                    "updated_at": {
+                      "format": "date-time",
+                      "readOnly": true,
+                      "title": "Updated at",
+                      "type": "string"
+                    },
+                    "url": {
+                      "format": "uri",
+                      "readOnly": true,
+                      "title": "Url",
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "spdx_identifiers"
+                  ],
+                  "type": "object"
+                },
+                "slug_perm": {
+                  "format": "slug",
+                  "minLength": 1,
+                  "pattern": "^[-a-zA-Z0-9_]+$",
+                  "readOnly": true,
+                  "title": "Slug perm",
+                  "type": "string"
+                },
+                "status": {
+                  "default": "Pending",
+                  "enum": [
+                    "Pending",
+                    "In Progress",
+                    "Complete",
+                    "Cancelled",
+                    "Errored"
+                  ],
+                  "readOnly": true,
+                  "title": "Status",
+                  "type": "string"
+                },
+                "updated_at": {
+                  "format": "date-time",
+                  "readOnly": true,
+                  "title": "Updated at",
+                  "type": "string"
+                },
+                "violation_count": {
+                  "readOnly": true,
+                  "title": "Violation count",
+                  "type": "integer"
+                }
+              },
+              "type": "object"
+            }
+          },
+          "400": {
+            "description": "Request could not be processed (see detail).",
+            "schema": {
+              "properties": {
+                "detail": {
+                  "description": "An extended message for the response.",
+                  "minLength": 1,
+                  "title": "Detail",
+                  "type": "string"
+                },
+                "fields": {
+                  "additionalProperties": {
+                    "items": {
+                      "minLength": 1,
+                      "type": "string"
+                    },
+                    "type": "array"
+                  },
+                  "description": "A Dictionary of related errors where key: Field and value: Array of Errors related to that field",
+                  "title": "Fields",
+                  "type": "object"
+                }
+              },
+              "required": [
+                "detail"
+              ],
+              "type": "object"
+            }
+          },
+          "422": {
+            "description": "Missing or invalid parameters (see detail).",
+            "schema": {
+              "properties": {
+                "detail": {
+                  "description": "An extended message for the response.",
+                  "minLength": 1,
+                  "title": "Detail",
+                  "type": "string"
+                },
+                "fields": {
+                  "additionalProperties": {
+                    "items": {
+                      "minLength": 1,
+                      "type": "string"
+                    },
+                    "type": "array"
+                  },
+                  "description": "A Dictionary of related errors where key: Field and value: Array of Errors related to that field",
+                  "title": "Fields",
+                  "type": "object"
+                }
+              },
+              "required": [
+                "detail"
+              ],
+              "type": "object"
+            }
+          }
+        },
+        "security": [
+          {
+            "apikey": []
+          },
+          {
+            "basic": []
+          }
+        ],
+        "securitySchemes": {
+          "apikey": {
+            "in": "header",
+            "name": "X-Api-Key",
+            "type": "apiKey"
+          },
+          "basic": {
+            "type": "basic"
+          }
+        },
+        "securitySource": "definition"
+      }
+    },
+    "GET /orgs/{org}/license-policy/{policy_slug_perm}/evaluation/": {
+      "provenance": "operation-contract",
+      "contract": {
+        "consumes": [
+          "application/json"
+        ],
+        "operationId": "orgs_license-policy_evaluation_list",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "org",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "path",
+            "name": "policy_slug_perm",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "description": "A page number within the paginated result set.",
+            "in": "query",
+            "name": "page",
+            "required": false,
+            "type": "integer"
+          },
+          {
+            "description": "Number of results to return per page.",
+            "in": "query",
+            "name": "page_size",
+            "required": false,
+            "type": "integer"
+          }
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "protocol": "http",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "items": {
+                "properties": {
+                  "created_at": {
+                    "format": "date-time",
+                    "readOnly": true,
+                    "title": "Created at",
+                    "type": "string"
+                  },
+                  "evaluation_count": {
+                    "readOnly": true,
+                    "title": "Evaluation count",
+                    "type": "integer"
+                  },
+                  "policy": {
+                    "properties": {
+                      "allow_unknown_licenses": {
+                        "readOnly": true,
+                        "title": "Allow unknown licenses",
+                        "type": "boolean"
+                      },
+                      "created_at": {
+                        "format": "date-time",
+                        "readOnly": true,
+                        "title": "Created at",
+                        "type": "string"
+                      },
+                      "description": {
+                        "minLength": 1,
+                        "readOnly": true,
+                        "title": "Description",
+                        "type": "string"
+                      },
+                      "name": {
+                        "minLength": 1,
+                        "readOnly": true,
+                        "title": "Name",
+                        "type": "string"
+                      },
+                      "on_violation_quarantine": {
+                        "readOnly": true,
+                        "title": "On violation quarantine",
+                        "type": "boolean"
+                      },
+                      "package_query_string": {
+                        "minLength": 1,
+                        "readOnly": true,
+                        "title": "Package query string",
+                        "type": "string"
+                      },
+                      "slug_perm": {
+                        "format": "slug",
+                        "minLength": 1,
+                        "pattern": "^[-a-zA-Z0-9_]+$",
+                        "readOnly": true,
+                        "title": "Slug perm",
+                        "type": "string"
+                      },
+                      "spdx_identifiers": {
+                        "items": {
+                          "type": "string"
+                        },
+                        "type": "array",
+                        "uniqueItems": true
+                      },
+                      "updated_at": {
+                        "format": "date-time",
+                        "readOnly": true,
+                        "title": "Updated at",
+                        "type": "string"
+                      },
+                      "url": {
+                        "format": "uri",
+                        "readOnly": true,
+                        "title": "Url",
+                        "type": "string"
+                      }
+                    },
+                    "required": [
+                      "spdx_identifiers"
+                    ],
+                    "type": "object"
+                  },
+                  "slug_perm": {
+                    "format": "slug",
+                    "minLength": 1,
+                    "pattern": "^[-a-zA-Z0-9_]+$",
+                    "readOnly": true,
+                    "title": "Slug perm",
+                    "type": "string"
+                  },
+                  "status": {
+                    "default": "Pending",
+                    "enum": [
+                      "Pending",
+                      "In Progress",
+                      "Complete",
+                      "Cancelled",
+                      "Errored"
+                    ],
+                    "readOnly": true,
+                    "title": "Status",
+                    "type": "string"
+                  },
+                  "updated_at": {
+                    "format": "date-time",
+                    "readOnly": true,
+                    "title": "Updated at",
+                    "type": "string"
+                  },
+                  "violation_count": {
+                    "readOnly": true,
+                    "title": "Violation count",
+                    "type": "integer"
+                  }
+                },
+                "type": "object"
+              },
+              "type": "array"
+            }
+          },
+          "400": {
+            "description": "Request could not be processed (see detail).",
+            "schema": {
+              "properties": {
+                "detail": {
+                  "description": "An extended message for the response.",
+                  "minLength": 1,
+                  "title": "Detail",
+                  "type": "string"
+                },
+                "fields": {
+                  "additionalProperties": {
+                    "items": {
+                      "minLength": 1,
+                      "type": "string"
+                    },
+                    "type": "array"
+                  },
+                  "description": "A Dictionary of related errors where key: Field and value: Array of Errors related to that field",
+                  "title": "Fields",
+                  "type": "object"
+                }
+              },
+              "required": [
+                "detail"
+              ],
+              "type": "object"
+            }
+          },
+          "422": {
+            "description": "Missing or invalid parameters (see detail).",
+            "schema": {
+              "properties": {
+                "detail": {
+                  "description": "An extended message for the response.",
+                  "minLength": 1,
+                  "title": "Detail",
+                  "type": "string"
+                },
+                "fields": {
+                  "additionalProperties": {
+                    "items": {
+                      "minLength": 1,
+                      "type": "string"
+                    },
+                    "type": "array"
+                  },
+                  "description": "A Dictionary of related errors where key: Field and value: Array of Errors related to that field",
+                  "title": "Fields",
+                  "type": "object"
+                }
+              },
+              "required": [
+                "detail"
+              ],
+              "type": "object"
+            }
+          }
+        },
+        "security": [
+          {
+            "apikey": []
+          },
+          {
+            "basic": []
+          }
+        ],
+        "securitySchemes": {
+          "apikey": {
+            "in": "header",
+            "name": "X-Api-Key",
+            "type": "apiKey"
+          },
+          "basic": {
+            "type": "basic"
+          }
+        },
+        "securitySource": "definition"
+      }
+    },
+    "GET /orgs/{org}/license-policy/{policy_slug_perm}/evaluation/{slug_perm}/": {
+      "provenance": "operation-contract",
+      "contract": {
+        "consumes": [
+          "application/json"
+        ],
+        "operationId": "orgs_license-policy_evaluation_read",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "org",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "path",
+            "name": "policy_slug_perm",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "path",
+            "name": "slug_perm",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "protocol": "http",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "properties": {
+                "created_at": {
+                  "format": "date-time",
+                  "readOnly": true,
+                  "title": "Created at",
+                  "type": "string"
+                },
+                "evaluation_count": {
+                  "readOnly": true,
+                  "title": "Evaluation count",
+                  "type": "integer"
+                },
+                "policy": {
+                  "properties": {
+                    "allow_unknown_licenses": {
+                      "readOnly": true,
+                      "title": "Allow unknown licenses",
+                      "type": "boolean"
+                    },
+                    "created_at": {
+                      "format": "date-time",
+                      "readOnly": true,
+                      "title": "Created at",
+                      "type": "string"
+                    },
+                    "description": {
+                      "minLength": 1,
+                      "readOnly": true,
+                      "title": "Description",
+                      "type": "string"
+                    },
+                    "name": {
+                      "minLength": 1,
+                      "readOnly": true,
+                      "title": "Name",
+                      "type": "string"
+                    },
+                    "on_violation_quarantine": {
+                      "readOnly": true,
+                      "title": "On violation quarantine",
+                      "type": "boolean"
+                    },
+                    "package_query_string": {
+                      "minLength": 1,
+                      "readOnly": true,
+                      "title": "Package query string",
+                      "type": "string"
+                    },
+                    "slug_perm": {
+                      "format": "slug",
+                      "minLength": 1,
+                      "pattern": "^[-a-zA-Z0-9_]+$",
+                      "readOnly": true,
+                      "title": "Slug perm",
+                      "type": "string"
+                    },
+                    "spdx_identifiers": {
+                      "items": {
+                        "type": "string"
+                      },
+                      "type": "array",
+                      "uniqueItems": true
+                    },
+                    "updated_at": {
+                      "format": "date-time",
+                      "readOnly": true,
+                      "title": "Updated at",
+                      "type": "string"
+                    },
+                    "url": {
+                      "format": "uri",
+                      "readOnly": true,
+                      "title": "Url",
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "spdx_identifiers"
+                  ],
+                  "type": "object"
+                },
+                "slug_perm": {
+                  "format": "slug",
+                  "minLength": 1,
+                  "pattern": "^[-a-zA-Z0-9_]+$",
+                  "readOnly": true,
+                  "title": "Slug perm",
+                  "type": "string"
+                },
+                "status": {
+                  "default": "Pending",
+                  "enum": [
+                    "Pending",
+                    "In Progress",
+                    "Complete",
+                    "Cancelled",
+                    "Errored"
+                  ],
+                  "readOnly": true,
+                  "title": "Status",
+                  "type": "string"
+                },
+                "updated_at": {
+                  "format": "date-time",
+                  "readOnly": true,
+                  "title": "Updated at",
+                  "type": "string"
+                },
+                "violation_count": {
+                  "readOnly": true,
+                  "title": "Violation count",
+                  "type": "integer"
+                }
+              },
+              "type": "object"
+            }
+          },
+          "400": {
+            "description": "Request could not be processed (see detail).",
+            "schema": {
+              "properties": {
+                "detail": {
+                  "description": "An extended message for the response.",
+                  "minLength": 1,
+                  "title": "Detail",
+                  "type": "string"
+                },
+                "fields": {
+                  "additionalProperties": {
+                    "items": {
+                      "minLength": 1,
+                      "type": "string"
+                    },
+                    "type": "array"
+                  },
+                  "description": "A Dictionary of related errors where key: Field and value: Array of Errors related to that field",
+                  "title": "Fields",
+                  "type": "object"
+                }
+              },
+              "required": [
+                "detail"
+              ],
+              "type": "object"
+            }
+          },
+          "422": {
+            "description": "Missing or invalid parameters (see detail).",
+            "schema": {
+              "properties": {
+                "detail": {
+                  "description": "An extended message for the response.",
+                  "minLength": 1,
+                  "title": "Detail",
+                  "type": "string"
+                },
+                "fields": {
+                  "additionalProperties": {
+                    "items": {
+                      "minLength": 1,
+                      "type": "string"
+                    },
+                    "type": "array"
+                  },
+                  "description": "A Dictionary of related errors where key: Field and value: Array of Errors related to that field",
+                  "title": "Fields",
+                  "type": "object"
+                }
+              },
+              "required": [
+                "detail"
+              ],
+              "type": "object"
+            }
+          }
+        },
+        "security": [
+          {
+            "apikey": []
+          },
+          {
+            "basic": []
+          }
+        ],
+        "securitySchemes": {
+          "apikey": {
+            "in": "header",
+            "name": "X-Api-Key",
+            "type": "apiKey"
+          },
+          "basic": {
+            "type": "basic"
+          }
+        },
+        "securitySource": "definition"
       }
     }
   }

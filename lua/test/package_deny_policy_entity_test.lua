@@ -107,7 +107,7 @@ describe("PackageDenyPolicyEntity", function()
       ["org_id"] = setup.idmap["org_id"],
     }
 
-    local package_deny_policy_ref01_markdef_up0_name = "action"
+    local package_deny_policy_ref01_markdef_up0_name = "description"
     local package_deny_policy_ref01_markdef_up0_value = "Mark01-package_deny_policy_ref01_" .. tostring(setup.now)
     package_deny_policy_ref01_data_up0_up[package_deny_policy_ref01_markdef_up0_name] = package_deny_policy_ref01_markdef_up0_value
 

@@ -138,7 +138,7 @@ func TestOrgEntity(t *testing.T) {
 			"id": orgRef01Data["id"],
 		}
 
-		orgRef01MarkdefUp0Name := "country"
+		orgRef01MarkdefUp0Name := "name"
 		orgRef01MarkdefUp0Value := fmt.Sprintf("Mark01-org_ref01_%d", setup.now)
 		orgRef01DataUp0Up[orgRef01MarkdefUp0Name] = orgRef01MarkdefUp0Value
 

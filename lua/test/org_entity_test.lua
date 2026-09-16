@@ -104,7 +104,7 @@ describe("OrgEntity", function()
       id = org_ref01_data["id"],
     }
 
-    local org_ref01_markdef_up0_name = "country"
+    local org_ref01_markdef_up0_name = "name"
     local org_ref01_markdef_up0_value = "Mark01-org_ref01_" .. tostring(setup.now)
     org_ref01_data_up0_up[org_ref01_markdef_up0_name] = org_ref01_markdef_up0_value
 

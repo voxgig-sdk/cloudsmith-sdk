@@ -10,5 +10,6 @@
     "terraform": {
       "terraform_ref01": {}
     }
-  }
+  },
+  "requests": {}
 }

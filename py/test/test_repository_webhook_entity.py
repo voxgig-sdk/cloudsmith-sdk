@@ -105,7 +105,7 @@ class TestRepositoryWebhookEntity:
             "repo": setup["idmap"]["repo"],
         }
 
-        repository_webhook_ref01_markdef_up0_name = "created_at"
+        repository_webhook_ref01_markdef_up0_name = "package_query"
         repository_webhook_ref01_markdef_up0_value = "Mark01-repository_webhook_ref01_" + str(setup["now"])
         repository_webhook_ref01_data_up0_up[repository_webhook_ref01_markdef_up0_name] = repository_webhook_ref01_markdef_up0_value
 

@@ -30,8 +30,7 @@ main: kit: flow: BasicOrganizationMembershipFlow:
       input: {
         ref: "organization_membership_ref01",
         srcdatavar: "organization_membership_ref01_data",
-        suffix: "_up0",
-        textfield: "email"
+        suffix: "_up0"
       }
 
       op: "update",

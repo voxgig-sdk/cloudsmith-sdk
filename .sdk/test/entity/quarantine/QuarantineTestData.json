@@ -10,5 +10,6 @@
     "quarantine": {
       "quarantine_ref01": {}
     }
-  }
+  },
+  "requests": {}
 }

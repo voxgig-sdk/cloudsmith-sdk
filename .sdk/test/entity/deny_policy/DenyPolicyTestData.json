@@ -10,5 +10,6 @@
     "deny_policy": {
       "deny_policy_ref01": {}
     }
-  }
+  },
+  "requests": {}
 }
