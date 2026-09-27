@@ -1,0 +1,33 @@
+# BasicRepositoryX509RsaCertificateFlow
+
+main: kit: flow: BasicRepositoryX509RsaCertificateFlow:
+{
+  entity: "repository_x509_rsa_certificate",
+  kind: "basic",
+  name: "BasicRepositoryX509RsaCertificateFlow",
+  step: [
+    {
+      i: {
+        ref: "repository_x509_rsa_certificate_ref01",
+        srcdatavar: "repository_x509_rsa_certificate_ref01_data",
+        suffix: "_dt0"
+      }
+
+      m: {
+        id: "repository_x509_rsa_certificate01",
+        owner: "owner01"
+      }
+
+      o: "load",
+      v: [
+        {
+          apply: "TextFieldMark",
+          def: {
+            mark: "Mark01-repository_x509_rsa_certificate_ref01"
+          }
+        }
+      ]
+    }
+  ],
+  "key$": "BasicRepositoryX509RsaCertificateFlow"
+}

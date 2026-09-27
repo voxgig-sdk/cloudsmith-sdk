@@ -1,0 +1,88 @@
+# Entity: repository_geo_ip_test_address
+
+main: kit: entity: repository_geo_ip_test_address: {
+
+  alias: field: {}
+
+  name: "repository_geo_ip_test_address"
+  op: {
+    create: {
+      name: "create"
+      points: [
+        {
+          co: {
+            id: "POST /repos/{owner}/{identifier}/geoip/test/"
+            source: "swagger2"
+            version: 2
+          }
+          g: {
+            params: [
+              {
+                k: "param"
+                n: "identifier"
+                or: "identifier"
+                r: true
+                t: "`$ANY`"
+              }
+              {
+                k: "param"
+                n: "owner"
+                or: "owner"
+                r: true
+                t: "`$ANY`"
+              }
+            ]
+            query: [
+              {
+                k: "query"
+                n: "data"
+                or: "data"
+                r: false
+                t: "`$OBJECT`"
+              }
+            ]
+          }
+          m: "POST"
+          o: "/repos/{owner}/{identifier}/geoip/test/"
+          q: {
+            exist: [
+              "data"
+              "identifier"
+              "owner"
+            ]
+          }
+          s: [
+            {
+              lit: "repos"
+            }
+            {
+              var: "owner"
+            }
+            {
+              var: "identifier"
+            }
+            {
+              lit: "geoip"
+            }
+            {
+              lit: "test"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+  }
+
+  fields: {
+  }
+
+
+  relations: ancestors: [
+    [path("$.main.kit.entity.repo")]
+  ]
+
+}

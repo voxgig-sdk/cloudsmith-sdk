@@ -110,7 +110,7 @@ def _distribution_full_basic_setup(extra):
 
     # Generate idmap via transform.
     idmap = vs.transform(
-        ["distribution_full01", "distribution_full02", "distribution_full03", "distro01", "distro02", "distro03"],
+        ["distribution_full01", "distribution_full02", "distribution_full03"],
         {
             "`$PACK`": ["", {
                 "`$KEY`": "`$COPY`",

@@ -126,7 +126,7 @@ function organization_membership_basic_setup($extra)
 
     // Generate idmap.
     $idmap = [];
-    foreach (["organization_membership01", "organization_membership02", "organization_membership03", "org01", "org02", "org03", "member01", "member02", "member03"] as $k) {
+    foreach (["organization_membership01", "organization_membership02", "organization_membership03", "org01", "org02", "org03"] as $k) {
         $idmap[$k] = strtoupper($k);
     }
 

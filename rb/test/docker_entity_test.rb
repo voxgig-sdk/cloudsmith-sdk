@@ -136,7 +136,7 @@ def docker_basic_setup(extra)
 
   # Generate idmap via transform.
   idmap = Vs.transform(
-    ["docker01", "docker02", "docker03", "package01", "package02", "package03", "repo01", "repo02", "repo03", "identifier01", "owner01"],
+    ["docker01", "docker02", "docker03", "repo01", "repo02", "repo03", "identifier01", "owner01"],
     {
       "`$PACK`" => ["", {
         "`$KEY`" => "`$COPY`",

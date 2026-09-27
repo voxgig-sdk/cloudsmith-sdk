@@ -1,0 +1,88 @@
+# BasicNugetFlow
+
+main: kit: flow: BasicNugetFlow:
+{
+  entity: "nuget",
+  kind: "basic",
+  name: "BasicNugetFlow",
+  step: [
+    {
+      i: {
+        ref: "nuget_ref01"
+      }
+
+      m: {
+        identifier: "identifier01",
+        owner: "owner01"
+      }
+
+      o: "create"
+    }
+
+    {
+      m: {
+        identifier: "identifier01",
+        owner: "owner01"
+      }
+
+      o: "list",
+      v: [
+        {
+          apply: "ItemExists",
+          def: {
+            ref: "nuget_ref01"
+          }
+        }
+      ]
+    }
+
+    {
+      d: {
+        identifier: "identifier01",
+        owner: "owner01"
+      }
+
+      i: {
+        ref: "nuget_ref01",
+        srcdatavar: "nuget_ref01_data",
+        suffix: "_up0",
+        textfield: "auth_mode"
+      }
+
+      o: "update",
+      s: [
+        {
+          apply: "TextFieldMark",
+          def: {
+            mark: "Mark01-nuget_ref01"
+          }
+        }
+      ]
+    }
+
+    {
+      i: {
+        ref: "nuget_ref01",
+        srcdatavar: "nuget_ref01_data",
+        suffix: "_dt0"
+      }
+
+      m: {
+        id: "nuget01",
+        identifier: "identifier01",
+        owner: "owner01"
+      }
+
+      o: "load",
+      v: [
+        {
+          apply: "TextFieldMark",
+          def: {
+            mark: "Mark01-nuget_ref01"
+          }
+        }
+      ]
+    }
+  ],
+  "key$": "BasicNugetFlow"
+}

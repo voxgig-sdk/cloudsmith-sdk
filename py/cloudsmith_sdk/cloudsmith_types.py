@@ -1,7 +1,7 @@
 # Typed models for the Cloudsmith SDK.
 #
-# GENERATED from the API model: main.kit.entity.<e>.fields[] and per-op
-# params (op.<name>.points[].args.params[]). Field/param types come from the
+# GENERATED from the API model: main.kit.entity.<e>.fields{} and per-op
+# params (op.<name>.points[].g.params[]). Field/param types come from the
 # canonical type sentinels via @voxgig/sdkgen canonToType (source of truth:
 # @voxgig/apidef VALID_CANON). Do not edit by hand.
 #
@@ -14,22 +14,6 @@
 from __future__ import annotations
 
 from typing import TypedDict, Any
-
-
-class Abort(TypedDict):
-    pass
-
-
-class Alpine(TypedDict):
-    pass
-
-
-class AuditLog(TypedDict):
-    pass
-
-
-class Basic(TypedDict):
-    pass
 
 
 class CargoRequired(TypedDict):
@@ -129,14 +113,6 @@ class CargoUpdateData(CargoUpdateDataRequired, total=False):
     verify_ssl: bool
 
 
-class Cocoapod(TypedDict):
-    pass
-
-
-class Complete(TypedDict):
-    pass
-
-
 class ComposerRequired(TypedDict):
     name: str
     upstream_url: str
@@ -234,10 +210,6 @@ class ComposerUpdateData(ComposerUpdateDataRequired, total=False):
     verify_ssl: bool
 
 
-class Conan(TypedDict):
-    pass
-
-
 class CondaRequired(TypedDict):
     name: str
     upstream_url: str
@@ -333,10 +305,6 @@ class CondaUpdateData(CondaUpdateDataRequired, total=False):
     updated_at: str
     upstream_url: str
     verify_ssl: bool
-
-
-class Copy(TypedDict):
-    pass
 
 
 class CranRequired(TypedDict):
@@ -654,18 +622,6 @@ class DebUpdateData(DebUpdateDataRequired, total=False):
     verify_ssl: bool
 
 
-class DenyPolicy(TypedDict):
-    pass
-
-
-class Dependency(TypedDict):
-    pass
-
-
-class Disable(TypedDict):
-    pass
-
-
 class DistributionFullRequired(TypedDict):
     name: str
 
@@ -691,10 +647,6 @@ class DistributionFullListMatch(TypedDict, total=False):
     slug: str
     variants: str
     versions: list
-
-
-class Distro(TypedDict):
-    pass
 
 
 class DockerRequired(TypedDict):
@@ -819,14 +771,6 @@ class DynamicMappingListMatch(DynamicMappingListMatchRequired, total=False):
     page_size: int
 
 
-class Ecdsa(TypedDict):
-    pass
-
-
-class Enable(TypedDict):
-    pass
-
-
 class EntitlementRequired(TypedDict):
     bandwidth: dict
     downloads: dict
@@ -871,10 +815,6 @@ class EntitlementRemoveMatch(TypedDict):
     identifier: Any
     owner: Any
     repo: Any
-
-
-class Evaluation(TypedDict):
-    pass
 
 
 class File(TypedDict):
@@ -922,10 +862,6 @@ class FormatListMatch(TypedDict, total=False):
     premium_plan_name: str
     slug: str
     supports: dict
-
-
-class Geoip(TypedDict):
-    pass
 
 
 class GonRequired(TypedDict):
@@ -1020,14 +956,6 @@ class GonUpdateData(GonUpdateDataRequired, total=False):
     updated_at: str
     upstream_url: str
     verify_ssl: bool
-
-
-class Gpg(TypedDict):
-    pass
-
-
-class Group(TypedDict):
-    pass
 
 
 class HelmRequired(TypedDict):
@@ -1224,10 +1152,6 @@ class HexUpdateData(HexUpdateDataRequired, total=False):
     verify_ssl: bool
 
 
-class History(TypedDict):
-    pass
-
-
 class HuggingfaceRequired(TypedDict):
     name: str
     upstream_url: str
@@ -1323,26 +1247,6 @@ class HuggingfaceUpdateData(HuggingfaceUpdateDataRequired, total=False):
     updated_at: str
     upstream_url: str
     verify_ssl: bool
-
-
-class Info(TypedDict):
-    pass
-
-
-class Invite(TypedDict):
-    pass
-
-
-class LicensePolicy(TypedDict):
-    pass
-
-
-class Limit(TypedDict):
-    pass
-
-
-class Luarock(TypedDict):
-    pass
 
 
 class MavenRequired(TypedDict):
@@ -1452,14 +1356,6 @@ class MavenUpdateData(MavenUpdateDataRequired, total=False):
     upstream_url: str
     verification_status: str
     verify_ssl: bool
-
-
-class Member(TypedDict):
-    pass
-
-
-class Move(TypedDict):
-    pass
 
 
 class Namespace(TypedDict, total=False):
@@ -1704,10 +1600,6 @@ class NugetUpdateData(NugetUpdateDataRequired, total=False):
     updated_at: str
     upstream_url: str
     verify_ssl: bool
-
-
-class OpenidConnect(TypedDict):
-    pass
 
 
 class OrgRequired(TypedDict):
@@ -2268,14 +2160,6 @@ class OrganizationTeamMemberCreateData(OrganizationTeamMemberCreateDataRequired,
     data: dict
 
 
-class Oss(TypedDict):
-    pass
-
-
-class P2n(TypedDict):
-    pass
-
-
 class PackageRequired(TypedDict):
     bandwidth: dict
     count: int
@@ -2753,14 +2637,6 @@ class PackageVulnerabilityPolicyEvaluationCreateData(PackageVulnerabilityPolicyE
     violation_count: int
 
 
-class Privilege(TypedDict):
-    pass
-
-
-class Profile(TypedDict):
-    pass
-
-
 class ProviderSettingRequired(TypedDict):
     claims: dict
     enabled: bool
@@ -2937,10 +2813,6 @@ class PythonUpdateData(PythonUpdateDataRequired, total=False):
     verify_ssl: bool
 
 
-class Quarantine(TypedDict):
-    pass
-
-
 class QuotaRequired(TypedDict):
     display: dict
     history: list
@@ -2953,18 +2825,6 @@ class Quota(QuotaRequired, total=False):
 
 class QuotaLoadMatch(TypedDict):
     id: str
-
-
-class Raw(TypedDict):
-    pass
-
-
-class Refresh(TypedDict):
-    pass
-
-
-class Regenerate(TypedDict):
-    pass
 
 
 class RepoRequired(TypedDict):
@@ -3348,22 +3208,22 @@ class RepositoryGpgKeyCreateData(RepositoryGpgKeyCreateDataRequired, total=False
     public_key: str
 
 
-class RepositoryPrivilegeInputRequired(TypedDict):
+class RepositoryPrivilegeDictRequired(TypedDict):
     privilege: str
 
 
-class RepositoryPrivilegeInput(RepositoryPrivilegeInputRequired, total=False):
+class RepositoryPrivilegeDict(RepositoryPrivilegeDictRequired, total=False):
     service: str
     team: str
     user: str
 
 
-class RepositoryPrivilegeInputListMatchRequired(TypedDict):
+class RepositoryPrivilegeDictListMatchRequired(TypedDict):
     identifier: Any
     owner: Any
 
 
-class RepositoryPrivilegeInputListMatch(RepositoryPrivilegeInputListMatchRequired, total=False):
+class RepositoryPrivilegeDictListMatch(RepositoryPrivilegeDictListMatchRequired, total=False):
     page: int
     page_size: int
 
@@ -3869,10 +3729,6 @@ class RepositoryX509RsaCertificateLoadMatch(TypedDict):
     owner: Any
 
 
-class Reset(TypedDict):
-    pass
-
-
 class ResourcesRateCheck(TypedDict, total=False):
     interval: float
     limit: int
@@ -3889,14 +3745,6 @@ class ResourcesRateCheckLoadMatch(TypedDict, total=False):
     reset: int
     reset_iso_8601: str
     throttled: bool
-
-
-class Resync(TypedDict):
-    pass
-
-
-class Retention(TypedDict):
-    pass
 
 
 class RpmRequired(TypedDict):
@@ -4014,10 +3862,6 @@ class RpmUpdateData(RpmUpdateDataRequired, total=False):
     verify_ssl: bool
 
 
-class Rsa(TypedDict):
-    pass
-
-
 class RubyRequired(TypedDict):
     name: str
     upstream_url: str
@@ -4115,18 +3959,6 @@ class RubyUpdateData(RubyUpdateDataRequired, total=False):
     verify_ssl: bool
 
 
-class SamlGroupSync(TypedDict):
-    pass
-
-
-class Scan(TypedDict):
-    pass
-
-
-class Self(TypedDict):
-    pass
-
-
 class ServiceRequired(TypedDict):
     name: str
 
@@ -4196,10 +4028,6 @@ class ServiceUpdateData(ServiceUpdateDataRequired, total=False):
     role: str
     slug: str
     teams: list
-
-
-class Status(TypedDict):
-    pass
 
 
 class StatusBasic(TypedDict, total=False):
@@ -4328,34 +4156,6 @@ class SwiftUpdateData(SwiftUpdateDataRequired, total=False):
     verify_ssl: bool
 
 
-class Sync(TypedDict):
-    pass
-
-
-class Tag(TypedDict):
-    pass
-
-
-class Team(TypedDict):
-    pass
-
-
-class Terraform(TypedDict):
-    pass
-
-
-class Test(TypedDict):
-    pass
-
-
-class Token(TypedDict):
-    pass
-
-
-class TransferRegion(TypedDict):
-    pass
-
-
 class User(TypedDict):
     pass
 
@@ -4435,18 +4235,6 @@ class UserProfileLoadMatch(TypedDict):
     id: str
 
 
-class Vagrant(TypedDict):
-    pass
-
-
-class Validate(TypedDict):
-    pass
-
-
-class Version(TypedDict):
-    pass
-
-
 class VulnerabilityRequired(TypedDict):
     identifier: str
     package: dict
@@ -4482,10 +4270,6 @@ class VulnerabilityListMatch(VulnerabilityListMatchRequired, total=False):
     page_size: int
 
 
-class VulnerabilityPolicy(TypedDict):
-    pass
-
-
 class Webhook(TypedDict, total=False):
     id: str
 
@@ -4494,11 +4278,3 @@ class WebhookRemoveMatch(TypedDict):
     identifier: Any
     owner: Any
     repo: Any
-
-
-class X509Ecdsa(TypedDict):
-    pass
-
-
-class X509Rsa(TypedDict):
-    pass

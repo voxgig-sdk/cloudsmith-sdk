@@ -147,7 +147,7 @@ function cran_basic_setup($extra)
 
     // Generate idmap.
     $idmap = [];
-    foreach (["cran01", "cran02", "cran03", "package01", "package02", "package03", "repo01", "repo02", "repo03", "identifier01", "owner01"] as $k) {
+    foreach (["cran01", "cran02", "cran03", "repo01", "repo02", "repo03", "identifier01", "owner01"] as $k) {
         $idmap[$k] = strtoupper($k);
     }
 

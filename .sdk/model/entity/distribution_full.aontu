@@ -1,0 +1,132 @@
+# Entity: distribution_full
+
+main: kit: entity: distribution_full: {
+
+  alias: field: {}
+
+  fields: {
+    format: {
+      h: "Format"
+      n: "format"
+      r: false
+      ro: true
+      t: "`$STRING`"
+    }
+    format_url: {
+      fo: "uri"
+      h: "Format Url"
+      n: "format_url"
+      r: false
+      ro: true
+      t: "`$STRING`"
+    }
+    name: {
+      h: "Name"
+      n: "name"
+      r: true
+      t: "`$STRING`"
+    }
+    self_url: {
+      fo: "uri"
+      h: "Self Url"
+      n: "self_url"
+      r: false
+      ro: true
+      t: "`$STRING`"
+    }
+    slug: {
+      h: "Slug"
+      n: "slug"
+      r: false
+      ro: true
+      sh: "The slug identifier for this distribution"
+      t: "`$STRING`"
+    }
+    variants: {
+      h: "Variants"
+      n: "variants"
+      r: false
+      t: "`$STRING`"
+    }
+    versions: {
+      h: "Versions"
+      n: "versions"
+      r: false
+      ro: true
+      sh: "A list of the versions for this distribution"
+      t: "`$ARRAY`"
+    }
+  }
+
+  name: "distribution_full"
+  op: {
+    list: {
+      name: "list"
+      points: [
+        {
+          co: {
+            id: "GET /distros/"
+            source: "swagger2"
+            version: 2
+          }
+          m: "GET"
+          o: "/distros/"
+          s: [
+            {
+              lit: "distros"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+    load: {
+      name: "load"
+      points: [
+        {
+          co: {
+            id: "GET /distros/{slug}/"
+            source: "swagger2"
+            version: 2
+          }
+          g: {
+            params: [
+              {
+                k: "param"
+                n: "slug"
+                or: "slug"
+                r: true
+                t: "`$STRING`"
+              }
+            ]
+          }
+          m: "GET"
+          o: "/distros/{slug}/"
+          q: {
+            exist: [
+              "slug"
+            ]
+          }
+          s: [
+            {
+              lit: "distros"
+            }
+            {
+              var: "slug"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+  }
+
+
+
+}

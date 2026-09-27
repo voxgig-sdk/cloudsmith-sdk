@@ -1,0 +1,88 @@
+# BasicComposerFlow
+
+main: kit: flow: BasicComposerFlow:
+{
+  entity: "composer",
+  kind: "basic",
+  name: "BasicComposerFlow",
+  step: [
+    {
+      i: {
+        ref: "composer_ref01"
+      }
+
+      m: {
+        identifier: "identifier01",
+        owner: "owner01"
+      }
+
+      o: "create"
+    }
+
+    {
+      m: {
+        identifier: "identifier01",
+        owner: "owner01"
+      }
+
+      o: "list",
+      v: [
+        {
+          apply: "ItemExists",
+          def: {
+            ref: "composer_ref01"
+          }
+        }
+      ]
+    }
+
+    {
+      d: {
+        identifier: "identifier01",
+        owner: "owner01"
+      }
+
+      i: {
+        ref: "composer_ref01",
+        srcdatavar: "composer_ref01_data",
+        suffix: "_up0",
+        textfield: "auth_mode"
+      }
+
+      o: "update",
+      s: [
+        {
+          apply: "TextFieldMark",
+          def: {
+            mark: "Mark01-composer_ref01"
+          }
+        }
+      ]
+    }
+
+    {
+      i: {
+        ref: "composer_ref01",
+        srcdatavar: "composer_ref01_data",
+        suffix: "_dt0"
+      }
+
+      m: {
+        id: "composer01",
+        identifier: "identifier01",
+        owner: "owner01"
+      }
+
+      o: "load",
+      v: [
+        {
+          apply: "TextFieldMark",
+          def: {
+            mark: "Mark01-composer_ref01"
+          }
+        }
+      ]
+    }
+  ],
+  "key$": "BasicComposerFlow"
+}

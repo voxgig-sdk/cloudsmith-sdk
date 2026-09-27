@@ -42,49 +42,17 @@ $client = CloudsmithSDK::test();
 
 ### Instance Methods
 
-#### `Abort($data = null)`
-
-Create a new `AbortEntity` instance. Pass `null` for no initial data.
-
-#### `Alpine($data = null)`
-
-Create a new `AlpineEntity` instance. Pass `null` for no initial data.
-
-#### `AuditLog($data = null)`
-
-Create a new `AuditLogEntity` instance. Pass `null` for no initial data.
-
-#### `Basic($data = null)`
-
-Create a new `BasicEntity` instance. Pass `null` for no initial data.
-
 #### `Cargo($data = null)`
 
 Create a new `CargoEntity` instance. Pass `null` for no initial data.
-
-#### `Cocoapod($data = null)`
-
-Create a new `CocoapodEntity` instance. Pass `null` for no initial data.
-
-#### `Complete($data = null)`
-
-Create a new `CompleteEntity` instance. Pass `null` for no initial data.
 
 #### `Composer($data = null)`
 
 Create a new `ComposerEntity` instance. Pass `null` for no initial data.
 
-#### `Conan($data = null)`
-
-Create a new `ConanEntity` instance. Pass `null` for no initial data.
-
 #### `Conda($data = null)`
 
 Create a new `CondaEntity` instance. Pass `null` for no initial data.
-
-#### `Copy($data = null)`
-
-Create a new `CopyEntity` instance. Pass `null` for no initial data.
 
 #### `Cran($data = null)`
 
@@ -98,25 +66,9 @@ Create a new `DartEntity` instance. Pass `null` for no initial data.
 
 Create a new `DebEntity` instance. Pass `null` for no initial data.
 
-#### `DenyPolicy($data = null)`
-
-Create a new `DenyPolicyEntity` instance. Pass `null` for no initial data.
-
-#### `Dependency($data = null)`
-
-Create a new `DependencyEntity` instance. Pass `null` for no initial data.
-
-#### `Disable($data = null)`
-
-Create a new `DisableEntity` instance. Pass `null` for no initial data.
-
 #### `DistributionFull($data = null)`
 
 Create a new `DistributionFullEntity` instance. Pass `null` for no initial data.
-
-#### `Distro($data = null)`
-
-Create a new `DistroEntity` instance. Pass `null` for no initial data.
 
 #### `Docker($data = null)`
 
@@ -126,21 +78,9 @@ Create a new `DockerEntity` instance. Pass `null` for no initial data.
 
 Create a new `DynamicMappingEntity` instance. Pass `null` for no initial data.
 
-#### `Ecdsa($data = null)`
-
-Create a new `EcdsaEntity` instance. Pass `null` for no initial data.
-
-#### `Enable($data = null)`
-
-Create a new `EnableEntity` instance. Pass `null` for no initial data.
-
 #### `Entitlement($data = null)`
 
 Create a new `EntitlementEntity` instance. Pass `null` for no initial data.
-
-#### `Evaluation($data = null)`
-
-Create a new `EvaluationEntity` instance. Pass `null` for no initial data.
 
 #### `File($data = null)`
 
@@ -150,21 +90,9 @@ Create a new `FileEntity` instance. Pass `null` for no initial data.
 
 Create a new `FormatEntity` instance. Pass `null` for no initial data.
 
-#### `Geoip($data = null)`
-
-Create a new `GeoipEntity` instance. Pass `null` for no initial data.
-
 #### `Gon($data = null)`
 
 Create a new `GonEntity` instance. Pass `null` for no initial data.
-
-#### `Gpg($data = null)`
-
-Create a new `GpgEntity` instance. Pass `null` for no initial data.
-
-#### `Group($data = null)`
-
-Create a new `GroupEntity` instance. Pass `null` for no initial data.
 
 #### `Helm($data = null)`
 
@@ -174,45 +102,13 @@ Create a new `HelmEntity` instance. Pass `null` for no initial data.
 
 Create a new `HexEntity` instance. Pass `null` for no initial data.
 
-#### `History($data = null)`
-
-Create a new `HistoryEntity` instance. Pass `null` for no initial data.
-
 #### `Huggingface($data = null)`
 
 Create a new `HuggingfaceEntity` instance. Pass `null` for no initial data.
 
-#### `Info($data = null)`
-
-Create a new `InfoEntity` instance. Pass `null` for no initial data.
-
-#### `Invite($data = null)`
-
-Create a new `InviteEntity` instance. Pass `null` for no initial data.
-
-#### `LicensePolicy($data = null)`
-
-Create a new `LicensePolicyEntity` instance. Pass `null` for no initial data.
-
-#### `Limit($data = null)`
-
-Create a new `LimitEntity` instance. Pass `null` for no initial data.
-
-#### `Luarock($data = null)`
-
-Create a new `LuarockEntity` instance. Pass `null` for no initial data.
-
 #### `Maven($data = null)`
 
 Create a new `MavenEntity` instance. Pass `null` for no initial data.
-
-#### `Member($data = null)`
-
-Create a new `MemberEntity` instance. Pass `null` for no initial data.
-
-#### `Move($data = null)`
-
-Create a new `MoveEntity` instance. Pass `null` for no initial data.
 
 #### `Namespace($data = null)`
 
@@ -229,10 +125,6 @@ Create a new `NpmEntity` instance. Pass `null` for no initial data.
 #### `Nuget($data = null)`
 
 Create a new `NugetEntity` instance. Pass `null` for no initial data.
-
-#### `OpenidConnect($data = null)`
-
-Create a new `OpenidConnectEntity` instance. Pass `null` for no initial data.
 
 #### `Org($data = null)`
 
@@ -286,14 +178,6 @@ Create a new `OrganizationTeamEntity` instance. Pass `null` for no initial data.
 
 Create a new `OrganizationTeamMemberEntity` instance. Pass `null` for no initial data.
 
-#### `Oss($data = null)`
-
-Create a new `OssEntity` instance. Pass `null` for no initial data.
-
-#### `P2n($data = null)`
-
-Create a new `P2nEntity` instance. Pass `null` for no initial data.
-
 #### `Package($data = null)`
 
 Create a new `PackageEntity` instance. Pass `null` for no initial data.
@@ -322,14 +206,6 @@ Create a new `PackageVersionBadgeEntity` instance. Pass `null` for no initial da
 
 Create a new `PackageVulnerabilityPolicyEvaluationEntity` instance. Pass `null` for no initial data.
 
-#### `Privilege($data = null)`
-
-Create a new `PrivilegeEntity` instance. Pass `null` for no initial data.
-
-#### `Profile($data = null)`
-
-Create a new `ProfileEntity` instance. Pass `null` for no initial data.
-
 #### `ProviderSetting($data = null)`
 
 Create a new `ProviderSettingEntity` instance. Pass `null` for no initial data.
@@ -342,25 +218,9 @@ Create a new `ProviderSettingsWriteEntity` instance. Pass `null` for no initial 
 
 Create a new `PythonEntity` instance. Pass `null` for no initial data.
 
-#### `Quarantine($data = null)`
-
-Create a new `QuarantineEntity` instance. Pass `null` for no initial data.
-
 #### `Quota($data = null)`
 
 Create a new `QuotaEntity` instance. Pass `null` for no initial data.
-
-#### `Raw($data = null)`
-
-Create a new `RawEntity` instance. Pass `null` for no initial data.
-
-#### `Refresh($data = null)`
-
-Create a new `RefreshEntity` instance. Pass `null` for no initial data.
-
-#### `Regenerate($data = null)`
-
-Create a new `RegenerateEntity` instance. Pass `null` for no initial data.
 
 #### `Repo($data = null)`
 
@@ -390,9 +250,9 @@ Create a new `RepositoryGeoIpTestAddressEntity` instance. Pass `null` for no ini
 
 Create a new `RepositoryGpgKeyEntity` instance. Pass `null` for no initial data.
 
-#### `RepositoryPrivilegeInput($data = null)`
+#### `RepositoryPrivilegeDict($data = null)`
 
-Create a new `RepositoryPrivilegeInputEntity` instance. Pass `null` for no initial data.
+Create a new `RepositoryPrivilegeDictEntity` instance. Pass `null` for no initial data.
 
 #### `RepositoryRetentionRule($data = null)`
 
@@ -426,53 +286,21 @@ Create a new `RepositoryX509EcdsaCertificateEntity` instance. Pass `null` for no
 
 Create a new `RepositoryX509RsaCertificateEntity` instance. Pass `null` for no initial data.
 
-#### `Reset($data = null)`
-
-Create a new `ResetEntity` instance. Pass `null` for no initial data.
-
 #### `ResourcesRateCheck($data = null)`
 
 Create a new `ResourcesRateCheckEntity` instance. Pass `null` for no initial data.
-
-#### `Resync($data = null)`
-
-Create a new `ResyncEntity` instance. Pass `null` for no initial data.
-
-#### `Retention($data = null)`
-
-Create a new `RetentionEntity` instance. Pass `null` for no initial data.
 
 #### `Rpm($data = null)`
 
 Create a new `RpmEntity` instance. Pass `null` for no initial data.
 
-#### `Rsa($data = null)`
-
-Create a new `RsaEntity` instance. Pass `null` for no initial data.
-
 #### `Ruby($data = null)`
 
 Create a new `RubyEntity` instance. Pass `null` for no initial data.
 
-#### `SamlGroupSync($data = null)`
-
-Create a new `SamlGroupSyncEntity` instance. Pass `null` for no initial data.
-
-#### `Scan($data = null)`
-
-Create a new `ScanEntity` instance. Pass `null` for no initial data.
-
-#### `Self($data = null)`
-
-Create a new `SelfEntity` instance. Pass `null` for no initial data.
-
 #### `Service($data = null)`
 
 Create a new `ServiceEntity` instance. Pass `null` for no initial data.
-
-#### `Status($data = null)`
-
-Create a new `StatusEntity` instance. Pass `null` for no initial data.
 
 #### `StatusBasic($data = null)`
 
@@ -485,34 +313,6 @@ Create a new `StorageRegionEntity` instance. Pass `null` for no initial data.
 #### `Swift($data = null)`
 
 Create a new `SwiftEntity` instance. Pass `null` for no initial data.
-
-#### `Sync($data = null)`
-
-Create a new `SyncEntity` instance. Pass `null` for no initial data.
-
-#### `Tag($data = null)`
-
-Create a new `TagEntity` instance. Pass `null` for no initial data.
-
-#### `Team($data = null)`
-
-Create a new `TeamEntity` instance. Pass `null` for no initial data.
-
-#### `Terraform($data = null)`
-
-Create a new `TerraformEntity` instance. Pass `null` for no initial data.
-
-#### `Test($data = null)`
-
-Create a new `TestEntity` instance. Pass `null` for no initial data.
-
-#### `Token($data = null)`
-
-Create a new `TokenEntity` instance. Pass `null` for no initial data.
-
-#### `TransferRegion($data = null)`
-
-Create a new `TransferRegionEntity` instance. Pass `null` for no initial data.
 
 #### `User($data = null)`
 
@@ -534,37 +334,13 @@ Create a new `UserBriefEntity` instance. Pass `null` for no initial data.
 
 Create a new `UserProfileEntity` instance. Pass `null` for no initial data.
 
-#### `Vagrant($data = null)`
-
-Create a new `VagrantEntity` instance. Pass `null` for no initial data.
-
-#### `Validate($data = null)`
-
-Create a new `ValidateEntity` instance. Pass `null` for no initial data.
-
-#### `Version($data = null)`
-
-Create a new `VersionEntity` instance. Pass `null` for no initial data.
-
 #### `Vulnerability($data = null)`
 
 Create a new `VulnerabilityEntity` instance. Pass `null` for no initial data.
 
-#### `VulnerabilityPolicy($data = null)`
-
-Create a new `VulnerabilityPolicyEntity` instance. Pass `null` for no initial data.
-
 #### `Webhook($data = null)`
 
 Create a new `WebhookEntity` instance. Pass `null` for no initial data.
-
-#### `X509Ecdsa($data = null)`
-
-Create a new `X509EcdsaEntity` instance. Pass `null` for no initial data.
-
-#### `X509Rsa($data = null)`
-
-Create a new `X509RsaEntity` instance. Pass `null` for no initial data.
 
 #### `options_map(): array`
 
@@ -599,150 +375,6 @@ hatch: it does **not** throw. It returns a result array
 
 Prepare a fetch definition without sending the request. Returns the
 `$fetchdef` array. Throws on error.
-
-
----
-
-## AbortEntity
-
-```php
-$abort = $client->Abort();
-```
-
-### Common Methods
-
-#### `data_get(): array`
-
-Get the entity data. Returns a copy of the current data.
-
-#### `data_set($data): void`
-
-Set the entity data.
-
-#### `match_get(): array`
-
-Get the entity match criteria.
-
-#### `match_set($match): void`
-
-Set the entity match criteria.
-
-#### `make(): AbortEntity`
-
-Create a new `AbortEntity` instance with the same client and
-options.
-
-#### `get_name(): string`
-
-Return the entity name.
-
-
----
-
-## AlpineEntity
-
-```php
-$alpine = $client->Alpine();
-```
-
-### Common Methods
-
-#### `data_get(): array`
-
-Get the entity data. Returns a copy of the current data.
-
-#### `data_set($data): void`
-
-Set the entity data.
-
-#### `match_get(): array`
-
-Get the entity match criteria.
-
-#### `match_set($match): void`
-
-Set the entity match criteria.
-
-#### `make(): AlpineEntity`
-
-Create a new `AlpineEntity` instance with the same client and
-options.
-
-#### `get_name(): string`
-
-Return the entity name.
-
-
----
-
-## AuditLogEntity
-
-```php
-$audit_log = $client->AuditLog();
-```
-
-### Common Methods
-
-#### `data_get(): array`
-
-Get the entity data. Returns a copy of the current data.
-
-#### `data_set($data): void`
-
-Set the entity data.
-
-#### `match_get(): array`
-
-Get the entity match criteria.
-
-#### `match_set($match): void`
-
-Set the entity match criteria.
-
-#### `make(): AuditLogEntity`
-
-Create a new `AuditLogEntity` instance with the same client and
-options.
-
-#### `get_name(): string`
-
-Return the entity name.
-
-
----
-
-## BasicEntity
-
-```php
-$basic = $client->Basic();
-```
-
-### Common Methods
-
-#### `data_get(): array`
-
-Get the entity data. Returns a copy of the current data.
-
-#### `data_set($data): void`
-
-Set the entity data.
-
-#### `match_get(): array`
-
-Get the entity match criteria.
-
-#### `match_set($match): void`
-
-Set the entity match criteria.
-
-#### `make(): BasicEntity`
-
-Create a new `BasicEntity` instance with the same client and
-options.
-
-#### `get_name(): string`
-
-Return the entity name.
 
 
 ---
@@ -842,78 +474,6 @@ Set the entity match criteria.
 #### `make(): CargoEntity`
 
 Create a new `CargoEntity` instance with the same client and
-options.
-
-#### `get_name(): string`
-
-Return the entity name.
-
-
----
-
-## CocoapodEntity
-
-```php
-$cocoapod = $client->Cocoapod();
-```
-
-### Common Methods
-
-#### `data_get(): array`
-
-Get the entity data. Returns a copy of the current data.
-
-#### `data_set($data): void`
-
-Set the entity data.
-
-#### `match_get(): array`
-
-Get the entity match criteria.
-
-#### `match_set($match): void`
-
-Set the entity match criteria.
-
-#### `make(): CocoapodEntity`
-
-Create a new `CocoapodEntity` instance with the same client and
-options.
-
-#### `get_name(): string`
-
-Return the entity name.
-
-
----
-
-## CompleteEntity
-
-```php
-$complete = $client->Complete();
-```
-
-### Common Methods
-
-#### `data_get(): array`
-
-Get the entity data. Returns a copy of the current data.
-
-#### `data_set($data): void`
-
-Set the entity data.
-
-#### `match_get(): array`
-
-Get the entity match criteria.
-
-#### `match_set($match): void`
-
-Set the entity match criteria.
-
-#### `make(): CompleteEntity`
-
-Create a new `CompleteEntity` instance with the same client and
 options.
 
 #### `get_name(): string`
@@ -1027,42 +587,6 @@ Return the entity name.
 
 ---
 
-## ConanEntity
-
-```php
-$conan = $client->Conan();
-```
-
-### Common Methods
-
-#### `data_get(): array`
-
-Get the entity data. Returns a copy of the current data.
-
-#### `data_set($data): void`
-
-Set the entity data.
-
-#### `match_get(): array`
-
-Get the entity match criteria.
-
-#### `match_set($match): void`
-
-Set the entity match criteria.
-
-#### `make(): ConanEntity`
-
-Create a new `ConanEntity` instance with the same client and
-options.
-
-#### `get_name(): string`
-
-Return the entity name.
-
-
----
-
 ## CondaEntity
 
 ```php
@@ -1158,42 +682,6 @@ Set the entity match criteria.
 #### `make(): CondaEntity`
 
 Create a new `CondaEntity` instance with the same client and
-options.
-
-#### `get_name(): string`
-
-Return the entity name.
-
-
----
-
-## CopyEntity
-
-```php
-$copy = $client->Copy();
-```
-
-### Common Methods
-
-#### `data_get(): array`
-
-Get the entity data. Returns a copy of the current data.
-
-#### `data_set($data): void`
-
-Set the entity data.
-
-#### `match_get(): array`
-
-Get the entity match criteria.
-
-#### `match_set($match): void`
-
-Set the entity match criteria.
-
-#### `make(): CopyEntity`
-
-Create a new `CopyEntity` instance with the same client and
 options.
 
 #### `get_name(): string`
@@ -1524,114 +1012,6 @@ Return the entity name.
 
 ---
 
-## DenyPolicyEntity
-
-```php
-$deny_policy = $client->DenyPolicy();
-```
-
-### Common Methods
-
-#### `data_get(): array`
-
-Get the entity data. Returns a copy of the current data.
-
-#### `data_set($data): void`
-
-Set the entity data.
-
-#### `match_get(): array`
-
-Get the entity match criteria.
-
-#### `match_set($match): void`
-
-Set the entity match criteria.
-
-#### `make(): DenyPolicyEntity`
-
-Create a new `DenyPolicyEntity` instance with the same client and
-options.
-
-#### `get_name(): string`
-
-Return the entity name.
-
-
----
-
-## DependencyEntity
-
-```php
-$dependency = $client->Dependency();
-```
-
-### Common Methods
-
-#### `data_get(): array`
-
-Get the entity data. Returns a copy of the current data.
-
-#### `data_set($data): void`
-
-Set the entity data.
-
-#### `match_get(): array`
-
-Get the entity match criteria.
-
-#### `match_set($match): void`
-
-Set the entity match criteria.
-
-#### `make(): DependencyEntity`
-
-Create a new `DependencyEntity` instance with the same client and
-options.
-
-#### `get_name(): string`
-
-Return the entity name.
-
-
----
-
-## DisableEntity
-
-```php
-$disable = $client->Disable();
-```
-
-### Common Methods
-
-#### `data_get(): array`
-
-Get the entity data. Returns a copy of the current data.
-
-#### `data_set($data): void`
-
-Set the entity data.
-
-#### `match_get(): array`
-
-Get the entity match criteria.
-
-#### `match_set($match): void`
-
-Set the entity match criteria.
-
-#### `make(): DisableEntity`
-
-Create a new `DisableEntity` instance with the same client and
-options.
-
-#### `get_name(): string`
-
-Return the entity name.
-
-
----
-
 ## DistributionFullEntity
 
 ```php
@@ -1689,42 +1069,6 @@ Set the entity match criteria.
 #### `make(): DistributionFullEntity`
 
 Create a new `DistributionFullEntity` instance with the same client and
-options.
-
-#### `get_name(): string`
-
-Return the entity name.
-
-
----
-
-## DistroEntity
-
-```php
-$distro = $client->Distro();
-```
-
-### Common Methods
-
-#### `data_get(): array`
-
-Get the entity data. Returns a copy of the current data.
-
-#### `data_set($data): void`
-
-Set the entity data.
-
-#### `match_get(): array`
-
-Get the entity match criteria.
-
-#### `match_set($match): void`
-
-Set the entity match criteria.
-
-#### `make(): DistroEntity`
-
-Create a new `DistroEntity` instance with the same client and
 options.
 
 #### `get_name(): string`
@@ -1900,78 +1244,6 @@ Return the entity name.
 
 ---
 
-## EcdsaEntity
-
-```php
-$ecdsa = $client->Ecdsa();
-```
-
-### Common Methods
-
-#### `data_get(): array`
-
-Get the entity data. Returns a copy of the current data.
-
-#### `data_set($data): void`
-
-Set the entity data.
-
-#### `match_get(): array`
-
-Get the entity match criteria.
-
-#### `match_set($match): void`
-
-Set the entity match criteria.
-
-#### `make(): EcdsaEntity`
-
-Create a new `EcdsaEntity` instance with the same client and
-options.
-
-#### `get_name(): string`
-
-Return the entity name.
-
-
----
-
-## EnableEntity
-
-```php
-$enable = $client->Enable();
-```
-
-### Common Methods
-
-#### `data_get(): array`
-
-Get the entity data. Returns a copy of the current data.
-
-#### `data_set($data): void`
-
-Set the entity data.
-
-#### `match_get(): array`
-
-Get the entity match criteria.
-
-#### `match_set($match): void`
-
-Set the entity match criteria.
-
-#### `make(): EnableEntity`
-
-Create a new `EnableEntity` instance with the same client and
-options.
-
-#### `get_name(): string`
-
-Return the entity name.
-
-
----
-
 ## EntitlementEntity
 
 ```php
@@ -2042,42 +1314,6 @@ Set the entity match criteria.
 #### `make(): EntitlementEntity`
 
 Create a new `EntitlementEntity` instance with the same client and
-options.
-
-#### `get_name(): string`
-
-Return the entity name.
-
-
----
-
-## EvaluationEntity
-
-```php
-$evaluation = $client->Evaluation();
-```
-
-### Common Methods
-
-#### `data_get(): array`
-
-Get the entity data. Returns a copy of the current data.
-
-#### `data_set($data): void`
-
-Set the entity data.
-
-#### `match_get(): array`
-
-Get the entity match criteria.
-
-#### `match_set($match): void`
-
-Set the entity match criteria.
-
-#### `make(): EvaluationEntity`
-
-Create a new `EvaluationEntity` instance with the same client and
 options.
 
 #### `get_name(): string`
@@ -2205,42 +1441,6 @@ Return the entity name.
 
 ---
 
-## GeoipEntity
-
-```php
-$geoip = $client->Geoip();
-```
-
-### Common Methods
-
-#### `data_get(): array`
-
-Get the entity data. Returns a copy of the current data.
-
-#### `data_set($data): void`
-
-Set the entity data.
-
-#### `match_get(): array`
-
-Get the entity match criteria.
-
-#### `match_set($match): void`
-
-Set the entity match criteria.
-
-#### `make(): GeoipEntity`
-
-Create a new `GeoipEntity` instance with the same client and
-options.
-
-#### `get_name(): string`
-
-Return the entity name.
-
-
----
-
 ## GonEntity
 
 ```php
@@ -2335,78 +1535,6 @@ Set the entity match criteria.
 #### `make(): GonEntity`
 
 Create a new `GonEntity` instance with the same client and
-options.
-
-#### `get_name(): string`
-
-Return the entity name.
-
-
----
-
-## GpgEntity
-
-```php
-$gpg = $client->Gpg();
-```
-
-### Common Methods
-
-#### `data_get(): array`
-
-Get the entity data. Returns a copy of the current data.
-
-#### `data_set($data): void`
-
-Set the entity data.
-
-#### `match_get(): array`
-
-Get the entity match criteria.
-
-#### `match_set($match): void`
-
-Set the entity match criteria.
-
-#### `make(): GpgEntity`
-
-Create a new `GpgEntity` instance with the same client and
-options.
-
-#### `get_name(): string`
-
-Return the entity name.
-
-
----
-
-## GroupEntity
-
-```php
-$group = $client->Group();
-```
-
-### Common Methods
-
-#### `data_get(): array`
-
-Get the entity data. Returns a copy of the current data.
-
-#### `data_set($data): void`
-
-Set the entity data.
-
-#### `match_get(): array`
-
-Get the entity match criteria.
-
-#### `match_set($match): void`
-
-Set the entity match criteria.
-
-#### `make(): GroupEntity`
-
-Create a new `GroupEntity` instance with the same client and
 options.
 
 #### `get_name(): string`
@@ -2624,42 +1752,6 @@ Return the entity name.
 
 ---
 
-## HistoryEntity
-
-```php
-$history = $client->History();
-```
-
-### Common Methods
-
-#### `data_get(): array`
-
-Get the entity data. Returns a copy of the current data.
-
-#### `data_set($data): void`
-
-Set the entity data.
-
-#### `match_get(): array`
-
-Get the entity match criteria.
-
-#### `match_set($match): void`
-
-Set the entity match criteria.
-
-#### `make(): HistoryEntity`
-
-Create a new `HistoryEntity` instance with the same client and
-options.
-
-#### `get_name(): string`
-
-Return the entity name.
-
-
----
-
 ## HuggingfaceEntity
 
 ```php
@@ -2755,186 +1847,6 @@ Set the entity match criteria.
 #### `make(): HuggingfaceEntity`
 
 Create a new `HuggingfaceEntity` instance with the same client and
-options.
-
-#### `get_name(): string`
-
-Return the entity name.
-
-
----
-
-## InfoEntity
-
-```php
-$info = $client->Info();
-```
-
-### Common Methods
-
-#### `data_get(): array`
-
-Get the entity data. Returns a copy of the current data.
-
-#### `data_set($data): void`
-
-Set the entity data.
-
-#### `match_get(): array`
-
-Get the entity match criteria.
-
-#### `match_set($match): void`
-
-Set the entity match criteria.
-
-#### `make(): InfoEntity`
-
-Create a new `InfoEntity` instance with the same client and
-options.
-
-#### `get_name(): string`
-
-Return the entity name.
-
-
----
-
-## InviteEntity
-
-```php
-$invite = $client->Invite();
-```
-
-### Common Methods
-
-#### `data_get(): array`
-
-Get the entity data. Returns a copy of the current data.
-
-#### `data_set($data): void`
-
-Set the entity data.
-
-#### `match_get(): array`
-
-Get the entity match criteria.
-
-#### `match_set($match): void`
-
-Set the entity match criteria.
-
-#### `make(): InviteEntity`
-
-Create a new `InviteEntity` instance with the same client and
-options.
-
-#### `get_name(): string`
-
-Return the entity name.
-
-
----
-
-## LicensePolicyEntity
-
-```php
-$license_policy = $client->LicensePolicy();
-```
-
-### Common Methods
-
-#### `data_get(): array`
-
-Get the entity data. Returns a copy of the current data.
-
-#### `data_set($data): void`
-
-Set the entity data.
-
-#### `match_get(): array`
-
-Get the entity match criteria.
-
-#### `match_set($match): void`
-
-Set the entity match criteria.
-
-#### `make(): LicensePolicyEntity`
-
-Create a new `LicensePolicyEntity` instance with the same client and
-options.
-
-#### `get_name(): string`
-
-Return the entity name.
-
-
----
-
-## LimitEntity
-
-```php
-$limit = $client->Limit();
-```
-
-### Common Methods
-
-#### `data_get(): array`
-
-Get the entity data. Returns a copy of the current data.
-
-#### `data_set($data): void`
-
-Set the entity data.
-
-#### `match_get(): array`
-
-Get the entity match criteria.
-
-#### `match_set($match): void`
-
-Set the entity match criteria.
-
-#### `make(): LimitEntity`
-
-Create a new `LimitEntity` instance with the same client and
-options.
-
-#### `get_name(): string`
-
-Return the entity name.
-
-
----
-
-## LuarockEntity
-
-```php
-$luarock = $client->Luarock();
-```
-
-### Common Methods
-
-#### `data_get(): array`
-
-Get the entity data. Returns a copy of the current data.
-
-#### `data_set($data): void`
-
-Set the entity data.
-
-#### `match_get(): array`
-
-Get the entity match criteria.
-
-#### `match_set($match): void`
-
-Set the entity match criteria.
-
-#### `make(): LuarockEntity`
-
-Create a new `LuarockEntity` instance with the same client and
 options.
 
 #### `get_name(): string`
@@ -3043,78 +1955,6 @@ Set the entity match criteria.
 #### `make(): MavenEntity`
 
 Create a new `MavenEntity` instance with the same client and
-options.
-
-#### `get_name(): string`
-
-Return the entity name.
-
-
----
-
-## MemberEntity
-
-```php
-$member = $client->Member();
-```
-
-### Common Methods
-
-#### `data_get(): array`
-
-Get the entity data. Returns a copy of the current data.
-
-#### `data_set($data): void`
-
-Set the entity data.
-
-#### `match_get(): array`
-
-Get the entity match criteria.
-
-#### `match_set($match): void`
-
-Set the entity match criteria.
-
-#### `make(): MemberEntity`
-
-Create a new `MemberEntity` instance with the same client and
-options.
-
-#### `get_name(): string`
-
-Return the entity name.
-
-
----
-
-## MoveEntity
-
-```php
-$move = $client->Move();
-```
-
-### Common Methods
-
-#### `data_get(): array`
-
-Get the entity data. Returns a copy of the current data.
-
-#### `data_set($data): void`
-
-Set the entity data.
-
-#### `match_get(): array`
-
-Get the entity match criteria.
-
-#### `match_set($match): void`
-
-Set the entity match criteria.
-
-#### `make(): MoveEntity`
-
-Create a new `MoveEntity` instance with the same client and
 options.
 
 #### `get_name(): string`
@@ -3455,42 +2295,6 @@ Set the entity match criteria.
 #### `make(): NugetEntity`
 
 Create a new `NugetEntity` instance with the same client and
-options.
-
-#### `get_name(): string`
-
-Return the entity name.
-
-
----
-
-## OpenidConnectEntity
-
-```php
-$openid_connect = $client->OpenidConnect();
-```
-
-### Common Methods
-
-#### `data_get(): array`
-
-Get the entity data. Returns a copy of the current data.
-
-#### `data_set($data): void`
-
-Set the entity data.
-
-#### `match_get(): array`
-
-Get the entity match criteria.
-
-#### `match_set($match): void`
-
-Set the entity match criteria.
-
-#### `make(): OpenidConnectEntity`
-
-Create a new `OpenidConnectEntity` instance with the same client and
 options.
 
 #### `get_name(): string`
@@ -4487,78 +3291,6 @@ Return the entity name.
 
 ---
 
-## OssEntity
-
-```php
-$oss = $client->Oss();
-```
-
-### Common Methods
-
-#### `data_get(): array`
-
-Get the entity data. Returns a copy of the current data.
-
-#### `data_set($data): void`
-
-Set the entity data.
-
-#### `match_get(): array`
-
-Get the entity match criteria.
-
-#### `match_set($match): void`
-
-Set the entity match criteria.
-
-#### `make(): OssEntity`
-
-Create a new `OssEntity` instance with the same client and
-options.
-
-#### `get_name(): string`
-
-Return the entity name.
-
-
----
-
-## P2nEntity
-
-```php
-$p2n = $client->P2n();
-```
-
-### Common Methods
-
-#### `data_get(): array`
-
-Get the entity data. Returns a copy of the current data.
-
-#### `data_set($data): void`
-
-Set the entity data.
-
-#### `match_get(): array`
-
-Get the entity match criteria.
-
-#### `match_set($match): void`
-
-Set the entity match criteria.
-
-#### `make(): P2nEntity`
-
-Create a new `P2nEntity` instance with the same client and
-options.
-
-#### `get_name(): string`
-
-Return the entity name.
-
-
----
-
 ## PackageEntity
 
 ```php
@@ -5252,78 +3984,6 @@ Return the entity name.
 
 ---
 
-## PrivilegeEntity
-
-```php
-$privilege = $client->Privilege();
-```
-
-### Common Methods
-
-#### `data_get(): array`
-
-Get the entity data. Returns a copy of the current data.
-
-#### `data_set($data): void`
-
-Set the entity data.
-
-#### `match_get(): array`
-
-Get the entity match criteria.
-
-#### `match_set($match): void`
-
-Set the entity match criteria.
-
-#### `make(): PrivilegeEntity`
-
-Create a new `PrivilegeEntity` instance with the same client and
-options.
-
-#### `get_name(): string`
-
-Return the entity name.
-
-
----
-
-## ProfileEntity
-
-```php
-$profile = $client->Profile();
-```
-
-### Common Methods
-
-#### `data_get(): array`
-
-Get the entity data. Returns a copy of the current data.
-
-#### `data_set($data): void`
-
-Set the entity data.
-
-#### `match_get(): array`
-
-Get the entity match criteria.
-
-#### `match_set($match): void`
-
-Set the entity match criteria.
-
-#### `make(): ProfileEntity`
-
-Create a new `ProfileEntity` instance with the same client and
-options.
-
-#### `get_name(): string`
-
-Return the entity name.
-
-
----
-
 ## ProviderSettingEntity
 
 ```php
@@ -5573,42 +4233,6 @@ Return the entity name.
 
 ---
 
-## QuarantineEntity
-
-```php
-$quarantine = $client->Quarantine();
-```
-
-### Common Methods
-
-#### `data_get(): array`
-
-Get the entity data. Returns a copy of the current data.
-
-#### `data_set($data): void`
-
-Set the entity data.
-
-#### `match_get(): array`
-
-Get the entity match criteria.
-
-#### `match_set($match): void`
-
-Set the entity match criteria.
-
-#### `make(): QuarantineEntity`
-
-Create a new `QuarantineEntity` instance with the same client and
-options.
-
-#### `get_name(): string`
-
-Return the entity name.
-
-
----
-
 ## QuotaEntity
 
 ```php
@@ -5655,114 +4279,6 @@ Set the entity match criteria.
 #### `make(): QuotaEntity`
 
 Create a new `QuotaEntity` instance with the same client and
-options.
-
-#### `get_name(): string`
-
-Return the entity name.
-
-
----
-
-## RawEntity
-
-```php
-$raw = $client->Raw();
-```
-
-### Common Methods
-
-#### `data_get(): array`
-
-Get the entity data. Returns a copy of the current data.
-
-#### `data_set($data): void`
-
-Set the entity data.
-
-#### `match_get(): array`
-
-Get the entity match criteria.
-
-#### `match_set($match): void`
-
-Set the entity match criteria.
-
-#### `make(): RawEntity`
-
-Create a new `RawEntity` instance with the same client and
-options.
-
-#### `get_name(): string`
-
-Return the entity name.
-
-
----
-
-## RefreshEntity
-
-```php
-$refresh = $client->Refresh();
-```
-
-### Common Methods
-
-#### `data_get(): array`
-
-Get the entity data. Returns a copy of the current data.
-
-#### `data_set($data): void`
-
-Set the entity data.
-
-#### `match_get(): array`
-
-Get the entity match criteria.
-
-#### `match_set($match): void`
-
-Set the entity match criteria.
-
-#### `make(): RefreshEntity`
-
-Create a new `RefreshEntity` instance with the same client and
-options.
-
-#### `get_name(): string`
-
-Return the entity name.
-
-
----
-
-## RegenerateEntity
-
-```php
-$regenerate = $client->Regenerate();
-```
-
-### Common Methods
-
-#### `data_get(): array`
-
-Get the entity data. Returns a copy of the current data.
-
-#### `data_set($data): void`
-
-Set the entity data.
-
-#### `match_get(): array`
-
-Get the entity match criteria.
-
-#### `match_set($match): void`
-
-Set the entity match criteria.
-
-#### `make(): RegenerateEntity`
-
-Create a new `RegenerateEntity` instance with the same client and
 options.
 
 #### `get_name(): string`
@@ -6298,10 +4814,10 @@ Return the entity name.
 
 ---
 
-## RepositoryPrivilegeInputEntity
+## RepositoryPrivilegeDictEntity
 
 ```php
-$repository_privilege_input = $client->RepositoryPrivilegeInput();
+$repository_privilege_dict = $client->RepositoryPrivilegeDict();
 ```
 
 ### Fields
@@ -6320,7 +4836,7 @@ $repository_privilege_input = $client->RepositoryPrivilegeInput();
 List entities matching the given criteria (call with no argument to list all). Returns an array. Throws on error.
 
 ```php
-$results = $client->RepositoryPrivilegeInput()->list();
+$results = $client->RepositoryPrivilegeDict()->list();
 ```
 
 ### Common Methods
@@ -6341,9 +4857,9 @@ Get the entity match criteria.
 
 Set the entity match criteria.
 
-#### `make(): RepositoryPrivilegeInputEntity`
+#### `make(): RepositoryPrivilegeDictEntity`
 
-Create a new `RepositoryPrivilegeInputEntity` instance with the same client and
+Create a new `RepositoryPrivilegeDictEntity` instance with the same client and
 options.
 
 #### `get_name(): string`
@@ -7002,42 +5518,6 @@ Return the entity name.
 
 ---
 
-## ResetEntity
-
-```php
-$reset = $client->Reset();
-```
-
-### Common Methods
-
-#### `data_get(): array`
-
-Get the entity data. Returns a copy of the current data.
-
-#### `data_set($data): void`
-
-Set the entity data.
-
-#### `match_get(): array`
-
-Get the entity match criteria.
-
-#### `match_set($match): void`
-
-Set the entity match criteria.
-
-#### `make(): ResetEntity`
-
-Create a new `ResetEntity` instance with the same client and
-options.
-
-#### `get_name(): string`
-
-Return the entity name.
-
-
----
-
 ## ResourcesRateCheckEntity
 
 ```php
@@ -7086,78 +5566,6 @@ Set the entity match criteria.
 #### `make(): ResourcesRateCheckEntity`
 
 Create a new `ResourcesRateCheckEntity` instance with the same client and
-options.
-
-#### `get_name(): string`
-
-Return the entity name.
-
-
----
-
-## ResyncEntity
-
-```php
-$resync = $client->Resync();
-```
-
-### Common Methods
-
-#### `data_get(): array`
-
-Get the entity data. Returns a copy of the current data.
-
-#### `data_set($data): void`
-
-Set the entity data.
-
-#### `match_get(): array`
-
-Get the entity match criteria.
-
-#### `match_set($match): void`
-
-Set the entity match criteria.
-
-#### `make(): ResyncEntity`
-
-Create a new `ResyncEntity` instance with the same client and
-options.
-
-#### `get_name(): string`
-
-Return the entity name.
-
-
----
-
-## RetentionEntity
-
-```php
-$retention = $client->Retention();
-```
-
-### Common Methods
-
-#### `data_get(): array`
-
-Get the entity data. Returns a copy of the current data.
-
-#### `data_set($data): void`
-
-Set the entity data.
-
-#### `match_get(): array`
-
-Get the entity match criteria.
-
-#### `match_set($match): void`
-
-Set the entity match criteria.
-
-#### `make(): RetentionEntity`
-
-Create a new `RetentionEntity` instance with the same client and
 options.
 
 #### `get_name(): string`
@@ -7278,42 +5686,6 @@ Return the entity name.
 
 ---
 
-## RsaEntity
-
-```php
-$rsa = $client->Rsa();
-```
-
-### Common Methods
-
-#### `data_get(): array`
-
-Get the entity data. Returns a copy of the current data.
-
-#### `data_set($data): void`
-
-Set the entity data.
-
-#### `match_get(): array`
-
-Get the entity match criteria.
-
-#### `match_set($match): void`
-
-Set the entity match criteria.
-
-#### `make(): RsaEntity`
-
-Create a new `RsaEntity` instance with the same client and
-options.
-
-#### `get_name(): string`
-
-Return the entity name.
-
-
----
-
 ## RubyEntity
 
 ```php
@@ -7418,114 +5790,6 @@ Return the entity name.
 
 ---
 
-## SamlGroupSyncEntity
-
-```php
-$saml_group_sync = $client->SamlGroupSync();
-```
-
-### Common Methods
-
-#### `data_get(): array`
-
-Get the entity data. Returns a copy of the current data.
-
-#### `data_set($data): void`
-
-Set the entity data.
-
-#### `match_get(): array`
-
-Get the entity match criteria.
-
-#### `match_set($match): void`
-
-Set the entity match criteria.
-
-#### `make(): SamlGroupSyncEntity`
-
-Create a new `SamlGroupSyncEntity` instance with the same client and
-options.
-
-#### `get_name(): string`
-
-Return the entity name.
-
-
----
-
-## ScanEntity
-
-```php
-$scan = $client->Scan();
-```
-
-### Common Methods
-
-#### `data_get(): array`
-
-Get the entity data. Returns a copy of the current data.
-
-#### `data_set($data): void`
-
-Set the entity data.
-
-#### `match_get(): array`
-
-Get the entity match criteria.
-
-#### `match_set($match): void`
-
-Set the entity match criteria.
-
-#### `make(): ScanEntity`
-
-Create a new `ScanEntity` instance with the same client and
-options.
-
-#### `get_name(): string`
-
-Return the entity name.
-
-
----
-
-## SelfEntity
-
-```php
-$self = $client->Self();
-```
-
-### Common Methods
-
-#### `data_get(): array`
-
-Get the entity data. Returns a copy of the current data.
-
-#### `data_set($data): void`
-
-Set the entity data.
-
-#### `match_get(): array`
-
-Get the entity match criteria.
-
-#### `match_set($match): void`
-
-Set the entity match criteria.
-
-#### `make(): SelfEntity`
-
-Create a new `SelfEntity` instance with the same client and
-options.
-
-#### `get_name(): string`
-
-Return the entity name.
-
-
----
-
 ## ServiceEntity
 
 ```php
@@ -7610,42 +5874,6 @@ Set the entity match criteria.
 #### `make(): ServiceEntity`
 
 Create a new `ServiceEntity` instance with the same client and
-options.
-
-#### `get_name(): string`
-
-Return the entity name.
-
-
----
-
-## StatusEntity
-
-```php
-$status = $client->Status();
-```
-
-### Common Methods
-
-#### `data_get(): array`
-
-Get the entity data. Returns a copy of the current data.
-
-#### `data_set($data): void`
-
-Set the entity data.
-
-#### `match_get(): array`
-
-Get the entity match criteria.
-
-#### `match_set($match): void`
-
-Set the entity match criteria.
-
-#### `make(): StatusEntity`
-
-Create a new `StatusEntity` instance with the same client and
 options.
 
 #### `get_name(): string`
@@ -7865,258 +6093,6 @@ Set the entity match criteria.
 #### `make(): SwiftEntity`
 
 Create a new `SwiftEntity` instance with the same client and
-options.
-
-#### `get_name(): string`
-
-Return the entity name.
-
-
----
-
-## SyncEntity
-
-```php
-$sync = $client->Sync();
-```
-
-### Common Methods
-
-#### `data_get(): array`
-
-Get the entity data. Returns a copy of the current data.
-
-#### `data_set($data): void`
-
-Set the entity data.
-
-#### `match_get(): array`
-
-Get the entity match criteria.
-
-#### `match_set($match): void`
-
-Set the entity match criteria.
-
-#### `make(): SyncEntity`
-
-Create a new `SyncEntity` instance with the same client and
-options.
-
-#### `get_name(): string`
-
-Return the entity name.
-
-
----
-
-## TagEntity
-
-```php
-$tag = $client->Tag();
-```
-
-### Common Methods
-
-#### `data_get(): array`
-
-Get the entity data. Returns a copy of the current data.
-
-#### `data_set($data): void`
-
-Set the entity data.
-
-#### `match_get(): array`
-
-Get the entity match criteria.
-
-#### `match_set($match): void`
-
-Set the entity match criteria.
-
-#### `make(): TagEntity`
-
-Create a new `TagEntity` instance with the same client and
-options.
-
-#### `get_name(): string`
-
-Return the entity name.
-
-
----
-
-## TeamEntity
-
-```php
-$team = $client->Team();
-```
-
-### Common Methods
-
-#### `data_get(): array`
-
-Get the entity data. Returns a copy of the current data.
-
-#### `data_set($data): void`
-
-Set the entity data.
-
-#### `match_get(): array`
-
-Get the entity match criteria.
-
-#### `match_set($match): void`
-
-Set the entity match criteria.
-
-#### `make(): TeamEntity`
-
-Create a new `TeamEntity` instance with the same client and
-options.
-
-#### `get_name(): string`
-
-Return the entity name.
-
-
----
-
-## TerraformEntity
-
-```php
-$terraform = $client->Terraform();
-```
-
-### Common Methods
-
-#### `data_get(): array`
-
-Get the entity data. Returns a copy of the current data.
-
-#### `data_set($data): void`
-
-Set the entity data.
-
-#### `match_get(): array`
-
-Get the entity match criteria.
-
-#### `match_set($match): void`
-
-Set the entity match criteria.
-
-#### `make(): TerraformEntity`
-
-Create a new `TerraformEntity` instance with the same client and
-options.
-
-#### `get_name(): string`
-
-Return the entity name.
-
-
----
-
-## TestEntity
-
-```php
-$test = $client->Test_();
-```
-
-### Common Methods
-
-#### `data_get(): array`
-
-Get the entity data. Returns a copy of the current data.
-
-#### `data_set($data): void`
-
-Set the entity data.
-
-#### `match_get(): array`
-
-Get the entity match criteria.
-
-#### `match_set($match): void`
-
-Set the entity match criteria.
-
-#### `make(): TestEntity`
-
-Create a new `TestEntity` instance with the same client and
-options.
-
-#### `get_name(): string`
-
-Return the entity name.
-
-
----
-
-## TokenEntity
-
-```php
-$token = $client->Token();
-```
-
-### Common Methods
-
-#### `data_get(): array`
-
-Get the entity data. Returns a copy of the current data.
-
-#### `data_set($data): void`
-
-Set the entity data.
-
-#### `match_get(): array`
-
-Get the entity match criteria.
-
-#### `match_set($match): void`
-
-Set the entity match criteria.
-
-#### `make(): TokenEntity`
-
-Create a new `TokenEntity` instance with the same client and
-options.
-
-#### `get_name(): string`
-
-Return the entity name.
-
-
----
-
-## TransferRegionEntity
-
-```php
-$transfer_region = $client->TransferRegion();
-```
-
-### Common Methods
-
-#### `data_get(): array`
-
-Get the entity data. Returns a copy of the current data.
-
-#### `data_set($data): void`
-
-Set the entity data.
-
-#### `match_get(): array`
-
-Get the entity match criteria.
-
-#### `match_set($match): void`
-
-Set the entity match criteria.
-
-#### `make(): TransferRegionEntity`
-
-Create a new `TransferRegionEntity` instance with the same client and
 options.
 
 #### `get_name(): string`
@@ -8405,114 +6381,6 @@ Return the entity name.
 
 ---
 
-## VagrantEntity
-
-```php
-$vagrant = $client->Vagrant();
-```
-
-### Common Methods
-
-#### `data_get(): array`
-
-Get the entity data. Returns a copy of the current data.
-
-#### `data_set($data): void`
-
-Set the entity data.
-
-#### `match_get(): array`
-
-Get the entity match criteria.
-
-#### `match_set($match): void`
-
-Set the entity match criteria.
-
-#### `make(): VagrantEntity`
-
-Create a new `VagrantEntity` instance with the same client and
-options.
-
-#### `get_name(): string`
-
-Return the entity name.
-
-
----
-
-## ValidateEntity
-
-```php
-$validate = $client->Validate();
-```
-
-### Common Methods
-
-#### `data_get(): array`
-
-Get the entity data. Returns a copy of the current data.
-
-#### `data_set($data): void`
-
-Set the entity data.
-
-#### `match_get(): array`
-
-Get the entity match criteria.
-
-#### `match_set($match): void`
-
-Set the entity match criteria.
-
-#### `make(): ValidateEntity`
-
-Create a new `ValidateEntity` instance with the same client and
-options.
-
-#### `get_name(): string`
-
-Return the entity name.
-
-
----
-
-## VersionEntity
-
-```php
-$version = $client->Version();
-```
-
-### Common Methods
-
-#### `data_get(): array`
-
-Get the entity data. Returns a copy of the current data.
-
-#### `data_set($data): void`
-
-Set the entity data.
-
-#### `match_get(): array`
-
-Get the entity match criteria.
-
-#### `match_set($match): void`
-
-Set the entity match criteria.
-
-#### `make(): VersionEntity`
-
-Create a new `VersionEntity` instance with the same client and
-options.
-
-#### `get_name(): string`
-
-Return the entity name.
-
-
----
-
 ## VulnerabilityEntity
 
 ```php
@@ -8581,42 +6449,6 @@ Return the entity name.
 
 ---
 
-## VulnerabilityPolicyEntity
-
-```php
-$vulnerability_policy = $client->VulnerabilityPolicy();
-```
-
-### Common Methods
-
-#### `data_get(): array`
-
-Get the entity data. Returns a copy of the current data.
-
-#### `data_set($data): void`
-
-Set the entity data.
-
-#### `match_get(): array`
-
-Get the entity match criteria.
-
-#### `match_set($match): void`
-
-Set the entity match criteria.
-
-#### `make(): VulnerabilityPolicyEntity`
-
-Create a new `VulnerabilityPolicyEntity` instance with the same client and
-options.
-
-#### `get_name(): string`
-
-Return the entity name.
-
-
----
-
 ## WebhookEntity
 
 ```php
@@ -8669,90 +6501,18 @@ Return the entity name.
 
 ---
 
-## X509EcdsaEntity
-
-```php
-$x509_ecdsa = $client->X509Ecdsa();
-```
-
-### Common Methods
-
-#### `data_get(): array`
-
-Get the entity data. Returns a copy of the current data.
-
-#### `data_set($data): void`
-
-Set the entity data.
-
-#### `match_get(): array`
-
-Get the entity match criteria.
-
-#### `match_set($match): void`
-
-Set the entity match criteria.
-
-#### `make(): X509EcdsaEntity`
-
-Create a new `X509EcdsaEntity` instance with the same client and
-options.
-
-#### `get_name(): string`
-
-Return the entity name.
-
-
----
-
-## X509RsaEntity
-
-```php
-$x509_rsa = $client->X509Rsa();
-```
-
-### Common Methods
-
-#### `data_get(): array`
-
-Get the entity data. Returns a copy of the current data.
-
-#### `data_set($data): void`
-
-Set the entity data.
-
-#### `match_get(): array`
-
-Get the entity match criteria.
-
-#### `match_set($match): void`
-
-Set the entity match criteria.
-
-#### `make(): X509RsaEntity`
-
-Create a new `X509RsaEntity` instance with the same client and
-options.
-
-#### `get_name(): string`
-
-Return the entity name.
-
-
----
-
 ## Features
 
 | Feature | Version | Description |
 | --- | --- | --- |
-| `debug` | 0.0.1 | Request/response capture ring buffer for debugging |
-| `idempotency` | 0.0.1 | Idempotency keys for safe retries of mutating operations |
-| `metrics` | 0.0.1 | Statistics capture: per-operation counters and latency |
-| `paging` | 0.0.1 | Pagination signals for list operations |
-| `ratelimit` | 0.0.1 | Client-side rate limiting via a token bucket |
-| `retry` | 0.0.1 | Automatic retry of transient failures with exponential backoff |
-| `test` | 0.0.1 | In-memory mock transport for testing without a live server |
-| `timeout` | 0.0.1 | Per-request timeout with transport abort |
+| `debug` | 0.0.1 | Debug capture |
+| `idempotency` | 0.0.1 | Idempotency |
+| `metrics` | 0.0.1 | Metrics |
+| `paging` | 0.0.1 | Paging |
+| `ratelimit` | 0.0.1 | Rate limiting |
+| `retry` | 0.0.1 | Retry |
+| `test` | 0.0.1 | Test transport |
+| `timeout` | 0.0.1 | Timeout |
 
 
 Features are activated via the `feature` option:
@@ -8798,7 +6558,7 @@ rather than the transport, so their order does not affect what they observe.
 
 #### `debug`
 
-Request/response capture ring buffer for debugging.
+Debug capture.
 
 **Configuration**
 
@@ -8829,7 +6589,7 @@ its default unless you name it.
 
 #### `idempotency`
 
-Idempotency keys for safe retries of mutating operations.
+Idempotency.
 
 **Configuration**
 
@@ -8860,7 +6620,7 @@ its default unless you name it.
 
 #### `metrics`
 
-Statistics capture: per-operation counters and latency.
+Metrics.
 
 **Configuration**
 
@@ -8888,7 +6648,7 @@ its default unless you name it.
 
 #### `paging`
 
-Pagination signals for list operations.
+Paging.
 
 **Configuration**
 
@@ -8923,7 +6683,7 @@ its default unless you name it.
 
 #### `ratelimit`
 
-Client-side rate limiting via a token bucket.
+Rate limiting.
 
 **Configuration**
 
@@ -8954,7 +6714,7 @@ its default unless you name it.
 
 #### `retry`
 
-Automatic retry of transient failures with exponential backoff.
+Retry.
 
 **Configuration**
 
@@ -8988,7 +6748,7 @@ its default unless you name it.
 
 #### `test`
 
-In-memory mock transport for testing without a live server.
+Test transport.
 
 **Configuration**
 
@@ -9019,7 +6779,7 @@ its default unless you name it.
 
 #### `timeout`
 
-Per-request timeout with transport abort.
+Timeout.
 
 **Configuration**
 

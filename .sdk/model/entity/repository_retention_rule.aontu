@@ -1,0 +1,197 @@
+# Entity: repository_retention_rule
+
+main: kit: entity: repository_retention_rule: {
+
+  alias: field: {}
+
+  fields: {
+    retention_count_limit: {
+      h: "Retention Count Limit"
+      n: "retention_count_limit"
+      r: false
+      sh: "The maximum X number of packages to retain."
+      t: "`$INTEGER`"
+    }
+    retention_days_limit: {
+      h: "Retention Days Limit"
+      n: "retention_days_limit"
+      r: false
+      sh: "The X number of days of packages to retain."
+      t: "`$INTEGER`"
+    }
+    retention_enabled: {
+      h: "Retention Enabled"
+      n: "retention_enabled"
+      r: false
+      sh: "If checked, the retention lifecycle rules will be activated for the repository."
+      t: "`$BOOLEAN`"
+    }
+    retention_group_by_format: {
+      h: "Retention Group By Format"
+      n: "retention_group_by_format"
+      r: false
+      sh: "If checked, retention will apply to packages by package formats rather than across all package formats.For example, when retaining by a limit of 1 and you upload PythonPkg 1.0 and RubyPkg 1.0, no packages are deleted because they are diffe…"
+      t: "`$BOOLEAN`"
+    }
+    retention_group_by_name: {
+      h: "Retention Group By Name"
+      n: "retention_group_by_name"
+      r: false
+      sh: "If checked, retention will apply to groups of packages by name rather than all packages.<br>For example, when retaining by a limit of 1 and you upload PkgA 1.0, PkgB 1.0 and PkgB 1.1; only PkgB 1.0 is deleted because there are two (2) PkgB…"
+      t: "`$BOOLEAN`"
+    }
+    retention_group_by_package_type: {
+      h: "Retention Group By Package Type"
+      n: "retention_group_by_package_type"
+      r: false
+      sh: "If checked, retention will apply to packages by package type (e.g."
+      t: "`$BOOLEAN`"
+    }
+    retention_package_query_string: {
+      h: "Retention Package Query String"
+      n: "retention_package_query_string"
+      r: false
+      sh: "A package search expression which, if provided, filters the packages to be deleted.<br>For example, a search expression of `name:foo` will result in only packages called 'foo' being deleted, or a search expression of `tag:~latest` will pre…"
+      t: "`$STRING`"
+    }
+    retention_size_limit: {
+      h: "Retention Size Limit"
+      n: "retention_size_limit"
+      r: false
+      sh: "The maximum X total size (in bytes) of packages to retain."
+      t: "`$INTEGER`"
+    }
+  }
+
+  name: "repository_retention_rule"
+  op: {
+    load: {
+      name: "load"
+      points: [
+        {
+          co: {
+            id: "GET /repos/{owner}/{repo}/retention/"
+            source: "swagger2"
+            version: 2
+          }
+          g: {
+            params: [
+              {
+                k: "param"
+                n: "owner"
+                or: "owner"
+                r: true
+                t: "`$ANY`"
+              }
+              {
+                k: "param"
+                n: "repo"
+                or: "repo"
+                r: true
+                t: "`$ANY`"
+              }
+            ]
+          }
+          m: "GET"
+          o: "/repos/{owner}/{repo}/retention/"
+          q: {
+            exist: [
+              "owner"
+              "repo"
+            ]
+          }
+          s: [
+            {
+              lit: "repos"
+            }
+            {
+              var: "owner"
+            }
+            {
+              var: "repo"
+            }
+            {
+              lit: "retention"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+    update: {
+      name: "update"
+      points: [
+        {
+          co: {
+            id: "PATCH /repos/{owner}/{repo}/retention/"
+            source: "swagger2"
+            version: 2
+          }
+          g: {
+            params: [
+              {
+                k: "param"
+                n: "owner"
+                or: "owner"
+                r: true
+                t: "`$ANY`"
+              }
+              {
+                k: "param"
+                n: "repo"
+                or: "repo"
+                r: true
+                t: "`$ANY`"
+              }
+            ]
+            query: [
+              {
+                k: "query"
+                n: "data"
+                or: "data"
+                r: false
+                t: "`$OBJECT`"
+              }
+            ]
+          }
+          m: "PATCH"
+          o: "/repos/{owner}/{repo}/retention/"
+          q: {
+            exist: [
+              "data"
+              "owner"
+              "repo"
+            ]
+          }
+          s: [
+            {
+              lit: "repos"
+            }
+            {
+              var: "owner"
+            }
+            {
+              var: "repo"
+            }
+            {
+              lit: "retention"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+  }
+
+
+  relations: ancestors: [
+    [path("$.main.kit.entity.repo")]
+  ]
+
+}

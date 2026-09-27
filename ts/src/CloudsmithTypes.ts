@@ -1,21 +1,9 @@
 // Typed models for the Cloudsmith SDK.
 //
-// GENERATED from the API model: main.kit.entity.<e>.fields[] and per-op
-// params (op.<name>.points[].args.params[]). Field/param types come from the
+// GENERATED from the API model: main.kit.entity.<e>.fields{} and per-op
+// params (op.<name>.points[].g.params[]). Field/param types come from the
 // canonical type sentinels via @voxgig/sdkgen canonToType (source of truth:
 // @voxgig/apidef VALID_CANON). Do not edit by hand.
-
-export interface Abort {
-}
-
-export interface Alpine {
-}
-
-export interface AuditLog {
-}
-
-export interface Basic {
-}
 
 export interface Cargo {
   auth_mode?: string
@@ -100,12 +88,6 @@ export interface CargoUpdateData {
   updated_at?: string
   upstream_url?: string
   verify_ssl?: boolean
-}
-
-export interface Cocoapod {
-}
-
-export interface Complete {
 }
 
 export interface Composer {
@@ -193,9 +175,6 @@ export interface ComposerUpdateData {
   verify_ssl?: boolean
 }
 
-export interface Conan {
-}
-
 export interface Conda {
   auth_mode?: string
   auth_secret?: string
@@ -279,9 +258,6 @@ export interface CondaUpdateData {
   updated_at?: string
   upstream_url?: string
   verify_ssl?: boolean
-}
-
-export interface Copy {
 }
 
 export interface Cran {
@@ -563,15 +539,6 @@ export interface DebUpdateData {
   verify_ssl?: boolean
 }
 
-export interface DenyPolicy {
-}
-
-export interface Dependency {
-}
-
-export interface Disable {
-}
-
 export interface DistributionFull {
   format?: string
   format_url?: string
@@ -594,9 +561,6 @@ export interface DistributionFullListMatch {
   slug?: string
   variants?: string
   versions?: any[]
-}
-
-export interface Distro {
 }
 
 export interface Docker {
@@ -703,12 +667,6 @@ export interface DynamicMappingListMatch {
   page_size?: number
 }
 
-export interface Ecdsa {
-}
-
-export interface Enable {
-}
-
 export interface Entitlement {
   active?: number
   bandwidth: Record<string, any>
@@ -744,9 +702,6 @@ export interface EntitlementRemoveMatch {
   identifier: any
   owner: any
   repo: any
-}
-
-export interface Evaluation {
 }
 
 export interface File {
@@ -787,9 +742,6 @@ export interface FormatListMatch {
   premium_plan_name?: string
   slug?: string
   supports?: Record<string, any>
-}
-
-export interface Geoip {
 }
 
 export interface Gon {
@@ -872,12 +824,6 @@ export interface GonUpdateData {
   updated_at?: string
   upstream_url?: string
   verify_ssl?: boolean
-}
-
-export interface Gpg {
-}
-
-export interface Group {
 }
 
 export interface Helm {
@@ -1050,9 +996,6 @@ export interface HexUpdateData {
   verify_ssl?: boolean
 }
 
-export interface History {
-}
-
 export interface Huggingface {
   auth_mode?: string
   auth_secret?: string
@@ -1136,21 +1079,6 @@ export interface HuggingfaceUpdateData {
   updated_at?: string
   upstream_url?: string
   verify_ssl?: boolean
-}
-
-export interface Info {
-}
-
-export interface Invite {
-}
-
-export interface LicensePolicy {
-}
-
-export interface Limit {
-}
-
-export interface Luarock {
 }
 
 export interface Maven {
@@ -1248,12 +1176,6 @@ export interface MavenUpdateData {
   upstream_url?: string
   verification_status?: string
   verify_ssl?: boolean
-}
-
-export interface Member {
-}
-
-export interface Move {
 }
 
 export interface Namespace {
@@ -1468,9 +1390,6 @@ export interface NugetUpdateData {
   updated_at?: string
   upstream_url?: string
   verify_ssl?: boolean
-}
-
-export interface OpenidConnect {
 }
 
 export interface Org {
@@ -1944,12 +1863,6 @@ export interface OrganizationTeamMemberCreateData {
   user: string
 }
 
-export interface Oss {
-}
-
-export interface P2n {
-}
-
 export interface Package {
   active?: number
   architectures?: any[]
@@ -2378,12 +2291,6 @@ export interface PackageVulnerabilityPolicyEvaluationCreateData {
   violation_count?: number
 }
 
-export interface Privilege {
-}
-
-export interface Profile {
-}
-
 export interface ProviderSetting {
   claims: Record<string, any>
   enabled: boolean
@@ -2533,9 +2440,6 @@ export interface PythonUpdateData {
   verify_ssl?: boolean
 }
 
-export interface Quarantine {
-}
-
 export interface Quota {
   display: Record<string, any>
   history: any[]
@@ -2545,15 +2449,6 @@ export interface Quota {
 
 export interface QuotaLoadMatch {
   id: string
-}
-
-export interface Raw {
-}
-
-export interface Refresh {
-}
-
-export interface Regenerate {
 }
 
 export interface Repo {
@@ -2906,14 +2801,14 @@ export interface RepositoryGpgKeyCreateData {
   public_key?: string
 }
 
-export interface RepositoryPrivilegeInput {
+export interface RepositoryPrivilegeDict {
   privilege: string
   service?: string
   team?: string
   user?: string
 }
 
-export interface RepositoryPrivilegeInputListMatch {
+export interface RepositoryPrivilegeDictListMatch {
   identifier: any
   owner: any
   page?: number
@@ -3382,9 +3277,6 @@ export interface RepositoryX509RsaCertificateLoadMatch {
   owner: any
 }
 
-export interface Reset {
-}
-
 export interface ResourcesRateCheck {
   interval?: number
   limit?: number
@@ -3401,12 +3293,6 @@ export interface ResourcesRateCheckLoadMatch {
   reset?: number
   reset_iso_8601?: string
   throttled?: boolean
-}
-
-export interface Resync {
-}
-
-export interface Retention {
 }
 
 export interface Rpm {
@@ -3512,9 +3398,6 @@ export interface RpmUpdateData {
   verify_ssl?: boolean
 }
 
-export interface Rsa {
-}
-
 export interface Ruby {
   auth_mode?: string
   auth_secret?: string
@@ -3600,15 +3483,6 @@ export interface RubyUpdateData {
   verify_ssl?: boolean
 }
 
-export interface SamlGroupSync {
-}
-
-export interface Scan {
-}
-
-export interface Self {
-}
-
 export interface Service {
   created_at?: string
   created_by?: string
@@ -3672,9 +3546,6 @@ export interface ServiceUpdateData {
   role?: string
   slug?: string
   teams?: any[]
-}
-
-export interface Status {
 }
 
 export interface StatusBasic {
@@ -3788,27 +3659,6 @@ export interface SwiftUpdateData {
   verify_ssl?: boolean
 }
 
-export interface Sync {
-}
-
-export interface Tag {
-}
-
-export interface Team {
-}
-
-export interface Terraform {
-}
-
-export interface Test {
-}
-
-export interface Token {
-}
-
-export interface TransferRegion {
-}
-
 export interface User {
 }
 
@@ -3886,15 +3736,6 @@ export interface UserProfileLoadMatch {
   id: string
 }
 
-export interface Vagrant {
-}
-
-export interface Validate {
-}
-
-export interface Version {
-}
-
 export interface Vulnerability {
   created_at?: string
   has_vulnerabilities?: boolean
@@ -3921,9 +3762,6 @@ export interface VulnerabilityListMatch {
   page_size?: number
 }
 
-export interface VulnerabilityPolicy {
-}
-
 export interface Webhook {
   id?: string
 }
@@ -3932,11 +3770,5 @@ export interface WebhookRemoveMatch {
   identifier: any
   owner: any
   repo: any
-}
-
-export interface X509Ecdsa {
-}
-
-export interface X509Rsa {
 }
 

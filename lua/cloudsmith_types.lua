@@ -1,18 +1,10 @@
 -- Typed models for the Cloudsmith SDK (LuaLS annotations).
 --
--- GENERATED from the API model: main.kit.entity.<e>.fields[] and per-op
--- params (op.<name>.points[].args.params[]). Field/param types come from the
+-- GENERATED from the API model: main.kit.entity.<e>.fields{} and per-op
+-- params (op.<name>.points[].g.params[]). Field/param types come from the
 -- canonical type sentinels via @voxgig/sdkgen canonToType (source of truth:
 -- @voxgig/apidef VALID_CANON). Annotations only — no runtime effect. Do not
 -- edit by hand.
-
----@class Abort
-
----@class Alpine
-
----@class AuditLog
-
----@class Basic
 
 ---@class Cargo
 ---@field auth_mode? string
@@ -94,10 +86,6 @@
 ---@field upstream_url? string
 ---@field verify_ssl? boolean
 
----@class Cocoapod
-
----@class Complete
-
 ---@class Composer
 ---@field auth_mode? string
 ---@field auth_secret? string
@@ -178,8 +166,6 @@
 ---@field upstream_url? string
 ---@field verify_ssl? boolean
 
----@class Conan
-
 ---@class Conda
 ---@field auth_mode? string
 ---@field auth_secret? string
@@ -259,8 +245,6 @@
 ---@field updated_at? string
 ---@field upstream_url? string
 ---@field verify_ssl? boolean
-
----@class Copy
 
 ---@class Cran
 ---@field auth_mode? string
@@ -526,12 +510,6 @@
 ---@field verification_status? string
 ---@field verify_ssl? boolean
 
----@class DenyPolicy
-
----@class Dependency
-
----@class Disable
-
 ---@class DistributionFull
 ---@field format? string
 ---@field format_url? string
@@ -552,8 +530,6 @@
 ---@field slug? string
 ---@field variants? string
 ---@field versions? table
-
----@class Distro
 
 ---@class Docker
 ---@field auth_mode? string
@@ -651,10 +627,6 @@
 ---@field page? number
 ---@field page_size? number
 
----@class Ecdsa
-
----@class Enable
-
 ---@class Entitlement
 ---@field active? number
 ---@field bandwidth table
@@ -687,8 +659,6 @@
 ---@field identifier any
 ---@field owner any
 ---@field repo any
-
----@class Evaluation
 
 ---@class File
 
@@ -724,8 +694,6 @@
 ---@field premium_plan_name? string
 ---@field slug? string
 ---@field supports? table
-
----@class Geoip
 
 ---@class Gon
 ---@field auth_mode? string
@@ -803,10 +771,6 @@
 ---@field updated_at? string
 ---@field upstream_url? string
 ---@field verify_ssl? boolean
-
----@class Gpg
-
----@class Group
 
 ---@class Helm
 ---@field auth_mode? string
@@ -968,8 +932,6 @@
 ---@field upstream_url? string
 ---@field verify_ssl? boolean
 
----@class History
-
 ---@class Huggingface
 ---@field auth_mode? string
 ---@field auth_secret? string
@@ -1049,16 +1011,6 @@
 ---@field updated_at? string
 ---@field upstream_url? string
 ---@field verify_ssl? boolean
-
----@class Info
-
----@class Invite
-
----@class LicensePolicy
-
----@class Limit
-
----@class Luarock
 
 ---@class Maven
 ---@field auth_mode? string
@@ -1151,10 +1103,6 @@
 ---@field upstream_url? string
 ---@field verification_status? string
 ---@field verify_ssl? boolean
-
----@class Member
-
----@class Move
 
 ---@class Namespace
 ---@field id? string
@@ -1354,8 +1302,6 @@
 ---@field updated_at? string
 ---@field upstream_url? string
 ---@field verify_ssl? boolean
-
----@class OpenidConnect
 
 ---@class Org
 ---@field country? string
@@ -1776,10 +1722,6 @@
 ---@field role string
 ---@field user string
 
----@class Oss
-
----@class P2n
-
 ---@class Package
 ---@field active? number
 ---@field architectures? table
@@ -2184,10 +2126,6 @@
 ---@field url? string
 ---@field violation_count? number
 
----@class Privilege
-
----@class Profile
-
 ---@class ProviderSetting
 ---@field claims table
 ---@field enabled boolean
@@ -2326,8 +2264,6 @@
 ---@field upstream_url? string
 ---@field verify_ssl? boolean
 
----@class Quarantine
-
 ---@class Quota
 ---@field display table
 ---@field history table
@@ -2336,12 +2272,6 @@
 
 ---@class QuotaLoadMatch
 ---@field id string
-
----@class Raw
-
----@class Refresh
-
----@class Regenerate
 
 ---@class Repo
 ---@field cdn_url? string
@@ -2666,13 +2596,13 @@
 ---@field fingerprint_short? string
 ---@field public_key? string
 
----@class RepositoryPrivilegeInput
+---@class RepositoryPrivilegeDict
 ---@field privilege string
 ---@field service? string
 ---@field team? string
 ---@field user? string
 
----@class RepositoryPrivilegeInputListMatch
+---@class RepositoryPrivilegeDictListMatch
 ---@field identifier any
 ---@field owner any
 ---@field page? number
@@ -3116,8 +3046,6 @@
 ---@field identifier any
 ---@field owner any
 
----@class Reset
-
 ---@class ResourcesRateCheck
 ---@field interval? number
 ---@field limit? number
@@ -3133,10 +3061,6 @@
 ---@field reset? number
 ---@field reset_iso_8601? string
 ---@field throttled? boolean
-
----@class Resync
-
----@class Retention
 
 ---@class Rpm
 ---@field auth_mode? string
@@ -3236,8 +3160,6 @@
 ---@field verification_status? string
 ---@field verify_ssl? boolean
 
----@class Rsa
-
 ---@class Ruby
 ---@field auth_mode? string
 ---@field auth_secret? string
@@ -3318,12 +3240,6 @@
 ---@field upstream_url? string
 ---@field verify_ssl? boolean
 
----@class SamlGroupSync
-
----@class Scan
-
----@class Self
-
 ---@class Service
 ---@field created_at? string
 ---@field created_by? string
@@ -3377,8 +3293,6 @@
 ---@field role? string
 ---@field slug? string
 ---@field teams? table
-
----@class Status
 
 ---@class StatusBasic
 ---@field detail? string
@@ -3481,20 +3395,6 @@
 ---@field upstream_url? string
 ---@field verify_ssl? boolean
 
----@class Sync
-
----@class Tag
-
----@class Team
-
----@class Terraform
-
----@class Test
-
----@class Token
-
----@class TransferRegion
-
 ---@class User
 
 ---@class UserListMatch
@@ -3555,12 +3455,6 @@
 ---@class UserProfileLoadMatch
 ---@field id string
 
----@class Vagrant
-
----@class Validate
-
----@class Version
-
 ---@class Vulnerability
 ---@field created_at? string
 ---@field has_vulnerabilities? boolean
@@ -3584,8 +3478,6 @@
 ---@field page? number
 ---@field page_size? number
 
----@class VulnerabilityPolicy
-
 ---@class Webhook
 ---@field id? string
 
@@ -3593,10 +3485,6 @@
 ---@field identifier any
 ---@field owner any
 ---@field repo any
-
----@class X509Ecdsa
-
----@class X509Rsa
 
 local M = {}
 

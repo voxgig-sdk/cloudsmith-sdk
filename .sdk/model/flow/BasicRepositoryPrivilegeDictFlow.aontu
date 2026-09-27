@@ -1,0 +1,27 @@
+# BasicRepositoryPrivilegeDictFlow
+
+main: kit: flow: BasicRepositoryPrivilegeDictFlow:
+{
+  entity: "repository_privilege_dict",
+  kind: "basic",
+  name: "BasicRepositoryPrivilegeDictFlow",
+  step: [
+    {
+      m: {
+        identifier: "identifier01",
+        owner: "owner01"
+      }
+
+      o: "list",
+      v: [
+        {
+          apply: "ItemExists",
+          def: {
+            ref: "repository_privilege_dict_ref01"
+          }
+        }
+      ]
+    }
+  ],
+  "key$": "BasicRepositoryPrivilegeDictFlow"
+}

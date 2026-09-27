@@ -136,7 +136,7 @@ def composer_basic_setup(extra)
 
   # Generate idmap via transform.
   idmap = Vs.transform(
-    ["composer01", "composer02", "composer03", "package01", "package02", "package03", "repo01", "repo02", "repo03", "identifier01", "owner01"],
+    ["composer01", "composer02", "composer03", "repo01", "repo02", "repo03", "identifier01", "owner01"],
     {
       "`$PACK`" => ["", {
         "`$KEY`" => "`$COPY`",

@@ -1,0 +1,84 @@
+# BasicOrganizationPackageLicensePolicyFlow
+
+main: kit: flow: BasicOrganizationPackageLicensePolicyFlow:
+{
+  entity: "organization_package_license_policy",
+  kind: "basic",
+  name: "BasicOrganizationPackageLicensePolicyFlow",
+  step: [
+    {
+      i: {
+        ref: "organization_package_license_policy_ref01"
+      }
+
+      m: {
+        org_id: "org01"
+      }
+
+      o: "create"
+    }
+
+    {
+      m: {
+        org_id: "org01"
+      }
+
+      o: "list",
+      v: [
+        {
+          apply: "ItemExists",
+          def: {
+            ref: "organization_package_license_policy_ref01"
+          }
+        }
+      ]
+    }
+
+    {
+      d: {
+        org_id: "org01"
+      }
+
+      i: {
+        ref: "organization_package_license_policy_ref01",
+        srcdatavar: "organization_package_license_policy_ref01_data",
+        suffix: "_up0",
+        textfield: "description"
+      }
+
+      o: "update",
+      s: [
+        {
+          apply: "TextFieldMark",
+          def: {
+            mark: "Mark01-organization_package_license_policy_ref01"
+          }
+        }
+      ]
+    }
+
+    {
+      i: {
+        ref: "organization_package_license_policy_ref01",
+        srcdatavar: "organization_package_license_policy_ref01_data",
+        suffix: "_dt0"
+      }
+
+      m: {
+        id: "organization_package_license_policy01",
+        org_id: "org01"
+      }
+
+      o: "load",
+      v: [
+        {
+          apply: "TextFieldMark",
+          def: {
+            mark: "Mark01-organization_package_license_policy_ref01"
+          }
+        }
+      ]
+    }
+  ],
+  "key$": "BasicOrganizationPackageLicensePolicyFlow"
+}

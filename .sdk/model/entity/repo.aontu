@@ -1,0 +1,2344 @@
+# Entity: repo
+
+main: kit: entity: repo: {
+
+  alias: field: {}
+
+  fields: {
+    cdn_url: {
+      h: "Cdn Url"
+      n: "cdn_url"
+      r: false
+      ro: true
+      sh: "Base URL from which packages and other artifacts are downloaded."
+      t: "`$STRING`"
+    }
+    content_kind: {
+      h: "Content Kind"
+      n: "content_kind"
+      r: false
+      sh: "The repository content kind determines whether this repository contains packages, or provides a distribution of packages from other repositories."
+      t: "`$STRING`"
+    }
+    contextual_auth_realm: {
+      h: "Contextual Auth Realm"
+      n: "contextual_auth_realm"
+      r: false
+      sh: "If checked, missing credentials for this repository where basic authentication is required shall present an enriched value in the 'WWW-Authenticate' header containing the namespace and repository."
+      t: "`$BOOLEAN`"
+    }
+    copy_own: {
+      h: "Copy Own"
+      n: "copy_own"
+      r: false
+      sh: "If checked, users can copy any of their own packages that they have uploaded, assuming that they still have write privilege for the repository."
+      t: "`$BOOLEAN`"
+    }
+    copy_packages: {
+      h: "Copy Packages"
+      n: "copy_packages"
+      r: false
+      sh: "This defines the minimum level of privilege required for a user to copy packages."
+      t: "`$STRING`"
+    }
+    cosign_signing_enabled: {
+      h: "Cosign Signing Enabled"
+      n: "cosign_signing_enabled"
+      r: false
+      sh: "When enabled, all pushed (or pulled from upstream) OCI packages and artifacts will be signed using cosign with the repository's ECDSA key."
+      t: "`$BOOLEAN`"
+    }
+    created_at: {
+      fo: "date-time"
+      h: "Created At"
+      n: "created_at"
+      r: false
+      ro: true
+      t: "`$STRING`"
+    }
+    default_privilege: {
+      h: "Default Privilege"
+      n: "default_privilege"
+      r: false
+      sh: "This defines the default level of privilege that all of your organization members have for this repository."
+      t: "`$STRING`"
+    }
+    delete_own: {
+      h: "Delete Own"
+      n: "delete_own"
+      r: false
+      sh: "If checked, users can delete any of their own packages that they have uploaded, assuming that they still have write privilege for the repository."
+      t: "`$BOOLEAN`"
+    }
+    delete_packages: {
+      h: "Delete Packages"
+      n: "delete_packages"
+      r: false
+      sh: "This defines the minimum level of privilege required for a user to delete packages."
+      t: "`$STRING`"
+    }
+    deleted_at: {
+      fo: "date-time"
+      h: "Deleted At"
+      n: "deleted_at"
+      r: false
+      ro: true
+      sh: "The datetime the repository was manually deleted at."
+      t: "`$STRING`"
+    }
+    description: {
+      h: "Description"
+      n: "description"
+      r: false
+      sh: "A description of the repository's purpose/contents."
+      t: "`$STRING`"
+    }
+    distributes: {
+      h: "Distributes"
+      n: "distributes"
+      r: false
+      sh: "The repositories distributed through this repo."
+      t: "`$ARRAY`"
+    }
+    docker_refresh_tokens_enabled: {
+      h: "Docker Refresh Tokens Enabled"
+      n: "docker_refresh_tokens_enabled"
+      r: false
+      sh: "If checked, refresh tokens will be issued in addition to access tokens for Docker authentication."
+      t: "`$BOOLEAN`"
+    }
+    ecdsa_keys: {
+      h: "Ecdsa Keys"
+      n: "ecdsa_keys"
+      r: false
+      ro: true
+      t: "`$ARRAY`"
+    }
+    enforce_eula: {
+      h: "Enforce Eula"
+      n: "enforce_eula"
+      r: false
+      sh: "If checked, downloads will explicitly require acceptance of an EULA."
+      t: "`$BOOLEAN`"
+    }
+    gpg_keys: {
+      h: "Gpg Keys"
+      n: "gpg_keys"
+      r: false
+      ro: true
+      t: "`$ARRAY`"
+    }
+    id: {
+      h: "Id"
+      n: "id"
+      r: false
+      t: "`$STRING`"
+    }
+    index_files: {
+      h: "Index Files"
+      n: "index_files"
+      r: false
+      sh: "If checked, files contained in packages will be indexed, which increase the synchronisation time required for packages."
+      t: "`$BOOLEAN`"
+    }
+    is_open_source: {
+      h: "Is Open Source"
+      n: "is_open_source"
+      r: false
+      ro: true
+      t: "`$BOOLEAN`"
+    }
+    is_private: {
+      h: "Is Private"
+      n: "is_private"
+      r: false
+      ro: true
+      t: "`$BOOLEAN`"
+    }
+    is_public: {
+      h: "Is Public"
+      n: "is_public"
+      r: false
+      ro: true
+      t: "`$BOOLEAN`"
+    }
+    manage_entitlements_privilege: {
+      h: "Manage Entitlements Privilege"
+      n: "manage_entitlements_privilege"
+      r: false
+      sh: "This defines the minimum level of privilege required for a user to manage entitlement tokens with private repositories."
+      t: "`$STRING`"
+    }
+    move_own: {
+      h: "Move Own"
+      n: "move_own"
+      r: false
+      sh: "If checked, users can move any of their own packages that they have uploaded, assuming that they still have write privilege for the repository."
+      t: "`$BOOLEAN`"
+    }
+    move_packages: {
+      h: "Move Packages"
+      n: "move_packages"
+      r: false
+      sh: "This defines the minimum level of privilege required for a user to move packages."
+      t: "`$STRING`"
+    }
+    name: {
+      h: "Name"
+      n: "name"
+      r: true
+      sh: "A descriptive name for the repository."
+      t: "`$STRING`"
+    }
+    namespace: {
+      fo: "slug"
+      h: "Namespace"
+      n: "namespace"
+      r: false
+      ro: true
+      sh: "Namespace to which this repository belongs."
+      t: "`$STRING`"
+    }
+    namespace_url: {
+      fo: "uri"
+      h: "Namespace Url"
+      n: "namespace_url"
+      r: false
+      ro: true
+      sh: "API endpoint where data about this namespace can be retrieved."
+      t: "`$STRING`"
+    }
+    nuget_native_signing_enabled: {
+      h: "Nuget Native Signing Enabled"
+      n: "nuget_native_signing_enabled"
+      r: false
+      sh: "When enabled, all pushed (or pulled from upstream) nuget packages and artifacts will be signed using the repository's X.509 RSA certificate."
+      t: "`$BOOLEAN`"
+    }
+    num_downloads: {
+      h: "Num Downloads"
+      n: "num_downloads"
+      r: false
+      ro: true
+      sh: "The number of downloads for packages in the repository."
+      t: "`$INTEGER`"
+    }
+    num_policy_violated_packages: {
+      h: "Num Policy Violated Packages"
+      n: "num_policy_violated_packages"
+      r: false
+      ro: true
+      sh: "Number of packages with policy violations in a repository."
+      t: "`$INTEGER`"
+    }
+    num_quarantined_packages: {
+      h: "Num Quarantined Packages"
+      n: "num_quarantined_packages"
+      r: false
+      ro: true
+      sh: "Number of quarantined packages in a repository."
+      t: "`$INTEGER`"
+    }
+    open_source_license: {
+      h: "Open Source License"
+      n: "open_source_license"
+      r: false
+      sh: "The SPDX identifier of the open source license."
+      t: "`$STRING`"
+    }
+    open_source_project_url: {
+      fo: "uri"
+      h: "Open Source Project Url"
+      n: "open_source_project_url"
+      r: false
+      sh: "The URL to the Open-Source project, used for validating that the project meets the requirements for Open-Source."
+      t: "`$STRING`"
+    }
+    package_count: {
+      h: "Package Count"
+      n: "package_count"
+      r: false
+      ro: true
+      sh: "The number of packages in the repository."
+      t: "`$INTEGER`"
+    }
+    package_group_count: {
+      h: "Package Group Count"
+      n: "package_group_count"
+      r: false
+      ro: true
+      sh: "The number of groups in the repository."
+      t: "`$INTEGER`"
+    }
+    proxy_npmjs: {
+      h: "Proxy Npmjs"
+      n: "proxy_npmjs"
+      r: false
+      sh: "If checked, Npm packages that are not in the repository when requested by clients will automatically be proxied from the public npmjs.org registry."
+      t: "`$BOOLEAN`"
+    }
+    proxy_pypi: {
+      h: "Proxy Pypi"
+      n: "proxy_pypi"
+      r: false
+      sh: "If checked, Python packages that are not in the repository when requested by clients will automatically be proxied from the public pypi.python.org registry."
+      t: "`$BOOLEAN`"
+    }
+    raw_package_index_enabled: {
+      h: "Raw Package Index Enabled"
+      n: "raw_package_index_enabled"
+      r: false
+      sh: "If checked, HTML and JSON indexes will be generated that list all available raw packages in the repository."
+      t: "`$BOOLEAN`"
+    }
+    raw_package_index_signatures_enabled: {
+      h: "Raw Package Index Signatures Enabled"
+      n: "raw_package_index_signatures_enabled"
+      r: false
+      sh: "If checked, the HTML and JSON indexes will display raw package GPG signatures alongside the index packages."
+      t: "`$BOOLEAN`"
+    }
+    replace_packages: {
+      h: "Replace Packages"
+      n: "replace_packages"
+      r: false
+      sh: "This defines the minimum level of privilege required for a user to republish packages."
+      t: "`$STRING`"
+    }
+    replace_packages_by_default: {
+      h: "Replace Packages By Default"
+      n: "replace_packages_by_default"
+      r: false
+      sh: "If checked, uploaded packages will overwrite/replace any others with the same attributes (e.g."
+      t: "`$BOOLEAN`"
+    }
+    repository_type: {
+      h: "Repository Type"
+      n: "repository_type"
+      r: false
+      ro: true
+      sh: "The repository type changes how it is accessed and billed."
+      t: "`$INTEGER`"
+    }
+    repository_type_str: {
+      h: "Repository Type Str"
+      n: "repository_type_str"
+      r: false
+      sh: "The repository type changes how it is accessed and billed."
+      t: "`$STRING`"
+    }
+    resync_own: {
+      h: "Resync Own"
+      n: "resync_own"
+      r: false
+      sh: "If checked, users can resync any of their own packages that they have uploaded, assuming that they still have write privilege for the repository."
+      t: "`$BOOLEAN`"
+    }
+    resync_packages: {
+      h: "Resync Packages"
+      n: "resync_packages"
+      r: false
+      sh: "This defines the minimum level of privilege required for a user to resync packages."
+      t: "`$STRING`"
+    }
+    scan_own: {
+      h: "Scan Own"
+      n: "scan_own"
+      r: false
+      sh: "If checked, users can scan any of their own packages that they have uploaded, assuming that they still have write privilege for the repository."
+      t: "`$BOOLEAN`"
+    }
+    scan_packages: {
+      h: "Scan Packages"
+      n: "scan_packages"
+      r: false
+      sh: "This defines the minimum level of privilege required for a user to scan packages."
+      t: "`$STRING`"
+    }
+    self_html_url: {
+      h: "Self Html Url"
+      n: "self_html_url"
+      r: false
+      ro: true
+      sh: "Website URL for this repository."
+      t: "`$STRING`"
+    }
+    self_url: {
+      fo: "uri"
+      h: "Self Url"
+      n: "self_url"
+      r: false
+      ro: true
+      sh: "API endpoint where data about this repository can be retrieved."
+      t: "`$STRING`"
+    }
+    show_setup_all: {
+      h: "Show Setup All"
+      n: "show_setup_all"
+      r: false
+      sh: "If checked, the Set Me Up help for all formats will always be shown, even if you don't have packages of that type uploaded."
+      t: "`$BOOLEAN`"
+    }
+    size: {
+      h: "Size"
+      n: "size"
+      r: false
+      ro: true
+      sh: "The calculated size of the repository."
+      t: "`$INTEGER`"
+    }
+    size_str: {
+      h: "Size Str"
+      n: "size_str"
+      r: false
+      ro: true
+      sh: "The calculated size of the repository (human readable)."
+      t: "`$STRING`"
+    }
+    slug: {
+      h: "Slug"
+      n: "slug"
+      r: false
+      sh: "The slug identifies the repository in URIs."
+      t: "`$STRING`"
+    }
+    slug_perm: {
+      fo: "slug"
+      h: "Slug Perm"
+      n: "slug_perm"
+      r: false
+      ro: true
+      sh: "The slug_perm immutably identifies the repository."
+      t: "`$STRING`"
+    }
+    storage_region: {
+      h: "Storage Region"
+      n: "storage_region"
+      r: false
+      ro: true
+      sh: "The Cloudsmith region in which package files are stored."
+      t: "`$STRING`"
+    }
+    strict_npm_validation: {
+      h: "Strict Npm Validation"
+      n: "strict_npm_validation"
+      r: false
+      sh: "If checked, npm packages will be validated strictly to ensure the package matches specifcation."
+      t: "`$BOOLEAN`"
+    }
+    tag_pre_releases_as_latest: {
+      h: "Tag Pre Releases As Latest"
+      n: "tag_pre_releases_as_latest"
+      r: false
+      sh: "If checked, packages pushed with a pre-release component on that version will be marked with the 'latest' tag."
+      t: "`$BOOLEAN`"
+    }
+    use_debian_labels: {
+      h: "Use Debian Labels"
+      n: "use_debian_labels"
+      r: false
+      sh: "If checked, a 'Label' field will be present in Debian-based repositories."
+      t: "`$BOOLEAN`"
+    }
+    use_default_cargo_upstream: {
+      h: "Use Default Cargo Upstream"
+      n: "use_default_cargo_upstream"
+      r: false
+      sh: "If checked, dependencies of uploaded Cargo crates which do not set an explicit value for \"registry\" will be assumed to be available from crates.io."
+      t: "`$BOOLEAN`"
+    }
+    use_entitlements_privilege: {
+      h: "Use Entitlements Privilege"
+      n: "use_entitlements_privilege"
+      r: false
+      sh: "This defines the minimum level of privilege required for a user to see/use entitlement tokens with private repositories."
+      t: "`$STRING`"
+    }
+    use_noarch_packages: {
+      h: "Use Noarch Packages"
+      n: "use_noarch_packages"
+      r: false
+      sh: "If checked, noarch packages (if supported) are enabled in installations/configurations."
+      t: "`$BOOLEAN`"
+    }
+    use_source_packages: {
+      h: "Use Source Packages"
+      n: "use_source_packages"
+      r: false
+      sh: "If checked, source packages (if supported) are enabled in installations/configurations."
+      t: "`$BOOLEAN`"
+    }
+    use_vulnerability_scanning: {
+      h: "Use Vulnerability Scanning"
+      n: "use_vulnerability_scanning"
+      r: false
+      sh: "If checked, vulnerability scanning will be enabled for all supported packages within this repository."
+      t: "`$BOOLEAN`"
+    }
+    user_entitlements_enabled: {
+      h: "User Entitlements Enabled"
+      n: "user_entitlements_enabled"
+      r: false
+      sh: "If checked, users can use and manage their own user-specific entitlement token for the repository (if private)."
+      t: "`$BOOLEAN`"
+    }
+    view_statistics: {
+      h: "View Statistics"
+      n: "view_statistics"
+      r: false
+      sh: "This defines the minimum level of privilege required for a user to view repository statistics, to include entitlement-based usage, if applicable."
+      t: "`$STRING`"
+    }
+  }
+
+  id: {
+    field: "id"
+    name: "id"
+  }
+
+  name: "repo"
+  op: {
+    create: {
+      name: "create"
+      points: [
+        {
+          co: {
+            id: "POST /repos/{owner}/{identifier}/geoip/disable/"
+            source: "swagger2"
+            version: 2
+          }
+          g: {
+            params: [
+              {
+                k: "param"
+                n: "identifier"
+                or: "identifier"
+                r: true
+                t: "`$ANY`"
+              }
+              {
+                k: "param"
+                n: "owner"
+                or: "owner"
+                r: true
+                t: "`$ANY`"
+              }
+            ]
+            query: [
+              {
+                k: "query"
+                n: "data"
+                or: "data"
+                r: false
+                t: "`$OBJECT`"
+              }
+            ]
+          }
+          m: "POST"
+          o: "/repos/{owner}/{identifier}/geoip/disable/"
+          q: {
+            exist: [
+              "data"
+              "identifier"
+              "owner"
+            ]
+          }
+          s: [
+            {
+              lit: "repos"
+            }
+            {
+              var: "owner"
+            }
+            {
+              var: "identifier"
+            }
+            {
+              lit: "geoip"
+            }
+            {
+              lit: "disable"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          co: {
+            id: "POST /repos/{owner}/{identifier}/geoip/enable/"
+            source: "swagger2"
+            version: 2
+          }
+          g: {
+            params: [
+              {
+                k: "param"
+                n: "identifier"
+                or: "identifier"
+                r: true
+                t: "`$ANY`"
+              }
+              {
+                k: "param"
+                n: "owner"
+                or: "owner"
+                r: true
+                t: "`$ANY`"
+              }
+            ]
+            query: [
+              {
+                k: "query"
+                n: "data"
+                or: "data"
+                r: false
+                t: "`$OBJECT`"
+              }
+            ]
+          }
+          m: "POST"
+          o: "/repos/{owner}/{identifier}/geoip/enable/"
+          q: {
+            exist: [
+              "data"
+              "identifier"
+              "owner"
+            ]
+          }
+          s: [
+            {
+              lit: "repos"
+            }
+            {
+              var: "owner"
+            }
+            {
+              var: "identifier"
+            }
+            {
+              lit: "geoip"
+            }
+            {
+              lit: "enable"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          co: {
+            id: "POST /repos/{owner}/{repo}/transfer-region/"
+            source: "swagger2"
+            version: 2
+          }
+          g: {
+            params: [
+              {
+                k: "param"
+                n: "owner"
+                or: "owner"
+                r: true
+                t: "`$ANY`"
+              }
+              {
+                k: "param"
+                n: "repo"
+                or: "repo"
+                r: true
+                t: "`$ANY`"
+              }
+            ]
+            query: [
+              {
+                k: "query"
+                n: "data"
+                or: "data"
+                r: false
+                t: "`$OBJECT`"
+              }
+            ]
+          }
+          m: "POST"
+          o: "/repos/{owner}/{repo}/transfer-region/"
+          q: {
+            "$action": "transfer_region"
+            exist: [
+              "data"
+              "owner"
+              "repo"
+            ]
+          }
+          s: [
+            {
+              lit: "repos"
+            }
+            {
+              var: "owner"
+            }
+            {
+              var: "repo"
+            }
+            {
+              lit: "transfer-region"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          co: {
+            id: "POST /repos/{owner}/"
+            source: "swagger2"
+            version: 2
+          }
+          g: {
+            params: [
+              {
+                k: "param"
+                n: "id"
+                or: "owner"
+                r: true
+                t: "`$STRING`"
+              }
+            ]
+            query: [
+              {
+                k: "query"
+                n: "data"
+                or: "data"
+                r: false
+                t: "`$OBJECT`"
+              }
+            ]
+          }
+          m: "POST"
+          o: "/repos/{owner}/"
+          q: {
+            exist: [
+              "data"
+              "id"
+            ]
+          }
+          r: {
+            param: {
+              owner: "id"
+            }
+          }
+          s: [
+            {
+              lit: "repos"
+            }
+            {
+              var: "id"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+    list: {
+      name: "list"
+      points: [
+        {
+          co: {
+            id: "GET /repos/"
+            source: "swagger2"
+            version: 2
+          }
+          g: {
+            query: [
+              {
+                k: "query"
+                n: "page"
+                or: "page"
+                r: false
+                t: "`$INTEGER`"
+              }
+              {
+                k: "query"
+                n: "page_size"
+                or: "page_size"
+                r: false
+                t: "`$INTEGER`"
+              }
+            ]
+          }
+          m: "GET"
+          o: "/repos/"
+          q: {
+            exist: [
+              "page"
+              "page_size"
+            ]
+          }
+          s: [
+            {
+              lit: "repos"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+    load: {
+      name: "load"
+      points: [
+        {
+          co: {
+            id: "GET /repos/{owner}/"
+            source: "swagger2"
+            version: 2
+          }
+          g: {
+            params: [
+              {
+                k: "param"
+                n: "id"
+                or: "owner"
+                r: true
+                t: "`$STRING`"
+              }
+            ]
+            query: [
+              {
+                k: "query"
+                n: "page"
+                or: "page"
+                r: false
+                t: "`$INTEGER`"
+              }
+              {
+                k: "query"
+                n: "page_size"
+                or: "page_size"
+                r: false
+                t: "`$INTEGER`"
+              }
+            ]
+          }
+          m: "GET"
+          o: "/repos/{owner}/"
+          q: {
+            exist: [
+              "id"
+              "page"
+              "page_size"
+            ]
+          }
+          r: {
+            param: {
+              owner: "id"
+            }
+          }
+          s: [
+            {
+              lit: "repos"
+            }
+            {
+              var: "id"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          co: {
+            id: "GET /repos/{owner}/{identifier}/"
+            source: "swagger2"
+            version: 2
+          }
+          g: {
+            params: [
+              {
+                k: "param"
+                n: "identifier"
+                or: "identifier"
+                r: true
+                t: "`$ANY`"
+              }
+              {
+                k: "param"
+                n: "owner"
+                or: "owner"
+                r: true
+                t: "`$ANY`"
+              }
+            ]
+          }
+          m: "GET"
+          o: "/repos/{owner}/{identifier}/"
+          q: {
+            exist: [
+              "identifier"
+              "owner"
+            ]
+          }
+          s: [
+            {
+              lit: "repos"
+            }
+            {
+              var: "owner"
+            }
+            {
+              var: "identifier"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+    patch: {
+      name: "patch"
+      points: [
+        {
+          co: {
+            id: "PATCH /repos/{owner}/{identifier}/"
+            source: "swagger2"
+            version: 2
+          }
+          g: {
+            params: [
+              {
+                k: "param"
+                n: "identifier"
+                or: "identifier"
+                r: true
+                t: "`$ANY`"
+              }
+              {
+                k: "param"
+                n: "owner"
+                or: "owner"
+                r: true
+                t: "`$ANY`"
+              }
+            ]
+            query: [
+              {
+                k: "query"
+                n: "data"
+                or: "data"
+                r: false
+                t: "`$OBJECT`"
+              }
+            ]
+          }
+          m: "PATCH"
+          o: "/repos/{owner}/{identifier}/"
+          q: {
+            exist: [
+              "data"
+              "identifier"
+              "owner"
+            ]
+          }
+          s: [
+            {
+              lit: "repos"
+            }
+            {
+              var: "owner"
+            }
+            {
+              var: "identifier"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          co: {
+            id: "PATCH /repos/{owner}/{identifier}/privileges"
+            source: "swagger2"
+            version: 2
+          }
+          g: {
+            params: [
+              {
+                k: "param"
+                n: "identifier"
+                or: "identifier"
+                r: true
+                t: "`$ANY`"
+              }
+              {
+                k: "param"
+                n: "owner"
+                or: "owner"
+                r: true
+                t: "`$ANY`"
+              }
+            ]
+            query: [
+              {
+                k: "query"
+                n: "data"
+                or: "data"
+                r: false
+                t: "`$OBJECT`"
+              }
+            ]
+          }
+          m: "PATCH"
+          o: "/repos/{owner}/{identifier}/privileges"
+          q: {
+            exist: [
+              "data"
+              "identifier"
+              "owner"
+            ]
+          }
+          s: [
+            {
+              lit: "repos"
+            }
+            {
+              var: "owner"
+            }
+            {
+              var: "identifier"
+            }
+            {
+              lit: "privileges"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+    remove: {
+      name: "remove"
+      points: [
+        {
+          co: {
+            id: "DELETE /repos/{owner}/{identifier}/upstream/cargo/{slug_perm}/"
+            source: "swagger2"
+            version: 2
+          }
+          g: {
+            params: [
+              {
+                k: "param"
+                n: "identifier"
+                or: "identifier"
+                r: true
+                t: "`$ANY`"
+              }
+              {
+                k: "param"
+                n: "owner"
+                or: "owner"
+                r: true
+                t: "`$ANY`"
+              }
+              {
+                k: "param"
+                n: "slug_perm"
+                or: "slug_perm"
+                r: true
+                t: "`$ANY`"
+              }
+            ]
+          }
+          m: "DELETE"
+          o: "/repos/{owner}/{identifier}/upstream/cargo/{slug_perm}/"
+          q: {
+            exist: [
+              "identifier"
+              "owner"
+              "slug_perm"
+            ]
+          }
+          s: [
+            {
+              lit: "repos"
+            }
+            {
+              var: "owner"
+            }
+            {
+              var: "identifier"
+            }
+            {
+              lit: "upstream"
+            }
+            {
+              lit: "cargo"
+            }
+            {
+              var: "slug_perm"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          co: {
+            id: "DELETE /repos/{owner}/{identifier}/upstream/composer/{slug_perm}/"
+            source: "swagger2"
+            version: 2
+          }
+          g: {
+            params: [
+              {
+                k: "param"
+                n: "identifier"
+                or: "identifier"
+                r: true
+                t: "`$ANY`"
+              }
+              {
+                k: "param"
+                n: "owner"
+                or: "owner"
+                r: true
+                t: "`$ANY`"
+              }
+              {
+                k: "param"
+                n: "slug_perm"
+                or: "slug_perm"
+                r: true
+                t: "`$ANY`"
+              }
+            ]
+          }
+          m: "DELETE"
+          o: "/repos/{owner}/{identifier}/upstream/composer/{slug_perm}/"
+          q: {
+            exist: [
+              "identifier"
+              "owner"
+              "slug_perm"
+            ]
+          }
+          s: [
+            {
+              lit: "repos"
+            }
+            {
+              var: "owner"
+            }
+            {
+              var: "identifier"
+            }
+            {
+              lit: "upstream"
+            }
+            {
+              lit: "composer"
+            }
+            {
+              var: "slug_perm"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          co: {
+            id: "DELETE /repos/{owner}/{identifier}/upstream/conda/{slug_perm}/"
+            source: "swagger2"
+            version: 2
+          }
+          g: {
+            params: [
+              {
+                k: "param"
+                n: "identifier"
+                or: "identifier"
+                r: true
+                t: "`$ANY`"
+              }
+              {
+                k: "param"
+                n: "owner"
+                or: "owner"
+                r: true
+                t: "`$ANY`"
+              }
+              {
+                k: "param"
+                n: "slug_perm"
+                or: "slug_perm"
+                r: true
+                t: "`$ANY`"
+              }
+            ]
+          }
+          m: "DELETE"
+          o: "/repos/{owner}/{identifier}/upstream/conda/{slug_perm}/"
+          q: {
+            exist: [
+              "identifier"
+              "owner"
+              "slug_perm"
+            ]
+          }
+          s: [
+            {
+              lit: "repos"
+            }
+            {
+              var: "owner"
+            }
+            {
+              var: "identifier"
+            }
+            {
+              lit: "upstream"
+            }
+            {
+              lit: "conda"
+            }
+            {
+              var: "slug_perm"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          co: {
+            id: "DELETE /repos/{owner}/{identifier}/upstream/cran/{slug_perm}/"
+            source: "swagger2"
+            version: 2
+          }
+          g: {
+            params: [
+              {
+                k: "param"
+                n: "identifier"
+                or: "identifier"
+                r: true
+                t: "`$ANY`"
+              }
+              {
+                k: "param"
+                n: "owner"
+                or: "owner"
+                r: true
+                t: "`$ANY`"
+              }
+              {
+                k: "param"
+                n: "slug_perm"
+                or: "slug_perm"
+                r: true
+                t: "`$ANY`"
+              }
+            ]
+          }
+          m: "DELETE"
+          o: "/repos/{owner}/{identifier}/upstream/cran/{slug_perm}/"
+          q: {
+            exist: [
+              "identifier"
+              "owner"
+              "slug_perm"
+            ]
+          }
+          s: [
+            {
+              lit: "repos"
+            }
+            {
+              var: "owner"
+            }
+            {
+              var: "identifier"
+            }
+            {
+              lit: "upstream"
+            }
+            {
+              lit: "cran"
+            }
+            {
+              var: "slug_perm"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          co: {
+            id: "DELETE /repos/{owner}/{identifier}/upstream/dart/{slug_perm}/"
+            source: "swagger2"
+            version: 2
+          }
+          g: {
+            params: [
+              {
+                k: "param"
+                n: "identifier"
+                or: "identifier"
+                r: true
+                t: "`$ANY`"
+              }
+              {
+                k: "param"
+                n: "owner"
+                or: "owner"
+                r: true
+                t: "`$ANY`"
+              }
+              {
+                k: "param"
+                n: "slug_perm"
+                or: "slug_perm"
+                r: true
+                t: "`$ANY`"
+              }
+            ]
+          }
+          m: "DELETE"
+          o: "/repos/{owner}/{identifier}/upstream/dart/{slug_perm}/"
+          q: {
+            exist: [
+              "identifier"
+              "owner"
+              "slug_perm"
+            ]
+          }
+          s: [
+            {
+              lit: "repos"
+            }
+            {
+              var: "owner"
+            }
+            {
+              var: "identifier"
+            }
+            {
+              lit: "upstream"
+            }
+            {
+              lit: "dart"
+            }
+            {
+              var: "slug_perm"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          co: {
+            id: "DELETE /repos/{owner}/{identifier}/upstream/deb/{slug_perm}/"
+            source: "swagger2"
+            version: 2
+          }
+          g: {
+            params: [
+              {
+                k: "param"
+                n: "identifier"
+                or: "identifier"
+                r: true
+                t: "`$ANY`"
+              }
+              {
+                k: "param"
+                n: "owner"
+                or: "owner"
+                r: true
+                t: "`$ANY`"
+              }
+              {
+                k: "param"
+                n: "slug_perm"
+                or: "slug_perm"
+                r: true
+                t: "`$ANY`"
+              }
+            ]
+          }
+          m: "DELETE"
+          o: "/repos/{owner}/{identifier}/upstream/deb/{slug_perm}/"
+          q: {
+            exist: [
+              "identifier"
+              "owner"
+              "slug_perm"
+            ]
+          }
+          s: [
+            {
+              lit: "repos"
+            }
+            {
+              var: "owner"
+            }
+            {
+              var: "identifier"
+            }
+            {
+              lit: "upstream"
+            }
+            {
+              lit: "deb"
+            }
+            {
+              var: "slug_perm"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          co: {
+            id: "DELETE /repos/{owner}/{identifier}/upstream/docker/{slug_perm}/"
+            source: "swagger2"
+            version: 2
+          }
+          g: {
+            params: [
+              {
+                k: "param"
+                n: "identifier"
+                or: "identifier"
+                r: true
+                t: "`$ANY`"
+              }
+              {
+                k: "param"
+                n: "owner"
+                or: "owner"
+                r: true
+                t: "`$ANY`"
+              }
+              {
+                k: "param"
+                n: "slug_perm"
+                or: "slug_perm"
+                r: true
+                t: "`$ANY`"
+              }
+            ]
+          }
+          m: "DELETE"
+          o: "/repos/{owner}/{identifier}/upstream/docker/{slug_perm}/"
+          q: {
+            exist: [
+              "identifier"
+              "owner"
+              "slug_perm"
+            ]
+          }
+          s: [
+            {
+              lit: "repos"
+            }
+            {
+              var: "owner"
+            }
+            {
+              var: "identifier"
+            }
+            {
+              lit: "upstream"
+            }
+            {
+              lit: "docker"
+            }
+            {
+              var: "slug_perm"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          co: {
+            id: "DELETE /repos/{owner}/{identifier}/upstream/go/{slug_perm}/"
+            source: "swagger2"
+            version: 2
+          }
+          g: {
+            params: [
+              {
+                k: "param"
+                n: "identifier"
+                or: "identifier"
+                r: true
+                t: "`$ANY`"
+              }
+              {
+                k: "param"
+                n: "owner"
+                or: "owner"
+                r: true
+                t: "`$ANY`"
+              }
+              {
+                k: "param"
+                n: "slug_perm"
+                or: "slug_perm"
+                r: true
+                t: "`$ANY`"
+              }
+            ]
+          }
+          m: "DELETE"
+          o: "/repos/{owner}/{identifier}/upstream/go/{slug_perm}/"
+          q: {
+            exist: [
+              "identifier"
+              "owner"
+              "slug_perm"
+            ]
+          }
+          s: [
+            {
+              lit: "repos"
+            }
+            {
+              var: "owner"
+            }
+            {
+              var: "identifier"
+            }
+            {
+              lit: "upstream"
+            }
+            {
+              lit: "go"
+            }
+            {
+              var: "slug_perm"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          co: {
+            id: "DELETE /repos/{owner}/{identifier}/upstream/helm/{slug_perm}/"
+            source: "swagger2"
+            version: 2
+          }
+          g: {
+            params: [
+              {
+                k: "param"
+                n: "identifier"
+                or: "identifier"
+                r: true
+                t: "`$ANY`"
+              }
+              {
+                k: "param"
+                n: "owner"
+                or: "owner"
+                r: true
+                t: "`$ANY`"
+              }
+              {
+                k: "param"
+                n: "slug_perm"
+                or: "slug_perm"
+                r: true
+                t: "`$ANY`"
+              }
+            ]
+          }
+          m: "DELETE"
+          o: "/repos/{owner}/{identifier}/upstream/helm/{slug_perm}/"
+          q: {
+            exist: [
+              "identifier"
+              "owner"
+              "slug_perm"
+            ]
+          }
+          s: [
+            {
+              lit: "repos"
+            }
+            {
+              var: "owner"
+            }
+            {
+              var: "identifier"
+            }
+            {
+              lit: "upstream"
+            }
+            {
+              lit: "helm"
+            }
+            {
+              var: "slug_perm"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          co: {
+            id: "DELETE /repos/{owner}/{identifier}/upstream/hex/{slug_perm}/"
+            source: "swagger2"
+            version: 2
+          }
+          g: {
+            params: [
+              {
+                k: "param"
+                n: "identifier"
+                or: "identifier"
+                r: true
+                t: "`$ANY`"
+              }
+              {
+                k: "param"
+                n: "owner"
+                or: "owner"
+                r: true
+                t: "`$ANY`"
+              }
+              {
+                k: "param"
+                n: "slug_perm"
+                or: "slug_perm"
+                r: true
+                t: "`$ANY`"
+              }
+            ]
+          }
+          m: "DELETE"
+          o: "/repos/{owner}/{identifier}/upstream/hex/{slug_perm}/"
+          q: {
+            exist: [
+              "identifier"
+              "owner"
+              "slug_perm"
+            ]
+          }
+          s: [
+            {
+              lit: "repos"
+            }
+            {
+              var: "owner"
+            }
+            {
+              var: "identifier"
+            }
+            {
+              lit: "upstream"
+            }
+            {
+              lit: "hex"
+            }
+            {
+              var: "slug_perm"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          co: {
+            id: "DELETE /repos/{owner}/{identifier}/upstream/huggingface/{slug_perm}/"
+            source: "swagger2"
+            version: 2
+          }
+          g: {
+            params: [
+              {
+                k: "param"
+                n: "identifier"
+                or: "identifier"
+                r: true
+                t: "`$ANY`"
+              }
+              {
+                k: "param"
+                n: "owner"
+                or: "owner"
+                r: true
+                t: "`$ANY`"
+              }
+              {
+                k: "param"
+                n: "slug_perm"
+                or: "slug_perm"
+                r: true
+                t: "`$ANY`"
+              }
+            ]
+          }
+          m: "DELETE"
+          o: "/repos/{owner}/{identifier}/upstream/huggingface/{slug_perm}/"
+          q: {
+            exist: [
+              "identifier"
+              "owner"
+              "slug_perm"
+            ]
+          }
+          s: [
+            {
+              lit: "repos"
+            }
+            {
+              var: "owner"
+            }
+            {
+              var: "identifier"
+            }
+            {
+              lit: "upstream"
+            }
+            {
+              lit: "huggingface"
+            }
+            {
+              var: "slug_perm"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          co: {
+            id: "DELETE /repos/{owner}/{identifier}/upstream/maven/{slug_perm}/"
+            source: "swagger2"
+            version: 2
+          }
+          g: {
+            params: [
+              {
+                k: "param"
+                n: "identifier"
+                or: "identifier"
+                r: true
+                t: "`$ANY`"
+              }
+              {
+                k: "param"
+                n: "owner"
+                or: "owner"
+                r: true
+                t: "`$ANY`"
+              }
+              {
+                k: "param"
+                n: "slug_perm"
+                or: "slug_perm"
+                r: true
+                t: "`$ANY`"
+              }
+            ]
+          }
+          m: "DELETE"
+          o: "/repos/{owner}/{identifier}/upstream/maven/{slug_perm}/"
+          q: {
+            exist: [
+              "identifier"
+              "owner"
+              "slug_perm"
+            ]
+          }
+          s: [
+            {
+              lit: "repos"
+            }
+            {
+              var: "owner"
+            }
+            {
+              var: "identifier"
+            }
+            {
+              lit: "upstream"
+            }
+            {
+              lit: "maven"
+            }
+            {
+              var: "slug_perm"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          co: {
+            id: "DELETE /repos/{owner}/{identifier}/upstream/npm/{slug_perm}/"
+            source: "swagger2"
+            version: 2
+          }
+          g: {
+            params: [
+              {
+                k: "param"
+                n: "identifier"
+                or: "identifier"
+                r: true
+                t: "`$ANY`"
+              }
+              {
+                k: "param"
+                n: "owner"
+                or: "owner"
+                r: true
+                t: "`$ANY`"
+              }
+              {
+                k: "param"
+                n: "slug_perm"
+                or: "slug_perm"
+                r: true
+                t: "`$ANY`"
+              }
+            ]
+          }
+          m: "DELETE"
+          o: "/repos/{owner}/{identifier}/upstream/npm/{slug_perm}/"
+          q: {
+            exist: [
+              "identifier"
+              "owner"
+              "slug_perm"
+            ]
+          }
+          s: [
+            {
+              lit: "repos"
+            }
+            {
+              var: "owner"
+            }
+            {
+              var: "identifier"
+            }
+            {
+              lit: "upstream"
+            }
+            {
+              lit: "npm"
+            }
+            {
+              var: "slug_perm"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          co: {
+            id: "DELETE /repos/{owner}/{identifier}/upstream/nuget/{slug_perm}/"
+            source: "swagger2"
+            version: 2
+          }
+          g: {
+            params: [
+              {
+                k: "param"
+                n: "identifier"
+                or: "identifier"
+                r: true
+                t: "`$ANY`"
+              }
+              {
+                k: "param"
+                n: "owner"
+                or: "owner"
+                r: true
+                t: "`$ANY`"
+              }
+              {
+                k: "param"
+                n: "slug_perm"
+                or: "slug_perm"
+                r: true
+                t: "`$ANY`"
+              }
+            ]
+          }
+          m: "DELETE"
+          o: "/repos/{owner}/{identifier}/upstream/nuget/{slug_perm}/"
+          q: {
+            exist: [
+              "identifier"
+              "owner"
+              "slug_perm"
+            ]
+          }
+          s: [
+            {
+              lit: "repos"
+            }
+            {
+              var: "owner"
+            }
+            {
+              var: "identifier"
+            }
+            {
+              lit: "upstream"
+            }
+            {
+              lit: "nuget"
+            }
+            {
+              var: "slug_perm"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          co: {
+            id: "DELETE /repos/{owner}/{identifier}/upstream/python/{slug_perm}/"
+            source: "swagger2"
+            version: 2
+          }
+          g: {
+            params: [
+              {
+                k: "param"
+                n: "identifier"
+                or: "identifier"
+                r: true
+                t: "`$ANY`"
+              }
+              {
+                k: "param"
+                n: "owner"
+                or: "owner"
+                r: true
+                t: "`$ANY`"
+              }
+              {
+                k: "param"
+                n: "slug_perm"
+                or: "slug_perm"
+                r: true
+                t: "`$ANY`"
+              }
+            ]
+          }
+          m: "DELETE"
+          o: "/repos/{owner}/{identifier}/upstream/python/{slug_perm}/"
+          q: {
+            exist: [
+              "identifier"
+              "owner"
+              "slug_perm"
+            ]
+          }
+          s: [
+            {
+              lit: "repos"
+            }
+            {
+              var: "owner"
+            }
+            {
+              var: "identifier"
+            }
+            {
+              lit: "upstream"
+            }
+            {
+              lit: "python"
+            }
+            {
+              var: "slug_perm"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          co: {
+            id: "DELETE /repos/{owner}/{identifier}/upstream/rpm/{slug_perm}/"
+            source: "swagger2"
+            version: 2
+          }
+          g: {
+            params: [
+              {
+                k: "param"
+                n: "identifier"
+                or: "identifier"
+                r: true
+                t: "`$ANY`"
+              }
+              {
+                k: "param"
+                n: "owner"
+                or: "owner"
+                r: true
+                t: "`$ANY`"
+              }
+              {
+                k: "param"
+                n: "slug_perm"
+                or: "slug_perm"
+                r: true
+                t: "`$ANY`"
+              }
+            ]
+          }
+          m: "DELETE"
+          o: "/repos/{owner}/{identifier}/upstream/rpm/{slug_perm}/"
+          q: {
+            exist: [
+              "identifier"
+              "owner"
+              "slug_perm"
+            ]
+          }
+          s: [
+            {
+              lit: "repos"
+            }
+            {
+              var: "owner"
+            }
+            {
+              var: "identifier"
+            }
+            {
+              lit: "upstream"
+            }
+            {
+              lit: "rpm"
+            }
+            {
+              var: "slug_perm"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          co: {
+            id: "DELETE /repos/{owner}/{identifier}/upstream/ruby/{slug_perm}/"
+            source: "swagger2"
+            version: 2
+          }
+          g: {
+            params: [
+              {
+                k: "param"
+                n: "identifier"
+                or: "identifier"
+                r: true
+                t: "`$ANY`"
+              }
+              {
+                k: "param"
+                n: "owner"
+                or: "owner"
+                r: true
+                t: "`$ANY`"
+              }
+              {
+                k: "param"
+                n: "slug_perm"
+                or: "slug_perm"
+                r: true
+                t: "`$ANY`"
+              }
+            ]
+          }
+          m: "DELETE"
+          o: "/repos/{owner}/{identifier}/upstream/ruby/{slug_perm}/"
+          q: {
+            exist: [
+              "identifier"
+              "owner"
+              "slug_perm"
+            ]
+          }
+          s: [
+            {
+              lit: "repos"
+            }
+            {
+              var: "owner"
+            }
+            {
+              var: "identifier"
+            }
+            {
+              lit: "upstream"
+            }
+            {
+              lit: "ruby"
+            }
+            {
+              var: "slug_perm"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          co: {
+            id: "DELETE /repos/{owner}/{identifier}/upstream/swift/{slug_perm}/"
+            source: "swagger2"
+            version: 2
+          }
+          g: {
+            params: [
+              {
+                k: "param"
+                n: "identifier"
+                or: "identifier"
+                r: true
+                t: "`$ANY`"
+              }
+              {
+                k: "param"
+                n: "owner"
+                or: "owner"
+                r: true
+                t: "`$ANY`"
+              }
+              {
+                k: "param"
+                n: "slug_perm"
+                or: "slug_perm"
+                r: true
+                t: "`$ANY`"
+              }
+            ]
+          }
+          m: "DELETE"
+          o: "/repos/{owner}/{identifier}/upstream/swift/{slug_perm}/"
+          q: {
+            exist: [
+              "identifier"
+              "owner"
+              "slug_perm"
+            ]
+          }
+          s: [
+            {
+              lit: "repos"
+            }
+            {
+              var: "owner"
+            }
+            {
+              var: "identifier"
+            }
+            {
+              lit: "upstream"
+            }
+            {
+              lit: "swift"
+            }
+            {
+              var: "slug_perm"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          co: {
+            id: "DELETE /repos/{owner}/{identifier}/"
+            source: "swagger2"
+            version: 2
+          }
+          g: {
+            params: [
+              {
+                k: "param"
+                n: "identifier"
+                or: "identifier"
+                r: true
+                t: "`$ANY`"
+              }
+              {
+                k: "param"
+                n: "owner"
+                or: "owner"
+                r: true
+                t: "`$ANY`"
+              }
+            ]
+          }
+          m: "DELETE"
+          o: "/repos/{owner}/{identifier}/"
+          q: {
+            exist: [
+              "identifier"
+              "owner"
+            ]
+          }
+          s: [
+            {
+              lit: "repos"
+            }
+            {
+              var: "owner"
+            }
+            {
+              var: "identifier"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+    update: {
+      name: "update"
+      points: [
+        {
+          co: {
+            id: "PUT /repos/{owner}/{identifier}/privileges"
+            source: "swagger2"
+            version: 2
+          }
+          g: {
+            params: [
+              {
+                k: "param"
+                n: "identifier"
+                or: "identifier"
+                r: true
+                t: "`$ANY`"
+              }
+              {
+                k: "param"
+                n: "owner"
+                or: "owner"
+                r: true
+                t: "`$ANY`"
+              }
+            ]
+            query: [
+              {
+                k: "query"
+                n: "data"
+                or: "data"
+                r: false
+                t: "`$OBJECT`"
+              }
+            ]
+          }
+          m: "PUT"
+          o: "/repos/{owner}/{identifier}/privileges"
+          q: {
+            exist: [
+              "data"
+              "identifier"
+              "owner"
+            ]
+          }
+          s: [
+            {
+              lit: "repos"
+            }
+            {
+              var: "owner"
+            }
+            {
+              var: "identifier"
+            }
+            {
+              lit: "privileges"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+  }
+
+
+  relations: ancestors: [
+    [path("$.main.kit.entity.cargo")]
+    [path("$.main.kit.entity.composer")]
+    [path("$.main.kit.entity.conda")]
+    [path("$.main.kit.entity.cran")]
+    [path("$.main.kit.entity.dart")]
+    [path("$.main.kit.entity.deb")]
+    [path("$.main.kit.entity.docker")]
+    [path("$.main.kit.entity.helm")]
+    [path("$.main.kit.entity.hex")]
+    [path("$.main.kit.entity.huggingface")]
+    [path("$.main.kit.entity.maven")]
+    [path("$.main.kit.entity.npm")]
+    [path("$.main.kit.entity.nuget")]
+    [path("$.main.kit.entity.python")]
+    [path("$.main.kit.entity.rpm")]
+    [path("$.main.kit.entity.ruby")]
+    [path("$.main.kit.entity.swift")]
+  ]
+
+}

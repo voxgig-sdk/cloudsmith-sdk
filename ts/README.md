@@ -5,7 +5,7 @@
 The TypeScript SDK for the Cloudsmith API — a type-safe, entity-oriented client with full async/await support.
 
 The API is exposed as capitalised, semantic **Entities** — e.g.
-`client.Abort()` — each with a small set of operations (`list`, `load`, `create`, `update`, `remove`, `patch`)
+`client.Cargo()` — each with a small set of operations (`list`, `load`, `create`, `update`, `remove`, `patch`)
 instead of raw URL paths and query parameters. This keeps the surface
 predictable and low-friction for both humans and AI agents.
 
@@ -28,11 +28,25 @@ loading a specific record.
 ### 1. Create a client
 
 ```ts
-import { CloudsmithSDK } from '@voxgig-sdk/cloudsmith'
+import { CloudsmithSDK } from '@voxgig-sdk/cloudsmith-sdk'
 
 const client = new CloudsmithSDK({
   apikey: process.env.CLOUDSMITH_APIKEY,
 })
+```
+
+### 2. List cargo records
+
+`list()` resolves to an array of Cargo ENTITIES — every operation
+resolves to entities, not raw records. Iterate them directly, and call
+`.data()` on one for the record it holds:
+
+```ts
+const cargos = await client.Cargo().list({ identifier: "example", owner: "example" })
+
+for (const cargo of cargos) {
+  console.log(cargo)
+}
 ```
 
 ### 3. Load a cargo
@@ -51,6 +65,26 @@ try {
 } catch (err) {
   console.error('load failed:', err)
 }
+```
+
+### 4. Create, update, and remove
+
+```ts
+// Create — returns the created Cargo ENTITY (.data() for the record)
+const created = await client.Cargo().create({
+  identifier: 'example_identifier',
+  owner: 'example_owner',
+  name: 'example_name',
+  upstream_url: 'example_upstream_url',
+})
+
+// Update — the id comes off the returned entity's data()
+const updated = await client.Cargo().update({
+  id: created.data().id!,
+  identifier: 'example_identifier',
+  owner: 'example_owner',
+})
+
 ```
 
 
@@ -232,54 +266,27 @@ new CloudsmithSDK(options?: {
 | `utility()` | `Utility` | Deep copy of the SDK utility object. |
 | `prepare(fetchargs?)` | `Promise<FetchDef>` | Build an HTTP request definition without sending it. |
 | `direct(fetchargs?)` | `Promise<DirectResult>` | Build and send an HTTP request. |
-| `Abort(data?)` | `AbortEntity` | Create an Abort entity instance. |
-| `Alpine(data?)` | `AlpineEntity` | Create an Alpine entity instance. |
-| `AuditLog(data?)` | `AuditLogEntity` | Create an AuditLog entity instance. |
-| `Basic(data?)` | `BasicEntity` | Create a Basic entity instance. |
 | `Cargo(data?)` | `CargoEntity` | Create a Cargo entity instance. |
-| `Cocoapod(data?)` | `CocoapodEntity` | Create a Cocoapod entity instance. |
-| `Complete(data?)` | `CompleteEntity` | Create a Complete entity instance. |
 | `Composer(data?)` | `ComposerEntity` | Create a Composer entity instance. |
-| `Conan(data?)` | `ConanEntity` | Create a Conan entity instance. |
 | `Conda(data?)` | `CondaEntity` | Create a Conda entity instance. |
-| `Copy(data?)` | `CopyEntity` | Create a Copy entity instance. |
 | `Cran(data?)` | `CranEntity` | Create a Cran entity instance. |
 | `Dart(data?)` | `DartEntity` | Create a Dart entity instance. |
 | `Deb(data?)` | `DebEntity` | Create a Deb entity instance. |
-| `DenyPolicy(data?)` | `DenyPolicyEntity` | Create a DenyPolicy entity instance. |
-| `Dependency(data?)` | `DependencyEntity` | Create a Dependency entity instance. |
-| `Disable(data?)` | `DisableEntity` | Create a Disable entity instance. |
 | `DistributionFull(data?)` | `DistributionFullEntity` | Create a DistributionFull entity instance. |
-| `Distro(data?)` | `DistroEntity` | Create a Distro entity instance. |
 | `Docker(data?)` | `DockerEntity` | Create a Docker entity instance. |
 | `DynamicMapping(data?)` | `DynamicMappingEntity` | Create a DynamicMapping entity instance. |
-| `Ecdsa(data?)` | `EcdsaEntity` | Create an Ecdsa entity instance. |
-| `Enable(data?)` | `EnableEntity` | Create an Enable entity instance. |
 | `Entitlement(data?)` | `EntitlementEntity` | Create an Entitlement entity instance. |
-| `Evaluation(data?)` | `EvaluationEntity` | Create an Evaluation entity instance. |
 | `File(data?)` | `FileEntity` | Create a File entity instance. |
 | `Format(data?)` | `FormatEntity` | Create a Format entity instance. |
-| `Geoip(data?)` | `GeoipEntity` | Create a Geoip entity instance. |
 | `Gon(data?)` | `GonEntity` | Create a Gon entity instance. |
-| `Gpg(data?)` | `GpgEntity` | Create a Gpg entity instance. |
-| `Group(data?)` | `GroupEntity` | Create a Group entity instance. |
 | `Helm(data?)` | `HelmEntity` | Create a Helm entity instance. |
 | `Hex(data?)` | `HexEntity` | Create a Hex entity instance. |
-| `History(data?)` | `HistoryEntity` | Create a History entity instance. |
 | `Huggingface(data?)` | `HuggingfaceEntity` | Create a Huggingface entity instance. |
-| `Info(data?)` | `InfoEntity` | Create an Info entity instance. |
-| `Invite(data?)` | `InviteEntity` | Create an Invite entity instance. |
-| `LicensePolicy(data?)` | `LicensePolicyEntity` | Create a LicensePolicy entity instance. |
-| `Limit(data?)` | `LimitEntity` | Create a Limit entity instance. |
-| `Luarock(data?)` | `LuarockEntity` | Create a Luarock entity instance. |
 | `Maven(data?)` | `MavenEntity` | Create a Maven entity instance. |
-| `Member(data?)` | `MemberEntity` | Create a Member entity instance. |
-| `Move(data?)` | `MoveEntity` | Create a Move entity instance. |
 | `Namespace(data?)` | `NamespaceEntity` | Create a Namespace entity instance. |
 | `NamespaceAuditLog(data?)` | `NamespaceAuditLogEntity` | Create a NamespaceAuditLog entity instance. |
 | `Npm(data?)` | `NpmEntity` | Create a Npm entity instance. |
 | `Nuget(data?)` | `NugetEntity` | Create a Nuget entity instance. |
-| `OpenidConnect(data?)` | `OpenidConnectEntity` | Create an OpenidConnect entity instance. |
 | `Org(data?)` | `OrgEntity` | Create an Org entity instance. |
 | `OrganizationGroupSync(data?)` | `OrganizationGroupSyncEntity` | Create an OrganizationGroupSync entity instance. |
 | `OrganizationGroupSyncStatus(data?)` | `OrganizationGroupSyncStatusEntity` | Create an OrganizationGroupSyncStatus entity instance. |
@@ -293,8 +300,6 @@ new CloudsmithSDK(options?: {
 | `OrganizationSamlAuth(data?)` | `OrganizationSamlAuthEntity` | Create an OrganizationSamlAuth entity instance. |
 | `OrganizationTeam(data?)` | `OrganizationTeamEntity` | Create an OrganizationTeam entity instance. |
 | `OrganizationTeamMember(data?)` | `OrganizationTeamMemberEntity` | Create an OrganizationTeamMember entity instance. |
-| `Oss(data?)` | `OssEntity` | Create an Oss entity instance. |
-| `P2n(data?)` | `P2nEntity` | Create a P2n entity instance. |
 | `Package(data?)` | `PackageEntity` | Create a Package entity instance. |
 | `PackageDenyPolicy(data?)` | `PackageDenyPolicyEntity` | Create a PackageDenyPolicy entity instance. |
 | `PackageFilePartsUpload(data?)` | `PackageFilePartsUploadEntity` | Create a PackageFilePartsUpload entity instance. |
@@ -302,16 +307,10 @@ new CloudsmithSDK(options?: {
 | `PackageLicensePolicyEvaluation(data?)` | `PackageLicensePolicyEvaluationEntity` | Create a PackageLicensePolicyEvaluation entity instance. |
 | `PackageVersionBadge(data?)` | `PackageVersionBadgeEntity` | Create a PackageVersionBadge entity instance. |
 | `PackageVulnerabilityPolicyEvaluation(data?)` | `PackageVulnerabilityPolicyEvaluationEntity` | Create a PackageVulnerabilityPolicyEvaluation entity instance. |
-| `Privilege(data?)` | `PrivilegeEntity` | Create a Privilege entity instance. |
-| `Profile(data?)` | `ProfileEntity` | Create a Profile entity instance. |
 | `ProviderSetting(data?)` | `ProviderSettingEntity` | Create a ProviderSetting entity instance. |
 | `ProviderSettingsWrite(data?)` | `ProviderSettingsWriteEntity` | Create a ProviderSettingsWrite entity instance. |
 | `Python(data?)` | `PythonEntity` | Create a Python entity instance. |
-| `Quarantine(data?)` | `QuarantineEntity` | Create a Quarantine entity instance. |
 | `Quota(data?)` | `QuotaEntity` | Create a Quota entity instance. |
-| `Raw(data?)` | `RawEntity` | Create a Raw entity instance. |
-| `Refresh(data?)` | `RefreshEntity` | Create a Refresh entity instance. |
-| `Regenerate(data?)` | `RegenerateEntity` | Create a Regenerate entity instance. |
 | `Repo(data?)` | `RepoEntity` | Create a Repo entity instance. |
 | `RepositoryAuditLog(data?)` | `RepositoryAuditLogEntity` | Create a RepositoryAuditLog entity instance. |
 | `RepositoryEcdsaKey(data?)` | `RepositoryEcdsaKeyEntity` | Create a RepositoryEcdsaKey entity instance. |
@@ -319,7 +318,7 @@ new CloudsmithSDK(options?: {
 | `RepositoryGeoIpStatus(data?)` | `RepositoryGeoIpStatusEntity` | Create a RepositoryGeoIpStatus entity instance. |
 | `RepositoryGeoIpTestAddress(data?)` | `RepositoryGeoIpTestAddressEntity` | Create a RepositoryGeoIpTestAddress entity instance. |
 | `RepositoryGpgKey(data?)` | `RepositoryGpgKeyEntity` | Create a RepositoryGpgKey entity instance. |
-| `RepositoryPrivilegeInput(data?)` | `RepositoryPrivilegeInputEntity` | Create a RepositoryPrivilegeInput entity instance. |
+| `RepositoryPrivilegeDict(data?)` | `RepositoryPrivilegeDictEntity` | Create a RepositoryPrivilegeDict entity instance. |
 | `RepositoryRetentionRule(data?)` | `RepositoryRetentionRuleEntity` | Create a RepositoryRetentionRule entity instance. |
 | `RepositoryRsaKey(data?)` | `RepositoryRsaKeyEntity` | Create a RepositoryRsaKey entity instance. |
 | `RepositoryToken(data?)` | `RepositoryTokenEntity` | Create a RepositoryToken entity instance. |
@@ -328,41 +327,20 @@ new CloudsmithSDK(options?: {
 | `RepositoryWebhook(data?)` | `RepositoryWebhookEntity` | Create a RepositoryWebhook entity instance. |
 | `RepositoryX509EcdsaCertificate(data?)` | `RepositoryX509EcdsaCertificateEntity` | Create a RepositoryX509EcdsaCertificate entity instance. |
 | `RepositoryX509RsaCertificate(data?)` | `RepositoryX509RsaCertificateEntity` | Create a RepositoryX509RsaCertificate entity instance. |
-| `Reset(data?)` | `ResetEntity` | Create a Reset entity instance. |
 | `ResourcesRateCheck(data?)` | `ResourcesRateCheckEntity` | Create a ResourcesRateCheck entity instance. |
-| `Resync(data?)` | `ResyncEntity` | Create a Resync entity instance. |
-| `Retention(data?)` | `RetentionEntity` | Create a Retention entity instance. |
 | `Rpm(data?)` | `RpmEntity` | Create a Rpm entity instance. |
-| `Rsa(data?)` | `RsaEntity` | Create a Rsa entity instance. |
 | `Ruby(data?)` | `RubyEntity` | Create a Ruby entity instance. |
-| `SamlGroupSync(data?)` | `SamlGroupSyncEntity` | Create a SamlGroupSync entity instance. |
-| `Scan(data?)` | `ScanEntity` | Create a Scan entity instance. |
-| `Self(data?)` | `SelfEntity` | Create a Self entity instance. |
 | `Service(data?)` | `ServiceEntity` | Create a Service entity instance. |
-| `Status(data?)` | `StatusEntity` | Create a Status entity instance. |
 | `StatusBasic(data?)` | `StatusBasicEntity` | Create a StatusBasic entity instance. |
 | `StorageRegion(data?)` | `StorageRegionEntity` | Create a StorageRegion entity instance. |
 | `Swift(data?)` | `SwiftEntity` | Create a Swift entity instance. |
-| `Sync(data?)` | `SyncEntity` | Create a Sync entity instance. |
-| `Tag(data?)` | `TagEntity` | Create a Tag entity instance. |
-| `Team(data?)` | `TeamEntity` | Create a Team entity instance. |
-| `Terraform(data?)` | `TerraformEntity` | Create a Terraform entity instance. |
-| `Test(data?)` | `TestEntity` | Create a Test entity instance. |
-| `Token(data?)` | `TokenEntity` | Create a Token entity instance. |
-| `TransferRegion(data?)` | `TransferRegionEntity` | Create a TransferRegion entity instance. |
 | `User(data?)` | `UserEntity` | Create an User entity instance. |
 | `UserAuthToken(data?)` | `UserAuthTokenEntity` | Create an UserAuthToken entity instance. |
 | `UserAuthenticationToken(data?)` | `UserAuthenticationTokenEntity` | Create an UserAuthenticationToken entity instance. |
 | `UserBrief(data?)` | `UserBriefEntity` | Create an UserBrief entity instance. |
 | `UserProfile(data?)` | `UserProfileEntity` | Create an UserProfile entity instance. |
-| `Vagrant(data?)` | `VagrantEntity` | Create a Vagrant entity instance. |
-| `Validate(data?)` | `ValidateEntity` | Create a Validate entity instance. |
-| `Version(data?)` | `VersionEntity` | Create a Version entity instance. |
 | `Vulnerability(data?)` | `VulnerabilityEntity` | Create a Vulnerability entity instance. |
-| `VulnerabilityPolicy(data?)` | `VulnerabilityPolicyEntity` | Create a VulnerabilityPolicy entity instance. |
 | `Webhook(data?)` | `WebhookEntity` | Create a Webhook entity instance. |
-| `X509Ecdsa(data?)` | `X509EcdsaEntity` | Create a X509Ecdsa entity instance. |
-| `X509Rsa(data?)` | `X509RsaEntity` | Create a X509Rsa entity instance. |
 | `tester(testopts?, sdkopts?)` | `CloudsmithSDK` | Create a test-mode client instance. |
 
 #### Static methods
@@ -434,42 +412,6 @@ The `prepare()` method returns:
 
 ### Entities
 
-#### Abort
-
-| Field | Description |
-| --- | --- |
-
-Operations: .
-
-API path: ``
-
-#### Alpine
-
-| Field | Description |
-| --- | --- |
-
-Operations: .
-
-API path: ``
-
-#### AuditLog
-
-| Field | Description |
-| --- | --- |
-
-Operations: .
-
-API path: ``
-
-#### Basic
-
-| Field | Description |
-| --- | --- |
-
-Operations: .
-
-API path: ``
-
 #### Cargo
 
 | Field | Description |
@@ -497,24 +439,6 @@ API path: ``
 Operations: create, list, load, patch, update.
 
 API path: `/repos/{owner}/{identifier}/upstream/cargo/`
-
-#### Cocoapod
-
-| Field | Description |
-| --- | --- |
-
-Operations: .
-
-API path: ``
-
-#### Complete
-
-| Field | Description |
-| --- | --- |
-
-Operations: .
-
-API path: ``
 
 #### Composer
 
@@ -544,15 +468,6 @@ Operations: create, list, load, patch, update.
 
 API path: `/repos/{owner}/{identifier}/upstream/composer/`
 
-#### Conan
-
-| Field | Description |
-| --- | --- |
-
-Operations: .
-
-API path: ``
-
 #### Conda
 
 | Field | Description |
@@ -580,15 +495,6 @@ API path: ``
 Operations: create, list, load, patch, update.
 
 API path: `/repos/{owner}/{identifier}/upstream/conda/`
-
-#### Copy
-
-| Field | Description |
-| --- | --- |
-
-Operations: .
-
-API path: ``
 
 #### Cran
 
@@ -682,33 +588,6 @@ Operations: create, list, load, patch, update.
 
 API path: `/repos/{owner}/{identifier}/upstream/deb/`
 
-#### DenyPolicy
-
-| Field | Description |
-| --- | --- |
-
-Operations: .
-
-API path: ``
-
-#### Dependency
-
-| Field | Description |
-| --- | --- |
-
-Operations: .
-
-API path: ``
-
-#### Disable
-
-| Field | Description |
-| --- | --- |
-
-Operations: .
-
-API path: ``
-
 #### DistributionFull
 
 | Field | Description |
@@ -724,15 +603,6 @@ API path: ``
 Operations: list, load.
 
 API path: `/distros/`
-
-#### Distro
-
-| Field | Description |
-| --- | --- |
-
-Operations: .
-
-API path: ``
 
 #### Docker
 
@@ -774,24 +644,6 @@ Operations: list, load.
 
 API path: `/orgs/{org}/openid-connect/{provider_setting}/dynamic-mappings/`
 
-#### Ecdsa
-
-| Field | Description |
-| --- | --- |
-
-Operations: .
-
-API path: ``
-
-#### Enable
-
-| Field | Description |
-| --- | --- |
-
-Operations: .
-
-API path: ``
-
 #### Entitlement
 
 | Field | Description |
@@ -806,15 +658,6 @@ API path: ``
 Operations: create, load, remove.
 
 API path: `/entitlements/{owner}/{repo}/{identifier}/reset/`
-
-#### Evaluation
-
-| Field | Description |
-| --- | --- |
-
-Operations: .
-
-API path: ``
 
 #### File
 
@@ -844,15 +687,6 @@ Operations: list, load.
 
 API path: `/formats/`
 
-#### Geoip
-
-| Field | Description |
-| --- | --- |
-
-Operations: .
-
-API path: ``
-
 #### Gon
 
 | Field | Description |
@@ -879,24 +713,6 @@ API path: ``
 Operations: create, list, load, patch, update.
 
 API path: `/repos/{owner}/{identifier}/upstream/go/`
-
-#### Gpg
-
-| Field | Description |
-| --- | --- |
-
-Operations: .
-
-API path: ``
-
-#### Group
-
-| Field | Description |
-| --- | --- |
-
-Operations: .
-
-API path: ``
 
 #### Helm
 
@@ -954,15 +770,6 @@ Operations: create, list, load, patch, update.
 
 API path: `/repos/{owner}/{identifier}/upstream/hex/`
 
-#### History
-
-| Field | Description |
-| --- | --- |
-
-Operations: .
-
-API path: ``
-
 #### Huggingface
 
 | Field | Description |
@@ -990,51 +797,6 @@ API path: ``
 Operations: create, list, load, patch, update.
 
 API path: `/repos/{owner}/{identifier}/upstream/huggingface/`
-
-#### Info
-
-| Field | Description |
-| --- | --- |
-
-Operations: .
-
-API path: ``
-
-#### Invite
-
-| Field | Description |
-| --- | --- |
-
-Operations: .
-
-API path: ``
-
-#### LicensePolicy
-
-| Field | Description |
-| --- | --- |
-
-Operations: .
-
-API path: ``
-
-#### Limit
-
-| Field | Description |
-| --- | --- |
-
-Operations: .
-
-API path: ``
-
-#### Luarock
-
-| Field | Description |
-| --- | --- |
-
-Operations: .
-
-API path: ``
 
 #### Maven
 
@@ -1067,24 +829,6 @@ API path: ``
 Operations: create, list, load, patch, update.
 
 API path: `/repos/{owner}/{identifier}/upstream/maven/`
-
-#### Member
-
-| Field | Description |
-| --- | --- |
-
-Operations: .
-
-API path: ``
-
-#### Move
-
-| Field | Description |
-| --- | --- |
-
-Operations: .
-
-API path: ``
 
 #### Namespace
 
@@ -1181,15 +925,6 @@ API path: `/repos/{owner}/{identifier}/upstream/npm/`
 Operations: create, list, load, patch, update.
 
 API path: `/repos/{owner}/{identifier}/upstream/nuget/`
-
-#### OpenidConnect
-
-| Field | Description |
-| --- | --- |
-
-Operations: .
-
-API path: ``
 
 #### Org
 
@@ -1409,24 +1144,6 @@ Operations: create, list.
 
 API path: `/orgs/{org}/teams/{team}/members`
 
-#### Oss
-
-| Field | Description |
-| --- | --- |
-
-Operations: .
-
-API path: ``
-
-#### P2n
-
-| Field | Description |
-| --- | --- |
-
-Operations: .
-
-API path: ``
-
 #### Package
 
 | Field | Description |
@@ -1626,24 +1343,6 @@ Operations: create, list, load.
 
 API path: `/orgs/{org}/vulnerability-policy/{policy_slug_perm}/evaluation/`
 
-#### Privilege
-
-| Field | Description |
-| --- | --- |
-
-Operations: .
-
-API path: ``
-
-#### Profile
-
-| Field | Description |
-| --- | --- |
-
-Operations: .
-
-API path: ``
-
 #### ProviderSetting
 
 | Field | Description |
@@ -1707,15 +1406,6 @@ Operations: create, list, load, patch, update.
 
 API path: `/repos/{owner}/{identifier}/upstream/python/`
 
-#### Quarantine
-
-| Field | Description |
-| --- | --- |
-
-Operations: .
-
-API path: ``
-
 #### Quota
 
 | Field | Description |
@@ -1728,33 +1418,6 @@ API path: ``
 Operations: load.
 
 API path: `/quota/{owner}/`
-
-#### Raw
-
-| Field | Description |
-| --- | --- |
-
-Operations: .
-
-API path: ``
-
-#### Refresh
-
-| Field | Description |
-| --- | --- |
-
-Operations: .
-
-API path: ``
-
-#### Regenerate
-
-| Field | Description |
-| --- | --- |
-
-Operations: .
-
-API path: ``
 
 #### Repo
 
@@ -1915,7 +1578,7 @@ Operations: create, load.
 
 API path: `/repos/{owner}/{identifier}/gpg/`
 
-#### RepositoryPrivilegeInput
+#### RepositoryPrivilegeDict
 
 | Field | Description |
 | --- | --- |
@@ -2143,15 +1806,6 @@ Operations: load.
 
 API path: `/repos/{owner}/{identifier}/x509-rsa/`
 
-#### Reset
-
-| Field | Description |
-| --- | --- |
-
-Operations: .
-
-API path: ``
-
 #### ResourcesRateCheck
 
 | Field | Description |
@@ -2166,24 +1820,6 @@ API path: ``
 Operations: load.
 
 API path: `/rates/limits/`
-
-#### Resync
-
-| Field | Description |
-| --- | --- |
-
-Operations: .
-
-API path: ``
-
-#### Retention
-
-| Field | Description |
-| --- | --- |
-
-Operations: .
-
-API path: ``
 
 #### Rpm
 
@@ -2219,15 +1855,6 @@ Operations: create, list, load, patch, update.
 
 API path: `/repos/{owner}/{identifier}/upstream/rpm/`
 
-#### Rsa
-
-| Field | Description |
-| --- | --- |
-
-Operations: .
-
-API path: ``
-
 #### Ruby
 
 | Field | Description |
@@ -2256,33 +1883,6 @@ Operations: create, list, load, patch, update.
 
 API path: `/repos/{owner}/{identifier}/upstream/ruby/`
 
-#### SamlGroupSync
-
-| Field | Description |
-| --- | --- |
-
-Operations: .
-
-API path: ``
-
-#### Scan
-
-| Field | Description |
-| --- | --- |
-
-Operations: .
-
-API path: ``
-
-#### Self
-
-| Field | Description |
-| --- | --- |
-
-Operations: .
-
-API path: ``
-
 #### Service
 
 | Field | Description |
@@ -2302,15 +1902,6 @@ API path: ``
 Operations: create, list, load, update.
 
 API path: `/orgs/{org}/services/`
-
-#### Status
-
-| Field | Description |
-| --- | --- |
-
-Operations: .
-
-API path: ``
 
 #### StatusBasic
 
@@ -2362,69 +1953,6 @@ API path: `/storage-regions/`
 Operations: create, list, load, patch, update.
 
 API path: `/repos/{owner}/{identifier}/upstream/swift/`
-
-#### Sync
-
-| Field | Description |
-| --- | --- |
-
-Operations: .
-
-API path: ``
-
-#### Tag
-
-| Field | Description |
-| --- | --- |
-
-Operations: .
-
-API path: ``
-
-#### Team
-
-| Field | Description |
-| --- | --- |
-
-Operations: .
-
-API path: ``
-
-#### Terraform
-
-| Field | Description |
-| --- | --- |
-
-Operations: .
-
-API path: ``
-
-#### Test
-
-| Field | Description |
-| --- | --- |
-
-Operations: .
-
-API path: ``
-
-#### Token
-
-| Field | Description |
-| --- | --- |
-
-Operations: .
-
-API path: ``
-
-#### TransferRegion
-
-| Field | Description |
-| --- | --- |
-
-Operations: .
-
-API path: ``
 
 #### User
 
@@ -2492,33 +2020,6 @@ Operations: load.
 
 API path: `/users/profile/{slug}/`
 
-#### Vagrant
-
-| Field | Description |
-| --- | --- |
-
-Operations: .
-
-API path: ``
-
-#### Validate
-
-| Field | Description |
-| --- | --- |
-
-Operations: .
-
-API path: ``
-
-#### Version
-
-| Field | Description |
-| --- | --- |
-
-Operations: .
-
-API path: ``
-
 #### Vulnerability
 
 | Field | Description |
@@ -2537,15 +2038,6 @@ Operations: list, load.
 
 API path: `/vulnerabilities/{owner}/{repo}/{package}/`
 
-#### VulnerabilityPolicy
-
-| Field | Description |
-| --- | --- |
-
-Operations: .
-
-API path: ``
-
 #### Webhook
 
 | Field | Description |
@@ -2556,47 +2048,9 @@ Operations: remove.
 
 API path: `/webhooks/{owner}/{repo}/{identifier}/`
 
-#### X509Ecdsa
-
-| Field | Description |
-| --- | --- |
-
-Operations: .
-
-API path: ``
-
-#### X509Rsa
-
-| Field | Description |
-| --- | --- |
-
-Operations: .
-
-API path: ``
-
 
 
 ## Entities
-
-
-### Abort
-
-Create an instance: `const abort = client.Abort()`
-
-
-### Alpine
-
-Create an instance: `const alpine = client.Alpine()`
-
-
-### AuditLog
-
-Create an instance: `const audit_log = client.AuditLog()`
-
-
-### Basic
-
-Create an instance: `const basic = client.Basic()`
 
 
 ### Cargo
@@ -2660,16 +2114,6 @@ const cargo = await client.Cargo().create({
 ```
 
 
-### Cocoapod
-
-Create an instance: `const cocoapod = client.Cocoapod()`
-
-
-### Complete
-
-Create an instance: `const complete = client.Complete()`
-
-
 ### Composer
 
 Create an instance: `const composer = client.Composer()`
@@ -2731,11 +2175,6 @@ const composer = await client.Composer().create({
 ```
 
 
-### Conan
-
-Create an instance: `const conan = client.Conan()`
-
-
 ### Conda
 
 Create an instance: `const conda = client.Conda()`
@@ -2795,11 +2234,6 @@ const conda = await client.Conda().create({
   upstream_url: 'example_upstream_url',
 })
 ```
-
-
-### Copy
-
-Create an instance: `const copy = client.Copy()`
 
 
 ### Cran
@@ -2994,21 +2428,6 @@ const deb = await client.Deb().create({
 ```
 
 
-### DenyPolicy
-
-Create an instance: `const deny_policy = client.DenyPolicy()`
-
-
-### Dependency
-
-Create an instance: `const dependency = client.Dependency()`
-
-
-### Disable
-
-Create an instance: `const disable = client.Disable()`
-
-
 ### DistributionFull
 
 Create an instance: `const distribution_full = client.DistributionFull()`
@@ -3043,11 +2462,6 @@ const distribution_full = await client.DistributionFull().load({ slug: 'slug' })
 ```ts
 const distribution_fulls = await client.DistributionFull().list()
 ```
-
-
-### Distro
-
-Create an instance: `const distro = client.Distro()`
 
 
 ### Docker
@@ -3143,16 +2557,6 @@ const dynamic_mappings = await client.DynamicMapping().list({ org_id: "example",
 ```
 
 
-### Ecdsa
-
-Create an instance: `const ecdsa = client.Ecdsa()`
-
-
-### Enable
-
-Create an instance: `const enable = client.Enable()`
-
-
 ### Entitlement
 
 Create an instance: `const entitlement = client.Entitlement()`
@@ -3193,11 +2597,6 @@ const entitlement = await client.Entitlement().create({
   downloads: {},
 })
 ```
-
-
-### Evaluation
-
-Create an instance: `const evaluation = client.Evaluation()`
 
 
 ### File
@@ -3259,11 +2658,6 @@ const formats = await client.Format().list()
 ```
 
 
-### Geoip
-
-Create an instance: `const geoip = client.Geoip()`
-
-
 ### Gon
 
 Create an instance: `const gon = client.Gon()`
@@ -3322,16 +2716,6 @@ const gon = await client.Gon().create({
   upstream_url: 'example_upstream_url',
 })
 ```
-
-
-### Gpg
-
-Create an instance: `const gpg = client.Gpg()`
-
-
-### Group
-
-Create an instance: `const group = client.Group()`
 
 
 ### Helm
@@ -3456,11 +2840,6 @@ const hex = await client.Hex().create({
 ```
 
 
-### History
-
-Create an instance: `const history = client.History()`
-
-
 ### Huggingface
 
 Create an instance: `const huggingface = client.Huggingface()`
@@ -3520,31 +2899,6 @@ const huggingface = await client.Huggingface().create({
   upstream_url: 'example_upstream_url',
 })
 ```
-
-
-### Info
-
-Create an instance: `const info = client.Info()`
-
-
-### Invite
-
-Create an instance: `const invite = client.Invite()`
-
-
-### LicensePolicy
-
-Create an instance: `const license_policy = client.LicensePolicy()`
-
-
-### Limit
-
-Create an instance: `const limit = client.Limit()`
-
-
-### Luarock
-
-Create an instance: `const luarock = client.Luarock()`
 
 
 ### Maven
@@ -3610,16 +2964,6 @@ const maven = await client.Maven().create({
   upstream_url: 'example_upstream_url',
 })
 ```
-
-
-### Member
-
-Create an instance: `const member = client.Member()`
-
-
-### Move
-
-Create an instance: `const move = client.Move()`
 
 
 ### Namespace
@@ -3815,11 +3159,6 @@ const nuget = await client.Nuget().create({
   upstream_url: 'example_upstream_url',
 })
 ```
-
-
-### OpenidConnect
-
-Create an instance: `const openid_connect = client.OpenidConnect()`
 
 
 ### Org
@@ -4317,16 +3656,6 @@ const organization_team_member = await client.OrganizationTeamMember().create({
 ```
 
 
-### Oss
-
-Create an instance: `const oss = client.Oss()`
-
-
-### P2n
-
-Create an instance: `const p2n = client.P2n()`
-
-
 ### Package
 
 Create an instance: `const package_ = client.Package()`
@@ -4694,16 +4023,6 @@ const package_vulnerability_policy_evaluation = await client.PackageVulnerabilit
 ```
 
 
-### Privilege
-
-Create an instance: `const privilege = client.Privilege()`
-
-
-### Profile
-
-Create an instance: `const profile = client.Profile()`
-
-
 ### ProviderSetting
 
 Create an instance: `const provider_setting = client.ProviderSetting()`
@@ -4840,11 +4159,6 @@ const python = await client.Python().create({
 ```
 
 
-### Quarantine
-
-Create an instance: `const quarantine = client.Quarantine()`
-
-
 ### Quota
 
 Create an instance: `const quota = client.Quota()`
@@ -4869,21 +4183,6 @@ Create an instance: `const quota = client.Quota()`
 ```ts
 const quota = await client.Quota().load({ id: 'quota_id' })
 ```
-
-
-### Raw
-
-Create an instance: `const raw = client.Raw()`
-
-
-### Refresh
-
-Create an instance: `const refresh = client.Refresh()`
-
-
-### Regenerate
-
-Create an instance: `const regenerate = client.Regenerate()`
 
 
 ### Repo
@@ -5175,9 +4474,9 @@ const repository_gpg_key = await client.RepositoryGpgKey().create({
 ```
 
 
-### RepositoryPrivilegeInput
+### RepositoryPrivilegeDict
 
-Create an instance: `const repository_privilege_input = client.RepositoryPrivilegeInput()`
+Create an instance: `const repository_privilege_dict = client.RepositoryPrivilegeDict()`
 
 #### Operations
 
@@ -5197,7 +4496,7 @@ Create an instance: `const repository_privilege_input = client.RepositoryPrivile
 #### Example: List
 
 ```ts
-const repository_privilege_inputs = await client.RepositoryPrivilegeInput().list({ identifier: "example", owner: "example" })
+const repository_privilege_dicts = await client.RepositoryPrivilegeDict().list({ identifier: "example", owner: "example" })
 ```
 
 
@@ -5578,11 +4877,6 @@ const repository_x509_rsa_certificate = await client.RepositoryX509RsaCertificat
 ```
 
 
-### Reset
-
-Create an instance: `const reset = client.Reset()`
-
-
 ### ResourcesRateCheck
 
 Create an instance: `const resources_rate_check = client.ResourcesRateCheck()`
@@ -5609,16 +4903,6 @@ Create an instance: `const resources_rate_check = client.ResourcesRateCheck()`
 ```ts
 const resources_rate_check = await client.ResourcesRateCheck().load()
 ```
-
-
-### Resync
-
-Create an instance: `const resync = client.Resync()`
-
-
-### Retention
-
-Create an instance: `const retention = client.Retention()`
 
 
 ### Rpm
@@ -5689,11 +4973,6 @@ const rpm = await client.Rpm().create({
 ```
 
 
-### Rsa
-
-Create an instance: `const rsa = client.Rsa()`
-
-
 ### Ruby
 
 Create an instance: `const ruby = client.Ruby()`
@@ -5755,21 +5034,6 @@ const ruby = await client.Ruby().create({
 ```
 
 
-### SamlGroupSync
-
-Create an instance: `const saml_group_sync = client.SamlGroupSync()`
-
-
-### Scan
-
-Create an instance: `const scan = client.Scan()`
-
-
-### Self
-
-Create an instance: `const self = client.Self()`
-
-
 ### Service
 
 Create an instance: `const service = client.Service()`
@@ -5819,11 +5083,6 @@ const service = await client.Service().create({
   name: 'example_name',
 })
 ```
-
-
-### Status
-
-Create an instance: `const status = client.Status()`
 
 
 ### StatusBasic
@@ -5941,41 +5200,6 @@ const swift = await client.Swift().create({
   upstream_url: 'example_upstream_url',
 })
 ```
-
-
-### Sync
-
-Create an instance: `const sync = client.Sync()`
-
-
-### Tag
-
-Create an instance: `const tag = client.Tag()`
-
-
-### Team
-
-Create an instance: `const team = client.Team()`
-
-
-### Terraform
-
-Create an instance: `const terraform = client.Terraform()`
-
-
-### Test
-
-Create an instance: `const test = client.Test()`
-
-
-### Token
-
-Create an instance: `const token = client.Token()`
-
-
-### TransferRegion
-
-Create an instance: `const transfer_region = client.TransferRegion()`
 
 
 ### User
@@ -6102,21 +5326,6 @@ const user_profile = await client.UserProfile().load({ id: 'user_profile_id' })
 ```
 
 
-### Vagrant
-
-Create an instance: `const vagrant = client.Vagrant()`
-
-
-### Validate
-
-Create an instance: `const validate = client.Validate()`
-
-
-### Version
-
-Create an instance: `const version = client.Version()`
-
-
 ### Vulnerability
 
 Create an instance: `const vulnerability = client.Vulnerability()`
@@ -6155,11 +5364,6 @@ const vulnerabilitys = await client.Vulnerability().list({ owner: "example", rep
 ```
 
 
-### VulnerabilityPolicy
-
-Create an instance: `const vulnerability_policy = client.VulnerabilityPolicy()`
-
-
 ### Webhook
 
 Create an instance: `const webhook = client.Webhook()`
@@ -6176,16 +5380,6 @@ Create an instance: `const webhook = client.Webhook()`
 | --- | --- | --- |
 | `id` | `string` |  |
 
-
-### X509Ecdsa
-
-Create an instance: `const x509_ecdsa = client.X509Ecdsa()`
-
-
-### X509Rsa
-
-Create an instance: `const x509_rsa = client.X509Rsa()`
-
 ## Features
 
 This SDK ships 8 optional features. Each is **inactive until you
@@ -6197,14 +5391,14 @@ above:
 
 | Feature | What it does |
 |---|---|
-| [`debug`](#debug) | Request/response capture ring buffer for debugging |
-| [`idempotency`](#idempotency) | Idempotency keys for safe retries of mutating operations |
-| [`metrics`](#metrics) | Statistics capture: per-operation counters and latency |
-| [`paging`](#paging) | Pagination signals for list operations |
-| [`ratelimit`](#ratelimit) | Client-side rate limiting via a token bucket |
-| [`retry`](#retry) | Automatic retry of transient failures with exponential backoff |
-| [`test`](#test) | In-memory mock transport for testing without a live server |
-| [`timeout`](#timeout) | Per-request timeout with transport abort |
+| [`debug`](#debug) | Debug capture |
+| [`idempotency`](#idempotency) | Idempotency |
+| [`metrics`](#metrics) | Metrics |
+| [`paging`](#paging) | Paging |
+| [`ratelimit`](#ratelimit) | Rate limiting |
+| [`retry`](#retry) | Retry |
+| [`test`](#test) | Test transport |
+| [`timeout`](#timeout) | Timeout |
 
 > **Order matters for `ratelimit`, `retry`, `timeout`.** These wrap the
 > transport, so each one wraps whatever is already installed: the order you
@@ -6213,7 +5407,7 @@ above:
 
 ### debug
 
-Request/response capture ring buffer for debugging.
+Debug capture.
 
 | Option | Default |
 |---|---|
@@ -6225,7 +5419,7 @@ Set `feature.debug.active` to enable it, then override any of the options above.
 
 ### idempotency
 
-Idempotency keys for safe retries of mutating operations.
+Idempotency.
 
 | Option | Default |
 |---|---|
@@ -6238,7 +5432,7 @@ Set `feature.idempotency.active` to enable it, then override any of the options 
 
 ### metrics
 
-Statistics capture: per-operation counters and latency.
+Metrics.
 
 | Option | Default |
 |---|---|
@@ -6248,7 +5442,7 @@ Set `feature.metrics.active` to enable it, then override any of the options abov
 
 ### paging
 
-Pagination signals for list operations.
+Paging.
 
 | Option | Default |
 |---|---|
@@ -6264,7 +5458,7 @@ Set `feature.paging.active` to enable it, then override any of the options above
 
 ### ratelimit
 
-Client-side rate limiting via a token bucket.
+Rate limiting.
 
 | Option | Default |
 |---|---|
@@ -6280,7 +5474,7 @@ activated earlier.
 
 ### retry
 
-Automatic retry of transient failures with exponential backoff.
+Retry.
 
 | Option | Default |
 |---|---|
@@ -6299,7 +5493,7 @@ activated earlier.
 
 ### test
 
-In-memory mock transport for testing without a live server.
+Test transport.
 
 | Option | Default |
 |---|---|
@@ -6309,7 +5503,7 @@ Set `feature.test.active` to enable it, then override any of the options above.
 
 ### timeout
 
-Per-request timeout with transport abort.
+Timeout.
 
 | Option | Default |
 |---|---|
@@ -6361,14 +5555,14 @@ a function that receives the context.
 
 The SDK ships with built-in features:
 
-- **DebugFeature**: Request/response capture ring buffer for debugging
-- **IdempotencyFeature**: Idempotency keys for safe retries of mutating operations
-- **MetricsFeature**: Statistics capture: per-operation counters and latency
-- **PagingFeature**: Pagination signals for list operations
-- **RatelimitFeature**: Client-side rate limiting via a token bucket
-- **RetryFeature**: Automatic retry of transient failures with exponential backoff
-- **TestFeature**: In-memory mock transport for testing without a live server
-- **TimeoutFeature**: Per-request timeout with transport abort
+- **DebugFeature**: Debug capture
+- **IdempotencyFeature**: Idempotency
+- **MetricsFeature**: Metrics
+- **PagingFeature**: Paging
+- **RatelimitFeature**: Rate limiting
+- **RetryFeature**: Retry
+- **TestFeature**: Test transport
+- **TimeoutFeature**: Timeout
 
 Features are initialized in order. Hooks fire in the order features
 were added, so later features can override earlier ones.
@@ -6389,7 +5583,7 @@ cloudsmith/
 Import the SDK from the package root:
 
 ```ts
-import { CloudsmithSDK } from '@voxgig-sdk/cloudsmith'
+import { CloudsmithSDK } from '@voxgig-sdk/cloudsmith-sdk'
 ```
 
 ### Entity state

@@ -74,7 +74,7 @@ function quota_basic_setup($extra)
 
     // Generate idmap.
     $idmap = [];
-    foreach (["quota01", "quota02", "quota03", "history01", "history02", "history03", "oss01", "oss02", "oss03"] as $k) {
+    foreach (["quota01", "quota02", "quota03"] as $k) {
         $idmap[$k] = strtoupper($k);
     }
 

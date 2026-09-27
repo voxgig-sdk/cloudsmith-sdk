@@ -59,7 +59,7 @@ def organization_invite_extend_basic_setup(extra)
 
   # Generate idmap via transform.
   idmap = Vs.transform(
-    ["organization_invite_extend01", "organization_invite_extend02", "organization_invite_extend03", "org01", "org02", "org03", "invite01", "invite02", "invite03", "slug_perm01"],
+    ["organization_invite_extend01", "organization_invite_extend02", "organization_invite_extend03", "org01", "org02", "org03", "slug_perm01"],
     {
       "`$PACK`" => ["", {
         "`$KEY`" => "`$COPY`",

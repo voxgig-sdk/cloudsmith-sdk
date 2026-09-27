@@ -42,49 +42,17 @@ client = CloudsmithSDK.test
 
 ### Instance Methods
 
-#### `Abort(data = nil)`
-
-Create a new `Abort` entity instance. Pass `nil` for no initial data.
-
-#### `Alpine(data = nil)`
-
-Create a new `Alpine` entity instance. Pass `nil` for no initial data.
-
-#### `AuditLog(data = nil)`
-
-Create a new `AuditLog` entity instance. Pass `nil` for no initial data.
-
-#### `Basic(data = nil)`
-
-Create a new `Basic` entity instance. Pass `nil` for no initial data.
-
 #### `Cargo(data = nil)`
 
 Create a new `Cargo` entity instance. Pass `nil` for no initial data.
-
-#### `Cocoapod(data = nil)`
-
-Create a new `Cocoapod` entity instance. Pass `nil` for no initial data.
-
-#### `Complete(data = nil)`
-
-Create a new `Complete` entity instance. Pass `nil` for no initial data.
 
 #### `Composer(data = nil)`
 
 Create a new `Composer` entity instance. Pass `nil` for no initial data.
 
-#### `Conan(data = nil)`
-
-Create a new `Conan` entity instance. Pass `nil` for no initial data.
-
 #### `Conda(data = nil)`
 
 Create a new `Conda` entity instance. Pass `nil` for no initial data.
-
-#### `Copy(data = nil)`
-
-Create a new `Copy` entity instance. Pass `nil` for no initial data.
 
 #### `Cran(data = nil)`
 
@@ -98,25 +66,9 @@ Create a new `Dart` entity instance. Pass `nil` for no initial data.
 
 Create a new `Deb` entity instance. Pass `nil` for no initial data.
 
-#### `DenyPolicy(data = nil)`
-
-Create a new `DenyPolicy` entity instance. Pass `nil` for no initial data.
-
-#### `Dependency(data = nil)`
-
-Create a new `Dependency` entity instance. Pass `nil` for no initial data.
-
-#### `Disable(data = nil)`
-
-Create a new `Disable` entity instance. Pass `nil` for no initial data.
-
 #### `DistributionFull(data = nil)`
 
 Create a new `DistributionFull` entity instance. Pass `nil` for no initial data.
-
-#### `Distro(data = nil)`
-
-Create a new `Distro` entity instance. Pass `nil` for no initial data.
 
 #### `Docker(data = nil)`
 
@@ -126,21 +78,9 @@ Create a new `Docker` entity instance. Pass `nil` for no initial data.
 
 Create a new `DynamicMapping` entity instance. Pass `nil` for no initial data.
 
-#### `Ecdsa(data = nil)`
-
-Create a new `Ecdsa` entity instance. Pass `nil` for no initial data.
-
-#### `Enable(data = nil)`
-
-Create a new `Enable` entity instance. Pass `nil` for no initial data.
-
 #### `Entitlement(data = nil)`
 
 Create a new `Entitlement` entity instance. Pass `nil` for no initial data.
-
-#### `Evaluation(data = nil)`
-
-Create a new `Evaluation` entity instance. Pass `nil` for no initial data.
 
 #### `File(data = nil)`
 
@@ -150,21 +90,9 @@ Create a new `File` entity instance. Pass `nil` for no initial data.
 
 Create a new `Format` entity instance. Pass `nil` for no initial data.
 
-#### `Geoip(data = nil)`
-
-Create a new `Geoip` entity instance. Pass `nil` for no initial data.
-
 #### `Gon(data = nil)`
 
 Create a new `Gon` entity instance. Pass `nil` for no initial data.
-
-#### `Gpg(data = nil)`
-
-Create a new `Gpg` entity instance. Pass `nil` for no initial data.
-
-#### `Group(data = nil)`
-
-Create a new `Group` entity instance. Pass `nil` for no initial data.
 
 #### `Helm(data = nil)`
 
@@ -174,45 +102,13 @@ Create a new `Helm` entity instance. Pass `nil` for no initial data.
 
 Create a new `Hex` entity instance. Pass `nil` for no initial data.
 
-#### `History(data = nil)`
-
-Create a new `History` entity instance. Pass `nil` for no initial data.
-
 #### `Huggingface(data = nil)`
 
 Create a new `Huggingface` entity instance. Pass `nil` for no initial data.
 
-#### `Info(data = nil)`
-
-Create a new `Info` entity instance. Pass `nil` for no initial data.
-
-#### `Invite(data = nil)`
-
-Create a new `Invite` entity instance. Pass `nil` for no initial data.
-
-#### `LicensePolicy(data = nil)`
-
-Create a new `LicensePolicy` entity instance. Pass `nil` for no initial data.
-
-#### `Limit(data = nil)`
-
-Create a new `Limit` entity instance. Pass `nil` for no initial data.
-
-#### `Luarock(data = nil)`
-
-Create a new `Luarock` entity instance. Pass `nil` for no initial data.
-
 #### `Maven(data = nil)`
 
 Create a new `Maven` entity instance. Pass `nil` for no initial data.
-
-#### `Member(data = nil)`
-
-Create a new `Member` entity instance. Pass `nil` for no initial data.
-
-#### `Move(data = nil)`
-
-Create a new `Move` entity instance. Pass `nil` for no initial data.
 
 #### `Namespace(data = nil)`
 
@@ -229,10 +125,6 @@ Create a new `Npm` entity instance. Pass `nil` for no initial data.
 #### `Nuget(data = nil)`
 
 Create a new `Nuget` entity instance. Pass `nil` for no initial data.
-
-#### `OpenidConnect(data = nil)`
-
-Create a new `OpenidConnect` entity instance. Pass `nil` for no initial data.
 
 #### `Org(data = nil)`
 
@@ -286,14 +178,6 @@ Create a new `OrganizationTeam` entity instance. Pass `nil` for no initial data.
 
 Create a new `OrganizationTeamMember` entity instance. Pass `nil` for no initial data.
 
-#### `Oss(data = nil)`
-
-Create a new `Oss` entity instance. Pass `nil` for no initial data.
-
-#### `P2n(data = nil)`
-
-Create a new `P2n` entity instance. Pass `nil` for no initial data.
-
 #### `Package(data = nil)`
 
 Create a new `Package` entity instance. Pass `nil` for no initial data.
@@ -322,14 +206,6 @@ Create a new `PackageVersionBadge` entity instance. Pass `nil` for no initial da
 
 Create a new `PackageVulnerabilityPolicyEvaluation` entity instance. Pass `nil` for no initial data.
 
-#### `Privilege(data = nil)`
-
-Create a new `Privilege` entity instance. Pass `nil` for no initial data.
-
-#### `Profile(data = nil)`
-
-Create a new `Profile` entity instance. Pass `nil` for no initial data.
-
 #### `ProviderSetting(data = nil)`
 
 Create a new `ProviderSetting` entity instance. Pass `nil` for no initial data.
@@ -342,25 +218,9 @@ Create a new `ProviderSettingsWrite` entity instance. Pass `nil` for no initial 
 
 Create a new `Python` entity instance. Pass `nil` for no initial data.
 
-#### `Quarantine(data = nil)`
-
-Create a new `Quarantine` entity instance. Pass `nil` for no initial data.
-
 #### `Quota(data = nil)`
 
 Create a new `Quota` entity instance. Pass `nil` for no initial data.
-
-#### `Raw(data = nil)`
-
-Create a new `Raw` entity instance. Pass `nil` for no initial data.
-
-#### `Refresh(data = nil)`
-
-Create a new `Refresh` entity instance. Pass `nil` for no initial data.
-
-#### `Regenerate(data = nil)`
-
-Create a new `Regenerate` entity instance. Pass `nil` for no initial data.
 
 #### `Repo(data = nil)`
 
@@ -390,9 +250,9 @@ Create a new `RepositoryGeoIpTestAddress` entity instance. Pass `nil` for no ini
 
 Create a new `RepositoryGpgKey` entity instance. Pass `nil` for no initial data.
 
-#### `RepositoryPrivilegeInput(data = nil)`
+#### `RepositoryPrivilegeDict(data = nil)`
 
-Create a new `RepositoryPrivilegeInput` entity instance. Pass `nil` for no initial data.
+Create a new `RepositoryPrivilegeDict` entity instance. Pass `nil` for no initial data.
 
 #### `RepositoryRetentionRule(data = nil)`
 
@@ -426,53 +286,21 @@ Create a new `RepositoryX509EcdsaCertificate` entity instance. Pass `nil` for no
 
 Create a new `RepositoryX509RsaCertificate` entity instance. Pass `nil` for no initial data.
 
-#### `Reset(data = nil)`
-
-Create a new `Reset` entity instance. Pass `nil` for no initial data.
-
 #### `ResourcesRateCheck(data = nil)`
 
 Create a new `ResourcesRateCheck` entity instance. Pass `nil` for no initial data.
-
-#### `Resync(data = nil)`
-
-Create a new `Resync` entity instance. Pass `nil` for no initial data.
-
-#### `Retention(data = nil)`
-
-Create a new `Retention` entity instance. Pass `nil` for no initial data.
 
 #### `Rpm(data = nil)`
 
 Create a new `Rpm` entity instance. Pass `nil` for no initial data.
 
-#### `Rsa(data = nil)`
-
-Create a new `Rsa` entity instance. Pass `nil` for no initial data.
-
 #### `Ruby(data = nil)`
 
 Create a new `Ruby` entity instance. Pass `nil` for no initial data.
 
-#### `SamlGroupSync(data = nil)`
-
-Create a new `SamlGroupSync` entity instance. Pass `nil` for no initial data.
-
-#### `Scan(data = nil)`
-
-Create a new `Scan` entity instance. Pass `nil` for no initial data.
-
-#### `Self(data = nil)`
-
-Create a new `Self` entity instance. Pass `nil` for no initial data.
-
 #### `Service(data = nil)`
 
 Create a new `Service` entity instance. Pass `nil` for no initial data.
-
-#### `Status(data = nil)`
-
-Create a new `Status` entity instance. Pass `nil` for no initial data.
 
 #### `StatusBasic(data = nil)`
 
@@ -485,34 +313,6 @@ Create a new `StorageRegion` entity instance. Pass `nil` for no initial data.
 #### `Swift(data = nil)`
 
 Create a new `Swift` entity instance. Pass `nil` for no initial data.
-
-#### `Sync(data = nil)`
-
-Create a new `Sync` entity instance. Pass `nil` for no initial data.
-
-#### `Tag(data = nil)`
-
-Create a new `Tag` entity instance. Pass `nil` for no initial data.
-
-#### `Team(data = nil)`
-
-Create a new `Team` entity instance. Pass `nil` for no initial data.
-
-#### `Terraform(data = nil)`
-
-Create a new `Terraform` entity instance. Pass `nil` for no initial data.
-
-#### `Test(data = nil)`
-
-Create a new `Test` entity instance. Pass `nil` for no initial data.
-
-#### `Token(data = nil)`
-
-Create a new `Token` entity instance. Pass `nil` for no initial data.
-
-#### `TransferRegion(data = nil)`
-
-Create a new `TransferRegion` entity instance. Pass `nil` for no initial data.
 
 #### `User(data = nil)`
 
@@ -534,37 +334,13 @@ Create a new `UserBrief` entity instance. Pass `nil` for no initial data.
 
 Create a new `UserProfile` entity instance. Pass `nil` for no initial data.
 
-#### `Vagrant(data = nil)`
-
-Create a new `Vagrant` entity instance. Pass `nil` for no initial data.
-
-#### `Validate(data = nil)`
-
-Create a new `Validate` entity instance. Pass `nil` for no initial data.
-
-#### `Version(data = nil)`
-
-Create a new `Version` entity instance. Pass `nil` for no initial data.
-
 #### `Vulnerability(data = nil)`
 
 Create a new `Vulnerability` entity instance. Pass `nil` for no initial data.
 
-#### `VulnerabilityPolicy(data = nil)`
-
-Create a new `VulnerabilityPolicy` entity instance. Pass `nil` for no initial data.
-
 #### `Webhook(data = nil)`
 
 Create a new `Webhook` entity instance. Pass `nil` for no initial data.
-
-#### `X509Ecdsa(data = nil)`
-
-Create a new `X509Ecdsa` entity instance. Pass `nil` for no initial data.
-
-#### `X509Rsa(data = nil)`
-
-Create a new `X509Rsa` entity instance. Pass `nil` for no initial data.
 
 #### `options_map -> Hash`
 
@@ -600,150 +376,6 @@ Prepare a fetch definition without sending the request. Accepts the
 same parameters as `direct()`. Raises on error.
 
 **Returns:** `Hash` (the fetch definition; raises on error)
-
-
----
-
-## AbortEntity
-
-```ruby
-abort = client.Abort
-```
-
-### Common Methods
-
-#### `data_get -> Hash`
-
-Get the entity data. Returns a copy of the current data.
-
-#### `data_set(data)`
-
-Set the entity data.
-
-#### `match_get -> Hash`
-
-Get the entity match criteria.
-
-#### `match_set(match)`
-
-Set the entity match criteria.
-
-#### `make -> Entity`
-
-Create a new `AbortEntity` instance with the same client and
-options.
-
-#### `get_name -> String`
-
-Return the entity name.
-
-
----
-
-## AlpineEntity
-
-```ruby
-alpine = client.Alpine
-```
-
-### Common Methods
-
-#### `data_get -> Hash`
-
-Get the entity data. Returns a copy of the current data.
-
-#### `data_set(data)`
-
-Set the entity data.
-
-#### `match_get -> Hash`
-
-Get the entity match criteria.
-
-#### `match_set(match)`
-
-Set the entity match criteria.
-
-#### `make -> Entity`
-
-Create a new `AlpineEntity` instance with the same client and
-options.
-
-#### `get_name -> String`
-
-Return the entity name.
-
-
----
-
-## AuditLogEntity
-
-```ruby
-audit_log = client.AuditLog
-```
-
-### Common Methods
-
-#### `data_get -> Hash`
-
-Get the entity data. Returns a copy of the current data.
-
-#### `data_set(data)`
-
-Set the entity data.
-
-#### `match_get -> Hash`
-
-Get the entity match criteria.
-
-#### `match_set(match)`
-
-Set the entity match criteria.
-
-#### `make -> Entity`
-
-Create a new `AuditLogEntity` instance with the same client and
-options.
-
-#### `get_name -> String`
-
-Return the entity name.
-
-
----
-
-## BasicEntity
-
-```ruby
-basic = client.Basic
-```
-
-### Common Methods
-
-#### `data_get -> Hash`
-
-Get the entity data. Returns a copy of the current data.
-
-#### `data_set(data)`
-
-Set the entity data.
-
-#### `match_get -> Hash`
-
-Get the entity match criteria.
-
-#### `match_set(match)`
-
-Set the entity match criteria.
-
-#### `make -> Entity`
-
-Create a new `BasicEntity` instance with the same client and
-options.
-
-#### `get_name -> String`
-
-Return the entity name.
 
 
 ---
@@ -843,78 +475,6 @@ Set the entity match criteria.
 #### `make -> Entity`
 
 Create a new `CargoEntity` instance with the same client and
-options.
-
-#### `get_name -> String`
-
-Return the entity name.
-
-
----
-
-## CocoapodEntity
-
-```ruby
-cocoapod = client.Cocoapod
-```
-
-### Common Methods
-
-#### `data_get -> Hash`
-
-Get the entity data. Returns a copy of the current data.
-
-#### `data_set(data)`
-
-Set the entity data.
-
-#### `match_get -> Hash`
-
-Get the entity match criteria.
-
-#### `match_set(match)`
-
-Set the entity match criteria.
-
-#### `make -> Entity`
-
-Create a new `CocoapodEntity` instance with the same client and
-options.
-
-#### `get_name -> String`
-
-Return the entity name.
-
-
----
-
-## CompleteEntity
-
-```ruby
-complete = client.Complete
-```
-
-### Common Methods
-
-#### `data_get -> Hash`
-
-Get the entity data. Returns a copy of the current data.
-
-#### `data_set(data)`
-
-Set the entity data.
-
-#### `match_get -> Hash`
-
-Get the entity match criteria.
-
-#### `match_set(match)`
-
-Set the entity match criteria.
-
-#### `make -> Entity`
-
-Create a new `CompleteEntity` instance with the same client and
 options.
 
 #### `get_name -> String`
@@ -1028,42 +588,6 @@ Return the entity name.
 
 ---
 
-## ConanEntity
-
-```ruby
-conan = client.Conan
-```
-
-### Common Methods
-
-#### `data_get -> Hash`
-
-Get the entity data. Returns a copy of the current data.
-
-#### `data_set(data)`
-
-Set the entity data.
-
-#### `match_get -> Hash`
-
-Get the entity match criteria.
-
-#### `match_set(match)`
-
-Set the entity match criteria.
-
-#### `make -> Entity`
-
-Create a new `ConanEntity` instance with the same client and
-options.
-
-#### `get_name -> String`
-
-Return the entity name.
-
-
----
-
 ## CondaEntity
 
 ```ruby
@@ -1159,42 +683,6 @@ Set the entity match criteria.
 #### `make -> Entity`
 
 Create a new `CondaEntity` instance with the same client and
-options.
-
-#### `get_name -> String`
-
-Return the entity name.
-
-
----
-
-## CopyEntity
-
-```ruby
-copy = client.Copy
-```
-
-### Common Methods
-
-#### `data_get -> Hash`
-
-Get the entity data. Returns a copy of the current data.
-
-#### `data_set(data)`
-
-Set the entity data.
-
-#### `match_get -> Hash`
-
-Get the entity match criteria.
-
-#### `match_set(match)`
-
-Set the entity match criteria.
-
-#### `make -> Entity`
-
-Create a new `CopyEntity` instance with the same client and
 options.
 
 #### `get_name -> String`
@@ -1525,114 +1013,6 @@ Return the entity name.
 
 ---
 
-## DenyPolicyEntity
-
-```ruby
-deny_policy = client.DenyPolicy
-```
-
-### Common Methods
-
-#### `data_get -> Hash`
-
-Get the entity data. Returns a copy of the current data.
-
-#### `data_set(data)`
-
-Set the entity data.
-
-#### `match_get -> Hash`
-
-Get the entity match criteria.
-
-#### `match_set(match)`
-
-Set the entity match criteria.
-
-#### `make -> Entity`
-
-Create a new `DenyPolicyEntity` instance with the same client and
-options.
-
-#### `get_name -> String`
-
-Return the entity name.
-
-
----
-
-## DependencyEntity
-
-```ruby
-dependency = client.Dependency
-```
-
-### Common Methods
-
-#### `data_get -> Hash`
-
-Get the entity data. Returns a copy of the current data.
-
-#### `data_set(data)`
-
-Set the entity data.
-
-#### `match_get -> Hash`
-
-Get the entity match criteria.
-
-#### `match_set(match)`
-
-Set the entity match criteria.
-
-#### `make -> Entity`
-
-Create a new `DependencyEntity` instance with the same client and
-options.
-
-#### `get_name -> String`
-
-Return the entity name.
-
-
----
-
-## DisableEntity
-
-```ruby
-disable = client.Disable
-```
-
-### Common Methods
-
-#### `data_get -> Hash`
-
-Get the entity data. Returns a copy of the current data.
-
-#### `data_set(data)`
-
-Set the entity data.
-
-#### `match_get -> Hash`
-
-Get the entity match criteria.
-
-#### `match_set(match)`
-
-Set the entity match criteria.
-
-#### `make -> Entity`
-
-Create a new `DisableEntity` instance with the same client and
-options.
-
-#### `get_name -> String`
-
-Return the entity name.
-
-
----
-
 ## DistributionFullEntity
 
 ```ruby
@@ -1690,42 +1070,6 @@ Set the entity match criteria.
 #### `make -> Entity`
 
 Create a new `DistributionFullEntity` instance with the same client and
-options.
-
-#### `get_name -> String`
-
-Return the entity name.
-
-
----
-
-## DistroEntity
-
-```ruby
-distro = client.Distro
-```
-
-### Common Methods
-
-#### `data_get -> Hash`
-
-Get the entity data. Returns a copy of the current data.
-
-#### `data_set(data)`
-
-Set the entity data.
-
-#### `match_get -> Hash`
-
-Get the entity match criteria.
-
-#### `match_set(match)`
-
-Set the entity match criteria.
-
-#### `make -> Entity`
-
-Create a new `DistroEntity` instance with the same client and
 options.
 
 #### `get_name -> String`
@@ -1901,78 +1245,6 @@ Return the entity name.
 
 ---
 
-## EcdsaEntity
-
-```ruby
-ecdsa = client.Ecdsa
-```
-
-### Common Methods
-
-#### `data_get -> Hash`
-
-Get the entity data. Returns a copy of the current data.
-
-#### `data_set(data)`
-
-Set the entity data.
-
-#### `match_get -> Hash`
-
-Get the entity match criteria.
-
-#### `match_set(match)`
-
-Set the entity match criteria.
-
-#### `make -> Entity`
-
-Create a new `EcdsaEntity` instance with the same client and
-options.
-
-#### `get_name -> String`
-
-Return the entity name.
-
-
----
-
-## EnableEntity
-
-```ruby
-enable = client.Enable
-```
-
-### Common Methods
-
-#### `data_get -> Hash`
-
-Get the entity data. Returns a copy of the current data.
-
-#### `data_set(data)`
-
-Set the entity data.
-
-#### `match_get -> Hash`
-
-Get the entity match criteria.
-
-#### `match_set(match)`
-
-Set the entity match criteria.
-
-#### `make -> Entity`
-
-Create a new `EnableEntity` instance with the same client and
-options.
-
-#### `get_name -> String`
-
-Return the entity name.
-
-
----
-
 ## EntitlementEntity
 
 ```ruby
@@ -2043,42 +1315,6 @@ Set the entity match criteria.
 #### `make -> Entity`
 
 Create a new `EntitlementEntity` instance with the same client and
-options.
-
-#### `get_name -> String`
-
-Return the entity name.
-
-
----
-
-## EvaluationEntity
-
-```ruby
-evaluation = client.Evaluation
-```
-
-### Common Methods
-
-#### `data_get -> Hash`
-
-Get the entity data. Returns a copy of the current data.
-
-#### `data_set(data)`
-
-Set the entity data.
-
-#### `match_get -> Hash`
-
-Get the entity match criteria.
-
-#### `match_set(match)`
-
-Set the entity match criteria.
-
-#### `make -> Entity`
-
-Create a new `EvaluationEntity` instance with the same client and
 options.
 
 #### `get_name -> String`
@@ -2206,42 +1442,6 @@ Return the entity name.
 
 ---
 
-## GeoipEntity
-
-```ruby
-geoip = client.Geoip
-```
-
-### Common Methods
-
-#### `data_get -> Hash`
-
-Get the entity data. Returns a copy of the current data.
-
-#### `data_set(data)`
-
-Set the entity data.
-
-#### `match_get -> Hash`
-
-Get the entity match criteria.
-
-#### `match_set(match)`
-
-Set the entity match criteria.
-
-#### `make -> Entity`
-
-Create a new `GeoipEntity` instance with the same client and
-options.
-
-#### `get_name -> String`
-
-Return the entity name.
-
-
----
-
 ## GonEntity
 
 ```ruby
@@ -2336,78 +1536,6 @@ Set the entity match criteria.
 #### `make -> Entity`
 
 Create a new `GonEntity` instance with the same client and
-options.
-
-#### `get_name -> String`
-
-Return the entity name.
-
-
----
-
-## GpgEntity
-
-```ruby
-gpg = client.Gpg
-```
-
-### Common Methods
-
-#### `data_get -> Hash`
-
-Get the entity data. Returns a copy of the current data.
-
-#### `data_set(data)`
-
-Set the entity data.
-
-#### `match_get -> Hash`
-
-Get the entity match criteria.
-
-#### `match_set(match)`
-
-Set the entity match criteria.
-
-#### `make -> Entity`
-
-Create a new `GpgEntity` instance with the same client and
-options.
-
-#### `get_name -> String`
-
-Return the entity name.
-
-
----
-
-## GroupEntity
-
-```ruby
-group = client.Group
-```
-
-### Common Methods
-
-#### `data_get -> Hash`
-
-Get the entity data. Returns a copy of the current data.
-
-#### `data_set(data)`
-
-Set the entity data.
-
-#### `match_get -> Hash`
-
-Get the entity match criteria.
-
-#### `match_set(match)`
-
-Set the entity match criteria.
-
-#### `make -> Entity`
-
-Create a new `GroupEntity` instance with the same client and
 options.
 
 #### `get_name -> String`
@@ -2625,42 +1753,6 @@ Return the entity name.
 
 ---
 
-## HistoryEntity
-
-```ruby
-history = client.History
-```
-
-### Common Methods
-
-#### `data_get -> Hash`
-
-Get the entity data. Returns a copy of the current data.
-
-#### `data_set(data)`
-
-Set the entity data.
-
-#### `match_get -> Hash`
-
-Get the entity match criteria.
-
-#### `match_set(match)`
-
-Set the entity match criteria.
-
-#### `make -> Entity`
-
-Create a new `HistoryEntity` instance with the same client and
-options.
-
-#### `get_name -> String`
-
-Return the entity name.
-
-
----
-
 ## HuggingfaceEntity
 
 ```ruby
@@ -2756,186 +1848,6 @@ Set the entity match criteria.
 #### `make -> Entity`
 
 Create a new `HuggingfaceEntity` instance with the same client and
-options.
-
-#### `get_name -> String`
-
-Return the entity name.
-
-
----
-
-## InfoEntity
-
-```ruby
-info = client.Info
-```
-
-### Common Methods
-
-#### `data_get -> Hash`
-
-Get the entity data. Returns a copy of the current data.
-
-#### `data_set(data)`
-
-Set the entity data.
-
-#### `match_get -> Hash`
-
-Get the entity match criteria.
-
-#### `match_set(match)`
-
-Set the entity match criteria.
-
-#### `make -> Entity`
-
-Create a new `InfoEntity` instance with the same client and
-options.
-
-#### `get_name -> String`
-
-Return the entity name.
-
-
----
-
-## InviteEntity
-
-```ruby
-invite = client.Invite
-```
-
-### Common Methods
-
-#### `data_get -> Hash`
-
-Get the entity data. Returns a copy of the current data.
-
-#### `data_set(data)`
-
-Set the entity data.
-
-#### `match_get -> Hash`
-
-Get the entity match criteria.
-
-#### `match_set(match)`
-
-Set the entity match criteria.
-
-#### `make -> Entity`
-
-Create a new `InviteEntity` instance with the same client and
-options.
-
-#### `get_name -> String`
-
-Return the entity name.
-
-
----
-
-## LicensePolicyEntity
-
-```ruby
-license_policy = client.LicensePolicy
-```
-
-### Common Methods
-
-#### `data_get -> Hash`
-
-Get the entity data. Returns a copy of the current data.
-
-#### `data_set(data)`
-
-Set the entity data.
-
-#### `match_get -> Hash`
-
-Get the entity match criteria.
-
-#### `match_set(match)`
-
-Set the entity match criteria.
-
-#### `make -> Entity`
-
-Create a new `LicensePolicyEntity` instance with the same client and
-options.
-
-#### `get_name -> String`
-
-Return the entity name.
-
-
----
-
-## LimitEntity
-
-```ruby
-limit = client.Limit
-```
-
-### Common Methods
-
-#### `data_get -> Hash`
-
-Get the entity data. Returns a copy of the current data.
-
-#### `data_set(data)`
-
-Set the entity data.
-
-#### `match_get -> Hash`
-
-Get the entity match criteria.
-
-#### `match_set(match)`
-
-Set the entity match criteria.
-
-#### `make -> Entity`
-
-Create a new `LimitEntity` instance with the same client and
-options.
-
-#### `get_name -> String`
-
-Return the entity name.
-
-
----
-
-## LuarockEntity
-
-```ruby
-luarock = client.Luarock
-```
-
-### Common Methods
-
-#### `data_get -> Hash`
-
-Get the entity data. Returns a copy of the current data.
-
-#### `data_set(data)`
-
-Set the entity data.
-
-#### `match_get -> Hash`
-
-Get the entity match criteria.
-
-#### `match_set(match)`
-
-Set the entity match criteria.
-
-#### `make -> Entity`
-
-Create a new `LuarockEntity` instance with the same client and
 options.
 
 #### `get_name -> String`
@@ -3044,78 +1956,6 @@ Set the entity match criteria.
 #### `make -> Entity`
 
 Create a new `MavenEntity` instance with the same client and
-options.
-
-#### `get_name -> String`
-
-Return the entity name.
-
-
----
-
-## MemberEntity
-
-```ruby
-member = client.Member
-```
-
-### Common Methods
-
-#### `data_get -> Hash`
-
-Get the entity data. Returns a copy of the current data.
-
-#### `data_set(data)`
-
-Set the entity data.
-
-#### `match_get -> Hash`
-
-Get the entity match criteria.
-
-#### `match_set(match)`
-
-Set the entity match criteria.
-
-#### `make -> Entity`
-
-Create a new `MemberEntity` instance with the same client and
-options.
-
-#### `get_name -> String`
-
-Return the entity name.
-
-
----
-
-## MoveEntity
-
-```ruby
-move = client.Move
-```
-
-### Common Methods
-
-#### `data_get -> Hash`
-
-Get the entity data. Returns a copy of the current data.
-
-#### `data_set(data)`
-
-Set the entity data.
-
-#### `match_get -> Hash`
-
-Get the entity match criteria.
-
-#### `match_set(match)`
-
-Set the entity match criteria.
-
-#### `make -> Entity`
-
-Create a new `MoveEntity` instance with the same client and
 options.
 
 #### `get_name -> String`
@@ -3456,42 +2296,6 @@ Set the entity match criteria.
 #### `make -> Entity`
 
 Create a new `NugetEntity` instance with the same client and
-options.
-
-#### `get_name -> String`
-
-Return the entity name.
-
-
----
-
-## OpenidConnectEntity
-
-```ruby
-openid_connect = client.OpenidConnect
-```
-
-### Common Methods
-
-#### `data_get -> Hash`
-
-Get the entity data. Returns a copy of the current data.
-
-#### `data_set(data)`
-
-Set the entity data.
-
-#### `match_get -> Hash`
-
-Get the entity match criteria.
-
-#### `match_set(match)`
-
-Set the entity match criteria.
-
-#### `make -> Entity`
-
-Create a new `OpenidConnectEntity` instance with the same client and
 options.
 
 #### `get_name -> String`
@@ -4488,78 +3292,6 @@ Return the entity name.
 
 ---
 
-## OssEntity
-
-```ruby
-oss = client.Oss
-```
-
-### Common Methods
-
-#### `data_get -> Hash`
-
-Get the entity data. Returns a copy of the current data.
-
-#### `data_set(data)`
-
-Set the entity data.
-
-#### `match_get -> Hash`
-
-Get the entity match criteria.
-
-#### `match_set(match)`
-
-Set the entity match criteria.
-
-#### `make -> Entity`
-
-Create a new `OssEntity` instance with the same client and
-options.
-
-#### `get_name -> String`
-
-Return the entity name.
-
-
----
-
-## P2nEntity
-
-```ruby
-p2n = client.P2n
-```
-
-### Common Methods
-
-#### `data_get -> Hash`
-
-Get the entity data. Returns a copy of the current data.
-
-#### `data_set(data)`
-
-Set the entity data.
-
-#### `match_get -> Hash`
-
-Get the entity match criteria.
-
-#### `match_set(match)`
-
-Set the entity match criteria.
-
-#### `make -> Entity`
-
-Create a new `P2nEntity` instance with the same client and
-options.
-
-#### `get_name -> String`
-
-Return the entity name.
-
-
----
-
 ## PackageEntity
 
 ```ruby
@@ -5253,78 +3985,6 @@ Return the entity name.
 
 ---
 
-## PrivilegeEntity
-
-```ruby
-privilege = client.Privilege
-```
-
-### Common Methods
-
-#### `data_get -> Hash`
-
-Get the entity data. Returns a copy of the current data.
-
-#### `data_set(data)`
-
-Set the entity data.
-
-#### `match_get -> Hash`
-
-Get the entity match criteria.
-
-#### `match_set(match)`
-
-Set the entity match criteria.
-
-#### `make -> Entity`
-
-Create a new `PrivilegeEntity` instance with the same client and
-options.
-
-#### `get_name -> String`
-
-Return the entity name.
-
-
----
-
-## ProfileEntity
-
-```ruby
-profile = client.Profile
-```
-
-### Common Methods
-
-#### `data_get -> Hash`
-
-Get the entity data. Returns a copy of the current data.
-
-#### `data_set(data)`
-
-Set the entity data.
-
-#### `match_get -> Hash`
-
-Get the entity match criteria.
-
-#### `match_set(match)`
-
-Set the entity match criteria.
-
-#### `make -> Entity`
-
-Create a new `ProfileEntity` instance with the same client and
-options.
-
-#### `get_name -> String`
-
-Return the entity name.
-
-
----
-
 ## ProviderSettingEntity
 
 ```ruby
@@ -5574,42 +4234,6 @@ Return the entity name.
 
 ---
 
-## QuarantineEntity
-
-```ruby
-quarantine = client.Quarantine
-```
-
-### Common Methods
-
-#### `data_get -> Hash`
-
-Get the entity data. Returns a copy of the current data.
-
-#### `data_set(data)`
-
-Set the entity data.
-
-#### `match_get -> Hash`
-
-Get the entity match criteria.
-
-#### `match_set(match)`
-
-Set the entity match criteria.
-
-#### `make -> Entity`
-
-Create a new `QuarantineEntity` instance with the same client and
-options.
-
-#### `get_name -> String`
-
-Return the entity name.
-
-
----
-
 ## QuotaEntity
 
 ```ruby
@@ -5656,114 +4280,6 @@ Set the entity match criteria.
 #### `make -> Entity`
 
 Create a new `QuotaEntity` instance with the same client and
-options.
-
-#### `get_name -> String`
-
-Return the entity name.
-
-
----
-
-## RawEntity
-
-```ruby
-raw = client.Raw
-```
-
-### Common Methods
-
-#### `data_get -> Hash`
-
-Get the entity data. Returns a copy of the current data.
-
-#### `data_set(data)`
-
-Set the entity data.
-
-#### `match_get -> Hash`
-
-Get the entity match criteria.
-
-#### `match_set(match)`
-
-Set the entity match criteria.
-
-#### `make -> Entity`
-
-Create a new `RawEntity` instance with the same client and
-options.
-
-#### `get_name -> String`
-
-Return the entity name.
-
-
----
-
-## RefreshEntity
-
-```ruby
-refresh = client.Refresh
-```
-
-### Common Methods
-
-#### `data_get -> Hash`
-
-Get the entity data. Returns a copy of the current data.
-
-#### `data_set(data)`
-
-Set the entity data.
-
-#### `match_get -> Hash`
-
-Get the entity match criteria.
-
-#### `match_set(match)`
-
-Set the entity match criteria.
-
-#### `make -> Entity`
-
-Create a new `RefreshEntity` instance with the same client and
-options.
-
-#### `get_name -> String`
-
-Return the entity name.
-
-
----
-
-## RegenerateEntity
-
-```ruby
-regenerate = client.Regenerate
-```
-
-### Common Methods
-
-#### `data_get -> Hash`
-
-Get the entity data. Returns a copy of the current data.
-
-#### `data_set(data)`
-
-Set the entity data.
-
-#### `match_get -> Hash`
-
-Get the entity match criteria.
-
-#### `match_set(match)`
-
-Set the entity match criteria.
-
-#### `make -> Entity`
-
-Create a new `RegenerateEntity` instance with the same client and
 options.
 
 #### `get_name -> String`
@@ -6299,10 +4815,10 @@ Return the entity name.
 
 ---
 
-## RepositoryPrivilegeInputEntity
+## RepositoryPrivilegeDictEntity
 
 ```ruby
-repository_privilege_input = client.RepositoryPrivilegeInput
+repository_privilege_dict = client.RepositoryPrivilegeDict
 ```
 
 ### Fields
@@ -6321,7 +4837,7 @@ repository_privilege_input = client.RepositoryPrivilegeInput
 List entities matching the given criteria (call with no argument to list all). Returns an array. Raises on error.
 
 ```ruby
-results = client.RepositoryPrivilegeInput.list
+results = client.RepositoryPrivilegeDict.list
 ```
 
 ### Common Methods
@@ -6344,7 +4860,7 @@ Set the entity match criteria.
 
 #### `make -> Entity`
 
-Create a new `RepositoryPrivilegeInputEntity` instance with the same client and
+Create a new `RepositoryPrivilegeDictEntity` instance with the same client and
 options.
 
 #### `get_name -> String`
@@ -7003,42 +5519,6 @@ Return the entity name.
 
 ---
 
-## ResetEntity
-
-```ruby
-reset = client.Reset
-```
-
-### Common Methods
-
-#### `data_get -> Hash`
-
-Get the entity data. Returns a copy of the current data.
-
-#### `data_set(data)`
-
-Set the entity data.
-
-#### `match_get -> Hash`
-
-Get the entity match criteria.
-
-#### `match_set(match)`
-
-Set the entity match criteria.
-
-#### `make -> Entity`
-
-Create a new `ResetEntity` instance with the same client and
-options.
-
-#### `get_name -> String`
-
-Return the entity name.
-
-
----
-
 ## ResourcesRateCheckEntity
 
 ```ruby
@@ -7087,78 +5567,6 @@ Set the entity match criteria.
 #### `make -> Entity`
 
 Create a new `ResourcesRateCheckEntity` instance with the same client and
-options.
-
-#### `get_name -> String`
-
-Return the entity name.
-
-
----
-
-## ResyncEntity
-
-```ruby
-resync = client.Resync
-```
-
-### Common Methods
-
-#### `data_get -> Hash`
-
-Get the entity data. Returns a copy of the current data.
-
-#### `data_set(data)`
-
-Set the entity data.
-
-#### `match_get -> Hash`
-
-Get the entity match criteria.
-
-#### `match_set(match)`
-
-Set the entity match criteria.
-
-#### `make -> Entity`
-
-Create a new `ResyncEntity` instance with the same client and
-options.
-
-#### `get_name -> String`
-
-Return the entity name.
-
-
----
-
-## RetentionEntity
-
-```ruby
-retention = client.Retention
-```
-
-### Common Methods
-
-#### `data_get -> Hash`
-
-Get the entity data. Returns a copy of the current data.
-
-#### `data_set(data)`
-
-Set the entity data.
-
-#### `match_get -> Hash`
-
-Get the entity match criteria.
-
-#### `match_set(match)`
-
-Set the entity match criteria.
-
-#### `make -> Entity`
-
-Create a new `RetentionEntity` instance with the same client and
 options.
 
 #### `get_name -> String`
@@ -7279,42 +5687,6 @@ Return the entity name.
 
 ---
 
-## RsaEntity
-
-```ruby
-rsa = client.Rsa
-```
-
-### Common Methods
-
-#### `data_get -> Hash`
-
-Get the entity data. Returns a copy of the current data.
-
-#### `data_set(data)`
-
-Set the entity data.
-
-#### `match_get -> Hash`
-
-Get the entity match criteria.
-
-#### `match_set(match)`
-
-Set the entity match criteria.
-
-#### `make -> Entity`
-
-Create a new `RsaEntity` instance with the same client and
-options.
-
-#### `get_name -> String`
-
-Return the entity name.
-
-
----
-
 ## RubyEntity
 
 ```ruby
@@ -7419,114 +5791,6 @@ Return the entity name.
 
 ---
 
-## SamlGroupSyncEntity
-
-```ruby
-saml_group_sync = client.SamlGroupSync
-```
-
-### Common Methods
-
-#### `data_get -> Hash`
-
-Get the entity data. Returns a copy of the current data.
-
-#### `data_set(data)`
-
-Set the entity data.
-
-#### `match_get -> Hash`
-
-Get the entity match criteria.
-
-#### `match_set(match)`
-
-Set the entity match criteria.
-
-#### `make -> Entity`
-
-Create a new `SamlGroupSyncEntity` instance with the same client and
-options.
-
-#### `get_name -> String`
-
-Return the entity name.
-
-
----
-
-## ScanEntity
-
-```ruby
-scan = client.Scan
-```
-
-### Common Methods
-
-#### `data_get -> Hash`
-
-Get the entity data. Returns a copy of the current data.
-
-#### `data_set(data)`
-
-Set the entity data.
-
-#### `match_get -> Hash`
-
-Get the entity match criteria.
-
-#### `match_set(match)`
-
-Set the entity match criteria.
-
-#### `make -> Entity`
-
-Create a new `ScanEntity` instance with the same client and
-options.
-
-#### `get_name -> String`
-
-Return the entity name.
-
-
----
-
-## SelfEntity
-
-```ruby
-self_ = client.Self
-```
-
-### Common Methods
-
-#### `data_get -> Hash`
-
-Get the entity data. Returns a copy of the current data.
-
-#### `data_set(data)`
-
-Set the entity data.
-
-#### `match_get -> Hash`
-
-Get the entity match criteria.
-
-#### `match_set(match)`
-
-Set the entity match criteria.
-
-#### `make -> Entity`
-
-Create a new `SelfEntity` instance with the same client and
-options.
-
-#### `get_name -> String`
-
-Return the entity name.
-
-
----
-
 ## ServiceEntity
 
 ```ruby
@@ -7611,42 +5875,6 @@ Set the entity match criteria.
 #### `make -> Entity`
 
 Create a new `ServiceEntity` instance with the same client and
-options.
-
-#### `get_name -> String`
-
-Return the entity name.
-
-
----
-
-## StatusEntity
-
-```ruby
-status = client.Status
-```
-
-### Common Methods
-
-#### `data_get -> Hash`
-
-Get the entity data. Returns a copy of the current data.
-
-#### `data_set(data)`
-
-Set the entity data.
-
-#### `match_get -> Hash`
-
-Get the entity match criteria.
-
-#### `match_set(match)`
-
-Set the entity match criteria.
-
-#### `make -> Entity`
-
-Create a new `StatusEntity` instance with the same client and
 options.
 
 #### `get_name -> String`
@@ -7866,258 +6094,6 @@ Set the entity match criteria.
 #### `make -> Entity`
 
 Create a new `SwiftEntity` instance with the same client and
-options.
-
-#### `get_name -> String`
-
-Return the entity name.
-
-
----
-
-## SyncEntity
-
-```ruby
-sync = client.Sync
-```
-
-### Common Methods
-
-#### `data_get -> Hash`
-
-Get the entity data. Returns a copy of the current data.
-
-#### `data_set(data)`
-
-Set the entity data.
-
-#### `match_get -> Hash`
-
-Get the entity match criteria.
-
-#### `match_set(match)`
-
-Set the entity match criteria.
-
-#### `make -> Entity`
-
-Create a new `SyncEntity` instance with the same client and
-options.
-
-#### `get_name -> String`
-
-Return the entity name.
-
-
----
-
-## TagEntity
-
-```ruby
-tag = client.Tag
-```
-
-### Common Methods
-
-#### `data_get -> Hash`
-
-Get the entity data. Returns a copy of the current data.
-
-#### `data_set(data)`
-
-Set the entity data.
-
-#### `match_get -> Hash`
-
-Get the entity match criteria.
-
-#### `match_set(match)`
-
-Set the entity match criteria.
-
-#### `make -> Entity`
-
-Create a new `TagEntity` instance with the same client and
-options.
-
-#### `get_name -> String`
-
-Return the entity name.
-
-
----
-
-## TeamEntity
-
-```ruby
-team = client.Team
-```
-
-### Common Methods
-
-#### `data_get -> Hash`
-
-Get the entity data. Returns a copy of the current data.
-
-#### `data_set(data)`
-
-Set the entity data.
-
-#### `match_get -> Hash`
-
-Get the entity match criteria.
-
-#### `match_set(match)`
-
-Set the entity match criteria.
-
-#### `make -> Entity`
-
-Create a new `TeamEntity` instance with the same client and
-options.
-
-#### `get_name -> String`
-
-Return the entity name.
-
-
----
-
-## TerraformEntity
-
-```ruby
-terraform = client.Terraform
-```
-
-### Common Methods
-
-#### `data_get -> Hash`
-
-Get the entity data. Returns a copy of the current data.
-
-#### `data_set(data)`
-
-Set the entity data.
-
-#### `match_get -> Hash`
-
-Get the entity match criteria.
-
-#### `match_set(match)`
-
-Set the entity match criteria.
-
-#### `make -> Entity`
-
-Create a new `TerraformEntity` instance with the same client and
-options.
-
-#### `get_name -> String`
-
-Return the entity name.
-
-
----
-
-## TestEntity
-
-```ruby
-test = client.Test
-```
-
-### Common Methods
-
-#### `data_get -> Hash`
-
-Get the entity data. Returns a copy of the current data.
-
-#### `data_set(data)`
-
-Set the entity data.
-
-#### `match_get -> Hash`
-
-Get the entity match criteria.
-
-#### `match_set(match)`
-
-Set the entity match criteria.
-
-#### `make -> Entity`
-
-Create a new `TestEntity` instance with the same client and
-options.
-
-#### `get_name -> String`
-
-Return the entity name.
-
-
----
-
-## TokenEntity
-
-```ruby
-token = client.Token
-```
-
-### Common Methods
-
-#### `data_get -> Hash`
-
-Get the entity data. Returns a copy of the current data.
-
-#### `data_set(data)`
-
-Set the entity data.
-
-#### `match_get -> Hash`
-
-Get the entity match criteria.
-
-#### `match_set(match)`
-
-Set the entity match criteria.
-
-#### `make -> Entity`
-
-Create a new `TokenEntity` instance with the same client and
-options.
-
-#### `get_name -> String`
-
-Return the entity name.
-
-
----
-
-## TransferRegionEntity
-
-```ruby
-transfer_region = client.TransferRegion
-```
-
-### Common Methods
-
-#### `data_get -> Hash`
-
-Get the entity data. Returns a copy of the current data.
-
-#### `data_set(data)`
-
-Set the entity data.
-
-#### `match_get -> Hash`
-
-Get the entity match criteria.
-
-#### `match_set(match)`
-
-Set the entity match criteria.
-
-#### `make -> Entity`
-
-Create a new `TransferRegionEntity` instance with the same client and
 options.
 
 #### `get_name -> String`
@@ -8406,114 +6382,6 @@ Return the entity name.
 
 ---
 
-## VagrantEntity
-
-```ruby
-vagrant = client.Vagrant
-```
-
-### Common Methods
-
-#### `data_get -> Hash`
-
-Get the entity data. Returns a copy of the current data.
-
-#### `data_set(data)`
-
-Set the entity data.
-
-#### `match_get -> Hash`
-
-Get the entity match criteria.
-
-#### `match_set(match)`
-
-Set the entity match criteria.
-
-#### `make -> Entity`
-
-Create a new `VagrantEntity` instance with the same client and
-options.
-
-#### `get_name -> String`
-
-Return the entity name.
-
-
----
-
-## ValidateEntity
-
-```ruby
-validate = client.Validate
-```
-
-### Common Methods
-
-#### `data_get -> Hash`
-
-Get the entity data. Returns a copy of the current data.
-
-#### `data_set(data)`
-
-Set the entity data.
-
-#### `match_get -> Hash`
-
-Get the entity match criteria.
-
-#### `match_set(match)`
-
-Set the entity match criteria.
-
-#### `make -> Entity`
-
-Create a new `ValidateEntity` instance with the same client and
-options.
-
-#### `get_name -> String`
-
-Return the entity name.
-
-
----
-
-## VersionEntity
-
-```ruby
-version = client.Version
-```
-
-### Common Methods
-
-#### `data_get -> Hash`
-
-Get the entity data. Returns a copy of the current data.
-
-#### `data_set(data)`
-
-Set the entity data.
-
-#### `match_get -> Hash`
-
-Get the entity match criteria.
-
-#### `match_set(match)`
-
-Set the entity match criteria.
-
-#### `make -> Entity`
-
-Create a new `VersionEntity` instance with the same client and
-options.
-
-#### `get_name -> String`
-
-Return the entity name.
-
-
----
-
 ## VulnerabilityEntity
 
 ```ruby
@@ -8582,42 +6450,6 @@ Return the entity name.
 
 ---
 
-## VulnerabilityPolicyEntity
-
-```ruby
-vulnerability_policy = client.VulnerabilityPolicy
-```
-
-### Common Methods
-
-#### `data_get -> Hash`
-
-Get the entity data. Returns a copy of the current data.
-
-#### `data_set(data)`
-
-Set the entity data.
-
-#### `match_get -> Hash`
-
-Get the entity match criteria.
-
-#### `match_set(match)`
-
-Set the entity match criteria.
-
-#### `make -> Entity`
-
-Create a new `VulnerabilityPolicyEntity` instance with the same client and
-options.
-
-#### `get_name -> String`
-
-Return the entity name.
-
-
----
-
 ## WebhookEntity
 
 ```ruby
@@ -8670,90 +6502,18 @@ Return the entity name.
 
 ---
 
-## X509EcdsaEntity
-
-```ruby
-x509_ecdsa = client.X509Ecdsa
-```
-
-### Common Methods
-
-#### `data_get -> Hash`
-
-Get the entity data. Returns a copy of the current data.
-
-#### `data_set(data)`
-
-Set the entity data.
-
-#### `match_get -> Hash`
-
-Get the entity match criteria.
-
-#### `match_set(match)`
-
-Set the entity match criteria.
-
-#### `make -> Entity`
-
-Create a new `X509EcdsaEntity` instance with the same client and
-options.
-
-#### `get_name -> String`
-
-Return the entity name.
-
-
----
-
-## X509RsaEntity
-
-```ruby
-x509_rsa = client.X509Rsa
-```
-
-### Common Methods
-
-#### `data_get -> Hash`
-
-Get the entity data. Returns a copy of the current data.
-
-#### `data_set(data)`
-
-Set the entity data.
-
-#### `match_get -> Hash`
-
-Get the entity match criteria.
-
-#### `match_set(match)`
-
-Set the entity match criteria.
-
-#### `make -> Entity`
-
-Create a new `X509RsaEntity` instance with the same client and
-options.
-
-#### `get_name -> String`
-
-Return the entity name.
-
-
----
-
 ## Features
 
 | Feature | Version | Description |
 | --- | --- | --- |
-| `debug` | 0.0.1 | Request/response capture ring buffer for debugging |
-| `idempotency` | 0.0.1 | Idempotency keys for safe retries of mutating operations |
-| `metrics` | 0.0.1 | Statistics capture: per-operation counters and latency |
-| `paging` | 0.0.1 | Pagination signals for list operations |
-| `ratelimit` | 0.0.1 | Client-side rate limiting via a token bucket |
-| `retry` | 0.0.1 | Automatic retry of transient failures with exponential backoff |
-| `test` | 0.0.1 | In-memory mock transport for testing without a live server |
-| `timeout` | 0.0.1 | Per-request timeout with transport abort |
+| `debug` | 0.0.1 | Debug capture |
+| `idempotency` | 0.0.1 | Idempotency |
+| `metrics` | 0.0.1 | Metrics |
+| `paging` | 0.0.1 | Paging |
+| `ratelimit` | 0.0.1 | Rate limiting |
+| `retry` | 0.0.1 | Retry |
+| `test` | 0.0.1 | Test transport |
+| `timeout` | 0.0.1 | Timeout |
 
 
 Features are activated via the `feature` option:
@@ -8799,7 +6559,7 @@ rather than the transport, so their order does not affect what they observe.
 
 #### `debug`
 
-Request/response capture ring buffer for debugging.
+Debug capture.
 
 **Configuration**
 
@@ -8830,7 +6590,7 @@ its default unless you name it.
 
 #### `idempotency`
 
-Idempotency keys for safe retries of mutating operations.
+Idempotency.
 
 **Configuration**
 
@@ -8861,7 +6621,7 @@ its default unless you name it.
 
 #### `metrics`
 
-Statistics capture: per-operation counters and latency.
+Metrics.
 
 **Configuration**
 
@@ -8889,7 +6649,7 @@ its default unless you name it.
 
 #### `paging`
 
-Pagination signals for list operations.
+Paging.
 
 **Configuration**
 
@@ -8924,7 +6684,7 @@ its default unless you name it.
 
 #### `ratelimit`
 
-Client-side rate limiting via a token bucket.
+Rate limiting.
 
 **Configuration**
 
@@ -8955,7 +6715,7 @@ its default unless you name it.
 
 #### `retry`
 
-Automatic retry of transient failures with exponential backoff.
+Retry.
 
 **Configuration**
 
@@ -8989,7 +6749,7 @@ its default unless you name it.
 
 #### `test`
 
-In-memory mock transport for testing without a live server.
+Test transport.
 
 **Configuration**
 
@@ -9020,7 +6780,7 @@ its default unless you name it.
 
 #### `timeout`
 
-Per-request timeout with transport abort.
+Timeout.
 
 **Configuration**
 

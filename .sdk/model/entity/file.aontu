@@ -1,0 +1,212 @@
+# Entity: file
+
+main: kit: entity: file: {
+
+  alias: field: {}
+
+  name: "file"
+  op: {
+    create: {
+      name: "create"
+      points: [
+        {
+          co: {
+            id: "POST /files/{owner}/{repo}/{identifier}/abort/"
+            source: "swagger2"
+            version: 2
+          }
+          g: {
+            params: [
+              {
+                k: "param"
+                n: "identifier"
+                or: "identifier"
+                r: true
+                t: "`$ANY`"
+              }
+              {
+                k: "param"
+                n: "owner"
+                or: "owner"
+                r: true
+                t: "`$ANY`"
+              }
+              {
+                k: "param"
+                n: "repo"
+                or: "repo"
+                r: true
+                t: "`$ANY`"
+              }
+            ]
+            query: [
+              {
+                k: "query"
+                n: "data"
+                or: "data"
+                r: false
+                t: "`$OBJECT`"
+              }
+            ]
+          }
+          m: "POST"
+          o: "/files/{owner}/{repo}/{identifier}/abort/"
+          q: {
+            exist: [
+              "data"
+              "identifier"
+              "owner"
+              "repo"
+            ]
+          }
+          s: [
+            {
+              lit: "files"
+            }
+            {
+              var: "owner"
+            }
+            {
+              var: "repo"
+            }
+            {
+              var: "identifier"
+            }
+            {
+              lit: "abort"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          co: {
+            id: "POST /files/{owner}/{repo}/"
+            source: "swagger2"
+            version: 2
+          }
+          g: {
+            params: [
+              {
+                k: "param"
+                n: "owner"
+                or: "owner"
+                r: true
+                t: "`$ANY`"
+              }
+              {
+                k: "param"
+                n: "repo"
+                or: "repo"
+                r: true
+                t: "`$ANY`"
+              }
+            ]
+            query: [
+              {
+                k: "query"
+                n: "data"
+                or: "data"
+                r: false
+                t: "`$OBJECT`"
+              }
+            ]
+          }
+          m: "POST"
+          o: "/files/{owner}/{repo}/"
+          q: {
+            exist: [
+              "data"
+              "owner"
+              "repo"
+            ]
+          }
+          s: [
+            {
+              lit: "files"
+            }
+            {
+              var: "owner"
+            }
+            {
+              var: "repo"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          co: {
+            id: "POST /files/{owner}/{repo}/validate/"
+            source: "swagger2"
+            version: 2
+          }
+          g: {
+            params: [
+              {
+                k: "param"
+                n: "owner"
+                or: "owner"
+                r: true
+                t: "`$ANY`"
+              }
+              {
+                k: "param"
+                n: "repo"
+                or: "repo"
+                r: true
+                t: "`$ANY`"
+              }
+            ]
+            query: [
+              {
+                k: "query"
+                n: "data"
+                or: "data"
+                r: false
+                t: "`$OBJECT`"
+              }
+            ]
+          }
+          m: "POST"
+          o: "/files/{owner}/{repo}/validate/"
+          q: {
+            exist: [
+              "data"
+              "owner"
+              "repo"
+            ]
+          }
+          s: [
+            {
+              lit: "files"
+            }
+            {
+              var: "owner"
+            }
+            {
+              var: "repo"
+            }
+            {
+              lit: "validate"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+  }
+
+  fields: {
+  }
+
+
+
+}

@@ -65,7 +65,7 @@ def user_authentication_token_basic_setup(extra)
 
   # Generate idmap via transform.
   idmap = Vs.transform(
-    ["user_authentication_token01", "user_authentication_token02", "user_authentication_token03", "token01", "token02", "token03"],
+    ["user_authentication_token01", "user_authentication_token02", "user_authentication_token03"],
     {
       "`$PACK`" => ["", {
         "`$KEY`" => "`$COPY`",

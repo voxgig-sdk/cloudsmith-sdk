@@ -19,7 +19,6 @@ import type {
   UserListMatch,
 } from '../CloudsmithTypes'
 
-// TODO: needs Entity superclass
 class UserEntity extends CloudsmithEntityBase<User> {
 
   constructor(client: CloudsmithSDK, entopts: any) {

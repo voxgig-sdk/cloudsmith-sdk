@@ -124,7 +124,7 @@ def gon_basic_setup(extra)
 
   # Generate idmap via transform.
   idmap = Vs.transform(
-    ["gon01", "gon02", "gon03", "package01", "package02", "package03", "repo01", "repo02", "repo03", "go01", "go02", "go03", "identifier01", "owner01"],
+    ["gon01", "gon02", "gon03", "repo01", "repo02", "repo03", "identifier01", "owner01"],
     {
       "`$PACK`" => ["", {
         "`$KEY`" => "`$COPY`",

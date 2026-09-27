@@ -9,18 +9,6 @@ import (
 	sdk "github.com/voxgig-sdk/cloudsmith-sdk/go"
 )
 
-// registerSDKWords installs three native boru words bound to the SDK:
-// list / load / update. Each is declared with two overloads matching
-// the signature  [query?:(Node or Scalar) entity:atom]:
-//
-//   [entity:Atom]            — no query (e.g. `list book`)
-//   [query:Any entity:Atom]  — query is any Node or Scalar (e.g.
-//                              `load {id:1} book`, `load 1 book`)
-//
-// The entity slot is /q-quoted so a bareword `book` parses as the
-// Atom "book" rather than dispatching as an undefined word. Both
-// overloads are all-forward (BarrierAllForward), so args are collected
-// from the tokens following the word.
 func registerSDKWords(r *eng.Registry, client *sdk.CloudsmithSDK) {
 	for _, op := range []string{"list", "load", "update"} {
 		op := op
@@ -89,92 +77,40 @@ func runOp(client *sdk.CloudsmithSDK, op string, query *eng.Value, entityAtom en
 // emits one `case "<name>":` per entity defined in the SDK model.
 func entityFor(client *sdk.CloudsmithSDK, name string) (sdk.CloudsmithEntity, error) {
 	switch strings.ToLower(name) {
-	case "abort":
-		return client.Abort(nil), nil
-	case "alpine":
-		return client.Alpine(nil), nil
-	case "audit_log":
-		return client.AuditLog(nil), nil
-	case "basic":
-		return client.Basic(nil), nil
 	case "cargo":
 		return client.Cargo(nil), nil
-	case "cocoapod":
-		return client.Cocoapod(nil), nil
-	case "complete":
-		return client.Complete(nil), nil
 	case "composer":
 		return client.Composer(nil), nil
-	case "conan":
-		return client.Conan(nil), nil
 	case "conda":
 		return client.Conda(nil), nil
-	case "copy":
-		return client.Copy(nil), nil
 	case "cran":
 		return client.Cran(nil), nil
 	case "dart":
 		return client.Dart(nil), nil
 	case "deb":
 		return client.Deb(nil), nil
-	case "deny_policy":
-		return client.DenyPolicy(nil), nil
-	case "dependency":
-		return client.Dependency(nil), nil
-	case "disable":
-		return client.Disable(nil), nil
 	case "distribution_full":
 		return client.DistributionFull(nil), nil
-	case "distro":
-		return client.Distro(nil), nil
 	case "docker":
 		return client.Docker(nil), nil
 	case "dynamic_mapping":
 		return client.DynamicMapping(nil), nil
-	case "ecdsa":
-		return client.Ecdsa(nil), nil
-	case "enable":
-		return client.Enable(nil), nil
 	case "entitlement":
 		return client.Entitlement(nil), nil
-	case "evaluation":
-		return client.Evaluation(nil), nil
 	case "file":
 		return client.File(nil), nil
 	case "format":
 		return client.Format(nil), nil
-	case "geoip":
-		return client.Geoip(nil), nil
 	case "gon":
 		return client.Gon(nil), nil
-	case "gpg":
-		return client.Gpg(nil), nil
-	case "group":
-		return client.Group(nil), nil
 	case "helm":
 		return client.Helm(nil), nil
 	case "hex":
 		return client.Hex(nil), nil
-	case "history":
-		return client.History(nil), nil
 	case "huggingface":
 		return client.Huggingface(nil), nil
-	case "info":
-		return client.Info(nil), nil
-	case "invite":
-		return client.Invite(nil), nil
-	case "license_policy":
-		return client.LicensePolicy(nil), nil
-	case "limit":
-		return client.Limit(nil), nil
-	case "luarock":
-		return client.Luarock(nil), nil
 	case "maven":
 		return client.Maven(nil), nil
-	case "member":
-		return client.Member(nil), nil
-	case "move":
-		return client.Move(nil), nil
 	case "namespace":
 		return client.Namespace(nil), nil
 	case "namespace_audit_log":
@@ -183,8 +119,6 @@ func entityFor(client *sdk.CloudsmithSDK, name string) (sdk.CloudsmithEntity, er
 		return client.Npm(nil), nil
 	case "nuget":
 		return client.Nuget(nil), nil
-	case "openid_connect":
-		return client.OpenidConnect(nil), nil
 	case "org":
 		return client.Org(nil), nil
 	case "organization_group_sync":
@@ -211,10 +145,6 @@ func entityFor(client *sdk.CloudsmithSDK, name string) (sdk.CloudsmithEntity, er
 		return client.OrganizationTeam(nil), nil
 	case "organization_team_member":
 		return client.OrganizationTeamMember(nil), nil
-	case "oss":
-		return client.Oss(nil), nil
-	case "p2n":
-		return client.P2n(nil), nil
 	case "package":
 		return client.Package(nil), nil
 	case "package_deny_policy":
@@ -229,26 +159,14 @@ func entityFor(client *sdk.CloudsmithSDK, name string) (sdk.CloudsmithEntity, er
 		return client.PackageVersionBadge(nil), nil
 	case "package_vulnerability_policy_evaluation":
 		return client.PackageVulnerabilityPolicyEvaluation(nil), nil
-	case "privilege":
-		return client.Privilege(nil), nil
-	case "profile":
-		return client.Profile(nil), nil
 	case "provider_setting":
 		return client.ProviderSetting(nil), nil
 	case "provider_settings_write":
 		return client.ProviderSettingsWrite(nil), nil
 	case "python":
 		return client.Python(nil), nil
-	case "quarantine":
-		return client.Quarantine(nil), nil
 	case "quota":
 		return client.Quota(nil), nil
-	case "raw":
-		return client.Raw(nil), nil
-	case "refresh":
-		return client.Refresh(nil), nil
-	case "regenerate":
-		return client.Regenerate(nil), nil
 	case "repo":
 		return client.Repo(nil), nil
 	case "repository_audit_log":
@@ -263,8 +181,8 @@ func entityFor(client *sdk.CloudsmithSDK, name string) (sdk.CloudsmithEntity, er
 		return client.RepositoryGeoIpTestAddress(nil), nil
 	case "repository_gpg_key":
 		return client.RepositoryGpgKey(nil), nil
-	case "repository_privilege_input":
-		return client.RepositoryPrivilegeInput(nil), nil
+	case "repository_privilege_dict":
+		return client.RepositoryPrivilegeDict(nil), nil
 	case "repository_retention_rule":
 		return client.RepositoryRetentionRule(nil), nil
 	case "repository_rsa_key":
@@ -281,50 +199,20 @@ func entityFor(client *sdk.CloudsmithSDK, name string) (sdk.CloudsmithEntity, er
 		return client.RepositoryX509EcdsaCertificate(nil), nil
 	case "repository_x509_rsa_certificate":
 		return client.RepositoryX509RsaCertificate(nil), nil
-	case "reset":
-		return client.Reset(nil), nil
 	case "resources_rate_check":
 		return client.ResourcesRateCheck(nil), nil
-	case "resync":
-		return client.Resync(nil), nil
-	case "retention":
-		return client.Retention(nil), nil
 	case "rpm":
 		return client.Rpm(nil), nil
-	case "rsa":
-		return client.Rsa(nil), nil
 	case "ruby":
 		return client.Ruby(nil), nil
-	case "saml_group_sync":
-		return client.SamlGroupSync(nil), nil
-	case "scan":
-		return client.Scan(nil), nil
-	case "self":
-		return client.Self(nil), nil
 	case "service":
 		return client.Service(nil), nil
-	case "status":
-		return client.Status(nil), nil
 	case "status_basic":
 		return client.StatusBasic(nil), nil
 	case "storage_region":
 		return client.StorageRegion(nil), nil
 	case "swift":
 		return client.Swift(nil), nil
-	case "sync":
-		return client.Sync(nil), nil
-	case "tag":
-		return client.Tag(nil), nil
-	case "team":
-		return client.Team(nil), nil
-	case "terraform":
-		return client.Terraform(nil), nil
-	case "test":
-		return client.Test(nil), nil
-	case "token":
-		return client.Token(nil), nil
-	case "transfer_region":
-		return client.TransferRegion(nil), nil
 	case "user":
 		return client.User(nil), nil
 	case "user_auth_token":
@@ -335,22 +223,10 @@ func entityFor(client *sdk.CloudsmithSDK, name string) (sdk.CloudsmithEntity, er
 		return client.UserBrief(nil), nil
 	case "user_profile":
 		return client.UserProfile(nil), nil
-	case "vagrant":
-		return client.Vagrant(nil), nil
-	case "validate":
-		return client.Validate(nil), nil
-	case "version":
-		return client.Version(nil), nil
 	case "vulnerability":
 		return client.Vulnerability(nil), nil
-	case "vulnerability_policy":
-		return client.VulnerabilityPolicy(nil), nil
 	case "webhook":
 		return client.Webhook(nil), nil
-	case "x509_ecdsa":
-		return client.X509Ecdsa(nil), nil
-	case "x509_rsa":
-		return client.X509Rsa(nil), nil
 
 	}
 	return nil, fmt.Errorf("unknown entity %q", name)

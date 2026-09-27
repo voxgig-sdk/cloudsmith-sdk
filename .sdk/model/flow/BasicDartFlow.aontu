@@ -1,0 +1,88 @@
+# BasicDartFlow
+
+main: kit: flow: BasicDartFlow:
+{
+  entity: "dart",
+  kind: "basic",
+  name: "BasicDartFlow",
+  step: [
+    {
+      i: {
+        ref: "dart_ref01"
+      }
+
+      m: {
+        identifier: "identifier01",
+        owner: "owner01"
+      }
+
+      o: "create"
+    }
+
+    {
+      m: {
+        identifier: "identifier01",
+        owner: "owner01"
+      }
+
+      o: "list",
+      v: [
+        {
+          apply: "ItemExists",
+          def: {
+            ref: "dart_ref01"
+          }
+        }
+      ]
+    }
+
+    {
+      d: {
+        identifier: "identifier01",
+        owner: "owner01"
+      }
+
+      i: {
+        ref: "dart_ref01",
+        srcdatavar: "dart_ref01_data",
+        suffix: "_up0",
+        textfield: "auth_mode"
+      }
+
+      o: "update",
+      s: [
+        {
+          apply: "TextFieldMark",
+          def: {
+            mark: "Mark01-dart_ref01"
+          }
+        }
+      ]
+    }
+
+    {
+      i: {
+        ref: "dart_ref01",
+        srcdatavar: "dart_ref01_data",
+        suffix: "_dt0"
+      }
+
+      m: {
+        id: "dart01",
+        identifier: "identifier01",
+        owner: "owner01"
+      }
+
+      o: "load",
+      v: [
+        {
+          apply: "TextFieldMark",
+          def: {
+            mark: "Mark01-dart_ref01"
+          }
+        }
+      ]
+    }
+  ],
+  "key$": "BasicDartFlow"
+}

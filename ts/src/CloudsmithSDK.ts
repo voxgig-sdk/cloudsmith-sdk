@@ -1,53 +1,26 @@
 // Cloudsmith Ts SDK
 
-import { AbortEntity } from './entity/AbortEntity'
-import { AlpineEntity } from './entity/AlpineEntity'
-import { AuditLogEntity } from './entity/AuditLogEntity'
-import { BasicEntity } from './entity/BasicEntity'
 import { CargoEntity } from './entity/CargoEntity'
-import { CocoapodEntity } from './entity/CocoapodEntity'
-import { CompleteEntity } from './entity/CompleteEntity'
 import { ComposerEntity } from './entity/ComposerEntity'
-import { ConanEntity } from './entity/ConanEntity'
 import { CondaEntity } from './entity/CondaEntity'
-import { CopyEntity } from './entity/CopyEntity'
 import { CranEntity } from './entity/CranEntity'
 import { DartEntity } from './entity/DartEntity'
 import { DebEntity } from './entity/DebEntity'
-import { DenyPolicyEntity } from './entity/DenyPolicyEntity'
-import { DependencyEntity } from './entity/DependencyEntity'
-import { DisableEntity } from './entity/DisableEntity'
 import { DistributionFullEntity } from './entity/DistributionFullEntity'
-import { DistroEntity } from './entity/DistroEntity'
 import { DockerEntity } from './entity/DockerEntity'
 import { DynamicMappingEntity } from './entity/DynamicMappingEntity'
-import { EcdsaEntity } from './entity/EcdsaEntity'
-import { EnableEntity } from './entity/EnableEntity'
 import { EntitlementEntity } from './entity/EntitlementEntity'
-import { EvaluationEntity } from './entity/EvaluationEntity'
 import { FileEntity } from './entity/FileEntity'
 import { FormatEntity } from './entity/FormatEntity'
-import { GeoipEntity } from './entity/GeoipEntity'
 import { GonEntity } from './entity/GonEntity'
-import { GpgEntity } from './entity/GpgEntity'
-import { GroupEntity } from './entity/GroupEntity'
 import { HelmEntity } from './entity/HelmEntity'
 import { HexEntity } from './entity/HexEntity'
-import { HistoryEntity } from './entity/HistoryEntity'
 import { HuggingfaceEntity } from './entity/HuggingfaceEntity'
-import { InfoEntity } from './entity/InfoEntity'
-import { InviteEntity } from './entity/InviteEntity'
-import { LicensePolicyEntity } from './entity/LicensePolicyEntity'
-import { LimitEntity } from './entity/LimitEntity'
-import { LuarockEntity } from './entity/LuarockEntity'
 import { MavenEntity } from './entity/MavenEntity'
-import { MemberEntity } from './entity/MemberEntity'
-import { MoveEntity } from './entity/MoveEntity'
 import { NamespaceEntity } from './entity/NamespaceEntity'
 import { NamespaceAuditLogEntity } from './entity/NamespaceAuditLogEntity'
 import { NpmEntity } from './entity/NpmEntity'
 import { NugetEntity } from './entity/NugetEntity'
-import { OpenidConnectEntity } from './entity/OpenidConnectEntity'
 import { OrgEntity } from './entity/OrgEntity'
 import { OrganizationGroupSyncEntity } from './entity/OrganizationGroupSyncEntity'
 import { OrganizationGroupSyncStatusEntity } from './entity/OrganizationGroupSyncStatusEntity'
@@ -61,8 +34,6 @@ import { OrganizationPackageVulnerabilityPolicyEntity } from './entity/Organizat
 import { OrganizationSamlAuthEntity } from './entity/OrganizationSamlAuthEntity'
 import { OrganizationTeamEntity } from './entity/OrganizationTeamEntity'
 import { OrganizationTeamMemberEntity } from './entity/OrganizationTeamMemberEntity'
-import { OssEntity } from './entity/OssEntity'
-import { P2nEntity } from './entity/P2nEntity'
 import { PackageEntity } from './entity/PackageEntity'
 import { PackageDenyPolicyEntity } from './entity/PackageDenyPolicyEntity'
 import { PackageFilePartsUploadEntity } from './entity/PackageFilePartsUploadEntity'
@@ -70,16 +41,10 @@ import { PackageFileUploadEntity } from './entity/PackageFileUploadEntity'
 import { PackageLicensePolicyEvaluationEntity } from './entity/PackageLicensePolicyEvaluationEntity'
 import { PackageVersionBadgeEntity } from './entity/PackageVersionBadgeEntity'
 import { PackageVulnerabilityPolicyEvaluationEntity } from './entity/PackageVulnerabilityPolicyEvaluationEntity'
-import { PrivilegeEntity } from './entity/PrivilegeEntity'
-import { ProfileEntity } from './entity/ProfileEntity'
 import { ProviderSettingEntity } from './entity/ProviderSettingEntity'
 import { ProviderSettingsWriteEntity } from './entity/ProviderSettingsWriteEntity'
 import { PythonEntity } from './entity/PythonEntity'
-import { QuarantineEntity } from './entity/QuarantineEntity'
 import { QuotaEntity } from './entity/QuotaEntity'
-import { RawEntity } from './entity/RawEntity'
-import { RefreshEntity } from './entity/RefreshEntity'
-import { RegenerateEntity } from './entity/RegenerateEntity'
 import { RepoEntity } from './entity/RepoEntity'
 import { RepositoryAuditLogEntity } from './entity/RepositoryAuditLogEntity'
 import { RepositoryEcdsaKeyEntity } from './entity/RepositoryEcdsaKeyEntity'
@@ -87,7 +52,7 @@ import { RepositoryGeoIpRuleEntity } from './entity/RepositoryGeoIpRuleEntity'
 import { RepositoryGeoIpStatusEntity } from './entity/RepositoryGeoIpStatusEntity'
 import { RepositoryGeoIpTestAddressEntity } from './entity/RepositoryGeoIpTestAddressEntity'
 import { RepositoryGpgKeyEntity } from './entity/RepositoryGpgKeyEntity'
-import { RepositoryPrivilegeInputEntity } from './entity/RepositoryPrivilegeInputEntity'
+import { RepositoryPrivilegeDictEntity } from './entity/RepositoryPrivilegeDictEntity'
 import { RepositoryRetentionRuleEntity } from './entity/RepositoryRetentionRuleEntity'
 import { RepositoryRsaKeyEntity } from './entity/RepositoryRsaKeyEntity'
 import { RepositoryTokenEntity } from './entity/RepositoryTokenEntity'
@@ -96,41 +61,20 @@ import { RepositoryTokenSyncEntity } from './entity/RepositoryTokenSyncEntity'
 import { RepositoryWebhookEntity } from './entity/RepositoryWebhookEntity'
 import { RepositoryX509EcdsaCertificateEntity } from './entity/RepositoryX509EcdsaCertificateEntity'
 import { RepositoryX509RsaCertificateEntity } from './entity/RepositoryX509RsaCertificateEntity'
-import { ResetEntity } from './entity/ResetEntity'
 import { ResourcesRateCheckEntity } from './entity/ResourcesRateCheckEntity'
-import { ResyncEntity } from './entity/ResyncEntity'
-import { RetentionEntity } from './entity/RetentionEntity'
 import { RpmEntity } from './entity/RpmEntity'
-import { RsaEntity } from './entity/RsaEntity'
 import { RubyEntity } from './entity/RubyEntity'
-import { SamlGroupSyncEntity } from './entity/SamlGroupSyncEntity'
-import { ScanEntity } from './entity/ScanEntity'
-import { SelfEntity } from './entity/SelfEntity'
 import { ServiceEntity } from './entity/ServiceEntity'
-import { StatusEntity } from './entity/StatusEntity'
 import { StatusBasicEntity } from './entity/StatusBasicEntity'
 import { StorageRegionEntity } from './entity/StorageRegionEntity'
 import { SwiftEntity } from './entity/SwiftEntity'
-import { SyncEntity } from './entity/SyncEntity'
-import { TagEntity } from './entity/TagEntity'
-import { TeamEntity } from './entity/TeamEntity'
-import { TerraformEntity } from './entity/TerraformEntity'
-import { TestEntity } from './entity/TestEntity'
-import { TokenEntity } from './entity/TokenEntity'
-import { TransferRegionEntity } from './entity/TransferRegionEntity'
 import { UserEntity } from './entity/UserEntity'
 import { UserAuthTokenEntity } from './entity/UserAuthTokenEntity'
 import { UserAuthenticationTokenEntity } from './entity/UserAuthenticationTokenEntity'
 import { UserBriefEntity } from './entity/UserBriefEntity'
 import { UserProfileEntity } from './entity/UserProfileEntity'
-import { VagrantEntity } from './entity/VagrantEntity'
-import { ValidateEntity } from './entity/ValidateEntity'
-import { VersionEntity } from './entity/VersionEntity'
 import { VulnerabilityEntity } from './entity/VulnerabilityEntity'
-import { VulnerabilityPolicyEntity } from './entity/VulnerabilityPolicyEntity'
 import { WebhookEntity } from './entity/WebhookEntity'
-import { X509EcdsaEntity } from './entity/X509EcdsaEntity'
-import { X509RsaEntity } from './entity/X509RsaEntity'
 
 export type * from './CloudsmithTypes'
 
@@ -254,7 +198,6 @@ class CloudsmithSDK {
 
     const options = this._options
 
-    // Build spec directly from SDK options + user-provided fetch args.
     const spec: any = {
       base: options.base,
       prefix: options.prefix,
@@ -270,7 +213,6 @@ class CloudsmithSDK {
 
     ctx.spec = spec
 
-    // Merge user-provided headers over SDK defaults.
     if (fetchargs.headers) {
       const uheaders = fetchargs.headers
       for (let key in uheaders) {
@@ -280,7 +222,6 @@ class CloudsmithSDK {
 
     
 
-    // Apply SDK auth (apikey, auth prefix, etc.)
     const authResult = prepareAuth(ctx)
     if (authResult instanceof Error) {
       return authResult
@@ -373,18 +314,6 @@ class CloudsmithSDK {
 
 
 
-  // Raw GraphQL access: the pressure valve that makes the generated
-  // surface's deliberate omissions (per-call selection sets, typed filter
-  // builders, batching, subscriptions) livable — the whole schema stays
-  // reachable.
-  //
-  // Thin wrapper over the same prepare/fetch path `direct` uses, with the
-  // one thing raw `direct` cannot do for GraphQL: a GraphQL failure rides
-  // HTTP 200 as a top-level `errors` array, so status alone would report a
-  // failed query as ok.
-  //
-  // NOTE: like `direct`, this bypasses the feature pipeline — no retry,
-  // ratelimit or paging features apply.
   async graphql(query: string, variables?: any, ctrl?: any) {
     const options = this._options
 
@@ -427,66 +356,12 @@ class CloudsmithSDK {
 
 
 
-  // Entity access: `client.Abort().list()` / `client.Abort().load({ id })`.
-  // The argument is the entity OPTIONS object (passed to the entity
-  // constructor as entopts), not initial entity data.
-  Abort(entopts?: Record<string, any>) {
-    const self = this
-    return new AbortEntity(self, entopts)
-  }
-
-
-  // Entity access: `client.Alpine().list()` / `client.Alpine().load({ id })`.
-  // The argument is the entity OPTIONS object (passed to the entity
-  // constructor as entopts), not initial entity data.
-  Alpine(entopts?: Record<string, any>) {
-    const self = this
-    return new AlpineEntity(self, entopts)
-  }
-
-
-  // Entity access: `client.AuditLog().list()` / `client.AuditLog().load({ id })`.
-  // The argument is the entity OPTIONS object (passed to the entity
-  // constructor as entopts), not initial entity data.
-  AuditLog(entopts?: Record<string, any>) {
-    const self = this
-    return new AuditLogEntity(self, entopts)
-  }
-
-
-  // Entity access: `client.Basic().list()` / `client.Basic().load({ id })`.
-  // The argument is the entity OPTIONS object (passed to the entity
-  // constructor as entopts), not initial entity data.
-  Basic(entopts?: Record<string, any>) {
-    const self = this
-    return new BasicEntity(self, entopts)
-  }
-
-
   // Entity access: `client.Cargo().list()` / `client.Cargo().load({ id })`.
   // The argument is the entity OPTIONS object (passed to the entity
   // constructor as entopts), not initial entity data.
   Cargo(entopts?: Record<string, any>) {
     const self = this
     return new CargoEntity(self, entopts)
-  }
-
-
-  // Entity access: `client.Cocoapod().list()` / `client.Cocoapod().load({ id })`.
-  // The argument is the entity OPTIONS object (passed to the entity
-  // constructor as entopts), not initial entity data.
-  Cocoapod(entopts?: Record<string, any>) {
-    const self = this
-    return new CocoapodEntity(self, entopts)
-  }
-
-
-  // Entity access: `client.Complete().list()` / `client.Complete().load({ id })`.
-  // The argument is the entity OPTIONS object (passed to the entity
-  // constructor as entopts), not initial entity data.
-  Complete(entopts?: Record<string, any>) {
-    const self = this
-    return new CompleteEntity(self, entopts)
   }
 
 
@@ -499,30 +374,12 @@ class CloudsmithSDK {
   }
 
 
-  // Entity access: `client.Conan().list()` / `client.Conan().load({ id })`.
-  // The argument is the entity OPTIONS object (passed to the entity
-  // constructor as entopts), not initial entity data.
-  Conan(entopts?: Record<string, any>) {
-    const self = this
-    return new ConanEntity(self, entopts)
-  }
-
-
   // Entity access: `client.Conda().list()` / `client.Conda().load({ id })`.
   // The argument is the entity OPTIONS object (passed to the entity
   // constructor as entopts), not initial entity data.
   Conda(entopts?: Record<string, any>) {
     const self = this
     return new CondaEntity(self, entopts)
-  }
-
-
-  // Entity access: `client.Copy().list()` / `client.Copy().load({ id })`.
-  // The argument is the entity OPTIONS object (passed to the entity
-  // constructor as entopts), not initial entity data.
-  Copy(entopts?: Record<string, any>) {
-    const self = this
-    return new CopyEntity(self, entopts)
   }
 
 
@@ -553,48 +410,12 @@ class CloudsmithSDK {
   }
 
 
-  // Entity access: `client.DenyPolicy().list()` / `client.DenyPolicy().load({ id })`.
-  // The argument is the entity OPTIONS object (passed to the entity
-  // constructor as entopts), not initial entity data.
-  DenyPolicy(entopts?: Record<string, any>) {
-    const self = this
-    return new DenyPolicyEntity(self, entopts)
-  }
-
-
-  // Entity access: `client.Dependency().list()` / `client.Dependency().load({ id })`.
-  // The argument is the entity OPTIONS object (passed to the entity
-  // constructor as entopts), not initial entity data.
-  Dependency(entopts?: Record<string, any>) {
-    const self = this
-    return new DependencyEntity(self, entopts)
-  }
-
-
-  // Entity access: `client.Disable().list()` / `client.Disable().load({ id })`.
-  // The argument is the entity OPTIONS object (passed to the entity
-  // constructor as entopts), not initial entity data.
-  Disable(entopts?: Record<string, any>) {
-    const self = this
-    return new DisableEntity(self, entopts)
-  }
-
-
   // Entity access: `client.DistributionFull().list()` / `client.DistributionFull().load({ id })`.
   // The argument is the entity OPTIONS object (passed to the entity
   // constructor as entopts), not initial entity data.
   DistributionFull(entopts?: Record<string, any>) {
     const self = this
     return new DistributionFullEntity(self, entopts)
-  }
-
-
-  // Entity access: `client.Distro().list()` / `client.Distro().load({ id })`.
-  // The argument is the entity OPTIONS object (passed to the entity
-  // constructor as entopts), not initial entity data.
-  Distro(entopts?: Record<string, any>) {
-    const self = this
-    return new DistroEntity(self, entopts)
   }
 
 
@@ -616,39 +437,12 @@ class CloudsmithSDK {
   }
 
 
-  // Entity access: `client.Ecdsa().list()` / `client.Ecdsa().load({ id })`.
-  // The argument is the entity OPTIONS object (passed to the entity
-  // constructor as entopts), not initial entity data.
-  Ecdsa(entopts?: Record<string, any>) {
-    const self = this
-    return new EcdsaEntity(self, entopts)
-  }
-
-
-  // Entity access: `client.Enable().list()` / `client.Enable().load({ id })`.
-  // The argument is the entity OPTIONS object (passed to the entity
-  // constructor as entopts), not initial entity data.
-  Enable(entopts?: Record<string, any>) {
-    const self = this
-    return new EnableEntity(self, entopts)
-  }
-
-
   // Entity access: `client.Entitlement().list()` / `client.Entitlement().load({ id })`.
   // The argument is the entity OPTIONS object (passed to the entity
   // constructor as entopts), not initial entity data.
   Entitlement(entopts?: Record<string, any>) {
     const self = this
     return new EntitlementEntity(self, entopts)
-  }
-
-
-  // Entity access: `client.Evaluation().list()` / `client.Evaluation().load({ id })`.
-  // The argument is the entity OPTIONS object (passed to the entity
-  // constructor as entopts), not initial entity data.
-  Evaluation(entopts?: Record<string, any>) {
-    const self = this
-    return new EvaluationEntity(self, entopts)
   }
 
 
@@ -670,39 +464,12 @@ class CloudsmithSDK {
   }
 
 
-  // Entity access: `client.Geoip().list()` / `client.Geoip().load({ id })`.
-  // The argument is the entity OPTIONS object (passed to the entity
-  // constructor as entopts), not initial entity data.
-  Geoip(entopts?: Record<string, any>) {
-    const self = this
-    return new GeoipEntity(self, entopts)
-  }
-
-
   // Entity access: `client.Gon().list()` / `client.Gon().load({ id })`.
   // The argument is the entity OPTIONS object (passed to the entity
   // constructor as entopts), not initial entity data.
   Gon(entopts?: Record<string, any>) {
     const self = this
     return new GonEntity(self, entopts)
-  }
-
-
-  // Entity access: `client.Gpg().list()` / `client.Gpg().load({ id })`.
-  // The argument is the entity OPTIONS object (passed to the entity
-  // constructor as entopts), not initial entity data.
-  Gpg(entopts?: Record<string, any>) {
-    const self = this
-    return new GpgEntity(self, entopts)
-  }
-
-
-  // Entity access: `client.Group().list()` / `client.Group().load({ id })`.
-  // The argument is the entity OPTIONS object (passed to the entity
-  // constructor as entopts), not initial entity data.
-  Group(entopts?: Record<string, any>) {
-    const self = this
-    return new GroupEntity(self, entopts)
   }
 
 
@@ -724,15 +491,6 @@ class CloudsmithSDK {
   }
 
 
-  // Entity access: `client.History().list()` / `client.History().load({ id })`.
-  // The argument is the entity OPTIONS object (passed to the entity
-  // constructor as entopts), not initial entity data.
-  History(entopts?: Record<string, any>) {
-    const self = this
-    return new HistoryEntity(self, entopts)
-  }
-
-
   // Entity access: `client.Huggingface().list()` / `client.Huggingface().load({ id })`.
   // The argument is the entity OPTIONS object (passed to the entity
   // constructor as entopts), not initial entity data.
@@ -742,75 +500,12 @@ class CloudsmithSDK {
   }
 
 
-  // Entity access: `client.Info().list()` / `client.Info().load({ id })`.
-  // The argument is the entity OPTIONS object (passed to the entity
-  // constructor as entopts), not initial entity data.
-  Info(entopts?: Record<string, any>) {
-    const self = this
-    return new InfoEntity(self, entopts)
-  }
-
-
-  // Entity access: `client.Invite().list()` / `client.Invite().load({ id })`.
-  // The argument is the entity OPTIONS object (passed to the entity
-  // constructor as entopts), not initial entity data.
-  Invite(entopts?: Record<string, any>) {
-    const self = this
-    return new InviteEntity(self, entopts)
-  }
-
-
-  // Entity access: `client.LicensePolicy().list()` / `client.LicensePolicy().load({ id })`.
-  // The argument is the entity OPTIONS object (passed to the entity
-  // constructor as entopts), not initial entity data.
-  LicensePolicy(entopts?: Record<string, any>) {
-    const self = this
-    return new LicensePolicyEntity(self, entopts)
-  }
-
-
-  // Entity access: `client.Limit().list()` / `client.Limit().load({ id })`.
-  // The argument is the entity OPTIONS object (passed to the entity
-  // constructor as entopts), not initial entity data.
-  Limit(entopts?: Record<string, any>) {
-    const self = this
-    return new LimitEntity(self, entopts)
-  }
-
-
-  // Entity access: `client.Luarock().list()` / `client.Luarock().load({ id })`.
-  // The argument is the entity OPTIONS object (passed to the entity
-  // constructor as entopts), not initial entity data.
-  Luarock(entopts?: Record<string, any>) {
-    const self = this
-    return new LuarockEntity(self, entopts)
-  }
-
-
   // Entity access: `client.Maven().list()` / `client.Maven().load({ id })`.
   // The argument is the entity OPTIONS object (passed to the entity
   // constructor as entopts), not initial entity data.
   Maven(entopts?: Record<string, any>) {
     const self = this
     return new MavenEntity(self, entopts)
-  }
-
-
-  // Entity access: `client.Member().list()` / `client.Member().load({ id })`.
-  // The argument is the entity OPTIONS object (passed to the entity
-  // constructor as entopts), not initial entity data.
-  Member(entopts?: Record<string, any>) {
-    const self = this
-    return new MemberEntity(self, entopts)
-  }
-
-
-  // Entity access: `client.Move().list()` / `client.Move().load({ id })`.
-  // The argument is the entity OPTIONS object (passed to the entity
-  // constructor as entopts), not initial entity data.
-  Move(entopts?: Record<string, any>) {
-    const self = this
-    return new MoveEntity(self, entopts)
   }
 
 
@@ -847,15 +542,6 @@ class CloudsmithSDK {
   Nuget(entopts?: Record<string, any>) {
     const self = this
     return new NugetEntity(self, entopts)
-  }
-
-
-  // Entity access: `client.OpenidConnect().list()` / `client.OpenidConnect().load({ id })`.
-  // The argument is the entity OPTIONS object (passed to the entity
-  // constructor as entopts), not initial entity data.
-  OpenidConnect(entopts?: Record<string, any>) {
-    const self = this
-    return new OpenidConnectEntity(self, entopts)
   }
 
 
@@ -976,24 +662,6 @@ class CloudsmithSDK {
   }
 
 
-  // Entity access: `client.Oss().list()` / `client.Oss().load({ id })`.
-  // The argument is the entity OPTIONS object (passed to the entity
-  // constructor as entopts), not initial entity data.
-  Oss(entopts?: Record<string, any>) {
-    const self = this
-    return new OssEntity(self, entopts)
-  }
-
-
-  // Entity access: `client.P2n().list()` / `client.P2n().load({ id })`.
-  // The argument is the entity OPTIONS object (passed to the entity
-  // constructor as entopts), not initial entity data.
-  P2n(entopts?: Record<string, any>) {
-    const self = this
-    return new P2nEntity(self, entopts)
-  }
-
-
   // Entity access: `client.Package().list()` / `client.Package().load({ id })`.
   // The argument is the entity OPTIONS object (passed to the entity
   // constructor as entopts), not initial entity data.
@@ -1057,24 +725,6 @@ class CloudsmithSDK {
   }
 
 
-  // Entity access: `client.Privilege().list()` / `client.Privilege().load({ id })`.
-  // The argument is the entity OPTIONS object (passed to the entity
-  // constructor as entopts), not initial entity data.
-  Privilege(entopts?: Record<string, any>) {
-    const self = this
-    return new PrivilegeEntity(self, entopts)
-  }
-
-
-  // Entity access: `client.Profile().list()` / `client.Profile().load({ id })`.
-  // The argument is the entity OPTIONS object (passed to the entity
-  // constructor as entopts), not initial entity data.
-  Profile(entopts?: Record<string, any>) {
-    const self = this
-    return new ProfileEntity(self, entopts)
-  }
-
-
   // Entity access: `client.ProviderSetting().list()` / `client.ProviderSetting().load({ id })`.
   // The argument is the entity OPTIONS object (passed to the entity
   // constructor as entopts), not initial entity data.
@@ -1102,48 +752,12 @@ class CloudsmithSDK {
   }
 
 
-  // Entity access: `client.Quarantine().list()` / `client.Quarantine().load({ id })`.
-  // The argument is the entity OPTIONS object (passed to the entity
-  // constructor as entopts), not initial entity data.
-  Quarantine(entopts?: Record<string, any>) {
-    const self = this
-    return new QuarantineEntity(self, entopts)
-  }
-
-
   // Entity access: `client.Quota().list()` / `client.Quota().load({ id })`.
   // The argument is the entity OPTIONS object (passed to the entity
   // constructor as entopts), not initial entity data.
   Quota(entopts?: Record<string, any>) {
     const self = this
     return new QuotaEntity(self, entopts)
-  }
-
-
-  // Entity access: `client.Raw().list()` / `client.Raw().load({ id })`.
-  // The argument is the entity OPTIONS object (passed to the entity
-  // constructor as entopts), not initial entity data.
-  Raw(entopts?: Record<string, any>) {
-    const self = this
-    return new RawEntity(self, entopts)
-  }
-
-
-  // Entity access: `client.Refresh().list()` / `client.Refresh().load({ id })`.
-  // The argument is the entity OPTIONS object (passed to the entity
-  // constructor as entopts), not initial entity data.
-  Refresh(entopts?: Record<string, any>) {
-    const self = this
-    return new RefreshEntity(self, entopts)
-  }
-
-
-  // Entity access: `client.Regenerate().list()` / `client.Regenerate().load({ id })`.
-  // The argument is the entity OPTIONS object (passed to the entity
-  // constructor as entopts), not initial entity data.
-  Regenerate(entopts?: Record<string, any>) {
-    const self = this
-    return new RegenerateEntity(self, entopts)
   }
 
 
@@ -1210,12 +824,12 @@ class CloudsmithSDK {
   }
 
 
-  // Entity access: `client.RepositoryPrivilegeInput().list()` / `client.RepositoryPrivilegeInput().load({ id })`.
+  // Entity access: `client.RepositoryPrivilegeDict().list()` / `client.RepositoryPrivilegeDict().load({ id })`.
   // The argument is the entity OPTIONS object (passed to the entity
   // constructor as entopts), not initial entity data.
-  RepositoryPrivilegeInput(entopts?: Record<string, any>) {
+  RepositoryPrivilegeDict(entopts?: Record<string, any>) {
     const self = this
-    return new RepositoryPrivilegeInputEntity(self, entopts)
+    return new RepositoryPrivilegeDictEntity(self, entopts)
   }
 
 
@@ -1291,39 +905,12 @@ class CloudsmithSDK {
   }
 
 
-  // Entity access: `client.Reset().list()` / `client.Reset().load({ id })`.
-  // The argument is the entity OPTIONS object (passed to the entity
-  // constructor as entopts), not initial entity data.
-  Reset(entopts?: Record<string, any>) {
-    const self = this
-    return new ResetEntity(self, entopts)
-  }
-
-
   // Entity access: `client.ResourcesRateCheck().list()` / `client.ResourcesRateCheck().load({ id })`.
   // The argument is the entity OPTIONS object (passed to the entity
   // constructor as entopts), not initial entity data.
   ResourcesRateCheck(entopts?: Record<string, any>) {
     const self = this
     return new ResourcesRateCheckEntity(self, entopts)
-  }
-
-
-  // Entity access: `client.Resync().list()` / `client.Resync().load({ id })`.
-  // The argument is the entity OPTIONS object (passed to the entity
-  // constructor as entopts), not initial entity data.
-  Resync(entopts?: Record<string, any>) {
-    const self = this
-    return new ResyncEntity(self, entopts)
-  }
-
-
-  // Entity access: `client.Retention().list()` / `client.Retention().load({ id })`.
-  // The argument is the entity OPTIONS object (passed to the entity
-  // constructor as entopts), not initial entity data.
-  Retention(entopts?: Record<string, any>) {
-    const self = this
-    return new RetentionEntity(self, entopts)
   }
 
 
@@ -1336,15 +923,6 @@ class CloudsmithSDK {
   }
 
 
-  // Entity access: `client.Rsa().list()` / `client.Rsa().load({ id })`.
-  // The argument is the entity OPTIONS object (passed to the entity
-  // constructor as entopts), not initial entity data.
-  Rsa(entopts?: Record<string, any>) {
-    const self = this
-    return new RsaEntity(self, entopts)
-  }
-
-
   // Entity access: `client.Ruby().list()` / `client.Ruby().load({ id })`.
   // The argument is the entity OPTIONS object (passed to the entity
   // constructor as entopts), not initial entity data.
@@ -1354,48 +932,12 @@ class CloudsmithSDK {
   }
 
 
-  // Entity access: `client.SamlGroupSync().list()` / `client.SamlGroupSync().load({ id })`.
-  // The argument is the entity OPTIONS object (passed to the entity
-  // constructor as entopts), not initial entity data.
-  SamlGroupSync(entopts?: Record<string, any>) {
-    const self = this
-    return new SamlGroupSyncEntity(self, entopts)
-  }
-
-
-  // Entity access: `client.Scan().list()` / `client.Scan().load({ id })`.
-  // The argument is the entity OPTIONS object (passed to the entity
-  // constructor as entopts), not initial entity data.
-  Scan(entopts?: Record<string, any>) {
-    const self = this
-    return new ScanEntity(self, entopts)
-  }
-
-
-  // Entity access: `client.Self().list()` / `client.Self().load({ id })`.
-  // The argument is the entity OPTIONS object (passed to the entity
-  // constructor as entopts), not initial entity data.
-  Self(entopts?: Record<string, any>) {
-    const self = this
-    return new SelfEntity(self, entopts)
-  }
-
-
   // Entity access: `client.Service().list()` / `client.Service().load({ id })`.
   // The argument is the entity OPTIONS object (passed to the entity
   // constructor as entopts), not initial entity data.
   Service(entopts?: Record<string, any>) {
     const self = this
     return new ServiceEntity(self, entopts)
-  }
-
-
-  // Entity access: `client.Status().list()` / `client.Status().load({ id })`.
-  // The argument is the entity OPTIONS object (passed to the entity
-  // constructor as entopts), not initial entity data.
-  Status(entopts?: Record<string, any>) {
-    const self = this
-    return new StatusEntity(self, entopts)
   }
 
 
@@ -1423,69 +965,6 @@ class CloudsmithSDK {
   Swift(entopts?: Record<string, any>) {
     const self = this
     return new SwiftEntity(self, entopts)
-  }
-
-
-  // Entity access: `client.Sync().list()` / `client.Sync().load({ id })`.
-  // The argument is the entity OPTIONS object (passed to the entity
-  // constructor as entopts), not initial entity data.
-  Sync(entopts?: Record<string, any>) {
-    const self = this
-    return new SyncEntity(self, entopts)
-  }
-
-
-  // Entity access: `client.Tag().list()` / `client.Tag().load({ id })`.
-  // The argument is the entity OPTIONS object (passed to the entity
-  // constructor as entopts), not initial entity data.
-  Tag(entopts?: Record<string, any>) {
-    const self = this
-    return new TagEntity(self, entopts)
-  }
-
-
-  // Entity access: `client.Team().list()` / `client.Team().load({ id })`.
-  // The argument is the entity OPTIONS object (passed to the entity
-  // constructor as entopts), not initial entity data.
-  Team(entopts?: Record<string, any>) {
-    const self = this
-    return new TeamEntity(self, entopts)
-  }
-
-
-  // Entity access: `client.Terraform().list()` / `client.Terraform().load({ id })`.
-  // The argument is the entity OPTIONS object (passed to the entity
-  // constructor as entopts), not initial entity data.
-  Terraform(entopts?: Record<string, any>) {
-    const self = this
-    return new TerraformEntity(self, entopts)
-  }
-
-
-  // Entity access: `client.Test().list()` / `client.Test().load({ id })`.
-  // The argument is the entity OPTIONS object (passed to the entity
-  // constructor as entopts), not initial entity data.
-  Test(entopts?: Record<string, any>) {
-    const self = this
-    return new TestEntity(self, entopts)
-  }
-
-
-  // Entity access: `client.Token().list()` / `client.Token().load({ id })`.
-  // The argument is the entity OPTIONS object (passed to the entity
-  // constructor as entopts), not initial entity data.
-  Token(entopts?: Record<string, any>) {
-    const self = this
-    return new TokenEntity(self, entopts)
-  }
-
-
-  // Entity access: `client.TransferRegion().list()` / `client.TransferRegion().load({ id })`.
-  // The argument is the entity OPTIONS object (passed to the entity
-  // constructor as entopts), not initial entity data.
-  TransferRegion(entopts?: Record<string, any>) {
-    const self = this
-    return new TransferRegionEntity(self, entopts)
   }
 
 
@@ -1534,33 +1013,6 @@ class CloudsmithSDK {
   }
 
 
-  // Entity access: `client.Vagrant().list()` / `client.Vagrant().load({ id })`.
-  // The argument is the entity OPTIONS object (passed to the entity
-  // constructor as entopts), not initial entity data.
-  Vagrant(entopts?: Record<string, any>) {
-    const self = this
-    return new VagrantEntity(self, entopts)
-  }
-
-
-  // Entity access: `client.Validate().list()` / `client.Validate().load({ id })`.
-  // The argument is the entity OPTIONS object (passed to the entity
-  // constructor as entopts), not initial entity data.
-  Validate(entopts?: Record<string, any>) {
-    const self = this
-    return new ValidateEntity(self, entopts)
-  }
-
-
-  // Entity access: `client.Version().list()` / `client.Version().load({ id })`.
-  // The argument is the entity OPTIONS object (passed to the entity
-  // constructor as entopts), not initial entity data.
-  Version(entopts?: Record<string, any>) {
-    const self = this
-    return new VersionEntity(self, entopts)
-  }
-
-
   // Entity access: `client.Vulnerability().list()` / `client.Vulnerability().load({ id })`.
   // The argument is the entity OPTIONS object (passed to the entity
   // constructor as entopts), not initial entity data.
@@ -1570,39 +1022,12 @@ class CloudsmithSDK {
   }
 
 
-  // Entity access: `client.VulnerabilityPolicy().list()` / `client.VulnerabilityPolicy().load({ id })`.
-  // The argument is the entity OPTIONS object (passed to the entity
-  // constructor as entopts), not initial entity data.
-  VulnerabilityPolicy(entopts?: Record<string, any>) {
-    const self = this
-    return new VulnerabilityPolicyEntity(self, entopts)
-  }
-
-
   // Entity access: `client.Webhook().list()` / `client.Webhook().load({ id })`.
   // The argument is the entity OPTIONS object (passed to the entity
   // constructor as entopts), not initial entity data.
   Webhook(entopts?: Record<string, any>) {
     const self = this
     return new WebhookEntity(self, entopts)
-  }
-
-
-  // Entity access: `client.X509Ecdsa().list()` / `client.X509Ecdsa().load({ id })`.
-  // The argument is the entity OPTIONS object (passed to the entity
-  // constructor as entopts), not initial entity data.
-  X509Ecdsa(entopts?: Record<string, any>) {
-    const self = this
-    return new X509EcdsaEntity(self, entopts)
-  }
-
-
-  // Entity access: `client.X509Rsa().list()` / `client.X509Rsa().load({ id })`.
-  // The argument is the entity OPTIONS object (passed to the entity
-  // constructor as entopts), not initial entity data.
-  X509Rsa(entopts?: Record<string, any>) {
-    const self = this
-    return new X509RsaEntity(self, entopts)
   }
 
 

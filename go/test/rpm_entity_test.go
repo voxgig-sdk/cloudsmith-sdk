@@ -207,7 +207,7 @@ func rpmBasicSetup(extra map[string]any) *entityTestSetup {
 
 	// Generate idmap via transform, matching TS pattern.
 	idmap, _ := vs.Transform(
-		[]any{"rpm01", "rpm02", "rpm03", "package01", "package02", "package03", "repo01", "repo02", "repo03", "identifier01", "owner01"},
+		[]any{"rpm01", "rpm02", "rpm03", "repo01", "repo02", "repo03", "identifier01", "owner01"},
 		map[string]any{
 			"`$PACK`": []any{"", map[string]any{
 				"`$KEY`": "`$COPY`",

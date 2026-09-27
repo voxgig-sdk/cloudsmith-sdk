@@ -147,7 +147,7 @@ function docker_basic_setup($extra)
 
     // Generate idmap.
     $idmap = [];
-    foreach (["docker01", "docker02", "docker03", "package01", "package02", "package03", "repo01", "repo02", "repo03", "identifier01", "owner01"] as $k) {
+    foreach (["docker01", "docker02", "docker03", "repo01", "repo02", "repo03", "identifier01", "owner01"] as $k) {
         $idmap[$k] = strtoupper($k);
     }
 

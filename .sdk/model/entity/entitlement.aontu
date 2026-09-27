@@ -1,0 +1,516 @@
+# Entity: entitlement
+
+main: kit: entity: entitlement: {
+
+  alias: field: {}
+
+  fields: {
+    active: {
+      h: "Active"
+      n: "active"
+      r: false
+      sh: "Number of packages with at least 1 download"
+      t: "`$INTEGER`"
+    }
+    bandwidth: {
+      h: "Bandwidth"
+      n: "bandwidth"
+      r: true
+      t: "`$OBJECT`"
+    }
+    downloads: {
+      h: "Downloads"
+      n: "downloads"
+      r: true
+      t: "`$OBJECT`"
+    }
+    id: {
+      h: "Id"
+      n: "id"
+      r: false
+      t: "`$STRING`"
+    }
+    inactive: {
+      h: "Inactive"
+      n: "inactive"
+      r: false
+      sh: "Packages with zero downloads"
+      t: "`$INTEGER`"
+    }
+    total: {
+      h: "Total"
+      n: "total"
+      r: false
+      sh: "Total number of packages in repo"
+      t: "`$INTEGER`"
+    }
+  }
+
+  id: {
+    field: "id"
+    name: "id"
+    parts: [
+      "owner"
+      "repo"
+      "identifier"
+    ]
+    sep: "/"
+  }
+
+  name: "entitlement"
+  op: {
+    create: {
+      name: "create"
+      points: [
+        {
+          co: {
+            id: "POST /entitlements/{owner}/{repo}/{identifier}/reset/"
+            source: "swagger2"
+            version: 2
+          }
+          g: {
+            params: [
+              {
+                k: "param"
+                n: "identifier"
+                or: "identifier"
+                r: true
+                t: "`$ANY`"
+              }
+              {
+                k: "param"
+                n: "owner"
+                or: "owner"
+                r: true
+                t: "`$ANY`"
+              }
+              {
+                k: "param"
+                n: "repo"
+                or: "repo"
+                r: true
+                t: "`$ANY`"
+              }
+            ]
+            query: [
+              {
+                k: "query"
+                n: "show_token"
+                or: "show_token"
+                r: false
+                t: "`$ANY`"
+              }
+            ]
+          }
+          m: "POST"
+          o: "/entitlements/{owner}/{repo}/{identifier}/reset/"
+          q: {
+            exist: [
+              "identifier"
+              "owner"
+              "repo"
+              "show_token"
+            ]
+          }
+          s: [
+            {
+              lit: "entitlements"
+            }
+            {
+              var: "owner"
+            }
+            {
+              var: "repo"
+            }
+            {
+              var: "identifier"
+            }
+            {
+              lit: "reset"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          co: {
+            id: "POST /entitlements/{owner}/{repo}/{identifier}/disable/"
+            source: "swagger2"
+            version: 2
+          }
+          g: {
+            params: [
+              {
+                k: "param"
+                n: "identifier"
+                or: "identifier"
+                r: true
+                t: "`$ANY`"
+              }
+              {
+                k: "param"
+                n: "owner"
+                or: "owner"
+                r: true
+                t: "`$ANY`"
+              }
+              {
+                k: "param"
+                n: "repo"
+                or: "repo"
+                r: true
+                t: "`$ANY`"
+              }
+            ]
+          }
+          m: "POST"
+          o: "/entitlements/{owner}/{repo}/{identifier}/disable/"
+          q: {
+            exist: [
+              "identifier"
+              "owner"
+              "repo"
+            ]
+          }
+          s: [
+            {
+              lit: "entitlements"
+            }
+            {
+              var: "owner"
+            }
+            {
+              var: "repo"
+            }
+            {
+              var: "identifier"
+            }
+            {
+              lit: "disable"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          co: {
+            id: "POST /entitlements/{owner}/{repo}/{identifier}/enable/"
+            source: "swagger2"
+            version: 2
+          }
+          g: {
+            params: [
+              {
+                k: "param"
+                n: "identifier"
+                or: "identifier"
+                r: true
+                t: "`$ANY`"
+              }
+              {
+                k: "param"
+                n: "owner"
+                or: "owner"
+                r: true
+                t: "`$ANY`"
+              }
+              {
+                k: "param"
+                n: "repo"
+                or: "repo"
+                r: true
+                t: "`$ANY`"
+              }
+            ]
+          }
+          m: "POST"
+          o: "/entitlements/{owner}/{repo}/{identifier}/enable/"
+          q: {
+            exist: [
+              "identifier"
+              "owner"
+              "repo"
+            ]
+          }
+          s: [
+            {
+              lit: "entitlements"
+            }
+            {
+              var: "owner"
+            }
+            {
+              var: "repo"
+            }
+            {
+              var: "identifier"
+            }
+            {
+              lit: "enable"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+    load: {
+      name: "load"
+      points: [
+        {
+          co: {
+            id: "GET /metrics/entitlements/{owner}/{repo}/"
+            source: "swagger2"
+            version: 2
+          }
+          g: {
+            params: [
+              {
+                k: "param"
+                n: "owner"
+                or: "owner"
+                r: true
+                t: "`$ANY`"
+              }
+              {
+                k: "param"
+                n: "repo"
+                or: "repo"
+                r: true
+                t: "`$ANY`"
+              }
+            ]
+            query: [
+              {
+                k: "query"
+                n: "finish"
+                or: "finish"
+                r: false
+                t: "`$ANY`"
+              }
+              {
+                k: "query"
+                n: "page"
+                or: "page"
+                r: false
+                t: "`$INTEGER`"
+              }
+              {
+                k: "query"
+                n: "page_size"
+                or: "page_size"
+                r: false
+                t: "`$INTEGER`"
+              }
+              {
+                k: "query"
+                n: "start"
+                or: "start"
+                r: false
+                t: "`$ANY`"
+              }
+              {
+                k: "query"
+                n: "token"
+                or: "token"
+                r: false
+                t: "`$STRING`"
+              }
+            ]
+          }
+          m: "GET"
+          o: "/metrics/entitlements/{owner}/{repo}/"
+          q: {
+            exist: [
+              "finish"
+              "owner"
+              "page"
+              "page_size"
+              "repo"
+              "start"
+              "token"
+            ]
+          }
+          s: [
+            {
+              lit: "metrics"
+            }
+            {
+              lit: "entitlements"
+            }
+            {
+              var: "owner"
+            }
+            {
+              var: "repo"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body.tokens`"
+          }
+        }
+        {
+          co: {
+            id: "GET /metrics/entitlements/{owner}/"
+            source: "swagger2"
+            version: 2
+          }
+          g: {
+            params: [
+              {
+                k: "param"
+                n: "id"
+                or: "owner"
+                r: true
+                t: "`$STRING`"
+              }
+            ]
+            query: [
+              {
+                k: "query"
+                n: "finish"
+                or: "finish"
+                r: false
+                t: "`$ANY`"
+              }
+              {
+                k: "query"
+                n: "page"
+                or: "page"
+                r: false
+                t: "`$INTEGER`"
+              }
+              {
+                k: "query"
+                n: "page_size"
+                or: "page_size"
+                r: false
+                t: "`$INTEGER`"
+              }
+              {
+                k: "query"
+                n: "start"
+                or: "start"
+                r: false
+                t: "`$ANY`"
+              }
+              {
+                k: "query"
+                n: "token"
+                or: "token"
+                r: false
+                t: "`$STRING`"
+              }
+            ]
+          }
+          m: "GET"
+          o: "/metrics/entitlements/{owner}/"
+          q: {
+            exist: [
+              "finish"
+              "id"
+              "page"
+              "page_size"
+              "start"
+              "token"
+            ]
+          }
+          r: {
+            param: {
+              owner: "id"
+            }
+          }
+          s: [
+            {
+              lit: "metrics"
+            }
+            {
+              lit: "entitlements"
+            }
+            {
+              var: "id"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body.tokens`"
+          }
+        }
+      ]
+    }
+    remove: {
+      name: "remove"
+      points: [
+        {
+          co: {
+            id: "DELETE /entitlements/{owner}/{repo}/{identifier}/"
+            source: "swagger2"
+            version: 2
+          }
+          g: {
+            params: [
+              {
+                k: "param"
+                n: "identifier"
+                or: "identifier"
+                r: true
+                t: "`$ANY`"
+              }
+              {
+                k: "param"
+                n: "owner"
+                or: "owner"
+                r: true
+                t: "`$ANY`"
+              }
+              {
+                k: "param"
+                n: "repo"
+                or: "repo"
+                r: true
+                t: "`$ANY`"
+              }
+            ]
+          }
+          m: "DELETE"
+          o: "/entitlements/{owner}/{repo}/{identifier}/"
+          q: {
+            exist: [
+              "identifier"
+              "owner"
+              "repo"
+            ]
+          }
+          s: [
+            {
+              lit: "entitlements"
+            }
+            {
+              var: "owner"
+            }
+            {
+              var: "repo"
+            }
+            {
+              var: "identifier"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+  }
+
+
+
+}

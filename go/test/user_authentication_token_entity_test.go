@@ -104,7 +104,7 @@ func user_authentication_tokenBasicSetup(extra map[string]any) *entityTestSetup 
 
 	// Generate idmap via transform, matching TS pattern.
 	idmap, _ := vs.Transform(
-		[]any{"user_authentication_token01", "user_authentication_token02", "user_authentication_token03", "token01", "token02", "token03"},
+		[]any{"user_authentication_token01", "user_authentication_token02", "user_authentication_token03"},
 		map[string]any{
 			"`$PACK`": []any{"", map[string]any{
 				"`$KEY`": "`$COPY`",

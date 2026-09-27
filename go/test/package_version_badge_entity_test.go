@@ -104,7 +104,7 @@ func package_version_badgeBasicSetup(extra map[string]any) *entityTestSetup {
 
 	// Generate idmap via transform, matching TS pattern.
 	idmap, _ := vs.Transform(
-		[]any{"package_version_badge01", "package_version_badge02", "package_version_badge03", "version01", "version02", "version03", "owner01", "package_format01", "package_name01", "package_version01", "repo01"},
+		[]any{"package_version_badge01", "package_version_badge02", "package_version_badge03", "owner01", "package_format01", "package_name01", "package_version01", "repo01"},
 		map[string]any{
 			"`$PACK`": []any{"", map[string]any{
 				"`$KEY`": "`$COPY`",

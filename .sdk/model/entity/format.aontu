@@ -1,0 +1,160 @@
+# Entity: format
+
+main: kit: entity: format: {
+
+  alias: field: {}
+
+  fields: {
+    description: {
+      h: "Description"
+      n: "description"
+      r: true
+      sh: "Description of the package format"
+      t: "`$STRING`"
+    }
+    distributions: {
+      h: "Distributions"
+      n: "distributions"
+      r: false
+      sh: "The distributions supported by this package format"
+      t: "`$ARRAY`"
+    }
+    extensions: {
+      h: "Extensions"
+      n: "extensions"
+      r: true
+      sh: "A non-exhaustive list of extensions supported"
+      t: "`$ARRAY`"
+    }
+    id: {
+      h: "Id"
+      n: "id"
+      r: false
+      t: "`$STRING`"
+    }
+    name: {
+      h: "Name"
+      n: "name"
+      r: true
+      sh: "Name for the package format"
+      t: "`$STRING`"
+    }
+    premium: {
+      h: "Premium"
+      n: "premium"
+      r: true
+      sh: "If true the package format is a premium-only feature"
+      t: "`$BOOLEAN`"
+    }
+    premium_plan_id: {
+      h: "Premium Plan Id"
+      n: "premium_plan_id"
+      r: false
+      sh: "The minimum plan id required for this package format"
+      t: "`$STRING`"
+    }
+    premium_plan_name: {
+      h: "Premium Plan Name"
+      n: "premium_plan_name"
+      r: false
+      sh: "The minimum plan name required for this package format"
+      t: "`$STRING`"
+    }
+    slug: {
+      h: "Slug"
+      n: "slug"
+      r: true
+      sh: "Slug for the package format"
+      t: "`$STRING`"
+    }
+    supports: {
+      h: "Supports"
+      n: "supports"
+      r: true
+      sh: "A set of what the package format supports"
+      t: "`$OBJECT`"
+    }
+  }
+
+  id: {
+    field: "id"
+    name: "id"
+  }
+
+  name: "format"
+  op: {
+    list: {
+      name: "list"
+      points: [
+        {
+          co: {
+            id: "GET /formats/"
+            source: "swagger2"
+            version: 2
+          }
+          m: "GET"
+          o: "/formats/"
+          s: [
+            {
+              lit: "formats"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+    load: {
+      name: "load"
+      points: [
+        {
+          co: {
+            id: "GET /formats/{slug}/"
+            source: "swagger2"
+            version: 2
+          }
+          g: {
+            params: [
+              {
+                k: "param"
+                n: "id"
+                or: "slug"
+                r: true
+                t: "`$STRING`"
+              }
+            ]
+          }
+          m: "GET"
+          o: "/formats/{slug}/"
+          q: {
+            exist: [
+              "id"
+            ]
+          }
+          r: {
+            param: {
+              slug: "id"
+            }
+          }
+          s: [
+            {
+              lit: "formats"
+            }
+            {
+              var: "id"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+  }
+
+
+
+}

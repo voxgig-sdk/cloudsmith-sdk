@@ -115,7 +115,7 @@ function distribution_full_basic_setup($extra)
 
     // Generate idmap.
     $idmap = [];
-    foreach (["distribution_full01", "distribution_full02", "distribution_full03", "distro01", "distro02", "distro03"] as $k) {
+    foreach (["distribution_full01", "distribution_full02", "distribution_full03"] as $k) {
         $idmap[$k] = strtoupper($k);
     }
 

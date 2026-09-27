@@ -49,54 +49,6 @@ const client = CloudsmithSDK.test()
 
 ### Instance Methods
 
-#### `Abort(data?: object)`
-
-Create a new `Abort` entity instance.
-
-**Parameters:**
-
-| Name | Type | Description |
-| --- | --- | --- |
-| `data` | `object` | Initial entity data. |
-
-**Returns:** `AbortEntity` instance.
-
-#### `Alpine(data?: object)`
-
-Create a new `Alpine` entity instance.
-
-**Parameters:**
-
-| Name | Type | Description |
-| --- | --- | --- |
-| `data` | `object` | Initial entity data. |
-
-**Returns:** `AlpineEntity` instance.
-
-#### `AuditLog(data?: object)`
-
-Create a new `AuditLog` entity instance.
-
-**Parameters:**
-
-| Name | Type | Description |
-| --- | --- | --- |
-| `data` | `object` | Initial entity data. |
-
-**Returns:** `AuditLogEntity` instance.
-
-#### `Basic(data?: object)`
-
-Create a new `Basic` entity instance.
-
-**Parameters:**
-
-| Name | Type | Description |
-| --- | --- | --- |
-| `data` | `object` | Initial entity data. |
-
-**Returns:** `BasicEntity` instance.
-
 #### `Cargo(data?: object)`
 
 Create a new `Cargo` entity instance.
@@ -108,30 +60,6 @@ Create a new `Cargo` entity instance.
 | `data` | `object` | Initial entity data. |
 
 **Returns:** `CargoEntity` instance.
-
-#### `Cocoapod(data?: object)`
-
-Create a new `Cocoapod` entity instance.
-
-**Parameters:**
-
-| Name | Type | Description |
-| --- | --- | --- |
-| `data` | `object` | Initial entity data. |
-
-**Returns:** `CocoapodEntity` instance.
-
-#### `Complete(data?: object)`
-
-Create a new `Complete` entity instance.
-
-**Parameters:**
-
-| Name | Type | Description |
-| --- | --- | --- |
-| `data` | `object` | Initial entity data. |
-
-**Returns:** `CompleteEntity` instance.
 
 #### `Composer(data?: object)`
 
@@ -145,18 +73,6 @@ Create a new `Composer` entity instance.
 
 **Returns:** `ComposerEntity` instance.
 
-#### `Conan(data?: object)`
-
-Create a new `Conan` entity instance.
-
-**Parameters:**
-
-| Name | Type | Description |
-| --- | --- | --- |
-| `data` | `object` | Initial entity data. |
-
-**Returns:** `ConanEntity` instance.
-
 #### `Conda(data?: object)`
 
 Create a new `Conda` entity instance.
@@ -168,18 +84,6 @@ Create a new `Conda` entity instance.
 | `data` | `object` | Initial entity data. |
 
 **Returns:** `CondaEntity` instance.
-
-#### `Copy(data?: object)`
-
-Create a new `Copy` entity instance.
-
-**Parameters:**
-
-| Name | Type | Description |
-| --- | --- | --- |
-| `data` | `object` | Initial entity data. |
-
-**Returns:** `CopyEntity` instance.
 
 #### `Cran(data?: object)`
 
@@ -217,42 +121,6 @@ Create a new `Deb` entity instance.
 
 **Returns:** `DebEntity` instance.
 
-#### `DenyPolicy(data?: object)`
-
-Create a new `DenyPolicy` entity instance.
-
-**Parameters:**
-
-| Name | Type | Description |
-| --- | --- | --- |
-| `data` | `object` | Initial entity data. |
-
-**Returns:** `DenyPolicyEntity` instance.
-
-#### `Dependency(data?: object)`
-
-Create a new `Dependency` entity instance.
-
-**Parameters:**
-
-| Name | Type | Description |
-| --- | --- | --- |
-| `data` | `object` | Initial entity data. |
-
-**Returns:** `DependencyEntity` instance.
-
-#### `Disable(data?: object)`
-
-Create a new `Disable` entity instance.
-
-**Parameters:**
-
-| Name | Type | Description |
-| --- | --- | --- |
-| `data` | `object` | Initial entity data. |
-
-**Returns:** `DisableEntity` instance.
-
 #### `DistributionFull(data?: object)`
 
 Create a new `DistributionFull` entity instance.
@@ -264,18 +132,6 @@ Create a new `DistributionFull` entity instance.
 | `data` | `object` | Initial entity data. |
 
 **Returns:** `DistributionFullEntity` instance.
-
-#### `Distro(data?: object)`
-
-Create a new `Distro` entity instance.
-
-**Parameters:**
-
-| Name | Type | Description |
-| --- | --- | --- |
-| `data` | `object` | Initial entity data. |
-
-**Returns:** `DistroEntity` instance.
 
 #### `Docker(data?: object)`
 
@@ -301,30 +157,6 @@ Create a new `DynamicMapping` entity instance.
 
 **Returns:** `DynamicMappingEntity` instance.
 
-#### `Ecdsa(data?: object)`
-
-Create a new `Ecdsa` entity instance.
-
-**Parameters:**
-
-| Name | Type | Description |
-| --- | --- | --- |
-| `data` | `object` | Initial entity data. |
-
-**Returns:** `EcdsaEntity` instance.
-
-#### `Enable(data?: object)`
-
-Create a new `Enable` entity instance.
-
-**Parameters:**
-
-| Name | Type | Description |
-| --- | --- | --- |
-| `data` | `object` | Initial entity data. |
-
-**Returns:** `EnableEntity` instance.
-
 #### `Entitlement(data?: object)`
 
 Create a new `Entitlement` entity instance.
@@ -336,18 +168,6 @@ Create a new `Entitlement` entity instance.
 | `data` | `object` | Initial entity data. |
 
 **Returns:** `EntitlementEntity` instance.
-
-#### `Evaluation(data?: object)`
-
-Create a new `Evaluation` entity instance.
-
-**Parameters:**
-
-| Name | Type | Description |
-| --- | --- | --- |
-| `data` | `object` | Initial entity data. |
-
-**Returns:** `EvaluationEntity` instance.
 
 #### `File(data?: object)`
 
@@ -373,18 +193,6 @@ Create a new `Format` entity instance.
 
 **Returns:** `FormatEntity` instance.
 
-#### `Geoip(data?: object)`
-
-Create a new `Geoip` entity instance.
-
-**Parameters:**
-
-| Name | Type | Description |
-| --- | --- | --- |
-| `data` | `object` | Initial entity data. |
-
-**Returns:** `GeoipEntity` instance.
-
 #### `Gon(data?: object)`
 
 Create a new `Gon` entity instance.
@@ -396,30 +204,6 @@ Create a new `Gon` entity instance.
 | `data` | `object` | Initial entity data. |
 
 **Returns:** `GonEntity` instance.
-
-#### `Gpg(data?: object)`
-
-Create a new `Gpg` entity instance.
-
-**Parameters:**
-
-| Name | Type | Description |
-| --- | --- | --- |
-| `data` | `object` | Initial entity data. |
-
-**Returns:** `GpgEntity` instance.
-
-#### `Group(data?: object)`
-
-Create a new `Group` entity instance.
-
-**Parameters:**
-
-| Name | Type | Description |
-| --- | --- | --- |
-| `data` | `object` | Initial entity data. |
-
-**Returns:** `GroupEntity` instance.
 
 #### `Helm(data?: object)`
 
@@ -445,18 +229,6 @@ Create a new `Hex` entity instance.
 
 **Returns:** `HexEntity` instance.
 
-#### `History(data?: object)`
-
-Create a new `History` entity instance.
-
-**Parameters:**
-
-| Name | Type | Description |
-| --- | --- | --- |
-| `data` | `object` | Initial entity data. |
-
-**Returns:** `HistoryEntity` instance.
-
 #### `Huggingface(data?: object)`
 
 Create a new `Huggingface` entity instance.
@@ -469,66 +241,6 @@ Create a new `Huggingface` entity instance.
 
 **Returns:** `HuggingfaceEntity` instance.
 
-#### `Info(data?: object)`
-
-Create a new `Info` entity instance.
-
-**Parameters:**
-
-| Name | Type | Description |
-| --- | --- | --- |
-| `data` | `object` | Initial entity data. |
-
-**Returns:** `InfoEntity` instance.
-
-#### `Invite(data?: object)`
-
-Create a new `Invite` entity instance.
-
-**Parameters:**
-
-| Name | Type | Description |
-| --- | --- | --- |
-| `data` | `object` | Initial entity data. |
-
-**Returns:** `InviteEntity` instance.
-
-#### `LicensePolicy(data?: object)`
-
-Create a new `LicensePolicy` entity instance.
-
-**Parameters:**
-
-| Name | Type | Description |
-| --- | --- | --- |
-| `data` | `object` | Initial entity data. |
-
-**Returns:** `LicensePolicyEntity` instance.
-
-#### `Limit(data?: object)`
-
-Create a new `Limit` entity instance.
-
-**Parameters:**
-
-| Name | Type | Description |
-| --- | --- | --- |
-| `data` | `object` | Initial entity data. |
-
-**Returns:** `LimitEntity` instance.
-
-#### `Luarock(data?: object)`
-
-Create a new `Luarock` entity instance.
-
-**Parameters:**
-
-| Name | Type | Description |
-| --- | --- | --- |
-| `data` | `object` | Initial entity data. |
-
-**Returns:** `LuarockEntity` instance.
-
 #### `Maven(data?: object)`
 
 Create a new `Maven` entity instance.
@@ -540,30 +252,6 @@ Create a new `Maven` entity instance.
 | `data` | `object` | Initial entity data. |
 
 **Returns:** `MavenEntity` instance.
-
-#### `Member(data?: object)`
-
-Create a new `Member` entity instance.
-
-**Parameters:**
-
-| Name | Type | Description |
-| --- | --- | --- |
-| `data` | `object` | Initial entity data. |
-
-**Returns:** `MemberEntity` instance.
-
-#### `Move(data?: object)`
-
-Create a new `Move` entity instance.
-
-**Parameters:**
-
-| Name | Type | Description |
-| --- | --- | --- |
-| `data` | `object` | Initial entity data. |
-
-**Returns:** `MoveEntity` instance.
 
 #### `Namespace(data?: object)`
 
@@ -612,18 +300,6 @@ Create a new `Nuget` entity instance.
 | `data` | `object` | Initial entity data. |
 
 **Returns:** `NugetEntity` instance.
-
-#### `OpenidConnect(data?: object)`
-
-Create a new `OpenidConnect` entity instance.
-
-**Parameters:**
-
-| Name | Type | Description |
-| --- | --- | --- |
-| `data` | `object` | Initial entity data. |
-
-**Returns:** `OpenidConnectEntity` instance.
 
 #### `Org(data?: object)`
 
@@ -781,30 +457,6 @@ Create a new `OrganizationTeamMember` entity instance.
 
 **Returns:** `OrganizationTeamMemberEntity` instance.
 
-#### `Oss(data?: object)`
-
-Create a new `Oss` entity instance.
-
-**Parameters:**
-
-| Name | Type | Description |
-| --- | --- | --- |
-| `data` | `object` | Initial entity data. |
-
-**Returns:** `OssEntity` instance.
-
-#### `P2n(data?: object)`
-
-Create a new `P2n` entity instance.
-
-**Parameters:**
-
-| Name | Type | Description |
-| --- | --- | --- |
-| `data` | `object` | Initial entity data. |
-
-**Returns:** `P2nEntity` instance.
-
 #### `Package(data?: object)`
 
 Create a new `Package` entity instance.
@@ -889,30 +541,6 @@ Create a new `PackageVulnerabilityPolicyEvaluation` entity instance.
 
 **Returns:** `PackageVulnerabilityPolicyEvaluationEntity` instance.
 
-#### `Privilege(data?: object)`
-
-Create a new `Privilege` entity instance.
-
-**Parameters:**
-
-| Name | Type | Description |
-| --- | --- | --- |
-| `data` | `object` | Initial entity data. |
-
-**Returns:** `PrivilegeEntity` instance.
-
-#### `Profile(data?: object)`
-
-Create a new `Profile` entity instance.
-
-**Parameters:**
-
-| Name | Type | Description |
-| --- | --- | --- |
-| `data` | `object` | Initial entity data. |
-
-**Returns:** `ProfileEntity` instance.
-
 #### `ProviderSetting(data?: object)`
 
 Create a new `ProviderSetting` entity instance.
@@ -949,18 +577,6 @@ Create a new `Python` entity instance.
 
 **Returns:** `PythonEntity` instance.
 
-#### `Quarantine(data?: object)`
-
-Create a new `Quarantine` entity instance.
-
-**Parameters:**
-
-| Name | Type | Description |
-| --- | --- | --- |
-| `data` | `object` | Initial entity data. |
-
-**Returns:** `QuarantineEntity` instance.
-
 #### `Quota(data?: object)`
 
 Create a new `Quota` entity instance.
@@ -972,42 +588,6 @@ Create a new `Quota` entity instance.
 | `data` | `object` | Initial entity data. |
 
 **Returns:** `QuotaEntity` instance.
-
-#### `Raw(data?: object)`
-
-Create a new `Raw` entity instance.
-
-**Parameters:**
-
-| Name | Type | Description |
-| --- | --- | --- |
-| `data` | `object` | Initial entity data. |
-
-**Returns:** `RawEntity` instance.
-
-#### `Refresh(data?: object)`
-
-Create a new `Refresh` entity instance.
-
-**Parameters:**
-
-| Name | Type | Description |
-| --- | --- | --- |
-| `data` | `object` | Initial entity data. |
-
-**Returns:** `RefreshEntity` instance.
-
-#### `Regenerate(data?: object)`
-
-Create a new `Regenerate` entity instance.
-
-**Parameters:**
-
-| Name | Type | Description |
-| --- | --- | --- |
-| `data` | `object` | Initial entity data. |
-
-**Returns:** `RegenerateEntity` instance.
 
 #### `Repo(data?: object)`
 
@@ -1093,9 +673,9 @@ Create a new `RepositoryGpgKey` entity instance.
 
 **Returns:** `RepositoryGpgKeyEntity` instance.
 
-#### `RepositoryPrivilegeInput(data?: object)`
+#### `RepositoryPrivilegeDict(data?: object)`
 
-Create a new `RepositoryPrivilegeInput` entity instance.
+Create a new `RepositoryPrivilegeDict` entity instance.
 
 **Parameters:**
 
@@ -1103,7 +683,7 @@ Create a new `RepositoryPrivilegeInput` entity instance.
 | --- | --- | --- |
 | `data` | `object` | Initial entity data. |
 
-**Returns:** `RepositoryPrivilegeInputEntity` instance.
+**Returns:** `RepositoryPrivilegeDictEntity` instance.
 
 #### `RepositoryRetentionRule(data?: object)`
 
@@ -1201,18 +781,6 @@ Create a new `RepositoryX509RsaCertificate` entity instance.
 
 **Returns:** `RepositoryX509RsaCertificateEntity` instance.
 
-#### `Reset(data?: object)`
-
-Create a new `Reset` entity instance.
-
-**Parameters:**
-
-| Name | Type | Description |
-| --- | --- | --- |
-| `data` | `object` | Initial entity data. |
-
-**Returns:** `ResetEntity` instance.
-
 #### `ResourcesRateCheck(data?: object)`
 
 Create a new `ResourcesRateCheck` entity instance.
@@ -1224,30 +792,6 @@ Create a new `ResourcesRateCheck` entity instance.
 | `data` | `object` | Initial entity data. |
 
 **Returns:** `ResourcesRateCheckEntity` instance.
-
-#### `Resync(data?: object)`
-
-Create a new `Resync` entity instance.
-
-**Parameters:**
-
-| Name | Type | Description |
-| --- | --- | --- |
-| `data` | `object` | Initial entity data. |
-
-**Returns:** `ResyncEntity` instance.
-
-#### `Retention(data?: object)`
-
-Create a new `Retention` entity instance.
-
-**Parameters:**
-
-| Name | Type | Description |
-| --- | --- | --- |
-| `data` | `object` | Initial entity data. |
-
-**Returns:** `RetentionEntity` instance.
 
 #### `Rpm(data?: object)`
 
@@ -1261,18 +805,6 @@ Create a new `Rpm` entity instance.
 
 **Returns:** `RpmEntity` instance.
 
-#### `Rsa(data?: object)`
-
-Create a new `Rsa` entity instance.
-
-**Parameters:**
-
-| Name | Type | Description |
-| --- | --- | --- |
-| `data` | `object` | Initial entity data. |
-
-**Returns:** `RsaEntity` instance.
-
 #### `Ruby(data?: object)`
 
 Create a new `Ruby` entity instance.
@@ -1285,42 +817,6 @@ Create a new `Ruby` entity instance.
 
 **Returns:** `RubyEntity` instance.
 
-#### `SamlGroupSync(data?: object)`
-
-Create a new `SamlGroupSync` entity instance.
-
-**Parameters:**
-
-| Name | Type | Description |
-| --- | --- | --- |
-| `data` | `object` | Initial entity data. |
-
-**Returns:** `SamlGroupSyncEntity` instance.
-
-#### `Scan(data?: object)`
-
-Create a new `Scan` entity instance.
-
-**Parameters:**
-
-| Name | Type | Description |
-| --- | --- | --- |
-| `data` | `object` | Initial entity data. |
-
-**Returns:** `ScanEntity` instance.
-
-#### `Self(data?: object)`
-
-Create a new `Self` entity instance.
-
-**Parameters:**
-
-| Name | Type | Description |
-| --- | --- | --- |
-| `data` | `object` | Initial entity data. |
-
-**Returns:** `SelfEntity` instance.
-
 #### `Service(data?: object)`
 
 Create a new `Service` entity instance.
@@ -1332,18 +828,6 @@ Create a new `Service` entity instance.
 | `data` | `object` | Initial entity data. |
 
 **Returns:** `ServiceEntity` instance.
-
-#### `Status(data?: object)`
-
-Create a new `Status` entity instance.
-
-**Parameters:**
-
-| Name | Type | Description |
-| --- | --- | --- |
-| `data` | `object` | Initial entity data. |
-
-**Returns:** `StatusEntity` instance.
 
 #### `StatusBasic(data?: object)`
 
@@ -1380,90 +864,6 @@ Create a new `Swift` entity instance.
 | `data` | `object` | Initial entity data. |
 
 **Returns:** `SwiftEntity` instance.
-
-#### `Sync(data?: object)`
-
-Create a new `Sync` entity instance.
-
-**Parameters:**
-
-| Name | Type | Description |
-| --- | --- | --- |
-| `data` | `object` | Initial entity data. |
-
-**Returns:** `SyncEntity` instance.
-
-#### `Tag(data?: object)`
-
-Create a new `Tag` entity instance.
-
-**Parameters:**
-
-| Name | Type | Description |
-| --- | --- | --- |
-| `data` | `object` | Initial entity data. |
-
-**Returns:** `TagEntity` instance.
-
-#### `Team(data?: object)`
-
-Create a new `Team` entity instance.
-
-**Parameters:**
-
-| Name | Type | Description |
-| --- | --- | --- |
-| `data` | `object` | Initial entity data. |
-
-**Returns:** `TeamEntity` instance.
-
-#### `Terraform(data?: object)`
-
-Create a new `Terraform` entity instance.
-
-**Parameters:**
-
-| Name | Type | Description |
-| --- | --- | --- |
-| `data` | `object` | Initial entity data. |
-
-**Returns:** `TerraformEntity` instance.
-
-#### `Test(data?: object)`
-
-Create a new `Test` entity instance.
-
-**Parameters:**
-
-| Name | Type | Description |
-| --- | --- | --- |
-| `data` | `object` | Initial entity data. |
-
-**Returns:** `TestEntity` instance.
-
-#### `Token(data?: object)`
-
-Create a new `Token` entity instance.
-
-**Parameters:**
-
-| Name | Type | Description |
-| --- | --- | --- |
-| `data` | `object` | Initial entity data. |
-
-**Returns:** `TokenEntity` instance.
-
-#### `TransferRegion(data?: object)`
-
-Create a new `TransferRegion` entity instance.
-
-**Parameters:**
-
-| Name | Type | Description |
-| --- | --- | --- |
-| `data` | `object` | Initial entity data. |
-
-**Returns:** `TransferRegionEntity` instance.
 
 #### `User(data?: object)`
 
@@ -1525,42 +925,6 @@ Create a new `UserProfile` entity instance.
 
 **Returns:** `UserProfileEntity` instance.
 
-#### `Vagrant(data?: object)`
-
-Create a new `Vagrant` entity instance.
-
-**Parameters:**
-
-| Name | Type | Description |
-| --- | --- | --- |
-| `data` | `object` | Initial entity data. |
-
-**Returns:** `VagrantEntity` instance.
-
-#### `Validate(data?: object)`
-
-Create a new `Validate` entity instance.
-
-**Parameters:**
-
-| Name | Type | Description |
-| --- | --- | --- |
-| `data` | `object` | Initial entity data. |
-
-**Returns:** `ValidateEntity` instance.
-
-#### `Version(data?: object)`
-
-Create a new `Version` entity instance.
-
-**Parameters:**
-
-| Name | Type | Description |
-| --- | --- | --- |
-| `data` | `object` | Initial entity data. |
-
-**Returns:** `VersionEntity` instance.
-
 #### `Vulnerability(data?: object)`
 
 Create a new `Vulnerability` entity instance.
@@ -1573,18 +937,6 @@ Create a new `Vulnerability` entity instance.
 
 **Returns:** `VulnerabilityEntity` instance.
 
-#### `VulnerabilityPolicy(data?: object)`
-
-Create a new `VulnerabilityPolicy` entity instance.
-
-**Parameters:**
-
-| Name | Type | Description |
-| --- | --- | --- |
-| `data` | `object` | Initial entity data. |
-
-**Returns:** `VulnerabilityPolicyEntity` instance.
-
 #### `Webhook(data?: object)`
 
 Create a new `Webhook` entity instance.
@@ -1596,30 +948,6 @@ Create a new `Webhook` entity instance.
 | `data` | `object` | Initial entity data. |
 
 **Returns:** `WebhookEntity` instance.
-
-#### `X509Ecdsa(data?: object)`
-
-Create a new `X509Ecdsa` entity instance.
-
-**Parameters:**
-
-| Name | Type | Description |
-| --- | --- | --- |
-| `data` | `object` | Initial entity data. |
-
-**Returns:** `X509EcdsaEntity` instance.
-
-#### `X509Rsa(data?: object)`
-
-Create a new `X509Rsa` entity instance.
-
-**Parameters:**
-
-| Name | Type | Description |
-| --- | --- | --- |
-| `data` | `object` | Initial entity data. |
-
-**Returns:** `X509RsaEntity` instance.
 
 #### `options()`
 
@@ -1663,142 +991,6 @@ same parameters as `direct()`.
 Alias for `CloudsmithSDK.test()`.
 
 **Returns:** `CloudsmithSDK` instance in test mode.
-
-
----
-
-## AbortEntity
-
-```ts
-const abort = client.Abort()
-```
-
-### Common Methods
-
-#### `data(data?: object)`
-
-Get or set the entity data. When called with data, sets the entity's
-internal data and returns the current data. When called without
-arguments, returns a copy of the current data.
-
-#### `match(match?: object)`
-
-Get or set the entity match criteria. Works the same as `data()`.
-
-#### `make()`
-
-Create a new `AbortEntity` instance with the same client and
-options.
-
-#### `client()`
-
-Return the parent `CloudsmithSDK` instance.
-
-#### `entopts()`
-
-Return a copy of the entity options.
-
-
----
-
-## AlpineEntity
-
-```ts
-const alpine = client.Alpine()
-```
-
-### Common Methods
-
-#### `data(data?: object)`
-
-Get or set the entity data. When called with data, sets the entity's
-internal data and returns the current data. When called without
-arguments, returns a copy of the current data.
-
-#### `match(match?: object)`
-
-Get or set the entity match criteria. Works the same as `data()`.
-
-#### `make()`
-
-Create a new `AlpineEntity` instance with the same client and
-options.
-
-#### `client()`
-
-Return the parent `CloudsmithSDK` instance.
-
-#### `entopts()`
-
-Return a copy of the entity options.
-
-
----
-
-## AuditLogEntity
-
-```ts
-const audit_log = client.AuditLog()
-```
-
-### Common Methods
-
-#### `data(data?: object)`
-
-Get or set the entity data. When called with data, sets the entity's
-internal data and returns the current data. When called without
-arguments, returns a copy of the current data.
-
-#### `match(match?: object)`
-
-Get or set the entity match criteria. Works the same as `data()`.
-
-#### `make()`
-
-Create a new `AuditLogEntity` instance with the same client and
-options.
-
-#### `client()`
-
-Return the parent `CloudsmithSDK` instance.
-
-#### `entopts()`
-
-Return a copy of the entity options.
-
-
----
-
-## BasicEntity
-
-```ts
-const basic = client.Basic()
-```
-
-### Common Methods
-
-#### `data(data?: object)`
-
-Get or set the entity data. When called with data, sets the entity's
-internal data and returns the current data. When called without
-arguments, returns a copy of the current data.
-
-#### `match(match?: object)`
-
-Get or set the entity match criteria. Works the same as `data()`.
-
-#### `make()`
-
-Create a new `BasicEntity` instance with the same client and
-options.
-
-#### `client()`
-
-Return the parent `CloudsmithSDK` instance.
-
-#### `entopts()`
-
-Return a copy of the entity options.
 
 
 ---
@@ -1892,74 +1084,6 @@ Get or set the entity match criteria. Works the same as `data()`.
 #### `make()`
 
 Create a new `CargoEntity` instance with the same client and
-options.
-
-#### `client()`
-
-Return the parent `CloudsmithSDK` instance.
-
-#### `entopts()`
-
-Return a copy of the entity options.
-
-
----
-
-## CocoapodEntity
-
-```ts
-const cocoapod = client.Cocoapod()
-```
-
-### Common Methods
-
-#### `data(data?: object)`
-
-Get or set the entity data. When called with data, sets the entity's
-internal data and returns the current data. When called without
-arguments, returns a copy of the current data.
-
-#### `match(match?: object)`
-
-Get or set the entity match criteria. Works the same as `data()`.
-
-#### `make()`
-
-Create a new `CocoapodEntity` instance with the same client and
-options.
-
-#### `client()`
-
-Return the parent `CloudsmithSDK` instance.
-
-#### `entopts()`
-
-Return a copy of the entity options.
-
-
----
-
-## CompleteEntity
-
-```ts
-const complete = client.Complete()
-```
-
-### Common Methods
-
-#### `data(data?: object)`
-
-Get or set the entity data. When called with data, sets the entity's
-internal data and returns the current data. When called without
-arguments, returns a copy of the current data.
-
-#### `match(match?: object)`
-
-Get or set the entity match criteria. Works the same as `data()`.
-
-#### `make()`
-
-Create a new `CompleteEntity` instance with the same client and
 options.
 
 #### `client()`
@@ -2075,40 +1199,6 @@ Return a copy of the entity options.
 
 ---
 
-## ConanEntity
-
-```ts
-const conan = client.Conan()
-```
-
-### Common Methods
-
-#### `data(data?: object)`
-
-Get or set the entity data. When called with data, sets the entity's
-internal data and returns the current data. When called without
-arguments, returns a copy of the current data.
-
-#### `match(match?: object)`
-
-Get or set the entity match criteria. Works the same as `data()`.
-
-#### `make()`
-
-Create a new `ConanEntity` instance with the same client and
-options.
-
-#### `client()`
-
-Return the parent `CloudsmithSDK` instance.
-
-#### `entopts()`
-
-Return a copy of the entity options.
-
-
----
-
 ## CondaEntity
 
 ```ts
@@ -2198,40 +1288,6 @@ Get or set the entity match criteria. Works the same as `data()`.
 #### `make()`
 
 Create a new `CondaEntity` instance with the same client and
-options.
-
-#### `client()`
-
-Return the parent `CloudsmithSDK` instance.
-
-#### `entopts()`
-
-Return a copy of the entity options.
-
-
----
-
-## CopyEntity
-
-```ts
-const copy = client.Copy()
-```
-
-### Common Methods
-
-#### `data(data?: object)`
-
-Get or set the entity data. When called with data, sets the entity's
-internal data and returns the current data. When called without
-arguments, returns a copy of the current data.
-
-#### `match(match?: object)`
-
-Get or set the entity match criteria. Works the same as `data()`.
-
-#### `make()`
-
-Create a new `CopyEntity` instance with the same client and
 options.
 
 #### `client()`
@@ -2560,108 +1616,6 @@ Return a copy of the entity options.
 
 ---
 
-## DenyPolicyEntity
-
-```ts
-const deny_policy = client.DenyPolicy()
-```
-
-### Common Methods
-
-#### `data(data?: object)`
-
-Get or set the entity data. When called with data, sets the entity's
-internal data and returns the current data. When called without
-arguments, returns a copy of the current data.
-
-#### `match(match?: object)`
-
-Get or set the entity match criteria. Works the same as `data()`.
-
-#### `make()`
-
-Create a new `DenyPolicyEntity` instance with the same client and
-options.
-
-#### `client()`
-
-Return the parent `CloudsmithSDK` instance.
-
-#### `entopts()`
-
-Return a copy of the entity options.
-
-
----
-
-## DependencyEntity
-
-```ts
-const dependency = client.Dependency()
-```
-
-### Common Methods
-
-#### `data(data?: object)`
-
-Get or set the entity data. When called with data, sets the entity's
-internal data and returns the current data. When called without
-arguments, returns a copy of the current data.
-
-#### `match(match?: object)`
-
-Get or set the entity match criteria. Works the same as `data()`.
-
-#### `make()`
-
-Create a new `DependencyEntity` instance with the same client and
-options.
-
-#### `client()`
-
-Return the parent `CloudsmithSDK` instance.
-
-#### `entopts()`
-
-Return a copy of the entity options.
-
-
----
-
-## DisableEntity
-
-```ts
-const disable = client.Disable()
-```
-
-### Common Methods
-
-#### `data(data?: object)`
-
-Get or set the entity data. When called with data, sets the entity's
-internal data and returns the current data. When called without
-arguments, returns a copy of the current data.
-
-#### `match(match?: object)`
-
-Get or set the entity match criteria. Works the same as `data()`.
-
-#### `make()`
-
-Create a new `DisableEntity` instance with the same client and
-options.
-
-#### `client()`
-
-Return the parent `CloudsmithSDK` instance.
-
-#### `entopts()`
-
-Return a copy of the entity options.
-
-
----
-
 ## DistributionFullEntity
 
 ```ts
@@ -2713,40 +1667,6 @@ Get or set the entity match criteria. Works the same as `data()`.
 #### `make()`
 
 Create a new `DistributionFullEntity` instance with the same client and
-options.
-
-#### `client()`
-
-Return the parent `CloudsmithSDK` instance.
-
-#### `entopts()`
-
-Return a copy of the entity options.
-
-
----
-
-## DistroEntity
-
-```ts
-const distro = client.Distro()
-```
-
-### Common Methods
-
-#### `data(data?: object)`
-
-Get or set the entity data. When called with data, sets the entity's
-internal data and returns the current data. When called without
-arguments, returns a copy of the current data.
-
-#### `match(match?: object)`
-
-Get or set the entity match criteria. Works the same as `data()`.
-
-#### `make()`
-
-Create a new `DistroEntity` instance with the same client and
 options.
 
 #### `client()`
@@ -2922,74 +1842,6 @@ Return a copy of the entity options.
 
 ---
 
-## EcdsaEntity
-
-```ts
-const ecdsa = client.Ecdsa()
-```
-
-### Common Methods
-
-#### `data(data?: object)`
-
-Get or set the entity data. When called with data, sets the entity's
-internal data and returns the current data. When called without
-arguments, returns a copy of the current data.
-
-#### `match(match?: object)`
-
-Get or set the entity match criteria. Works the same as `data()`.
-
-#### `make()`
-
-Create a new `EcdsaEntity` instance with the same client and
-options.
-
-#### `client()`
-
-Return the parent `CloudsmithSDK` instance.
-
-#### `entopts()`
-
-Return a copy of the entity options.
-
-
----
-
-## EnableEntity
-
-```ts
-const enable = client.Enable()
-```
-
-### Common Methods
-
-#### `data(data?: object)`
-
-Get or set the entity data. When called with data, sets the entity's
-internal data and returns the current data. When called without
-arguments, returns a copy of the current data.
-
-#### `match(match?: object)`
-
-Get or set the entity match criteria. Works the same as `data()`.
-
-#### `make()`
-
-Create a new `EnableEntity` instance with the same client and
-options.
-
-#### `client()`
-
-Return the parent `CloudsmithSDK` instance.
-
-#### `entopts()`
-
-Return a copy of the entity options.
-
-
----
-
 ## EntitlementEntity
 
 ```ts
@@ -3054,40 +1906,6 @@ Get or set the entity match criteria. Works the same as `data()`.
 #### `make()`
 
 Create a new `EntitlementEntity` instance with the same client and
-options.
-
-#### `client()`
-
-Return the parent `CloudsmithSDK` instance.
-
-#### `entopts()`
-
-Return a copy of the entity options.
-
-
----
-
-## EvaluationEntity
-
-```ts
-const evaluation = client.Evaluation()
-```
-
-### Common Methods
-
-#### `data(data?: object)`
-
-Get or set the entity data. When called with data, sets the entity's
-internal data and returns the current data. When called without
-arguments, returns a copy of the current data.
-
-#### `match(match?: object)`
-
-Get or set the entity match criteria. Works the same as `data()`.
-
-#### `make()`
-
-Create a new `EvaluationEntity` instance with the same client and
 options.
 
 #### `client()`
@@ -3215,40 +2033,6 @@ Return a copy of the entity options.
 
 ---
 
-## GeoipEntity
-
-```ts
-const geoip = client.Geoip()
-```
-
-### Common Methods
-
-#### `data(data?: object)`
-
-Get or set the entity data. When called with data, sets the entity's
-internal data and returns the current data. When called without
-arguments, returns a copy of the current data.
-
-#### `match(match?: object)`
-
-Get or set the entity match criteria. Works the same as `data()`.
-
-#### `make()`
-
-Create a new `GeoipEntity` instance with the same client and
-options.
-
-#### `client()`
-
-Return the parent `CloudsmithSDK` instance.
-
-#### `entopts()`
-
-Return a copy of the entity options.
-
-
----
-
 ## GonEntity
 
 ```ts
@@ -3337,74 +2121,6 @@ Get or set the entity match criteria. Works the same as `data()`.
 #### `make()`
 
 Create a new `GonEntity` instance with the same client and
-options.
-
-#### `client()`
-
-Return the parent `CloudsmithSDK` instance.
-
-#### `entopts()`
-
-Return a copy of the entity options.
-
-
----
-
-## GpgEntity
-
-```ts
-const gpg = client.Gpg()
-```
-
-### Common Methods
-
-#### `data(data?: object)`
-
-Get or set the entity data. When called with data, sets the entity's
-internal data and returns the current data. When called without
-arguments, returns a copy of the current data.
-
-#### `match(match?: object)`
-
-Get or set the entity match criteria. Works the same as `data()`.
-
-#### `make()`
-
-Create a new `GpgEntity` instance with the same client and
-options.
-
-#### `client()`
-
-Return the parent `CloudsmithSDK` instance.
-
-#### `entopts()`
-
-Return a copy of the entity options.
-
-
----
-
-## GroupEntity
-
-```ts
-const group = client.Group()
-```
-
-### Common Methods
-
-#### `data(data?: object)`
-
-Get or set the entity data. When called with data, sets the entity's
-internal data and returns the current data. When called without
-arguments, returns a copy of the current data.
-
-#### `match(match?: object)`
-
-Get or set the entity match criteria. Works the same as `data()`.
-
-#### `make()`
-
-Create a new `GroupEntity` instance with the same client and
 options.
 
 #### `client()`
@@ -3622,40 +2338,6 @@ Return a copy of the entity options.
 
 ---
 
-## HistoryEntity
-
-```ts
-const history = client.History()
-```
-
-### Common Methods
-
-#### `data(data?: object)`
-
-Get or set the entity data. When called with data, sets the entity's
-internal data and returns the current data. When called without
-arguments, returns a copy of the current data.
-
-#### `match(match?: object)`
-
-Get or set the entity match criteria. Works the same as `data()`.
-
-#### `make()`
-
-Create a new `HistoryEntity` instance with the same client and
-options.
-
-#### `client()`
-
-Return the parent `CloudsmithSDK` instance.
-
-#### `entopts()`
-
-Return a copy of the entity options.
-
-
----
-
 ## HuggingfaceEntity
 
 ```ts
@@ -3745,176 +2427,6 @@ Get or set the entity match criteria. Works the same as `data()`.
 #### `make()`
 
 Create a new `HuggingfaceEntity` instance with the same client and
-options.
-
-#### `client()`
-
-Return the parent `CloudsmithSDK` instance.
-
-#### `entopts()`
-
-Return a copy of the entity options.
-
-
----
-
-## InfoEntity
-
-```ts
-const info = client.Info()
-```
-
-### Common Methods
-
-#### `data(data?: object)`
-
-Get or set the entity data. When called with data, sets the entity's
-internal data and returns the current data. When called without
-arguments, returns a copy of the current data.
-
-#### `match(match?: object)`
-
-Get or set the entity match criteria. Works the same as `data()`.
-
-#### `make()`
-
-Create a new `InfoEntity` instance with the same client and
-options.
-
-#### `client()`
-
-Return the parent `CloudsmithSDK` instance.
-
-#### `entopts()`
-
-Return a copy of the entity options.
-
-
----
-
-## InviteEntity
-
-```ts
-const invite = client.Invite()
-```
-
-### Common Methods
-
-#### `data(data?: object)`
-
-Get or set the entity data. When called with data, sets the entity's
-internal data and returns the current data. When called without
-arguments, returns a copy of the current data.
-
-#### `match(match?: object)`
-
-Get or set the entity match criteria. Works the same as `data()`.
-
-#### `make()`
-
-Create a new `InviteEntity` instance with the same client and
-options.
-
-#### `client()`
-
-Return the parent `CloudsmithSDK` instance.
-
-#### `entopts()`
-
-Return a copy of the entity options.
-
-
----
-
-## LicensePolicyEntity
-
-```ts
-const license_policy = client.LicensePolicy()
-```
-
-### Common Methods
-
-#### `data(data?: object)`
-
-Get or set the entity data. When called with data, sets the entity's
-internal data and returns the current data. When called without
-arguments, returns a copy of the current data.
-
-#### `match(match?: object)`
-
-Get or set the entity match criteria. Works the same as `data()`.
-
-#### `make()`
-
-Create a new `LicensePolicyEntity` instance with the same client and
-options.
-
-#### `client()`
-
-Return the parent `CloudsmithSDK` instance.
-
-#### `entopts()`
-
-Return a copy of the entity options.
-
-
----
-
-## LimitEntity
-
-```ts
-const limit = client.Limit()
-```
-
-### Common Methods
-
-#### `data(data?: object)`
-
-Get or set the entity data. When called with data, sets the entity's
-internal data and returns the current data. When called without
-arguments, returns a copy of the current data.
-
-#### `match(match?: object)`
-
-Get or set the entity match criteria. Works the same as `data()`.
-
-#### `make()`
-
-Create a new `LimitEntity` instance with the same client and
-options.
-
-#### `client()`
-
-Return the parent `CloudsmithSDK` instance.
-
-#### `entopts()`
-
-Return a copy of the entity options.
-
-
----
-
-## LuarockEntity
-
-```ts
-const luarock = client.Luarock()
-```
-
-### Common Methods
-
-#### `data(data?: object)`
-
-Get or set the entity data. When called with data, sets the entity's
-internal data and returns the current data. When called without
-arguments, returns a copy of the current data.
-
-#### `match(match?: object)`
-
-Get or set the entity match criteria. Works the same as `data()`.
-
-#### `make()`
-
-Create a new `LuarockEntity` instance with the same client and
 options.
 
 #### `client()`
@@ -4021,74 +2533,6 @@ Get or set the entity match criteria. Works the same as `data()`.
 #### `make()`
 
 Create a new `MavenEntity` instance with the same client and
-options.
-
-#### `client()`
-
-Return the parent `CloudsmithSDK` instance.
-
-#### `entopts()`
-
-Return a copy of the entity options.
-
-
----
-
-## MemberEntity
-
-```ts
-const member = client.Member()
-```
-
-### Common Methods
-
-#### `data(data?: object)`
-
-Get or set the entity data. When called with data, sets the entity's
-internal data and returns the current data. When called without
-arguments, returns a copy of the current data.
-
-#### `match(match?: object)`
-
-Get or set the entity match criteria. Works the same as `data()`.
-
-#### `make()`
-
-Create a new `MemberEntity` instance with the same client and
-options.
-
-#### `client()`
-
-Return the parent `CloudsmithSDK` instance.
-
-#### `entopts()`
-
-Return a copy of the entity options.
-
-
----
-
-## MoveEntity
-
-```ts
-const move = client.Move()
-```
-
-### Common Methods
-
-#### `data(data?: object)`
-
-Get or set the entity data. When called with data, sets the entity's
-internal data and returns the current data. When called without
-arguments, returns a copy of the current data.
-
-#### `match(match?: object)`
-
-Get or set the entity match criteria. Works the same as `data()`.
-
-#### `make()`
-
-Create a new `MoveEntity` instance with the same client and
 options.
 
 #### `client()`
@@ -4421,40 +2865,6 @@ Get or set the entity match criteria. Works the same as `data()`.
 #### `make()`
 
 Create a new `NugetEntity` instance with the same client and
-options.
-
-#### `client()`
-
-Return the parent `CloudsmithSDK` instance.
-
-#### `entopts()`
-
-Return a copy of the entity options.
-
-
----
-
-## OpenidConnectEntity
-
-```ts
-const openid_connect = client.OpenidConnect()
-```
-
-### Common Methods
-
-#### `data(data?: object)`
-
-Get or set the entity data. When called with data, sets the entity's
-internal data and returns the current data. When called without
-arguments, returns a copy of the current data.
-
-#### `match(match?: object)`
-
-Get or set the entity match criteria. Works the same as `data()`.
-
-#### `make()`
-
-Create a new `OpenidConnectEntity` instance with the same client and
 options.
 
 #### `client()`
@@ -5450,74 +3860,6 @@ Return a copy of the entity options.
 
 ---
 
-## OssEntity
-
-```ts
-const oss = client.Oss()
-```
-
-### Common Methods
-
-#### `data(data?: object)`
-
-Get or set the entity data. When called with data, sets the entity's
-internal data and returns the current data. When called without
-arguments, returns a copy of the current data.
-
-#### `match(match?: object)`
-
-Get or set the entity match criteria. Works the same as `data()`.
-
-#### `make()`
-
-Create a new `OssEntity` instance with the same client and
-options.
-
-#### `client()`
-
-Return the parent `CloudsmithSDK` instance.
-
-#### `entopts()`
-
-Return a copy of the entity options.
-
-
----
-
-## P2nEntity
-
-```ts
-const p2n = client.P2n()
-```
-
-### Common Methods
-
-#### `data(data?: object)`
-
-Get or set the entity data. When called with data, sets the entity's
-internal data and returns the current data. When called without
-arguments, returns a copy of the current data.
-
-#### `match(match?: object)`
-
-Get or set the entity match criteria. Works the same as `data()`.
-
-#### `make()`
-
-Create a new `P2nEntity` instance with the same client and
-options.
-
-#### `client()`
-
-Return the parent `CloudsmithSDK` instance.
-
-#### `entopts()`
-
-Return a copy of the entity options.
-
-
----
-
 ## PackageEntity
 
 ```ts
@@ -6197,74 +4539,6 @@ Return a copy of the entity options.
 
 ---
 
-## PrivilegeEntity
-
-```ts
-const privilege = client.Privilege()
-```
-
-### Common Methods
-
-#### `data(data?: object)`
-
-Get or set the entity data. When called with data, sets the entity's
-internal data and returns the current data. When called without
-arguments, returns a copy of the current data.
-
-#### `match(match?: object)`
-
-Get or set the entity match criteria. Works the same as `data()`.
-
-#### `make()`
-
-Create a new `PrivilegeEntity` instance with the same client and
-options.
-
-#### `client()`
-
-Return the parent `CloudsmithSDK` instance.
-
-#### `entopts()`
-
-Return a copy of the entity options.
-
-
----
-
-## ProfileEntity
-
-```ts
-const profile = client.Profile()
-```
-
-### Common Methods
-
-#### `data(data?: object)`
-
-Get or set the entity data. When called with data, sets the entity's
-internal data and returns the current data. When called without
-arguments, returns a copy of the current data.
-
-#### `match(match?: object)`
-
-Get or set the entity match criteria. Works the same as `data()`.
-
-#### `make()`
-
-Create a new `ProfileEntity` instance with the same client and
-options.
-
-#### `client()`
-
-Return the parent `CloudsmithSDK` instance.
-
-#### `entopts()`
-
-Return a copy of the entity options.
-
-
----
-
 ## ProviderSettingEntity
 
 ```ts
@@ -6508,40 +4782,6 @@ Return a copy of the entity options.
 
 ---
 
-## QuarantineEntity
-
-```ts
-const quarantine = client.Quarantine()
-```
-
-### Common Methods
-
-#### `data(data?: object)`
-
-Get or set the entity data. When called with data, sets the entity's
-internal data and returns the current data. When called without
-arguments, returns a copy of the current data.
-
-#### `match(match?: object)`
-
-Get or set the entity match criteria. Works the same as `data()`.
-
-#### `make()`
-
-Create a new `QuarantineEntity` instance with the same client and
-options.
-
-#### `client()`
-
-Return the parent `CloudsmithSDK` instance.
-
-#### `entopts()`
-
-Return a copy of the entity options.
-
-
----
-
 ## QuotaEntity
 
 ```ts
@@ -6582,108 +4822,6 @@ Get or set the entity match criteria. Works the same as `data()`.
 #### `make()`
 
 Create a new `QuotaEntity` instance with the same client and
-options.
-
-#### `client()`
-
-Return the parent `CloudsmithSDK` instance.
-
-#### `entopts()`
-
-Return a copy of the entity options.
-
-
----
-
-## RawEntity
-
-```ts
-const raw = client.Raw()
-```
-
-### Common Methods
-
-#### `data(data?: object)`
-
-Get or set the entity data. When called with data, sets the entity's
-internal data and returns the current data. When called without
-arguments, returns a copy of the current data.
-
-#### `match(match?: object)`
-
-Get or set the entity match criteria. Works the same as `data()`.
-
-#### `make()`
-
-Create a new `RawEntity` instance with the same client and
-options.
-
-#### `client()`
-
-Return the parent `CloudsmithSDK` instance.
-
-#### `entopts()`
-
-Return a copy of the entity options.
-
-
----
-
-## RefreshEntity
-
-```ts
-const refresh = client.Refresh()
-```
-
-### Common Methods
-
-#### `data(data?: object)`
-
-Get or set the entity data. When called with data, sets the entity's
-internal data and returns the current data. When called without
-arguments, returns a copy of the current data.
-
-#### `match(match?: object)`
-
-Get or set the entity match criteria. Works the same as `data()`.
-
-#### `make()`
-
-Create a new `RefreshEntity` instance with the same client and
-options.
-
-#### `client()`
-
-Return the parent `CloudsmithSDK` instance.
-
-#### `entopts()`
-
-Return a copy of the entity options.
-
-
----
-
-## RegenerateEntity
-
-```ts
-const regenerate = client.Regenerate()
-```
-
-### Common Methods
-
-#### `data(data?: object)`
-
-Get or set the entity data. When called with data, sets the entity's
-internal data and returns the current data. When called without
-arguments, returns a copy of the current data.
-
-#### `match(match?: object)`
-
-Get or set the entity match criteria. Works the same as `data()`.
-
-#### `make()`
-
-Create a new `RegenerateEntity` instance with the same client and
 options.
 
 #### `client()`
@@ -7229,10 +5367,10 @@ Return a copy of the entity options.
 
 ---
 
-## RepositoryPrivilegeInputEntity
+## RepositoryPrivilegeDictEntity
 
 ```ts
-const repository_privilege_input = client.RepositoryPrivilegeInput()
+const repository_privilege_dict = client.RepositoryPrivilegeDict()
 ```
 
 ### Fields
@@ -7251,7 +5389,7 @@ const repository_privilege_input = client.RepositoryPrivilegeInput()
 List entities matching the given criteria. Returns an array.
 
 ```ts
-const results = await client.RepositoryPrivilegeInput().list({ identifier: "example", owner: "example" })
+const results = await client.RepositoryPrivilegeDict().list({ identifier: "example", owner: "example" })
 ```
 
 ### Common Methods
@@ -7268,7 +5406,7 @@ Get or set the entity match criteria. Works the same as `data()`.
 
 #### `make()`
 
-Create a new `RepositoryPrivilegeInputEntity` instance with the same client and
+Create a new `RepositoryPrivilegeDictEntity` instance with the same client and
 options.
 
 #### `client()`
@@ -7915,40 +6053,6 @@ Return a copy of the entity options.
 
 ---
 
-## ResetEntity
-
-```ts
-const reset = client.Reset()
-```
-
-### Common Methods
-
-#### `data(data?: object)`
-
-Get or set the entity data. When called with data, sets the entity's
-internal data and returns the current data. When called without
-arguments, returns a copy of the current data.
-
-#### `match(match?: object)`
-
-Get or set the entity match criteria. Works the same as `data()`.
-
-#### `make()`
-
-Create a new `ResetEntity` instance with the same client and
-options.
-
-#### `client()`
-
-Return the parent `CloudsmithSDK` instance.
-
-#### `entopts()`
-
-Return a copy of the entity options.
-
-
----
-
 ## ResourcesRateCheckEntity
 
 ```ts
@@ -7991,74 +6095,6 @@ Get or set the entity match criteria. Works the same as `data()`.
 #### `make()`
 
 Create a new `ResourcesRateCheckEntity` instance with the same client and
-options.
-
-#### `client()`
-
-Return the parent `CloudsmithSDK` instance.
-
-#### `entopts()`
-
-Return a copy of the entity options.
-
-
----
-
-## ResyncEntity
-
-```ts
-const resync = client.Resync()
-```
-
-### Common Methods
-
-#### `data(data?: object)`
-
-Get or set the entity data. When called with data, sets the entity's
-internal data and returns the current data. When called without
-arguments, returns a copy of the current data.
-
-#### `match(match?: object)`
-
-Get or set the entity match criteria. Works the same as `data()`.
-
-#### `make()`
-
-Create a new `ResyncEntity` instance with the same client and
-options.
-
-#### `client()`
-
-Return the parent `CloudsmithSDK` instance.
-
-#### `entopts()`
-
-Return a copy of the entity options.
-
-
----
-
-## RetentionEntity
-
-```ts
-const retention = client.Retention()
-```
-
-### Common Methods
-
-#### `data(data?: object)`
-
-Get or set the entity data. When called with data, sets the entity's
-internal data and returns the current data. When called without
-arguments, returns a copy of the current data.
-
-#### `match(match?: object)`
-
-Get or set the entity match criteria. Works the same as `data()`.
-
-#### `make()`
-
-Create a new `RetentionEntity` instance with the same client and
 options.
 
 #### `client()`
@@ -8181,40 +6217,6 @@ Return a copy of the entity options.
 
 ---
 
-## RsaEntity
-
-```ts
-const rsa = client.Rsa()
-```
-
-### Common Methods
-
-#### `data(data?: object)`
-
-Get or set the entity data. When called with data, sets the entity's
-internal data and returns the current data. When called without
-arguments, returns a copy of the current data.
-
-#### `match(match?: object)`
-
-Get or set the entity match criteria. Works the same as `data()`.
-
-#### `make()`
-
-Create a new `RsaEntity` instance with the same client and
-options.
-
-#### `client()`
-
-Return the parent `CloudsmithSDK` instance.
-
-#### `entopts()`
-
-Return a copy of the entity options.
-
-
----
-
 ## RubyEntity
 
 ```ts
@@ -8304,108 +6306,6 @@ Get or set the entity match criteria. Works the same as `data()`.
 #### `make()`
 
 Create a new `RubyEntity` instance with the same client and
-options.
-
-#### `client()`
-
-Return the parent `CloudsmithSDK` instance.
-
-#### `entopts()`
-
-Return a copy of the entity options.
-
-
----
-
-## SamlGroupSyncEntity
-
-```ts
-const saml_group_sync = client.SamlGroupSync()
-```
-
-### Common Methods
-
-#### `data(data?: object)`
-
-Get or set the entity data. When called with data, sets the entity's
-internal data and returns the current data. When called without
-arguments, returns a copy of the current data.
-
-#### `match(match?: object)`
-
-Get or set the entity match criteria. Works the same as `data()`.
-
-#### `make()`
-
-Create a new `SamlGroupSyncEntity` instance with the same client and
-options.
-
-#### `client()`
-
-Return the parent `CloudsmithSDK` instance.
-
-#### `entopts()`
-
-Return a copy of the entity options.
-
-
----
-
-## ScanEntity
-
-```ts
-const scan = client.Scan()
-```
-
-### Common Methods
-
-#### `data(data?: object)`
-
-Get or set the entity data. When called with data, sets the entity's
-internal data and returns the current data. When called without
-arguments, returns a copy of the current data.
-
-#### `match(match?: object)`
-
-Get or set the entity match criteria. Works the same as `data()`.
-
-#### `make()`
-
-Create a new `ScanEntity` instance with the same client and
-options.
-
-#### `client()`
-
-Return the parent `CloudsmithSDK` instance.
-
-#### `entopts()`
-
-Return a copy of the entity options.
-
-
----
-
-## SelfEntity
-
-```ts
-const self = client.Self()
-```
-
-### Common Methods
-
-#### `data(data?: object)`
-
-Get or set the entity data. When called with data, sets the entity's
-internal data and returns the current data. When called without
-arguments, returns a copy of the current data.
-
-#### `match(match?: object)`
-
-Get or set the entity match criteria. Works the same as `data()`.
-
-#### `make()`
-
-Create a new `SelfEntity` instance with the same client and
 options.
 
 #### `client()`
@@ -8517,40 +6417,6 @@ Get or set the entity match criteria. Works the same as `data()`.
 #### `make()`
 
 Create a new `ServiceEntity` instance with the same client and
-options.
-
-#### `client()`
-
-Return the parent `CloudsmithSDK` instance.
-
-#### `entopts()`
-
-Return a copy of the entity options.
-
-
----
-
-## StatusEntity
-
-```ts
-const status = client.Status()
-```
-
-### Common Methods
-
-#### `data(data?: object)`
-
-Get or set the entity data. When called with data, sets the entity's
-internal data and returns the current data. When called without
-arguments, returns a copy of the current data.
-
-#### `match(match?: object)`
-
-Get or set the entity match criteria. Works the same as `data()`.
-
-#### `make()`
-
-Create a new `StatusEntity` instance with the same client and
 options.
 
 #### `client()`
@@ -8764,244 +6630,6 @@ Get or set the entity match criteria. Works the same as `data()`.
 #### `make()`
 
 Create a new `SwiftEntity` instance with the same client and
-options.
-
-#### `client()`
-
-Return the parent `CloudsmithSDK` instance.
-
-#### `entopts()`
-
-Return a copy of the entity options.
-
-
----
-
-## SyncEntity
-
-```ts
-const sync = client.Sync()
-```
-
-### Common Methods
-
-#### `data(data?: object)`
-
-Get or set the entity data. When called with data, sets the entity's
-internal data and returns the current data. When called without
-arguments, returns a copy of the current data.
-
-#### `match(match?: object)`
-
-Get or set the entity match criteria. Works the same as `data()`.
-
-#### `make()`
-
-Create a new `SyncEntity` instance with the same client and
-options.
-
-#### `client()`
-
-Return the parent `CloudsmithSDK` instance.
-
-#### `entopts()`
-
-Return a copy of the entity options.
-
-
----
-
-## TagEntity
-
-```ts
-const tag = client.Tag()
-```
-
-### Common Methods
-
-#### `data(data?: object)`
-
-Get or set the entity data. When called with data, sets the entity's
-internal data and returns the current data. When called without
-arguments, returns a copy of the current data.
-
-#### `match(match?: object)`
-
-Get or set the entity match criteria. Works the same as `data()`.
-
-#### `make()`
-
-Create a new `TagEntity` instance with the same client and
-options.
-
-#### `client()`
-
-Return the parent `CloudsmithSDK` instance.
-
-#### `entopts()`
-
-Return a copy of the entity options.
-
-
----
-
-## TeamEntity
-
-```ts
-const team = client.Team()
-```
-
-### Common Methods
-
-#### `data(data?: object)`
-
-Get or set the entity data. When called with data, sets the entity's
-internal data and returns the current data. When called without
-arguments, returns a copy of the current data.
-
-#### `match(match?: object)`
-
-Get or set the entity match criteria. Works the same as `data()`.
-
-#### `make()`
-
-Create a new `TeamEntity` instance with the same client and
-options.
-
-#### `client()`
-
-Return the parent `CloudsmithSDK` instance.
-
-#### `entopts()`
-
-Return a copy of the entity options.
-
-
----
-
-## TerraformEntity
-
-```ts
-const terraform = client.Terraform()
-```
-
-### Common Methods
-
-#### `data(data?: object)`
-
-Get or set the entity data. When called with data, sets the entity's
-internal data and returns the current data. When called without
-arguments, returns a copy of the current data.
-
-#### `match(match?: object)`
-
-Get or set the entity match criteria. Works the same as `data()`.
-
-#### `make()`
-
-Create a new `TerraformEntity` instance with the same client and
-options.
-
-#### `client()`
-
-Return the parent `CloudsmithSDK` instance.
-
-#### `entopts()`
-
-Return a copy of the entity options.
-
-
----
-
-## TestEntity
-
-```ts
-const test = client.Test()
-```
-
-### Common Methods
-
-#### `data(data?: object)`
-
-Get or set the entity data. When called with data, sets the entity's
-internal data and returns the current data. When called without
-arguments, returns a copy of the current data.
-
-#### `match(match?: object)`
-
-Get or set the entity match criteria. Works the same as `data()`.
-
-#### `make()`
-
-Create a new `TestEntity` instance with the same client and
-options.
-
-#### `client()`
-
-Return the parent `CloudsmithSDK` instance.
-
-#### `entopts()`
-
-Return a copy of the entity options.
-
-
----
-
-## TokenEntity
-
-```ts
-const token = client.Token()
-```
-
-### Common Methods
-
-#### `data(data?: object)`
-
-Get or set the entity data. When called with data, sets the entity's
-internal data and returns the current data. When called without
-arguments, returns a copy of the current data.
-
-#### `match(match?: object)`
-
-Get or set the entity match criteria. Works the same as `data()`.
-
-#### `make()`
-
-Create a new `TokenEntity` instance with the same client and
-options.
-
-#### `client()`
-
-Return the parent `CloudsmithSDK` instance.
-
-#### `entopts()`
-
-Return a copy of the entity options.
-
-
----
-
-## TransferRegionEntity
-
-```ts
-const transfer_region = client.TransferRegion()
-```
-
-### Common Methods
-
-#### `data(data?: object)`
-
-Get or set the entity data. When called with data, sets the entity's
-internal data and returns the current data. When called without
-arguments, returns a copy of the current data.
-
-#### `match(match?: object)`
-
-Get or set the entity match criteria. Works the same as `data()`.
-
-#### `make()`
-
-Create a new `TransferRegionEntity` instance with the same client and
 options.
 
 #### `client()`
@@ -9304,108 +6932,6 @@ Return a copy of the entity options.
 
 ---
 
-## VagrantEntity
-
-```ts
-const vagrant = client.Vagrant()
-```
-
-### Common Methods
-
-#### `data(data?: object)`
-
-Get or set the entity data. When called with data, sets the entity's
-internal data and returns the current data. When called without
-arguments, returns a copy of the current data.
-
-#### `match(match?: object)`
-
-Get or set the entity match criteria. Works the same as `data()`.
-
-#### `make()`
-
-Create a new `VagrantEntity` instance with the same client and
-options.
-
-#### `client()`
-
-Return the parent `CloudsmithSDK` instance.
-
-#### `entopts()`
-
-Return a copy of the entity options.
-
-
----
-
-## ValidateEntity
-
-```ts
-const validate = client.Validate()
-```
-
-### Common Methods
-
-#### `data(data?: object)`
-
-Get or set the entity data. When called with data, sets the entity's
-internal data and returns the current data. When called without
-arguments, returns a copy of the current data.
-
-#### `match(match?: object)`
-
-Get or set the entity match criteria. Works the same as `data()`.
-
-#### `make()`
-
-Create a new `ValidateEntity` instance with the same client and
-options.
-
-#### `client()`
-
-Return the parent `CloudsmithSDK` instance.
-
-#### `entopts()`
-
-Return a copy of the entity options.
-
-
----
-
-## VersionEntity
-
-```ts
-const version = client.Version()
-```
-
-### Common Methods
-
-#### `data(data?: object)`
-
-Get or set the entity data. When called with data, sets the entity's
-internal data and returns the current data. When called without
-arguments, returns a copy of the current data.
-
-#### `match(match?: object)`
-
-Get or set the entity match criteria. Works the same as `data()`.
-
-#### `make()`
-
-Create a new `VersionEntity` instance with the same client and
-options.
-
-#### `client()`
-
-Return the parent `CloudsmithSDK` instance.
-
-#### `entopts()`
-
-Return a copy of the entity options.
-
-
----
-
 ## VulnerabilityEntity
 
 ```ts
@@ -9472,40 +6998,6 @@ Return a copy of the entity options.
 
 ---
 
-## VulnerabilityPolicyEntity
-
-```ts
-const vulnerability_policy = client.VulnerabilityPolicy()
-```
-
-### Common Methods
-
-#### `data(data?: object)`
-
-Get or set the entity data. When called with data, sets the entity's
-internal data and returns the current data. When called without
-arguments, returns a copy of the current data.
-
-#### `match(match?: object)`
-
-Get or set the entity match criteria. Works the same as `data()`.
-
-#### `make()`
-
-Create a new `VulnerabilityPolicyEntity` instance with the same client and
-options.
-
-#### `client()`
-
-Return the parent `CloudsmithSDK` instance.
-
-#### `entopts()`
-
-Return a copy of the entity options.
-
-
----
-
 ## WebhookEntity
 
 ```ts
@@ -9556,86 +7048,18 @@ Return a copy of the entity options.
 
 ---
 
-## X509EcdsaEntity
-
-```ts
-const x509_ecdsa = client.X509Ecdsa()
-```
-
-### Common Methods
-
-#### `data(data?: object)`
-
-Get or set the entity data. When called with data, sets the entity's
-internal data and returns the current data. When called without
-arguments, returns a copy of the current data.
-
-#### `match(match?: object)`
-
-Get or set the entity match criteria. Works the same as `data()`.
-
-#### `make()`
-
-Create a new `X509EcdsaEntity` instance with the same client and
-options.
-
-#### `client()`
-
-Return the parent `CloudsmithSDK` instance.
-
-#### `entopts()`
-
-Return a copy of the entity options.
-
-
----
-
-## X509RsaEntity
-
-```ts
-const x509_rsa = client.X509Rsa()
-```
-
-### Common Methods
-
-#### `data(data?: object)`
-
-Get or set the entity data. When called with data, sets the entity's
-internal data and returns the current data. When called without
-arguments, returns a copy of the current data.
-
-#### `match(match?: object)`
-
-Get or set the entity match criteria. Works the same as `data()`.
-
-#### `make()`
-
-Create a new `X509RsaEntity` instance with the same client and
-options.
-
-#### `client()`
-
-Return the parent `CloudsmithSDK` instance.
-
-#### `entopts()`
-
-Return a copy of the entity options.
-
-
----
-
 ## Features
 
 | Feature | Version | Description |
 | --- | --- | --- |
-| `debug` | 0.0.1 | Request/response capture ring buffer for debugging |
-| `idempotency` | 0.0.1 | Idempotency keys for safe retries of mutating operations |
-| `metrics` | 0.0.1 | Statistics capture: per-operation counters and latency |
-| `paging` | 0.0.1 | Pagination signals for list operations |
-| `ratelimit` | 0.0.1 | Client-side rate limiting via a token bucket |
-| `retry` | 0.0.1 | Automatic retry of transient failures with exponential backoff |
-| `test` | 0.0.1 | In-memory mock transport for testing without a live server |
-| `timeout` | 0.0.1 | Per-request timeout with transport abort |
+| `debug` | 0.0.1 | Debug capture |
+| `idempotency` | 0.0.1 | Idempotency |
+| `metrics` | 0.0.1 | Metrics |
+| `paging` | 0.0.1 | Paging |
+| `ratelimit` | 0.0.1 | Rate limiting |
+| `retry` | 0.0.1 | Retry |
+| `test` | 0.0.1 | Test transport |
+| `timeout` | 0.0.1 | Timeout |
 
 
 Features are activated via the `feature` option:
@@ -9681,7 +7105,7 @@ rather than the transport, so their order does not affect what they observe.
 
 #### `debug`
 
-Request/response capture ring buffer for debugging.
+Debug capture.
 
 **Configuration**
 
@@ -9712,7 +7136,7 @@ its default unless you name it.
 
 #### `idempotency`
 
-Idempotency keys for safe retries of mutating operations.
+Idempotency.
 
 **Configuration**
 
@@ -9743,7 +7167,7 @@ its default unless you name it.
 
 #### `metrics`
 
-Statistics capture: per-operation counters and latency.
+Metrics.
 
 **Configuration**
 
@@ -9771,7 +7195,7 @@ its default unless you name it.
 
 #### `paging`
 
-Pagination signals for list operations.
+Paging.
 
 **Configuration**
 
@@ -9806,7 +7230,7 @@ its default unless you name it.
 
 #### `ratelimit`
 
-Client-side rate limiting via a token bucket.
+Rate limiting.
 
 **Configuration**
 
@@ -9837,7 +7261,7 @@ its default unless you name it.
 
 #### `retry`
 
-Automatic retry of transient failures with exponential backoff.
+Retry.
 
 **Configuration**
 
@@ -9871,7 +7295,7 @@ its default unless you name it.
 
 #### `test`
 
-In-memory mock transport for testing without a live server.
+Test transport.
 
 **Configuration**
 
@@ -9902,7 +7326,7 @@ its default unless you name it.
 
 #### `timeout`
 
-Per-request timeout with transport abort.
+Timeout.
 
 **Configuration**
 

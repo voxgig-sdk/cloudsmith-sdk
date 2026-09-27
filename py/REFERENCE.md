@@ -42,49 +42,17 @@ client = CloudsmithSDK.test()
 
 ### Instance Methods
 
-#### `Abort(data=None)`
-
-Create a new `AbortEntity` instance. Pass `None` for no initial data.
-
-#### `Alpine(data=None)`
-
-Create a new `AlpineEntity` instance. Pass `None` for no initial data.
-
-#### `AuditLog(data=None)`
-
-Create a new `AuditLogEntity` instance. Pass `None` for no initial data.
-
-#### `Basic(data=None)`
-
-Create a new `BasicEntity` instance. Pass `None` for no initial data.
-
 #### `Cargo(data=None)`
 
 Create a new `CargoEntity` instance. Pass `None` for no initial data.
-
-#### `Cocoapod(data=None)`
-
-Create a new `CocoapodEntity` instance. Pass `None` for no initial data.
-
-#### `Complete(data=None)`
-
-Create a new `CompleteEntity` instance. Pass `None` for no initial data.
 
 #### `Composer(data=None)`
 
 Create a new `ComposerEntity` instance. Pass `None` for no initial data.
 
-#### `Conan(data=None)`
-
-Create a new `ConanEntity` instance. Pass `None` for no initial data.
-
 #### `Conda(data=None)`
 
 Create a new `CondaEntity` instance. Pass `None` for no initial data.
-
-#### `Copy(data=None)`
-
-Create a new `CopyEntity` instance. Pass `None` for no initial data.
 
 #### `Cran(data=None)`
 
@@ -98,25 +66,9 @@ Create a new `DartEntity` instance. Pass `None` for no initial data.
 
 Create a new `DebEntity` instance. Pass `None` for no initial data.
 
-#### `DenyPolicy(data=None)`
-
-Create a new `DenyPolicyEntity` instance. Pass `None` for no initial data.
-
-#### `Dependency(data=None)`
-
-Create a new `DependencyEntity` instance. Pass `None` for no initial data.
-
-#### `Disable(data=None)`
-
-Create a new `DisableEntity` instance. Pass `None` for no initial data.
-
 #### `DistributionFull(data=None)`
 
 Create a new `DistributionFullEntity` instance. Pass `None` for no initial data.
-
-#### `Distro(data=None)`
-
-Create a new `DistroEntity` instance. Pass `None` for no initial data.
 
 #### `Docker(data=None)`
 
@@ -126,21 +78,9 @@ Create a new `DockerEntity` instance. Pass `None` for no initial data.
 
 Create a new `DynamicMappingEntity` instance. Pass `None` for no initial data.
 
-#### `Ecdsa(data=None)`
-
-Create a new `EcdsaEntity` instance. Pass `None` for no initial data.
-
-#### `Enable(data=None)`
-
-Create a new `EnableEntity` instance. Pass `None` for no initial data.
-
 #### `Entitlement(data=None)`
 
 Create a new `EntitlementEntity` instance. Pass `None` for no initial data.
-
-#### `Evaluation(data=None)`
-
-Create a new `EvaluationEntity` instance. Pass `None` for no initial data.
 
 #### `File(data=None)`
 
@@ -150,21 +90,9 @@ Create a new `FileEntity` instance. Pass `None` for no initial data.
 
 Create a new `FormatEntity` instance. Pass `None` for no initial data.
 
-#### `Geoip(data=None)`
-
-Create a new `GeoipEntity` instance. Pass `None` for no initial data.
-
 #### `Gon(data=None)`
 
 Create a new `GonEntity` instance. Pass `None` for no initial data.
-
-#### `Gpg(data=None)`
-
-Create a new `GpgEntity` instance. Pass `None` for no initial data.
-
-#### `Group(data=None)`
-
-Create a new `GroupEntity` instance. Pass `None` for no initial data.
 
 #### `Helm(data=None)`
 
@@ -174,45 +102,13 @@ Create a new `HelmEntity` instance. Pass `None` for no initial data.
 
 Create a new `HexEntity` instance. Pass `None` for no initial data.
 
-#### `History(data=None)`
-
-Create a new `HistoryEntity` instance. Pass `None` for no initial data.
-
 #### `Huggingface(data=None)`
 
 Create a new `HuggingfaceEntity` instance. Pass `None` for no initial data.
 
-#### `Info(data=None)`
-
-Create a new `InfoEntity` instance. Pass `None` for no initial data.
-
-#### `Invite(data=None)`
-
-Create a new `InviteEntity` instance. Pass `None` for no initial data.
-
-#### `LicensePolicy(data=None)`
-
-Create a new `LicensePolicyEntity` instance. Pass `None` for no initial data.
-
-#### `Limit(data=None)`
-
-Create a new `LimitEntity` instance. Pass `None` for no initial data.
-
-#### `Luarock(data=None)`
-
-Create a new `LuarockEntity` instance. Pass `None` for no initial data.
-
 #### `Maven(data=None)`
 
 Create a new `MavenEntity` instance. Pass `None` for no initial data.
-
-#### `Member(data=None)`
-
-Create a new `MemberEntity` instance. Pass `None` for no initial data.
-
-#### `Move(data=None)`
-
-Create a new `MoveEntity` instance. Pass `None` for no initial data.
 
 #### `Namespace(data=None)`
 
@@ -229,10 +125,6 @@ Create a new `NpmEntity` instance. Pass `None` for no initial data.
 #### `Nuget(data=None)`
 
 Create a new `NugetEntity` instance. Pass `None` for no initial data.
-
-#### `OpenidConnect(data=None)`
-
-Create a new `OpenidConnectEntity` instance. Pass `None` for no initial data.
 
 #### `Org(data=None)`
 
@@ -286,14 +178,6 @@ Create a new `OrganizationTeamEntity` instance. Pass `None` for no initial data.
 
 Create a new `OrganizationTeamMemberEntity` instance. Pass `None` for no initial data.
 
-#### `Oss(data=None)`
-
-Create a new `OssEntity` instance. Pass `None` for no initial data.
-
-#### `P2n(data=None)`
-
-Create a new `P2nEntity` instance. Pass `None` for no initial data.
-
 #### `Package(data=None)`
 
 Create a new `PackageEntity` instance. Pass `None` for no initial data.
@@ -322,14 +206,6 @@ Create a new `PackageVersionBadgeEntity` instance. Pass `None` for no initial da
 
 Create a new `PackageVulnerabilityPolicyEvaluationEntity` instance. Pass `None` for no initial data.
 
-#### `Privilege(data=None)`
-
-Create a new `PrivilegeEntity` instance. Pass `None` for no initial data.
-
-#### `Profile(data=None)`
-
-Create a new `ProfileEntity` instance. Pass `None` for no initial data.
-
 #### `ProviderSetting(data=None)`
 
 Create a new `ProviderSettingEntity` instance. Pass `None` for no initial data.
@@ -342,25 +218,9 @@ Create a new `ProviderSettingsWriteEntity` instance. Pass `None` for no initial 
 
 Create a new `PythonEntity` instance. Pass `None` for no initial data.
 
-#### `Quarantine(data=None)`
-
-Create a new `QuarantineEntity` instance. Pass `None` for no initial data.
-
 #### `Quota(data=None)`
 
 Create a new `QuotaEntity` instance. Pass `None` for no initial data.
-
-#### `Raw(data=None)`
-
-Create a new `RawEntity` instance. Pass `None` for no initial data.
-
-#### `Refresh(data=None)`
-
-Create a new `RefreshEntity` instance. Pass `None` for no initial data.
-
-#### `Regenerate(data=None)`
-
-Create a new `RegenerateEntity` instance. Pass `None` for no initial data.
 
 #### `Repo(data=None)`
 
@@ -390,9 +250,9 @@ Create a new `RepositoryGeoIpTestAddressEntity` instance. Pass `None` for no ini
 
 Create a new `RepositoryGpgKeyEntity` instance. Pass `None` for no initial data.
 
-#### `RepositoryPrivilegeInput(data=None)`
+#### `RepositoryPrivilegeDict(data=None)`
 
-Create a new `RepositoryPrivilegeInputEntity` instance. Pass `None` for no initial data.
+Create a new `RepositoryPrivilegeDictEntity` instance. Pass `None` for no initial data.
 
 #### `RepositoryRetentionRule(data=None)`
 
@@ -426,53 +286,21 @@ Create a new `RepositoryX509EcdsaCertificateEntity` instance. Pass `None` for no
 
 Create a new `RepositoryX509RsaCertificateEntity` instance. Pass `None` for no initial data.
 
-#### `Reset(data=None)`
-
-Create a new `ResetEntity` instance. Pass `None` for no initial data.
-
 #### `ResourcesRateCheck(data=None)`
 
 Create a new `ResourcesRateCheckEntity` instance. Pass `None` for no initial data.
-
-#### `Resync(data=None)`
-
-Create a new `ResyncEntity` instance. Pass `None` for no initial data.
-
-#### `Retention(data=None)`
-
-Create a new `RetentionEntity` instance. Pass `None` for no initial data.
 
 #### `Rpm(data=None)`
 
 Create a new `RpmEntity` instance. Pass `None` for no initial data.
 
-#### `Rsa(data=None)`
-
-Create a new `RsaEntity` instance. Pass `None` for no initial data.
-
 #### `Ruby(data=None)`
 
 Create a new `RubyEntity` instance. Pass `None` for no initial data.
 
-#### `SamlGroupSync(data=None)`
-
-Create a new `SamlGroupSyncEntity` instance. Pass `None` for no initial data.
-
-#### `Scan(data=None)`
-
-Create a new `ScanEntity` instance. Pass `None` for no initial data.
-
-#### `Self(data=None)`
-
-Create a new `SelfEntity` instance. Pass `None` for no initial data.
-
 #### `Service(data=None)`
 
 Create a new `ServiceEntity` instance. Pass `None` for no initial data.
-
-#### `Status(data=None)`
-
-Create a new `StatusEntity` instance. Pass `None` for no initial data.
 
 #### `StatusBasic(data=None)`
 
@@ -485,34 +313,6 @@ Create a new `StorageRegionEntity` instance. Pass `None` for no initial data.
 #### `Swift(data=None)`
 
 Create a new `SwiftEntity` instance. Pass `None` for no initial data.
-
-#### `Sync(data=None)`
-
-Create a new `SyncEntity` instance. Pass `None` for no initial data.
-
-#### `Tag(data=None)`
-
-Create a new `TagEntity` instance. Pass `None` for no initial data.
-
-#### `Team(data=None)`
-
-Create a new `TeamEntity` instance. Pass `None` for no initial data.
-
-#### `Terraform(data=None)`
-
-Create a new `TerraformEntity` instance. Pass `None` for no initial data.
-
-#### `Test(data=None)`
-
-Create a new `TestEntity` instance. Pass `None` for no initial data.
-
-#### `Token(data=None)`
-
-Create a new `TokenEntity` instance. Pass `None` for no initial data.
-
-#### `TransferRegion(data=None)`
-
-Create a new `TransferRegionEntity` instance. Pass `None` for no initial data.
 
 #### `User(data=None)`
 
@@ -534,37 +334,13 @@ Create a new `UserBriefEntity` instance. Pass `None` for no initial data.
 
 Create a new `UserProfileEntity` instance. Pass `None` for no initial data.
 
-#### `Vagrant(data=None)`
-
-Create a new `VagrantEntity` instance. Pass `None` for no initial data.
-
-#### `Validate(data=None)`
-
-Create a new `ValidateEntity` instance. Pass `None` for no initial data.
-
-#### `Version(data=None)`
-
-Create a new `VersionEntity` instance. Pass `None` for no initial data.
-
 #### `Vulnerability(data=None)`
 
 Create a new `VulnerabilityEntity` instance. Pass `None` for no initial data.
 
-#### `VulnerabilityPolicy(data=None)`
-
-Create a new `VulnerabilityPolicyEntity` instance. Pass `None` for no initial data.
-
 #### `Webhook(data=None)`
 
 Create a new `WebhookEntity` instance. Pass `None` for no initial data.
-
-#### `X509Ecdsa(data=None)`
-
-Create a new `X509EcdsaEntity` instance. Pass `None` for no initial data.
-
-#### `X509Rsa(data=None)`
-
-Create a new `X509RsaEntity` instance. Pass `None` for no initial data.
 
 #### `options_map() -> dict`
 
@@ -594,146 +370,6 @@ Make a direct HTTP request to any API endpoint. Returns a result `dict` with `ok
 #### `prepare(fetchargs=None) -> dict`
 
 Prepare a fetch definition without sending. Returns the `fetchdef` and raises on error.
-
-
----
-
-## AbortEntity
-
-```python
-abort = client.Abort()
-```
-
-### Common Methods
-
-#### `data_get() -> dict`
-
-Get the entity data.
-
-#### `data_set(data)`
-
-Set the entity data.
-
-#### `match_get() -> dict`
-
-Get the entity match criteria.
-
-#### `match_set(match)`
-
-Set the entity match criteria.
-
-#### `make() -> Entity`
-
-Create a new `AbortEntity` instance with the same options.
-
-#### `get_name() -> str`
-
-Return the entity name.
-
-
----
-
-## AlpineEntity
-
-```python
-alpine = client.Alpine()
-```
-
-### Common Methods
-
-#### `data_get() -> dict`
-
-Get the entity data.
-
-#### `data_set(data)`
-
-Set the entity data.
-
-#### `match_get() -> dict`
-
-Get the entity match criteria.
-
-#### `match_set(match)`
-
-Set the entity match criteria.
-
-#### `make() -> Entity`
-
-Create a new `AlpineEntity` instance with the same options.
-
-#### `get_name() -> str`
-
-Return the entity name.
-
-
----
-
-## AuditLogEntity
-
-```python
-audit_log = client.AuditLog()
-```
-
-### Common Methods
-
-#### `data_get() -> dict`
-
-Get the entity data.
-
-#### `data_set(data)`
-
-Set the entity data.
-
-#### `match_get() -> dict`
-
-Get the entity match criteria.
-
-#### `match_set(match)`
-
-Set the entity match criteria.
-
-#### `make() -> Entity`
-
-Create a new `AuditLogEntity` instance with the same options.
-
-#### `get_name() -> str`
-
-Return the entity name.
-
-
----
-
-## BasicEntity
-
-```python
-basic = client.Basic()
-```
-
-### Common Methods
-
-#### `data_get() -> dict`
-
-Get the entity data.
-
-#### `data_set(data)`
-
-Set the entity data.
-
-#### `match_get() -> dict`
-
-Get the entity match criteria.
-
-#### `match_set(match)`
-
-Set the entity match criteria.
-
-#### `make() -> Entity`
-
-Create a new `BasicEntity` instance with the same options.
-
-#### `get_name() -> str`
-
-Return the entity name.
 
 
 ---
@@ -835,76 +471,6 @@ Set the entity match criteria.
 #### `make() -> Entity`
 
 Create a new `CargoEntity` instance with the same options.
-
-#### `get_name() -> str`
-
-Return the entity name.
-
-
----
-
-## CocoapodEntity
-
-```python
-cocoapod = client.Cocoapod()
-```
-
-### Common Methods
-
-#### `data_get() -> dict`
-
-Get the entity data.
-
-#### `data_set(data)`
-
-Set the entity data.
-
-#### `match_get() -> dict`
-
-Get the entity match criteria.
-
-#### `match_set(match)`
-
-Set the entity match criteria.
-
-#### `make() -> Entity`
-
-Create a new `CocoapodEntity` instance with the same options.
-
-#### `get_name() -> str`
-
-Return the entity name.
-
-
----
-
-## CompleteEntity
-
-```python
-complete = client.Complete()
-```
-
-### Common Methods
-
-#### `data_get() -> dict`
-
-Get the entity data.
-
-#### `data_set(data)`
-
-Set the entity data.
-
-#### `match_get() -> dict`
-
-Get the entity match criteria.
-
-#### `match_set(match)`
-
-Set the entity match criteria.
-
-#### `make() -> Entity`
-
-Create a new `CompleteEntity` instance with the same options.
 
 #### `get_name() -> str`
 
@@ -1018,41 +584,6 @@ Return the entity name.
 
 ---
 
-## ConanEntity
-
-```python
-conan = client.Conan()
-```
-
-### Common Methods
-
-#### `data_get() -> dict`
-
-Get the entity data.
-
-#### `data_set(data)`
-
-Set the entity data.
-
-#### `match_get() -> dict`
-
-Get the entity match criteria.
-
-#### `match_set(match)`
-
-Set the entity match criteria.
-
-#### `make() -> Entity`
-
-Create a new `ConanEntity` instance with the same options.
-
-#### `get_name() -> str`
-
-Return the entity name.
-
-
----
-
 ## CondaEntity
 
 ```python
@@ -1150,41 +681,6 @@ Set the entity match criteria.
 #### `make() -> Entity`
 
 Create a new `CondaEntity` instance with the same options.
-
-#### `get_name() -> str`
-
-Return the entity name.
-
-
----
-
-## CopyEntity
-
-```python
-copy = client.Copy()
-```
-
-### Common Methods
-
-#### `data_get() -> dict`
-
-Get the entity data.
-
-#### `data_set(data)`
-
-Set the entity data.
-
-#### `match_get() -> dict`
-
-Get the entity match criteria.
-
-#### `match_set(match)`
-
-Set the entity match criteria.
-
-#### `make() -> Entity`
-
-Create a new `CopyEntity` instance with the same options.
 
 #### `get_name() -> str`
 
@@ -1517,111 +1013,6 @@ Return the entity name.
 
 ---
 
-## DenyPolicyEntity
-
-```python
-deny_policy = client.DenyPolicy()
-```
-
-### Common Methods
-
-#### `data_get() -> dict`
-
-Get the entity data.
-
-#### `data_set(data)`
-
-Set the entity data.
-
-#### `match_get() -> dict`
-
-Get the entity match criteria.
-
-#### `match_set(match)`
-
-Set the entity match criteria.
-
-#### `make() -> Entity`
-
-Create a new `DenyPolicyEntity` instance with the same options.
-
-#### `get_name() -> str`
-
-Return the entity name.
-
-
----
-
-## DependencyEntity
-
-```python
-dependency = client.Dependency()
-```
-
-### Common Methods
-
-#### `data_get() -> dict`
-
-Get the entity data.
-
-#### `data_set(data)`
-
-Set the entity data.
-
-#### `match_get() -> dict`
-
-Get the entity match criteria.
-
-#### `match_set(match)`
-
-Set the entity match criteria.
-
-#### `make() -> Entity`
-
-Create a new `DependencyEntity` instance with the same options.
-
-#### `get_name() -> str`
-
-Return the entity name.
-
-
----
-
-## DisableEntity
-
-```python
-disable = client.Disable()
-```
-
-### Common Methods
-
-#### `data_get() -> dict`
-
-Get the entity data.
-
-#### `data_set(data)`
-
-Set the entity data.
-
-#### `match_get() -> dict`
-
-Get the entity match criteria.
-
-#### `match_set(match)`
-
-Set the entity match criteria.
-
-#### `make() -> Entity`
-
-Create a new `DisableEntity` instance with the same options.
-
-#### `get_name() -> str`
-
-Return the entity name.
-
-
----
-
 ## DistributionFullEntity
 
 ```python
@@ -1681,41 +1072,6 @@ Set the entity match criteria.
 #### `make() -> Entity`
 
 Create a new `DistributionFullEntity` instance with the same options.
-
-#### `get_name() -> str`
-
-Return the entity name.
-
-
----
-
-## DistroEntity
-
-```python
-distro = client.Distro()
-```
-
-### Common Methods
-
-#### `data_get() -> dict`
-
-Get the entity data.
-
-#### `data_set(data)`
-
-Set the entity data.
-
-#### `match_get() -> dict`
-
-Get the entity match criteria.
-
-#### `match_set(match)`
-
-Set the entity match criteria.
-
-#### `make() -> Entity`
-
-Create a new `DistroEntity` instance with the same options.
 
 #### `get_name() -> str`
 
@@ -1892,76 +1248,6 @@ Return the entity name.
 
 ---
 
-## EcdsaEntity
-
-```python
-ecdsa = client.Ecdsa()
-```
-
-### Common Methods
-
-#### `data_get() -> dict`
-
-Get the entity data.
-
-#### `data_set(data)`
-
-Set the entity data.
-
-#### `match_get() -> dict`
-
-Get the entity match criteria.
-
-#### `match_set(match)`
-
-Set the entity match criteria.
-
-#### `make() -> Entity`
-
-Create a new `EcdsaEntity` instance with the same options.
-
-#### `get_name() -> str`
-
-Return the entity name.
-
-
----
-
-## EnableEntity
-
-```python
-enable = client.Enable()
-```
-
-### Common Methods
-
-#### `data_get() -> dict`
-
-Get the entity data.
-
-#### `data_set(data)`
-
-Set the entity data.
-
-#### `match_get() -> dict`
-
-Get the entity match criteria.
-
-#### `match_set(match)`
-
-Set the entity match criteria.
-
-#### `make() -> Entity`
-
-Create a new `EnableEntity` instance with the same options.
-
-#### `get_name() -> str`
-
-Return the entity name.
-
-
----
-
 ## EntitlementEntity
 
 ```python
@@ -2032,41 +1318,6 @@ Set the entity match criteria.
 #### `make() -> Entity`
 
 Create a new `EntitlementEntity` instance with the same options.
-
-#### `get_name() -> str`
-
-Return the entity name.
-
-
----
-
-## EvaluationEntity
-
-```python
-evaluation = client.Evaluation()
-```
-
-### Common Methods
-
-#### `data_get() -> dict`
-
-Get the entity data.
-
-#### `data_set(data)`
-
-Set the entity data.
-
-#### `match_get() -> dict`
-
-Get the entity match criteria.
-
-#### `match_set(match)`
-
-Set the entity match criteria.
-
-#### `make() -> Entity`
-
-Create a new `EvaluationEntity` instance with the same options.
 
 #### `get_name() -> str`
 
@@ -2193,41 +1444,6 @@ Return the entity name.
 
 ---
 
-## GeoipEntity
-
-```python
-geoip = client.Geoip()
-```
-
-### Common Methods
-
-#### `data_get() -> dict`
-
-Get the entity data.
-
-#### `data_set(data)`
-
-Set the entity data.
-
-#### `match_get() -> dict`
-
-Get the entity match criteria.
-
-#### `match_set(match)`
-
-Set the entity match criteria.
-
-#### `make() -> Entity`
-
-Create a new `GeoipEntity` instance with the same options.
-
-#### `get_name() -> str`
-
-Return the entity name.
-
-
----
-
 ## GonEntity
 
 ```python
@@ -2324,76 +1540,6 @@ Set the entity match criteria.
 #### `make() -> Entity`
 
 Create a new `GonEntity` instance with the same options.
-
-#### `get_name() -> str`
-
-Return the entity name.
-
-
----
-
-## GpgEntity
-
-```python
-gpg = client.Gpg()
-```
-
-### Common Methods
-
-#### `data_get() -> dict`
-
-Get the entity data.
-
-#### `data_set(data)`
-
-Set the entity data.
-
-#### `match_get() -> dict`
-
-Get the entity match criteria.
-
-#### `match_set(match)`
-
-Set the entity match criteria.
-
-#### `make() -> Entity`
-
-Create a new `GpgEntity` instance with the same options.
-
-#### `get_name() -> str`
-
-Return the entity name.
-
-
----
-
-## GroupEntity
-
-```python
-group = client.Group()
-```
-
-### Common Methods
-
-#### `data_get() -> dict`
-
-Get the entity data.
-
-#### `data_set(data)`
-
-Set the entity data.
-
-#### `match_get() -> dict`
-
-Get the entity match criteria.
-
-#### `match_set(match)`
-
-Set the entity match criteria.
-
-#### `make() -> Entity`
-
-Create a new `GroupEntity` instance with the same options.
 
 #### `get_name() -> str`
 
@@ -2612,41 +1758,6 @@ Return the entity name.
 
 ---
 
-## HistoryEntity
-
-```python
-history = client.History()
-```
-
-### Common Methods
-
-#### `data_get() -> dict`
-
-Get the entity data.
-
-#### `data_set(data)`
-
-Set the entity data.
-
-#### `match_get() -> dict`
-
-Get the entity match criteria.
-
-#### `match_set(match)`
-
-Set the entity match criteria.
-
-#### `make() -> Entity`
-
-Create a new `HistoryEntity` instance with the same options.
-
-#### `get_name() -> str`
-
-Return the entity name.
-
-
----
-
 ## HuggingfaceEntity
 
 ```python
@@ -2744,181 +1855,6 @@ Set the entity match criteria.
 #### `make() -> Entity`
 
 Create a new `HuggingfaceEntity` instance with the same options.
-
-#### `get_name() -> str`
-
-Return the entity name.
-
-
----
-
-## InfoEntity
-
-```python
-info = client.Info()
-```
-
-### Common Methods
-
-#### `data_get() -> dict`
-
-Get the entity data.
-
-#### `data_set(data)`
-
-Set the entity data.
-
-#### `match_get() -> dict`
-
-Get the entity match criteria.
-
-#### `match_set(match)`
-
-Set the entity match criteria.
-
-#### `make() -> Entity`
-
-Create a new `InfoEntity` instance with the same options.
-
-#### `get_name() -> str`
-
-Return the entity name.
-
-
----
-
-## InviteEntity
-
-```python
-invite = client.Invite()
-```
-
-### Common Methods
-
-#### `data_get() -> dict`
-
-Get the entity data.
-
-#### `data_set(data)`
-
-Set the entity data.
-
-#### `match_get() -> dict`
-
-Get the entity match criteria.
-
-#### `match_set(match)`
-
-Set the entity match criteria.
-
-#### `make() -> Entity`
-
-Create a new `InviteEntity` instance with the same options.
-
-#### `get_name() -> str`
-
-Return the entity name.
-
-
----
-
-## LicensePolicyEntity
-
-```python
-license_policy = client.LicensePolicy()
-```
-
-### Common Methods
-
-#### `data_get() -> dict`
-
-Get the entity data.
-
-#### `data_set(data)`
-
-Set the entity data.
-
-#### `match_get() -> dict`
-
-Get the entity match criteria.
-
-#### `match_set(match)`
-
-Set the entity match criteria.
-
-#### `make() -> Entity`
-
-Create a new `LicensePolicyEntity` instance with the same options.
-
-#### `get_name() -> str`
-
-Return the entity name.
-
-
----
-
-## LimitEntity
-
-```python
-limit = client.Limit()
-```
-
-### Common Methods
-
-#### `data_get() -> dict`
-
-Get the entity data.
-
-#### `data_set(data)`
-
-Set the entity data.
-
-#### `match_get() -> dict`
-
-Get the entity match criteria.
-
-#### `match_set(match)`
-
-Set the entity match criteria.
-
-#### `make() -> Entity`
-
-Create a new `LimitEntity` instance with the same options.
-
-#### `get_name() -> str`
-
-Return the entity name.
-
-
----
-
-## LuarockEntity
-
-```python
-luarock = client.Luarock()
-```
-
-### Common Methods
-
-#### `data_get() -> dict`
-
-Get the entity data.
-
-#### `data_set(data)`
-
-Set the entity data.
-
-#### `match_get() -> dict`
-
-Get the entity match criteria.
-
-#### `match_set(match)`
-
-Set the entity match criteria.
-
-#### `make() -> Entity`
-
-Create a new `LuarockEntity` instance with the same options.
 
 #### `get_name() -> str`
 
@@ -3028,76 +1964,6 @@ Set the entity match criteria.
 #### `make() -> Entity`
 
 Create a new `MavenEntity` instance with the same options.
-
-#### `get_name() -> str`
-
-Return the entity name.
-
-
----
-
-## MemberEntity
-
-```python
-member = client.Member()
-```
-
-### Common Methods
-
-#### `data_get() -> dict`
-
-Get the entity data.
-
-#### `data_set(data)`
-
-Set the entity data.
-
-#### `match_get() -> dict`
-
-Get the entity match criteria.
-
-#### `match_set(match)`
-
-Set the entity match criteria.
-
-#### `make() -> Entity`
-
-Create a new `MemberEntity` instance with the same options.
-
-#### `get_name() -> str`
-
-Return the entity name.
-
-
----
-
-## MoveEntity
-
-```python
-move = client.Move()
-```
-
-### Common Methods
-
-#### `data_get() -> dict`
-
-Get the entity data.
-
-#### `data_set(data)`
-
-Set the entity data.
-
-#### `match_get() -> dict`
-
-Get the entity match criteria.
-
-#### `match_set(match)`
-
-Set the entity match criteria.
-
-#### `make() -> Entity`
-
-Create a new `MoveEntity` instance with the same options.
 
 #### `get_name() -> str`
 
@@ -3440,41 +2306,6 @@ Set the entity match criteria.
 #### `make() -> Entity`
 
 Create a new `NugetEntity` instance with the same options.
-
-#### `get_name() -> str`
-
-Return the entity name.
-
-
----
-
-## OpenidConnectEntity
-
-```python
-openid_connect = client.OpenidConnect()
-```
-
-### Common Methods
-
-#### `data_get() -> dict`
-
-Get the entity data.
-
-#### `data_set(data)`
-
-Set the entity data.
-
-#### `match_get() -> dict`
-
-Get the entity match criteria.
-
-#### `match_set(match)`
-
-Set the entity match criteria.
-
-#### `make() -> Entity`
-
-Create a new `OpenidConnectEntity` instance with the same options.
 
 #### `get_name() -> str`
 
@@ -4473,76 +3304,6 @@ Return the entity name.
 
 ---
 
-## OssEntity
-
-```python
-oss = client.Oss()
-```
-
-### Common Methods
-
-#### `data_get() -> dict`
-
-Get the entity data.
-
-#### `data_set(data)`
-
-Set the entity data.
-
-#### `match_get() -> dict`
-
-Get the entity match criteria.
-
-#### `match_set(match)`
-
-Set the entity match criteria.
-
-#### `make() -> Entity`
-
-Create a new `OssEntity` instance with the same options.
-
-#### `get_name() -> str`
-
-Return the entity name.
-
-
----
-
-## P2nEntity
-
-```python
-p2n = client.P2n()
-```
-
-### Common Methods
-
-#### `data_get() -> dict`
-
-Get the entity data.
-
-#### `data_set(data)`
-
-Set the entity data.
-
-#### `match_get() -> dict`
-
-Get the entity match criteria.
-
-#### `match_set(match)`
-
-Set the entity match criteria.
-
-#### `make() -> Entity`
-
-Create a new `P2nEntity` instance with the same options.
-
-#### `get_name() -> str`
-
-Return the entity name.
-
-
----
-
 ## PackageEntity
 
 ```python
@@ -5237,76 +3998,6 @@ Return the entity name.
 
 ---
 
-## PrivilegeEntity
-
-```python
-privilege = client.Privilege()
-```
-
-### Common Methods
-
-#### `data_get() -> dict`
-
-Get the entity data.
-
-#### `data_set(data)`
-
-Set the entity data.
-
-#### `match_get() -> dict`
-
-Get the entity match criteria.
-
-#### `match_set(match)`
-
-Set the entity match criteria.
-
-#### `make() -> Entity`
-
-Create a new `PrivilegeEntity` instance with the same options.
-
-#### `get_name() -> str`
-
-Return the entity name.
-
-
----
-
-## ProfileEntity
-
-```python
-profile = client.Profile()
-```
-
-### Common Methods
-
-#### `data_get() -> dict`
-
-Get the entity data.
-
-#### `data_set(data)`
-
-Set the entity data.
-
-#### `match_get() -> dict`
-
-Get the entity match criteria.
-
-#### `match_set(match)`
-
-Set the entity match criteria.
-
-#### `make() -> Entity`
-
-Create a new `ProfileEntity` instance with the same options.
-
-#### `get_name() -> str`
-
-Return the entity name.
-
-
----
-
 ## ProviderSettingEntity
 
 ```python
@@ -5557,41 +4248,6 @@ Return the entity name.
 
 ---
 
-## QuarantineEntity
-
-```python
-quarantine = client.Quarantine()
-```
-
-### Common Methods
-
-#### `data_get() -> dict`
-
-Get the entity data.
-
-#### `data_set(data)`
-
-Set the entity data.
-
-#### `match_get() -> dict`
-
-Get the entity match criteria.
-
-#### `match_set(match)`
-
-Set the entity match criteria.
-
-#### `make() -> Entity`
-
-Create a new `QuarantineEntity` instance with the same options.
-
-#### `get_name() -> str`
-
-Return the entity name.
-
-
----
-
 ## QuotaEntity
 
 ```python
@@ -5638,111 +4294,6 @@ Set the entity match criteria.
 #### `make() -> Entity`
 
 Create a new `QuotaEntity` instance with the same options.
-
-#### `get_name() -> str`
-
-Return the entity name.
-
-
----
-
-## RawEntity
-
-```python
-raw = client.Raw()
-```
-
-### Common Methods
-
-#### `data_get() -> dict`
-
-Get the entity data.
-
-#### `data_set(data)`
-
-Set the entity data.
-
-#### `match_get() -> dict`
-
-Get the entity match criteria.
-
-#### `match_set(match)`
-
-Set the entity match criteria.
-
-#### `make() -> Entity`
-
-Create a new `RawEntity` instance with the same options.
-
-#### `get_name() -> str`
-
-Return the entity name.
-
-
----
-
-## RefreshEntity
-
-```python
-refresh = client.Refresh()
-```
-
-### Common Methods
-
-#### `data_get() -> dict`
-
-Get the entity data.
-
-#### `data_set(data)`
-
-Set the entity data.
-
-#### `match_get() -> dict`
-
-Get the entity match criteria.
-
-#### `match_set(match)`
-
-Set the entity match criteria.
-
-#### `make() -> Entity`
-
-Create a new `RefreshEntity` instance with the same options.
-
-#### `get_name() -> str`
-
-Return the entity name.
-
-
----
-
-## RegenerateEntity
-
-```python
-regenerate = client.Regenerate()
-```
-
-### Common Methods
-
-#### `data_get() -> dict`
-
-Get the entity data.
-
-#### `data_set(data)`
-
-Set the entity data.
-
-#### `match_get() -> dict`
-
-Get the entity match criteria.
-
-#### `match_set(match)`
-
-Set the entity match criteria.
-
-#### `make() -> Entity`
-
-Create a new `RegenerateEntity` instance with the same options.
 
 #### `get_name() -> str`
 
@@ -6274,10 +4825,10 @@ Return the entity name.
 
 ---
 
-## RepositoryPrivilegeInputEntity
+## RepositoryPrivilegeDictEntity
 
 ```python
-repository_privilege_input = client.RepositoryPrivilegeInput()
+repository_privilege_dict = client.RepositoryPrivilegeDict()
 ```
 
 ### Fields
@@ -6296,9 +4847,9 @@ repository_privilege_input = client.RepositoryPrivilegeInput()
 List entities matching the given criteria. The match is optional — call `list()` with no argument to list all records. Returns a list and raises on error.
 
 ```python
-results = client.RepositoryPrivilegeInput().list({"identifier": "example", "owner": "example"})
-for repository_privilege_input in results:
-    print(repository_privilege_input)
+results = client.RepositoryPrivilegeDict().list({"identifier": "example", "owner": "example"})
+for repository_privilege_dict in results:
+    print(repository_privilege_dict)
 ```
 
 ### Common Methods
@@ -6321,7 +4872,7 @@ Set the entity match criteria.
 
 #### `make() -> Entity`
 
-Create a new `RepositoryPrivilegeInputEntity` instance with the same options.
+Create a new `RepositoryPrivilegeDictEntity` instance with the same options.
 
 #### `get_name() -> str`
 
@@ -6975,41 +5526,6 @@ Return the entity name.
 
 ---
 
-## ResetEntity
-
-```python
-reset = client.Reset()
-```
-
-### Common Methods
-
-#### `data_get() -> dict`
-
-Get the entity data.
-
-#### `data_set(data)`
-
-Set the entity data.
-
-#### `match_get() -> dict`
-
-Get the entity match criteria.
-
-#### `match_set(match)`
-
-Set the entity match criteria.
-
-#### `make() -> Entity`
-
-Create a new `ResetEntity` instance with the same options.
-
-#### `get_name() -> str`
-
-Return the entity name.
-
-
----
-
 ## ResourcesRateCheckEntity
 
 ```python
@@ -7058,76 +5574,6 @@ Set the entity match criteria.
 #### `make() -> Entity`
 
 Create a new `ResourcesRateCheckEntity` instance with the same options.
-
-#### `get_name() -> str`
-
-Return the entity name.
-
-
----
-
-## ResyncEntity
-
-```python
-resync = client.Resync()
-```
-
-### Common Methods
-
-#### `data_get() -> dict`
-
-Get the entity data.
-
-#### `data_set(data)`
-
-Set the entity data.
-
-#### `match_get() -> dict`
-
-Get the entity match criteria.
-
-#### `match_set(match)`
-
-Set the entity match criteria.
-
-#### `make() -> Entity`
-
-Create a new `ResyncEntity` instance with the same options.
-
-#### `get_name() -> str`
-
-Return the entity name.
-
-
----
-
-## RetentionEntity
-
-```python
-retention = client.Retention()
-```
-
-### Common Methods
-
-#### `data_get() -> dict`
-
-Get the entity data.
-
-#### `data_set(data)`
-
-Set the entity data.
-
-#### `match_get() -> dict`
-
-Get the entity match criteria.
-
-#### `match_set(match)`
-
-Set the entity match criteria.
-
-#### `make() -> Entity`
-
-Create a new `RetentionEntity` instance with the same options.
 
 #### `get_name() -> str`
 
@@ -7248,41 +5694,6 @@ Return the entity name.
 
 ---
 
-## RsaEntity
-
-```python
-rsa = client.Rsa()
-```
-
-### Common Methods
-
-#### `data_get() -> dict`
-
-Get the entity data.
-
-#### `data_set(data)`
-
-Set the entity data.
-
-#### `match_get() -> dict`
-
-Get the entity match criteria.
-
-#### `match_set(match)`
-
-Set the entity match criteria.
-
-#### `make() -> Entity`
-
-Create a new `RsaEntity` instance with the same options.
-
-#### `get_name() -> str`
-
-Return the entity name.
-
-
----
-
 ## RubyEntity
 
 ```python
@@ -7388,111 +5799,6 @@ Return the entity name.
 
 ---
 
-## SamlGroupSyncEntity
-
-```python
-saml_group_sync = client.SamlGroupSync()
-```
-
-### Common Methods
-
-#### `data_get() -> dict`
-
-Get the entity data.
-
-#### `data_set(data)`
-
-Set the entity data.
-
-#### `match_get() -> dict`
-
-Get the entity match criteria.
-
-#### `match_set(match)`
-
-Set the entity match criteria.
-
-#### `make() -> Entity`
-
-Create a new `SamlGroupSyncEntity` instance with the same options.
-
-#### `get_name() -> str`
-
-Return the entity name.
-
-
----
-
-## ScanEntity
-
-```python
-scan = client.Scan()
-```
-
-### Common Methods
-
-#### `data_get() -> dict`
-
-Get the entity data.
-
-#### `data_set(data)`
-
-Set the entity data.
-
-#### `match_get() -> dict`
-
-Get the entity match criteria.
-
-#### `match_set(match)`
-
-Set the entity match criteria.
-
-#### `make() -> Entity`
-
-Create a new `ScanEntity` instance with the same options.
-
-#### `get_name() -> str`
-
-Return the entity name.
-
-
----
-
-## SelfEntity
-
-```python
-self = client.Self()
-```
-
-### Common Methods
-
-#### `data_get() -> dict`
-
-Get the entity data.
-
-#### `data_set(data)`
-
-Set the entity data.
-
-#### `match_get() -> dict`
-
-Get the entity match criteria.
-
-#### `match_set(match)`
-
-Set the entity match criteria.
-
-#### `make() -> Entity`
-
-Create a new `SelfEntity` instance with the same options.
-
-#### `get_name() -> str`
-
-Return the entity name.
-
-
----
-
 ## ServiceEntity
 
 ```python
@@ -7579,41 +5885,6 @@ Set the entity match criteria.
 #### `make() -> Entity`
 
 Create a new `ServiceEntity` instance with the same options.
-
-#### `get_name() -> str`
-
-Return the entity name.
-
-
----
-
-## StatusEntity
-
-```python
-status = client.Status()
-```
-
-### Common Methods
-
-#### `data_get() -> dict`
-
-Get the entity data.
-
-#### `data_set(data)`
-
-Set the entity data.
-
-#### `match_get() -> dict`
-
-Get the entity match criteria.
-
-#### `match_set(match)`
-
-Set the entity match criteria.
-
-#### `make() -> Entity`
-
-Create a new `StatusEntity` instance with the same options.
 
 #### `get_name() -> str`
 
@@ -7834,251 +6105,6 @@ Set the entity match criteria.
 #### `make() -> Entity`
 
 Create a new `SwiftEntity` instance with the same options.
-
-#### `get_name() -> str`
-
-Return the entity name.
-
-
----
-
-## SyncEntity
-
-```python
-sync = client.Sync()
-```
-
-### Common Methods
-
-#### `data_get() -> dict`
-
-Get the entity data.
-
-#### `data_set(data)`
-
-Set the entity data.
-
-#### `match_get() -> dict`
-
-Get the entity match criteria.
-
-#### `match_set(match)`
-
-Set the entity match criteria.
-
-#### `make() -> Entity`
-
-Create a new `SyncEntity` instance with the same options.
-
-#### `get_name() -> str`
-
-Return the entity name.
-
-
----
-
-## TagEntity
-
-```python
-tag = client.Tag()
-```
-
-### Common Methods
-
-#### `data_get() -> dict`
-
-Get the entity data.
-
-#### `data_set(data)`
-
-Set the entity data.
-
-#### `match_get() -> dict`
-
-Get the entity match criteria.
-
-#### `match_set(match)`
-
-Set the entity match criteria.
-
-#### `make() -> Entity`
-
-Create a new `TagEntity` instance with the same options.
-
-#### `get_name() -> str`
-
-Return the entity name.
-
-
----
-
-## TeamEntity
-
-```python
-team = client.Team()
-```
-
-### Common Methods
-
-#### `data_get() -> dict`
-
-Get the entity data.
-
-#### `data_set(data)`
-
-Set the entity data.
-
-#### `match_get() -> dict`
-
-Get the entity match criteria.
-
-#### `match_set(match)`
-
-Set the entity match criteria.
-
-#### `make() -> Entity`
-
-Create a new `TeamEntity` instance with the same options.
-
-#### `get_name() -> str`
-
-Return the entity name.
-
-
----
-
-## TerraformEntity
-
-```python
-terraform = client.Terraform()
-```
-
-### Common Methods
-
-#### `data_get() -> dict`
-
-Get the entity data.
-
-#### `data_set(data)`
-
-Set the entity data.
-
-#### `match_get() -> dict`
-
-Get the entity match criteria.
-
-#### `match_set(match)`
-
-Set the entity match criteria.
-
-#### `make() -> Entity`
-
-Create a new `TerraformEntity` instance with the same options.
-
-#### `get_name() -> str`
-
-Return the entity name.
-
-
----
-
-## TestEntity
-
-```python
-test = client.Test()
-```
-
-### Common Methods
-
-#### `data_get() -> dict`
-
-Get the entity data.
-
-#### `data_set(data)`
-
-Set the entity data.
-
-#### `match_get() -> dict`
-
-Get the entity match criteria.
-
-#### `match_set(match)`
-
-Set the entity match criteria.
-
-#### `make() -> Entity`
-
-Create a new `TestEntity` instance with the same options.
-
-#### `get_name() -> str`
-
-Return the entity name.
-
-
----
-
-## TokenEntity
-
-```python
-token = client.Token()
-```
-
-### Common Methods
-
-#### `data_get() -> dict`
-
-Get the entity data.
-
-#### `data_set(data)`
-
-Set the entity data.
-
-#### `match_get() -> dict`
-
-Get the entity match criteria.
-
-#### `match_set(match)`
-
-Set the entity match criteria.
-
-#### `make() -> Entity`
-
-Create a new `TokenEntity` instance with the same options.
-
-#### `get_name() -> str`
-
-Return the entity name.
-
-
----
-
-## TransferRegionEntity
-
-```python
-transfer_region = client.TransferRegion()
-```
-
-### Common Methods
-
-#### `data_get() -> dict`
-
-Get the entity data.
-
-#### `data_set(data)`
-
-Set the entity data.
-
-#### `match_get() -> dict`
-
-Get the entity match criteria.
-
-#### `match_set(match)`
-
-Set the entity match criteria.
-
-#### `make() -> Entity`
-
-Create a new `TransferRegionEntity` instance with the same options.
 
 #### `get_name() -> str`
 
@@ -8363,111 +6389,6 @@ Return the entity name.
 
 ---
 
-## VagrantEntity
-
-```python
-vagrant = client.Vagrant()
-```
-
-### Common Methods
-
-#### `data_get() -> dict`
-
-Get the entity data.
-
-#### `data_set(data)`
-
-Set the entity data.
-
-#### `match_get() -> dict`
-
-Get the entity match criteria.
-
-#### `match_set(match)`
-
-Set the entity match criteria.
-
-#### `make() -> Entity`
-
-Create a new `VagrantEntity` instance with the same options.
-
-#### `get_name() -> str`
-
-Return the entity name.
-
-
----
-
-## ValidateEntity
-
-```python
-validate = client.Validate()
-```
-
-### Common Methods
-
-#### `data_get() -> dict`
-
-Get the entity data.
-
-#### `data_set(data)`
-
-Set the entity data.
-
-#### `match_get() -> dict`
-
-Get the entity match criteria.
-
-#### `match_set(match)`
-
-Set the entity match criteria.
-
-#### `make() -> Entity`
-
-Create a new `ValidateEntity` instance with the same options.
-
-#### `get_name() -> str`
-
-Return the entity name.
-
-
----
-
-## VersionEntity
-
-```python
-version = client.Version()
-```
-
-### Common Methods
-
-#### `data_get() -> dict`
-
-Get the entity data.
-
-#### `data_set(data)`
-
-Set the entity data.
-
-#### `match_get() -> dict`
-
-Get the entity match criteria.
-
-#### `match_set(match)`
-
-Set the entity match criteria.
-
-#### `make() -> Entity`
-
-Create a new `VersionEntity` instance with the same options.
-
-#### `get_name() -> str`
-
-Return the entity name.
-
-
----
-
 ## VulnerabilityEntity
 
 ```python
@@ -8537,41 +6458,6 @@ Return the entity name.
 
 ---
 
-## VulnerabilityPolicyEntity
-
-```python
-vulnerability_policy = client.VulnerabilityPolicy()
-```
-
-### Common Methods
-
-#### `data_get() -> dict`
-
-Get the entity data.
-
-#### `data_set(data)`
-
-Set the entity data.
-
-#### `match_get() -> dict`
-
-Get the entity match criteria.
-
-#### `match_set(match)`
-
-Set the entity match criteria.
-
-#### `make() -> Entity`
-
-Create a new `VulnerabilityPolicyEntity` instance with the same options.
-
-#### `get_name() -> str`
-
-Return the entity name.
-
-
----
-
 ## WebhookEntity
 
 ```python
@@ -8623,88 +6509,18 @@ Return the entity name.
 
 ---
 
-## X509EcdsaEntity
-
-```python
-x509_ecdsa = client.X509Ecdsa()
-```
-
-### Common Methods
-
-#### `data_get() -> dict`
-
-Get the entity data.
-
-#### `data_set(data)`
-
-Set the entity data.
-
-#### `match_get() -> dict`
-
-Get the entity match criteria.
-
-#### `match_set(match)`
-
-Set the entity match criteria.
-
-#### `make() -> Entity`
-
-Create a new `X509EcdsaEntity` instance with the same options.
-
-#### `get_name() -> str`
-
-Return the entity name.
-
-
----
-
-## X509RsaEntity
-
-```python
-x509_rsa = client.X509Rsa()
-```
-
-### Common Methods
-
-#### `data_get() -> dict`
-
-Get the entity data.
-
-#### `data_set(data)`
-
-Set the entity data.
-
-#### `match_get() -> dict`
-
-Get the entity match criteria.
-
-#### `match_set(match)`
-
-Set the entity match criteria.
-
-#### `make() -> Entity`
-
-Create a new `X509RsaEntity` instance with the same options.
-
-#### `get_name() -> str`
-
-Return the entity name.
-
-
----
-
 ## Features
 
 | Feature | Version | Description |
 | --- | --- | --- |
-| `debug` | 0.0.1 | Request/response capture ring buffer for debugging |
-| `idempotency` | 0.0.1 | Idempotency keys for safe retries of mutating operations |
-| `metrics` | 0.0.1 | Statistics capture: per-operation counters and latency |
-| `paging` | 0.0.1 | Pagination signals for list operations |
-| `ratelimit` | 0.0.1 | Client-side rate limiting via a token bucket |
-| `retry` | 0.0.1 | Automatic retry of transient failures with exponential backoff |
-| `test` | 0.0.1 | In-memory mock transport for testing without a live server |
-| `timeout` | 0.0.1 | Per-request timeout with transport abort |
+| `debug` | 0.0.1 | Debug capture |
+| `idempotency` | 0.0.1 | Idempotency |
+| `metrics` | 0.0.1 | Metrics |
+| `paging` | 0.0.1 | Paging |
+| `ratelimit` | 0.0.1 | Rate limiting |
+| `retry` | 0.0.1 | Retry |
+| `test` | 0.0.1 | Test transport |
+| `timeout` | 0.0.1 | Timeout |
 
 
 Features are activated via the `feature` option:
@@ -8750,7 +6566,7 @@ rather than the transport, so their order does not affect what they observe.
 
 #### `debug`
 
-Request/response capture ring buffer for debugging.
+Debug capture.
 
 **Configuration**
 
@@ -8781,7 +6597,7 @@ its default unless you name it.
 
 #### `idempotency`
 
-Idempotency keys for safe retries of mutating operations.
+Idempotency.
 
 **Configuration**
 
@@ -8812,7 +6628,7 @@ its default unless you name it.
 
 #### `metrics`
 
-Statistics capture: per-operation counters and latency.
+Metrics.
 
 **Configuration**
 
@@ -8840,7 +6656,7 @@ its default unless you name it.
 
 #### `paging`
 
-Pagination signals for list operations.
+Paging.
 
 **Configuration**
 
@@ -8875,7 +6691,7 @@ its default unless you name it.
 
 #### `ratelimit`
 
-Client-side rate limiting via a token bucket.
+Rate limiting.
 
 **Configuration**
 
@@ -8906,7 +6722,7 @@ its default unless you name it.
 
 #### `retry`
 
-Automatic retry of transient failures with exponential backoff.
+Retry.
 
 **Configuration**
 
@@ -8940,7 +6756,7 @@ its default unless you name it.
 
 #### `test`
 
-In-memory mock transport for testing without a live server.
+Test transport.
 
 **Configuration**
 
@@ -8971,7 +6787,7 @@ its default unless you name it.
 
 #### `timeout`
 
-Per-request timeout with transport abort.
+Timeout.
 
 **Configuration**
 

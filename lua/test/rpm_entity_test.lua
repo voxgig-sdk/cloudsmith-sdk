@@ -154,7 +154,7 @@ function rpm_basic_setup(extra)
 
   -- Generate idmap via transform.
   local idmap = vs.transform(
-    { "rpm01", "rpm02", "rpm03", "package01", "package02", "package03", "repo01", "repo02", "repo03", "identifier01", "owner01" },
+    { "rpm01", "rpm02", "rpm03", "repo01", "repo02", "repo03", "identifier01", "owner01" },
     {
       ["`$PACK`"] = { "", {
         ["`$KEY`"] = "`$COPY`",

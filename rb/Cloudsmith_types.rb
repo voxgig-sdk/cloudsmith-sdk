@@ -2,27 +2,11 @@
 
 # Typed models for the Cloudsmith SDK.
 #
-# GENERATED from the API model: main.kit.entity.<e>.fields[] and per-op
-# params (op.<name>.points[].args.params[]). Member types come from the
+# GENERATED from the API model: main.kit.entity.<e>.fields{} and per-op
+# params (op.<name>.points[].g.params[]). Member types come from the
 # canonical type sentinels via @voxgig/sdkgen canonToType (source of truth:
 # @voxgig/apidef VALID_CANON). Ruby types are unenforced; these YARD
 # annotations document the shapes. Do not edit by hand.
-
-# Abort entity data model.
-class Abort
-end
-
-# Alpine entity data model.
-class Alpine
-end
-
-# AuditLog entity data model.
-class AuditLog
-end
-
-# Basic entity data model.
-class Basic
-end
 
 # Cargo entity data model.
 #
@@ -329,14 +313,6 @@ CargoUpdateData = Struct.new(
   keyword_init: true
 )
 
-# Cocoapod entity data model.
-class Cocoapod
-end
-
-# Complete entity data model.
-class Complete
-end
-
 # Composer entity data model.
 #
 # @!attribute [rw] auth_mode
@@ -642,10 +618,6 @@ ComposerUpdateData = Struct.new(
   keyword_init: true
 )
 
-# Conan entity data model.
-class Conan
-end
-
 # Conda entity data model.
 #
 # @!attribute [rw] auth_mode
@@ -950,10 +922,6 @@ CondaUpdateData = Struct.new(
   :verify_ssl,
   keyword_init: true
 )
-
-# Copy entity data model.
-class Copy
-end
 
 # Cran entity data model.
 #
@@ -1966,18 +1934,6 @@ DebUpdateData = Struct.new(
   keyword_init: true
 )
 
-# DenyPolicy entity data model.
-class DenyPolicy
-end
-
-# Dependency entity data model.
-class Dependency
-end
-
-# Disable entity data model.
-class Disable
-end
-
 # DistributionFull entity data model.
 #
 # @!attribute [rw] format
@@ -2052,10 +2008,6 @@ DistributionFullListMatch = Struct.new(
   :versions,
   keyword_init: true
 )
-
-# Distro entity data model.
-class Distro
-end
 
 # Docker entity data model.
 #
@@ -2417,14 +2369,6 @@ DynamicMappingListMatch = Struct.new(
   keyword_init: true
 )
 
-# Ecdsa entity data model.
-class Ecdsa
-end
-
-# Enable entity data model.
-class Enable
-end
-
 # Entitlement entity data model.
 #
 # @!attribute [rw] active
@@ -2544,10 +2488,6 @@ EntitlementRemoveMatch = Struct.new(
   :repo,
   keyword_init: true
 )
-
-# Evaluation entity data model.
-class Evaluation
-end
 
 # File entity data model.
 class FileType
@@ -2672,10 +2612,6 @@ FormatListMatch = Struct.new(
   :supports,
   keyword_init: true
 )
-
-# Geoip entity data model.
-class Geoip
-end
 
 # Gon entity data model.
 #
@@ -2969,14 +2905,6 @@ GonUpdateData = Struct.new(
   :verify_ssl,
   keyword_init: true
 )
-
-# Gpg entity data model.
-class Gpg
-end
-
-# Group entity data model.
-class Group
-end
 
 # Helm entity data model.
 #
@@ -3588,10 +3516,6 @@ HexUpdateData = Struct.new(
   keyword_init: true
 )
 
-# History entity data model.
-class History
-end
-
 # Huggingface entity data model.
 #
 # @!attribute [rw] auth_mode
@@ -3896,26 +3820,6 @@ HuggingfaceUpdateData = Struct.new(
   :verify_ssl,
   keyword_init: true
 )
-
-# Info entity data model.
-class Info
-end
-
-# Invite entity data model.
-class Invite
-end
-
-# LicensePolicy entity data model.
-class LicensePolicy
-end
-
-# Limit entity data model.
-class Limit
-end
-
-# Luarock entity data model.
-class Luarock
-end
 
 # Maven entity data model.
 #
@@ -4269,14 +4173,6 @@ MavenUpdateData = Struct.new(
   :verify_ssl,
   keyword_init: true
 )
-
-# Member entity data model.
-class Member
-end
-
-# Move entity data model.
-class Move
-end
 
 # Namespace entity data model.
 #
@@ -5028,10 +4924,6 @@ NugetUpdateData = Struct.new(
   :verify_ssl,
   keyword_init: true
 )
-
-# OpenidConnect entity data model.
-class OpenidConnect
-end
 
 # Org entity data model.
 #
@@ -6570,14 +6462,6 @@ OrganizationTeamMemberCreateData = Struct.new(
   :user,
   keyword_init: true
 )
-
-# Oss entity data model.
-class Oss
-end
-
-# P2n entity data model.
-class P2n
-end
 
 # Package entity data model.
 #
@@ -8122,14 +8006,6 @@ PackageVulnerabilityPolicyEvaluationCreateData = Struct.new(
   keyword_init: true
 )
 
-# Privilege entity data model.
-class Privilege
-end
-
-# Profile entity data model.
-class Profile
-end
-
 # ProviderSetting entity data model.
 #
 # @!attribute [rw] claims
@@ -8649,10 +8525,6 @@ PythonUpdateData = Struct.new(
   keyword_init: true
 )
 
-# Quarantine entity data model.
-class Quarantine
-end
-
 # Quota entity data model.
 #
 # @!attribute [rw] display
@@ -8682,18 +8554,6 @@ QuotaLoadMatch = Struct.new(
   :id,
   keyword_init: true
 )
-
-# Raw entity data model.
-class Raw
-end
-
-# Refresh entity data model.
-class Refresh
-end
-
-# Regenerate entity data model.
-class Regenerate
-end
 
 # Repo entity data model.
 #
@@ -9923,7 +9783,7 @@ RepositoryGpgKeyCreateData = Struct.new(
   keyword_init: true
 )
 
-# RepositoryPrivilegeInput entity data model.
+# RepositoryPrivilegeDict entity data model.
 #
 # @!attribute [rw] privilege
 #   @return [String]
@@ -9936,7 +9796,7 @@ RepositoryGpgKeyCreateData = Struct.new(
 #
 # @!attribute [rw] user
 #   @return [String, nil]
-RepositoryPrivilegeInput = Struct.new(
+RepositoryPrivilegeDict = Struct.new(
   :privilege,
   :service,
   :team,
@@ -9944,7 +9804,7 @@ RepositoryPrivilegeInput = Struct.new(
   keyword_init: true
 )
 
-# Request payload for RepositoryPrivilegeInput#list.
+# Request payload for RepositoryPrivilegeDict#list.
 #
 # @!attribute [rw] identifier
 #   @return [Object]
@@ -9957,7 +9817,7 @@ RepositoryPrivilegeInput = Struct.new(
 #
 # @!attribute [rw] page_size
 #   @return [Integer, nil]
-RepositoryPrivilegeInputListMatch = Struct.new(
+RepositoryPrivilegeDictListMatch = Struct.new(
   :identifier,
   :owner,
   :page,
@@ -11645,10 +11505,6 @@ RepositoryX509RsaCertificateLoadMatch = Struct.new(
   keyword_init: true
 )
 
-# Reset entity data model.
-class Reset
-end
-
 # ResourcesRateCheck entity data model.
 #
 # @!attribute [rw] interval
@@ -11706,14 +11562,6 @@ ResourcesRateCheckLoadMatch = Struct.new(
   :throttled,
   keyword_init: true
 )
-
-# Resync entity data model.
-class Resync
-end
-
-# Retention entity data model.
-class Retention
-end
 
 # Rpm entity data model.
 #
@@ -12092,10 +11940,6 @@ RpmUpdateData = Struct.new(
   keyword_init: true
 )
 
-# Rsa entity data model.
-class Rsa
-end
-
 # Ruby entity data model.
 #
 # @!attribute [rw] auth_mode
@@ -12401,18 +12245,6 @@ RubyUpdateData = Struct.new(
   keyword_init: true
 )
 
-# SamlGroupSync entity data model.
-class SamlGroupSync
-end
-
-# Scan entity data model.
-class Scan
-end
-
-# Self entity data model.
-class Self
-end
-
 # Service entity data model.
 #
 # @!attribute [rw] created_at
@@ -12613,10 +12445,6 @@ ServiceUpdateData = Struct.new(
   :teams,
   keyword_init: true
 )
-
-# Status entity data model.
-class Status
-end
 
 # StatusBasic entity data model.
 #
@@ -12992,34 +12820,6 @@ SwiftUpdateData = Struct.new(
   keyword_init: true
 )
 
-# Sync entity data model.
-class Sync
-end
-
-# Tag entity data model.
-class Tag
-end
-
-# Team entity data model.
-class Team
-end
-
-# Terraform entity data model.
-class Terraform
-end
-
-# Test entity data model.
-class Test
-end
-
-# Token entity data model.
-class Token
-end
-
-# TransferRegion entity data model.
-class TransferRegion
-end
-
 # User entity data model.
 class User
 end
@@ -13225,18 +13025,6 @@ UserProfileLoadMatch = Struct.new(
   keyword_init: true
 )
 
-# Vagrant entity data model.
-class Vagrant
-end
-
-# Validate entity data model.
-class Validate
-end
-
-# Version entity data model.
-class Version
-end
-
 # Vulnerability entity data model.
 #
 # @!attribute [rw] created_at
@@ -13320,10 +13108,6 @@ VulnerabilityListMatch = Struct.new(
   keyword_init: true
 )
 
-# VulnerabilityPolicy entity data model.
-class VulnerabilityPolicy
-end
-
 # Webhook entity data model.
 #
 # @!attribute [rw] id
@@ -13349,12 +13133,4 @@ WebhookRemoveMatch = Struct.new(
   :repo,
   keyword_init: true
 )
-
-# X509Ecdsa entity data model.
-class X509Ecdsa
-end
-
-# X509Rsa entity data model.
-class X509Rsa
-end
 

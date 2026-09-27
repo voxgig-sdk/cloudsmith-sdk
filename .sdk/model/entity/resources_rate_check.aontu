@@ -1,0 +1,90 @@
+# Entity: resources_rate_check
+
+main: kit: entity: resources_rate_check: {
+
+  alias: field: {}
+
+  fields: {
+    interval: {
+      h: "Interval"
+      n: "interval"
+      r: false
+      ro: true
+      sh: "The time in seconds that you are suggested to wait until the next request in order to avoid consuming too much within the rate limit window."
+      t: "`$NUMBER`"
+    }
+    limit: {
+      h: "Limit"
+      n: "limit"
+      r: false
+      ro: true
+      sh: "The maximum number of requests that you are permitted to send per hour"
+      t: "`$INTEGER`"
+    }
+    remaining: {
+      h: "Remaining"
+      n: "remaining"
+      r: false
+      ro: true
+      sh: "The number of requests that are remaining in the current rate limit window"
+      t: "`$INTEGER`"
+    }
+    reset: {
+      h: "Reset"
+      n: "reset"
+      r: false
+      ro: true
+      sh: "The UTC epoch timestamp at which the current rate limit window will reset"
+      t: "`$INTEGER`"
+    }
+    reset_iso_8601: {
+      h: "Reset Iso 8601"
+      n: "reset_iso_8601"
+      r: false
+      ro: true
+      sh: "The ISO 8601 datetime at which the current rate limit window will reset"
+      t: "`$STRING`"
+    }
+    throttled: {
+      h: "Throttled"
+      n: "throttled"
+      r: false
+      ro: true
+      sh: "If true, throttling is currently being enforced."
+      t: "`$BOOLEAN`"
+    }
+  }
+
+  name: "resources_rate_check"
+  op: {
+    load: {
+      name: "load"
+      points: [
+        {
+          co: {
+            id: "GET /rates/limits/"
+            source: "swagger2"
+            version: 2
+          }
+          m: "GET"
+          o: "/rates/limits/"
+          s: [
+            {
+              lit: "rates"
+            }
+            {
+              lit: "limits"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body.resources`"
+          }
+        }
+      ]
+    }
+  }
+
+
+
+}

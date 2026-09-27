@@ -1,0 +1,88 @@
+# BasicRepositoryWebhookFlow
+
+main: kit: flow: BasicRepositoryWebhookFlow:
+{
+  entity: "repository_webhook",
+  kind: "basic",
+  name: "BasicRepositoryWebhookFlow",
+  step: [
+    {
+      i: {
+        ref: "repository_webhook_ref01"
+      }
+
+      m: {
+        owner: "owner01",
+        repo: "repo01"
+      }
+
+      o: "create"
+    }
+
+    {
+      m: {
+        owner: "owner01",
+        repo: "repo01"
+      }
+
+      o: "list",
+      v: [
+        {
+          apply: "ItemExists",
+          def: {
+            ref: "repository_webhook_ref01"
+          }
+        }
+      ]
+    }
+
+    {
+      d: {
+        owner: "owner01",
+        repo: "repo01"
+      }
+
+      i: {
+        ref: "repository_webhook_ref01",
+        srcdatavar: "repository_webhook_ref01_data",
+        suffix: "_up0",
+        textfield: "package_query"
+      }
+
+      o: "update",
+      s: [
+        {
+          apply: "TextFieldMark",
+          def: {
+            mark: "Mark01-repository_webhook_ref01"
+          }
+        }
+      ]
+    }
+
+    {
+      i: {
+        ref: "repository_webhook_ref01",
+        srcdatavar: "repository_webhook_ref01_data",
+        suffix: "_dt0"
+      }
+
+      m: {
+        id: "repository_webhook01",
+        owner: "owner01",
+        repo: "repo01"
+      }
+
+      o: "load",
+      v: [
+        {
+          apply: "TextFieldMark",
+          def: {
+            mark: "Mark01-repository_webhook_ref01"
+          }
+        }
+      ]
+    }
+  ],
+  "key$": "BasicRepositoryWebhookFlow"
+}

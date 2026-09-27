@@ -1,0 +1,47 @@
+{
+  "existing": {
+    "repository_privilege_dict": {
+      "REPOSITORY_PRIVILEGE_DICT00": {
+        "privilege": "s28",
+        "service": "s29",
+        "team": "s2a",
+        "user": "s2b",
+        "identifier": "IDENTIFIER01",
+        "owner": "OWNER01"
+      },
+      "REPOSITORY_PRIVILEGE_DICT01": {
+        "privilege": "s50",
+        "service": "s51",
+        "team": "s52",
+        "user": "s53",
+        "identifier": "IDENTIFIER01",
+        "owner": "OWNER01"
+      },
+      "REPOSITORY_PRIVILEGE_DICT02": {
+        "privilege": "s78",
+        "service": "s79",
+        "team": "s7a",
+        "user": "s7b",
+        "identifier": "IDENTIFIER01",
+        "owner": "OWNER01"
+      }
+    }
+  },
+  "new": {
+    "repository_privilege_dict": {
+      "repository_privilege_dict_ref01": {
+        "privilege": "sa0",
+        "service": "sa1",
+        "team": "sa2",
+        "user": "sa3"
+      }
+    }
+  },
+  "requests": {
+    "GET /repos/{owner}/{identifier}/privileges": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "swagger2"
+    }
+  }
+}

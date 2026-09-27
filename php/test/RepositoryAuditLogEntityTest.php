@@ -113,7 +113,7 @@ function repository_audit_log_basic_setup($extra)
 
     // Generate idmap.
     $idmap = [];
-    foreach (["repository_audit_log01", "repository_audit_log02", "repository_audit_log03", "audit_log01", "audit_log02", "audit_log03", "owner01", "repo01"] as $k) {
+    foreach (["repository_audit_log01", "repository_audit_log02", "repository_audit_log03", "owner01", "repo01"] as $k) {
         $idmap[$k] = strtoupper($k);
     }
 

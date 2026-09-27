@@ -93,7 +93,7 @@ func organization_invite_extendBasicSetup(extra map[string]any) *entityTestSetup
 
 	// Generate idmap via transform, matching TS pattern.
 	idmap, _ := vs.Transform(
-		[]any{"organization_invite_extend01", "organization_invite_extend02", "organization_invite_extend03", "org01", "org02", "org03", "invite01", "invite02", "invite03", "slug_perm01"},
+		[]any{"organization_invite_extend01", "organization_invite_extend02", "organization_invite_extend03", "org01", "org02", "org03", "slug_perm01"},
 		map[string]any{
 			"`$PACK`": []any{"", map[string]any{
 				"`$KEY`": "`$COPY`",

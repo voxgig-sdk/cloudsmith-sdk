@@ -1,0 +1,85 @@
+# BasicServiceFlow
+
+main: kit: flow: BasicServiceFlow:
+{
+  entity: "service",
+  kind: "basic",
+  name: "BasicServiceFlow",
+  step: [
+    {
+      i: {
+        ref: "service_ref01"
+      }
+
+      m: {
+        org_id: "org01",
+        service: "service01"
+      }
+
+      o: "create"
+    }
+
+    {
+      m: {
+        org_id: "org01"
+      }
+
+      o: "list",
+      v: [
+        {
+          apply: "ItemExists",
+          def: {
+            ref: "service_ref01"
+          }
+        }
+      ]
+    }
+
+    {
+      d: {
+        org_id: "org01"
+      }
+
+      i: {
+        ref: "service_ref01",
+        srcdatavar: "service_ref01_data",
+        suffix: "_up0",
+        textfield: "description"
+      }
+
+      o: "update",
+      s: [
+        {
+          apply: "TextFieldMark",
+          def: {
+            mark: "Mark01-service_ref01"
+          }
+        }
+      ]
+    }
+
+    {
+      i: {
+        ref: "service_ref01",
+        srcdatavar: "service_ref01_data",
+        suffix: "_dt0"
+      }
+
+      m: {
+        id: "service01",
+        org_id: "org01"
+      }
+
+      o: "load",
+      v: [
+        {
+          apply: "TextFieldMark",
+          def: {
+            mark: "Mark01-service_ref01"
+          }
+        }
+      ]
+    }
+  ],
+  "key$": "BasicServiceFlow"
+}

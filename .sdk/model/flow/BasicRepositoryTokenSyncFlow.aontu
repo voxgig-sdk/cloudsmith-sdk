@@ -1,0 +1,23 @@
+# BasicRepositoryTokenSyncFlow
+
+main: kit: flow: BasicRepositoryTokenSyncFlow:
+{
+  entity: "repository_token_sync",
+  kind: "basic",
+  name: "BasicRepositoryTokenSyncFlow",
+  step: [
+    {
+      i: {
+        ref: "repository_token_sync_ref01"
+      }
+
+      m: {
+        owner: "owner01",
+        repo: "repo01"
+      }
+
+      o: "create"
+    }
+  ],
+  "key$": "BasicRepositoryTokenSyncFlow"
+}

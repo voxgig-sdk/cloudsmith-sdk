@@ -136,7 +136,7 @@ def swift_basic_setup(extra)
 
   # Generate idmap via transform.
   idmap = Vs.transform(
-    ["swift01", "swift02", "swift03", "package01", "package02", "package03", "repo01", "repo02", "repo03", "identifier01", "owner01"],
+    ["swift01", "swift02", "swift03", "repo01", "repo02", "repo03", "identifier01", "owner01"],
     {
       "`$PACK`" => ["", {
         "`$KEY`" => "`$COPY`",

@@ -1,0 +1,96 @@
+# Entity: user_brief
+
+main: kit: entity: user_brief: {
+
+  alias: field: {}
+
+  fields: {
+    authenticated: {
+      h: "Authenticated"
+      n: "authenticated"
+      r: false
+      ro: true
+      sh: "If true then you're logged in as a user."
+      t: "`$BOOLEAN`"
+    }
+    email: {
+      fo: "email"
+      h: "Email"
+      n: "email"
+      r: false
+      sh: "Your email address that we use to contact you."
+      t: "`$STRING`"
+    }
+    name: {
+      h: "Name"
+      n: "name"
+      r: false
+      ro: true
+      sh: "The full name of the user (if any)."
+      t: "`$STRING`"
+    }
+    profile_url: {
+      fo: "uri"
+      h: "Profile Url"
+      n: "profile_url"
+      r: false
+      ro: true
+      sh: "The URL for the full profile of the user."
+      t: "`$STRING`"
+    }
+    self_url: {
+      h: "Self Url"
+      n: "self_url"
+      r: false
+      ro: true
+      t: "`$STRING`"
+    }
+    slug: {
+      h: "Slug"
+      n: "slug"
+      r: false
+      ro: true
+      t: "`$STRING`"
+    }
+    slug_perm: {
+      h: "Slug Perm"
+      n: "slug_perm"
+      r: false
+      ro: true
+      t: "`$STRING`"
+    }
+  }
+
+  name: "user_brief"
+  op: {
+    load: {
+      name: "load"
+      points: [
+        {
+          co: {
+            id: "GET /user/self/"
+            source: "swagger2"
+            version: 2
+          }
+          m: "GET"
+          o: "/user/self/"
+          s: [
+            {
+              lit: "user"
+            }
+            {
+              lit: "self"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+  }
+
+
+
+}

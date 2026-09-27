@@ -141,7 +141,7 @@ def _npm_basic_setup(extra):
 
     # Generate idmap via transform.
     idmap = vs.transform(
-        ["npm01", "npm02", "npm03", "package01", "package02", "package03", "repo01", "repo02", "repo03", "identifier01", "owner01"],
+        ["npm01", "npm02", "npm03", "repo01", "repo02", "repo03", "identifier01", "owner01"],
         {
             "`$PACK`": ["", {
                 "`$KEY`": "`$COPY`",

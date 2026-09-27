@@ -158,7 +158,7 @@ func distribution_fullBasicSetup(extra map[string]any) *entityTestSetup {
 
 	// Generate idmap via transform, matching TS pattern.
 	idmap, _ := vs.Transform(
-		[]any{"distribution_full01", "distribution_full02", "distribution_full03", "distro01", "distro02", "distro03"},
+		[]any{"distribution_full01", "distribution_full02", "distribution_full03"},
 		map[string]any{
 			"`$PACK`": []any{"", map[string]any{
 				"`$KEY`": "`$COPY`",

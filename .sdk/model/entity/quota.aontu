@@ -1,0 +1,215 @@
+# Entity: quota
+
+main: kit: entity: quota: {
+
+  alias: field: {}
+
+  fields: {
+    display: {
+      h: "Display"
+      n: "display"
+      r: true
+      t: "`$OBJECT`"
+    }
+    history: {
+      h: "History"
+      n: "history"
+      r: true
+      t: "`$ARRAY`"
+    }
+    id: {
+      h: "Id"
+      n: "id"
+      r: false
+      t: "`$STRING`"
+    }
+    raw: {
+      h: "Raw"
+      n: "raw"
+      r: true
+      t: "`$OBJECT`"
+    }
+  }
+
+  id: {
+    field: "id"
+    name: "id"
+  }
+
+  name: "quota"
+  op: {
+    load: {
+      name: "load"
+      points: [
+        {
+          co: {
+            id: "GET /quota/{owner}/"
+            source: "swagger2"
+            version: 2
+          }
+          g: {
+            params: [
+              {
+                k: "param"
+                n: "id"
+                or: "owner"
+                r: true
+                t: "`$STRING`"
+              }
+            ]
+          }
+          m: "GET"
+          o: "/quota/{owner}/"
+          q: {
+            exist: [
+              "id"
+            ]
+          }
+          r: {
+            param: {
+              owner: "id"
+            }
+          }
+          s: [
+            {
+              lit: "quota"
+            }
+            {
+              var: "id"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body.usage`"
+          }
+        }
+        {
+          co: {
+            id: "GET /quota/history/{owner}/"
+            source: "swagger2"
+            version: 2
+          }
+          g: {
+            params: [
+              {
+                k: "param"
+                n: "owner"
+                or: "owner"
+                r: true
+                t: "`$ANY`"
+              }
+            ]
+          }
+          m: "GET"
+          o: "/quota/history/{owner}/"
+          q: {
+            exist: [
+              "owner"
+            ]
+          }
+          s: [
+            {
+              lit: "quota"
+            }
+            {
+              lit: "history"
+            }
+            {
+              var: "owner"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          co: {
+            id: "GET /quota/oss/history/{owner}/"
+            source: "swagger2"
+            version: 2
+          }
+          g: {
+            params: [
+              {
+                k: "param"
+                n: "owner"
+                or: "owner"
+                r: true
+                t: "`$ANY`"
+              }
+            ]
+          }
+          m: "GET"
+          o: "/quota/oss/history/{owner}/"
+          q: {
+            exist: [
+              "owner"
+            ]
+          }
+          s: [
+            {
+              lit: "quota"
+            }
+            {
+              lit: "oss"
+            }
+            {
+              lit: "history"
+            }
+            {
+              var: "owner"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          co: {
+            id: "GET /quota/oss/{owner}/"
+            source: "swagger2"
+            version: 2
+          }
+          g: {
+            params: [
+              {
+                k: "param"
+                n: "owner"
+                or: "owner"
+                r: true
+                t: "`$ANY`"
+              }
+            ]
+          }
+          m: "GET"
+          o: "/quota/oss/{owner}/"
+          q: {
+            exist: [
+              "owner"
+            ]
+          }
+          s: [
+            {
+              lit: "quota"
+            }
+            {
+              lit: "oss"
+            }
+            {
+              var: "owner"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body.usage`"
+          }
+        }
+      ]
+    }
+  }
+
+
+
+}

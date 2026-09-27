@@ -74,7 +74,7 @@ function package_version_badge_basic_setup($extra)
 
     // Generate idmap.
     $idmap = [];
-    foreach (["package_version_badge01", "package_version_badge02", "package_version_badge03", "version01", "version02", "version03", "owner01", "package_format01", "package_name01", "package_version01", "repo01"] as $k) {
+    foreach (["package_version_badge01", "package_version_badge02", "package_version_badge03", "owner01", "package_format01", "package_name01", "package_version01", "repo01"] as $k) {
         $idmap[$k] = strtoupper($k);
     }
 

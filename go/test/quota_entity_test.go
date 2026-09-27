@@ -104,7 +104,7 @@ func quotaBasicSetup(extra map[string]any) *entityTestSetup {
 
 	// Generate idmap via transform, matching TS pattern.
 	idmap, _ := vs.Transform(
-		[]any{"quota01", "quota02", "quota03", "history01", "history02", "history03", "oss01", "oss02", "oss03"},
+		[]any{"quota01", "quota02", "quota03"},
 		map[string]any{
 			"`$PACK`": []any{"", map[string]any{
 				"`$KEY`": "`$COPY`",

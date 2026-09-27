@@ -147,7 +147,7 @@ function python_basic_setup($extra)
 
     // Generate idmap.
     $idmap = [];
-    foreach (["python01", "python02", "python03", "package01", "package02", "package03", "repo01", "repo02", "repo03", "identifier01", "owner01"] as $k) {
+    foreach (["python01", "python02", "python03", "repo01", "repo02", "repo03", "identifier01", "owner01"] as $k) {
         $idmap[$k] = strtoupper($k);
     }
 

@@ -1,0 +1,156 @@
+# Entity: organization_saml_auth
+
+main: kit: entity: organization_saml_auth: {
+
+  alias: field: {}
+
+  fields: {
+    saml_auth_enabled: {
+      h: "Saml Auth Enabled"
+      n: "saml_auth_enabled"
+      r: true
+      t: "`$BOOLEAN`"
+    }
+    saml_auth_enforced: {
+      h: "Saml Auth Enforced"
+      n: "saml_auth_enforced"
+      r: true
+      t: "`$BOOLEAN`"
+    }
+    saml_metadata_inline: {
+      h: "Saml Metadata Inline"
+      n: "saml_metadata_inline"
+      r: false
+      sh: "If configured, SAML metadata will be used as entered instead of retrieved from a remote URL."
+      t: "`$STRING`"
+    }
+    saml_metadata_url: {
+      fo: "uri"
+      h: "Saml Metadata Url"
+      n: "saml_metadata_url"
+      r: false
+      sh: "If configured, SAML metadata be retrieved from a remote URL."
+      t: "`$STRING`"
+    }
+  }
+
+  name: "organization_saml_auth"
+  op: {
+    load: {
+      name: "load"
+      points: [
+        {
+          co: {
+            id: "GET /orgs/{org}/saml-authentication"
+            source: "swagger2"
+            version: 2
+          }
+          g: {
+            params: [
+              {
+                k: "param"
+                n: "org_id"
+                or: "org"
+                r: true
+                t: "`$STRING`"
+              }
+            ]
+          }
+          m: "GET"
+          o: "/orgs/{org}/saml-authentication"
+          q: {
+            exist: [
+              "org_id"
+            ]
+          }
+          r: {
+            param: {
+              org: "org_id"
+            }
+          }
+          s: [
+            {
+              lit: "orgs"
+            }
+            {
+              var: "org_id"
+            }
+            {
+              lit: "saml-authentication"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+    update: {
+      name: "update"
+      points: [
+        {
+          co: {
+            id: "PATCH /orgs/{org}/saml-authentication"
+            source: "swagger2"
+            version: 2
+          }
+          g: {
+            params: [
+              {
+                k: "param"
+                n: "org_id"
+                or: "org"
+                r: true
+                t: "`$STRING`"
+              }
+            ]
+            query: [
+              {
+                k: "query"
+                n: "data"
+                or: "data"
+                r: false
+                t: "`$OBJECT`"
+              }
+            ]
+          }
+          m: "PATCH"
+          o: "/orgs/{org}/saml-authentication"
+          q: {
+            exist: [
+              "data"
+              "org_id"
+            ]
+          }
+          r: {
+            param: {
+              org: "org_id"
+            }
+          }
+          s: [
+            {
+              lit: "orgs"
+            }
+            {
+              var: "org_id"
+            }
+            {
+              lit: "saml-authentication"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+  }
+
+
+  relations: ancestors: [
+    [path("$.main.kit.entity.org")]
+  ]
+
+}

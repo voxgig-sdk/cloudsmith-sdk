@@ -1,0 +1,23 @@
+# BasicRepositoryGeoIpTestAddressFlow
+
+main: kit: flow: BasicRepositoryGeoIpTestAddressFlow:
+{
+  entity: "repository_geo_ip_test_address",
+  kind: "basic",
+  name: "BasicRepositoryGeoIpTestAddressFlow",
+  step: [
+    {
+      i: {
+        ref: "repository_geo_ip_test_address_ref01"
+      }
+
+      m: {
+        identifier: "identifier01",
+        owner: "owner01"
+      }
+
+      o: "create"
+    }
+  ],
+  "key$": "BasicRepositoryGeoIpTestAddressFlow"
+}

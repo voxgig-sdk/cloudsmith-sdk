@@ -1,0 +1,88 @@
+# BasicRepositoryTokenFlow
+
+main: kit: flow: BasicRepositoryTokenFlow:
+{
+  entity: "repository_token",
+  kind: "basic",
+  name: "BasicRepositoryTokenFlow",
+  step: [
+    {
+      i: {
+        ref: "repository_token_ref01"
+      }
+
+      m: {
+        owner: "owner01",
+        repo: "repo01"
+      }
+
+      o: "create"
+    }
+
+    {
+      m: {
+        owner: "owner01",
+        repo: "repo01"
+      }
+
+      o: "list",
+      v: [
+        {
+          apply: "ItemExists",
+          def: {
+            ref: "repository_token_ref01"
+          }
+        }
+      ]
+    }
+
+    {
+      d: {
+        owner: "owner01",
+        repo: "repo01"
+      }
+
+      i: {
+        ref: "repository_token_ref01",
+        srcdatavar: "repository_token_ref01_data",
+        suffix: "_up0",
+        textfield: "limit_bandwidth_unit"
+      }
+
+      o: "update",
+      s: [
+        {
+          apply: "TextFieldMark",
+          def: {
+            mark: "Mark01-repository_token_ref01"
+          }
+        }
+      ]
+    }
+
+    {
+      i: {
+        ref: "repository_token_ref01",
+        srcdatavar: "repository_token_ref01_data",
+        suffix: "_dt0"
+      }
+
+      m: {
+        id: "repository_token01",
+        owner: "owner01",
+        repo: "repo01"
+      }
+
+      o: "load",
+      v: [
+        {
+          apply: "TextFieldMark",
+          def: {
+            mark: "Mark01-repository_token_ref01"
+          }
+        }
+      ]
+    }
+  ],
+  "key$": "BasicRepositoryTokenFlow"
+}

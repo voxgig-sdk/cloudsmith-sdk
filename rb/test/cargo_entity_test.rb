@@ -136,7 +136,7 @@ def cargo_basic_setup(extra)
 
   # Generate idmap via transform.
   idmap = Vs.transform(
-    ["cargo01", "cargo02", "cargo03", "package01", "package02", "package03", "repo01", "repo02", "repo03", "identifier01", "owner01"],
+    ["cargo01", "cargo02", "cargo03", "repo01", "repo02", "repo03", "identifier01", "owner01"],
     {
       "`$PACK`" => ["", {
         "`$KEY`" => "`$COPY`",

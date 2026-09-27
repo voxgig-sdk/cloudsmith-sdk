@@ -1,0 +1,38 @@
+# BasicOrganizationGroupSyncFlow
+
+main: kit: flow: BasicOrganizationGroupSyncFlow:
+{
+  entity: "organization_group_sync",
+  kind: "basic",
+  name: "BasicOrganizationGroupSyncFlow",
+  step: [
+    {
+      i: {
+        ref: "organization_group_sync_ref01"
+      }
+
+      m: {
+        org_id: "org01"
+      }
+
+      o: "create"
+    }
+
+    {
+      m: {
+        org_id: "org01"
+      }
+
+      o: "list",
+      v: [
+        {
+          apply: "ItemExists",
+          def: {
+            ref: "organization_group_sync_ref01"
+          }
+        }
+      ]
+    }
+  ],
+  "key$": "BasicOrganizationGroupSyncFlow"
+}

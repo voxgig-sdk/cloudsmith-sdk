@@ -264,7 +264,6 @@ func (sdk *CloudsmithSDK) rawRequest(fetchargs map[string]any) (map[string]any, 
 		if !noBody {
 			if jf := vs.GetProp(fm, "json"); jf != nil {
 				if f, ok := jf.(func() any); ok {
-					// f() returns nil on parse error in our fetcher.
 					jsonData = f()
 				}
 			}
@@ -281,17 +280,6 @@ func (sdk *CloudsmithSDK) rawRequest(fetchargs map[string]any) (map[string]any, 
 	return map[string]any{"ok": false, "err": ctx.MakeError("direct_invalid", "invalid response type")}, nil
 }
 
-// Raw GraphQL access: the pressure valve that makes the generated surface's
-// deliberate omissions (per-call selection sets, typed filter builders,
-// batching, subscriptions) livable — the whole schema stays reachable.
-//
-// Thin wrapper over the same prepare/fetch path Direct uses, with the one
-// thing raw Direct cannot do for GraphQL: a GraphQL failure rides HTTP 200
-// as a top-level `errors` array, so status alone would report a failed query
-// as ok.
-//
-// NOTE: like Direct, this bypasses the feature pipeline — no retry,
-// ratelimit or paging features apply.
 func (sdk *CloudsmithSDK) Graphql(
 	query string, variables map[string]any, ctrl map[string]any,
 ) (map[string]any, error) {
@@ -338,59 +326,11 @@ func (sdk *CloudsmithSDK) Graphql(
 }
 
 
-// Abort returns a Abort entity bound to this client.
-// Idiomatic usage: client.Abort(nil).List(nil, nil) or
-// client.Abort(nil).Load(map[string]any{"id": ...}, nil).
-func (sdk *CloudsmithSDK) Abort(data map[string]any) CloudsmithEntity {
-	return NewAbortEntityFunc(sdk, data)
-}
-
-
-// Alpine returns a Alpine entity bound to this client.
-// Idiomatic usage: client.Alpine(nil).List(nil, nil) or
-// client.Alpine(nil).Load(map[string]any{"id": ...}, nil).
-func (sdk *CloudsmithSDK) Alpine(data map[string]any) CloudsmithEntity {
-	return NewAlpineEntityFunc(sdk, data)
-}
-
-
-// AuditLog returns a AuditLog entity bound to this client.
-// Idiomatic usage: client.AuditLog(nil).List(nil, nil) or
-// client.AuditLog(nil).Load(map[string]any{"id": ...}, nil).
-func (sdk *CloudsmithSDK) AuditLog(data map[string]any) CloudsmithEntity {
-	return NewAuditLogEntityFunc(sdk, data)
-}
-
-
-// Basic returns a Basic entity bound to this client.
-// Idiomatic usage: client.Basic(nil).List(nil, nil) or
-// client.Basic(nil).Load(map[string]any{"id": ...}, nil).
-func (sdk *CloudsmithSDK) Basic(data map[string]any) CloudsmithEntity {
-	return NewBasicEntityFunc(sdk, data)
-}
-
-
 // Cargo returns a Cargo entity bound to this client.
 // Idiomatic usage: client.Cargo(nil).List(nil, nil) or
 // client.Cargo(nil).Load(map[string]any{"id": ...}, nil).
 func (sdk *CloudsmithSDK) Cargo(data map[string]any) CloudsmithEntity {
 	return NewCargoEntityFunc(sdk, data)
-}
-
-
-// Cocoapod returns a Cocoapod entity bound to this client.
-// Idiomatic usage: client.Cocoapod(nil).List(nil, nil) or
-// client.Cocoapod(nil).Load(map[string]any{"id": ...}, nil).
-func (sdk *CloudsmithSDK) Cocoapod(data map[string]any) CloudsmithEntity {
-	return NewCocoapodEntityFunc(sdk, data)
-}
-
-
-// Complete returns a Complete entity bound to this client.
-// Idiomatic usage: client.Complete(nil).List(nil, nil) or
-// client.Complete(nil).Load(map[string]any{"id": ...}, nil).
-func (sdk *CloudsmithSDK) Complete(data map[string]any) CloudsmithEntity {
-	return NewCompleteEntityFunc(sdk, data)
 }
 
 
@@ -402,27 +342,11 @@ func (sdk *CloudsmithSDK) Composer(data map[string]any) CloudsmithEntity {
 }
 
 
-// Conan returns a Conan entity bound to this client.
-// Idiomatic usage: client.Conan(nil).List(nil, nil) or
-// client.Conan(nil).Load(map[string]any{"id": ...}, nil).
-func (sdk *CloudsmithSDK) Conan(data map[string]any) CloudsmithEntity {
-	return NewConanEntityFunc(sdk, data)
-}
-
-
 // Conda returns a Conda entity bound to this client.
 // Idiomatic usage: client.Conda(nil).List(nil, nil) or
 // client.Conda(nil).Load(map[string]any{"id": ...}, nil).
 func (sdk *CloudsmithSDK) Conda(data map[string]any) CloudsmithEntity {
 	return NewCondaEntityFunc(sdk, data)
-}
-
-
-// Copy returns a Copy entity bound to this client.
-// Idiomatic usage: client.Copy(nil).List(nil, nil) or
-// client.Copy(nil).Load(map[string]any{"id": ...}, nil).
-func (sdk *CloudsmithSDK) Copy(data map[string]any) CloudsmithEntity {
-	return NewCopyEntityFunc(sdk, data)
 }
 
 
@@ -450,43 +374,11 @@ func (sdk *CloudsmithSDK) Deb(data map[string]any) CloudsmithEntity {
 }
 
 
-// DenyPolicy returns a DenyPolicy entity bound to this client.
-// Idiomatic usage: client.DenyPolicy(nil).List(nil, nil) or
-// client.DenyPolicy(nil).Load(map[string]any{"id": ...}, nil).
-func (sdk *CloudsmithSDK) DenyPolicy(data map[string]any) CloudsmithEntity {
-	return NewDenyPolicyEntityFunc(sdk, data)
-}
-
-
-// Dependency returns a Dependency entity bound to this client.
-// Idiomatic usage: client.Dependency(nil).List(nil, nil) or
-// client.Dependency(nil).Load(map[string]any{"id": ...}, nil).
-func (sdk *CloudsmithSDK) Dependency(data map[string]any) CloudsmithEntity {
-	return NewDependencyEntityFunc(sdk, data)
-}
-
-
-// Disable returns a Disable entity bound to this client.
-// Idiomatic usage: client.Disable(nil).List(nil, nil) or
-// client.Disable(nil).Load(map[string]any{"id": ...}, nil).
-func (sdk *CloudsmithSDK) Disable(data map[string]any) CloudsmithEntity {
-	return NewDisableEntityFunc(sdk, data)
-}
-
-
 // DistributionFull returns a DistributionFull entity bound to this client.
 // Idiomatic usage: client.DistributionFull(nil).List(nil, nil) or
 // client.DistributionFull(nil).Load(map[string]any{"id": ...}, nil).
 func (sdk *CloudsmithSDK) DistributionFull(data map[string]any) CloudsmithEntity {
 	return NewDistributionFullEntityFunc(sdk, data)
-}
-
-
-// Distro returns a Distro entity bound to this client.
-// Idiomatic usage: client.Distro(nil).List(nil, nil) or
-// client.Distro(nil).Load(map[string]any{"id": ...}, nil).
-func (sdk *CloudsmithSDK) Distro(data map[string]any) CloudsmithEntity {
-	return NewDistroEntityFunc(sdk, data)
 }
 
 
@@ -506,35 +398,11 @@ func (sdk *CloudsmithSDK) DynamicMapping(data map[string]any) CloudsmithEntity {
 }
 
 
-// Ecdsa returns a Ecdsa entity bound to this client.
-// Idiomatic usage: client.Ecdsa(nil).List(nil, nil) or
-// client.Ecdsa(nil).Load(map[string]any{"id": ...}, nil).
-func (sdk *CloudsmithSDK) Ecdsa(data map[string]any) CloudsmithEntity {
-	return NewEcdsaEntityFunc(sdk, data)
-}
-
-
-// Enable returns a Enable entity bound to this client.
-// Idiomatic usage: client.Enable(nil).List(nil, nil) or
-// client.Enable(nil).Load(map[string]any{"id": ...}, nil).
-func (sdk *CloudsmithSDK) Enable(data map[string]any) CloudsmithEntity {
-	return NewEnableEntityFunc(sdk, data)
-}
-
-
 // Entitlement returns a Entitlement entity bound to this client.
 // Idiomatic usage: client.Entitlement(nil).List(nil, nil) or
 // client.Entitlement(nil).Load(map[string]any{"id": ...}, nil).
 func (sdk *CloudsmithSDK) Entitlement(data map[string]any) CloudsmithEntity {
 	return NewEntitlementEntityFunc(sdk, data)
-}
-
-
-// Evaluation returns a Evaluation entity bound to this client.
-// Idiomatic usage: client.Evaluation(nil).List(nil, nil) or
-// client.Evaluation(nil).Load(map[string]any{"id": ...}, nil).
-func (sdk *CloudsmithSDK) Evaluation(data map[string]any) CloudsmithEntity {
-	return NewEvaluationEntityFunc(sdk, data)
 }
 
 
@@ -554,35 +422,11 @@ func (sdk *CloudsmithSDK) Format(data map[string]any) CloudsmithEntity {
 }
 
 
-// Geoip returns a Geoip entity bound to this client.
-// Idiomatic usage: client.Geoip(nil).List(nil, nil) or
-// client.Geoip(nil).Load(map[string]any{"id": ...}, nil).
-func (sdk *CloudsmithSDK) Geoip(data map[string]any) CloudsmithEntity {
-	return NewGeoipEntityFunc(sdk, data)
-}
-
-
 // Gon returns a Gon entity bound to this client.
 // Idiomatic usage: client.Gon(nil).List(nil, nil) or
 // client.Gon(nil).Load(map[string]any{"id": ...}, nil).
 func (sdk *CloudsmithSDK) Gon(data map[string]any) CloudsmithEntity {
 	return NewGonEntityFunc(sdk, data)
-}
-
-
-// Gpg returns a Gpg entity bound to this client.
-// Idiomatic usage: client.Gpg(nil).List(nil, nil) or
-// client.Gpg(nil).Load(map[string]any{"id": ...}, nil).
-func (sdk *CloudsmithSDK) Gpg(data map[string]any) CloudsmithEntity {
-	return NewGpgEntityFunc(sdk, data)
-}
-
-
-// Group returns a Group entity bound to this client.
-// Idiomatic usage: client.Group(nil).List(nil, nil) or
-// client.Group(nil).Load(map[string]any{"id": ...}, nil).
-func (sdk *CloudsmithSDK) Group(data map[string]any) CloudsmithEntity {
-	return NewGroupEntityFunc(sdk, data)
 }
 
 
@@ -602,14 +446,6 @@ func (sdk *CloudsmithSDK) Hex(data map[string]any) CloudsmithEntity {
 }
 
 
-// History returns a History entity bound to this client.
-// Idiomatic usage: client.History(nil).List(nil, nil) or
-// client.History(nil).Load(map[string]any{"id": ...}, nil).
-func (sdk *CloudsmithSDK) History(data map[string]any) CloudsmithEntity {
-	return NewHistoryEntityFunc(sdk, data)
-}
-
-
 // Huggingface returns a Huggingface entity bound to this client.
 // Idiomatic usage: client.Huggingface(nil).List(nil, nil) or
 // client.Huggingface(nil).Load(map[string]any{"id": ...}, nil).
@@ -618,67 +454,11 @@ func (sdk *CloudsmithSDK) Huggingface(data map[string]any) CloudsmithEntity {
 }
 
 
-// Info returns a Info entity bound to this client.
-// Idiomatic usage: client.Info(nil).List(nil, nil) or
-// client.Info(nil).Load(map[string]any{"id": ...}, nil).
-func (sdk *CloudsmithSDK) Info(data map[string]any) CloudsmithEntity {
-	return NewInfoEntityFunc(sdk, data)
-}
-
-
-// Invite returns a Invite entity bound to this client.
-// Idiomatic usage: client.Invite(nil).List(nil, nil) or
-// client.Invite(nil).Load(map[string]any{"id": ...}, nil).
-func (sdk *CloudsmithSDK) Invite(data map[string]any) CloudsmithEntity {
-	return NewInviteEntityFunc(sdk, data)
-}
-
-
-// LicensePolicy returns a LicensePolicy entity bound to this client.
-// Idiomatic usage: client.LicensePolicy(nil).List(nil, nil) or
-// client.LicensePolicy(nil).Load(map[string]any{"id": ...}, nil).
-func (sdk *CloudsmithSDK) LicensePolicy(data map[string]any) CloudsmithEntity {
-	return NewLicensePolicyEntityFunc(sdk, data)
-}
-
-
-// Limit returns a Limit entity bound to this client.
-// Idiomatic usage: client.Limit(nil).List(nil, nil) or
-// client.Limit(nil).Load(map[string]any{"id": ...}, nil).
-func (sdk *CloudsmithSDK) Limit(data map[string]any) CloudsmithEntity {
-	return NewLimitEntityFunc(sdk, data)
-}
-
-
-// Luarock returns a Luarock entity bound to this client.
-// Idiomatic usage: client.Luarock(nil).List(nil, nil) or
-// client.Luarock(nil).Load(map[string]any{"id": ...}, nil).
-func (sdk *CloudsmithSDK) Luarock(data map[string]any) CloudsmithEntity {
-	return NewLuarockEntityFunc(sdk, data)
-}
-
-
 // Maven returns a Maven entity bound to this client.
 // Idiomatic usage: client.Maven(nil).List(nil, nil) or
 // client.Maven(nil).Load(map[string]any{"id": ...}, nil).
 func (sdk *CloudsmithSDK) Maven(data map[string]any) CloudsmithEntity {
 	return NewMavenEntityFunc(sdk, data)
-}
-
-
-// Member returns a Member entity bound to this client.
-// Idiomatic usage: client.Member(nil).List(nil, nil) or
-// client.Member(nil).Load(map[string]any{"id": ...}, nil).
-func (sdk *CloudsmithSDK) Member(data map[string]any) CloudsmithEntity {
-	return NewMemberEntityFunc(sdk, data)
-}
-
-
-// Move returns a Move entity bound to this client.
-// Idiomatic usage: client.Move(nil).List(nil, nil) or
-// client.Move(nil).Load(map[string]any{"id": ...}, nil).
-func (sdk *CloudsmithSDK) Move(data map[string]any) CloudsmithEntity {
-	return NewMoveEntityFunc(sdk, data)
 }
 
 
@@ -711,14 +491,6 @@ func (sdk *CloudsmithSDK) Npm(data map[string]any) CloudsmithEntity {
 // client.Nuget(nil).Load(map[string]any{"id": ...}, nil).
 func (sdk *CloudsmithSDK) Nuget(data map[string]any) CloudsmithEntity {
 	return NewNugetEntityFunc(sdk, data)
-}
-
-
-// OpenidConnect returns a OpenidConnect entity bound to this client.
-// Idiomatic usage: client.OpenidConnect(nil).List(nil, nil) or
-// client.OpenidConnect(nil).Load(map[string]any{"id": ...}, nil).
-func (sdk *CloudsmithSDK) OpenidConnect(data map[string]any) CloudsmithEntity {
-	return NewOpenidConnectEntityFunc(sdk, data)
 }
 
 
@@ -826,22 +598,6 @@ func (sdk *CloudsmithSDK) OrganizationTeamMember(data map[string]any) Cloudsmith
 }
 
 
-// Oss returns a Oss entity bound to this client.
-// Idiomatic usage: client.Oss(nil).List(nil, nil) or
-// client.Oss(nil).Load(map[string]any{"id": ...}, nil).
-func (sdk *CloudsmithSDK) Oss(data map[string]any) CloudsmithEntity {
-	return NewOssEntityFunc(sdk, data)
-}
-
-
-// P2n returns a P2n entity bound to this client.
-// Idiomatic usage: client.P2n(nil).List(nil, nil) or
-// client.P2n(nil).Load(map[string]any{"id": ...}, nil).
-func (sdk *CloudsmithSDK) P2n(data map[string]any) CloudsmithEntity {
-	return NewP2nEntityFunc(sdk, data)
-}
-
-
 // Package returns a Package entity bound to this client.
 // Idiomatic usage: client.Package(nil).List(nil, nil) or
 // client.Package(nil).Load(map[string]any{"id": ...}, nil).
@@ -898,22 +654,6 @@ func (sdk *CloudsmithSDK) PackageVulnerabilityPolicyEvaluation(data map[string]a
 }
 
 
-// Privilege returns a Privilege entity bound to this client.
-// Idiomatic usage: client.Privilege(nil).List(nil, nil) or
-// client.Privilege(nil).Load(map[string]any{"id": ...}, nil).
-func (sdk *CloudsmithSDK) Privilege(data map[string]any) CloudsmithEntity {
-	return NewPrivilegeEntityFunc(sdk, data)
-}
-
-
-// Profile returns a Profile entity bound to this client.
-// Idiomatic usage: client.Profile(nil).List(nil, nil) or
-// client.Profile(nil).Load(map[string]any{"id": ...}, nil).
-func (sdk *CloudsmithSDK) Profile(data map[string]any) CloudsmithEntity {
-	return NewProfileEntityFunc(sdk, data)
-}
-
-
 // ProviderSetting returns a ProviderSetting entity bound to this client.
 // Idiomatic usage: client.ProviderSetting(nil).List(nil, nil) or
 // client.ProviderSetting(nil).Load(map[string]any{"id": ...}, nil).
@@ -938,43 +678,11 @@ func (sdk *CloudsmithSDK) Python(data map[string]any) CloudsmithEntity {
 }
 
 
-// Quarantine returns a Quarantine entity bound to this client.
-// Idiomatic usage: client.Quarantine(nil).List(nil, nil) or
-// client.Quarantine(nil).Load(map[string]any{"id": ...}, nil).
-func (sdk *CloudsmithSDK) Quarantine(data map[string]any) CloudsmithEntity {
-	return NewQuarantineEntityFunc(sdk, data)
-}
-
-
 // Quota returns a Quota entity bound to this client.
 // Idiomatic usage: client.Quota(nil).List(nil, nil) or
 // client.Quota(nil).Load(map[string]any{"id": ...}, nil).
 func (sdk *CloudsmithSDK) Quota(data map[string]any) CloudsmithEntity {
 	return NewQuotaEntityFunc(sdk, data)
-}
-
-
-// Raw returns a Raw entity bound to this client.
-// Idiomatic usage: client.Raw(nil).List(nil, nil) or
-// client.Raw(nil).Load(map[string]any{"id": ...}, nil).
-func (sdk *CloudsmithSDK) Raw(data map[string]any) CloudsmithEntity {
-	return NewRawEntityFunc(sdk, data)
-}
-
-
-// Refresh returns a Refresh entity bound to this client.
-// Idiomatic usage: client.Refresh(nil).List(nil, nil) or
-// client.Refresh(nil).Load(map[string]any{"id": ...}, nil).
-func (sdk *CloudsmithSDK) Refresh(data map[string]any) CloudsmithEntity {
-	return NewRefreshEntityFunc(sdk, data)
-}
-
-
-// Regenerate returns a Regenerate entity bound to this client.
-// Idiomatic usage: client.Regenerate(nil).List(nil, nil) or
-// client.Regenerate(nil).Load(map[string]any{"id": ...}, nil).
-func (sdk *CloudsmithSDK) Regenerate(data map[string]any) CloudsmithEntity {
-	return NewRegenerateEntityFunc(sdk, data)
 }
 
 
@@ -1034,11 +742,11 @@ func (sdk *CloudsmithSDK) RepositoryGpgKey(data map[string]any) CloudsmithEntity
 }
 
 
-// RepositoryPrivilegeInput returns a RepositoryPrivilegeInput entity bound to this client.
-// Idiomatic usage: client.RepositoryPrivilegeInput(nil).List(nil, nil) or
-// client.RepositoryPrivilegeInput(nil).Load(map[string]any{"id": ...}, nil).
-func (sdk *CloudsmithSDK) RepositoryPrivilegeInput(data map[string]any) CloudsmithEntity {
-	return NewRepositoryPrivilegeInputEntityFunc(sdk, data)
+// RepositoryPrivilegeDict returns a RepositoryPrivilegeDict entity bound to this client.
+// Idiomatic usage: client.RepositoryPrivilegeDict(nil).List(nil, nil) or
+// client.RepositoryPrivilegeDict(nil).Load(map[string]any{"id": ...}, nil).
+func (sdk *CloudsmithSDK) RepositoryPrivilegeDict(data map[string]any) CloudsmithEntity {
+	return NewRepositoryPrivilegeDictEntityFunc(sdk, data)
 }
 
 
@@ -1106,35 +814,11 @@ func (sdk *CloudsmithSDK) RepositoryX509RsaCertificate(data map[string]any) Clou
 }
 
 
-// Reset returns a Reset entity bound to this client.
-// Idiomatic usage: client.Reset(nil).List(nil, nil) or
-// client.Reset(nil).Load(map[string]any{"id": ...}, nil).
-func (sdk *CloudsmithSDK) Reset(data map[string]any) CloudsmithEntity {
-	return NewResetEntityFunc(sdk, data)
-}
-
-
 // ResourcesRateCheck returns a ResourcesRateCheck entity bound to this client.
 // Idiomatic usage: client.ResourcesRateCheck(nil).List(nil, nil) or
 // client.ResourcesRateCheck(nil).Load(map[string]any{"id": ...}, nil).
 func (sdk *CloudsmithSDK) ResourcesRateCheck(data map[string]any) CloudsmithEntity {
 	return NewResourcesRateCheckEntityFunc(sdk, data)
-}
-
-
-// Resync returns a Resync entity bound to this client.
-// Idiomatic usage: client.Resync(nil).List(nil, nil) or
-// client.Resync(nil).Load(map[string]any{"id": ...}, nil).
-func (sdk *CloudsmithSDK) Resync(data map[string]any) CloudsmithEntity {
-	return NewResyncEntityFunc(sdk, data)
-}
-
-
-// Retention returns a Retention entity bound to this client.
-// Idiomatic usage: client.Retention(nil).List(nil, nil) or
-// client.Retention(nil).Load(map[string]any{"id": ...}, nil).
-func (sdk *CloudsmithSDK) Retention(data map[string]any) CloudsmithEntity {
-	return NewRetentionEntityFunc(sdk, data)
 }
 
 
@@ -1146,14 +830,6 @@ func (sdk *CloudsmithSDK) Rpm(data map[string]any) CloudsmithEntity {
 }
 
 
-// Rsa returns a Rsa entity bound to this client.
-// Idiomatic usage: client.Rsa(nil).List(nil, nil) or
-// client.Rsa(nil).Load(map[string]any{"id": ...}, nil).
-func (sdk *CloudsmithSDK) Rsa(data map[string]any) CloudsmithEntity {
-	return NewRsaEntityFunc(sdk, data)
-}
-
-
 // Ruby returns a Ruby entity bound to this client.
 // Idiomatic usage: client.Ruby(nil).List(nil, nil) or
 // client.Ruby(nil).Load(map[string]any{"id": ...}, nil).
@@ -1162,43 +838,11 @@ func (sdk *CloudsmithSDK) Ruby(data map[string]any) CloudsmithEntity {
 }
 
 
-// SamlGroupSync returns a SamlGroupSync entity bound to this client.
-// Idiomatic usage: client.SamlGroupSync(nil).List(nil, nil) or
-// client.SamlGroupSync(nil).Load(map[string]any{"id": ...}, nil).
-func (sdk *CloudsmithSDK) SamlGroupSync(data map[string]any) CloudsmithEntity {
-	return NewSamlGroupSyncEntityFunc(sdk, data)
-}
-
-
-// Scan returns a Scan entity bound to this client.
-// Idiomatic usage: client.Scan(nil).List(nil, nil) or
-// client.Scan(nil).Load(map[string]any{"id": ...}, nil).
-func (sdk *CloudsmithSDK) Scan(data map[string]any) CloudsmithEntity {
-	return NewScanEntityFunc(sdk, data)
-}
-
-
-// Self returns a Self entity bound to this client.
-// Idiomatic usage: client.Self(nil).List(nil, nil) or
-// client.Self(nil).Load(map[string]any{"id": ...}, nil).
-func (sdk *CloudsmithSDK) Self(data map[string]any) CloudsmithEntity {
-	return NewSelfEntityFunc(sdk, data)
-}
-
-
 // Service returns a Service entity bound to this client.
 // Idiomatic usage: client.Service(nil).List(nil, nil) or
 // client.Service(nil).Load(map[string]any{"id": ...}, nil).
 func (sdk *CloudsmithSDK) Service(data map[string]any) CloudsmithEntity {
 	return NewServiceEntityFunc(sdk, data)
-}
-
-
-// Status returns a Status entity bound to this client.
-// Idiomatic usage: client.Status(nil).List(nil, nil) or
-// client.Status(nil).Load(map[string]any{"id": ...}, nil).
-func (sdk *CloudsmithSDK) Status(data map[string]any) CloudsmithEntity {
-	return NewStatusEntityFunc(sdk, data)
 }
 
 
@@ -1223,62 +867,6 @@ func (sdk *CloudsmithSDK) StorageRegion(data map[string]any) CloudsmithEntity {
 // client.Swift(nil).Load(map[string]any{"id": ...}, nil).
 func (sdk *CloudsmithSDK) Swift(data map[string]any) CloudsmithEntity {
 	return NewSwiftEntityFunc(sdk, data)
-}
-
-
-// Sync returns a Sync entity bound to this client.
-// Idiomatic usage: client.Sync(nil).List(nil, nil) or
-// client.Sync(nil).Load(map[string]any{"id": ...}, nil).
-func (sdk *CloudsmithSDK) Sync(data map[string]any) CloudsmithEntity {
-	return NewSyncEntityFunc(sdk, data)
-}
-
-
-// Tag returns a Tag entity bound to this client.
-// Idiomatic usage: client.Tag(nil).List(nil, nil) or
-// client.Tag(nil).Load(map[string]any{"id": ...}, nil).
-func (sdk *CloudsmithSDK) Tag(data map[string]any) CloudsmithEntity {
-	return NewTagEntityFunc(sdk, data)
-}
-
-
-// Team returns a Team entity bound to this client.
-// Idiomatic usage: client.Team(nil).List(nil, nil) or
-// client.Team(nil).Load(map[string]any{"id": ...}, nil).
-func (sdk *CloudsmithSDK) Team(data map[string]any) CloudsmithEntity {
-	return NewTeamEntityFunc(sdk, data)
-}
-
-
-// Terraform returns a Terraform entity bound to this client.
-// Idiomatic usage: client.Terraform(nil).List(nil, nil) or
-// client.Terraform(nil).Load(map[string]any{"id": ...}, nil).
-func (sdk *CloudsmithSDK) Terraform(data map[string]any) CloudsmithEntity {
-	return NewTerraformEntityFunc(sdk, data)
-}
-
-
-// Test returns a Test entity bound to this client.
-// Idiomatic usage: client.Test(nil).List(nil, nil) or
-// client.Test(nil).Load(map[string]any{"id": ...}, nil).
-func (sdk *CloudsmithSDK) Test(data map[string]any) CloudsmithEntity {
-	return NewTestEntityFunc(sdk, data)
-}
-
-
-// Token returns a Token entity bound to this client.
-// Idiomatic usage: client.Token(nil).List(nil, nil) or
-// client.Token(nil).Load(map[string]any{"id": ...}, nil).
-func (sdk *CloudsmithSDK) Token(data map[string]any) CloudsmithEntity {
-	return NewTokenEntityFunc(sdk, data)
-}
-
-
-// TransferRegion returns a TransferRegion entity bound to this client.
-// Idiomatic usage: client.TransferRegion(nil).List(nil, nil) or
-// client.TransferRegion(nil).Load(map[string]any{"id": ...}, nil).
-func (sdk *CloudsmithSDK) TransferRegion(data map[string]any) CloudsmithEntity {
-	return NewTransferRegionEntityFunc(sdk, data)
 }
 
 
@@ -1322,30 +910,6 @@ func (sdk *CloudsmithSDK) UserProfile(data map[string]any) CloudsmithEntity {
 }
 
 
-// Vagrant returns a Vagrant entity bound to this client.
-// Idiomatic usage: client.Vagrant(nil).List(nil, nil) or
-// client.Vagrant(nil).Load(map[string]any{"id": ...}, nil).
-func (sdk *CloudsmithSDK) Vagrant(data map[string]any) CloudsmithEntity {
-	return NewVagrantEntityFunc(sdk, data)
-}
-
-
-// Validate returns a Validate entity bound to this client.
-// Idiomatic usage: client.Validate(nil).List(nil, nil) or
-// client.Validate(nil).Load(map[string]any{"id": ...}, nil).
-func (sdk *CloudsmithSDK) Validate(data map[string]any) CloudsmithEntity {
-	return NewValidateEntityFunc(sdk, data)
-}
-
-
-// Version returns a Version entity bound to this client.
-// Idiomatic usage: client.Version(nil).List(nil, nil) or
-// client.Version(nil).Load(map[string]any{"id": ...}, nil).
-func (sdk *CloudsmithSDK) Version(data map[string]any) CloudsmithEntity {
-	return NewVersionEntityFunc(sdk, data)
-}
-
-
 // Vulnerability returns a Vulnerability entity bound to this client.
 // Idiomatic usage: client.Vulnerability(nil).List(nil, nil) or
 // client.Vulnerability(nil).Load(map[string]any{"id": ...}, nil).
@@ -1354,35 +918,11 @@ func (sdk *CloudsmithSDK) Vulnerability(data map[string]any) CloudsmithEntity {
 }
 
 
-// VulnerabilityPolicy returns a VulnerabilityPolicy entity bound to this client.
-// Idiomatic usage: client.VulnerabilityPolicy(nil).List(nil, nil) or
-// client.VulnerabilityPolicy(nil).Load(map[string]any{"id": ...}, nil).
-func (sdk *CloudsmithSDK) VulnerabilityPolicy(data map[string]any) CloudsmithEntity {
-	return NewVulnerabilityPolicyEntityFunc(sdk, data)
-}
-
-
 // Webhook returns a Webhook entity bound to this client.
 // Idiomatic usage: client.Webhook(nil).List(nil, nil) or
 // client.Webhook(nil).Load(map[string]any{"id": ...}, nil).
 func (sdk *CloudsmithSDK) Webhook(data map[string]any) CloudsmithEntity {
 	return NewWebhookEntityFunc(sdk, data)
-}
-
-
-// X509Ecdsa returns a X509Ecdsa entity bound to this client.
-// Idiomatic usage: client.X509Ecdsa(nil).List(nil, nil) or
-// client.X509Ecdsa(nil).Load(map[string]any{"id": ...}, nil).
-func (sdk *CloudsmithSDK) X509Ecdsa(data map[string]any) CloudsmithEntity {
-	return NewX509EcdsaEntityFunc(sdk, data)
-}
-
-
-// X509Rsa returns a X509Rsa entity bound to this client.
-// Idiomatic usage: client.X509Rsa(nil).List(nil, nil) or
-// client.X509Rsa(nil).Load(map[string]any{"id": ...}, nil).
-func (sdk *CloudsmithSDK) X509Rsa(data map[string]any) CloudsmithEntity {
-	return NewX509RsaEntityFunc(sdk, data)
 }
 
 

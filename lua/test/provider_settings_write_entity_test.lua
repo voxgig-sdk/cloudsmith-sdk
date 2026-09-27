@@ -83,7 +83,7 @@ function provider_settings_write_basic_setup(extra)
 
   -- Generate idmap via transform.
   local idmap = vs.transform(
-    { "provider_settings_write01", "provider_settings_write02", "provider_settings_write03", "org01", "org02", "org03", "openid_connect01", "openid_connect02", "openid_connect03" },
+    { "provider_settings_write01", "provider_settings_write02", "provider_settings_write03", "org01", "org02", "org03" },
     {
       ["`$PACK`"] = { "", {
         ["`$KEY`"] = "`$COPY`",

@@ -1,0 +1,61 @@
+# Entity: status_basic
+
+main: kit: entity: status_basic: {
+
+  alias: field: {}
+
+  fields: {
+    detail: {
+      h: "Detail"
+      n: "detail"
+      r: false
+      ro: true
+      sh: "The message describing the state of the API."
+      t: "`$STRING`"
+    }
+    version: {
+      h: "Version"
+      n: "version"
+      r: false
+      ro: true
+      sh: "The current version for the Cloudsmith service."
+      t: "`$STRING`"
+    }
+  }
+
+  name: "status_basic"
+  op: {
+    load: {
+      name: "load"
+      points: [
+        {
+          co: {
+            id: "GET /status/check/basic/"
+            source: "swagger2"
+            version: 2
+          }
+          m: "GET"
+          o: "/status/check/basic/"
+          s: [
+            {
+              lit: "status"
+            }
+            {
+              lit: "check"
+            }
+            {
+              lit: "basic"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+  }
+
+
+
+}

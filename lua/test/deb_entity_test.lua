@@ -154,7 +154,7 @@ function deb_basic_setup(extra)
 
   -- Generate idmap via transform.
   local idmap = vs.transform(
-    { "deb01", "deb02", "deb03", "package01", "package02", "package03", "repo01", "repo02", "repo03", "identifier01", "owner01" },
+    { "deb01", "deb02", "deb03", "repo01", "repo02", "repo03", "identifier01", "owner01" },
     {
       ["`$PACK`"] = { "", {
         ["`$KEY`"] = "`$COPY`",

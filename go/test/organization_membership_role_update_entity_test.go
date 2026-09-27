@@ -110,7 +110,7 @@ func organization_membership_role_updateBasicSetup(extra map[string]any) *entity
 
 	// Generate idmap via transform, matching TS pattern.
 	idmap, _ := vs.Transform(
-		[]any{"organization_membership_role_update01", "organization_membership_role_update02", "organization_membership_role_update03", "org01", "org02", "org03", "member01", "member02", "member03"},
+		[]any{"organization_membership_role_update01", "organization_membership_role_update02", "organization_membership_role_update03", "org01", "org02", "org03"},
 		map[string]any{
 			"`$PACK`": []any{"", map[string]any{
 				"`$KEY`": "`$COPY`",

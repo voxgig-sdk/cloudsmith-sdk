@@ -19,7 +19,6 @@ import type {
   RepositoryAuditLogListMatch,
 } from '../CloudsmithTypes'
 
-// TODO: needs Entity superclass
 class RepositoryAuditLogEntity extends CloudsmithEntityBase<RepositoryAuditLog> {
 
   constructor(client: CloudsmithSDK, entopts: any) {

@@ -117,7 +117,7 @@ function provider_setting_basic_setup($extra)
 
     // Generate idmap.
     $idmap = [];
-    foreach (["provider_setting01", "provider_setting02", "provider_setting03", "org01", "org02", "org03", "openid_connect01", "openid_connect02", "openid_connect03"] as $k) {
+    foreach (["provider_setting01", "provider_setting02", "provider_setting03", "org01", "org02", "org03"] as $k) {
         $idmap[$k] = strtoupper($k);
     }
 

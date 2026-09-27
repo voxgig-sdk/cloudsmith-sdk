@@ -289,52 +289,10 @@ class CloudsmithSDK
   end
 
 
-  # Canonical facade: client.Abort.list / client.Abort.load({ "id" => ... })
-  def Abort(data = nil)
-    require_relative 'entity/abort_entity'
-    AbortEntity.new(self, data)
-  end
-
-
-  # Canonical facade: client.Alpine.list / client.Alpine.load({ "id" => ... })
-  def Alpine(data = nil)
-    require_relative 'entity/alpine_entity'
-    AlpineEntity.new(self, data)
-  end
-
-
-  # Canonical facade: client.AuditLog.list / client.AuditLog.load({ "id" => ... })
-  def AuditLog(data = nil)
-    require_relative 'entity/audit_log_entity'
-    AuditLogEntity.new(self, data)
-  end
-
-
-  # Canonical facade: client.Basic.list / client.Basic.load({ "id" => ... })
-  def Basic(data = nil)
-    require_relative 'entity/basic_entity'
-    BasicEntity.new(self, data)
-  end
-
-
   # Canonical facade: client.Cargo.list / client.Cargo.load({ "id" => ... })
   def Cargo(data = nil)
     require_relative 'entity/cargo_entity'
     CargoEntity.new(self, data)
-  end
-
-
-  # Canonical facade: client.Cocoapod.list / client.Cocoapod.load({ "id" => ... })
-  def Cocoapod(data = nil)
-    require_relative 'entity/cocoapod_entity'
-    CocoapodEntity.new(self, data)
-  end
-
-
-  # Canonical facade: client.Complete.list / client.Complete.load({ "id" => ... })
-  def Complete(data = nil)
-    require_relative 'entity/complete_entity'
-    CompleteEntity.new(self, data)
   end
 
 
@@ -345,24 +303,10 @@ class CloudsmithSDK
   end
 
 
-  # Canonical facade: client.Conan.list / client.Conan.load({ "id" => ... })
-  def Conan(data = nil)
-    require_relative 'entity/conan_entity'
-    ConanEntity.new(self, data)
-  end
-
-
   # Canonical facade: client.Conda.list / client.Conda.load({ "id" => ... })
   def Conda(data = nil)
     require_relative 'entity/conda_entity'
     CondaEntity.new(self, data)
-  end
-
-
-  # Canonical facade: client.Copy.list / client.Copy.load({ "id" => ... })
-  def Copy(data = nil)
-    require_relative 'entity/copy_entity'
-    CopyEntity.new(self, data)
   end
 
 
@@ -387,38 +331,10 @@ class CloudsmithSDK
   end
 
 
-  # Canonical facade: client.DenyPolicy.list / client.DenyPolicy.load({ "id" => ... })
-  def DenyPolicy(data = nil)
-    require_relative 'entity/deny_policy_entity'
-    DenyPolicyEntity.new(self, data)
-  end
-
-
-  # Canonical facade: client.Dependency.list / client.Dependency.load({ "id" => ... })
-  def Dependency(data = nil)
-    require_relative 'entity/dependency_entity'
-    DependencyEntity.new(self, data)
-  end
-
-
-  # Canonical facade: client.Disable.list / client.Disable.load({ "id" => ... })
-  def Disable(data = nil)
-    require_relative 'entity/disable_entity'
-    DisableEntity.new(self, data)
-  end
-
-
   # Canonical facade: client.DistributionFull.list / client.DistributionFull.load({ "id" => ... })
   def DistributionFull(data = nil)
     require_relative 'entity/distribution_full_entity'
     DistributionFullEntity.new(self, data)
-  end
-
-
-  # Canonical facade: client.Distro.list / client.Distro.load({ "id" => ... })
-  def Distro(data = nil)
-    require_relative 'entity/distro_entity'
-    DistroEntity.new(self, data)
   end
 
 
@@ -436,31 +352,10 @@ class CloudsmithSDK
   end
 
 
-  # Canonical facade: client.Ecdsa.list / client.Ecdsa.load({ "id" => ... })
-  def Ecdsa(data = nil)
-    require_relative 'entity/ecdsa_entity'
-    EcdsaEntity.new(self, data)
-  end
-
-
-  # Canonical facade: client.Enable.list / client.Enable.load({ "id" => ... })
-  def Enable(data = nil)
-    require_relative 'entity/enable_entity'
-    EnableEntity.new(self, data)
-  end
-
-
   # Canonical facade: client.Entitlement.list / client.Entitlement.load({ "id" => ... })
   def Entitlement(data = nil)
     require_relative 'entity/entitlement_entity'
     EntitlementEntity.new(self, data)
-  end
-
-
-  # Canonical facade: client.Evaluation.list / client.Evaluation.load({ "id" => ... })
-  def Evaluation(data = nil)
-    require_relative 'entity/evaluation_entity'
-    EvaluationEntity.new(self, data)
   end
 
 
@@ -478,31 +373,10 @@ class CloudsmithSDK
   end
 
 
-  # Canonical facade: client.Geoip.list / client.Geoip.load({ "id" => ... })
-  def Geoip(data = nil)
-    require_relative 'entity/geoip_entity'
-    GeoipEntity.new(self, data)
-  end
-
-
   # Canonical facade: client.Gon.list / client.Gon.load({ "id" => ... })
   def Gon(data = nil)
     require_relative 'entity/gon_entity'
     GonEntity.new(self, data)
-  end
-
-
-  # Canonical facade: client.Gpg.list / client.Gpg.load({ "id" => ... })
-  def Gpg(data = nil)
-    require_relative 'entity/gpg_entity'
-    GpgEntity.new(self, data)
-  end
-
-
-  # Canonical facade: client.Group.list / client.Group.load({ "id" => ... })
-  def Group(data = nil)
-    require_relative 'entity/group_entity'
-    GroupEntity.new(self, data)
   end
 
 
@@ -520,13 +394,6 @@ class CloudsmithSDK
   end
 
 
-  # Canonical facade: client.History.list / client.History.load({ "id" => ... })
-  def History(data = nil)
-    require_relative 'entity/history_entity'
-    HistoryEntity.new(self, data)
-  end
-
-
   # Canonical facade: client.Huggingface.list / client.Huggingface.load({ "id" => ... })
   def Huggingface(data = nil)
     require_relative 'entity/huggingface_entity'
@@ -534,59 +401,10 @@ class CloudsmithSDK
   end
 
 
-  # Canonical facade: client.Info.list / client.Info.load({ "id" => ... })
-  def Info(data = nil)
-    require_relative 'entity/info_entity'
-    InfoEntity.new(self, data)
-  end
-
-
-  # Canonical facade: client.Invite.list / client.Invite.load({ "id" => ... })
-  def Invite(data = nil)
-    require_relative 'entity/invite_entity'
-    InviteEntity.new(self, data)
-  end
-
-
-  # Canonical facade: client.LicensePolicy.list / client.LicensePolicy.load({ "id" => ... })
-  def LicensePolicy(data = nil)
-    require_relative 'entity/license_policy_entity'
-    LicensePolicyEntity.new(self, data)
-  end
-
-
-  # Canonical facade: client.Limit.list / client.Limit.load({ "id" => ... })
-  def Limit(data = nil)
-    require_relative 'entity/limit_entity'
-    LimitEntity.new(self, data)
-  end
-
-
-  # Canonical facade: client.Luarock.list / client.Luarock.load({ "id" => ... })
-  def Luarock(data = nil)
-    require_relative 'entity/luarock_entity'
-    LuarockEntity.new(self, data)
-  end
-
-
   # Canonical facade: client.Maven.list / client.Maven.load({ "id" => ... })
   def Maven(data = nil)
     require_relative 'entity/maven_entity'
     MavenEntity.new(self, data)
-  end
-
-
-  # Canonical facade: client.Member.list / client.Member.load({ "id" => ... })
-  def Member(data = nil)
-    require_relative 'entity/member_entity'
-    MemberEntity.new(self, data)
-  end
-
-
-  # Canonical facade: client.Move.list / client.Move.load({ "id" => ... })
-  def Move(data = nil)
-    require_relative 'entity/move_entity'
-    MoveEntity.new(self, data)
   end
 
 
@@ -615,13 +433,6 @@ class CloudsmithSDK
   def Nuget(data = nil)
     require_relative 'entity/nuget_entity'
     NugetEntity.new(self, data)
-  end
-
-
-  # Canonical facade: client.OpenidConnect.list / client.OpenidConnect.load({ "id" => ... })
-  def OpenidConnect(data = nil)
-    require_relative 'entity/openid_connect_entity'
-    OpenidConnectEntity.new(self, data)
   end
 
 
@@ -716,20 +527,6 @@ class CloudsmithSDK
   end
 
 
-  # Canonical facade: client.Oss.list / client.Oss.load({ "id" => ... })
-  def Oss(data = nil)
-    require_relative 'entity/oss_entity'
-    OssEntity.new(self, data)
-  end
-
-
-  # Canonical facade: client.P2n.list / client.P2n.load({ "id" => ... })
-  def P2n(data = nil)
-    require_relative 'entity/p2n_entity'
-    P2nEntity.new(self, data)
-  end
-
-
   # Canonical facade: client.Package.list / client.Package.load({ "id" => ... })
   def Package(data = nil)
     require_relative 'entity/package_entity'
@@ -779,20 +576,6 @@ class CloudsmithSDK
   end
 
 
-  # Canonical facade: client.Privilege.list / client.Privilege.load({ "id" => ... })
-  def Privilege(data = nil)
-    require_relative 'entity/privilege_entity'
-    PrivilegeEntity.new(self, data)
-  end
-
-
-  # Canonical facade: client.Profile.list / client.Profile.load({ "id" => ... })
-  def Profile(data = nil)
-    require_relative 'entity/profile_entity'
-    ProfileEntity.new(self, data)
-  end
-
-
   # Canonical facade: client.ProviderSetting.list / client.ProviderSetting.load({ "id" => ... })
   def ProviderSetting(data = nil)
     require_relative 'entity/provider_setting_entity'
@@ -814,38 +597,10 @@ class CloudsmithSDK
   end
 
 
-  # Canonical facade: client.Quarantine.list / client.Quarantine.load({ "id" => ... })
-  def Quarantine(data = nil)
-    require_relative 'entity/quarantine_entity'
-    QuarantineEntity.new(self, data)
-  end
-
-
   # Canonical facade: client.Quota.list / client.Quota.load({ "id" => ... })
   def Quota(data = nil)
     require_relative 'entity/quota_entity'
     QuotaEntity.new(self, data)
-  end
-
-
-  # Canonical facade: client.Raw.list / client.Raw.load({ "id" => ... })
-  def Raw(data = nil)
-    require_relative 'entity/raw_entity'
-    RawEntity.new(self, data)
-  end
-
-
-  # Canonical facade: client.Refresh.list / client.Refresh.load({ "id" => ... })
-  def Refresh(data = nil)
-    require_relative 'entity/refresh_entity'
-    RefreshEntity.new(self, data)
-  end
-
-
-  # Canonical facade: client.Regenerate.list / client.Regenerate.load({ "id" => ... })
-  def Regenerate(data = nil)
-    require_relative 'entity/regenerate_entity'
-    RegenerateEntity.new(self, data)
   end
 
 
@@ -898,10 +653,10 @@ class CloudsmithSDK
   end
 
 
-  # Canonical facade: client.RepositoryPrivilegeInput.list / client.RepositoryPrivilegeInput.load({ "id" => ... })
-  def RepositoryPrivilegeInput(data = nil)
-    require_relative 'entity/repository_privilege_input_entity'
-    RepositoryPrivilegeInputEntity.new(self, data)
+  # Canonical facade: client.RepositoryPrivilegeDict.list / client.RepositoryPrivilegeDict.load({ "id" => ... })
+  def RepositoryPrivilegeDict(data = nil)
+    require_relative 'entity/repository_privilege_dict_entity'
+    RepositoryPrivilegeDictEntity.new(self, data)
   end
 
 
@@ -961,31 +716,10 @@ class CloudsmithSDK
   end
 
 
-  # Canonical facade: client.Reset.list / client.Reset.load({ "id" => ... })
-  def Reset(data = nil)
-    require_relative 'entity/reset_entity'
-    ResetEntity.new(self, data)
-  end
-
-
   # Canonical facade: client.ResourcesRateCheck.list / client.ResourcesRateCheck.load({ "id" => ... })
   def ResourcesRateCheck(data = nil)
     require_relative 'entity/resources_rate_check_entity'
     ResourcesRateCheckEntity.new(self, data)
-  end
-
-
-  # Canonical facade: client.Resync.list / client.Resync.load({ "id" => ... })
-  def Resync(data = nil)
-    require_relative 'entity/resync_entity'
-    ResyncEntity.new(self, data)
-  end
-
-
-  # Canonical facade: client.Retention.list / client.Retention.load({ "id" => ... })
-  def Retention(data = nil)
-    require_relative 'entity/retention_entity'
-    RetentionEntity.new(self, data)
   end
 
 
@@ -996,13 +730,6 @@ class CloudsmithSDK
   end
 
 
-  # Canonical facade: client.Rsa.list / client.Rsa.load({ "id" => ... })
-  def Rsa(data = nil)
-    require_relative 'entity/rsa_entity'
-    RsaEntity.new(self, data)
-  end
-
-
   # Canonical facade: client.Ruby.list / client.Ruby.load({ "id" => ... })
   def Ruby(data = nil)
     require_relative 'entity/ruby_entity'
@@ -1010,38 +737,10 @@ class CloudsmithSDK
   end
 
 
-  # Canonical facade: client.SamlGroupSync.list / client.SamlGroupSync.load({ "id" => ... })
-  def SamlGroupSync(data = nil)
-    require_relative 'entity/saml_group_sync_entity'
-    SamlGroupSyncEntity.new(self, data)
-  end
-
-
-  # Canonical facade: client.Scan.list / client.Scan.load({ "id" => ... })
-  def Scan(data = nil)
-    require_relative 'entity/scan_entity'
-    ScanEntity.new(self, data)
-  end
-
-
-  # Canonical facade: client.Self.list / client.Self.load({ "id" => ... })
-  def Self(data = nil)
-    require_relative 'entity/self_entity'
-    SelfEntity.new(self, data)
-  end
-
-
   # Canonical facade: client.Service.list / client.Service.load({ "id" => ... })
   def Service(data = nil)
     require_relative 'entity/service_entity'
     ServiceEntity.new(self, data)
-  end
-
-
-  # Canonical facade: client.Status.list / client.Status.load({ "id" => ... })
-  def Status(data = nil)
-    require_relative 'entity/status_entity'
-    StatusEntity.new(self, data)
   end
 
 
@@ -1063,55 +762,6 @@ class CloudsmithSDK
   def Swift(data = nil)
     require_relative 'entity/swift_entity'
     SwiftEntity.new(self, data)
-  end
-
-
-  # Canonical facade: client.Sync.list / client.Sync.load({ "id" => ... })
-  def Sync(data = nil)
-    require_relative 'entity/sync_entity'
-    SyncEntity.new(self, data)
-  end
-
-
-  # Canonical facade: client.Tag.list / client.Tag.load({ "id" => ... })
-  def Tag(data = nil)
-    require_relative 'entity/tag_entity'
-    TagEntity.new(self, data)
-  end
-
-
-  # Canonical facade: client.Team.list / client.Team.load({ "id" => ... })
-  def Team(data = nil)
-    require_relative 'entity/team_entity'
-    TeamEntity.new(self, data)
-  end
-
-
-  # Canonical facade: client.Terraform.list / client.Terraform.load({ "id" => ... })
-  def Terraform(data = nil)
-    require_relative 'entity/terraform_entity'
-    TerraformEntity.new(self, data)
-  end
-
-
-  # Canonical facade: client.Test.list / client.Test.load({ "id" => ... })
-  def Test(data = nil)
-    require_relative 'entity/test_entity'
-    TestEntity.new(self, data)
-  end
-
-
-  # Canonical facade: client.Token.list / client.Token.load({ "id" => ... })
-  def Token(data = nil)
-    require_relative 'entity/token_entity'
-    TokenEntity.new(self, data)
-  end
-
-
-  # Canonical facade: client.TransferRegion.list / client.TransferRegion.load({ "id" => ... })
-  def TransferRegion(data = nil)
-    require_relative 'entity/transfer_region_entity'
-    TransferRegionEntity.new(self, data)
   end
 
 
@@ -1150,27 +800,6 @@ class CloudsmithSDK
   end
 
 
-  # Canonical facade: client.Vagrant.list / client.Vagrant.load({ "id" => ... })
-  def Vagrant(data = nil)
-    require_relative 'entity/vagrant_entity'
-    VagrantEntity.new(self, data)
-  end
-
-
-  # Canonical facade: client.Validate.list / client.Validate.load({ "id" => ... })
-  def Validate(data = nil)
-    require_relative 'entity/validate_entity'
-    ValidateEntity.new(self, data)
-  end
-
-
-  # Canonical facade: client.Version.list / client.Version.load({ "id" => ... })
-  def Version(data = nil)
-    require_relative 'entity/version_entity'
-    VersionEntity.new(self, data)
-  end
-
-
   # Canonical facade: client.Vulnerability.list / client.Vulnerability.load({ "id" => ... })
   def Vulnerability(data = nil)
     require_relative 'entity/vulnerability_entity'
@@ -1178,31 +807,10 @@ class CloudsmithSDK
   end
 
 
-  # Canonical facade: client.VulnerabilityPolicy.list / client.VulnerabilityPolicy.load({ "id" => ... })
-  def VulnerabilityPolicy(data = nil)
-    require_relative 'entity/vulnerability_policy_entity'
-    VulnerabilityPolicyEntity.new(self, data)
-  end
-
-
   # Canonical facade: client.Webhook.list / client.Webhook.load({ "id" => ... })
   def Webhook(data = nil)
     require_relative 'entity/webhook_entity'
     WebhookEntity.new(self, data)
-  end
-
-
-  # Canonical facade: client.X509Ecdsa.list / client.X509Ecdsa.load({ "id" => ... })
-  def X509Ecdsa(data = nil)
-    require_relative 'entity/x509_ecdsa_entity'
-    X509EcdsaEntity.new(self, data)
-  end
-
-
-  # Canonical facade: client.X509Rsa.list / client.X509Rsa.load({ "id" => ... })
-  def X509Rsa(data = nil)
-    require_relative 'entity/x509_rsa_entity'
-    X509RsaEntity.new(self, data)
   end
 
 

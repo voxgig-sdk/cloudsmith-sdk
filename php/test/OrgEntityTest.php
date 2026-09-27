@@ -158,7 +158,7 @@ function org_basic_setup($extra)
 
     // Generate idmap.
     $idmap = [];
-    foreach (["org01", "org02", "org03", "deny_policy01", "deny_policy02", "deny_policy03", "invite01", "invite02", "invite03", "license_policy01", "license_policy02", "license_policy03", "member01", "member02", "member03", "openid_connect01", "openid_connect02", "openid_connect03", "saml_group_sync01", "saml_group_sync02", "saml_group_sync03", "service01", "service02", "service03", "team01", "team02", "team03", "vulnerability_policy01", "vulnerability_policy02", "vulnerability_policy03"] as $k) {
+    foreach (["org01", "org02", "org03", "service01", "service02", "service03"] as $k) {
         $idmap[$k] = strtoupper($k);
     }
 

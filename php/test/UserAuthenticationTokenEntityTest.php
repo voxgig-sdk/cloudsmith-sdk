@@ -73,7 +73,7 @@ function user_authentication_token_basic_setup($extra)
 
     // Generate idmap.
     $idmap = [];
-    foreach (["user_authentication_token01", "user_authentication_token02", "user_authentication_token03", "token01", "token02", "token03"] as $k) {
+    foreach (["user_authentication_token01", "user_authentication_token02", "user_authentication_token03"] as $k) {
         $idmap[$k] = strtoupper($k);
     }
 

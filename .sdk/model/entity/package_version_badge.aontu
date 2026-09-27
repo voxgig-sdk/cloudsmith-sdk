@@ -1,0 +1,231 @@
+# Entity: package_version_badge
+
+main: kit: entity: package_version_badge: {
+
+  alias: field: {}
+
+  fields: {
+    id: {
+      h: "Id"
+      n: "id"
+      r: false
+      t: "`$STRING`"
+    }
+  }
+
+  id: {
+    field: "id"
+    name: "id"
+    parts: [
+      "owner"
+      "repo"
+      "package_format"
+      "package_name"
+      "package_version"
+      "package_identifier"
+    ]
+    sep: "/"
+  }
+
+  name: "package_version_badge"
+  op: {
+    load: {
+      name: "load"
+      points: [
+        {
+          co: {
+            id: "GET /badges/version/{owner}/{repo}/{package_format}/{package_name}/{package_version}/{package_identifiers}/"
+            source: "swagger2"
+            version: 2
+          }
+          g: {
+            params: [
+              {
+                k: "param"
+                n: "owner"
+                or: "owner"
+                r: true
+                t: "`$ANY`"
+              }
+              {
+                k: "param"
+                n: "package_format"
+                or: "package_format"
+                r: true
+                t: "`$ANY`"
+              }
+              {
+                k: "param"
+                n: "package_identifier"
+                or: "package_identifier"
+                r: true
+                t: "`$ANY`"
+              }
+              {
+                k: "param"
+                n: "package_name"
+                or: "package_name"
+                r: true
+                t: "`$ANY`"
+              }
+              {
+                k: "param"
+                n: "package_version"
+                or: "package_version"
+                r: true
+                t: "`$ANY`"
+              }
+              {
+                k: "param"
+                n: "repo"
+                or: "repo"
+                r: true
+                t: "`$ANY`"
+              }
+            ]
+            query: [
+              {
+                k: "query"
+                n: "badge_token"
+                or: "badge_token"
+                r: false
+                t: "`$ANY`"
+              }
+              {
+                k: "query"
+                n: "cache_second"
+                or: "cache_second"
+                r: false
+                t: "`$ANY`"
+              }
+              {
+                k: "query"
+                n: "color"
+                or: "color"
+                r: false
+                t: "`$ANY`"
+              }
+              {
+                k: "query"
+                n: "label"
+                or: "label"
+                r: false
+                t: "`$STRING`"
+              }
+              {
+                k: "query"
+                n: "label_color"
+                or: "label_color"
+                r: false
+                t: "`$ANY`"
+              }
+              {
+                k: "query"
+                n: "logo_color"
+                or: "logo_color"
+                r: false
+                t: "`$ANY`"
+              }
+              {
+                k: "query"
+                n: "logo_width"
+                or: "logo_width"
+                r: false
+                t: "`$ANY`"
+              }
+              {
+                k: "query"
+                n: "render"
+                or: "render"
+                r: false
+                t: "`$ANY`"
+              }
+              {
+                k: "query"
+                n: "shield"
+                or: "shield"
+                r: false
+                t: "`$ANY`"
+              }
+              {
+                k: "query"
+                n: "show_latest"
+                or: "show_latest"
+                r: false
+                t: "`$ANY`"
+              }
+              {
+                k: "query"
+                n: "style"
+                or: "style"
+                r: false
+                t: "`$ANY`"
+              }
+            ]
+          }
+          m: "GET"
+          o: "/badges/version/{owner}/{repo}/{package_format}/{package_name}/{package_version}/{package_identifiers}/"
+          q: {
+            exist: [
+              "badge_token"
+              "cache_second"
+              "color"
+              "label"
+              "label_color"
+              "logo_color"
+              "logo_width"
+              "owner"
+              "package_format"
+              "package_identifier"
+              "package_name"
+              "package_version"
+              "render"
+              "repo"
+              "shield"
+              "show_latest"
+              "style"
+            ]
+          }
+          r: {
+            param: {
+              package_identifiers: "package_identifier"
+            }
+          }
+          s: [
+            {
+              lit: "badges"
+            }
+            {
+              lit: "version"
+            }
+            {
+              var: "owner"
+            }
+            {
+              var: "repo"
+            }
+            {
+              var: "package_format"
+            }
+            {
+              var: "package_name"
+            }
+            {
+              var: "package_version"
+            }
+            {
+              var: "package_identifier"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+  }
+
+
+
+}

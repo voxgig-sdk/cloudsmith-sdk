@@ -147,7 +147,7 @@ function npm_basic_setup($extra)
 
     // Generate idmap.
     $idmap = [];
-    foreach (["npm01", "npm02", "npm03", "package01", "package02", "package03", "repo01", "repo02", "repo03", "identifier01", "owner01"] as $k) {
+    foreach (["npm01", "npm02", "npm03", "repo01", "repo02", "repo03", "identifier01", "owner01"] as $k) {
         $idmap[$k] = strtoupper($k);
     }
 

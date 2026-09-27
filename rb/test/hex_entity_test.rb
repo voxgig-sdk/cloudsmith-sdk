@@ -136,7 +136,7 @@ def hex_basic_setup(extra)
 
   # Generate idmap via transform.
   idmap = Vs.transform(
-    ["hex01", "hex02", "hex03", "package01", "package02", "package03", "repo01", "repo02", "repo03", "identifier01", "owner01"],
+    ["hex01", "hex02", "hex03", "repo01", "repo02", "repo03", "identifier01", "owner01"],
     {
       "`$PACK`" => ["", {
         "`$KEY`" => "`$COPY`",

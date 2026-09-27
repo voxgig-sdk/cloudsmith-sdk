@@ -1,0 +1,28 @@
+# BasicUserBriefFlow
+
+main: kit: flow: BasicUserBriefFlow:
+{
+  entity: "user_brief",
+  kind: "basic",
+  name: "BasicUserBriefFlow",
+  step: [
+    {
+      i: {
+        ref: "user_brief_ref01",
+        srcdatavar: "user_brief_ref01_data",
+        suffix: "_dt0"
+      }
+
+      o: "load",
+      v: [
+        {
+          apply: "TextFieldMark",
+          def: {
+            mark: "Mark01-user_brief_ref01"
+          }
+        }
+      ]
+    }
+  ],
+  "key$": "BasicUserBriefFlow"
+}

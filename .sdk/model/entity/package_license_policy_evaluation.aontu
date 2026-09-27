@@ -1,0 +1,363 @@
+# Entity: package_license_policy_evaluation
+
+main: kit: entity: package_license_policy_evaluation: {
+
+  alias: field: {}
+
+  fields: {
+    allow_unknown_licenses: {
+      h: "Allow Unknown Licenses"
+      n: "allow_unknown_licenses"
+      r: false
+      ro: true
+      t: "`$BOOLEAN`"
+    }
+    created_at: {
+      fo: "date-time"
+      h: "Created At"
+      n: "created_at"
+      r: false
+      ro: true
+      t: "`$STRING`"
+    }
+    description: {
+      h: "Description"
+      n: "description"
+      r: false
+      ro: true
+      t: "`$STRING`"
+    }
+    evaluation_count: {
+      h: "Evaluation Count"
+      n: "evaluation_count"
+      r: false
+      ro: true
+      t: "`$INTEGER`"
+    }
+    id: {
+      h: "Id"
+      n: "id"
+      r: false
+      t: "`$STRING`"
+    }
+    name: {
+      h: "Name"
+      n: "name"
+      r: false
+      ro: true
+      t: "`$STRING`"
+    }
+    on_violation_quarantine: {
+      h: "On Violation Quarantine"
+      n: "on_violation_quarantine"
+      r: false
+      ro: true
+      t: "`$BOOLEAN`"
+    }
+    package_query_string: {
+      h: "Package Query String"
+      n: "package_query_string"
+      r: false
+      ro: true
+      t: "`$STRING`"
+    }
+    policy: {
+      h: "Policy"
+      n: "policy"
+      r: true
+      t: "`$OBJECT`"
+    }
+    slug_perm: {
+      fo: "slug"
+      h: "Slug Perm"
+      n: "slug_perm"
+      r: false
+      ro: true
+      t: "`$STRING`"
+    }
+    spdx_identifiers: {
+      h: "Spdx Identifiers"
+      n: "spdx_identifiers"
+      r: true
+      t: "`$ARRAY`"
+    }
+    status: {
+      h: "Status"
+      n: "status"
+      r: false
+      ro: true
+      t: "`$STRING`"
+    }
+    updated_at: {
+      fo: "date-time"
+      h: "Updated At"
+      n: "updated_at"
+      r: false
+      ro: true
+      t: "`$STRING`"
+    }
+    url: {
+      fo: "uri"
+      h: "Url"
+      n: "url"
+      r: false
+      ro: true
+      t: "`$STRING`"
+    }
+    violation_count: {
+      h: "Violation Count"
+      n: "violation_count"
+      r: false
+      ro: true
+      t: "`$INTEGER`"
+    }
+  }
+
+  id: {
+    field: "id"
+    name: "id"
+  }
+
+  name: "package_license_policy_evaluation"
+  op: {
+    create: {
+      name: "create"
+      points: [
+        {
+          co: {
+            id: "POST /orgs/{org}/license-policy/{policy_slug_perm}/evaluation/"
+            source: "swagger2"
+            version: 2
+          }
+          g: {
+            params: [
+              {
+                k: "param"
+                n: "org_id"
+                or: "org"
+                r: true
+                t: "`$STRING`"
+              }
+              {
+                k: "param"
+                n: "policy_slug_perm"
+                or: "policy_slug_perm"
+                r: true
+                t: "`$ANY`"
+              }
+            ]
+            query: [
+              {
+                k: "query"
+                n: "data"
+                or: "data"
+                r: false
+                t: "`$OBJECT`"
+              }
+            ]
+          }
+          m: "POST"
+          o: "/orgs/{org}/license-policy/{policy_slug_perm}/evaluation/"
+          q: {
+            exist: [
+              "data"
+              "org_id"
+              "policy_slug_perm"
+            ]
+          }
+          r: {
+            param: {
+              org: "org_id"
+            }
+          }
+          s: [
+            {
+              lit: "orgs"
+            }
+            {
+              var: "org_id"
+            }
+            {
+              lit: "license-policy"
+            }
+            {
+              var: "policy_slug_perm"
+            }
+            {
+              lit: "evaluation"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body.policy`"
+          }
+        }
+      ]
+    }
+    list: {
+      name: "list"
+      points: [
+        {
+          co: {
+            id: "GET /orgs/{org}/license-policy/{policy_slug_perm}/evaluation/"
+            source: "swagger2"
+            version: 2
+          }
+          g: {
+            params: [
+              {
+                k: "param"
+                n: "org_id"
+                or: "org"
+                r: true
+                t: "`$STRING`"
+              }
+              {
+                k: "param"
+                n: "policy_slug_perm"
+                or: "policy_slug_perm"
+                r: true
+                t: "`$ANY`"
+              }
+            ]
+            query: [
+              {
+                k: "query"
+                n: "page"
+                or: "page"
+                r: false
+                t: "`$INTEGER`"
+              }
+              {
+                k: "query"
+                n: "page_size"
+                or: "page_size"
+                r: false
+                t: "`$INTEGER`"
+              }
+            ]
+          }
+          m: "GET"
+          o: "/orgs/{org}/license-policy/{policy_slug_perm}/evaluation/"
+          q: {
+            exist: [
+              "org_id"
+              "page"
+              "page_size"
+              "policy_slug_perm"
+            ]
+          }
+          r: {
+            param: {
+              org: "org_id"
+            }
+          }
+          s: [
+            {
+              lit: "orgs"
+            }
+            {
+              var: "org_id"
+            }
+            {
+              lit: "license-policy"
+            }
+            {
+              var: "policy_slug_perm"
+            }
+            {
+              lit: "evaluation"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+    load: {
+      name: "load"
+      points: [
+        {
+          co: {
+            id: "GET /orgs/{org}/license-policy/{policy_slug_perm}/evaluation/{slug_perm}/"
+            source: "swagger2"
+            version: 2
+          }
+          g: {
+            params: [
+              {
+                k: "param"
+                n: "id"
+                or: "slug_perm"
+                r: true
+                t: "`$STRING`"
+              }
+              {
+                k: "param"
+                n: "license_policy_id"
+                or: "policy_slug_perm"
+                r: true
+                t: "`$STRING`"
+              }
+              {
+                k: "param"
+                n: "org_id"
+                or: "org"
+                r: true
+                t: "`$STRING`"
+              }
+            ]
+          }
+          m: "GET"
+          o: "/orgs/{org}/license-policy/{policy_slug_perm}/evaluation/{slug_perm}/"
+          q: {
+            exist: [
+              "id"
+              "license_policy_id"
+              "org_id"
+            ]
+          }
+          r: {
+            param: {
+              org: "org_id"
+              policy_slug_perm: "license_policy_id"
+              slug_perm: "id"
+            }
+          }
+          s: [
+            {
+              lit: "orgs"
+            }
+            {
+              var: "org_id"
+            }
+            {
+              lit: "license-policy"
+            }
+            {
+              var: "license_policy_id"
+            }
+            {
+              lit: "evaluation"
+            }
+            {
+              var: "id"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body.policy`"
+          }
+        }
+      ]
+    }
+  }
+
+
+  relations: ancestors: [
+    [path("$.main.kit.entity.org")]
+  ]
+
+}

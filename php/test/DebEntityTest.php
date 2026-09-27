@@ -147,7 +147,7 @@ function deb_basic_setup($extra)
 
     // Generate idmap.
     $idmap = [];
-    foreach (["deb01", "deb02", "deb03", "package01", "package02", "package03", "repo01", "repo02", "repo03", "identifier01", "owner01"] as $k) {
+    foreach (["deb01", "deb02", "deb03", "repo01", "repo02", "repo03", "identifier01", "owner01"] as $k) {
         $idmap[$k] = strtoupper($k);
     }
 

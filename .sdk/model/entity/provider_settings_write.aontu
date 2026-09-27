@@ -1,0 +1,290 @@
+# Entity: provider_settings_write
+
+main: kit: entity: provider_settings_write: {
+
+  alias: field: {}
+
+  fields: {
+    claims: {
+      h: "Claims"
+      n: "claims"
+      r: true
+      sh: "The set of claims that any received tokens from the provider must contain to authenticate as the configured service account."
+      t: "`$OBJECT`"
+    }
+    dynamic_mappings: {
+      h: "Dynamic Mappings"
+      n: "dynamic_mappings"
+      r: false
+      sh: "The dynamic mappings of `mapping_claim` values to service accounts."
+      t: "`$ARRAY`"
+    }
+    enabled: {
+      h: "Enabled"
+      n: "enabled"
+      r: true
+      sh: "Whether the provider settings should be used for incoming OIDC requests."
+      t: "`$BOOLEAN`"
+    }
+    mapping_claim: {
+      h: "Mapping Claim"
+      n: "mapping_claim"
+      r: false
+      sh: "The OIDC claim to use for mapping to service accounts in dynamic_mappings."
+      t: "`$STRING`"
+    }
+    name: {
+      h: "Name"
+      n: "name"
+      r: true
+      sh: "The name of the provider settings are being configured for"
+      t: "`$STRING`"
+    }
+    provider_url: {
+      fo: "uri"
+      h: "Provider Url"
+      n: "provider_url"
+      r: true
+      sh: "The URL from the provider that serves as the base for the OpenID configuration."
+      t: "`$STRING`"
+    }
+    service_accounts: {
+      h: "Service Accounts"
+      n: "service_accounts"
+      r: false
+      sh: "The service accounts associated with these provider settings."
+      t: "`$ARRAY`"
+    }
+    slug: {
+      fo: "slug"
+      h: "Slug"
+      n: "slug"
+      r: false
+      ro: true
+      sh: "The slug of the provider settings"
+      t: "`$STRING`"
+    }
+    slug_perm: {
+      fo: "slug"
+      h: "Slug Perm"
+      n: "slug_perm"
+      r: false
+      ro: true
+      sh: "The unique, immutable identifier of the provider settings."
+      t: "`$STRING`"
+    }
+  }
+
+  name: "provider_settings_write"
+  op: {
+    create: {
+      name: "create"
+      points: [
+        {
+          co: {
+            id: "POST /orgs/{org}/openid-connect/"
+            source: "swagger2"
+            version: 2
+          }
+          g: {
+            params: [
+              {
+                k: "param"
+                n: "org_id"
+                or: "org"
+                r: true
+                t: "`$STRING`"
+              }
+            ]
+            query: [
+              {
+                k: "query"
+                n: "data"
+                or: "data"
+                r: false
+                t: "`$OBJECT`"
+              }
+            ]
+          }
+          m: "POST"
+          o: "/orgs/{org}/openid-connect/"
+          q: {
+            exist: [
+              "data"
+              "org_id"
+            ]
+          }
+          r: {
+            param: {
+              org: "org_id"
+            }
+          }
+          s: [
+            {
+              lit: "orgs"
+            }
+            {
+              var: "org_id"
+            }
+            {
+              lit: "openid-connect"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+    patch: {
+      name: "patch"
+      points: [
+        {
+          co: {
+            id: "PATCH /orgs/{org}/openid-connect/{slug_perm}/"
+            source: "swagger2"
+            version: 2
+          }
+          g: {
+            params: [
+              {
+                k: "param"
+                n: "org_id"
+                or: "org"
+                r: true
+                t: "`$STRING`"
+              }
+              {
+                k: "param"
+                n: "slug_perm"
+                or: "slug_perm"
+                r: true
+                t: "`$ANY`"
+              }
+            ]
+            query: [
+              {
+                k: "query"
+                n: "data"
+                or: "data"
+                r: false
+                t: "`$OBJECT`"
+              }
+            ]
+          }
+          m: "PATCH"
+          o: "/orgs/{org}/openid-connect/{slug_perm}/"
+          q: {
+            exist: [
+              "data"
+              "org_id"
+              "slug_perm"
+            ]
+          }
+          r: {
+            param: {
+              org: "org_id"
+            }
+          }
+          s: [
+            {
+              lit: "orgs"
+            }
+            {
+              var: "org_id"
+            }
+            {
+              lit: "openid-connect"
+            }
+            {
+              var: "slug_perm"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+    update: {
+      name: "update"
+      points: [
+        {
+          co: {
+            id: "PUT /orgs/{org}/openid-connect/{slug_perm}/"
+            source: "swagger2"
+            version: 2
+          }
+          g: {
+            params: [
+              {
+                k: "param"
+                n: "org_id"
+                or: "org"
+                r: true
+                t: "`$STRING`"
+              }
+              {
+                k: "param"
+                n: "slug_perm"
+                or: "slug_perm"
+                r: true
+                t: "`$ANY`"
+              }
+            ]
+            query: [
+              {
+                k: "query"
+                n: "data"
+                or: "data"
+                r: false
+                t: "`$OBJECT`"
+              }
+            ]
+          }
+          m: "PUT"
+          o: "/orgs/{org}/openid-connect/{slug_perm}/"
+          q: {
+            exist: [
+              "data"
+              "org_id"
+              "slug_perm"
+            ]
+          }
+          r: {
+            param: {
+              org: "org_id"
+            }
+          }
+          s: [
+            {
+              lit: "orgs"
+            }
+            {
+              var: "org_id"
+            }
+            {
+              lit: "openid-connect"
+            }
+            {
+              var: "slug_perm"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+  }
+
+
+  relations: ancestors: [
+    [path("$.main.kit.entity.org")]
+    [path("$.main.kit.entity.org")]
+  ]
+
+}

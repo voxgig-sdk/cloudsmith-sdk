@@ -307,46 +307,10 @@ class CloudsmithSDK:
         return res
 
 
-    def Abort(self, data=None) -> "AbortEntity":
-        """Entity factory: client.Abort().list() / client.Abort().load({"id": ...})."""
-        from cloudsmith_sdk.entity.abort_entity import AbortEntity
-        return AbortEntity(self, data)
-
-
-    def Alpine(self, data=None) -> "AlpineEntity":
-        """Entity factory: client.Alpine().list() / client.Alpine().load({"id": ...})."""
-        from cloudsmith_sdk.entity.alpine_entity import AlpineEntity
-        return AlpineEntity(self, data)
-
-
-    def AuditLog(self, data=None) -> "AuditLogEntity":
-        """Entity factory: client.AuditLog().list() / client.AuditLog().load({"id": ...})."""
-        from cloudsmith_sdk.entity.audit_log_entity import AuditLogEntity
-        return AuditLogEntity(self, data)
-
-
-    def Basic(self, data=None) -> "BasicEntity":
-        """Entity factory: client.Basic().list() / client.Basic().load({"id": ...})."""
-        from cloudsmith_sdk.entity.basic_entity import BasicEntity
-        return BasicEntity(self, data)
-
-
     def Cargo(self, data=None) -> "CargoEntity":
         """Entity factory: client.Cargo().list() / client.Cargo().load({"id": ...})."""
         from cloudsmith_sdk.entity.cargo_entity import CargoEntity
         return CargoEntity(self, data)
-
-
-    def Cocoapod(self, data=None) -> "CocoapodEntity":
-        """Entity factory: client.Cocoapod().list() / client.Cocoapod().load({"id": ...})."""
-        from cloudsmith_sdk.entity.cocoapod_entity import CocoapodEntity
-        return CocoapodEntity(self, data)
-
-
-    def Complete(self, data=None) -> "CompleteEntity":
-        """Entity factory: client.Complete().list() / client.Complete().load({"id": ...})."""
-        from cloudsmith_sdk.entity.complete_entity import CompleteEntity
-        return CompleteEntity(self, data)
 
 
     def Composer(self, data=None) -> "ComposerEntity":
@@ -355,22 +319,10 @@ class CloudsmithSDK:
         return ComposerEntity(self, data)
 
 
-    def Conan(self, data=None) -> "ConanEntity":
-        """Entity factory: client.Conan().list() / client.Conan().load({"id": ...})."""
-        from cloudsmith_sdk.entity.conan_entity import ConanEntity
-        return ConanEntity(self, data)
-
-
     def Conda(self, data=None) -> "CondaEntity":
         """Entity factory: client.Conda().list() / client.Conda().load({"id": ...})."""
         from cloudsmith_sdk.entity.conda_entity import CondaEntity
         return CondaEntity(self, data)
-
-
-    def Copy(self, data=None) -> "CopyEntity":
-        """Entity factory: client.Copy().list() / client.Copy().load({"id": ...})."""
-        from cloudsmith_sdk.entity.copy_entity import CopyEntity
-        return CopyEntity(self, data)
 
 
     def Cran(self, data=None) -> "CranEntity":
@@ -391,34 +343,10 @@ class CloudsmithSDK:
         return DebEntity(self, data)
 
 
-    def DenyPolicy(self, data=None) -> "DenyPolicyEntity":
-        """Entity factory: client.DenyPolicy().list() / client.DenyPolicy().load({"id": ...})."""
-        from cloudsmith_sdk.entity.deny_policy_entity import DenyPolicyEntity
-        return DenyPolicyEntity(self, data)
-
-
-    def Dependency(self, data=None) -> "DependencyEntity":
-        """Entity factory: client.Dependency().list() / client.Dependency().load({"id": ...})."""
-        from cloudsmith_sdk.entity.dependency_entity import DependencyEntity
-        return DependencyEntity(self, data)
-
-
-    def Disable(self, data=None) -> "DisableEntity":
-        """Entity factory: client.Disable().list() / client.Disable().load({"id": ...})."""
-        from cloudsmith_sdk.entity.disable_entity import DisableEntity
-        return DisableEntity(self, data)
-
-
     def DistributionFull(self, data=None) -> "DistributionFullEntity":
         """Entity factory: client.DistributionFull().list() / client.DistributionFull().load({"id": ...})."""
         from cloudsmith_sdk.entity.distribution_full_entity import DistributionFullEntity
         return DistributionFullEntity(self, data)
-
-
-    def Distro(self, data=None) -> "DistroEntity":
-        """Entity factory: client.Distro().list() / client.Distro().load({"id": ...})."""
-        from cloudsmith_sdk.entity.distro_entity import DistroEntity
-        return DistroEntity(self, data)
 
 
     def Docker(self, data=None) -> "DockerEntity":
@@ -433,28 +361,10 @@ class CloudsmithSDK:
         return DynamicMappingEntity(self, data)
 
 
-    def Ecdsa(self, data=None) -> "EcdsaEntity":
-        """Entity factory: client.Ecdsa().list() / client.Ecdsa().load({"id": ...})."""
-        from cloudsmith_sdk.entity.ecdsa_entity import EcdsaEntity
-        return EcdsaEntity(self, data)
-
-
-    def Enable(self, data=None) -> "EnableEntity":
-        """Entity factory: client.Enable().list() / client.Enable().load({"id": ...})."""
-        from cloudsmith_sdk.entity.enable_entity import EnableEntity
-        return EnableEntity(self, data)
-
-
     def Entitlement(self, data=None) -> "EntitlementEntity":
         """Entity factory: client.Entitlement().list() / client.Entitlement().load({"id": ...})."""
         from cloudsmith_sdk.entity.entitlement_entity import EntitlementEntity
         return EntitlementEntity(self, data)
-
-
-    def Evaluation(self, data=None) -> "EvaluationEntity":
-        """Entity factory: client.Evaluation().list() / client.Evaluation().load({"id": ...})."""
-        from cloudsmith_sdk.entity.evaluation_entity import EvaluationEntity
-        return EvaluationEntity(self, data)
 
 
     def File(self, data=None) -> "FileEntity":
@@ -469,28 +379,10 @@ class CloudsmithSDK:
         return FormatEntity(self, data)
 
 
-    def Geoip(self, data=None) -> "GeoipEntity":
-        """Entity factory: client.Geoip().list() / client.Geoip().load({"id": ...})."""
-        from cloudsmith_sdk.entity.geoip_entity import GeoipEntity
-        return GeoipEntity(self, data)
-
-
     def Gon(self, data=None) -> "GonEntity":
         """Entity factory: client.Gon().list() / client.Gon().load({"id": ...})."""
         from cloudsmith_sdk.entity.gon_entity import GonEntity
         return GonEntity(self, data)
-
-
-    def Gpg(self, data=None) -> "GpgEntity":
-        """Entity factory: client.Gpg().list() / client.Gpg().load({"id": ...})."""
-        from cloudsmith_sdk.entity.gpg_entity import GpgEntity
-        return GpgEntity(self, data)
-
-
-    def Group(self, data=None) -> "GroupEntity":
-        """Entity factory: client.Group().list() / client.Group().load({"id": ...})."""
-        from cloudsmith_sdk.entity.group_entity import GroupEntity
-        return GroupEntity(self, data)
 
 
     def Helm(self, data=None) -> "HelmEntity":
@@ -505,64 +397,16 @@ class CloudsmithSDK:
         return HexEntity(self, data)
 
 
-    def History(self, data=None) -> "HistoryEntity":
-        """Entity factory: client.History().list() / client.History().load({"id": ...})."""
-        from cloudsmith_sdk.entity.history_entity import HistoryEntity
-        return HistoryEntity(self, data)
-
-
     def Huggingface(self, data=None) -> "HuggingfaceEntity":
         """Entity factory: client.Huggingface().list() / client.Huggingface().load({"id": ...})."""
         from cloudsmith_sdk.entity.huggingface_entity import HuggingfaceEntity
         return HuggingfaceEntity(self, data)
 
 
-    def Info(self, data=None) -> "InfoEntity":
-        """Entity factory: client.Info().list() / client.Info().load({"id": ...})."""
-        from cloudsmith_sdk.entity.info_entity import InfoEntity
-        return InfoEntity(self, data)
-
-
-    def Invite(self, data=None) -> "InviteEntity":
-        """Entity factory: client.Invite().list() / client.Invite().load({"id": ...})."""
-        from cloudsmith_sdk.entity.invite_entity import InviteEntity
-        return InviteEntity(self, data)
-
-
-    def LicensePolicy(self, data=None) -> "LicensePolicyEntity":
-        """Entity factory: client.LicensePolicy().list() / client.LicensePolicy().load({"id": ...})."""
-        from cloudsmith_sdk.entity.license_policy_entity import LicensePolicyEntity
-        return LicensePolicyEntity(self, data)
-
-
-    def Limit(self, data=None) -> "LimitEntity":
-        """Entity factory: client.Limit().list() / client.Limit().load({"id": ...})."""
-        from cloudsmith_sdk.entity.limit_entity import LimitEntity
-        return LimitEntity(self, data)
-
-
-    def Luarock(self, data=None) -> "LuarockEntity":
-        """Entity factory: client.Luarock().list() / client.Luarock().load({"id": ...})."""
-        from cloudsmith_sdk.entity.luarock_entity import LuarockEntity
-        return LuarockEntity(self, data)
-
-
     def Maven(self, data=None) -> "MavenEntity":
         """Entity factory: client.Maven().list() / client.Maven().load({"id": ...})."""
         from cloudsmith_sdk.entity.maven_entity import MavenEntity
         return MavenEntity(self, data)
-
-
-    def Member(self, data=None) -> "MemberEntity":
-        """Entity factory: client.Member().list() / client.Member().load({"id": ...})."""
-        from cloudsmith_sdk.entity.member_entity import MemberEntity
-        return MemberEntity(self, data)
-
-
-    def Move(self, data=None) -> "MoveEntity":
-        """Entity factory: client.Move().list() / client.Move().load({"id": ...})."""
-        from cloudsmith_sdk.entity.move_entity import MoveEntity
-        return MoveEntity(self, data)
 
 
     def Namespace(self, data=None) -> "NamespaceEntity":
@@ -587,12 +431,6 @@ class CloudsmithSDK:
         """Entity factory: client.Nuget().list() / client.Nuget().load({"id": ...})."""
         from cloudsmith_sdk.entity.nuget_entity import NugetEntity
         return NugetEntity(self, data)
-
-
-    def OpenidConnect(self, data=None) -> "OpenidConnectEntity":
-        """Entity factory: client.OpenidConnect().list() / client.OpenidConnect().load({"id": ...})."""
-        from cloudsmith_sdk.entity.openid_connect_entity import OpenidConnectEntity
-        return OpenidConnectEntity(self, data)
 
 
     def Org(self, data=None) -> "OrgEntity":
@@ -673,18 +511,6 @@ class CloudsmithSDK:
         return OrganizationTeamMemberEntity(self, data)
 
 
-    def Oss(self, data=None) -> "OssEntity":
-        """Entity factory: client.Oss().list() / client.Oss().load({"id": ...})."""
-        from cloudsmith_sdk.entity.oss_entity import OssEntity
-        return OssEntity(self, data)
-
-
-    def P2n(self, data=None) -> "P2nEntity":
-        """Entity factory: client.P2n().list() / client.P2n().load({"id": ...})."""
-        from cloudsmith_sdk.entity.p2n_entity import P2nEntity
-        return P2nEntity(self, data)
-
-
     def Package(self, data=None) -> "PackageEntity":
         """Entity factory: client.Package().list() / client.Package().load({"id": ...})."""
         from cloudsmith_sdk.entity.package_entity import PackageEntity
@@ -727,18 +553,6 @@ class CloudsmithSDK:
         return PackageVulnerabilityPolicyEvaluationEntity(self, data)
 
 
-    def Privilege(self, data=None) -> "PrivilegeEntity":
-        """Entity factory: client.Privilege().list() / client.Privilege().load({"id": ...})."""
-        from cloudsmith_sdk.entity.privilege_entity import PrivilegeEntity
-        return PrivilegeEntity(self, data)
-
-
-    def Profile(self, data=None) -> "ProfileEntity":
-        """Entity factory: client.Profile().list() / client.Profile().load({"id": ...})."""
-        from cloudsmith_sdk.entity.profile_entity import ProfileEntity
-        return ProfileEntity(self, data)
-
-
     def ProviderSetting(self, data=None) -> "ProviderSettingEntity":
         """Entity factory: client.ProviderSetting().list() / client.ProviderSetting().load({"id": ...})."""
         from cloudsmith_sdk.entity.provider_setting_entity import ProviderSettingEntity
@@ -757,34 +571,10 @@ class CloudsmithSDK:
         return PythonEntity(self, data)
 
 
-    def Quarantine(self, data=None) -> "QuarantineEntity":
-        """Entity factory: client.Quarantine().list() / client.Quarantine().load({"id": ...})."""
-        from cloudsmith_sdk.entity.quarantine_entity import QuarantineEntity
-        return QuarantineEntity(self, data)
-
-
     def Quota(self, data=None) -> "QuotaEntity":
         """Entity factory: client.Quota().list() / client.Quota().load({"id": ...})."""
         from cloudsmith_sdk.entity.quota_entity import QuotaEntity
         return QuotaEntity(self, data)
-
-
-    def Raw(self, data=None) -> "RawEntity":
-        """Entity factory: client.Raw().list() / client.Raw().load({"id": ...})."""
-        from cloudsmith_sdk.entity.raw_entity import RawEntity
-        return RawEntity(self, data)
-
-
-    def Refresh(self, data=None) -> "RefreshEntity":
-        """Entity factory: client.Refresh().list() / client.Refresh().load({"id": ...})."""
-        from cloudsmith_sdk.entity.refresh_entity import RefreshEntity
-        return RefreshEntity(self, data)
-
-
-    def Regenerate(self, data=None) -> "RegenerateEntity":
-        """Entity factory: client.Regenerate().list() / client.Regenerate().load({"id": ...})."""
-        from cloudsmith_sdk.entity.regenerate_entity import RegenerateEntity
-        return RegenerateEntity(self, data)
 
 
     def Repo(self, data=None) -> "RepoEntity":
@@ -829,10 +619,10 @@ class CloudsmithSDK:
         return RepositoryGpgKeyEntity(self, data)
 
 
-    def RepositoryPrivilegeInput(self, data=None) -> "RepositoryPrivilegeInputEntity":
-        """Entity factory: client.RepositoryPrivilegeInput().list() / client.RepositoryPrivilegeInput().load({"id": ...})."""
-        from cloudsmith_sdk.entity.repository_privilege_input_entity import RepositoryPrivilegeInputEntity
-        return RepositoryPrivilegeInputEntity(self, data)
+    def RepositoryPrivilegeDict(self, data=None) -> "RepositoryPrivilegeDictEntity":
+        """Entity factory: client.RepositoryPrivilegeDict().list() / client.RepositoryPrivilegeDict().load({"id": ...})."""
+        from cloudsmith_sdk.entity.repository_privilege_dict_entity import RepositoryPrivilegeDictEntity
+        return RepositoryPrivilegeDictEntity(self, data)
 
 
     def RepositoryRetentionRule(self, data=None) -> "RepositoryRetentionRuleEntity":
@@ -883,28 +673,10 @@ class CloudsmithSDK:
         return RepositoryX509RsaCertificateEntity(self, data)
 
 
-    def Reset(self, data=None) -> "ResetEntity":
-        """Entity factory: client.Reset().list() / client.Reset().load({"id": ...})."""
-        from cloudsmith_sdk.entity.reset_entity import ResetEntity
-        return ResetEntity(self, data)
-
-
     def ResourcesRateCheck(self, data=None) -> "ResourcesRateCheckEntity":
         """Entity factory: client.ResourcesRateCheck().list() / client.ResourcesRateCheck().load({"id": ...})."""
         from cloudsmith_sdk.entity.resources_rate_check_entity import ResourcesRateCheckEntity
         return ResourcesRateCheckEntity(self, data)
-
-
-    def Resync(self, data=None) -> "ResyncEntity":
-        """Entity factory: client.Resync().list() / client.Resync().load({"id": ...})."""
-        from cloudsmith_sdk.entity.resync_entity import ResyncEntity
-        return ResyncEntity(self, data)
-
-
-    def Retention(self, data=None) -> "RetentionEntity":
-        """Entity factory: client.Retention().list() / client.Retention().load({"id": ...})."""
-        from cloudsmith_sdk.entity.retention_entity import RetentionEntity
-        return RetentionEntity(self, data)
 
 
     def Rpm(self, data=None) -> "RpmEntity":
@@ -913,46 +685,16 @@ class CloudsmithSDK:
         return RpmEntity(self, data)
 
 
-    def Rsa(self, data=None) -> "RsaEntity":
-        """Entity factory: client.Rsa().list() / client.Rsa().load({"id": ...})."""
-        from cloudsmith_sdk.entity.rsa_entity import RsaEntity
-        return RsaEntity(self, data)
-
-
     def Ruby(self, data=None) -> "RubyEntity":
         """Entity factory: client.Ruby().list() / client.Ruby().load({"id": ...})."""
         from cloudsmith_sdk.entity.ruby_entity import RubyEntity
         return RubyEntity(self, data)
 
 
-    def SamlGroupSync(self, data=None) -> "SamlGroupSyncEntity":
-        """Entity factory: client.SamlGroupSync().list() / client.SamlGroupSync().load({"id": ...})."""
-        from cloudsmith_sdk.entity.saml_group_sync_entity import SamlGroupSyncEntity
-        return SamlGroupSyncEntity(self, data)
-
-
-    def Scan(self, data=None) -> "ScanEntity":
-        """Entity factory: client.Scan().list() / client.Scan().load({"id": ...})."""
-        from cloudsmith_sdk.entity.scan_entity import ScanEntity
-        return ScanEntity(self, data)
-
-
-    def Self(self, data=None) -> "SelfEntity":
-        """Entity factory: client.Self().list() / client.Self().load({"id": ...})."""
-        from cloudsmith_sdk.entity.self_entity import SelfEntity
-        return SelfEntity(self, data)
-
-
     def Service(self, data=None) -> "ServiceEntity":
         """Entity factory: client.Service().list() / client.Service().load({"id": ...})."""
         from cloudsmith_sdk.entity.service_entity import ServiceEntity
         return ServiceEntity(self, data)
-
-
-    def Status(self, data=None) -> "StatusEntity":
-        """Entity factory: client.Status().list() / client.Status().load({"id": ...})."""
-        from cloudsmith_sdk.entity.status_entity import StatusEntity
-        return StatusEntity(self, data)
 
 
     def StatusBasic(self, data=None) -> "StatusBasicEntity":
@@ -971,48 +713,6 @@ class CloudsmithSDK:
         """Entity factory: client.Swift().list() / client.Swift().load({"id": ...})."""
         from cloudsmith_sdk.entity.swift_entity import SwiftEntity
         return SwiftEntity(self, data)
-
-
-    def Sync(self, data=None) -> "SyncEntity":
-        """Entity factory: client.Sync().list() / client.Sync().load({"id": ...})."""
-        from cloudsmith_sdk.entity.sync_entity import SyncEntity
-        return SyncEntity(self, data)
-
-
-    def Tag(self, data=None) -> "TagEntity":
-        """Entity factory: client.Tag().list() / client.Tag().load({"id": ...})."""
-        from cloudsmith_sdk.entity.tag_entity import TagEntity
-        return TagEntity(self, data)
-
-
-    def Team(self, data=None) -> "TeamEntity":
-        """Entity factory: client.Team().list() / client.Team().load({"id": ...})."""
-        from cloudsmith_sdk.entity.team_entity import TeamEntity
-        return TeamEntity(self, data)
-
-
-    def Terraform(self, data=None) -> "TerraformEntity":
-        """Entity factory: client.Terraform().list() / client.Terraform().load({"id": ...})."""
-        from cloudsmith_sdk.entity.terraform_entity import TerraformEntity
-        return TerraformEntity(self, data)
-
-
-    def Test(self, data=None) -> "TestEntity":
-        """Entity factory: client.Test().list() / client.Test().load({"id": ...})."""
-        from cloudsmith_sdk.entity.test_entity import TestEntity
-        return TestEntity(self, data)
-
-
-    def Token(self, data=None) -> "TokenEntity":
-        """Entity factory: client.Token().list() / client.Token().load({"id": ...})."""
-        from cloudsmith_sdk.entity.token_entity import TokenEntity
-        return TokenEntity(self, data)
-
-
-    def TransferRegion(self, data=None) -> "TransferRegionEntity":
-        """Entity factory: client.TransferRegion().list() / client.TransferRegion().load({"id": ...})."""
-        from cloudsmith_sdk.entity.transfer_region_entity import TransferRegionEntity
-        return TransferRegionEntity(self, data)
 
 
     def User(self, data=None) -> "UserEntity":
@@ -1045,52 +745,16 @@ class CloudsmithSDK:
         return UserProfileEntity(self, data)
 
 
-    def Vagrant(self, data=None) -> "VagrantEntity":
-        """Entity factory: client.Vagrant().list() / client.Vagrant().load({"id": ...})."""
-        from cloudsmith_sdk.entity.vagrant_entity import VagrantEntity
-        return VagrantEntity(self, data)
-
-
-    def Validate(self, data=None) -> "ValidateEntity":
-        """Entity factory: client.Validate().list() / client.Validate().load({"id": ...})."""
-        from cloudsmith_sdk.entity.validate_entity import ValidateEntity
-        return ValidateEntity(self, data)
-
-
-    def Version(self, data=None) -> "VersionEntity":
-        """Entity factory: client.Version().list() / client.Version().load({"id": ...})."""
-        from cloudsmith_sdk.entity.version_entity import VersionEntity
-        return VersionEntity(self, data)
-
-
     def Vulnerability(self, data=None) -> "VulnerabilityEntity":
         """Entity factory: client.Vulnerability().list() / client.Vulnerability().load({"id": ...})."""
         from cloudsmith_sdk.entity.vulnerability_entity import VulnerabilityEntity
         return VulnerabilityEntity(self, data)
 
 
-    def VulnerabilityPolicy(self, data=None) -> "VulnerabilityPolicyEntity":
-        """Entity factory: client.VulnerabilityPolicy().list() / client.VulnerabilityPolicy().load({"id": ...})."""
-        from cloudsmith_sdk.entity.vulnerability_policy_entity import VulnerabilityPolicyEntity
-        return VulnerabilityPolicyEntity(self, data)
-
-
     def Webhook(self, data=None) -> "WebhookEntity":
         """Entity factory: client.Webhook().list() / client.Webhook().load({"id": ...})."""
         from cloudsmith_sdk.entity.webhook_entity import WebhookEntity
         return WebhookEntity(self, data)
-
-
-    def X509Ecdsa(self, data=None) -> "X509EcdsaEntity":
-        """Entity factory: client.X509Ecdsa().list() / client.X509Ecdsa().load({"id": ...})."""
-        from cloudsmith_sdk.entity.x509_ecdsa_entity import X509EcdsaEntity
-        return X509EcdsaEntity(self, data)
-
-
-    def X509Rsa(self, data=None) -> "X509RsaEntity":
-        """Entity factory: client.X509Rsa().list() / client.X509Rsa().load({"id": ...})."""
-        from cloudsmith_sdk.entity.x509_rsa_entity import X509RsaEntity
-        return X509RsaEntity(self, data)
 
 
 
@@ -1120,54 +784,27 @@ class CloudsmithSDK:
 from typing import TYPE_CHECKING
 
 if TYPE_CHECKING:
-    from cloudsmith_sdk.entity.abort_entity import AbortEntity
-    from cloudsmith_sdk.entity.alpine_entity import AlpineEntity
-    from cloudsmith_sdk.entity.audit_log_entity import AuditLogEntity
-    from cloudsmith_sdk.entity.basic_entity import BasicEntity
     from cloudsmith_sdk.entity.cargo_entity import CargoEntity
-    from cloudsmith_sdk.entity.cocoapod_entity import CocoapodEntity
-    from cloudsmith_sdk.entity.complete_entity import CompleteEntity
     from cloudsmith_sdk.entity.composer_entity import ComposerEntity
-    from cloudsmith_sdk.entity.conan_entity import ConanEntity
     from cloudsmith_sdk.entity.conda_entity import CondaEntity
-    from cloudsmith_sdk.entity.copy_entity import CopyEntity
     from cloudsmith_sdk.entity.cran_entity import CranEntity
     from cloudsmith_sdk.entity.dart_entity import DartEntity
     from cloudsmith_sdk.entity.deb_entity import DebEntity
-    from cloudsmith_sdk.entity.deny_policy_entity import DenyPolicyEntity
-    from cloudsmith_sdk.entity.dependency_entity import DependencyEntity
-    from cloudsmith_sdk.entity.disable_entity import DisableEntity
     from cloudsmith_sdk.entity.distribution_full_entity import DistributionFullEntity
-    from cloudsmith_sdk.entity.distro_entity import DistroEntity
     from cloudsmith_sdk.entity.docker_entity import DockerEntity
     from cloudsmith_sdk.entity.dynamic_mapping_entity import DynamicMappingEntity
-    from cloudsmith_sdk.entity.ecdsa_entity import EcdsaEntity
-    from cloudsmith_sdk.entity.enable_entity import EnableEntity
     from cloudsmith_sdk.entity.entitlement_entity import EntitlementEntity
-    from cloudsmith_sdk.entity.evaluation_entity import EvaluationEntity
     from cloudsmith_sdk.entity.file_entity import FileEntity
     from cloudsmith_sdk.entity.format_entity import FormatEntity
-    from cloudsmith_sdk.entity.geoip_entity import GeoipEntity
     from cloudsmith_sdk.entity.gon_entity import GonEntity
-    from cloudsmith_sdk.entity.gpg_entity import GpgEntity
-    from cloudsmith_sdk.entity.group_entity import GroupEntity
     from cloudsmith_sdk.entity.helm_entity import HelmEntity
     from cloudsmith_sdk.entity.hex_entity import HexEntity
-    from cloudsmith_sdk.entity.history_entity import HistoryEntity
     from cloudsmith_sdk.entity.huggingface_entity import HuggingfaceEntity
-    from cloudsmith_sdk.entity.info_entity import InfoEntity
-    from cloudsmith_sdk.entity.invite_entity import InviteEntity
-    from cloudsmith_sdk.entity.license_policy_entity import LicensePolicyEntity
-    from cloudsmith_sdk.entity.limit_entity import LimitEntity
-    from cloudsmith_sdk.entity.luarock_entity import LuarockEntity
     from cloudsmith_sdk.entity.maven_entity import MavenEntity
-    from cloudsmith_sdk.entity.member_entity import MemberEntity
-    from cloudsmith_sdk.entity.move_entity import MoveEntity
     from cloudsmith_sdk.entity.namespace_entity import NamespaceEntity
     from cloudsmith_sdk.entity.namespace_audit_log_entity import NamespaceAuditLogEntity
     from cloudsmith_sdk.entity.npm_entity import NpmEntity
     from cloudsmith_sdk.entity.nuget_entity import NugetEntity
-    from cloudsmith_sdk.entity.openid_connect_entity import OpenidConnectEntity
     from cloudsmith_sdk.entity.org_entity import OrgEntity
     from cloudsmith_sdk.entity.organization_group_sync_entity import OrganizationGroupSyncEntity
     from cloudsmith_sdk.entity.organization_group_sync_status_entity import OrganizationGroupSyncStatusEntity
@@ -1181,8 +818,6 @@ if TYPE_CHECKING:
     from cloudsmith_sdk.entity.organization_saml_auth_entity import OrganizationSamlAuthEntity
     from cloudsmith_sdk.entity.organization_team_entity import OrganizationTeamEntity
     from cloudsmith_sdk.entity.organization_team_member_entity import OrganizationTeamMemberEntity
-    from cloudsmith_sdk.entity.oss_entity import OssEntity
-    from cloudsmith_sdk.entity.p2n_entity import P2nEntity
     from cloudsmith_sdk.entity.package_entity import PackageEntity
     from cloudsmith_sdk.entity.package_deny_policy_entity import PackageDenyPolicyEntity
     from cloudsmith_sdk.entity.package_file_parts_upload_entity import PackageFilePartsUploadEntity
@@ -1190,16 +825,10 @@ if TYPE_CHECKING:
     from cloudsmith_sdk.entity.package_license_policy_evaluation_entity import PackageLicensePolicyEvaluationEntity
     from cloudsmith_sdk.entity.package_version_badge_entity import PackageVersionBadgeEntity
     from cloudsmith_sdk.entity.package_vulnerability_policy_evaluation_entity import PackageVulnerabilityPolicyEvaluationEntity
-    from cloudsmith_sdk.entity.privilege_entity import PrivilegeEntity
-    from cloudsmith_sdk.entity.profile_entity import ProfileEntity
     from cloudsmith_sdk.entity.provider_setting_entity import ProviderSettingEntity
     from cloudsmith_sdk.entity.provider_settings_write_entity import ProviderSettingsWriteEntity
     from cloudsmith_sdk.entity.python_entity import PythonEntity
-    from cloudsmith_sdk.entity.quarantine_entity import QuarantineEntity
     from cloudsmith_sdk.entity.quota_entity import QuotaEntity
-    from cloudsmith_sdk.entity.raw_entity import RawEntity
-    from cloudsmith_sdk.entity.refresh_entity import RefreshEntity
-    from cloudsmith_sdk.entity.regenerate_entity import RegenerateEntity
     from cloudsmith_sdk.entity.repo_entity import RepoEntity
     from cloudsmith_sdk.entity.repository_audit_log_entity import RepositoryAuditLogEntity
     from cloudsmith_sdk.entity.repository_ecdsa_key_entity import RepositoryEcdsaKeyEntity
@@ -1207,7 +836,7 @@ if TYPE_CHECKING:
     from cloudsmith_sdk.entity.repository_geo_ip_status_entity import RepositoryGeoIpStatusEntity
     from cloudsmith_sdk.entity.repository_geo_ip_test_address_entity import RepositoryGeoIpTestAddressEntity
     from cloudsmith_sdk.entity.repository_gpg_key_entity import RepositoryGpgKeyEntity
-    from cloudsmith_sdk.entity.repository_privilege_input_entity import RepositoryPrivilegeInputEntity
+    from cloudsmith_sdk.entity.repository_privilege_dict_entity import RepositoryPrivilegeDictEntity
     from cloudsmith_sdk.entity.repository_retention_rule_entity import RepositoryRetentionRuleEntity
     from cloudsmith_sdk.entity.repository_rsa_key_entity import RepositoryRsaKeyEntity
     from cloudsmith_sdk.entity.repository_token_entity import RepositoryTokenEntity
@@ -1216,38 +845,17 @@ if TYPE_CHECKING:
     from cloudsmith_sdk.entity.repository_webhook_entity import RepositoryWebhookEntity
     from cloudsmith_sdk.entity.repository_x509_ecdsa_certificate_entity import RepositoryX509EcdsaCertificateEntity
     from cloudsmith_sdk.entity.repository_x509_rsa_certificate_entity import RepositoryX509RsaCertificateEntity
-    from cloudsmith_sdk.entity.reset_entity import ResetEntity
     from cloudsmith_sdk.entity.resources_rate_check_entity import ResourcesRateCheckEntity
-    from cloudsmith_sdk.entity.resync_entity import ResyncEntity
-    from cloudsmith_sdk.entity.retention_entity import RetentionEntity
     from cloudsmith_sdk.entity.rpm_entity import RpmEntity
-    from cloudsmith_sdk.entity.rsa_entity import RsaEntity
     from cloudsmith_sdk.entity.ruby_entity import RubyEntity
-    from cloudsmith_sdk.entity.saml_group_sync_entity import SamlGroupSyncEntity
-    from cloudsmith_sdk.entity.scan_entity import ScanEntity
-    from cloudsmith_sdk.entity.self_entity import SelfEntity
     from cloudsmith_sdk.entity.service_entity import ServiceEntity
-    from cloudsmith_sdk.entity.status_entity import StatusEntity
     from cloudsmith_sdk.entity.status_basic_entity import StatusBasicEntity
     from cloudsmith_sdk.entity.storage_region_entity import StorageRegionEntity
     from cloudsmith_sdk.entity.swift_entity import SwiftEntity
-    from cloudsmith_sdk.entity.sync_entity import SyncEntity
-    from cloudsmith_sdk.entity.tag_entity import TagEntity
-    from cloudsmith_sdk.entity.team_entity import TeamEntity
-    from cloudsmith_sdk.entity.terraform_entity import TerraformEntity
-    from cloudsmith_sdk.entity.test_entity import TestEntity
-    from cloudsmith_sdk.entity.token_entity import TokenEntity
-    from cloudsmith_sdk.entity.transfer_region_entity import TransferRegionEntity
     from cloudsmith_sdk.entity.user_entity import UserEntity
     from cloudsmith_sdk.entity.user_auth_token_entity import UserAuthTokenEntity
     from cloudsmith_sdk.entity.user_authentication_token_entity import UserAuthenticationTokenEntity
     from cloudsmith_sdk.entity.user_brief_entity import UserBriefEntity
     from cloudsmith_sdk.entity.user_profile_entity import UserProfileEntity
-    from cloudsmith_sdk.entity.vagrant_entity import VagrantEntity
-    from cloudsmith_sdk.entity.validate_entity import ValidateEntity
-    from cloudsmith_sdk.entity.version_entity import VersionEntity
     from cloudsmith_sdk.entity.vulnerability_entity import VulnerabilityEntity
-    from cloudsmith_sdk.entity.vulnerability_policy_entity import VulnerabilityPolicyEntity
     from cloudsmith_sdk.entity.webhook_entity import WebhookEntity
-    from cloudsmith_sdk.entity.x509_ecdsa_entity import X509EcdsaEntity
-    from cloudsmith_sdk.entity.x509_rsa_entity import X509RsaEntity

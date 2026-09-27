@@ -154,7 +154,7 @@ function helm_basic_setup(extra)
 
   -- Generate idmap via transform.
   local idmap = vs.transform(
-    { "helm01", "helm02", "helm03", "package01", "package02", "package03", "repo01", "repo02", "repo03", "identifier01", "owner01" },
+    { "helm01", "helm02", "helm03", "repo01", "repo02", "repo03", "identifier01", "owner01" },
     {
       ["`$PACK`"] = { "", {
         ["`$KEY`"] = "`$COPY`",

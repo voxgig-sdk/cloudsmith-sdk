@@ -1,0 +1,40 @@
+# BasicOrganizationTeamMemberFlow
+
+main: kit: flow: BasicOrganizationTeamMemberFlow:
+{
+  entity: "organization_team_member",
+  kind: "basic",
+  name: "BasicOrganizationTeamMemberFlow",
+  step: [
+    {
+      i: {
+        ref: "organization_team_member_ref01"
+      }
+
+      m: {
+        org_id: "org01",
+        team_id: "team01"
+      }
+
+      o: "create"
+    }
+
+    {
+      m: {
+        org_id: "org01",
+        team_id: "team01"
+      }
+
+      o: "list",
+      v: [
+        {
+          apply: "ItemExists",
+          def: {
+            ref: "organization_team_member_ref01"
+          }
+        }
+      ]
+    }
+  ],
+  "key$": "BasicOrganizationTeamMemberFlow"
+}

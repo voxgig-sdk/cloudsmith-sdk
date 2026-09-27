@@ -135,7 +135,7 @@ function gon_basic_setup($extra)
 
     // Generate idmap.
     $idmap = [];
-    foreach (["gon01", "gon02", "gon03", "package01", "package02", "package03", "repo01", "repo02", "repo03", "go01", "go02", "go03", "identifier01", "owner01"] as $k) {
+    foreach (["gon01", "gon02", "gon03", "repo01", "repo02", "repo03", "identifier01", "owner01"] as $k) {
         $idmap[$k] = strtoupper($k);
     }
 

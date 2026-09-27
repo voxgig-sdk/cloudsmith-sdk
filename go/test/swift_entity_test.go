@@ -207,7 +207,7 @@ func swiftBasicSetup(extra map[string]any) *entityTestSetup {
 
 	// Generate idmap via transform, matching TS pattern.
 	idmap, _ := vs.Transform(
-		[]any{"swift01", "swift02", "swift03", "package01", "package02", "package03", "repo01", "repo02", "repo03", "identifier01", "owner01"},
+		[]any{"swift01", "swift02", "swift03", "repo01", "repo02", "repo03", "identifier01", "owner01"},
 		map[string]any{
 			"`$PACK`": []any{"", map[string]any{
 				"`$KEY`": "`$COPY`",

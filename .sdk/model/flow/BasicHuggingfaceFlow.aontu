@@ -1,0 +1,88 @@
+# BasicHuggingfaceFlow
+
+main: kit: flow: BasicHuggingfaceFlow:
+{
+  entity: "huggingface",
+  kind: "basic",
+  name: "BasicHuggingfaceFlow",
+  step: [
+    {
+      i: {
+        ref: "huggingface_ref01"
+      }
+
+      m: {
+        identifier: "identifier01",
+        owner: "owner01"
+      }
+
+      o: "create"
+    }
+
+    {
+      m: {
+        identifier: "identifier01",
+        owner: "owner01"
+      }
+
+      o: "list",
+      v: [
+        {
+          apply: "ItemExists",
+          def: {
+            ref: "huggingface_ref01"
+          }
+        }
+      ]
+    }
+
+    {
+      d: {
+        identifier: "identifier01",
+        owner: "owner01"
+      }
+
+      i: {
+        ref: "huggingface_ref01",
+        srcdatavar: "huggingface_ref01_data",
+        suffix: "_up0",
+        textfield: "auth_mode"
+      }
+
+      o: "update",
+      s: [
+        {
+          apply: "TextFieldMark",
+          def: {
+            mark: "Mark01-huggingface_ref01"
+          }
+        }
+      ]
+    }
+
+    {
+      i: {
+        ref: "huggingface_ref01",
+        srcdatavar: "huggingface_ref01_data",
+        suffix: "_dt0"
+      }
+
+      m: {
+        id: "huggingface01",
+        identifier: "identifier01",
+        owner: "owner01"
+      }
+
+      o: "load",
+      v: [
+        {
+          apply: "TextFieldMark",
+          def: {
+            mark: "Mark01-huggingface_ref01"
+          }
+        }
+      ]
+    }
+  ],
+  "key$": "BasicHuggingfaceFlow"
+}

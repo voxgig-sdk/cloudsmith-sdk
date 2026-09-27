@@ -181,7 +181,7 @@ func package_license_policy_evaluationBasicSetup(extra map[string]any) *entityTe
 
 	// Generate idmap via transform, matching TS pattern.
 	idmap, _ := vs.Transform(
-		[]any{"package_license_policy_evaluation01", "package_license_policy_evaluation02", "package_license_policy_evaluation03", "org01", "org02", "org03", "license_policy01", "license_policy02", "license_policy03", "policy_slug_perm01"},
+		[]any{"package_license_policy_evaluation01", "package_license_policy_evaluation02", "package_license_policy_evaluation03", "org01", "org02", "org03", "license_policy01", "policy_slug_perm01"},
 		map[string]any{
 			"`$PACK`": []any{"", map[string]any{
 				"`$KEY`": "`$COPY`",

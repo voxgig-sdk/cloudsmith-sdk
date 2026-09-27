@@ -110,7 +110,7 @@ func organization_membership_visibility_updateBasicSetup(extra map[string]any) *
 
 	// Generate idmap via transform, matching TS pattern.
 	idmap, _ := vs.Transform(
-		[]any{"organization_membership_visibility_update01", "organization_membership_visibility_update02", "organization_membership_visibility_update03", "org01", "org02", "org03", "member01", "member02", "member03"},
+		[]any{"organization_membership_visibility_update01", "organization_membership_visibility_update02", "organization_membership_visibility_update03", "org01", "org02", "org03"},
 		map[string]any{
 			"`$PACK`": []any{"", map[string]any{
 				"`$KEY`": "`$COPY`",

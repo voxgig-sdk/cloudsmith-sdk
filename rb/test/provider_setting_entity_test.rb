@@ -106,7 +106,7 @@ def provider_setting_basic_setup(extra)
 
   # Generate idmap via transform.
   idmap = Vs.transform(
-    ["provider_setting01", "provider_setting02", "provider_setting03", "org01", "org02", "org03", "openid_connect01", "openid_connect02", "openid_connect03"],
+    ["provider_setting01", "provider_setting02", "provider_setting03", "org01", "org02", "org03"],
     {
       "`$PACK`" => ["", {
         "`$KEY`" => "`$COPY`",

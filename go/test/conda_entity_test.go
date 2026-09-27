@@ -207,7 +207,7 @@ func condaBasicSetup(extra map[string]any) *entityTestSetup {
 
 	// Generate idmap via transform, matching TS pattern.
 	idmap, _ := vs.Transform(
-		[]any{"conda01", "conda02", "conda03", "package01", "package02", "package03", "repo01", "repo02", "repo03", "identifier01", "owner01"},
+		[]any{"conda01", "conda02", "conda03", "repo01", "repo02", "repo03", "identifier01", "owner01"},
 		map[string]any{
 			"`$PACK`": []any{"", map[string]any{
 				"`$KEY`": "`$COPY`",

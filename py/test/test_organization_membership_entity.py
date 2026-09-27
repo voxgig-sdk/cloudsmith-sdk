@@ -120,7 +120,7 @@ def _organization_membership_basic_setup(extra):
 
     # Generate idmap via transform.
     idmap = vs.transform(
-        ["organization_membership01", "organization_membership02", "organization_membership03", "org01", "org02", "org03", "member01", "member02", "member03"],
+        ["organization_membership01", "organization_membership02", "organization_membership03", "org01", "org02", "org03"],
         {
             "`$PACK`": ["", {
                 "`$KEY`": "`$COPY`",

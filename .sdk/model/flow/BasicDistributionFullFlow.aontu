@@ -1,0 +1,44 @@
+# BasicDistributionFullFlow
+
+main: kit: flow: BasicDistributionFullFlow:
+{
+  entity: "distribution_full",
+  kind: "basic",
+  name: "BasicDistributionFullFlow",
+  step: [
+    {
+      o: "list",
+      v: [
+        {
+          apply: "ItemExists",
+          def: {
+            ref: "distribution_full_ref01"
+          }
+        }
+      ]
+    }
+
+    {
+      i: {
+        ref: "distribution_full_ref01",
+        srcdatavar: "distribution_full_ref01_data",
+        suffix: "_dt0"
+      }
+
+      m: {
+        id: "distribution_full01"
+      }
+
+      o: "load",
+      v: [
+        {
+          apply: "TextFieldMark",
+          def: {
+            mark: "Mark01-distribution_full_ref01"
+          }
+        }
+      ]
+    }
+  ],
+  "key$": "BasicDistributionFullFlow"
+}

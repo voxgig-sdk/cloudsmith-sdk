@@ -137,7 +137,7 @@ function package_license_policy_evaluation_basic_setup(extra)
 
   -- Generate idmap via transform.
   local idmap = vs.transform(
-    { "package_license_policy_evaluation01", "package_license_policy_evaluation02", "package_license_policy_evaluation03", "org01", "org02", "org03", "license_policy01", "license_policy02", "license_policy03", "policy_slug_perm01" },
+    { "package_license_policy_evaluation01", "package_license_policy_evaluation02", "package_license_policy_evaluation03", "org01", "org02", "org03", "license_policy01", "policy_slug_perm01" },
     {
       ["`$PACK`"] = { "", {
         ["`$KEY`"] = "`$COPY`",

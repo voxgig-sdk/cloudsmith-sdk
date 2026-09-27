@@ -1,0 +1,203 @@
+# Entity: dynamic_mapping
+
+main: kit: entity: dynamic_mapping: {
+
+  alias: field: {}
+
+  fields: {
+    claim_value: {
+      h: "Claim Value"
+      n: "claim_value"
+      r: true
+      sh: "The OIDC token claim value that must be present in the token for it to successfully authenticate as the mapped `service_account`."
+      t: "`$STRING`"
+    }
+    id: {
+      h: "Id"
+      n: "id"
+      r: false
+      t: "`$STRING`"
+    }
+    service_account: {
+      h: "Service Account"
+      n: "service_account"
+      r: true
+      sh: "The service account associated with the provider setting and `claim_value` Note: This field and the dynamic mappings feature are still in early access."
+      t: "`$STRING`"
+    }
+  }
+
+  id: {
+    field: "id"
+    name: "id"
+  }
+
+  name: "dynamic_mapping"
+  op: {
+    list: {
+      name: "list"
+      points: [
+        {
+          co: {
+            id: "GET /orgs/{org}/openid-connect/{provider_setting}/dynamic-mappings/"
+            source: "swagger2"
+            version: 2
+          }
+          g: {
+            params: [
+              {
+                k: "param"
+                n: "org_id"
+                or: "org"
+                r: true
+                t: "`$STRING`"
+              }
+              {
+                k: "param"
+                n: "provider_setting"
+                or: "provider_setting"
+                r: true
+                t: "`$ANY`"
+              }
+            ]
+            query: [
+              {
+                k: "query"
+                n: "page"
+                or: "page"
+                r: false
+                t: "`$INTEGER`"
+              }
+              {
+                k: "query"
+                n: "page_size"
+                or: "page_size"
+                r: false
+                t: "`$INTEGER`"
+              }
+            ]
+          }
+          m: "GET"
+          o: "/orgs/{org}/openid-connect/{provider_setting}/dynamic-mappings/"
+          q: {
+            exist: [
+              "org_id"
+              "page"
+              "page_size"
+              "provider_setting"
+            ]
+          }
+          r: {
+            param: {
+              org: "org_id"
+            }
+          }
+          s: [
+            {
+              lit: "orgs"
+            }
+            {
+              var: "org_id"
+            }
+            {
+              lit: "openid-connect"
+            }
+            {
+              var: "provider_setting"
+            }
+            {
+              lit: "dynamic-mappings"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+    load: {
+      name: "load"
+      points: [
+        {
+          co: {
+            id: "GET /orgs/{org}/openid-connect/{provider_setting}/dynamic-mappings/{claim_value}/"
+            source: "swagger2"
+            version: 2
+          }
+          g: {
+            params: [
+              {
+                k: "param"
+                n: "id"
+                or: "claim_value"
+                r: true
+                t: "`$STRING`"
+              }
+              {
+                k: "param"
+                n: "openid_connect_id"
+                or: "provider_setting"
+                r: true
+                t: "`$STRING`"
+              }
+              {
+                k: "param"
+                n: "org_id"
+                or: "org"
+                r: true
+                t: "`$STRING`"
+              }
+            ]
+          }
+          m: "GET"
+          o: "/orgs/{org}/openid-connect/{provider_setting}/dynamic-mappings/{claim_value}/"
+          q: {
+            exist: [
+              "id"
+              "openid_connect_id"
+              "org_id"
+            ]
+          }
+          r: {
+            param: {
+              claim_value: "id"
+              org: "org_id"
+              provider_setting: "openid_connect_id"
+            }
+          }
+          s: [
+            {
+              lit: "orgs"
+            }
+            {
+              var: "org_id"
+            }
+            {
+              lit: "openid-connect"
+            }
+            {
+              var: "openid_connect_id"
+            }
+            {
+              lit: "dynamic-mappings"
+            }
+            {
+              var: "id"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+  }
+
+
+  relations: ancestors: [
+    [path("$.main.kit.entity.org")]
+  ]
+
+}

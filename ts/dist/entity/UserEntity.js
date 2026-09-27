@@ -2,7 +2,6 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.UserEntity = void 0;
 const CloudsmithEntityBase_1 = require("../CloudsmithEntityBase");
-// TODO: needs Entity superclass
 class UserEntity extends CloudsmithEntityBase_1.CloudsmithEntityBase {
     constructor(client, entopts) {
         super(client, entopts);

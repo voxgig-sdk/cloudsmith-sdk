@@ -1,0 +1,58 @@
+# Entity: user_auth_token
+
+main: kit: entity: user_auth_token: {
+
+  alias: field: {}
+
+  name: "user_auth_token"
+  op: {
+    create: {
+      name: "create"
+      points: [
+        {
+          co: {
+            id: "POST /user/token/"
+            source: "swagger2"
+            version: 2
+          }
+          g: {
+            query: [
+              {
+                k: "query"
+                n: "data"
+                or: "data"
+                r: false
+                t: "`$OBJECT`"
+              }
+            ]
+          }
+          m: "POST"
+          o: "/user/token/"
+          q: {
+            exist: [
+              "data"
+            ]
+          }
+          s: [
+            {
+              lit: "user"
+            }
+            {
+              lit: "token"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+  }
+
+  fields: {
+  }
+
+
+
+}

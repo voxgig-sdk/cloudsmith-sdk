@@ -1,0 +1,130 @@
+# Entity: package_file_parts_upload
+
+main: kit: entity: package_file_parts_upload: {
+
+  alias: field: {}
+
+  fields: {
+    identifier: {
+      fo: "uri"
+      h: "Identifier"
+      n: "identifier"
+      r: false
+      ro: true
+      sh: "The identifier for the file to use uploading parts."
+      t: "`$STRING`"
+    }
+    upload_querystring: {
+      h: "Upload Querystring"
+      n: "upload_querystring"
+      r: false
+      ro: true
+      sh: "The querystring to use for the next-step PUT upload."
+      t: "`$STRING`"
+    }
+    upload_url: {
+      fo: "uri"
+      h: "Upload Url"
+      n: "upload_url"
+      r: false
+      ro: true
+      sh: "The URL to use for the next-step PUT upload"
+      t: "`$STRING`"
+    }
+  }
+
+  name: "package_file_parts_upload"
+  op: {
+    load: {
+      name: "load"
+      points: [
+        {
+          co: {
+            id: "GET /files/{owner}/{repo}/{identifier}/info/"
+            source: "swagger2"
+            version: 2
+          }
+          g: {
+            params: [
+              {
+                k: "param"
+                n: "identifier"
+                or: "identifier"
+                r: true
+                t: "`$ANY`"
+              }
+              {
+                k: "param"
+                n: "owner"
+                or: "owner"
+                r: true
+                t: "`$ANY`"
+              }
+              {
+                k: "param"
+                n: "repo"
+                or: "repo"
+                r: true
+                t: "`$ANY`"
+              }
+            ]
+            query: [
+              {
+                k: "query"
+                n: "filename"
+                or: "filename"
+                r: true
+                t: "`$ANY`"
+              }
+              {
+                k: "query"
+                n: "part_number"
+                or: "part_number"
+                r: false
+                t: "`$INTEGER`"
+              }
+            ]
+          }
+          m: "GET"
+          o: "/files/{owner}/{repo}/{identifier}/info/"
+          q: {
+            exist: [
+              "filename"
+              "identifier"
+              "owner"
+              "part_number"
+              "repo"
+            ]
+          }
+          s: [
+            {
+              lit: "files"
+            }
+            {
+              var: "owner"
+            }
+            {
+              var: "repo"
+            }
+            {
+              var: "identifier"
+            }
+            {
+              lit: "info"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+  }
+
+
+  relations: ancestors: [
+    [path("$.main.kit.entity.file")]
+  ]
+
+}

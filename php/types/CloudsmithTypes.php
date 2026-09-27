@@ -3,34 +3,14 @@ declare(strict_types=1);
 
 // Typed models for the Cloudsmith SDK.
 //
-// GENERATED from the API model: main.kit.entity.<e>.fields[] and per-op
-// params (op.<name>.points[].args.params[]). Field/param types come from the
+// GENERATED from the API model: main.kit.entity.<e>.fields{} and per-op
+// params (op.<name>.points[].g.params[]). Field/param types come from the
 // canonical type sentinels via @voxgig/sdkgen canonToType (source of truth:
 // @voxgig/apidef VALID_CANON). Do not edit by hand.
 //
 // These are documentation-grade value objects (PHP 8 typed properties),
 // registered on the composer classmap autoload. The SDK boundary exchanges
 // assoc-arrays; these classes name the shapes for tooling and typed callers.
-
-/** Abort entity data model. */
-class Abort
-{
-}
-
-/** Alpine entity data model. */
-class Alpine
-{
-}
-
-/** AuditLog entity data model. */
-class AuditLog
-{
-}
-
-/** Basic entity data model. */
-class Basic
-{
-}
 
 /** Cargo entity data model. */
 class Cargo
@@ -125,16 +105,6 @@ class CargoUpdateData
     public ?string $updated_at = null;
     public ?string $upstream_url = null;
     public ?bool $verify_ssl = null;
-}
-
-/** Cocoapod entity data model. */
-class Cocoapod
-{
-}
-
-/** Complete entity data model. */
-class Complete
-{
 }
 
 /** Composer entity data model. */
@@ -232,11 +202,6 @@ class ComposerUpdateData
     public ?bool $verify_ssl = null;
 }
 
-/** Conan entity data model. */
-class Conan
-{
-}
-
 /** Conda entity data model. */
 class Conda
 {
@@ -330,11 +295,6 @@ class CondaUpdateData
     public ?string $updated_at = null;
     public ?string $upstream_url = null;
     public ?bool $verify_ssl = null;
-}
-
-/** Copy entity data model. */
-class Copy
-{
 }
 
 /** Cran entity data model. */
@@ -646,21 +606,6 @@ class DebUpdateData
     public ?bool $verify_ssl = null;
 }
 
-/** DenyPolicy entity data model. */
-class DenyPolicy
-{
-}
-
-/** Dependency entity data model. */
-class Dependency
-{
-}
-
-/** Disable entity data model. */
-class Disable
-{
-}
-
 /** DistributionFull entity data model. */
 class DistributionFull
 {
@@ -689,11 +634,6 @@ class DistributionFullListMatch
     public ?string $slug = null;
     public ?string $variants = null;
     public ?array $versions = null;
-}
-
-/** Distro entity data model. */
-class Distro
-{
 }
 
 /** Docker entity data model. */
@@ -816,16 +756,6 @@ class DynamicMappingListMatch
     public ?int $page_size = null;
 }
 
-/** Ecdsa entity data model. */
-class Ecdsa
-{
-}
-
-/** Enable entity data model. */
-class Enable
-{
-}
-
 /** Entitlement entity data model. */
 class Entitlement
 {
@@ -869,11 +799,6 @@ class EntitlementRemoveMatch
     public mixed $identifier;
     public mixed $owner;
     public mixed $repo;
-}
-
-/** Evaluation entity data model. */
-class Evaluation
-{
 }
 
 /** File entity data model. */
@@ -924,11 +849,6 @@ class FormatListMatch
     public ?string $premium_plan_name = null;
     public ?string $slug = null;
     public ?array $supports = null;
-}
-
-/** Geoip entity data model. */
-class Geoip
-{
 }
 
 /** Gon entity data model. */
@@ -1021,16 +941,6 @@ class GonUpdateData
     public ?string $updated_at = null;
     public ?string $upstream_url = null;
     public ?bool $verify_ssl = null;
-}
-
-/** Gpg entity data model. */
-class Gpg
-{
-}
-
-/** Group entity data model. */
-class Group
-{
 }
 
 /** Helm entity data model. */
@@ -1223,11 +1133,6 @@ class HexUpdateData
     public ?bool $verify_ssl = null;
 }
 
-/** History entity data model. */
-class History
-{
-}
-
 /** Huggingface entity data model. */
 class Huggingface
 {
@@ -1321,31 +1226,6 @@ class HuggingfaceUpdateData
     public ?string $updated_at = null;
     public ?string $upstream_url = null;
     public ?bool $verify_ssl = null;
-}
-
-/** Info entity data model. */
-class Info
-{
-}
-
-/** Invite entity data model. */
-class Invite
-{
-}
-
-/** LicensePolicy entity data model. */
-class LicensePolicy
-{
-}
-
-/** Limit entity data model. */
-class Limit
-{
-}
-
-/** Luarock entity data model. */
-class Luarock
-{
 }
 
 /** Maven entity data model. */
@@ -1453,16 +1333,6 @@ class MavenUpdateData
     public ?string $upstream_url = null;
     public ?string $verification_status = null;
     public ?bool $verify_ssl = null;
-}
-
-/** Member entity data model. */
-class Member
-{
-}
-
-/** Move entity data model. */
-class Move
-{
 }
 
 /** Namespace entity data model. */
@@ -1707,11 +1577,6 @@ class NugetUpdateData
     public ?string $updated_at = null;
     public ?string $upstream_url = null;
     public ?bool $verify_ssl = null;
-}
-
-/** OpenidConnect entity data model. */
-class OpenidConnect
-{
 }
 
 /** Org entity data model. */
@@ -2271,16 +2136,6 @@ class OrganizationTeamMemberCreateData
     public string $user;
 }
 
-/** Oss entity data model. */
-class Oss
-{
-}
-
-/** P2n entity data model. */
-class P2n
-{
-}
-
 /** Package entity data model. */
 class Package
 {
@@ -2757,16 +2612,6 @@ class PackageVulnerabilityPolicyEvaluationCreateData
     public ?int $violation_count = null;
 }
 
-/** Privilege entity data model. */
-class Privilege
-{
-}
-
-/** Profile entity data model. */
-class Profile
-{
-}
-
 /** ProviderSetting entity data model. */
 class ProviderSetting
 {
@@ -2938,11 +2783,6 @@ class PythonUpdateData
     public ?bool $verify_ssl = null;
 }
 
-/** Quarantine entity data model. */
-class Quarantine
-{
-}
-
 /** Quota entity data model. */
 class Quota
 {
@@ -2956,21 +2796,6 @@ class Quota
 class QuotaLoadMatch
 {
     public string $id;
-}
-
-/** Raw entity data model. */
-class Raw
-{
-}
-
-/** Refresh entity data model. */
-class Refresh
-{
-}
-
-/** Regenerate entity data model. */
-class Regenerate
-{
 }
 
 /** Repo entity data model. */
@@ -3359,8 +3184,8 @@ class RepositoryGpgKeyCreateData
     public ?string $public_key = null;
 }
 
-/** RepositoryPrivilegeInput entity data model. */
-class RepositoryPrivilegeInput
+/** RepositoryPrivilegeDict entity data model. */
+class RepositoryPrivilegeDict
 {
     public string $privilege;
     public ?string $service = null;
@@ -3368,8 +3193,8 @@ class RepositoryPrivilegeInput
     public ?string $user = null;
 }
 
-/** Request payload for RepositoryPrivilegeInput#list. */
-class RepositoryPrivilegeInputListMatch
+/** Request payload for RepositoryPrivilegeDict#list. */
+class RepositoryPrivilegeDictListMatch
 {
     public mixed $identifier;
     public mixed $owner;
@@ -3887,11 +3712,6 @@ class RepositoryX509RsaCertificateLoadMatch
     public mixed $owner;
 }
 
-/** Reset entity data model. */
-class Reset
-{
-}
-
 /** ResourcesRateCheck entity data model. */
 class ResourcesRateCheck
 {
@@ -3912,16 +3732,6 @@ class ResourcesRateCheckLoadMatch
     public ?int $reset = null;
     public ?string $reset_iso_8601 = null;
     public ?bool $throttled = null;
-}
-
-/** Resync entity data model. */
-class Resync
-{
-}
-
-/** Retention entity data model. */
-class Retention
-{
 }
 
 /** Rpm entity data model. */
@@ -4037,11 +3847,6 @@ class RpmUpdateData
     public ?bool $verify_ssl = null;
 }
 
-/** Rsa entity data model. */
-class Rsa
-{
-}
-
 /** Ruby entity data model. */
 class Ruby
 {
@@ -4137,21 +3942,6 @@ class RubyUpdateData
     public ?bool $verify_ssl = null;
 }
 
-/** SamlGroupSync entity data model. */
-class SamlGroupSync
-{
-}
-
-/** Scan entity data model. */
-class Scan
-{
-}
-
-/** Self entity data model. */
-class SelfType
-{
-}
-
 /** Service entity data model. */
 class Service
 {
@@ -4219,11 +4009,6 @@ class ServiceUpdateData
     public ?string $role = null;
     public ?string $slug = null;
     public ?array $teams = null;
-}
-
-/** Status entity data model. */
-class Status
-{
 }
 
 /** StatusBasic entity data model. */
@@ -4357,41 +4142,6 @@ class SwiftUpdateData
     public ?bool $verify_ssl = null;
 }
 
-/** Sync entity data model. */
-class Sync
-{
-}
-
-/** Tag entity data model. */
-class Tag
-{
-}
-
-/** Team entity data model. */
-class Team
-{
-}
-
-/** Terraform entity data model. */
-class Terraform
-{
-}
-
-/** Test entity data model. */
-class Test
-{
-}
-
-/** Token entity data model. */
-class Token
-{
-}
-
-/** TransferRegion entity data model. */
-class TransferRegion
-{
-}
-
 /** User entity data model. */
 class User
 {
@@ -4485,21 +4235,6 @@ class UserProfileLoadMatch
     public string $id;
 }
 
-/** Vagrant entity data model. */
-class Vagrant
-{
-}
-
-/** Validate entity data model. */
-class Validate
-{
-}
-
-/** Version entity data model. */
-class Version
-{
-}
-
 /** Vulnerability entity data model. */
 class Vulnerability
 {
@@ -4532,11 +4267,6 @@ class VulnerabilityListMatch
     public ?int $page_size = null;
 }
 
-/** VulnerabilityPolicy entity data model. */
-class VulnerabilityPolicy
-{
-}
-
 /** Webhook entity data model. */
 class Webhook
 {
@@ -4549,15 +4279,5 @@ class WebhookRemoveMatch
     public mixed $identifier;
     public mixed $owner;
     public mixed $repo;
-}
-
-/** X509Ecdsa entity data model. */
-class X509Ecdsa
-{
-}
-
-/** X509Rsa entity data model. */
-class X509Rsa
-{
 }
 

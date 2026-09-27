@@ -1,0 +1,44 @@
+# BasicStorageRegionFlow
+
+main: kit: flow: BasicStorageRegionFlow:
+{
+  entity: "storage_region",
+  kind: "basic",
+  name: "BasicStorageRegionFlow",
+  step: [
+    {
+      o: "list",
+      v: [
+        {
+          apply: "ItemExists",
+          def: {
+            ref: "storage_region_ref01"
+          }
+        }
+      ]
+    }
+
+    {
+      i: {
+        ref: "storage_region_ref01",
+        srcdatavar: "storage_region_ref01_data",
+        suffix: "_dt0"
+      }
+
+      m: {
+        id: "storage_region01"
+      }
+
+      o: "load",
+      v: [
+        {
+          apply: "TextFieldMark",
+          def: {
+            mark: "Mark01-storage_region_ref01"
+          }
+        }
+      ]
+    }
+  ],
+  "key$": "BasicStorageRegionFlow"
+}

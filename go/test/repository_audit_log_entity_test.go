@@ -151,7 +151,7 @@ func repository_audit_logBasicSetup(extra map[string]any) *entityTestSetup {
 
 	// Generate idmap via transform, matching TS pattern.
 	idmap, _ := vs.Transform(
-		[]any{"repository_audit_log01", "repository_audit_log02", "repository_audit_log03", "audit_log01", "audit_log02", "audit_log03", "owner01", "repo01"},
+		[]any{"repository_audit_log01", "repository_audit_log02", "repository_audit_log03", "owner01", "repo01"},
 		map[string]any{
 			"`$PACK`": []any{"", map[string]any{
 				"`$KEY`": "`$COPY`",

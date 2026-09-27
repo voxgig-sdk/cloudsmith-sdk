@@ -160,7 +160,7 @@ func provider_settingBasicSetup(extra map[string]any) *entityTestSetup {
 
 	// Generate idmap via transform, matching TS pattern.
 	idmap, _ := vs.Transform(
-		[]any{"provider_setting01", "provider_setting02", "provider_setting03", "org01", "org02", "org03", "openid_connect01", "openid_connect02", "openid_connect03"},
+		[]any{"provider_setting01", "provider_setting02", "provider_setting03", "org01", "org02", "org03"},
 		map[string]any{
 			"`$PACK`": []any{"", map[string]any{
 				"`$KEY`": "`$COPY`",

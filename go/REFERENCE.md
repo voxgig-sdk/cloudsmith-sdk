@@ -48,49 +48,17 @@ client := sdk.TestSDK(testopts, sdkopts)
 
 ### Instance Methods
 
-#### `Abort(data map[string]any) CloudsmithEntity`
-
-Create a new `Abort` entity instance. Pass `nil` for no initial data.
-
-#### `Alpine(data map[string]any) CloudsmithEntity`
-
-Create a new `Alpine` entity instance. Pass `nil` for no initial data.
-
-#### `AuditLog(data map[string]any) CloudsmithEntity`
-
-Create a new `AuditLog` entity instance. Pass `nil` for no initial data.
-
-#### `Basic(data map[string]any) CloudsmithEntity`
-
-Create a new `Basic` entity instance. Pass `nil` for no initial data.
-
 #### `Cargo(data map[string]any) CloudsmithEntity`
 
 Create a new `Cargo` entity instance. Pass `nil` for no initial data.
-
-#### `Cocoapod(data map[string]any) CloudsmithEntity`
-
-Create a new `Cocoapod` entity instance. Pass `nil` for no initial data.
-
-#### `Complete(data map[string]any) CloudsmithEntity`
-
-Create a new `Complete` entity instance. Pass `nil` for no initial data.
 
 #### `Composer(data map[string]any) CloudsmithEntity`
 
 Create a new `Composer` entity instance. Pass `nil` for no initial data.
 
-#### `Conan(data map[string]any) CloudsmithEntity`
-
-Create a new `Conan` entity instance. Pass `nil` for no initial data.
-
 #### `Conda(data map[string]any) CloudsmithEntity`
 
 Create a new `Conda` entity instance. Pass `nil` for no initial data.
-
-#### `Copy(data map[string]any) CloudsmithEntity`
-
-Create a new `Copy` entity instance. Pass `nil` for no initial data.
 
 #### `Cran(data map[string]any) CloudsmithEntity`
 
@@ -104,25 +72,9 @@ Create a new `Dart` entity instance. Pass `nil` for no initial data.
 
 Create a new `Deb` entity instance. Pass `nil` for no initial data.
 
-#### `DenyPolicy(data map[string]any) CloudsmithEntity`
-
-Create a new `DenyPolicy` entity instance. Pass `nil` for no initial data.
-
-#### `Dependency(data map[string]any) CloudsmithEntity`
-
-Create a new `Dependency` entity instance. Pass `nil` for no initial data.
-
-#### `Disable(data map[string]any) CloudsmithEntity`
-
-Create a new `Disable` entity instance. Pass `nil` for no initial data.
-
 #### `DistributionFull(data map[string]any) CloudsmithEntity`
 
 Create a new `DistributionFull` entity instance. Pass `nil` for no initial data.
-
-#### `Distro(data map[string]any) CloudsmithEntity`
-
-Create a new `Distro` entity instance. Pass `nil` for no initial data.
 
 #### `Docker(data map[string]any) CloudsmithEntity`
 
@@ -132,21 +84,9 @@ Create a new `Docker` entity instance. Pass `nil` for no initial data.
 
 Create a new `DynamicMapping` entity instance. Pass `nil` for no initial data.
 
-#### `Ecdsa(data map[string]any) CloudsmithEntity`
-
-Create a new `Ecdsa` entity instance. Pass `nil` for no initial data.
-
-#### `Enable(data map[string]any) CloudsmithEntity`
-
-Create a new `Enable` entity instance. Pass `nil` for no initial data.
-
 #### `Entitlement(data map[string]any) CloudsmithEntity`
 
 Create a new `Entitlement` entity instance. Pass `nil` for no initial data.
-
-#### `Evaluation(data map[string]any) CloudsmithEntity`
-
-Create a new `Evaluation` entity instance. Pass `nil` for no initial data.
 
 #### `File(data map[string]any) CloudsmithEntity`
 
@@ -156,21 +96,9 @@ Create a new `File` entity instance. Pass `nil` for no initial data.
 
 Create a new `Format` entity instance. Pass `nil` for no initial data.
 
-#### `Geoip(data map[string]any) CloudsmithEntity`
-
-Create a new `Geoip` entity instance. Pass `nil` for no initial data.
-
 #### `Gon(data map[string]any) CloudsmithEntity`
 
 Create a new `Gon` entity instance. Pass `nil` for no initial data.
-
-#### `Gpg(data map[string]any) CloudsmithEntity`
-
-Create a new `Gpg` entity instance. Pass `nil` for no initial data.
-
-#### `Group(data map[string]any) CloudsmithEntity`
-
-Create a new `Group` entity instance. Pass `nil` for no initial data.
 
 #### `Helm(data map[string]any) CloudsmithEntity`
 
@@ -180,45 +108,13 @@ Create a new `Helm` entity instance. Pass `nil` for no initial data.
 
 Create a new `Hex` entity instance. Pass `nil` for no initial data.
 
-#### `History(data map[string]any) CloudsmithEntity`
-
-Create a new `History` entity instance. Pass `nil` for no initial data.
-
 #### `Huggingface(data map[string]any) CloudsmithEntity`
 
 Create a new `Huggingface` entity instance. Pass `nil` for no initial data.
 
-#### `Info(data map[string]any) CloudsmithEntity`
-
-Create a new `Info` entity instance. Pass `nil` for no initial data.
-
-#### `Invite(data map[string]any) CloudsmithEntity`
-
-Create a new `Invite` entity instance. Pass `nil` for no initial data.
-
-#### `LicensePolicy(data map[string]any) CloudsmithEntity`
-
-Create a new `LicensePolicy` entity instance. Pass `nil` for no initial data.
-
-#### `Limit(data map[string]any) CloudsmithEntity`
-
-Create a new `Limit` entity instance. Pass `nil` for no initial data.
-
-#### `Luarock(data map[string]any) CloudsmithEntity`
-
-Create a new `Luarock` entity instance. Pass `nil` for no initial data.
-
 #### `Maven(data map[string]any) CloudsmithEntity`
 
 Create a new `Maven` entity instance. Pass `nil` for no initial data.
-
-#### `Member(data map[string]any) CloudsmithEntity`
-
-Create a new `Member` entity instance. Pass `nil` for no initial data.
-
-#### `Move(data map[string]any) CloudsmithEntity`
-
-Create a new `Move` entity instance. Pass `nil` for no initial data.
 
 #### `Namespace(data map[string]any) CloudsmithEntity`
 
@@ -235,10 +131,6 @@ Create a new `Npm` entity instance. Pass `nil` for no initial data.
 #### `Nuget(data map[string]any) CloudsmithEntity`
 
 Create a new `Nuget` entity instance. Pass `nil` for no initial data.
-
-#### `OpenidConnect(data map[string]any) CloudsmithEntity`
-
-Create a new `OpenidConnect` entity instance. Pass `nil` for no initial data.
 
 #### `Org(data map[string]any) CloudsmithEntity`
 
@@ -292,14 +184,6 @@ Create a new `OrganizationTeam` entity instance. Pass `nil` for no initial data.
 
 Create a new `OrganizationTeamMember` entity instance. Pass `nil` for no initial data.
 
-#### `Oss(data map[string]any) CloudsmithEntity`
-
-Create a new `Oss` entity instance. Pass `nil` for no initial data.
-
-#### `P2n(data map[string]any) CloudsmithEntity`
-
-Create a new `P2n` entity instance. Pass `nil` for no initial data.
-
 #### `Package(data map[string]any) CloudsmithEntity`
 
 Create a new `Package` entity instance. Pass `nil` for no initial data.
@@ -328,14 +212,6 @@ Create a new `PackageVersionBadge` entity instance. Pass `nil` for no initial da
 
 Create a new `PackageVulnerabilityPolicyEvaluation` entity instance. Pass `nil` for no initial data.
 
-#### `Privilege(data map[string]any) CloudsmithEntity`
-
-Create a new `Privilege` entity instance. Pass `nil` for no initial data.
-
-#### `Profile(data map[string]any) CloudsmithEntity`
-
-Create a new `Profile` entity instance. Pass `nil` for no initial data.
-
 #### `ProviderSetting(data map[string]any) CloudsmithEntity`
 
 Create a new `ProviderSetting` entity instance. Pass `nil` for no initial data.
@@ -348,25 +224,9 @@ Create a new `ProviderSettingsWrite` entity instance. Pass `nil` for no initial 
 
 Create a new `Python` entity instance. Pass `nil` for no initial data.
 
-#### `Quarantine(data map[string]any) CloudsmithEntity`
-
-Create a new `Quarantine` entity instance. Pass `nil` for no initial data.
-
 #### `Quota(data map[string]any) CloudsmithEntity`
 
 Create a new `Quota` entity instance. Pass `nil` for no initial data.
-
-#### `Raw(data map[string]any) CloudsmithEntity`
-
-Create a new `Raw` entity instance. Pass `nil` for no initial data.
-
-#### `Refresh(data map[string]any) CloudsmithEntity`
-
-Create a new `Refresh` entity instance. Pass `nil` for no initial data.
-
-#### `Regenerate(data map[string]any) CloudsmithEntity`
-
-Create a new `Regenerate` entity instance. Pass `nil` for no initial data.
 
 #### `Repo(data map[string]any) CloudsmithEntity`
 
@@ -396,9 +256,9 @@ Create a new `RepositoryGeoIpTestAddress` entity instance. Pass `nil` for no ini
 
 Create a new `RepositoryGpgKey` entity instance. Pass `nil` for no initial data.
 
-#### `RepositoryPrivilegeInput(data map[string]any) CloudsmithEntity`
+#### `RepositoryPrivilegeDict(data map[string]any) CloudsmithEntity`
 
-Create a new `RepositoryPrivilegeInput` entity instance. Pass `nil` for no initial data.
+Create a new `RepositoryPrivilegeDict` entity instance. Pass `nil` for no initial data.
 
 #### `RepositoryRetentionRule(data map[string]any) CloudsmithEntity`
 
@@ -432,53 +292,21 @@ Create a new `RepositoryX509EcdsaCertificate` entity instance. Pass `nil` for no
 
 Create a new `RepositoryX509RsaCertificate` entity instance. Pass `nil` for no initial data.
 
-#### `Reset(data map[string]any) CloudsmithEntity`
-
-Create a new `Reset` entity instance. Pass `nil` for no initial data.
-
 #### `ResourcesRateCheck(data map[string]any) CloudsmithEntity`
 
 Create a new `ResourcesRateCheck` entity instance. Pass `nil` for no initial data.
-
-#### `Resync(data map[string]any) CloudsmithEntity`
-
-Create a new `Resync` entity instance. Pass `nil` for no initial data.
-
-#### `Retention(data map[string]any) CloudsmithEntity`
-
-Create a new `Retention` entity instance. Pass `nil` for no initial data.
 
 #### `Rpm(data map[string]any) CloudsmithEntity`
 
 Create a new `Rpm` entity instance. Pass `nil` for no initial data.
 
-#### `Rsa(data map[string]any) CloudsmithEntity`
-
-Create a new `Rsa` entity instance. Pass `nil` for no initial data.
-
 #### `Ruby(data map[string]any) CloudsmithEntity`
 
 Create a new `Ruby` entity instance. Pass `nil` for no initial data.
 
-#### `SamlGroupSync(data map[string]any) CloudsmithEntity`
-
-Create a new `SamlGroupSync` entity instance. Pass `nil` for no initial data.
-
-#### `Scan(data map[string]any) CloudsmithEntity`
-
-Create a new `Scan` entity instance. Pass `nil` for no initial data.
-
-#### `Self(data map[string]any) CloudsmithEntity`
-
-Create a new `Self` entity instance. Pass `nil` for no initial data.
-
 #### `Service(data map[string]any) CloudsmithEntity`
 
 Create a new `Service` entity instance. Pass `nil` for no initial data.
-
-#### `Status(data map[string]any) CloudsmithEntity`
-
-Create a new `Status` entity instance. Pass `nil` for no initial data.
 
 #### `StatusBasic(data map[string]any) CloudsmithEntity`
 
@@ -491,34 +319,6 @@ Create a new `StorageRegion` entity instance. Pass `nil` for no initial data.
 #### `Swift(data map[string]any) CloudsmithEntity`
 
 Create a new `Swift` entity instance. Pass `nil` for no initial data.
-
-#### `Sync(data map[string]any) CloudsmithEntity`
-
-Create a new `Sync` entity instance. Pass `nil` for no initial data.
-
-#### `Tag(data map[string]any) CloudsmithEntity`
-
-Create a new `Tag` entity instance. Pass `nil` for no initial data.
-
-#### `Team(data map[string]any) CloudsmithEntity`
-
-Create a new `Team` entity instance. Pass `nil` for no initial data.
-
-#### `Terraform(data map[string]any) CloudsmithEntity`
-
-Create a new `Terraform` entity instance. Pass `nil` for no initial data.
-
-#### `Test(data map[string]any) CloudsmithEntity`
-
-Create a new `Test` entity instance. Pass `nil` for no initial data.
-
-#### `Token(data map[string]any) CloudsmithEntity`
-
-Create a new `Token` entity instance. Pass `nil` for no initial data.
-
-#### `TransferRegion(data map[string]any) CloudsmithEntity`
-
-Create a new `TransferRegion` entity instance. Pass `nil` for no initial data.
 
 #### `User(data map[string]any) CloudsmithEntity`
 
@@ -540,37 +340,13 @@ Create a new `UserBrief` entity instance. Pass `nil` for no initial data.
 
 Create a new `UserProfile` entity instance. Pass `nil` for no initial data.
 
-#### `Vagrant(data map[string]any) CloudsmithEntity`
-
-Create a new `Vagrant` entity instance. Pass `nil` for no initial data.
-
-#### `Validate(data map[string]any) CloudsmithEntity`
-
-Create a new `Validate` entity instance. Pass `nil` for no initial data.
-
-#### `Version(data map[string]any) CloudsmithEntity`
-
-Create a new `Version` entity instance. Pass `nil` for no initial data.
-
 #### `Vulnerability(data map[string]any) CloudsmithEntity`
 
 Create a new `Vulnerability` entity instance. Pass `nil` for no initial data.
 
-#### `VulnerabilityPolicy(data map[string]any) CloudsmithEntity`
-
-Create a new `VulnerabilityPolicy` entity instance. Pass `nil` for no initial data.
-
 #### `Webhook(data map[string]any) CloudsmithEntity`
 
 Create a new `Webhook` entity instance. Pass `nil` for no initial data.
-
-#### `X509Ecdsa(data map[string]any) CloudsmithEntity`
-
-Create a new `X509Ecdsa` entity instance. Pass `nil` for no initial data.
-
-#### `X509Rsa(data map[string]any) CloudsmithEntity`
-
-Create a new `X509Rsa` entity instance. Pass `nil` for no initial data.
 
 #### `OptionsMap() map[string]any`
 
@@ -604,130 +380,6 @@ Prepare a fetch definition without sending the request. Accepts the
 same parameters as `Direct()`.
 
 **Returns:** `(map[string]any, error)`
-
-
----
-
-## AbortEntity
-
-```go
-abort := client.Abort(nil)
-fmt.Println(abort.GetName()) // "abort"
-```
-
-### Common Methods
-
-#### `Data(args ...any) any`
-
-Get or set the entity data. When called with data, sets the entity's
-internal data and returns the current data. When called without
-arguments, returns a copy of the current data.
-
-#### `Match(args ...any) any`
-
-Get or set the entity match criteria. Works the same as `Data()`.
-
-#### `Make() Entity`
-
-Create a new `AbortEntity` instance with the same client and
-options.
-
-#### `GetName() string`
-
-Return the entity name.
-
-
----
-
-## AlpineEntity
-
-```go
-alpine := client.Alpine(nil)
-fmt.Println(alpine.GetName()) // "alpine"
-```
-
-### Common Methods
-
-#### `Data(args ...any) any`
-
-Get or set the entity data. When called with data, sets the entity's
-internal data and returns the current data. When called without
-arguments, returns a copy of the current data.
-
-#### `Match(args ...any) any`
-
-Get or set the entity match criteria. Works the same as `Data()`.
-
-#### `Make() Entity`
-
-Create a new `AlpineEntity` instance with the same client and
-options.
-
-#### `GetName() string`
-
-Return the entity name.
-
-
----
-
-## AuditLogEntity
-
-```go
-auditLog := client.AuditLog(nil)
-fmt.Println(auditLog.GetName()) // "audit_log"
-```
-
-### Common Methods
-
-#### `Data(args ...any) any`
-
-Get or set the entity data. When called with data, sets the entity's
-internal data and returns the current data. When called without
-arguments, returns a copy of the current data.
-
-#### `Match(args ...any) any`
-
-Get or set the entity match criteria. Works the same as `Data()`.
-
-#### `Make() Entity`
-
-Create a new `AuditLogEntity` instance with the same client and
-options.
-
-#### `GetName() string`
-
-Return the entity name.
-
-
----
-
-## BasicEntity
-
-```go
-basic := client.Basic(nil)
-fmt.Println(basic.GetName()) // "basic"
-```
-
-### Common Methods
-
-#### `Data(args ...any) any`
-
-Get or set the entity data. When called with data, sets the entity's
-internal data and returns the current data. When called without
-arguments, returns a copy of the current data.
-
-#### `Match(args ...any) any`
-
-Get or set the entity match criteria. Works the same as `Data()`.
-
-#### `Make() Entity`
-
-Create a new `BasicEntity` instance with the same client and
-options.
-
-#### `GetName() string`
-
-Return the entity name.
 
 
 ---
@@ -838,68 +490,6 @@ Get or set the entity match criteria. Works the same as `Data()`.
 #### `Make() Entity`
 
 Create a new `CargoEntity` instance with the same client and
-options.
-
-#### `GetName() string`
-
-Return the entity name.
-
-
----
-
-## CocoapodEntity
-
-```go
-cocoapod := client.Cocoapod(nil)
-fmt.Println(cocoapod.GetName()) // "cocoapod"
-```
-
-### Common Methods
-
-#### `Data(args ...any) any`
-
-Get or set the entity data. When called with data, sets the entity's
-internal data and returns the current data. When called without
-arguments, returns a copy of the current data.
-
-#### `Match(args ...any) any`
-
-Get or set the entity match criteria. Works the same as `Data()`.
-
-#### `Make() Entity`
-
-Create a new `CocoapodEntity` instance with the same client and
-options.
-
-#### `GetName() string`
-
-Return the entity name.
-
-
----
-
-## CompleteEntity
-
-```go
-complete := client.Complete(nil)
-fmt.Println(complete.GetName()) // "complete"
-```
-
-### Common Methods
-
-#### `Data(args ...any) any`
-
-Get or set the entity data. When called with data, sets the entity's
-internal data and returns the current data. When called without
-arguments, returns a copy of the current data.
-
-#### `Match(args ...any) any`
-
-Get or set the entity match criteria. Works the same as `Data()`.
-
-#### `Make() Entity`
-
-Create a new `CompleteEntity` instance with the same client and
 options.
 
 #### `GetName() string`
@@ -1024,37 +614,6 @@ Return the entity name.
 
 ---
 
-## ConanEntity
-
-```go
-conan := client.Conan(nil)
-fmt.Println(conan.GetName()) // "conan"
-```
-
-### Common Methods
-
-#### `Data(args ...any) any`
-
-Get or set the entity data. When called with data, sets the entity's
-internal data and returns the current data. When called without
-arguments, returns a copy of the current data.
-
-#### `Match(args ...any) any`
-
-Get or set the entity match criteria. Works the same as `Data()`.
-
-#### `Make() Entity`
-
-Create a new `ConanEntity` instance with the same client and
-options.
-
-#### `GetName() string`
-
-Return the entity name.
-
-
----
-
 ## CondaEntity
 
 ```go
@@ -1161,37 +720,6 @@ Get or set the entity match criteria. Works the same as `Data()`.
 #### `Make() Entity`
 
 Create a new `CondaEntity` instance with the same client and
-options.
-
-#### `GetName() string`
-
-Return the entity name.
-
-
----
-
-## CopyEntity
-
-```go
-copy := client.Copy(nil)
-fmt.Println(copy.GetName()) // "copy"
-```
-
-### Common Methods
-
-#### `Data(args ...any) any`
-
-Get or set the entity data. When called with data, sets the entity's
-internal data and returns the current data. When called without
-arguments, returns a copy of the current data.
-
-#### `Match(args ...any) any`
-
-Get or set the entity match criteria. Works the same as `Data()`.
-
-#### `Make() Entity`
-
-Create a new `CopyEntity` instance with the same client and
 options.
 
 #### `GetName() string`
@@ -1555,99 +1083,6 @@ Return the entity name.
 
 ---
 
-## DenyPolicyEntity
-
-```go
-denyPolicy := client.DenyPolicy(nil)
-fmt.Println(denyPolicy.GetName()) // "deny_policy"
-```
-
-### Common Methods
-
-#### `Data(args ...any) any`
-
-Get or set the entity data. When called with data, sets the entity's
-internal data and returns the current data. When called without
-arguments, returns a copy of the current data.
-
-#### `Match(args ...any) any`
-
-Get or set the entity match criteria. Works the same as `Data()`.
-
-#### `Make() Entity`
-
-Create a new `DenyPolicyEntity` instance with the same client and
-options.
-
-#### `GetName() string`
-
-Return the entity name.
-
-
----
-
-## DependencyEntity
-
-```go
-dependency := client.Dependency(nil)
-fmt.Println(dependency.GetName()) // "dependency"
-```
-
-### Common Methods
-
-#### `Data(args ...any) any`
-
-Get or set the entity data. When called with data, sets the entity's
-internal data and returns the current data. When called without
-arguments, returns a copy of the current data.
-
-#### `Match(args ...any) any`
-
-Get or set the entity match criteria. Works the same as `Data()`.
-
-#### `Make() Entity`
-
-Create a new `DependencyEntity` instance with the same client and
-options.
-
-#### `GetName() string`
-
-Return the entity name.
-
-
----
-
-## DisableEntity
-
-```go
-disable := client.Disable(nil)
-fmt.Println(disable.GetName()) // "disable"
-```
-
-### Common Methods
-
-#### `Data(args ...any) any`
-
-Get or set the entity data. When called with data, sets the entity's
-internal data and returns the current data. When called without
-arguments, returns a copy of the current data.
-
-#### `Match(args ...any) any`
-
-Get or set the entity match criteria. Works the same as `Data()`.
-
-#### `Make() Entity`
-
-Create a new `DisableEntity` instance with the same client and
-options.
-
-#### `GetName() string`
-
-Return the entity name.
-
-
----
-
 ## DistributionFullEntity
 
 ```go
@@ -1708,37 +1143,6 @@ Get or set the entity match criteria. Works the same as `Data()`.
 #### `Make() Entity`
 
 Create a new `DistributionFullEntity` instance with the same client and
-options.
-
-#### `GetName() string`
-
-Return the entity name.
-
-
----
-
-## DistroEntity
-
-```go
-distro := client.Distro(nil)
-fmt.Println(distro.GetName()) // "distro"
-```
-
-### Common Methods
-
-#### `Data(args ...any) any`
-
-Get or set the entity data. When called with data, sets the entity's
-internal data and returns the current data. When called without
-arguments, returns a copy of the current data.
-
-#### `Match(args ...any) any`
-
-Get or set the entity match criteria. Works the same as `Data()`.
-
-#### `Make() Entity`
-
-Create a new `DistroEntity` instance with the same client and
 options.
 
 #### `GetName() string`
@@ -1928,68 +1332,6 @@ Return the entity name.
 
 ---
 
-## EcdsaEntity
-
-```go
-ecdsa := client.Ecdsa(nil)
-fmt.Println(ecdsa.GetName()) // "ecdsa"
-```
-
-### Common Methods
-
-#### `Data(args ...any) any`
-
-Get or set the entity data. When called with data, sets the entity's
-internal data and returns the current data. When called without
-arguments, returns a copy of the current data.
-
-#### `Match(args ...any) any`
-
-Get or set the entity match criteria. Works the same as `Data()`.
-
-#### `Make() Entity`
-
-Create a new `EcdsaEntity` instance with the same client and
-options.
-
-#### `GetName() string`
-
-Return the entity name.
-
-
----
-
-## EnableEntity
-
-```go
-enable := client.Enable(nil)
-fmt.Println(enable.GetName()) // "enable"
-```
-
-### Common Methods
-
-#### `Data(args ...any) any`
-
-Get or set the entity data. When called with data, sets the entity's
-internal data and returns the current data. When called without
-arguments, returns a copy of the current data.
-
-#### `Match(args ...any) any`
-
-Get or set the entity match criteria. Works the same as `Data()`.
-
-#### `Make() Entity`
-
-Create a new `EnableEntity` instance with the same client and
-options.
-
-#### `GetName() string`
-
-Return the entity name.
-
-
----
-
 ## EntitlementEntity
 
 ```go
@@ -2067,37 +1409,6 @@ Get or set the entity match criteria. Works the same as `Data()`.
 #### `Make() Entity`
 
 Create a new `EntitlementEntity` instance with the same client and
-options.
-
-#### `GetName() string`
-
-Return the entity name.
-
-
----
-
-## EvaluationEntity
-
-```go
-evaluation := client.Evaluation(nil)
-fmt.Println(evaluation.GetName()) // "evaluation"
-```
-
-### Common Methods
-
-#### `Data(args ...any) any`
-
-Get or set the entity data. When called with data, sets the entity's
-internal data and returns the current data. When called without
-arguments, returns a copy of the current data.
-
-#### `Match(args ...any) any`
-
-Get or set the entity match criteria. Works the same as `Data()`.
-
-#### `Make() Entity`
-
-Create a new `EvaluationEntity` instance with the same client and
 options.
 
 #### `GetName() string`
@@ -2227,37 +1538,6 @@ Return the entity name.
 
 ---
 
-## GeoipEntity
-
-```go
-geoip := client.Geoip(nil)
-fmt.Println(geoip.GetName()) // "geoip"
-```
-
-### Common Methods
-
-#### `Data(args ...any) any`
-
-Get or set the entity data. When called with data, sets the entity's
-internal data and returns the current data. When called without
-arguments, returns a copy of the current data.
-
-#### `Match(args ...any) any`
-
-Get or set the entity match criteria. Works the same as `Data()`.
-
-#### `Make() Entity`
-
-Create a new `GeoipEntity` instance with the same client and
-options.
-
-#### `GetName() string`
-
-Return the entity name.
-
-
----
-
 ## GonEntity
 
 ```go
@@ -2363,68 +1643,6 @@ Get or set the entity match criteria. Works the same as `Data()`.
 #### `Make() Entity`
 
 Create a new `GonEntity` instance with the same client and
-options.
-
-#### `GetName() string`
-
-Return the entity name.
-
-
----
-
-## GpgEntity
-
-```go
-gpg := client.Gpg(nil)
-fmt.Println(gpg.GetName()) // "gpg"
-```
-
-### Common Methods
-
-#### `Data(args ...any) any`
-
-Get or set the entity data. When called with data, sets the entity's
-internal data and returns the current data. When called without
-arguments, returns a copy of the current data.
-
-#### `Match(args ...any) any`
-
-Get or set the entity match criteria. Works the same as `Data()`.
-
-#### `Make() Entity`
-
-Create a new `GpgEntity` instance with the same client and
-options.
-
-#### `GetName() string`
-
-Return the entity name.
-
-
----
-
-## GroupEntity
-
-```go
-group := client.Group(nil)
-fmt.Println(group.GetName()) // "group"
-```
-
-### Common Methods
-
-#### `Data(args ...any) any`
-
-Get or set the entity data. When called with data, sets the entity's
-internal data and returns the current data. When called without
-arguments, returns a copy of the current data.
-
-#### `Match(args ...any) any`
-
-Get or set the entity match criteria. Works the same as `Data()`.
-
-#### `Make() Entity`
-
-Create a new `GroupEntity` instance with the same client and
 options.
 
 #### `GetName() string`
@@ -2664,37 +1882,6 @@ Return the entity name.
 
 ---
 
-## HistoryEntity
-
-```go
-history := client.History(nil)
-fmt.Println(history.GetName()) // "history"
-```
-
-### Common Methods
-
-#### `Data(args ...any) any`
-
-Get or set the entity data. When called with data, sets the entity's
-internal data and returns the current data. When called without
-arguments, returns a copy of the current data.
-
-#### `Match(args ...any) any`
-
-Get or set the entity match criteria. Works the same as `Data()`.
-
-#### `Make() Entity`
-
-Create a new `HistoryEntity` instance with the same client and
-options.
-
-#### `GetName() string`
-
-Return the entity name.
-
-
----
-
 ## HuggingfaceEntity
 
 ```go
@@ -2801,161 +1988,6 @@ Get or set the entity match criteria. Works the same as `Data()`.
 #### `Make() Entity`
 
 Create a new `HuggingfaceEntity` instance with the same client and
-options.
-
-#### `GetName() string`
-
-Return the entity name.
-
-
----
-
-## InfoEntity
-
-```go
-info := client.Info(nil)
-fmt.Println(info.GetName()) // "info"
-```
-
-### Common Methods
-
-#### `Data(args ...any) any`
-
-Get or set the entity data. When called with data, sets the entity's
-internal data and returns the current data. When called without
-arguments, returns a copy of the current data.
-
-#### `Match(args ...any) any`
-
-Get or set the entity match criteria. Works the same as `Data()`.
-
-#### `Make() Entity`
-
-Create a new `InfoEntity` instance with the same client and
-options.
-
-#### `GetName() string`
-
-Return the entity name.
-
-
----
-
-## InviteEntity
-
-```go
-invite := client.Invite(nil)
-fmt.Println(invite.GetName()) // "invite"
-```
-
-### Common Methods
-
-#### `Data(args ...any) any`
-
-Get or set the entity data. When called with data, sets the entity's
-internal data and returns the current data. When called without
-arguments, returns a copy of the current data.
-
-#### `Match(args ...any) any`
-
-Get or set the entity match criteria. Works the same as `Data()`.
-
-#### `Make() Entity`
-
-Create a new `InviteEntity` instance with the same client and
-options.
-
-#### `GetName() string`
-
-Return the entity name.
-
-
----
-
-## LicensePolicyEntity
-
-```go
-licensePolicy := client.LicensePolicy(nil)
-fmt.Println(licensePolicy.GetName()) // "license_policy"
-```
-
-### Common Methods
-
-#### `Data(args ...any) any`
-
-Get or set the entity data. When called with data, sets the entity's
-internal data and returns the current data. When called without
-arguments, returns a copy of the current data.
-
-#### `Match(args ...any) any`
-
-Get or set the entity match criteria. Works the same as `Data()`.
-
-#### `Make() Entity`
-
-Create a new `LicensePolicyEntity` instance with the same client and
-options.
-
-#### `GetName() string`
-
-Return the entity name.
-
-
----
-
-## LimitEntity
-
-```go
-limit := client.Limit(nil)
-fmt.Println(limit.GetName()) // "limit"
-```
-
-### Common Methods
-
-#### `Data(args ...any) any`
-
-Get or set the entity data. When called with data, sets the entity's
-internal data and returns the current data. When called without
-arguments, returns a copy of the current data.
-
-#### `Match(args ...any) any`
-
-Get or set the entity match criteria. Works the same as `Data()`.
-
-#### `Make() Entity`
-
-Create a new `LimitEntity` instance with the same client and
-options.
-
-#### `GetName() string`
-
-Return the entity name.
-
-
----
-
-## LuarockEntity
-
-```go
-luarock := client.Luarock(nil)
-fmt.Println(luarock.GetName()) // "luarock"
-```
-
-### Common Methods
-
-#### `Data(args ...any) any`
-
-Get or set the entity data. When called with data, sets the entity's
-internal data and returns the current data. When called without
-arguments, returns a copy of the current data.
-
-#### `Match(args ...any) any`
-
-Get or set the entity match criteria. Works the same as `Data()`.
-
-#### `Make() Entity`
-
-Create a new `LuarockEntity` instance with the same client and
 options.
 
 #### `GetName() string`
@@ -3075,68 +2107,6 @@ Get or set the entity match criteria. Works the same as `Data()`.
 #### `Make() Entity`
 
 Create a new `MavenEntity` instance with the same client and
-options.
-
-#### `GetName() string`
-
-Return the entity name.
-
-
----
-
-## MemberEntity
-
-```go
-member := client.Member(nil)
-fmt.Println(member.GetName()) // "member"
-```
-
-### Common Methods
-
-#### `Data(args ...any) any`
-
-Get or set the entity data. When called with data, sets the entity's
-internal data and returns the current data. When called without
-arguments, returns a copy of the current data.
-
-#### `Match(args ...any) any`
-
-Get or set the entity match criteria. Works the same as `Data()`.
-
-#### `Make() Entity`
-
-Create a new `MemberEntity` instance with the same client and
-options.
-
-#### `GetName() string`
-
-Return the entity name.
-
-
----
-
-## MoveEntity
-
-```go
-move := client.Move(nil)
-fmt.Println(move.GetName()) // "move"
-```
-
-### Common Methods
-
-#### `Data(args ...any) any`
-
-Get or set the entity data. When called with data, sets the entity's
-internal data and returns the current data. When called without
-arguments, returns a copy of the current data.
-
-#### `Match(args ...any) any`
-
-Get or set the entity match criteria. Works the same as `Data()`.
-
-#### `Make() Entity`
-
-Create a new `MoveEntity` instance with the same client and
 options.
 
 #### `GetName() string`
@@ -3501,37 +2471,6 @@ Get or set the entity match criteria. Works the same as `Data()`.
 #### `Make() Entity`
 
 Create a new `NugetEntity` instance with the same client and
-options.
-
-#### `GetName() string`
-
-Return the entity name.
-
-
----
-
-## OpenidConnectEntity
-
-```go
-openidConnect := client.OpenidConnect(nil)
-fmt.Println(openidConnect.GetName()) // "openid_connect"
-```
-
-### Common Methods
-
-#### `Data(args ...any) any`
-
-Get or set the entity data. When called with data, sets the entity's
-internal data and returns the current data. When called without
-arguments, returns a copy of the current data.
-
-#### `Match(args ...any) any`
-
-Get or set the entity match criteria. Works the same as `Data()`.
-
-#### `Make() Entity`
-
-Create a new `OpenidConnectEntity` instance with the same client and
 options.
 
 #### `GetName() string`
@@ -4595,68 +3534,6 @@ Return the entity name.
 
 ---
 
-## OssEntity
-
-```go
-oss := client.Oss(nil)
-fmt.Println(oss.GetName()) // "oss"
-```
-
-### Common Methods
-
-#### `Data(args ...any) any`
-
-Get or set the entity data. When called with data, sets the entity's
-internal data and returns the current data. When called without
-arguments, returns a copy of the current data.
-
-#### `Match(args ...any) any`
-
-Get or set the entity match criteria. Works the same as `Data()`.
-
-#### `Make() Entity`
-
-Create a new `OssEntity` instance with the same client and
-options.
-
-#### `GetName() string`
-
-Return the entity name.
-
-
----
-
-## P2nEntity
-
-```go
-p2n := client.P2n(nil)
-fmt.Println(p2n.GetName()) // "p2n"
-```
-
-### Common Methods
-
-#### `Data(args ...any) any`
-
-Get or set the entity data. When called with data, sets the entity's
-internal data and returns the current data. When called without
-arguments, returns a copy of the current data.
-
-#### `Match(args ...any) any`
-
-Get or set the entity match criteria. Works the same as `Data()`.
-
-#### `Make() Entity`
-
-Create a new `P2nEntity` instance with the same client and
-options.
-
-#### `GetName() string`
-
-Return the entity name.
-
-
----
-
 ## PackageEntity
 
 ```go
@@ -5383,68 +4260,6 @@ Return the entity name.
 
 ---
 
-## PrivilegeEntity
-
-```go
-privilege := client.Privilege(nil)
-fmt.Println(privilege.GetName()) // "privilege"
-```
-
-### Common Methods
-
-#### `Data(args ...any) any`
-
-Get or set the entity data. When called with data, sets the entity's
-internal data and returns the current data. When called without
-arguments, returns a copy of the current data.
-
-#### `Match(args ...any) any`
-
-Get or set the entity match criteria. Works the same as `Data()`.
-
-#### `Make() Entity`
-
-Create a new `PrivilegeEntity` instance with the same client and
-options.
-
-#### `GetName() string`
-
-Return the entity name.
-
-
----
-
-## ProfileEntity
-
-```go
-profile := client.Profile(nil)
-fmt.Println(profile.GetName()) // "profile"
-```
-
-### Common Methods
-
-#### `Data(args ...any) any`
-
-Get or set the entity data. When called with data, sets the entity's
-internal data and returns the current data. When called without
-arguments, returns a copy of the current data.
-
-#### `Match(args ...any) any`
-
-Get or set the entity match criteria. Works the same as `Data()`.
-
-#### `Make() Entity`
-
-Create a new `ProfileEntity` instance with the same client and
-options.
-
-#### `GetName() string`
-
-Return the entity name.
-
-
----
-
 ## ProviderSettingEntity
 
 ```go
@@ -5711,37 +4526,6 @@ Return the entity name.
 
 ---
 
-## QuarantineEntity
-
-```go
-quarantine := client.Quarantine(nil)
-fmt.Println(quarantine.GetName()) // "quarantine"
-```
-
-### Common Methods
-
-#### `Data(args ...any) any`
-
-Get or set the entity data. When called with data, sets the entity's
-internal data and returns the current data. When called without
-arguments, returns a copy of the current data.
-
-#### `Match(args ...any) any`
-
-Get or set the entity match criteria. Works the same as `Data()`.
-
-#### `Make() Entity`
-
-Create a new `QuarantineEntity` instance with the same client and
-options.
-
-#### `GetName() string`
-
-Return the entity name.
-
-
----
-
 ## QuotaEntity
 
 ```go
@@ -5787,99 +4571,6 @@ Get or set the entity match criteria. Works the same as `Data()`.
 #### `Make() Entity`
 
 Create a new `QuotaEntity` instance with the same client and
-options.
-
-#### `GetName() string`
-
-Return the entity name.
-
-
----
-
-## RawEntity
-
-```go
-raw := client.Raw(nil)
-fmt.Println(raw.GetName()) // "raw"
-```
-
-### Common Methods
-
-#### `Data(args ...any) any`
-
-Get or set the entity data. When called with data, sets the entity's
-internal data and returns the current data. When called without
-arguments, returns a copy of the current data.
-
-#### `Match(args ...any) any`
-
-Get or set the entity match criteria. Works the same as `Data()`.
-
-#### `Make() Entity`
-
-Create a new `RawEntity` instance with the same client and
-options.
-
-#### `GetName() string`
-
-Return the entity name.
-
-
----
-
-## RefreshEntity
-
-```go
-refresh := client.Refresh(nil)
-fmt.Println(refresh.GetName()) // "refresh"
-```
-
-### Common Methods
-
-#### `Data(args ...any) any`
-
-Get or set the entity data. When called with data, sets the entity's
-internal data and returns the current data. When called without
-arguments, returns a copy of the current data.
-
-#### `Match(args ...any) any`
-
-Get or set the entity match criteria. Works the same as `Data()`.
-
-#### `Make() Entity`
-
-Create a new `RefreshEntity` instance with the same client and
-options.
-
-#### `GetName() string`
-
-Return the entity name.
-
-
----
-
-## RegenerateEntity
-
-```go
-regenerate := client.Regenerate(nil)
-fmt.Println(regenerate.GetName()) // "regenerate"
-```
-
-### Common Methods
-
-#### `Data(args ...any) any`
-
-Get or set the entity data. When called with data, sets the entity's
-internal data and returns the current data. When called without
-arguments, returns a copy of the current data.
-
-#### `Match(args ...any) any`
-
-Get or set the entity match criteria. Works the same as `Data()`.
-
-#### `Make() Entity`
-
-Create a new `RegenerateEntity` instance with the same client and
 options.
 
 #### `GetName() string`
@@ -6436,11 +5127,11 @@ Return the entity name.
 
 ---
 
-## RepositoryPrivilegeInputEntity
+## RepositoryPrivilegeDictEntity
 
 ```go
-repositoryPrivilegeInput := client.RepositoryPrivilegeInput(nil)
-fmt.Println(repositoryPrivilegeInput.GetName()) // "repository_privilege_input"
+repositoryPrivilegeDict := client.RepositoryPrivilegeDict(nil)
+fmt.Println(repositoryPrivilegeDict.GetName()) // "repository_privilege_dict"
 ```
 
 ### Fields
@@ -6459,7 +5150,7 @@ fmt.Println(repositoryPrivilegeInput.GetName()) // "repository_privilege_input"
 List entities matching the given criteria. Returns an array.
 
 ```go
-results, err := client.RepositoryPrivilegeInput(nil).List(nil, nil)
+results, err := client.RepositoryPrivilegeDict(nil).List(nil, nil)
 if err != nil {
     panic(err)
 }
@@ -6480,7 +5171,7 @@ Get or set the entity match criteria. Works the same as `Data()`.
 
 #### `Make() Entity`
 
-Create a new `RepositoryPrivilegeInputEntity` instance with the same client and
+Create a new `RepositoryPrivilegeDictEntity` instance with the same client and
 options.
 
 #### `GetName() string`
@@ -7163,37 +5854,6 @@ Return the entity name.
 
 ---
 
-## ResetEntity
-
-```go
-reset := client.Reset(nil)
-fmt.Println(reset.GetName()) // "reset"
-```
-
-### Common Methods
-
-#### `Data(args ...any) any`
-
-Get or set the entity data. When called with data, sets the entity's
-internal data and returns the current data. When called without
-arguments, returns a copy of the current data.
-
-#### `Match(args ...any) any`
-
-Get or set the entity match criteria. Works the same as `Data()`.
-
-#### `Make() Entity`
-
-Create a new `ResetEntity` instance with the same client and
-options.
-
-#### `GetName() string`
-
-Return the entity name.
-
-
----
-
 ## ResourcesRateCheckEntity
 
 ```go
@@ -7241,68 +5901,6 @@ Get or set the entity match criteria. Works the same as `Data()`.
 #### `Make() Entity`
 
 Create a new `ResourcesRateCheckEntity` instance with the same client and
-options.
-
-#### `GetName() string`
-
-Return the entity name.
-
-
----
-
-## ResyncEntity
-
-```go
-resync := client.Resync(nil)
-fmt.Println(resync.GetName()) // "resync"
-```
-
-### Common Methods
-
-#### `Data(args ...any) any`
-
-Get or set the entity data. When called with data, sets the entity's
-internal data and returns the current data. When called without
-arguments, returns a copy of the current data.
-
-#### `Match(args ...any) any`
-
-Get or set the entity match criteria. Works the same as `Data()`.
-
-#### `Make() Entity`
-
-Create a new `ResyncEntity` instance with the same client and
-options.
-
-#### `GetName() string`
-
-Return the entity name.
-
-
----
-
-## RetentionEntity
-
-```go
-retention := client.Retention(nil)
-fmt.Println(retention.GetName()) // "retention"
-```
-
-### Common Methods
-
-#### `Data(args ...any) any`
-
-Get or set the entity data. When called with data, sets the entity's
-internal data and returns the current data. When called without
-arguments, returns a copy of the current data.
-
-#### `Match(args ...any) any`
-
-Get or set the entity match criteria. Works the same as `Data()`.
-
-#### `Make() Entity`
-
-Create a new `RetentionEntity` instance with the same client and
 options.
 
 #### `GetName() string`
@@ -7434,37 +6032,6 @@ Return the entity name.
 
 ---
 
-## RsaEntity
-
-```go
-rsa := client.Rsa(nil)
-fmt.Println(rsa.GetName()) // "rsa"
-```
-
-### Common Methods
-
-#### `Data(args ...any) any`
-
-Get or set the entity data. When called with data, sets the entity's
-internal data and returns the current data. When called without
-arguments, returns a copy of the current data.
-
-#### `Match(args ...any) any`
-
-Get or set the entity match criteria. Works the same as `Data()`.
-
-#### `Make() Entity`
-
-Create a new `RsaEntity` instance with the same client and
-options.
-
-#### `GetName() string`
-
-Return the entity name.
-
-
----
-
 ## RubyEntity
 
 ```go
@@ -7580,99 +6147,6 @@ Return the entity name.
 
 ---
 
-## SamlGroupSyncEntity
-
-```go
-samlGroupSync := client.SamlGroupSync(nil)
-fmt.Println(samlGroupSync.GetName()) // "saml_group_sync"
-```
-
-### Common Methods
-
-#### `Data(args ...any) any`
-
-Get or set the entity data. When called with data, sets the entity's
-internal data and returns the current data. When called without
-arguments, returns a copy of the current data.
-
-#### `Match(args ...any) any`
-
-Get or set the entity match criteria. Works the same as `Data()`.
-
-#### `Make() Entity`
-
-Create a new `SamlGroupSyncEntity` instance with the same client and
-options.
-
-#### `GetName() string`
-
-Return the entity name.
-
-
----
-
-## ScanEntity
-
-```go
-scan := client.Scan(nil)
-fmt.Println(scan.GetName()) // "scan"
-```
-
-### Common Methods
-
-#### `Data(args ...any) any`
-
-Get or set the entity data. When called with data, sets the entity's
-internal data and returns the current data. When called without
-arguments, returns a copy of the current data.
-
-#### `Match(args ...any) any`
-
-Get or set the entity match criteria. Works the same as `Data()`.
-
-#### `Make() Entity`
-
-Create a new `ScanEntity` instance with the same client and
-options.
-
-#### `GetName() string`
-
-Return the entity name.
-
-
----
-
-## SelfEntity
-
-```go
-self := client.Self(nil)
-fmt.Println(self.GetName()) // "self"
-```
-
-### Common Methods
-
-#### `Data(args ...any) any`
-
-Get or set the entity data. When called with data, sets the entity's
-internal data and returns the current data. When called without
-arguments, returns a copy of the current data.
-
-#### `Match(args ...any) any`
-
-Get or set the entity match criteria. Works the same as `Data()`.
-
-#### `Make() Entity`
-
-Create a new `SelfEntity` instance with the same client and
-options.
-
-#### `GetName() string`
-
-Return the entity name.
-
-
----
-
 ## ServiceEntity
 
 ```go
@@ -7768,37 +6242,6 @@ Get or set the entity match criteria. Works the same as `Data()`.
 #### `Make() Entity`
 
 Create a new `ServiceEntity` instance with the same client and
-options.
-
-#### `GetName() string`
-
-Return the entity name.
-
-
----
-
-## StatusEntity
-
-```go
-status := client.Status(nil)
-fmt.Println(status.GetName()) // "status"
-```
-
-### Common Methods
-
-#### `Data(args ...any) any`
-
-Get or set the entity data. When called with data, sets the entity's
-internal data and returns the current data. When called without
-arguments, returns a copy of the current data.
-
-#### `Match(args ...any) any`
-
-Get or set the entity match criteria. Works the same as `Data()`.
-
-#### `Make() Entity`
-
-Create a new `StatusEntity` instance with the same client and
 options.
 
 #### `GetName() string`
@@ -8031,223 +6474,6 @@ Get or set the entity match criteria. Works the same as `Data()`.
 #### `Make() Entity`
 
 Create a new `SwiftEntity` instance with the same client and
-options.
-
-#### `GetName() string`
-
-Return the entity name.
-
-
----
-
-## SyncEntity
-
-```go
-sync := client.Sync(nil)
-fmt.Println(sync.GetName()) // "sync"
-```
-
-### Common Methods
-
-#### `Data(args ...any) any`
-
-Get or set the entity data. When called with data, sets the entity's
-internal data and returns the current data. When called without
-arguments, returns a copy of the current data.
-
-#### `Match(args ...any) any`
-
-Get or set the entity match criteria. Works the same as `Data()`.
-
-#### `Make() Entity`
-
-Create a new `SyncEntity` instance with the same client and
-options.
-
-#### `GetName() string`
-
-Return the entity name.
-
-
----
-
-## TagEntity
-
-```go
-tag := client.Tag(nil)
-fmt.Println(tag.GetName()) // "tag"
-```
-
-### Common Methods
-
-#### `Data(args ...any) any`
-
-Get or set the entity data. When called with data, sets the entity's
-internal data and returns the current data. When called without
-arguments, returns a copy of the current data.
-
-#### `Match(args ...any) any`
-
-Get or set the entity match criteria. Works the same as `Data()`.
-
-#### `Make() Entity`
-
-Create a new `TagEntity` instance with the same client and
-options.
-
-#### `GetName() string`
-
-Return the entity name.
-
-
----
-
-## TeamEntity
-
-```go
-team := client.Team(nil)
-fmt.Println(team.GetName()) // "team"
-```
-
-### Common Methods
-
-#### `Data(args ...any) any`
-
-Get or set the entity data. When called with data, sets the entity's
-internal data and returns the current data. When called without
-arguments, returns a copy of the current data.
-
-#### `Match(args ...any) any`
-
-Get or set the entity match criteria. Works the same as `Data()`.
-
-#### `Make() Entity`
-
-Create a new `TeamEntity` instance with the same client and
-options.
-
-#### `GetName() string`
-
-Return the entity name.
-
-
----
-
-## TerraformEntity
-
-```go
-terraform := client.Terraform(nil)
-fmt.Println(terraform.GetName()) // "terraform"
-```
-
-### Common Methods
-
-#### `Data(args ...any) any`
-
-Get or set the entity data. When called with data, sets the entity's
-internal data and returns the current data. When called without
-arguments, returns a copy of the current data.
-
-#### `Match(args ...any) any`
-
-Get or set the entity match criteria. Works the same as `Data()`.
-
-#### `Make() Entity`
-
-Create a new `TerraformEntity` instance with the same client and
-options.
-
-#### `GetName() string`
-
-Return the entity name.
-
-
----
-
-## TestEntity
-
-```go
-test := client.Test(nil)
-fmt.Println(test.GetName()) // "test"
-```
-
-### Common Methods
-
-#### `Data(args ...any) any`
-
-Get or set the entity data. When called with data, sets the entity's
-internal data and returns the current data. When called without
-arguments, returns a copy of the current data.
-
-#### `Match(args ...any) any`
-
-Get or set the entity match criteria. Works the same as `Data()`.
-
-#### `Make() Entity`
-
-Create a new `TestEntity` instance with the same client and
-options.
-
-#### `GetName() string`
-
-Return the entity name.
-
-
----
-
-## TokenEntity
-
-```go
-token := client.Token(nil)
-fmt.Println(token.GetName()) // "token"
-```
-
-### Common Methods
-
-#### `Data(args ...any) any`
-
-Get or set the entity data. When called with data, sets the entity's
-internal data and returns the current data. When called without
-arguments, returns a copy of the current data.
-
-#### `Match(args ...any) any`
-
-Get or set the entity match criteria. Works the same as `Data()`.
-
-#### `Make() Entity`
-
-Create a new `TokenEntity` instance with the same client and
-options.
-
-#### `GetName() string`
-
-Return the entity name.
-
-
----
-
-## TransferRegionEntity
-
-```go
-transferRegion := client.TransferRegion(nil)
-fmt.Println(transferRegion.GetName()) // "transfer_region"
-```
-
-### Common Methods
-
-#### `Data(args ...any) any`
-
-Get or set the entity data. When called with data, sets the entity's
-internal data and returns the current data. When called without
-arguments, returns a copy of the current data.
-
-#### `Match(args ...any) any`
-
-Get or set the entity match criteria. Works the same as `Data()`.
-
-#### `Make() Entity`
-
-Create a new `TransferRegionEntity` instance with the same client and
 options.
 
 #### `GetName() string`
@@ -8535,99 +6761,6 @@ Return the entity name.
 
 ---
 
-## VagrantEntity
-
-```go
-vagrant := client.Vagrant(nil)
-fmt.Println(vagrant.GetName()) // "vagrant"
-```
-
-### Common Methods
-
-#### `Data(args ...any) any`
-
-Get or set the entity data. When called with data, sets the entity's
-internal data and returns the current data. When called without
-arguments, returns a copy of the current data.
-
-#### `Match(args ...any) any`
-
-Get or set the entity match criteria. Works the same as `Data()`.
-
-#### `Make() Entity`
-
-Create a new `VagrantEntity` instance with the same client and
-options.
-
-#### `GetName() string`
-
-Return the entity name.
-
-
----
-
-## ValidateEntity
-
-```go
-validate := client.Validate(nil)
-fmt.Println(validate.GetName()) // "validate"
-```
-
-### Common Methods
-
-#### `Data(args ...any) any`
-
-Get or set the entity data. When called with data, sets the entity's
-internal data and returns the current data. When called without
-arguments, returns a copy of the current data.
-
-#### `Match(args ...any) any`
-
-Get or set the entity match criteria. Works the same as `Data()`.
-
-#### `Make() Entity`
-
-Create a new `ValidateEntity` instance with the same client and
-options.
-
-#### `GetName() string`
-
-Return the entity name.
-
-
----
-
-## VersionEntity
-
-```go
-version := client.Version(nil)
-fmt.Println(version.GetName()) // "version"
-```
-
-### Common Methods
-
-#### `Data(args ...any) any`
-
-Get or set the entity data. When called with data, sets the entity's
-internal data and returns the current data. When called without
-arguments, returns a copy of the current data.
-
-#### `Match(args ...any) any`
-
-Get or set the entity match criteria. Works the same as `Data()`.
-
-#### `Make() Entity`
-
-Create a new `VersionEntity` instance with the same client and
-options.
-
-#### `GetName() string`
-
-Return the entity name.
-
-
----
-
 ## VulnerabilityEntity
 
 ```go
@@ -8699,37 +6832,6 @@ Return the entity name.
 
 ---
 
-## VulnerabilityPolicyEntity
-
-```go
-vulnerabilityPolicy := client.VulnerabilityPolicy(nil)
-fmt.Println(vulnerabilityPolicy.GetName()) // "vulnerability_policy"
-```
-
-### Common Methods
-
-#### `Data(args ...any) any`
-
-Get or set the entity data. When called with data, sets the entity's
-internal data and returns the current data. When called without
-arguments, returns a copy of the current data.
-
-#### `Match(args ...any) any`
-
-Get or set the entity match criteria. Works the same as `Data()`.
-
-#### `Make() Entity`
-
-Create a new `VulnerabilityPolicyEntity` instance with the same client and
-options.
-
-#### `GetName() string`
-
-Return the entity name.
-
-
----
-
 ## WebhookEntity
 
 ```go
@@ -8781,80 +6883,18 @@ Return the entity name.
 
 ---
 
-## X509EcdsaEntity
-
-```go
-x509Ecdsa := client.X509Ecdsa(nil)
-fmt.Println(x509Ecdsa.GetName()) // "x509_ecdsa"
-```
-
-### Common Methods
-
-#### `Data(args ...any) any`
-
-Get or set the entity data. When called with data, sets the entity's
-internal data and returns the current data. When called without
-arguments, returns a copy of the current data.
-
-#### `Match(args ...any) any`
-
-Get or set the entity match criteria. Works the same as `Data()`.
-
-#### `Make() Entity`
-
-Create a new `X509EcdsaEntity` instance with the same client and
-options.
-
-#### `GetName() string`
-
-Return the entity name.
-
-
----
-
-## X509RsaEntity
-
-```go
-x509Rsa := client.X509Rsa(nil)
-fmt.Println(x509Rsa.GetName()) // "x509_rsa"
-```
-
-### Common Methods
-
-#### `Data(args ...any) any`
-
-Get or set the entity data. When called with data, sets the entity's
-internal data and returns the current data. When called without
-arguments, returns a copy of the current data.
-
-#### `Match(args ...any) any`
-
-Get or set the entity match criteria. Works the same as `Data()`.
-
-#### `Make() Entity`
-
-Create a new `X509RsaEntity` instance with the same client and
-options.
-
-#### `GetName() string`
-
-Return the entity name.
-
-
----
-
 ## Features
 
 | Feature | Version | Description |
 | --- | --- | --- |
-| `debug` | 0.0.1 | Request/response capture ring buffer for debugging |
-| `idempotency` | 0.0.1 | Idempotency keys for safe retries of mutating operations |
-| `metrics` | 0.0.1 | Statistics capture: per-operation counters and latency |
-| `paging` | 0.0.1 | Pagination signals for list operations |
-| `ratelimit` | 0.0.1 | Client-side rate limiting via a token bucket |
-| `retry` | 0.0.1 | Automatic retry of transient failures with exponential backoff |
-| `test` | 0.0.1 | In-memory mock transport for testing without a live server |
-| `timeout` | 0.0.1 | Per-request timeout with transport abort |
+| `debug` | 0.0.1 | Debug capture |
+| `idempotency` | 0.0.1 | Idempotency |
+| `metrics` | 0.0.1 | Metrics |
+| `paging` | 0.0.1 | Paging |
+| `ratelimit` | 0.0.1 | Rate limiting |
+| `retry` | 0.0.1 | Retry |
+| `test` | 0.0.1 | Test transport |
+| `timeout` | 0.0.1 | Timeout |
 
 
 Features are activated via the `feature` option:
@@ -8900,7 +6940,7 @@ rather than the transport, so their order does not affect what they observe.
 
 #### `debug`
 
-Request/response capture ring buffer for debugging.
+Debug capture.
 
 **Configuration**
 
@@ -8931,7 +6971,7 @@ its default unless you name it.
 
 #### `idempotency`
 
-Idempotency keys for safe retries of mutating operations.
+Idempotency.
 
 **Configuration**
 
@@ -8962,7 +7002,7 @@ its default unless you name it.
 
 #### `metrics`
 
-Statistics capture: per-operation counters and latency.
+Metrics.
 
 **Configuration**
 
@@ -8990,7 +7030,7 @@ its default unless you name it.
 
 #### `paging`
 
-Pagination signals for list operations.
+Paging.
 
 **Configuration**
 
@@ -9025,7 +7065,7 @@ its default unless you name it.
 
 #### `ratelimit`
 
-Client-side rate limiting via a token bucket.
+Rate limiting.
 
 **Configuration**
 
@@ -9056,7 +7096,7 @@ its default unless you name it.
 
 #### `retry`
 
-Automatic retry of transient failures with exponential backoff.
+Retry.
 
 **Configuration**
 
@@ -9090,7 +7130,7 @@ its default unless you name it.
 
 #### `test`
 
-In-memory mock transport for testing without a live server.
+Test transport.
 
 **Configuration**
 
@@ -9121,7 +7161,7 @@ its default unless you name it.
 
 #### `timeout`
 
-Per-request timeout with transport abort.
+Timeout.
 
 **Configuration**
 

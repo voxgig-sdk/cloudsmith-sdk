@@ -147,7 +147,7 @@ function dart_basic_setup($extra)
 
     // Generate idmap.
     $idmap = [];
-    foreach (["dart01", "dart02", "dart03", "package01", "package02", "package03", "repo01", "repo02", "repo03", "identifier01", "owner01"] as $k) {
+    foreach (["dart01", "dart02", "dart03", "repo01", "repo02", "repo03", "identifier01", "owner01"] as $k) {
         $idmap[$k] = strtoupper($k);
     }
 

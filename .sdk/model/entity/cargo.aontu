@@ -1,0 +1,553 @@
+# Entity: cargo
+
+main: kit: entity: cargo: {
+
+  alias: field: {}
+
+  fields: {
+    auth_mode: {
+      h: "Auth Mode"
+      n: "auth_mode"
+      r: false
+      sh: "The authentication mode to use when accessing this upstream."
+      t: "`$STRING`"
+    }
+    auth_secret: {
+      h: "Auth Secret"
+      n: "auth_secret"
+      r: false
+      sh: "Secret to provide with requests to upstream."
+      t: "`$STRING`"
+    }
+    auth_username: {
+      h: "Auth Username"
+      n: "auth_username"
+      r: false
+      sh: "Username to provide with requests to upstream."
+      t: "`$STRING`"
+    }
+    created_at: {
+      fo: "date-time"
+      h: "Created At"
+      n: "created_at"
+      r: false
+      ro: true
+      sh: "The datetime the upstream source was created."
+      t: "`$STRING`"
+    }
+    disable_reason: {
+      h: "Disable Reason"
+      n: "disable_reason"
+      r: false
+      ro: true
+      t: "`$STRING`"
+    }
+    extra_header_1: {
+      h: "Extra Header 1"
+      n: "extra_header_1"
+      r: false
+      sh: "The key for extra header #1 to send to upstream."
+      t: "`$STRING`"
+    }
+    extra_header_2: {
+      h: "Extra Header 2"
+      n: "extra_header_2"
+      r: false
+      sh: "The key for extra header #2 to send to upstream."
+      t: "`$STRING`"
+    }
+    extra_value_1: {
+      h: "Extra Value 1"
+      n: "extra_value_1"
+      r: false
+      sh: "The value for extra header #1 to send to upstream."
+      t: "`$STRING`"
+    }
+    extra_value_2: {
+      h: "Extra Value 2"
+      n: "extra_value_2"
+      r: false
+      sh: "The value for extra header #2 to send to upstream."
+      t: "`$STRING`"
+    }
+    id: {
+      h: "Id"
+      n: "id"
+      r: false
+      t: "`$STRING`"
+    }
+    is_active: {
+      h: "Is Active"
+      n: "is_active"
+      r: false
+      sh: "Whether or not this upstream is active and ready for requests."
+      t: "`$BOOLEAN`"
+    }
+    mode: {
+      h: "Mode"
+      n: "mode"
+      r: false
+      sh: "The mode that this upstream should operate in."
+      t: "`$STRING`"
+    }
+    name: {
+      h: "Name"
+      n: "name"
+      r: true
+      sh: "A descriptive name for this upstream source."
+      t: "`$STRING`"
+    }
+    pending_validation: {
+      h: "Pending Validation"
+      n: "pending_validation"
+      r: false
+      ro: true
+      sh: "When true, this upstream source is pending validation."
+      t: "`$BOOLEAN`"
+    }
+    priority: {
+      h: "Priority"
+      n: "priority"
+      r: false
+      sh: "Upstream sources are selected for resolving requests by sequential order (1..n), followed by creation date."
+      t: "`$INTEGER`"
+    }
+    slug_perm: {
+      fo: "slug"
+      h: "Slug Perm"
+      n: "slug_perm"
+      r: false
+      ro: true
+      t: "`$STRING`"
+    }
+    updated_at: {
+      fo: "date-time"
+      h: "Updated At"
+      n: "updated_at"
+      r: false
+      ro: true
+      t: "`$STRING`"
+    }
+    upstream_url: {
+      fo: "uri"
+      h: "Upstream Url"
+      n: "upstream_url"
+      r: true
+      sh: "The URL for this upstream source."
+      t: "`$STRING`"
+    }
+    verify_ssl: {
+      h: "Verify Ssl"
+      n: "verify_ssl"
+      r: false
+      sh: "If enabled, SSL certificates are verified when requests are made to this upstream."
+      t: "`$BOOLEAN`"
+    }
+  }
+
+  id: {
+    field: "id"
+    name: "id"
+  }
+
+  name: "cargo"
+  op: {
+    create: {
+      name: "create"
+      points: [
+        {
+          co: {
+            id: "POST /repos/{owner}/{identifier}/upstream/cargo/"
+            source: "swagger2"
+            version: 2
+          }
+          g: {
+            params: [
+              {
+                k: "param"
+                n: "identifier"
+                or: "identifier"
+                r: true
+                t: "`$ANY`"
+              }
+              {
+                k: "param"
+                n: "owner"
+                or: "owner"
+                r: true
+                t: "`$ANY`"
+              }
+            ]
+            query: [
+              {
+                k: "query"
+                n: "data"
+                or: "data"
+                r: false
+                t: "`$OBJECT`"
+              }
+            ]
+          }
+          m: "POST"
+          o: "/repos/{owner}/{identifier}/upstream/cargo/"
+          q: {
+            exist: [
+              "data"
+              "identifier"
+              "owner"
+            ]
+          }
+          s: [
+            {
+              lit: "repos"
+            }
+            {
+              var: "owner"
+            }
+            {
+              var: "identifier"
+            }
+            {
+              lit: "upstream"
+            }
+            {
+              lit: "cargo"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+    list: {
+      name: "list"
+      points: [
+        {
+          co: {
+            id: "GET /repos/{owner}/{identifier}/upstream/cargo/"
+            source: "swagger2"
+            version: 2
+          }
+          g: {
+            params: [
+              {
+                k: "param"
+                n: "identifier"
+                or: "identifier"
+                r: true
+                t: "`$ANY`"
+              }
+              {
+                k: "param"
+                n: "owner"
+                or: "owner"
+                r: true
+                t: "`$ANY`"
+              }
+            ]
+            query: [
+              {
+                k: "query"
+                n: "page"
+                or: "page"
+                r: false
+                t: "`$INTEGER`"
+              }
+              {
+                k: "query"
+                n: "page_size"
+                or: "page_size"
+                r: false
+                t: "`$INTEGER`"
+              }
+            ]
+          }
+          m: "GET"
+          o: "/repos/{owner}/{identifier}/upstream/cargo/"
+          q: {
+            exist: [
+              "identifier"
+              "owner"
+              "page"
+              "page_size"
+            ]
+          }
+          s: [
+            {
+              lit: "repos"
+            }
+            {
+              var: "owner"
+            }
+            {
+              var: "identifier"
+            }
+            {
+              lit: "upstream"
+            }
+            {
+              lit: "cargo"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+    load: {
+      name: "load"
+      points: [
+        {
+          co: {
+            id: "GET /repos/{owner}/{identifier}/upstream/cargo/{slug_perm}/"
+            source: "swagger2"
+            version: 2
+          }
+          g: {
+            params: [
+              {
+                k: "param"
+                n: "id"
+                or: "slug_perm"
+                r: true
+                t: "`$STRING`"
+              }
+              {
+                k: "param"
+                n: "identifier"
+                or: "identifier"
+                r: true
+                t: "`$ANY`"
+              }
+              {
+                k: "param"
+                n: "owner"
+                or: "owner"
+                r: true
+                t: "`$ANY`"
+              }
+            ]
+          }
+          m: "GET"
+          o: "/repos/{owner}/{identifier}/upstream/cargo/{slug_perm}/"
+          q: {
+            exist: [
+              "id"
+              "identifier"
+              "owner"
+            ]
+          }
+          r: {
+            param: {
+              slug_perm: "id"
+            }
+          }
+          s: [
+            {
+              lit: "repos"
+            }
+            {
+              var: "owner"
+            }
+            {
+              var: "identifier"
+            }
+            {
+              lit: "upstream"
+            }
+            {
+              lit: "cargo"
+            }
+            {
+              var: "id"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+    patch: {
+      name: "patch"
+      points: [
+        {
+          co: {
+            id: "PATCH /repos/{owner}/{identifier}/upstream/cargo/{slug_perm}/"
+            source: "swagger2"
+            version: 2
+          }
+          g: {
+            params: [
+              {
+                k: "param"
+                n: "id"
+                or: "slug_perm"
+                r: true
+                t: "`$STRING`"
+              }
+              {
+                k: "param"
+                n: "identifier"
+                or: "identifier"
+                r: true
+                t: "`$ANY`"
+              }
+              {
+                k: "param"
+                n: "owner"
+                or: "owner"
+                r: true
+                t: "`$ANY`"
+              }
+            ]
+            query: [
+              {
+                k: "query"
+                n: "data"
+                or: "data"
+                r: false
+                t: "`$OBJECT`"
+              }
+            ]
+          }
+          m: "PATCH"
+          o: "/repos/{owner}/{identifier}/upstream/cargo/{slug_perm}/"
+          q: {
+            exist: [
+              "data"
+              "id"
+              "identifier"
+              "owner"
+            ]
+          }
+          r: {
+            param: {
+              slug_perm: "id"
+            }
+          }
+          s: [
+            {
+              lit: "repos"
+            }
+            {
+              var: "owner"
+            }
+            {
+              var: "identifier"
+            }
+            {
+              lit: "upstream"
+            }
+            {
+              lit: "cargo"
+            }
+            {
+              var: "id"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+    update: {
+      name: "update"
+      points: [
+        {
+          co: {
+            id: "PUT /repos/{owner}/{identifier}/upstream/cargo/{slug_perm}/"
+            source: "swagger2"
+            version: 2
+          }
+          g: {
+            params: [
+              {
+                k: "param"
+                n: "id"
+                or: "slug_perm"
+                r: true
+                t: "`$STRING`"
+              }
+              {
+                k: "param"
+                n: "identifier"
+                or: "identifier"
+                r: true
+                t: "`$ANY`"
+              }
+              {
+                k: "param"
+                n: "owner"
+                or: "owner"
+                r: true
+                t: "`$ANY`"
+              }
+            ]
+            query: [
+              {
+                k: "query"
+                n: "data"
+                or: "data"
+                r: false
+                t: "`$OBJECT`"
+              }
+            ]
+          }
+          m: "PUT"
+          o: "/repos/{owner}/{identifier}/upstream/cargo/{slug_perm}/"
+          q: {
+            exist: [
+              "data"
+              "id"
+              "identifier"
+              "owner"
+            ]
+          }
+          r: {
+            param: {
+              slug_perm: "id"
+            }
+          }
+          s: [
+            {
+              lit: "repos"
+            }
+            {
+              var: "owner"
+            }
+            {
+              var: "identifier"
+            }
+            {
+              lit: "upstream"
+            }
+            {
+              lit: "cargo"
+            }
+            {
+              var: "id"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+  }
+
+
+  relations: ancestors: [
+    [path("$.main.kit.entity.repo")]
+  ]
+
+}

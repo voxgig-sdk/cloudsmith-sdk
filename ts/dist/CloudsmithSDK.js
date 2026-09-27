@@ -2,54 +2,27 @@
 // Cloudsmith Ts SDK
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.SDK = exports.CloudsmithSDK = exports.CloudsmithEntityBase = exports.BaseFeature = exports.config = exports.stdutil = void 0;
-const AbortEntity_1 = require("./entity/AbortEntity");
-const AlpineEntity_1 = require("./entity/AlpineEntity");
-const AuditLogEntity_1 = require("./entity/AuditLogEntity");
-const BasicEntity_1 = require("./entity/BasicEntity");
 const CargoEntity_1 = require("./entity/CargoEntity");
-const CocoapodEntity_1 = require("./entity/CocoapodEntity");
-const CompleteEntity_1 = require("./entity/CompleteEntity");
 const ComposerEntity_1 = require("./entity/ComposerEntity");
-const ConanEntity_1 = require("./entity/ConanEntity");
 const CondaEntity_1 = require("./entity/CondaEntity");
-const CopyEntity_1 = require("./entity/CopyEntity");
 const CranEntity_1 = require("./entity/CranEntity");
 const DartEntity_1 = require("./entity/DartEntity");
 const DebEntity_1 = require("./entity/DebEntity");
-const DenyPolicyEntity_1 = require("./entity/DenyPolicyEntity");
-const DependencyEntity_1 = require("./entity/DependencyEntity");
-const DisableEntity_1 = require("./entity/DisableEntity");
 const DistributionFullEntity_1 = require("./entity/DistributionFullEntity");
-const DistroEntity_1 = require("./entity/DistroEntity");
 const DockerEntity_1 = require("./entity/DockerEntity");
 const DynamicMappingEntity_1 = require("./entity/DynamicMappingEntity");
-const EcdsaEntity_1 = require("./entity/EcdsaEntity");
-const EnableEntity_1 = require("./entity/EnableEntity");
 const EntitlementEntity_1 = require("./entity/EntitlementEntity");
-const EvaluationEntity_1 = require("./entity/EvaluationEntity");
 const FileEntity_1 = require("./entity/FileEntity");
 const FormatEntity_1 = require("./entity/FormatEntity");
-const GeoipEntity_1 = require("./entity/GeoipEntity");
 const GonEntity_1 = require("./entity/GonEntity");
-const GpgEntity_1 = require("./entity/GpgEntity");
-const GroupEntity_1 = require("./entity/GroupEntity");
 const HelmEntity_1 = require("./entity/HelmEntity");
 const HexEntity_1 = require("./entity/HexEntity");
-const HistoryEntity_1 = require("./entity/HistoryEntity");
 const HuggingfaceEntity_1 = require("./entity/HuggingfaceEntity");
-const InfoEntity_1 = require("./entity/InfoEntity");
-const InviteEntity_1 = require("./entity/InviteEntity");
-const LicensePolicyEntity_1 = require("./entity/LicensePolicyEntity");
-const LimitEntity_1 = require("./entity/LimitEntity");
-const LuarockEntity_1 = require("./entity/LuarockEntity");
 const MavenEntity_1 = require("./entity/MavenEntity");
-const MemberEntity_1 = require("./entity/MemberEntity");
-const MoveEntity_1 = require("./entity/MoveEntity");
 const NamespaceEntity_1 = require("./entity/NamespaceEntity");
 const NamespaceAuditLogEntity_1 = require("./entity/NamespaceAuditLogEntity");
 const NpmEntity_1 = require("./entity/NpmEntity");
 const NugetEntity_1 = require("./entity/NugetEntity");
-const OpenidConnectEntity_1 = require("./entity/OpenidConnectEntity");
 const OrgEntity_1 = require("./entity/OrgEntity");
 const OrganizationGroupSyncEntity_1 = require("./entity/OrganizationGroupSyncEntity");
 const OrganizationGroupSyncStatusEntity_1 = require("./entity/OrganizationGroupSyncStatusEntity");
@@ -63,8 +36,6 @@ const OrganizationPackageVulnerabilityPolicyEntity_1 = require("./entity/Organiz
 const OrganizationSamlAuthEntity_1 = require("./entity/OrganizationSamlAuthEntity");
 const OrganizationTeamEntity_1 = require("./entity/OrganizationTeamEntity");
 const OrganizationTeamMemberEntity_1 = require("./entity/OrganizationTeamMemberEntity");
-const OssEntity_1 = require("./entity/OssEntity");
-const P2nEntity_1 = require("./entity/P2nEntity");
 const PackageEntity_1 = require("./entity/PackageEntity");
 const PackageDenyPolicyEntity_1 = require("./entity/PackageDenyPolicyEntity");
 const PackageFilePartsUploadEntity_1 = require("./entity/PackageFilePartsUploadEntity");
@@ -72,16 +43,10 @@ const PackageFileUploadEntity_1 = require("./entity/PackageFileUploadEntity");
 const PackageLicensePolicyEvaluationEntity_1 = require("./entity/PackageLicensePolicyEvaluationEntity");
 const PackageVersionBadgeEntity_1 = require("./entity/PackageVersionBadgeEntity");
 const PackageVulnerabilityPolicyEvaluationEntity_1 = require("./entity/PackageVulnerabilityPolicyEvaluationEntity");
-const PrivilegeEntity_1 = require("./entity/PrivilegeEntity");
-const ProfileEntity_1 = require("./entity/ProfileEntity");
 const ProviderSettingEntity_1 = require("./entity/ProviderSettingEntity");
 const ProviderSettingsWriteEntity_1 = require("./entity/ProviderSettingsWriteEntity");
 const PythonEntity_1 = require("./entity/PythonEntity");
-const QuarantineEntity_1 = require("./entity/QuarantineEntity");
 const QuotaEntity_1 = require("./entity/QuotaEntity");
-const RawEntity_1 = require("./entity/RawEntity");
-const RefreshEntity_1 = require("./entity/RefreshEntity");
-const RegenerateEntity_1 = require("./entity/RegenerateEntity");
 const RepoEntity_1 = require("./entity/RepoEntity");
 const RepositoryAuditLogEntity_1 = require("./entity/RepositoryAuditLogEntity");
 const RepositoryEcdsaKeyEntity_1 = require("./entity/RepositoryEcdsaKeyEntity");
@@ -89,7 +54,7 @@ const RepositoryGeoIpRuleEntity_1 = require("./entity/RepositoryGeoIpRuleEntity"
 const RepositoryGeoIpStatusEntity_1 = require("./entity/RepositoryGeoIpStatusEntity");
 const RepositoryGeoIpTestAddressEntity_1 = require("./entity/RepositoryGeoIpTestAddressEntity");
 const RepositoryGpgKeyEntity_1 = require("./entity/RepositoryGpgKeyEntity");
-const RepositoryPrivilegeInputEntity_1 = require("./entity/RepositoryPrivilegeInputEntity");
+const RepositoryPrivilegeDictEntity_1 = require("./entity/RepositoryPrivilegeDictEntity");
 const RepositoryRetentionRuleEntity_1 = require("./entity/RepositoryRetentionRuleEntity");
 const RepositoryRsaKeyEntity_1 = require("./entity/RepositoryRsaKeyEntity");
 const RepositoryTokenEntity_1 = require("./entity/RepositoryTokenEntity");
@@ -98,41 +63,20 @@ const RepositoryTokenSyncEntity_1 = require("./entity/RepositoryTokenSyncEntity"
 const RepositoryWebhookEntity_1 = require("./entity/RepositoryWebhookEntity");
 const RepositoryX509EcdsaCertificateEntity_1 = require("./entity/RepositoryX509EcdsaCertificateEntity");
 const RepositoryX509RsaCertificateEntity_1 = require("./entity/RepositoryX509RsaCertificateEntity");
-const ResetEntity_1 = require("./entity/ResetEntity");
 const ResourcesRateCheckEntity_1 = require("./entity/ResourcesRateCheckEntity");
-const ResyncEntity_1 = require("./entity/ResyncEntity");
-const RetentionEntity_1 = require("./entity/RetentionEntity");
 const RpmEntity_1 = require("./entity/RpmEntity");
-const RsaEntity_1 = require("./entity/RsaEntity");
 const RubyEntity_1 = require("./entity/RubyEntity");
-const SamlGroupSyncEntity_1 = require("./entity/SamlGroupSyncEntity");
-const ScanEntity_1 = require("./entity/ScanEntity");
-const SelfEntity_1 = require("./entity/SelfEntity");
 const ServiceEntity_1 = require("./entity/ServiceEntity");
-const StatusEntity_1 = require("./entity/StatusEntity");
 const StatusBasicEntity_1 = require("./entity/StatusBasicEntity");
 const StorageRegionEntity_1 = require("./entity/StorageRegionEntity");
 const SwiftEntity_1 = require("./entity/SwiftEntity");
-const SyncEntity_1 = require("./entity/SyncEntity");
-const TagEntity_1 = require("./entity/TagEntity");
-const TeamEntity_1 = require("./entity/TeamEntity");
-const TerraformEntity_1 = require("./entity/TerraformEntity");
-const TestEntity_1 = require("./entity/TestEntity");
-const TokenEntity_1 = require("./entity/TokenEntity");
-const TransferRegionEntity_1 = require("./entity/TransferRegionEntity");
 const UserEntity_1 = require("./entity/UserEntity");
 const UserAuthTokenEntity_1 = require("./entity/UserAuthTokenEntity");
 const UserAuthenticationTokenEntity_1 = require("./entity/UserAuthenticationTokenEntity");
 const UserBriefEntity_1 = require("./entity/UserBriefEntity");
 const UserProfileEntity_1 = require("./entity/UserProfileEntity");
-const VagrantEntity_1 = require("./entity/VagrantEntity");
-const ValidateEntity_1 = require("./entity/ValidateEntity");
-const VersionEntity_1 = require("./entity/VersionEntity");
 const VulnerabilityEntity_1 = require("./entity/VulnerabilityEntity");
-const VulnerabilityPolicyEntity_1 = require("./entity/VulnerabilityPolicyEntity");
 const WebhookEntity_1 = require("./entity/WebhookEntity");
-const X509EcdsaEntity_1 = require("./entity/X509EcdsaEntity");
-const X509RsaEntity_1 = require("./entity/X509RsaEntity");
 const node_util_1 = require("node:util");
 const Config_1 = require("./Config");
 Object.defineProperty(exports, "config", { enumerable: true, get: function () { return Config_1.config; } });
@@ -214,7 +158,6 @@ class CloudsmithSDK {
             ctrl: fetchargs.ctrl || {},
         }, this._rootctx);
         const options = this._options;
-        // Build spec directly from SDK options + user-provided fetch args.
         const spec = {
             base: options.base,
             prefix: options.prefix,
@@ -228,14 +171,12 @@ class CloudsmithSDK {
             step: 'start',
         };
         ctx.spec = spec;
-        // Merge user-provided headers over SDK defaults.
         if (fetchargs.headers) {
             const uheaders = fetchargs.headers;
             for (let key in uheaders) {
                 spec.headers[key] = uheaders[key];
             }
         }
-        // Apply SDK auth (apikey, auth prefix, etc.)
         const authResult = prepareAuth(ctx);
         if (authResult instanceof Error) {
             return authResult;
@@ -310,18 +251,6 @@ class CloudsmithSDK {
             return { ok: false, err };
         }
     }
-    // Raw GraphQL access: the pressure valve that makes the generated
-    // surface's deliberate omissions (per-call selection sets, typed filter
-    // builders, batching, subscriptions) livable — the whole schema stays
-    // reachable.
-    //
-    // Thin wrapper over the same prepare/fetch path `direct` uses, with the
-    // one thing raw `direct` cannot do for GraphQL: a GraphQL failure rides
-    // HTTP 200 as a top-level `errors` array, so status alone would report a
-    // failed query as ok.
-    //
-    // NOTE: like `direct`, this bypasses the feature pipeline — no retry,
-    // ratelimit or paging features apply.
     async graphql(query, variables, ctrl) {
         const options = this._options;
         if (!options.allow.op.includes('graphql')) {
@@ -355,54 +284,12 @@ class CloudsmithSDK {
         }
         return res;
     }
-    // Entity access: `client.Abort().list()` / `client.Abort().load({ id })`.
-    // The argument is the entity OPTIONS object (passed to the entity
-    // constructor as entopts), not initial entity data.
-    Abort(entopts) {
-        const self = this;
-        return new AbortEntity_1.AbortEntity(self, entopts);
-    }
-    // Entity access: `client.Alpine().list()` / `client.Alpine().load({ id })`.
-    // The argument is the entity OPTIONS object (passed to the entity
-    // constructor as entopts), not initial entity data.
-    Alpine(entopts) {
-        const self = this;
-        return new AlpineEntity_1.AlpineEntity(self, entopts);
-    }
-    // Entity access: `client.AuditLog().list()` / `client.AuditLog().load({ id })`.
-    // The argument is the entity OPTIONS object (passed to the entity
-    // constructor as entopts), not initial entity data.
-    AuditLog(entopts) {
-        const self = this;
-        return new AuditLogEntity_1.AuditLogEntity(self, entopts);
-    }
-    // Entity access: `client.Basic().list()` / `client.Basic().load({ id })`.
-    // The argument is the entity OPTIONS object (passed to the entity
-    // constructor as entopts), not initial entity data.
-    Basic(entopts) {
-        const self = this;
-        return new BasicEntity_1.BasicEntity(self, entopts);
-    }
     // Entity access: `client.Cargo().list()` / `client.Cargo().load({ id })`.
     // The argument is the entity OPTIONS object (passed to the entity
     // constructor as entopts), not initial entity data.
     Cargo(entopts) {
         const self = this;
         return new CargoEntity_1.CargoEntity(self, entopts);
-    }
-    // Entity access: `client.Cocoapod().list()` / `client.Cocoapod().load({ id })`.
-    // The argument is the entity OPTIONS object (passed to the entity
-    // constructor as entopts), not initial entity data.
-    Cocoapod(entopts) {
-        const self = this;
-        return new CocoapodEntity_1.CocoapodEntity(self, entopts);
-    }
-    // Entity access: `client.Complete().list()` / `client.Complete().load({ id })`.
-    // The argument is the entity OPTIONS object (passed to the entity
-    // constructor as entopts), not initial entity data.
-    Complete(entopts) {
-        const self = this;
-        return new CompleteEntity_1.CompleteEntity(self, entopts);
     }
     // Entity access: `client.Composer().list()` / `client.Composer().load({ id })`.
     // The argument is the entity OPTIONS object (passed to the entity
@@ -411,26 +298,12 @@ class CloudsmithSDK {
         const self = this;
         return new ComposerEntity_1.ComposerEntity(self, entopts);
     }
-    // Entity access: `client.Conan().list()` / `client.Conan().load({ id })`.
-    // The argument is the entity OPTIONS object (passed to the entity
-    // constructor as entopts), not initial entity data.
-    Conan(entopts) {
-        const self = this;
-        return new ConanEntity_1.ConanEntity(self, entopts);
-    }
     // Entity access: `client.Conda().list()` / `client.Conda().load({ id })`.
     // The argument is the entity OPTIONS object (passed to the entity
     // constructor as entopts), not initial entity data.
     Conda(entopts) {
         const self = this;
         return new CondaEntity_1.CondaEntity(self, entopts);
-    }
-    // Entity access: `client.Copy().list()` / `client.Copy().load({ id })`.
-    // The argument is the entity OPTIONS object (passed to the entity
-    // constructor as entopts), not initial entity data.
-    Copy(entopts) {
-        const self = this;
-        return new CopyEntity_1.CopyEntity(self, entopts);
     }
     // Entity access: `client.Cran().list()` / `client.Cran().load({ id })`.
     // The argument is the entity OPTIONS object (passed to the entity
@@ -453,40 +326,12 @@ class CloudsmithSDK {
         const self = this;
         return new DebEntity_1.DebEntity(self, entopts);
     }
-    // Entity access: `client.DenyPolicy().list()` / `client.DenyPolicy().load({ id })`.
-    // The argument is the entity OPTIONS object (passed to the entity
-    // constructor as entopts), not initial entity data.
-    DenyPolicy(entopts) {
-        const self = this;
-        return new DenyPolicyEntity_1.DenyPolicyEntity(self, entopts);
-    }
-    // Entity access: `client.Dependency().list()` / `client.Dependency().load({ id })`.
-    // The argument is the entity OPTIONS object (passed to the entity
-    // constructor as entopts), not initial entity data.
-    Dependency(entopts) {
-        const self = this;
-        return new DependencyEntity_1.DependencyEntity(self, entopts);
-    }
-    // Entity access: `client.Disable().list()` / `client.Disable().load({ id })`.
-    // The argument is the entity OPTIONS object (passed to the entity
-    // constructor as entopts), not initial entity data.
-    Disable(entopts) {
-        const self = this;
-        return new DisableEntity_1.DisableEntity(self, entopts);
-    }
     // Entity access: `client.DistributionFull().list()` / `client.DistributionFull().load({ id })`.
     // The argument is the entity OPTIONS object (passed to the entity
     // constructor as entopts), not initial entity data.
     DistributionFull(entopts) {
         const self = this;
         return new DistributionFullEntity_1.DistributionFullEntity(self, entopts);
-    }
-    // Entity access: `client.Distro().list()` / `client.Distro().load({ id })`.
-    // The argument is the entity OPTIONS object (passed to the entity
-    // constructor as entopts), not initial entity data.
-    Distro(entopts) {
-        const self = this;
-        return new DistroEntity_1.DistroEntity(self, entopts);
     }
     // Entity access: `client.Docker().list()` / `client.Docker().load({ id })`.
     // The argument is the entity OPTIONS object (passed to the entity
@@ -502,33 +347,12 @@ class CloudsmithSDK {
         const self = this;
         return new DynamicMappingEntity_1.DynamicMappingEntity(self, entopts);
     }
-    // Entity access: `client.Ecdsa().list()` / `client.Ecdsa().load({ id })`.
-    // The argument is the entity OPTIONS object (passed to the entity
-    // constructor as entopts), not initial entity data.
-    Ecdsa(entopts) {
-        const self = this;
-        return new EcdsaEntity_1.EcdsaEntity(self, entopts);
-    }
-    // Entity access: `client.Enable().list()` / `client.Enable().load({ id })`.
-    // The argument is the entity OPTIONS object (passed to the entity
-    // constructor as entopts), not initial entity data.
-    Enable(entopts) {
-        const self = this;
-        return new EnableEntity_1.EnableEntity(self, entopts);
-    }
     // Entity access: `client.Entitlement().list()` / `client.Entitlement().load({ id })`.
     // The argument is the entity OPTIONS object (passed to the entity
     // constructor as entopts), not initial entity data.
     Entitlement(entopts) {
         const self = this;
         return new EntitlementEntity_1.EntitlementEntity(self, entopts);
-    }
-    // Entity access: `client.Evaluation().list()` / `client.Evaluation().load({ id })`.
-    // The argument is the entity OPTIONS object (passed to the entity
-    // constructor as entopts), not initial entity data.
-    Evaluation(entopts) {
-        const self = this;
-        return new EvaluationEntity_1.EvaluationEntity(self, entopts);
     }
     // Entity access: `client.File().list()` / `client.File().load({ id })`.
     // The argument is the entity OPTIONS object (passed to the entity
@@ -544,33 +368,12 @@ class CloudsmithSDK {
         const self = this;
         return new FormatEntity_1.FormatEntity(self, entopts);
     }
-    // Entity access: `client.Geoip().list()` / `client.Geoip().load({ id })`.
-    // The argument is the entity OPTIONS object (passed to the entity
-    // constructor as entopts), not initial entity data.
-    Geoip(entopts) {
-        const self = this;
-        return new GeoipEntity_1.GeoipEntity(self, entopts);
-    }
     // Entity access: `client.Gon().list()` / `client.Gon().load({ id })`.
     // The argument is the entity OPTIONS object (passed to the entity
     // constructor as entopts), not initial entity data.
     Gon(entopts) {
         const self = this;
         return new GonEntity_1.GonEntity(self, entopts);
-    }
-    // Entity access: `client.Gpg().list()` / `client.Gpg().load({ id })`.
-    // The argument is the entity OPTIONS object (passed to the entity
-    // constructor as entopts), not initial entity data.
-    Gpg(entopts) {
-        const self = this;
-        return new GpgEntity_1.GpgEntity(self, entopts);
-    }
-    // Entity access: `client.Group().list()` / `client.Group().load({ id })`.
-    // The argument is the entity OPTIONS object (passed to the entity
-    // constructor as entopts), not initial entity data.
-    Group(entopts) {
-        const self = this;
-        return new GroupEntity_1.GroupEntity(self, entopts);
     }
     // Entity access: `client.Helm().list()` / `client.Helm().load({ id })`.
     // The argument is the entity OPTIONS object (passed to the entity
@@ -586,13 +389,6 @@ class CloudsmithSDK {
         const self = this;
         return new HexEntity_1.HexEntity(self, entopts);
     }
-    // Entity access: `client.History().list()` / `client.History().load({ id })`.
-    // The argument is the entity OPTIONS object (passed to the entity
-    // constructor as entopts), not initial entity data.
-    History(entopts) {
-        const self = this;
-        return new HistoryEntity_1.HistoryEntity(self, entopts);
-    }
     // Entity access: `client.Huggingface().list()` / `client.Huggingface().load({ id })`.
     // The argument is the entity OPTIONS object (passed to the entity
     // constructor as entopts), not initial entity data.
@@ -600,61 +396,12 @@ class CloudsmithSDK {
         const self = this;
         return new HuggingfaceEntity_1.HuggingfaceEntity(self, entopts);
     }
-    // Entity access: `client.Info().list()` / `client.Info().load({ id })`.
-    // The argument is the entity OPTIONS object (passed to the entity
-    // constructor as entopts), not initial entity data.
-    Info(entopts) {
-        const self = this;
-        return new InfoEntity_1.InfoEntity(self, entopts);
-    }
-    // Entity access: `client.Invite().list()` / `client.Invite().load({ id })`.
-    // The argument is the entity OPTIONS object (passed to the entity
-    // constructor as entopts), not initial entity data.
-    Invite(entopts) {
-        const self = this;
-        return new InviteEntity_1.InviteEntity(self, entopts);
-    }
-    // Entity access: `client.LicensePolicy().list()` / `client.LicensePolicy().load({ id })`.
-    // The argument is the entity OPTIONS object (passed to the entity
-    // constructor as entopts), not initial entity data.
-    LicensePolicy(entopts) {
-        const self = this;
-        return new LicensePolicyEntity_1.LicensePolicyEntity(self, entopts);
-    }
-    // Entity access: `client.Limit().list()` / `client.Limit().load({ id })`.
-    // The argument is the entity OPTIONS object (passed to the entity
-    // constructor as entopts), not initial entity data.
-    Limit(entopts) {
-        const self = this;
-        return new LimitEntity_1.LimitEntity(self, entopts);
-    }
-    // Entity access: `client.Luarock().list()` / `client.Luarock().load({ id })`.
-    // The argument is the entity OPTIONS object (passed to the entity
-    // constructor as entopts), not initial entity data.
-    Luarock(entopts) {
-        const self = this;
-        return new LuarockEntity_1.LuarockEntity(self, entopts);
-    }
     // Entity access: `client.Maven().list()` / `client.Maven().load({ id })`.
     // The argument is the entity OPTIONS object (passed to the entity
     // constructor as entopts), not initial entity data.
     Maven(entopts) {
         const self = this;
         return new MavenEntity_1.MavenEntity(self, entopts);
-    }
-    // Entity access: `client.Member().list()` / `client.Member().load({ id })`.
-    // The argument is the entity OPTIONS object (passed to the entity
-    // constructor as entopts), not initial entity data.
-    Member(entopts) {
-        const self = this;
-        return new MemberEntity_1.MemberEntity(self, entopts);
-    }
-    // Entity access: `client.Move().list()` / `client.Move().load({ id })`.
-    // The argument is the entity OPTIONS object (passed to the entity
-    // constructor as entopts), not initial entity data.
-    Move(entopts) {
-        const self = this;
-        return new MoveEntity_1.MoveEntity(self, entopts);
     }
     // Entity access: `client.Namespace().list()` / `client.Namespace().load({ id })`.
     // The argument is the entity OPTIONS object (passed to the entity
@@ -683,13 +430,6 @@ class CloudsmithSDK {
     Nuget(entopts) {
         const self = this;
         return new NugetEntity_1.NugetEntity(self, entopts);
-    }
-    // Entity access: `client.OpenidConnect().list()` / `client.OpenidConnect().load({ id })`.
-    // The argument is the entity OPTIONS object (passed to the entity
-    // constructor as entopts), not initial entity data.
-    OpenidConnect(entopts) {
-        const self = this;
-        return new OpenidConnectEntity_1.OpenidConnectEntity(self, entopts);
     }
     // Entity access: `client.Org().list()` / `client.Org().load({ id })`.
     // The argument is the entity OPTIONS object (passed to the entity
@@ -782,20 +522,6 @@ class CloudsmithSDK {
         const self = this;
         return new OrganizationTeamMemberEntity_1.OrganizationTeamMemberEntity(self, entopts);
     }
-    // Entity access: `client.Oss().list()` / `client.Oss().load({ id })`.
-    // The argument is the entity OPTIONS object (passed to the entity
-    // constructor as entopts), not initial entity data.
-    Oss(entopts) {
-        const self = this;
-        return new OssEntity_1.OssEntity(self, entopts);
-    }
-    // Entity access: `client.P2n().list()` / `client.P2n().load({ id })`.
-    // The argument is the entity OPTIONS object (passed to the entity
-    // constructor as entopts), not initial entity data.
-    P2n(entopts) {
-        const self = this;
-        return new P2nEntity_1.P2nEntity(self, entopts);
-    }
     // Entity access: `client.Package().list()` / `client.Package().load({ id })`.
     // The argument is the entity OPTIONS object (passed to the entity
     // constructor as entopts), not initial entity data.
@@ -845,20 +571,6 @@ class CloudsmithSDK {
         const self = this;
         return new PackageVulnerabilityPolicyEvaluationEntity_1.PackageVulnerabilityPolicyEvaluationEntity(self, entopts);
     }
-    // Entity access: `client.Privilege().list()` / `client.Privilege().load({ id })`.
-    // The argument is the entity OPTIONS object (passed to the entity
-    // constructor as entopts), not initial entity data.
-    Privilege(entopts) {
-        const self = this;
-        return new PrivilegeEntity_1.PrivilegeEntity(self, entopts);
-    }
-    // Entity access: `client.Profile().list()` / `client.Profile().load({ id })`.
-    // The argument is the entity OPTIONS object (passed to the entity
-    // constructor as entopts), not initial entity data.
-    Profile(entopts) {
-        const self = this;
-        return new ProfileEntity_1.ProfileEntity(self, entopts);
-    }
     // Entity access: `client.ProviderSetting().list()` / `client.ProviderSetting().load({ id })`.
     // The argument is the entity OPTIONS object (passed to the entity
     // constructor as entopts), not initial entity data.
@@ -880,40 +592,12 @@ class CloudsmithSDK {
         const self = this;
         return new PythonEntity_1.PythonEntity(self, entopts);
     }
-    // Entity access: `client.Quarantine().list()` / `client.Quarantine().load({ id })`.
-    // The argument is the entity OPTIONS object (passed to the entity
-    // constructor as entopts), not initial entity data.
-    Quarantine(entopts) {
-        const self = this;
-        return new QuarantineEntity_1.QuarantineEntity(self, entopts);
-    }
     // Entity access: `client.Quota().list()` / `client.Quota().load({ id })`.
     // The argument is the entity OPTIONS object (passed to the entity
     // constructor as entopts), not initial entity data.
     Quota(entopts) {
         const self = this;
         return new QuotaEntity_1.QuotaEntity(self, entopts);
-    }
-    // Entity access: `client.Raw().list()` / `client.Raw().load({ id })`.
-    // The argument is the entity OPTIONS object (passed to the entity
-    // constructor as entopts), not initial entity data.
-    Raw(entopts) {
-        const self = this;
-        return new RawEntity_1.RawEntity(self, entopts);
-    }
-    // Entity access: `client.Refresh().list()` / `client.Refresh().load({ id })`.
-    // The argument is the entity OPTIONS object (passed to the entity
-    // constructor as entopts), not initial entity data.
-    Refresh(entopts) {
-        const self = this;
-        return new RefreshEntity_1.RefreshEntity(self, entopts);
-    }
-    // Entity access: `client.Regenerate().list()` / `client.Regenerate().load({ id })`.
-    // The argument is the entity OPTIONS object (passed to the entity
-    // constructor as entopts), not initial entity data.
-    Regenerate(entopts) {
-        const self = this;
-        return new RegenerateEntity_1.RegenerateEntity(self, entopts);
     }
     // Entity access: `client.Repo().list()` / `client.Repo().load({ id })`.
     // The argument is the entity OPTIONS object (passed to the entity
@@ -964,12 +648,12 @@ class CloudsmithSDK {
         const self = this;
         return new RepositoryGpgKeyEntity_1.RepositoryGpgKeyEntity(self, entopts);
     }
-    // Entity access: `client.RepositoryPrivilegeInput().list()` / `client.RepositoryPrivilegeInput().load({ id })`.
+    // Entity access: `client.RepositoryPrivilegeDict().list()` / `client.RepositoryPrivilegeDict().load({ id })`.
     // The argument is the entity OPTIONS object (passed to the entity
     // constructor as entopts), not initial entity data.
-    RepositoryPrivilegeInput(entopts) {
+    RepositoryPrivilegeDict(entopts) {
         const self = this;
-        return new RepositoryPrivilegeInputEntity_1.RepositoryPrivilegeInputEntity(self, entopts);
+        return new RepositoryPrivilegeDictEntity_1.RepositoryPrivilegeDictEntity(self, entopts);
     }
     // Entity access: `client.RepositoryRetentionRule().list()` / `client.RepositoryRetentionRule().load({ id })`.
     // The argument is the entity OPTIONS object (passed to the entity
@@ -1027,33 +711,12 @@ class CloudsmithSDK {
         const self = this;
         return new RepositoryX509RsaCertificateEntity_1.RepositoryX509RsaCertificateEntity(self, entopts);
     }
-    // Entity access: `client.Reset().list()` / `client.Reset().load({ id })`.
-    // The argument is the entity OPTIONS object (passed to the entity
-    // constructor as entopts), not initial entity data.
-    Reset(entopts) {
-        const self = this;
-        return new ResetEntity_1.ResetEntity(self, entopts);
-    }
     // Entity access: `client.ResourcesRateCheck().list()` / `client.ResourcesRateCheck().load({ id })`.
     // The argument is the entity OPTIONS object (passed to the entity
     // constructor as entopts), not initial entity data.
     ResourcesRateCheck(entopts) {
         const self = this;
         return new ResourcesRateCheckEntity_1.ResourcesRateCheckEntity(self, entopts);
-    }
-    // Entity access: `client.Resync().list()` / `client.Resync().load({ id })`.
-    // The argument is the entity OPTIONS object (passed to the entity
-    // constructor as entopts), not initial entity data.
-    Resync(entopts) {
-        const self = this;
-        return new ResyncEntity_1.ResyncEntity(self, entopts);
-    }
-    // Entity access: `client.Retention().list()` / `client.Retention().load({ id })`.
-    // The argument is the entity OPTIONS object (passed to the entity
-    // constructor as entopts), not initial entity data.
-    Retention(entopts) {
-        const self = this;
-        return new RetentionEntity_1.RetentionEntity(self, entopts);
     }
     // Entity access: `client.Rpm().list()` / `client.Rpm().load({ id })`.
     // The argument is the entity OPTIONS object (passed to the entity
@@ -1062,13 +725,6 @@ class CloudsmithSDK {
         const self = this;
         return new RpmEntity_1.RpmEntity(self, entopts);
     }
-    // Entity access: `client.Rsa().list()` / `client.Rsa().load({ id })`.
-    // The argument is the entity OPTIONS object (passed to the entity
-    // constructor as entopts), not initial entity data.
-    Rsa(entopts) {
-        const self = this;
-        return new RsaEntity_1.RsaEntity(self, entopts);
-    }
     // Entity access: `client.Ruby().list()` / `client.Ruby().load({ id })`.
     // The argument is the entity OPTIONS object (passed to the entity
     // constructor as entopts), not initial entity data.
@@ -1076,40 +732,12 @@ class CloudsmithSDK {
         const self = this;
         return new RubyEntity_1.RubyEntity(self, entopts);
     }
-    // Entity access: `client.SamlGroupSync().list()` / `client.SamlGroupSync().load({ id })`.
-    // The argument is the entity OPTIONS object (passed to the entity
-    // constructor as entopts), not initial entity data.
-    SamlGroupSync(entopts) {
-        const self = this;
-        return new SamlGroupSyncEntity_1.SamlGroupSyncEntity(self, entopts);
-    }
-    // Entity access: `client.Scan().list()` / `client.Scan().load({ id })`.
-    // The argument is the entity OPTIONS object (passed to the entity
-    // constructor as entopts), not initial entity data.
-    Scan(entopts) {
-        const self = this;
-        return new ScanEntity_1.ScanEntity(self, entopts);
-    }
-    // Entity access: `client.Self().list()` / `client.Self().load({ id })`.
-    // The argument is the entity OPTIONS object (passed to the entity
-    // constructor as entopts), not initial entity data.
-    Self(entopts) {
-        const self = this;
-        return new SelfEntity_1.SelfEntity(self, entopts);
-    }
     // Entity access: `client.Service().list()` / `client.Service().load({ id })`.
     // The argument is the entity OPTIONS object (passed to the entity
     // constructor as entopts), not initial entity data.
     Service(entopts) {
         const self = this;
         return new ServiceEntity_1.ServiceEntity(self, entopts);
-    }
-    // Entity access: `client.Status().list()` / `client.Status().load({ id })`.
-    // The argument is the entity OPTIONS object (passed to the entity
-    // constructor as entopts), not initial entity data.
-    Status(entopts) {
-        const self = this;
-        return new StatusEntity_1.StatusEntity(self, entopts);
     }
     // Entity access: `client.StatusBasic().list()` / `client.StatusBasic().load({ id })`.
     // The argument is the entity OPTIONS object (passed to the entity
@@ -1131,55 +759,6 @@ class CloudsmithSDK {
     Swift(entopts) {
         const self = this;
         return new SwiftEntity_1.SwiftEntity(self, entopts);
-    }
-    // Entity access: `client.Sync().list()` / `client.Sync().load({ id })`.
-    // The argument is the entity OPTIONS object (passed to the entity
-    // constructor as entopts), not initial entity data.
-    Sync(entopts) {
-        const self = this;
-        return new SyncEntity_1.SyncEntity(self, entopts);
-    }
-    // Entity access: `client.Tag().list()` / `client.Tag().load({ id })`.
-    // The argument is the entity OPTIONS object (passed to the entity
-    // constructor as entopts), not initial entity data.
-    Tag(entopts) {
-        const self = this;
-        return new TagEntity_1.TagEntity(self, entopts);
-    }
-    // Entity access: `client.Team().list()` / `client.Team().load({ id })`.
-    // The argument is the entity OPTIONS object (passed to the entity
-    // constructor as entopts), not initial entity data.
-    Team(entopts) {
-        const self = this;
-        return new TeamEntity_1.TeamEntity(self, entopts);
-    }
-    // Entity access: `client.Terraform().list()` / `client.Terraform().load({ id })`.
-    // The argument is the entity OPTIONS object (passed to the entity
-    // constructor as entopts), not initial entity data.
-    Terraform(entopts) {
-        const self = this;
-        return new TerraformEntity_1.TerraformEntity(self, entopts);
-    }
-    // Entity access: `client.Test().list()` / `client.Test().load({ id })`.
-    // The argument is the entity OPTIONS object (passed to the entity
-    // constructor as entopts), not initial entity data.
-    Test(entopts) {
-        const self = this;
-        return new TestEntity_1.TestEntity(self, entopts);
-    }
-    // Entity access: `client.Token().list()` / `client.Token().load({ id })`.
-    // The argument is the entity OPTIONS object (passed to the entity
-    // constructor as entopts), not initial entity data.
-    Token(entopts) {
-        const self = this;
-        return new TokenEntity_1.TokenEntity(self, entopts);
-    }
-    // Entity access: `client.TransferRegion().list()` / `client.TransferRegion().load({ id })`.
-    // The argument is the entity OPTIONS object (passed to the entity
-    // constructor as entopts), not initial entity data.
-    TransferRegion(entopts) {
-        const self = this;
-        return new TransferRegionEntity_1.TransferRegionEntity(self, entopts);
     }
     // Entity access: `client.User().list()` / `client.User().load({ id })`.
     // The argument is the entity OPTIONS object (passed to the entity
@@ -1216,27 +795,6 @@ class CloudsmithSDK {
         const self = this;
         return new UserProfileEntity_1.UserProfileEntity(self, entopts);
     }
-    // Entity access: `client.Vagrant().list()` / `client.Vagrant().load({ id })`.
-    // The argument is the entity OPTIONS object (passed to the entity
-    // constructor as entopts), not initial entity data.
-    Vagrant(entopts) {
-        const self = this;
-        return new VagrantEntity_1.VagrantEntity(self, entopts);
-    }
-    // Entity access: `client.Validate().list()` / `client.Validate().load({ id })`.
-    // The argument is the entity OPTIONS object (passed to the entity
-    // constructor as entopts), not initial entity data.
-    Validate(entopts) {
-        const self = this;
-        return new ValidateEntity_1.ValidateEntity(self, entopts);
-    }
-    // Entity access: `client.Version().list()` / `client.Version().load({ id })`.
-    // The argument is the entity OPTIONS object (passed to the entity
-    // constructor as entopts), not initial entity data.
-    Version(entopts) {
-        const self = this;
-        return new VersionEntity_1.VersionEntity(self, entopts);
-    }
     // Entity access: `client.Vulnerability().list()` / `client.Vulnerability().load({ id })`.
     // The argument is the entity OPTIONS object (passed to the entity
     // constructor as entopts), not initial entity data.
@@ -1244,33 +802,12 @@ class CloudsmithSDK {
         const self = this;
         return new VulnerabilityEntity_1.VulnerabilityEntity(self, entopts);
     }
-    // Entity access: `client.VulnerabilityPolicy().list()` / `client.VulnerabilityPolicy().load({ id })`.
-    // The argument is the entity OPTIONS object (passed to the entity
-    // constructor as entopts), not initial entity data.
-    VulnerabilityPolicy(entopts) {
-        const self = this;
-        return new VulnerabilityPolicyEntity_1.VulnerabilityPolicyEntity(self, entopts);
-    }
     // Entity access: `client.Webhook().list()` / `client.Webhook().load({ id })`.
     // The argument is the entity OPTIONS object (passed to the entity
     // constructor as entopts), not initial entity data.
     Webhook(entopts) {
         const self = this;
         return new WebhookEntity_1.WebhookEntity(self, entopts);
-    }
-    // Entity access: `client.X509Ecdsa().list()` / `client.X509Ecdsa().load({ id })`.
-    // The argument is the entity OPTIONS object (passed to the entity
-    // constructor as entopts), not initial entity data.
-    X509Ecdsa(entopts) {
-        const self = this;
-        return new X509EcdsaEntity_1.X509EcdsaEntity(self, entopts);
-    }
-    // Entity access: `client.X509Rsa().list()` / `client.X509Rsa().load({ id })`.
-    // The argument is the entity OPTIONS object (passed to the entity
-    // constructor as entopts), not initial entity data.
-    X509Rsa(entopts) {
-        const self = this;
-        return new X509RsaEntity_1.X509RsaEntity(self, entopts);
     }
     static test(testoptsarg, sdkoptsarg) {
         const struct = stdutil.struct;

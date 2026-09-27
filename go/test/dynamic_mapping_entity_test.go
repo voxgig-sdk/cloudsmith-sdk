@@ -167,7 +167,7 @@ func dynamic_mappingBasicSetup(extra map[string]any) *entityTestSetup {
 
 	// Generate idmap via transform, matching TS pattern.
 	idmap, _ := vs.Transform(
-		[]any{"dynamic_mapping01", "dynamic_mapping02", "dynamic_mapping03", "org01", "org02", "org03", "openid_connect01", "openid_connect02", "openid_connect03", "provider_setting01"},
+		[]any{"dynamic_mapping01", "dynamic_mapping02", "dynamic_mapping03", "org01", "org02", "org03", "provider_setting01", "openid_connect01"},
 		map[string]any{
 			"`$PACK`": []any{"", map[string]any{
 				"`$KEY`": "`$COPY`",

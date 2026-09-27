@@ -207,7 +207,7 @@ func cargoBasicSetup(extra map[string]any) *entityTestSetup {
 
 	// Generate idmap via transform, matching TS pattern.
 	idmap, _ := vs.Transform(
-		[]any{"cargo01", "cargo02", "cargo03", "package01", "package02", "package03", "repo01", "repo02", "repo03", "identifier01", "owner01"},
+		[]any{"cargo01", "cargo02", "cargo03", "repo01", "repo02", "repo03", "identifier01", "owner01"},
 		map[string]any{
 			"`$PACK`": []any{"", map[string]any{
 				"`$KEY`": "`$COPY`",

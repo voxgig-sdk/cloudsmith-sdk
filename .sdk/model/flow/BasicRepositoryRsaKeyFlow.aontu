@@ -1,0 +1,46 @@
+# BasicRepositoryRsaKeyFlow
+
+main: kit: flow: BasicRepositoryRsaKeyFlow:
+{
+  entity: "repository_rsa_key",
+  kind: "basic",
+  name: "BasicRepositoryRsaKeyFlow",
+  step: [
+    {
+      i: {
+        ref: "repository_rsa_key_ref01"
+      }
+
+      m: {
+        identifier: "identifier01",
+        owner: "owner01"
+      }
+
+      o: "create"
+    }
+
+    {
+      i: {
+        ref: "repository_rsa_key_ref01",
+        srcdatavar: "repository_rsa_key_ref01_data",
+        suffix: "_dt0"
+      }
+
+      m: {
+        id: "repository_rsa_key01",
+        owner: "owner01"
+      }
+
+      o: "load",
+      v: [
+        {
+          apply: "TextFieldMark",
+          def: {
+            mark: "Mark01-repository_rsa_key_ref01"
+          }
+        }
+      ]
+    }
+  ],
+  "key$": "BasicRepositoryRsaKeyFlow"
+}

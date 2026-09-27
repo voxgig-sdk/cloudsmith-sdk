@@ -19,13 +19,18 @@ make build
 export CLOUDSMITH_APIKEY=sk_live_xxx
 
 # 4. Each command line is ONE boru expression, run against the API:
+./cloudsmith-cli list cargo
+./cloudsmith-cli load 1 cargo            # {id:1} shorthand
+./cloudsmith-cli load '{id:1}' cargo       # explicit match map
+./cloudsmith-cli update '{name:"x"}' cargo
+./cloudsmith-cli list composer
 
 # 5. Override the API base URL for a single call
-CLOUDSMITH_BASE=https://api.example.com ./cloudsmith-cli --help
+CLOUDSMITH_BASE=https://api.example.com ./cloudsmith-cli list cargo
 
 # 6. No arguments -> interactive REPL
 ./cloudsmith-cli
-cloudsmith> /help
+cloudsmith> list cargo
 cloudsmith> /quit
 ```
 
@@ -51,7 +56,7 @@ cloudsmith> /quit
    arguments to open the REPL):
 
    ```sh
-   ./dist/*/cloudsmith-cli --help
+   ./dist/*/cloudsmith-cli list cargo
    ```
 
 4. **Go interactive.** Run the binary with no arguments to open the REPL, then
@@ -61,6 +66,34 @@ That is the whole loop: *build → set key → evaluate boru expressions*.
 
 ## How-to guides
 
+### List the records of an entity
+
+```sh
+./cloudsmith-cli list cargo
+```
+
+`list <entity>` returns the first page of records. `<entity>` is a bareword —
+it is auto-quoted as an boru atom, so no quotes are needed.
+
+### Load a single record
+
+```sh
+./cloudsmith-cli load 1 cargo          # scalar shorthand for {id:1}
+./cloudsmith-cli load '{id:1}' cargo     # explicit match map
+```
+
+The query is either a **scalar** (`1`, treated as `{id:1}`) or a **match map**
+(`{id:1}`, `{slug:"acme"}`). Quote the map so your shell passes it through intact.
+
+### Update a record
+
+```sh
+./cloudsmith-cli update '{id:1,name:"new"}' cargo
+```
+
+The match map carries both the selector and the new field values; the updated
+record is printed back.
+
 ### Authenticate and choose an environment
 
 Configuration is read from the environment — nothing is written to disk:
@@ -68,7 +101,7 @@ Configuration is read from the environment — nothing is written to disk:
 ```sh
 export CLOUDSMITH_APIKEY=sk_live_xxx            # API key
 export CLOUDSMITH_BASE=https://api.example.com  # optional: override the API base URL
-./cloudsmith-cli --help
+./cloudsmith-cli list cargo
 ```
 
 Both are injectable by a secrets vault, so the key never has to be typed inline.
@@ -80,6 +113,7 @@ evaluated as its own boru expression:
 
 ```text
 $ ./cloudsmith-cli
+cloudsmith> list cargo
 cloudsmith> /help
 cloudsmith> /quit
 ```
@@ -94,7 +128,7 @@ make build-all   # linux/darwin/windows x amd64/arm64, under dist/<os>-<arch>/
 ### Discover the available entities
 
 `/help` in the REPL prints the full entity list, or see [Entities](#entities)
-below — this SDK exposes 131 entities.
+below — this SDK exposes 75 entities.
 
 ## Reference
 
@@ -108,7 +142,7 @@ The CLI registers these boru words, each bound to the SDK:
 | `load`   | `load <entity>` · `load <query> <entity>`     | A single record                |
 | `update` | `update <query> <entity>`                     | Update a record, return it     |
 
-- `<entity>` is a bareword, auto-quoted as an boru atom (e.g. `abort`).
+- `<entity>` is a bareword, auto-quoted as an boru atom (e.g. `cargo`).
 - `<query>` is either a **Map** (`{id:1}`) or a **Scalar** (`1`, treated as
   `{id:1}`). A scalar is always wrapped as `{id:<value>}`.
 
@@ -149,9 +183,9 @@ Meta-commands use the `/` prefix (everything else on a line is evaluated as boru
 
 ### Entities
 
-The 131 entities this SDK exposes (any is valid as `<entity>`):
+The 75 entities this SDK exposes (any is valid as `<entity>`):
 
-abort alpine audit_log basic cargo cocoapod complete composer conan conda copy cran dart deb deny_policy dependency disable distribution_full distro docker dynamic_mapping ecdsa enable entitlement evaluation file format geoip gon gpg group helm hex history huggingface info invite license_policy limit luarock maven member move namespace namespace_audit_log npm nuget openid_connect org organization_group_sync organization_group_sync_status organization_invite organization_invite_extend organization_membership organization_membership_role_update organization_membership_visibility_update organization_package_license_policy organization_package_vulnerability_policy organization_saml_auth organization_team organization_team_member oss p2n package package_deny_policy package_file_parts_upload package_file_upload package_license_policy_evaluation package_version_badge package_vulnerability_policy_evaluation privilege profile provider_setting provider_settings_write python quarantine quota raw refresh regenerate repo repository_audit_log repository_ecdsa_key repository_geo_ip_rule repository_geo_ip_status repository_geo_ip_test_address repository_gpg_key repository_privilege_input repository_retention_rule repository_rsa_key repository_token repository_token_refresh repository_token_sync repository_webhook repository_x509_ecdsa_certificate repository_x509_rsa_certificate reset resources_rate_check resync retention rpm rsa ruby saml_group_sync scan self service status status_basic storage_region swift sync tag team terraform test token transfer_region user user_auth_token user_authentication_token user_brief user_profile vagrant validate version vulnerability vulnerability_policy webhook x509_ecdsa x509_rsa
+cargo composer conda cran dart deb distribution_full docker dynamic_mapping entitlement file format gon helm hex huggingface maven namespace namespace_audit_log npm nuget org organization_group_sync organization_group_sync_status organization_invite organization_invite_extend organization_membership organization_membership_role_update organization_membership_visibility_update organization_package_license_policy organization_package_vulnerability_policy organization_saml_auth organization_team organization_team_member package package_deny_policy package_file_parts_upload package_file_upload package_license_policy_evaluation package_version_badge package_vulnerability_policy_evaluation provider_setting provider_settings_write python quota repo repository_audit_log repository_ecdsa_key repository_geo_ip_rule repository_geo_ip_status repository_geo_ip_test_address repository_gpg_key repository_privilege_dict repository_retention_rule repository_rsa_key repository_token repository_token_refresh repository_token_sync repository_webhook repository_x509_ecdsa_certificate repository_x509_rsa_certificate resources_rate_check rpm ruby service status_basic storage_region swift user user_auth_token user_authentication_token user_brief user_profile vulnerability webhook
 
 ## Explanation
 

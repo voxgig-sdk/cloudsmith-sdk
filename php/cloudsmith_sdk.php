@@ -341,78 +341,6 @@ class CloudsmithSDK
     }
 
 
-    private $_abort = null;
-
-    // Canonical facade: $client->Abort()->list() / ->load(["id" => ...]).
-    // PHP method names are case-insensitive, so lowercase $client->abort()
-    // resolves here too.
-    public function Abort($data = null)
-    {
-        require_once __DIR__ . '/entity/abort_entity.php';
-        if ($data === null) {
-            if ($this->_abort === null) {
-                $this->_abort = new AbortEntity($this, null);
-            }
-            return $this->_abort;
-        }
-        return new AbortEntity($this, $data);
-    }
-
-
-    private $_alpine = null;
-
-    // Canonical facade: $client->Alpine()->list() / ->load(["id" => ...]).
-    // PHP method names are case-insensitive, so lowercase $client->alpine()
-    // resolves here too.
-    public function Alpine($data = null)
-    {
-        require_once __DIR__ . '/entity/alpine_entity.php';
-        if ($data === null) {
-            if ($this->_alpine === null) {
-                $this->_alpine = new AlpineEntity($this, null);
-            }
-            return $this->_alpine;
-        }
-        return new AlpineEntity($this, $data);
-    }
-
-
-    private $_audit_log = null;
-
-    // Canonical facade: $client->AuditLog()->list() / ->load(["id" => ...]).
-    // PHP method names are case-insensitive, so lowercase $client->audit_log()
-    // resolves here too.
-    public function AuditLog($data = null)
-    {
-        require_once __DIR__ . '/entity/audit_log_entity.php';
-        if ($data === null) {
-            if ($this->_audit_log === null) {
-                $this->_audit_log = new AuditLogEntity($this, null);
-            }
-            return $this->_audit_log;
-        }
-        return new AuditLogEntity($this, $data);
-    }
-
-
-    private $_basic = null;
-
-    // Canonical facade: $client->Basic()->list() / ->load(["id" => ...]).
-    // PHP method names are case-insensitive, so lowercase $client->basic()
-    // resolves here too.
-    public function Basic($data = null)
-    {
-        require_once __DIR__ . '/entity/basic_entity.php';
-        if ($data === null) {
-            if ($this->_basic === null) {
-                $this->_basic = new BasicEntity($this, null);
-            }
-            return $this->_basic;
-        }
-        return new BasicEntity($this, $data);
-    }
-
-
     private $_cargo = null;
 
     // Canonical facade: $client->Cargo()->list() / ->load(["id" => ...]).
@@ -428,42 +356,6 @@ class CloudsmithSDK
             return $this->_cargo;
         }
         return new CargoEntity($this, $data);
-    }
-
-
-    private $_cocoapod = null;
-
-    // Canonical facade: $client->Cocoapod()->list() / ->load(["id" => ...]).
-    // PHP method names are case-insensitive, so lowercase $client->cocoapod()
-    // resolves here too.
-    public function Cocoapod($data = null)
-    {
-        require_once __DIR__ . '/entity/cocoapod_entity.php';
-        if ($data === null) {
-            if ($this->_cocoapod === null) {
-                $this->_cocoapod = new CocoapodEntity($this, null);
-            }
-            return $this->_cocoapod;
-        }
-        return new CocoapodEntity($this, $data);
-    }
-
-
-    private $_complete = null;
-
-    // Canonical facade: $client->Complete()->list() / ->load(["id" => ...]).
-    // PHP method names are case-insensitive, so lowercase $client->complete()
-    // resolves here too.
-    public function Complete($data = null)
-    {
-        require_once __DIR__ . '/entity/complete_entity.php';
-        if ($data === null) {
-            if ($this->_complete === null) {
-                $this->_complete = new CompleteEntity($this, null);
-            }
-            return $this->_complete;
-        }
-        return new CompleteEntity($this, $data);
     }
 
 
@@ -485,24 +377,6 @@ class CloudsmithSDK
     }
 
 
-    private $_conan = null;
-
-    // Canonical facade: $client->Conan()->list() / ->load(["id" => ...]).
-    // PHP method names are case-insensitive, so lowercase $client->conan()
-    // resolves here too.
-    public function Conan($data = null)
-    {
-        require_once __DIR__ . '/entity/conan_entity.php';
-        if ($data === null) {
-            if ($this->_conan === null) {
-                $this->_conan = new ConanEntity($this, null);
-            }
-            return $this->_conan;
-        }
-        return new ConanEntity($this, $data);
-    }
-
-
     private $_conda = null;
 
     // Canonical facade: $client->Conda()->list() / ->load(["id" => ...]).
@@ -518,24 +392,6 @@ class CloudsmithSDK
             return $this->_conda;
         }
         return new CondaEntity($this, $data);
-    }
-
-
-    private $_copy = null;
-
-    // Canonical facade: $client->Copy()->list() / ->load(["id" => ...]).
-    // PHP method names are case-insensitive, so lowercase $client->copy()
-    // resolves here too.
-    public function Copy($data = null)
-    {
-        require_once __DIR__ . '/entity/copy_entity.php';
-        if ($data === null) {
-            if ($this->_copy === null) {
-                $this->_copy = new CopyEntity($this, null);
-            }
-            return $this->_copy;
-        }
-        return new CopyEntity($this, $data);
     }
 
 
@@ -593,60 +449,6 @@ class CloudsmithSDK
     }
 
 
-    private $_deny_policy = null;
-
-    // Canonical facade: $client->DenyPolicy()->list() / ->load(["id" => ...]).
-    // PHP method names are case-insensitive, so lowercase $client->deny_policy()
-    // resolves here too.
-    public function DenyPolicy($data = null)
-    {
-        require_once __DIR__ . '/entity/deny_policy_entity.php';
-        if ($data === null) {
-            if ($this->_deny_policy === null) {
-                $this->_deny_policy = new DenyPolicyEntity($this, null);
-            }
-            return $this->_deny_policy;
-        }
-        return new DenyPolicyEntity($this, $data);
-    }
-
-
-    private $_dependency = null;
-
-    // Canonical facade: $client->Dependency()->list() / ->load(["id" => ...]).
-    // PHP method names are case-insensitive, so lowercase $client->dependency()
-    // resolves here too.
-    public function Dependency($data = null)
-    {
-        require_once __DIR__ . '/entity/dependency_entity.php';
-        if ($data === null) {
-            if ($this->_dependency === null) {
-                $this->_dependency = new DependencyEntity($this, null);
-            }
-            return $this->_dependency;
-        }
-        return new DependencyEntity($this, $data);
-    }
-
-
-    private $_disable = null;
-
-    // Canonical facade: $client->Disable()->list() / ->load(["id" => ...]).
-    // PHP method names are case-insensitive, so lowercase $client->disable()
-    // resolves here too.
-    public function Disable($data = null)
-    {
-        require_once __DIR__ . '/entity/disable_entity.php';
-        if ($data === null) {
-            if ($this->_disable === null) {
-                $this->_disable = new DisableEntity($this, null);
-            }
-            return $this->_disable;
-        }
-        return new DisableEntity($this, $data);
-    }
-
-
     private $_distribution_full = null;
 
     // Canonical facade: $client->DistributionFull()->list() / ->load(["id" => ...]).
@@ -662,24 +464,6 @@ class CloudsmithSDK
             return $this->_distribution_full;
         }
         return new DistributionFullEntity($this, $data);
-    }
-
-
-    private $_distro = null;
-
-    // Canonical facade: $client->Distro()->list() / ->load(["id" => ...]).
-    // PHP method names are case-insensitive, so lowercase $client->distro()
-    // resolves here too.
-    public function Distro($data = null)
-    {
-        require_once __DIR__ . '/entity/distro_entity.php';
-        if ($data === null) {
-            if ($this->_distro === null) {
-                $this->_distro = new DistroEntity($this, null);
-            }
-            return $this->_distro;
-        }
-        return new DistroEntity($this, $data);
     }
 
 
@@ -719,42 +503,6 @@ class CloudsmithSDK
     }
 
 
-    private $_ecdsa = null;
-
-    // Canonical facade: $client->Ecdsa()->list() / ->load(["id" => ...]).
-    // PHP method names are case-insensitive, so lowercase $client->ecdsa()
-    // resolves here too.
-    public function Ecdsa($data = null)
-    {
-        require_once __DIR__ . '/entity/ecdsa_entity.php';
-        if ($data === null) {
-            if ($this->_ecdsa === null) {
-                $this->_ecdsa = new EcdsaEntity($this, null);
-            }
-            return $this->_ecdsa;
-        }
-        return new EcdsaEntity($this, $data);
-    }
-
-
-    private $_enable = null;
-
-    // Canonical facade: $client->Enable()->list() / ->load(["id" => ...]).
-    // PHP method names are case-insensitive, so lowercase $client->enable()
-    // resolves here too.
-    public function Enable($data = null)
-    {
-        require_once __DIR__ . '/entity/enable_entity.php';
-        if ($data === null) {
-            if ($this->_enable === null) {
-                $this->_enable = new EnableEntity($this, null);
-            }
-            return $this->_enable;
-        }
-        return new EnableEntity($this, $data);
-    }
-
-
     private $_entitlement = null;
 
     // Canonical facade: $client->Entitlement()->list() / ->load(["id" => ...]).
@@ -770,24 +518,6 @@ class CloudsmithSDK
             return $this->_entitlement;
         }
         return new EntitlementEntity($this, $data);
-    }
-
-
-    private $_evaluation = null;
-
-    // Canonical facade: $client->Evaluation()->list() / ->load(["id" => ...]).
-    // PHP method names are case-insensitive, so lowercase $client->evaluation()
-    // resolves here too.
-    public function Evaluation($data = null)
-    {
-        require_once __DIR__ . '/entity/evaluation_entity.php';
-        if ($data === null) {
-            if ($this->_evaluation === null) {
-                $this->_evaluation = new EvaluationEntity($this, null);
-            }
-            return $this->_evaluation;
-        }
-        return new EvaluationEntity($this, $data);
     }
 
 
@@ -827,24 +557,6 @@ class CloudsmithSDK
     }
 
 
-    private $_geoip = null;
-
-    // Canonical facade: $client->Geoip()->list() / ->load(["id" => ...]).
-    // PHP method names are case-insensitive, so lowercase $client->geoip()
-    // resolves here too.
-    public function Geoip($data = null)
-    {
-        require_once __DIR__ . '/entity/geoip_entity.php';
-        if ($data === null) {
-            if ($this->_geoip === null) {
-                $this->_geoip = new GeoipEntity($this, null);
-            }
-            return $this->_geoip;
-        }
-        return new GeoipEntity($this, $data);
-    }
-
-
     private $_gon = null;
 
     // Canonical facade: $client->Gon()->list() / ->load(["id" => ...]).
@@ -860,42 +572,6 @@ class CloudsmithSDK
             return $this->_gon;
         }
         return new GonEntity($this, $data);
-    }
-
-
-    private $_gpg = null;
-
-    // Canonical facade: $client->Gpg()->list() / ->load(["id" => ...]).
-    // PHP method names are case-insensitive, so lowercase $client->gpg()
-    // resolves here too.
-    public function Gpg($data = null)
-    {
-        require_once __DIR__ . '/entity/gpg_entity.php';
-        if ($data === null) {
-            if ($this->_gpg === null) {
-                $this->_gpg = new GpgEntity($this, null);
-            }
-            return $this->_gpg;
-        }
-        return new GpgEntity($this, $data);
-    }
-
-
-    private $_group = null;
-
-    // Canonical facade: $client->Group()->list() / ->load(["id" => ...]).
-    // PHP method names are case-insensitive, so lowercase $client->group()
-    // resolves here too.
-    public function Group($data = null)
-    {
-        require_once __DIR__ . '/entity/group_entity.php';
-        if ($data === null) {
-            if ($this->_group === null) {
-                $this->_group = new GroupEntity($this, null);
-            }
-            return $this->_group;
-        }
-        return new GroupEntity($this, $data);
     }
 
 
@@ -935,24 +611,6 @@ class CloudsmithSDK
     }
 
 
-    private $_history = null;
-
-    // Canonical facade: $client->History()->list() / ->load(["id" => ...]).
-    // PHP method names are case-insensitive, so lowercase $client->history()
-    // resolves here too.
-    public function History($data = null)
-    {
-        require_once __DIR__ . '/entity/history_entity.php';
-        if ($data === null) {
-            if ($this->_history === null) {
-                $this->_history = new HistoryEntity($this, null);
-            }
-            return $this->_history;
-        }
-        return new HistoryEntity($this, $data);
-    }
-
-
     private $_huggingface = null;
 
     // Canonical facade: $client->Huggingface()->list() / ->load(["id" => ...]).
@@ -971,96 +629,6 @@ class CloudsmithSDK
     }
 
 
-    private $_info = null;
-
-    // Canonical facade: $client->Info()->list() / ->load(["id" => ...]).
-    // PHP method names are case-insensitive, so lowercase $client->info()
-    // resolves here too.
-    public function Info($data = null)
-    {
-        require_once __DIR__ . '/entity/info_entity.php';
-        if ($data === null) {
-            if ($this->_info === null) {
-                $this->_info = new InfoEntity($this, null);
-            }
-            return $this->_info;
-        }
-        return new InfoEntity($this, $data);
-    }
-
-
-    private $_invite = null;
-
-    // Canonical facade: $client->Invite()->list() / ->load(["id" => ...]).
-    // PHP method names are case-insensitive, so lowercase $client->invite()
-    // resolves here too.
-    public function Invite($data = null)
-    {
-        require_once __DIR__ . '/entity/invite_entity.php';
-        if ($data === null) {
-            if ($this->_invite === null) {
-                $this->_invite = new InviteEntity($this, null);
-            }
-            return $this->_invite;
-        }
-        return new InviteEntity($this, $data);
-    }
-
-
-    private $_license_policy = null;
-
-    // Canonical facade: $client->LicensePolicy()->list() / ->load(["id" => ...]).
-    // PHP method names are case-insensitive, so lowercase $client->license_policy()
-    // resolves here too.
-    public function LicensePolicy($data = null)
-    {
-        require_once __DIR__ . '/entity/license_policy_entity.php';
-        if ($data === null) {
-            if ($this->_license_policy === null) {
-                $this->_license_policy = new LicensePolicyEntity($this, null);
-            }
-            return $this->_license_policy;
-        }
-        return new LicensePolicyEntity($this, $data);
-    }
-
-
-    private $_limit = null;
-
-    // Canonical facade: $client->Limit()->list() / ->load(["id" => ...]).
-    // PHP method names are case-insensitive, so lowercase $client->limit()
-    // resolves here too.
-    public function Limit($data = null)
-    {
-        require_once __DIR__ . '/entity/limit_entity.php';
-        if ($data === null) {
-            if ($this->_limit === null) {
-                $this->_limit = new LimitEntity($this, null);
-            }
-            return $this->_limit;
-        }
-        return new LimitEntity($this, $data);
-    }
-
-
-    private $_luarock = null;
-
-    // Canonical facade: $client->Luarock()->list() / ->load(["id" => ...]).
-    // PHP method names are case-insensitive, so lowercase $client->luarock()
-    // resolves here too.
-    public function Luarock($data = null)
-    {
-        require_once __DIR__ . '/entity/luarock_entity.php';
-        if ($data === null) {
-            if ($this->_luarock === null) {
-                $this->_luarock = new LuarockEntity($this, null);
-            }
-            return $this->_luarock;
-        }
-        return new LuarockEntity($this, $data);
-    }
-
-
     private $_maven = null;
 
     // Canonical facade: $client->Maven()->list() / ->load(["id" => ...]).
@@ -1076,42 +644,6 @@ class CloudsmithSDK
             return $this->_maven;
         }
         return new MavenEntity($this, $data);
-    }
-
-
-    private $_member = null;
-
-    // Canonical facade: $client->Member()->list() / ->load(["id" => ...]).
-    // PHP method names are case-insensitive, so lowercase $client->member()
-    // resolves here too.
-    public function Member($data = null)
-    {
-        require_once __DIR__ . '/entity/member_entity.php';
-        if ($data === null) {
-            if ($this->_member === null) {
-                $this->_member = new MemberEntity($this, null);
-            }
-            return $this->_member;
-        }
-        return new MemberEntity($this, $data);
-    }
-
-
-    private $_move = null;
-
-    // Canonical facade: $client->Move()->list() / ->load(["id" => ...]).
-    // PHP method names are case-insensitive, so lowercase $client->move()
-    // resolves here too.
-    public function Move($data = null)
-    {
-        require_once __DIR__ . '/entity/move_entity.php';
-        if ($data === null) {
-            if ($this->_move === null) {
-                $this->_move = new MoveEntity($this, null);
-            }
-            return $this->_move;
-        }
-        return new MoveEntity($this, $data);
     }
 
 
@@ -1184,24 +716,6 @@ class CloudsmithSDK
             return $this->_nuget;
         }
         return new NugetEntity($this, $data);
-    }
-
-
-    private $_openid_connect = null;
-
-    // Canonical facade: $client->OpenidConnect()->list() / ->load(["id" => ...]).
-    // PHP method names are case-insensitive, so lowercase $client->openid_connect()
-    // resolves here too.
-    public function OpenidConnect($data = null)
-    {
-        require_once __DIR__ . '/entity/openid_connect_entity.php';
-        if ($data === null) {
-            if ($this->_openid_connect === null) {
-                $this->_openid_connect = new OpenidConnectEntity($this, null);
-            }
-            return $this->_openid_connect;
-        }
-        return new OpenidConnectEntity($this, $data);
     }
 
 
@@ -1439,42 +953,6 @@ class CloudsmithSDK
     }
 
 
-    private $_oss = null;
-
-    // Canonical facade: $client->Oss()->list() / ->load(["id" => ...]).
-    // PHP method names are case-insensitive, so lowercase $client->oss()
-    // resolves here too.
-    public function Oss($data = null)
-    {
-        require_once __DIR__ . '/entity/oss_entity.php';
-        if ($data === null) {
-            if ($this->_oss === null) {
-                $this->_oss = new OssEntity($this, null);
-            }
-            return $this->_oss;
-        }
-        return new OssEntity($this, $data);
-    }
-
-
-    private $_p2n = null;
-
-    // Canonical facade: $client->P2n()->list() / ->load(["id" => ...]).
-    // PHP method names are case-insensitive, so lowercase $client->p2n()
-    // resolves here too.
-    public function P2n($data = null)
-    {
-        require_once __DIR__ . '/entity/p2n_entity.php';
-        if ($data === null) {
-            if ($this->_p2n === null) {
-                $this->_p2n = new P2nEntity($this, null);
-            }
-            return $this->_p2n;
-        }
-        return new P2nEntity($this, $data);
-    }
-
-
     private $_package = null;
 
     // Canonical facade: $client->Package()->list() / ->load(["id" => ...]).
@@ -1601,42 +1079,6 @@ class CloudsmithSDK
     }
 
 
-    private $_privilege = null;
-
-    // Canonical facade: $client->Privilege()->list() / ->load(["id" => ...]).
-    // PHP method names are case-insensitive, so lowercase $client->privilege()
-    // resolves here too.
-    public function Privilege($data = null)
-    {
-        require_once __DIR__ . '/entity/privilege_entity.php';
-        if ($data === null) {
-            if ($this->_privilege === null) {
-                $this->_privilege = new PrivilegeEntity($this, null);
-            }
-            return $this->_privilege;
-        }
-        return new PrivilegeEntity($this, $data);
-    }
-
-
-    private $_profile = null;
-
-    // Canonical facade: $client->Profile()->list() / ->load(["id" => ...]).
-    // PHP method names are case-insensitive, so lowercase $client->profile()
-    // resolves here too.
-    public function Profile($data = null)
-    {
-        require_once __DIR__ . '/entity/profile_entity.php';
-        if ($data === null) {
-            if ($this->_profile === null) {
-                $this->_profile = new ProfileEntity($this, null);
-            }
-            return $this->_profile;
-        }
-        return new ProfileEntity($this, $data);
-    }
-
-
     private $_provider_setting = null;
 
     // Canonical facade: $client->ProviderSetting()->list() / ->load(["id" => ...]).
@@ -1691,24 +1133,6 @@ class CloudsmithSDK
     }
 
 
-    private $_quarantine = null;
-
-    // Canonical facade: $client->Quarantine()->list() / ->load(["id" => ...]).
-    // PHP method names are case-insensitive, so lowercase $client->quarantine()
-    // resolves here too.
-    public function Quarantine($data = null)
-    {
-        require_once __DIR__ . '/entity/quarantine_entity.php';
-        if ($data === null) {
-            if ($this->_quarantine === null) {
-                $this->_quarantine = new QuarantineEntity($this, null);
-            }
-            return $this->_quarantine;
-        }
-        return new QuarantineEntity($this, $data);
-    }
-
-
     private $_quota = null;
 
     // Canonical facade: $client->Quota()->list() / ->load(["id" => ...]).
@@ -1724,60 +1148,6 @@ class CloudsmithSDK
             return $this->_quota;
         }
         return new QuotaEntity($this, $data);
-    }
-
-
-    private $_raw = null;
-
-    // Canonical facade: $client->Raw()->list() / ->load(["id" => ...]).
-    // PHP method names are case-insensitive, so lowercase $client->raw()
-    // resolves here too.
-    public function Raw($data = null)
-    {
-        require_once __DIR__ . '/entity/raw_entity.php';
-        if ($data === null) {
-            if ($this->_raw === null) {
-                $this->_raw = new RawEntity($this, null);
-            }
-            return $this->_raw;
-        }
-        return new RawEntity($this, $data);
-    }
-
-
-    private $_refresh = null;
-
-    // Canonical facade: $client->Refresh()->list() / ->load(["id" => ...]).
-    // PHP method names are case-insensitive, so lowercase $client->refresh()
-    // resolves here too.
-    public function Refresh($data = null)
-    {
-        require_once __DIR__ . '/entity/refresh_entity.php';
-        if ($data === null) {
-            if ($this->_refresh === null) {
-                $this->_refresh = new RefreshEntity($this, null);
-            }
-            return $this->_refresh;
-        }
-        return new RefreshEntity($this, $data);
-    }
-
-
-    private $_regenerate = null;
-
-    // Canonical facade: $client->Regenerate()->list() / ->load(["id" => ...]).
-    // PHP method names are case-insensitive, so lowercase $client->regenerate()
-    // resolves here too.
-    public function Regenerate($data = null)
-    {
-        require_once __DIR__ . '/entity/regenerate_entity.php';
-        if ($data === null) {
-            if ($this->_regenerate === null) {
-                $this->_regenerate = new RegenerateEntity($this, null);
-            }
-            return $this->_regenerate;
-        }
-        return new RegenerateEntity($this, $data);
     }
 
 
@@ -1907,21 +1277,21 @@ class CloudsmithSDK
     }
 
 
-    private $_repository_privilege_input = null;
+    private $_repository_privilege_dict = null;
 
-    // Canonical facade: $client->RepositoryPrivilegeInput()->list() / ->load(["id" => ...]).
-    // PHP method names are case-insensitive, so lowercase $client->repository_privilege_input()
+    // Canonical facade: $client->RepositoryPrivilegeDict()->list() / ->load(["id" => ...]).
+    // PHP method names are case-insensitive, so lowercase $client->repository_privilege_dict()
     // resolves here too.
-    public function RepositoryPrivilegeInput($data = null)
+    public function RepositoryPrivilegeDict($data = null)
     {
-        require_once __DIR__ . '/entity/repository_privilege_input_entity.php';
+        require_once __DIR__ . '/entity/repository_privilege_dict_entity.php';
         if ($data === null) {
-            if ($this->_repository_privilege_input === null) {
-                $this->_repository_privilege_input = new RepositoryPrivilegeInputEntity($this, null);
+            if ($this->_repository_privilege_dict === null) {
+                $this->_repository_privilege_dict = new RepositoryPrivilegeDictEntity($this, null);
             }
-            return $this->_repository_privilege_input;
+            return $this->_repository_privilege_dict;
         }
-        return new RepositoryPrivilegeInputEntity($this, $data);
+        return new RepositoryPrivilegeDictEntity($this, $data);
     }
 
 
@@ -2069,24 +1439,6 @@ class CloudsmithSDK
     }
 
 
-    private $_reset = null;
-
-    // Canonical facade: $client->Reset()->list() / ->load(["id" => ...]).
-    // PHP method names are case-insensitive, so lowercase $client->reset()
-    // resolves here too.
-    public function Reset($data = null)
-    {
-        require_once __DIR__ . '/entity/reset_entity.php';
-        if ($data === null) {
-            if ($this->_reset === null) {
-                $this->_reset = new ResetEntity($this, null);
-            }
-            return $this->_reset;
-        }
-        return new ResetEntity($this, $data);
-    }
-
-
     private $_resources_rate_check = null;
 
     // Canonical facade: $client->ResourcesRateCheck()->list() / ->load(["id" => ...]).
@@ -2102,42 +1454,6 @@ class CloudsmithSDK
             return $this->_resources_rate_check;
         }
         return new ResourcesRateCheckEntity($this, $data);
-    }
-
-
-    private $_resync = null;
-
-    // Canonical facade: $client->Resync()->list() / ->load(["id" => ...]).
-    // PHP method names are case-insensitive, so lowercase $client->resync()
-    // resolves here too.
-    public function Resync($data = null)
-    {
-        require_once __DIR__ . '/entity/resync_entity.php';
-        if ($data === null) {
-            if ($this->_resync === null) {
-                $this->_resync = new ResyncEntity($this, null);
-            }
-            return $this->_resync;
-        }
-        return new ResyncEntity($this, $data);
-    }
-
-
-    private $_retention = null;
-
-    // Canonical facade: $client->Retention()->list() / ->load(["id" => ...]).
-    // PHP method names are case-insensitive, so lowercase $client->retention()
-    // resolves here too.
-    public function Retention($data = null)
-    {
-        require_once __DIR__ . '/entity/retention_entity.php';
-        if ($data === null) {
-            if ($this->_retention === null) {
-                $this->_retention = new RetentionEntity($this, null);
-            }
-            return $this->_retention;
-        }
-        return new RetentionEntity($this, $data);
     }
 
 
@@ -2159,24 +1475,6 @@ class CloudsmithSDK
     }
 
 
-    private $_rsa = null;
-
-    // Canonical facade: $client->Rsa()->list() / ->load(["id" => ...]).
-    // PHP method names are case-insensitive, so lowercase $client->rsa()
-    // resolves here too.
-    public function Rsa($data = null)
-    {
-        require_once __DIR__ . '/entity/rsa_entity.php';
-        if ($data === null) {
-            if ($this->_rsa === null) {
-                $this->_rsa = new RsaEntity($this, null);
-            }
-            return $this->_rsa;
-        }
-        return new RsaEntity($this, $data);
-    }
-
-
     private $_ruby = null;
 
     // Canonical facade: $client->Ruby()->list() / ->load(["id" => ...]).
@@ -2195,60 +1493,6 @@ class CloudsmithSDK
     }
 
 
-    private $_saml_group_sync = null;
-
-    // Canonical facade: $client->SamlGroupSync()->list() / ->load(["id" => ...]).
-    // PHP method names are case-insensitive, so lowercase $client->saml_group_sync()
-    // resolves here too.
-    public function SamlGroupSync($data = null)
-    {
-        require_once __DIR__ . '/entity/saml_group_sync_entity.php';
-        if ($data === null) {
-            if ($this->_saml_group_sync === null) {
-                $this->_saml_group_sync = new SamlGroupSyncEntity($this, null);
-            }
-            return $this->_saml_group_sync;
-        }
-        return new SamlGroupSyncEntity($this, $data);
-    }
-
-
-    private $_scan = null;
-
-    // Canonical facade: $client->Scan()->list() / ->load(["id" => ...]).
-    // PHP method names are case-insensitive, so lowercase $client->scan()
-    // resolves here too.
-    public function Scan($data = null)
-    {
-        require_once __DIR__ . '/entity/scan_entity.php';
-        if ($data === null) {
-            if ($this->_scan === null) {
-                $this->_scan = new ScanEntity($this, null);
-            }
-            return $this->_scan;
-        }
-        return new ScanEntity($this, $data);
-    }
-
-
-    private $_self = null;
-
-    // Canonical facade: $client->Self()->list() / ->load(["id" => ...]).
-    // PHP method names are case-insensitive, so lowercase $client->self()
-    // resolves here too.
-    public function Self($data = null)
-    {
-        require_once __DIR__ . '/entity/self_entity.php';
-        if ($data === null) {
-            if ($this->_self === null) {
-                $this->_self = new SelfEntity($this, null);
-            }
-            return $this->_self;
-        }
-        return new SelfEntity($this, $data);
-    }
-
-
     private $_service = null;
 
     // Canonical facade: $client->Service()->list() / ->load(["id" => ...]).
@@ -2264,24 +1508,6 @@ class CloudsmithSDK
             return $this->_service;
         }
         return new ServiceEntity($this, $data);
-    }
-
-
-    private $_status = null;
-
-    // Canonical facade: $client->Status()->list() / ->load(["id" => ...]).
-    // PHP method names are case-insensitive, so lowercase $client->status()
-    // resolves here too.
-    public function Status($data = null)
-    {
-        require_once __DIR__ . '/entity/status_entity.php';
-        if ($data === null) {
-            if ($this->_status === null) {
-                $this->_status = new StatusEntity($this, null);
-            }
-            return $this->_status;
-        }
-        return new StatusEntity($this, $data);
     }
 
 
@@ -2336,132 +1562,6 @@ class CloudsmithSDK
             return $this->_swift;
         }
         return new SwiftEntity($this, $data);
-    }
-
-
-    private $_sync = null;
-
-    // Canonical facade: $client->Sync()->list() / ->load(["id" => ...]).
-    // PHP method names are case-insensitive, so lowercase $client->sync()
-    // resolves here too.
-    public function Sync($data = null)
-    {
-        require_once __DIR__ . '/entity/sync_entity.php';
-        if ($data === null) {
-            if ($this->_sync === null) {
-                $this->_sync = new SyncEntity($this, null);
-            }
-            return $this->_sync;
-        }
-        return new SyncEntity($this, $data);
-    }
-
-
-    private $_tag = null;
-
-    // Canonical facade: $client->Tag()->list() / ->load(["id" => ...]).
-    // PHP method names are case-insensitive, so lowercase $client->tag()
-    // resolves here too.
-    public function Tag($data = null)
-    {
-        require_once __DIR__ . '/entity/tag_entity.php';
-        if ($data === null) {
-            if ($this->_tag === null) {
-                $this->_tag = new TagEntity($this, null);
-            }
-            return $this->_tag;
-        }
-        return new TagEntity($this, $data);
-    }
-
-
-    private $_team = null;
-
-    // Canonical facade: $client->Team()->list() / ->load(["id" => ...]).
-    // PHP method names are case-insensitive, so lowercase $client->team()
-    // resolves here too.
-    public function Team($data = null)
-    {
-        require_once __DIR__ . '/entity/team_entity.php';
-        if ($data === null) {
-            if ($this->_team === null) {
-                $this->_team = new TeamEntity($this, null);
-            }
-            return $this->_team;
-        }
-        return new TeamEntity($this, $data);
-    }
-
-
-    private $_terraform = null;
-
-    // Canonical facade: $client->Terraform()->list() / ->load(["id" => ...]).
-    // PHP method names are case-insensitive, so lowercase $client->terraform()
-    // resolves here too.
-    public function Terraform($data = null)
-    {
-        require_once __DIR__ . '/entity/terraform_entity.php';
-        if ($data === null) {
-            if ($this->_terraform === null) {
-                $this->_terraform = new TerraformEntity($this, null);
-            }
-            return $this->_terraform;
-        }
-        return new TerraformEntity($this, $data);
-    }
-
-
-    private $_test = null;
-
-    // Canonical facade: $client->Test_()->list() / ->load(["id" => ...]).
-    // Renamed from Test: that name is already taken by an SDK class
-    // member, and a duplicate declaration is a fatal PHP parse error.
-    public function Test_($data = null)
-    {
-        require_once __DIR__ . '/entity/test_entity.php';
-        if ($data === null) {
-            if ($this->_test === null) {
-                $this->_test = new TestEntity($this, null);
-            }
-            return $this->_test;
-        }
-        return new TestEntity($this, $data);
-    }
-
-
-    private $_token = null;
-
-    // Canonical facade: $client->Token()->list() / ->load(["id" => ...]).
-    // PHP method names are case-insensitive, so lowercase $client->token()
-    // resolves here too.
-    public function Token($data = null)
-    {
-        require_once __DIR__ . '/entity/token_entity.php';
-        if ($data === null) {
-            if ($this->_token === null) {
-                $this->_token = new TokenEntity($this, null);
-            }
-            return $this->_token;
-        }
-        return new TokenEntity($this, $data);
-    }
-
-
-    private $_transfer_region = null;
-
-    // Canonical facade: $client->TransferRegion()->list() / ->load(["id" => ...]).
-    // PHP method names are case-insensitive, so lowercase $client->transfer_region()
-    // resolves here too.
-    public function TransferRegion($data = null)
-    {
-        require_once __DIR__ . '/entity/transfer_region_entity.php';
-        if ($data === null) {
-            if ($this->_transfer_region === null) {
-                $this->_transfer_region = new TransferRegionEntity($this, null);
-            }
-            return $this->_transfer_region;
-        }
-        return new TransferRegionEntity($this, $data);
     }
 
 
@@ -2555,60 +1655,6 @@ class CloudsmithSDK
     }
 
 
-    private $_vagrant = null;
-
-    // Canonical facade: $client->Vagrant()->list() / ->load(["id" => ...]).
-    // PHP method names are case-insensitive, so lowercase $client->vagrant()
-    // resolves here too.
-    public function Vagrant($data = null)
-    {
-        require_once __DIR__ . '/entity/vagrant_entity.php';
-        if ($data === null) {
-            if ($this->_vagrant === null) {
-                $this->_vagrant = new VagrantEntity($this, null);
-            }
-            return $this->_vagrant;
-        }
-        return new VagrantEntity($this, $data);
-    }
-
-
-    private $_validate = null;
-
-    // Canonical facade: $client->Validate()->list() / ->load(["id" => ...]).
-    // PHP method names are case-insensitive, so lowercase $client->validate()
-    // resolves here too.
-    public function Validate($data = null)
-    {
-        require_once __DIR__ . '/entity/validate_entity.php';
-        if ($data === null) {
-            if ($this->_validate === null) {
-                $this->_validate = new ValidateEntity($this, null);
-            }
-            return $this->_validate;
-        }
-        return new ValidateEntity($this, $data);
-    }
-
-
-    private $_version = null;
-
-    // Canonical facade: $client->Version()->list() / ->load(["id" => ...]).
-    // PHP method names are case-insensitive, so lowercase $client->version()
-    // resolves here too.
-    public function Version($data = null)
-    {
-        require_once __DIR__ . '/entity/version_entity.php';
-        if ($data === null) {
-            if ($this->_version === null) {
-                $this->_version = new VersionEntity($this, null);
-            }
-            return $this->_version;
-        }
-        return new VersionEntity($this, $data);
-    }
-
-
     private $_vulnerability = null;
 
     // Canonical facade: $client->Vulnerability()->list() / ->load(["id" => ...]).
@@ -2627,24 +1673,6 @@ class CloudsmithSDK
     }
 
 
-    private $_vulnerability_policy = null;
-
-    // Canonical facade: $client->VulnerabilityPolicy()->list() / ->load(["id" => ...]).
-    // PHP method names are case-insensitive, so lowercase $client->vulnerability_policy()
-    // resolves here too.
-    public function VulnerabilityPolicy($data = null)
-    {
-        require_once __DIR__ . '/entity/vulnerability_policy_entity.php';
-        if ($data === null) {
-            if ($this->_vulnerability_policy === null) {
-                $this->_vulnerability_policy = new VulnerabilityPolicyEntity($this, null);
-            }
-            return $this->_vulnerability_policy;
-        }
-        return new VulnerabilityPolicyEntity($this, $data);
-    }
-
-
     private $_webhook = null;
 
     // Canonical facade: $client->Webhook()->list() / ->load(["id" => ...]).
@@ -2660,42 +1688,6 @@ class CloudsmithSDK
             return $this->_webhook;
         }
         return new WebhookEntity($this, $data);
-    }
-
-
-    private $_x509_ecdsa = null;
-
-    // Canonical facade: $client->X509Ecdsa()->list() / ->load(["id" => ...]).
-    // PHP method names are case-insensitive, so lowercase $client->x509_ecdsa()
-    // resolves here too.
-    public function X509Ecdsa($data = null)
-    {
-        require_once __DIR__ . '/entity/x509_ecdsa_entity.php';
-        if ($data === null) {
-            if ($this->_x509_ecdsa === null) {
-                $this->_x509_ecdsa = new X509EcdsaEntity($this, null);
-            }
-            return $this->_x509_ecdsa;
-        }
-        return new X509EcdsaEntity($this, $data);
-    }
-
-
-    private $_x509_rsa = null;
-
-    // Canonical facade: $client->X509Rsa()->list() / ->load(["id" => ...]).
-    // PHP method names are case-insensitive, so lowercase $client->x509_rsa()
-    // resolves here too.
-    public function X509Rsa($data = null)
-    {
-        require_once __DIR__ . '/entity/x509_rsa_entity.php';
-        if ($data === null) {
-            if ($this->_x509_rsa === null) {
-                $this->_x509_rsa = new X509RsaEntity($this, null);
-            }
-            return $this->_x509_rsa;
-        }
-        return new X509RsaEntity($this, $data);
     }
 
 

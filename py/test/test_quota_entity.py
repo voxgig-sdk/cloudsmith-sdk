@@ -74,7 +74,7 @@ def _quota_basic_setup(extra):
 
     # Generate idmap via transform.
     idmap = vs.transform(
-        ["quota01", "quota02", "quota03", "history01", "history02", "history03", "oss01", "oss02", "oss03"],
+        ["quota01", "quota02", "quota03"],
         {
             "`$PACK`": ["", {
                 "`$KEY`": "`$COPY`",

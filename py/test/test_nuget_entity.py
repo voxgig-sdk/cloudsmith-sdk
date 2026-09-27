@@ -141,7 +141,7 @@ def _nuget_basic_setup(extra):
 
     # Generate idmap via transform.
     idmap = vs.transform(
-        ["nuget01", "nuget02", "nuget03", "package01", "package02", "package03", "repo01", "repo02", "repo03", "identifier01", "owner01"],
+        ["nuget01", "nuget02", "nuget03", "repo01", "repo02", "repo03", "identifier01", "owner01"],
         {
             "`$PACK`": ["", {
                 "`$KEY`": "`$COPY`",

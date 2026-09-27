@@ -141,7 +141,7 @@ def _conda_basic_setup(extra):
 
     # Generate idmap via transform.
     idmap = vs.transform(
-        ["conda01", "conda02", "conda03", "package01", "package02", "package03", "repo01", "repo02", "repo03", "identifier01", "owner01"],
+        ["conda01", "conda02", "conda03", "repo01", "repo02", "repo03", "identifier01", "owner01"],
         {
             "`$PACK`": ["", {
                 "`$KEY`": "`$COPY`",

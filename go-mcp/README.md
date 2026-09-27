@@ -129,7 +129,7 @@ Both tools take the same argument object:
 
 | Field | Type | Notes |
 |-------|------|-------|
-| `entity` | string | One of the 131 supported entities (see below). |
+| `entity` | string | One of the 75 supported entities (see below). |
 | `query` | object | Optional match map. `{"id":N}` for load; omit or `{}` for list. |
 
 JSON schemas are emitted by the SDK from the `Args` struct's `json` /
@@ -151,9 +151,9 @@ JSON schemas are emitted by the SDK from the `Args` struct's `json` /
 
 ### Entities
 
-The 131 entities valid as the `entity` argument:
+The 75 entities valid as the `entity` argument:
 
-abort | alpine | audit_log | basic | cargo | cocoapod | complete | composer | conan | conda | copy | cran | dart | deb | deny_policy | dependency | disable | distribution_full | distro | docker | dynamic_mapping | ecdsa | enable | entitlement | evaluation | file | format | geoip | gon | gpg | group | helm | hex | history | huggingface | info | invite | license_policy | limit | luarock | maven | member | move | namespace | namespace_audit_log | npm | nuget | openid_connect | org | organization_group_sync | organization_group_sync_status | organization_invite | organization_invite_extend | organization_membership | organization_membership_role_update | organization_membership_visibility_update | organization_package_license_policy | organization_package_vulnerability_policy | organization_saml_auth | organization_team | organization_team_member | oss | p2n | package | package_deny_policy | package_file_parts_upload | package_file_upload | package_license_policy_evaluation | package_version_badge | package_vulnerability_policy_evaluation | privilege | profile | provider_setting | provider_settings_write | python | quarantine | quota | raw | refresh | regenerate | repo | repository_audit_log | repository_ecdsa_key | repository_geo_ip_rule | repository_geo_ip_status | repository_geo_ip_test_address | repository_gpg_key | repository_privilege_input | repository_retention_rule | repository_rsa_key | repository_token | repository_token_refresh | repository_token_sync | repository_webhook | repository_x509_ecdsa_certificate | repository_x509_rsa_certificate | reset | resources_rate_check | resync | retention | rpm | rsa | ruby | saml_group_sync | scan | self | service | status | status_basic | storage_region | swift | sync | tag | team | terraform | test | token | transfer_region | user | user_auth_token | user_authentication_token | user_brief | user_profile | vagrant | validate | version | vulnerability | vulnerability_policy | webhook | x509_ecdsa | x509_rsa
+cargo | composer | conda | cran | dart | deb | distribution_full | docker | dynamic_mapping | entitlement | file | format | gon | helm | hex | huggingface | maven | namespace | namespace_audit_log | npm | nuget | org | organization_group_sync | organization_group_sync_status | organization_invite | organization_invite_extend | organization_membership | organization_membership_role_update | organization_membership_visibility_update | organization_package_license_policy | organization_package_vulnerability_policy | organization_saml_auth | organization_team | organization_team_member | package | package_deny_policy | package_file_parts_upload | package_file_upload | package_license_policy_evaluation | package_version_badge | package_vulnerability_policy_evaluation | provider_setting | provider_settings_write | python | quota | repo | repository_audit_log | repository_ecdsa_key | repository_geo_ip_rule | repository_geo_ip_status | repository_geo_ip_test_address | repository_gpg_key | repository_privilege_dict | repository_retention_rule | repository_rsa_key | repository_token | repository_token_refresh | repository_token_sync | repository_webhook | repository_x509_ecdsa_certificate | repository_x509_rsa_certificate | resources_rate_check | rpm | ruby | service | status_basic | storage_region | swift | user | user_auth_token | user_authentication_token | user_brief | user_profile | vulnerability | webhook
 
 ### Smoke test via HTTP (raw JSON-RPC)
 

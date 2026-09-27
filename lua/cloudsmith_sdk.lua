@@ -353,62 +353,6 @@ end
 
 
 
--- Idiomatic facade: client:Abort():list() / client:Abort():load({ id = ... })
--- Entity access is capitalised (PascalCase) for parity with the other SDKs.
-function CloudsmithSDK:Abort(data)
-  local EntityMod = require("entity.abort_entity")
-  if data == nil then
-    if self._abort == nil then
-      self._abort = EntityMod.new(self, nil)
-    end
-    return self._abort
-  end
-  return EntityMod.new(self, data)
-end
-
-
--- Idiomatic facade: client:Alpine():list() / client:Alpine():load({ id = ... })
--- Entity access is capitalised (PascalCase) for parity with the other SDKs.
-function CloudsmithSDK:Alpine(data)
-  local EntityMod = require("entity.alpine_entity")
-  if data == nil then
-    if self._alpine == nil then
-      self._alpine = EntityMod.new(self, nil)
-    end
-    return self._alpine
-  end
-  return EntityMod.new(self, data)
-end
-
-
--- Idiomatic facade: client:AuditLog():list() / client:AuditLog():load({ id = ... })
--- Entity access is capitalised (PascalCase) for parity with the other SDKs.
-function CloudsmithSDK:AuditLog(data)
-  local EntityMod = require("entity.audit_log_entity")
-  if data == nil then
-    if self._audit_log == nil then
-      self._audit_log = EntityMod.new(self, nil)
-    end
-    return self._audit_log
-  end
-  return EntityMod.new(self, data)
-end
-
-
--- Idiomatic facade: client:Basic():list() / client:Basic():load({ id = ... })
--- Entity access is capitalised (PascalCase) for parity with the other SDKs.
-function CloudsmithSDK:Basic(data)
-  local EntityMod = require("entity.basic_entity")
-  if data == nil then
-    if self._basic == nil then
-      self._basic = EntityMod.new(self, nil)
-    end
-    return self._basic
-  end
-  return EntityMod.new(self, data)
-end
-
-
 -- Idiomatic facade: client:Cargo():list() / client:Cargo():load({ id = ... })
 -- Entity access is capitalised (PascalCase) for parity with the other SDKs.
 function CloudsmithSDK:Cargo(data)
@@ -418,34 +362,6 @@ function CloudsmithSDK:Cargo(data)
       self._cargo = EntityMod.new(self, nil)
     end
     return self._cargo
-  end
-  return EntityMod.new(self, data)
-end
-
-
--- Idiomatic facade: client:Cocoapod():list() / client:Cocoapod():load({ id = ... })
--- Entity access is capitalised (PascalCase) for parity with the other SDKs.
-function CloudsmithSDK:Cocoapod(data)
-  local EntityMod = require("entity.cocoapod_entity")
-  if data == nil then
-    if self._cocoapod == nil then
-      self._cocoapod = EntityMod.new(self, nil)
-    end
-    return self._cocoapod
-  end
-  return EntityMod.new(self, data)
-end
-
-
--- Idiomatic facade: client:Complete():list() / client:Complete():load({ id = ... })
--- Entity access is capitalised (PascalCase) for parity with the other SDKs.
-function CloudsmithSDK:Complete(data)
-  local EntityMod = require("entity.complete_entity")
-  if data == nil then
-    if self._complete == nil then
-      self._complete = EntityMod.new(self, nil)
-    end
-    return self._complete
   end
   return EntityMod.new(self, data)
 end
@@ -465,20 +381,6 @@ function CloudsmithSDK:Composer(data)
 end
 
 
--- Idiomatic facade: client:Conan():list() / client:Conan():load({ id = ... })
--- Entity access is capitalised (PascalCase) for parity with the other SDKs.
-function CloudsmithSDK:Conan(data)
-  local EntityMod = require("entity.conan_entity")
-  if data == nil then
-    if self._conan == nil then
-      self._conan = EntityMod.new(self, nil)
-    end
-    return self._conan
-  end
-  return EntityMod.new(self, data)
-end
-
-
 -- Idiomatic facade: client:Conda():list() / client:Conda():load({ id = ... })
 -- Entity access is capitalised (PascalCase) for parity with the other SDKs.
 function CloudsmithSDK:Conda(data)
@@ -488,20 +390,6 @@ function CloudsmithSDK:Conda(data)
       self._conda = EntityMod.new(self, nil)
     end
     return self._conda
-  end
-  return EntityMod.new(self, data)
-end
-
-
--- Idiomatic facade: client:Copy():list() / client:Copy():load({ id = ... })
--- Entity access is capitalised (PascalCase) for parity with the other SDKs.
-function CloudsmithSDK:Copy(data)
-  local EntityMod = require("entity.copy_entity")
-  if data == nil then
-    if self._copy == nil then
-      self._copy = EntityMod.new(self, nil)
-    end
-    return self._copy
   end
   return EntityMod.new(self, data)
 end
@@ -549,48 +437,6 @@ function CloudsmithSDK:Deb(data)
 end
 
 
--- Idiomatic facade: client:DenyPolicy():list() / client:DenyPolicy():load({ id = ... })
--- Entity access is capitalised (PascalCase) for parity with the other SDKs.
-function CloudsmithSDK:DenyPolicy(data)
-  local EntityMod = require("entity.deny_policy_entity")
-  if data == nil then
-    if self._deny_policy == nil then
-      self._deny_policy = EntityMod.new(self, nil)
-    end
-    return self._deny_policy
-  end
-  return EntityMod.new(self, data)
-end
-
-
--- Idiomatic facade: client:Dependency():list() / client:Dependency():load({ id = ... })
--- Entity access is capitalised (PascalCase) for parity with the other SDKs.
-function CloudsmithSDK:Dependency(data)
-  local EntityMod = require("entity.dependency_entity")
-  if data == nil then
-    if self._dependency == nil then
-      self._dependency = EntityMod.new(self, nil)
-    end
-    return self._dependency
-  end
-  return EntityMod.new(self, data)
-end
-
-
--- Idiomatic facade: client:Disable():list() / client:Disable():load({ id = ... })
--- Entity access is capitalised (PascalCase) for parity with the other SDKs.
-function CloudsmithSDK:Disable(data)
-  local EntityMod = require("entity.disable_entity")
-  if data == nil then
-    if self._disable == nil then
-      self._disable = EntityMod.new(self, nil)
-    end
-    return self._disable
-  end
-  return EntityMod.new(self, data)
-end
-
-
 -- Idiomatic facade: client:DistributionFull():list() / client:DistributionFull():load({ id = ... })
 -- Entity access is capitalised (PascalCase) for parity with the other SDKs.
 function CloudsmithSDK:DistributionFull(data)
@@ -600,20 +446,6 @@ function CloudsmithSDK:DistributionFull(data)
       self._distribution_full = EntityMod.new(self, nil)
     end
     return self._distribution_full
-  end
-  return EntityMod.new(self, data)
-end
-
-
--- Idiomatic facade: client:Distro():list() / client:Distro():load({ id = ... })
--- Entity access is capitalised (PascalCase) for parity with the other SDKs.
-function CloudsmithSDK:Distro(data)
-  local EntityMod = require("entity.distro_entity")
-  if data == nil then
-    if self._distro == nil then
-      self._distro = EntityMod.new(self, nil)
-    end
-    return self._distro
   end
   return EntityMod.new(self, data)
 end
@@ -647,34 +479,6 @@ function CloudsmithSDK:DynamicMapping(data)
 end
 
 
--- Idiomatic facade: client:Ecdsa():list() / client:Ecdsa():load({ id = ... })
--- Entity access is capitalised (PascalCase) for parity with the other SDKs.
-function CloudsmithSDK:Ecdsa(data)
-  local EntityMod = require("entity.ecdsa_entity")
-  if data == nil then
-    if self._ecdsa == nil then
-      self._ecdsa = EntityMod.new(self, nil)
-    end
-    return self._ecdsa
-  end
-  return EntityMod.new(self, data)
-end
-
-
--- Idiomatic facade: client:Enable():list() / client:Enable():load({ id = ... })
--- Entity access is capitalised (PascalCase) for parity with the other SDKs.
-function CloudsmithSDK:Enable(data)
-  local EntityMod = require("entity.enable_entity")
-  if data == nil then
-    if self._enable == nil then
-      self._enable = EntityMod.new(self, nil)
-    end
-    return self._enable
-  end
-  return EntityMod.new(self, data)
-end
-
-
 -- Idiomatic facade: client:Entitlement():list() / client:Entitlement():load({ id = ... })
 -- Entity access is capitalised (PascalCase) for parity with the other SDKs.
 function CloudsmithSDK:Entitlement(data)
@@ -684,20 +488,6 @@ function CloudsmithSDK:Entitlement(data)
       self._entitlement = EntityMod.new(self, nil)
     end
     return self._entitlement
-  end
-  return EntityMod.new(self, data)
-end
-
-
--- Idiomatic facade: client:Evaluation():list() / client:Evaluation():load({ id = ... })
--- Entity access is capitalised (PascalCase) for parity with the other SDKs.
-function CloudsmithSDK:Evaluation(data)
-  local EntityMod = require("entity.evaluation_entity")
-  if data == nil then
-    if self._evaluation == nil then
-      self._evaluation = EntityMod.new(self, nil)
-    end
-    return self._evaluation
   end
   return EntityMod.new(self, data)
 end
@@ -731,20 +521,6 @@ function CloudsmithSDK:Format(data)
 end
 
 
--- Idiomatic facade: client:Geoip():list() / client:Geoip():load({ id = ... })
--- Entity access is capitalised (PascalCase) for parity with the other SDKs.
-function CloudsmithSDK:Geoip(data)
-  local EntityMod = require("entity.geoip_entity")
-  if data == nil then
-    if self._geoip == nil then
-      self._geoip = EntityMod.new(self, nil)
-    end
-    return self._geoip
-  end
-  return EntityMod.new(self, data)
-end
-
-
 -- Idiomatic facade: client:Gon():list() / client:Gon():load({ id = ... })
 -- Entity access is capitalised (PascalCase) for parity with the other SDKs.
 function CloudsmithSDK:Gon(data)
@@ -754,34 +530,6 @@ function CloudsmithSDK:Gon(data)
       self._gon = EntityMod.new(self, nil)
     end
     return self._gon
-  end
-  return EntityMod.new(self, data)
-end
-
-
--- Idiomatic facade: client:Gpg():list() / client:Gpg():load({ id = ... })
--- Entity access is capitalised (PascalCase) for parity with the other SDKs.
-function CloudsmithSDK:Gpg(data)
-  local EntityMod = require("entity.gpg_entity")
-  if data == nil then
-    if self._gpg == nil then
-      self._gpg = EntityMod.new(self, nil)
-    end
-    return self._gpg
-  end
-  return EntityMod.new(self, data)
-end
-
-
--- Idiomatic facade: client:Group():list() / client:Group():load({ id = ... })
--- Entity access is capitalised (PascalCase) for parity with the other SDKs.
-function CloudsmithSDK:Group(data)
-  local EntityMod = require("entity.group_entity")
-  if data == nil then
-    if self._group == nil then
-      self._group = EntityMod.new(self, nil)
-    end
-    return self._group
   end
   return EntityMod.new(self, data)
 end
@@ -815,20 +563,6 @@ function CloudsmithSDK:Hex(data)
 end
 
 
--- Idiomatic facade: client:History():list() / client:History():load({ id = ... })
--- Entity access is capitalised (PascalCase) for parity with the other SDKs.
-function CloudsmithSDK:History(data)
-  local EntityMod = require("entity.history_entity")
-  if data == nil then
-    if self._history == nil then
-      self._history = EntityMod.new(self, nil)
-    end
-    return self._history
-  end
-  return EntityMod.new(self, data)
-end
-
-
 -- Idiomatic facade: client:Huggingface():list() / client:Huggingface():load({ id = ... })
 -- Entity access is capitalised (PascalCase) for parity with the other SDKs.
 function CloudsmithSDK:Huggingface(data)
@@ -843,76 +577,6 @@ function CloudsmithSDK:Huggingface(data)
 end
 
 
--- Idiomatic facade: client:Info():list() / client:Info():load({ id = ... })
--- Entity access is capitalised (PascalCase) for parity with the other SDKs.
-function CloudsmithSDK:Info(data)
-  local EntityMod = require("entity.info_entity")
-  if data == nil then
-    if self._info == nil then
-      self._info = EntityMod.new(self, nil)
-    end
-    return self._info
-  end
-  return EntityMod.new(self, data)
-end
-
-
--- Idiomatic facade: client:Invite():list() / client:Invite():load({ id = ... })
--- Entity access is capitalised (PascalCase) for parity with the other SDKs.
-function CloudsmithSDK:Invite(data)
-  local EntityMod = require("entity.invite_entity")
-  if data == nil then
-    if self._invite == nil then
-      self._invite = EntityMod.new(self, nil)
-    end
-    return self._invite
-  end
-  return EntityMod.new(self, data)
-end
-
-
--- Idiomatic facade: client:LicensePolicy():list() / client:LicensePolicy():load({ id = ... })
--- Entity access is capitalised (PascalCase) for parity with the other SDKs.
-function CloudsmithSDK:LicensePolicy(data)
-  local EntityMod = require("entity.license_policy_entity")
-  if data == nil then
-    if self._license_policy == nil then
-      self._license_policy = EntityMod.new(self, nil)
-    end
-    return self._license_policy
-  end
-  return EntityMod.new(self, data)
-end
-
-
--- Idiomatic facade: client:Limit():list() / client:Limit():load({ id = ... })
--- Entity access is capitalised (PascalCase) for parity with the other SDKs.
-function CloudsmithSDK:Limit(data)
-  local EntityMod = require("entity.limit_entity")
-  if data == nil then
-    if self._limit == nil then
-      self._limit = EntityMod.new(self, nil)
-    end
-    return self._limit
-  end
-  return EntityMod.new(self, data)
-end
-
-
--- Idiomatic facade: client:Luarock():list() / client:Luarock():load({ id = ... })
--- Entity access is capitalised (PascalCase) for parity with the other SDKs.
-function CloudsmithSDK:Luarock(data)
-  local EntityMod = require("entity.luarock_entity")
-  if data == nil then
-    if self._luarock == nil then
-      self._luarock = EntityMod.new(self, nil)
-    end
-    return self._luarock
-  end
-  return EntityMod.new(self, data)
-end
-
-
 -- Idiomatic facade: client:Maven():list() / client:Maven():load({ id = ... })
 -- Entity access is capitalised (PascalCase) for parity with the other SDKs.
 function CloudsmithSDK:Maven(data)
@@ -922,34 +586,6 @@ function CloudsmithSDK:Maven(data)
       self._maven = EntityMod.new(self, nil)
     end
     return self._maven
-  end
-  return EntityMod.new(self, data)
-end
-
-
--- Idiomatic facade: client:Member():list() / client:Member():load({ id = ... })
--- Entity access is capitalised (PascalCase) for parity with the other SDKs.
-function CloudsmithSDK:Member(data)
-  local EntityMod = require("entity.member_entity")
-  if data == nil then
-    if self._member == nil then
-      self._member = EntityMod.new(self, nil)
-    end
-    return self._member
-  end
-  return EntityMod.new(self, data)
-end
-
-
--- Idiomatic facade: client:Move():list() / client:Move():load({ id = ... })
--- Entity access is capitalised (PascalCase) for parity with the other SDKs.
-function CloudsmithSDK:Move(data)
-  local EntityMod = require("entity.move_entity")
-  if data == nil then
-    if self._move == nil then
-      self._move = EntityMod.new(self, nil)
-    end
-    return self._move
   end
   return EntityMod.new(self, data)
 end
@@ -1006,20 +642,6 @@ function CloudsmithSDK:Nuget(data)
       self._nuget = EntityMod.new(self, nil)
     end
     return self._nuget
-  end
-  return EntityMod.new(self, data)
-end
-
-
--- Idiomatic facade: client:OpenidConnect():list() / client:OpenidConnect():load({ id = ... })
--- Entity access is capitalised (PascalCase) for parity with the other SDKs.
-function CloudsmithSDK:OpenidConnect(data)
-  local EntityMod = require("entity.openid_connect_entity")
-  if data == nil then
-    if self._openid_connect == nil then
-      self._openid_connect = EntityMod.new(self, nil)
-    end
-    return self._openid_connect
   end
   return EntityMod.new(self, data)
 end
@@ -1207,34 +829,6 @@ function CloudsmithSDK:OrganizationTeamMember(data)
 end
 
 
--- Idiomatic facade: client:Oss():list() / client:Oss():load({ id = ... })
--- Entity access is capitalised (PascalCase) for parity with the other SDKs.
-function CloudsmithSDK:Oss(data)
-  local EntityMod = require("entity.oss_entity")
-  if data == nil then
-    if self._oss == nil then
-      self._oss = EntityMod.new(self, nil)
-    end
-    return self._oss
-  end
-  return EntityMod.new(self, data)
-end
-
-
--- Idiomatic facade: client:P2n():list() / client:P2n():load({ id = ... })
--- Entity access is capitalised (PascalCase) for parity with the other SDKs.
-function CloudsmithSDK:P2n(data)
-  local EntityMod = require("entity.p2n_entity")
-  if data == nil then
-    if self._p2n == nil then
-      self._p2n = EntityMod.new(self, nil)
-    end
-    return self._p2n
-  end
-  return EntityMod.new(self, data)
-end
-
-
 -- Idiomatic facade: client:Package():list() / client:Package():load({ id = ... })
 -- Entity access is capitalised (PascalCase) for parity with the other SDKs.
 function CloudsmithSDK:Package(data)
@@ -1333,34 +927,6 @@ function CloudsmithSDK:PackageVulnerabilityPolicyEvaluation(data)
 end
 
 
--- Idiomatic facade: client:Privilege():list() / client:Privilege():load({ id = ... })
--- Entity access is capitalised (PascalCase) for parity with the other SDKs.
-function CloudsmithSDK:Privilege(data)
-  local EntityMod = require("entity.privilege_entity")
-  if data == nil then
-    if self._privilege == nil then
-      self._privilege = EntityMod.new(self, nil)
-    end
-    return self._privilege
-  end
-  return EntityMod.new(self, data)
-end
-
-
--- Idiomatic facade: client:Profile():list() / client:Profile():load({ id = ... })
--- Entity access is capitalised (PascalCase) for parity with the other SDKs.
-function CloudsmithSDK:Profile(data)
-  local EntityMod = require("entity.profile_entity")
-  if data == nil then
-    if self._profile == nil then
-      self._profile = EntityMod.new(self, nil)
-    end
-    return self._profile
-  end
-  return EntityMod.new(self, data)
-end
-
-
 -- Idiomatic facade: client:ProviderSetting():list() / client:ProviderSetting():load({ id = ... })
 -- Entity access is capitalised (PascalCase) for parity with the other SDKs.
 function CloudsmithSDK:ProviderSetting(data)
@@ -1403,20 +969,6 @@ function CloudsmithSDK:Python(data)
 end
 
 
--- Idiomatic facade: client:Quarantine():list() / client:Quarantine():load({ id = ... })
--- Entity access is capitalised (PascalCase) for parity with the other SDKs.
-function CloudsmithSDK:Quarantine(data)
-  local EntityMod = require("entity.quarantine_entity")
-  if data == nil then
-    if self._quarantine == nil then
-      self._quarantine = EntityMod.new(self, nil)
-    end
-    return self._quarantine
-  end
-  return EntityMod.new(self, data)
-end
-
-
 -- Idiomatic facade: client:Quota():list() / client:Quota():load({ id = ... })
 -- Entity access is capitalised (PascalCase) for parity with the other SDKs.
 function CloudsmithSDK:Quota(data)
@@ -1426,48 +978,6 @@ function CloudsmithSDK:Quota(data)
       self._quota = EntityMod.new(self, nil)
     end
     return self._quota
-  end
-  return EntityMod.new(self, data)
-end
-
-
--- Idiomatic facade: client:Raw():list() / client:Raw():load({ id = ... })
--- Entity access is capitalised (PascalCase) for parity with the other SDKs.
-function CloudsmithSDK:Raw(data)
-  local EntityMod = require("entity.raw_entity")
-  if data == nil then
-    if self._raw == nil then
-      self._raw = EntityMod.new(self, nil)
-    end
-    return self._raw
-  end
-  return EntityMod.new(self, data)
-end
-
-
--- Idiomatic facade: client:Refresh():list() / client:Refresh():load({ id = ... })
--- Entity access is capitalised (PascalCase) for parity with the other SDKs.
-function CloudsmithSDK:Refresh(data)
-  local EntityMod = require("entity.refresh_entity")
-  if data == nil then
-    if self._refresh == nil then
-      self._refresh = EntityMod.new(self, nil)
-    end
-    return self._refresh
-  end
-  return EntityMod.new(self, data)
-end
-
-
--- Idiomatic facade: client:Regenerate():list() / client:Regenerate():load({ id = ... })
--- Entity access is capitalised (PascalCase) for parity with the other SDKs.
-function CloudsmithSDK:Regenerate(data)
-  local EntityMod = require("entity.regenerate_entity")
-  if data == nil then
-    if self._regenerate == nil then
-      self._regenerate = EntityMod.new(self, nil)
-    end
-    return self._regenerate
   end
   return EntityMod.new(self, data)
 end
@@ -1571,15 +1081,15 @@ function CloudsmithSDK:RepositoryGpgKey(data)
 end
 
 
--- Idiomatic facade: client:RepositoryPrivilegeInput():list() / client:RepositoryPrivilegeInput():load({ id = ... })
+-- Idiomatic facade: client:RepositoryPrivilegeDict():list() / client:RepositoryPrivilegeDict():load({ id = ... })
 -- Entity access is capitalised (PascalCase) for parity with the other SDKs.
-function CloudsmithSDK:RepositoryPrivilegeInput(data)
-  local EntityMod = require("entity.repository_privilege_input_entity")
+function CloudsmithSDK:RepositoryPrivilegeDict(data)
+  local EntityMod = require("entity.repository_privilege_dict_entity")
   if data == nil then
-    if self._repository_privilege_input == nil then
-      self._repository_privilege_input = EntityMod.new(self, nil)
+    if self._repository_privilege_dict == nil then
+      self._repository_privilege_dict = EntityMod.new(self, nil)
     end
-    return self._repository_privilege_input
+    return self._repository_privilege_dict
   end
   return EntityMod.new(self, data)
 end
@@ -1697,20 +1207,6 @@ function CloudsmithSDK:RepositoryX509RsaCertificate(data)
 end
 
 
--- Idiomatic facade: client:Reset():list() / client:Reset():load({ id = ... })
--- Entity access is capitalised (PascalCase) for parity with the other SDKs.
-function CloudsmithSDK:Reset(data)
-  local EntityMod = require("entity.reset_entity")
-  if data == nil then
-    if self._reset == nil then
-      self._reset = EntityMod.new(self, nil)
-    end
-    return self._reset
-  end
-  return EntityMod.new(self, data)
-end
-
-
 -- Idiomatic facade: client:ResourcesRateCheck():list() / client:ResourcesRateCheck():load({ id = ... })
 -- Entity access is capitalised (PascalCase) for parity with the other SDKs.
 function CloudsmithSDK:ResourcesRateCheck(data)
@@ -1720,34 +1216,6 @@ function CloudsmithSDK:ResourcesRateCheck(data)
       self._resources_rate_check = EntityMod.new(self, nil)
     end
     return self._resources_rate_check
-  end
-  return EntityMod.new(self, data)
-end
-
-
--- Idiomatic facade: client:Resync():list() / client:Resync():load({ id = ... })
--- Entity access is capitalised (PascalCase) for parity with the other SDKs.
-function CloudsmithSDK:Resync(data)
-  local EntityMod = require("entity.resync_entity")
-  if data == nil then
-    if self._resync == nil then
-      self._resync = EntityMod.new(self, nil)
-    end
-    return self._resync
-  end
-  return EntityMod.new(self, data)
-end
-
-
--- Idiomatic facade: client:Retention():list() / client:Retention():load({ id = ... })
--- Entity access is capitalised (PascalCase) for parity with the other SDKs.
-function CloudsmithSDK:Retention(data)
-  local EntityMod = require("entity.retention_entity")
-  if data == nil then
-    if self._retention == nil then
-      self._retention = EntityMod.new(self, nil)
-    end
-    return self._retention
   end
   return EntityMod.new(self, data)
 end
@@ -1767,20 +1235,6 @@ function CloudsmithSDK:Rpm(data)
 end
 
 
--- Idiomatic facade: client:Rsa():list() / client:Rsa():load({ id = ... })
--- Entity access is capitalised (PascalCase) for parity with the other SDKs.
-function CloudsmithSDK:Rsa(data)
-  local EntityMod = require("entity.rsa_entity")
-  if data == nil then
-    if self._rsa == nil then
-      self._rsa = EntityMod.new(self, nil)
-    end
-    return self._rsa
-  end
-  return EntityMod.new(self, data)
-end
-
-
 -- Idiomatic facade: client:Ruby():list() / client:Ruby():load({ id = ... })
 -- Entity access is capitalised (PascalCase) for parity with the other SDKs.
 function CloudsmithSDK:Ruby(data)
@@ -1795,48 +1249,6 @@ function CloudsmithSDK:Ruby(data)
 end
 
 
--- Idiomatic facade: client:SamlGroupSync():list() / client:SamlGroupSync():load({ id = ... })
--- Entity access is capitalised (PascalCase) for parity with the other SDKs.
-function CloudsmithSDK:SamlGroupSync(data)
-  local EntityMod = require("entity.saml_group_sync_entity")
-  if data == nil then
-    if self._saml_group_sync == nil then
-      self._saml_group_sync = EntityMod.new(self, nil)
-    end
-    return self._saml_group_sync
-  end
-  return EntityMod.new(self, data)
-end
-
-
--- Idiomatic facade: client:Scan():list() / client:Scan():load({ id = ... })
--- Entity access is capitalised (PascalCase) for parity with the other SDKs.
-function CloudsmithSDK:Scan(data)
-  local EntityMod = require("entity.scan_entity")
-  if data == nil then
-    if self._scan == nil then
-      self._scan = EntityMod.new(self, nil)
-    end
-    return self._scan
-  end
-  return EntityMod.new(self, data)
-end
-
-
--- Idiomatic facade: client:Self():list() / client:Self():load({ id = ... })
--- Entity access is capitalised (PascalCase) for parity with the other SDKs.
-function CloudsmithSDK:Self(data)
-  local EntityMod = require("entity.self_entity")
-  if data == nil then
-    if self._self == nil then
-      self._self = EntityMod.new(self, nil)
-    end
-    return self._self
-  end
-  return EntityMod.new(self, data)
-end
-
-
 -- Idiomatic facade: client:Service():list() / client:Service():load({ id = ... })
 -- Entity access is capitalised (PascalCase) for parity with the other SDKs.
 function CloudsmithSDK:Service(data)
@@ -1846,20 +1258,6 @@ function CloudsmithSDK:Service(data)
       self._service = EntityMod.new(self, nil)
     end
     return self._service
-  end
-  return EntityMod.new(self, data)
-end
-
-
--- Idiomatic facade: client:Status():list() / client:Status():load({ id = ... })
--- Entity access is capitalised (PascalCase) for parity with the other SDKs.
-function CloudsmithSDK:Status(data)
-  local EntityMod = require("entity.status_entity")
-  if data == nil then
-    if self._status == nil then
-      self._status = EntityMod.new(self, nil)
-    end
-    return self._status
   end
   return EntityMod.new(self, data)
 end
@@ -1902,104 +1300,6 @@ function CloudsmithSDK:Swift(data)
       self._swift = EntityMod.new(self, nil)
     end
     return self._swift
-  end
-  return EntityMod.new(self, data)
-end
-
-
--- Idiomatic facade: client:Sync():list() / client:Sync():load({ id = ... })
--- Entity access is capitalised (PascalCase) for parity with the other SDKs.
-function CloudsmithSDK:Sync(data)
-  local EntityMod = require("entity.sync_entity")
-  if data == nil then
-    if self._sync == nil then
-      self._sync = EntityMod.new(self, nil)
-    end
-    return self._sync
-  end
-  return EntityMod.new(self, data)
-end
-
-
--- Idiomatic facade: client:Tag():list() / client:Tag():load({ id = ... })
--- Entity access is capitalised (PascalCase) for parity with the other SDKs.
-function CloudsmithSDK:Tag(data)
-  local EntityMod = require("entity.tag_entity")
-  if data == nil then
-    if self._tag == nil then
-      self._tag = EntityMod.new(self, nil)
-    end
-    return self._tag
-  end
-  return EntityMod.new(self, data)
-end
-
-
--- Idiomatic facade: client:Team():list() / client:Team():load({ id = ... })
--- Entity access is capitalised (PascalCase) for parity with the other SDKs.
-function CloudsmithSDK:Team(data)
-  local EntityMod = require("entity.team_entity")
-  if data == nil then
-    if self._team == nil then
-      self._team = EntityMod.new(self, nil)
-    end
-    return self._team
-  end
-  return EntityMod.new(self, data)
-end
-
-
--- Idiomatic facade: client:Terraform():list() / client:Terraform():load({ id = ... })
--- Entity access is capitalised (PascalCase) for parity with the other SDKs.
-function CloudsmithSDK:Terraform(data)
-  local EntityMod = require("entity.terraform_entity")
-  if data == nil then
-    if self._terraform == nil then
-      self._terraform = EntityMod.new(self, nil)
-    end
-    return self._terraform
-  end
-  return EntityMod.new(self, data)
-end
-
-
--- Idiomatic facade: client:Test():list() / client:Test():load({ id = ... })
--- Entity access is capitalised (PascalCase) for parity with the other SDKs.
-function CloudsmithSDK:Test(data)
-  local EntityMod = require("entity.test_entity")
-  if data == nil then
-    if self._test == nil then
-      self._test = EntityMod.new(self, nil)
-    end
-    return self._test
-  end
-  return EntityMod.new(self, data)
-end
-
-
--- Idiomatic facade: client:Token():list() / client:Token():load({ id = ... })
--- Entity access is capitalised (PascalCase) for parity with the other SDKs.
-function CloudsmithSDK:Token(data)
-  local EntityMod = require("entity.token_entity")
-  if data == nil then
-    if self._token == nil then
-      self._token = EntityMod.new(self, nil)
-    end
-    return self._token
-  end
-  return EntityMod.new(self, data)
-end
-
-
--- Idiomatic facade: client:TransferRegion():list() / client:TransferRegion():load({ id = ... })
--- Entity access is capitalised (PascalCase) for parity with the other SDKs.
-function CloudsmithSDK:TransferRegion(data)
-  local EntityMod = require("entity.transfer_region_entity")
-  if data == nil then
-    if self._transfer_region == nil then
-      self._transfer_region = EntityMod.new(self, nil)
-    end
-    return self._transfer_region
   end
   return EntityMod.new(self, data)
 end
@@ -2075,48 +1375,6 @@ function CloudsmithSDK:UserProfile(data)
 end
 
 
--- Idiomatic facade: client:Vagrant():list() / client:Vagrant():load({ id = ... })
--- Entity access is capitalised (PascalCase) for parity with the other SDKs.
-function CloudsmithSDK:Vagrant(data)
-  local EntityMod = require("entity.vagrant_entity")
-  if data == nil then
-    if self._vagrant == nil then
-      self._vagrant = EntityMod.new(self, nil)
-    end
-    return self._vagrant
-  end
-  return EntityMod.new(self, data)
-end
-
-
--- Idiomatic facade: client:Validate():list() / client:Validate():load({ id = ... })
--- Entity access is capitalised (PascalCase) for parity with the other SDKs.
-function CloudsmithSDK:Validate(data)
-  local EntityMod = require("entity.validate_entity")
-  if data == nil then
-    if self._validate == nil then
-      self._validate = EntityMod.new(self, nil)
-    end
-    return self._validate
-  end
-  return EntityMod.new(self, data)
-end
-
-
--- Idiomatic facade: client:Version():list() / client:Version():load({ id = ... })
--- Entity access is capitalised (PascalCase) for parity with the other SDKs.
-function CloudsmithSDK:Version(data)
-  local EntityMod = require("entity.version_entity")
-  if data == nil then
-    if self._version == nil then
-      self._version = EntityMod.new(self, nil)
-    end
-    return self._version
-  end
-  return EntityMod.new(self, data)
-end
-
-
 -- Idiomatic facade: client:Vulnerability():list() / client:Vulnerability():load({ id = ... })
 -- Entity access is capitalised (PascalCase) for parity with the other SDKs.
 function CloudsmithSDK:Vulnerability(data)
@@ -2131,20 +1389,6 @@ function CloudsmithSDK:Vulnerability(data)
 end
 
 
--- Idiomatic facade: client:VulnerabilityPolicy():list() / client:VulnerabilityPolicy():load({ id = ... })
--- Entity access is capitalised (PascalCase) for parity with the other SDKs.
-function CloudsmithSDK:VulnerabilityPolicy(data)
-  local EntityMod = require("entity.vulnerability_policy_entity")
-  if data == nil then
-    if self._vulnerability_policy == nil then
-      self._vulnerability_policy = EntityMod.new(self, nil)
-    end
-    return self._vulnerability_policy
-  end
-  return EntityMod.new(self, data)
-end
-
-
 -- Idiomatic facade: client:Webhook():list() / client:Webhook():load({ id = ... })
 -- Entity access is capitalised (PascalCase) for parity with the other SDKs.
 function CloudsmithSDK:Webhook(data)
@@ -2154,34 +1398,6 @@ function CloudsmithSDK:Webhook(data)
       self._webhook = EntityMod.new(self, nil)
     end
     return self._webhook
-  end
-  return EntityMod.new(self, data)
-end
-
-
--- Idiomatic facade: client:X509Ecdsa():list() / client:X509Ecdsa():load({ id = ... })
--- Entity access is capitalised (PascalCase) for parity with the other SDKs.
-function CloudsmithSDK:X509Ecdsa(data)
-  local EntityMod = require("entity.x509_ecdsa_entity")
-  if data == nil then
-    if self._x509_ecdsa == nil then
-      self._x509_ecdsa = EntityMod.new(self, nil)
-    end
-    return self._x509_ecdsa
-  end
-  return EntityMod.new(self, data)
-end
-
-
--- Idiomatic facade: client:X509Rsa():list() / client:X509Rsa():load({ id = ... })
--- Entity access is capitalised (PascalCase) for parity with the other SDKs.
-function CloudsmithSDK:X509Rsa(data)
-  local EntityMod = require("entity.x509_rsa_entity")
-  if data == nil then
-    if self._x509_rsa == nil then
-      self._x509_rsa = EntityMod.new(self, nil)
-    end
-    return self._x509_rsa
   end
   return EntityMod.new(self, data)
 end

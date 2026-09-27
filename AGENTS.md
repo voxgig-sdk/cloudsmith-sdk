@@ -31,7 +31,7 @@ Each feature is generated into every SDK target — as a directory
 `<lang>/src/feature/<name>/` (ts/js) or a flat file in the `<lang>/feature/`
 package (other languages). Each target's guide documents its features.
 
-**Entities** (131): `Abort`, `Alpine`, `AuditLog`, `Basic`, `Cargo`, `Cocoapod`, `Complete`, `Composer`, `Conan`, `Conda`, `Copy`, `Cran`, `Dart`, `Deb`, `DenyPolicy`, `Dependency`, `Disable`, `DistributionFull`, `Distro`, `Docker`, `DynamicMapping`, `Ecdsa`, `Enable`, `Entitlement`, `Evaluation`, `File`, `Format`, `Geoip`, `Gon`, `Gpg`, `Group`, `Helm`, `Hex`, `History`, `Huggingface`, `Info`, `Invite`, `LicensePolicy`, `Limit`, `Luarock`, `Maven`, `Member`, `Move`, `Namespace`, `NamespaceAuditLog`, `Npm`, `Nuget`, `OpenidConnect`, `Org`, `OrganizationGroupSync`, `OrganizationGroupSyncStatus`, `OrganizationInvite`, `OrganizationInviteExtend`, `OrganizationMembership`, `OrganizationMembershipRoleUpdate`, `OrganizationMembershipVisibilityUpdate`, `OrganizationPackageLicensePolicy`, `OrganizationPackageVulnerabilityPolicy`, `OrganizationSamlAuth`, `OrganizationTeam`, `OrganizationTeamMember`, `Oss`, `P2n`, `Package`, `PackageDenyPolicy`, `PackageFilePartsUpload`, `PackageFileUpload`, `PackageLicensePolicyEvaluation`, `PackageVersionBadge`, `PackageVulnerabilityPolicyEvaluation`, `Privilege`, `Profile`, `ProviderSetting`, `ProviderSettingsWrite`, `Python`, `Quarantine`, `Quota`, `Raw`, `Refresh`, `Regenerate`, `Repo`, `RepositoryAuditLog`, `RepositoryEcdsaKey`, `RepositoryGeoIpRule`, `RepositoryGeoIpStatus`, `RepositoryGeoIpTestAddress`, `RepositoryGpgKey`, `RepositoryPrivilegeInput`, `RepositoryRetentionRule`, `RepositoryRsaKey`, `RepositoryToken`, `RepositoryTokenRefresh`, `RepositoryTokenSync`, `RepositoryWebhook`, `RepositoryX509EcdsaCertificate`, `RepositoryX509RsaCertificate`, `Reset`, `ResourcesRateCheck`, `Resync`, `Retention`, `Rpm`, `Rsa`, `Ruby`, `SamlGroupSync`, `Scan`, `Self`, `Service`, `Status`, `StatusBasic`, `StorageRegion`, `Swift`, `Sync`, `Tag`, `Team`, `Terraform`, `Test`, `Token`, `TransferRegion`, `User`, `UserAuthToken`, `UserAuthenticationToken`, `UserBrief`, `UserProfile`, `Vagrant`, `Validate`, `Version`, `Vulnerability`, `VulnerabilityPolicy`, `Webhook`, `X509Ecdsa`, `X509Rsa`.
+**Entities** (75): `Cargo`, `Composer`, `Conda`, `Cran`, `Dart`, `Deb`, `DistributionFull`, `Docker`, `DynamicMapping`, `Entitlement`, `File`, `Format`, `Gon`, `Helm`, `Hex`, `Huggingface`, `Maven`, `Namespace`, `NamespaceAuditLog`, `Npm`, `Nuget`, `Org`, `OrganizationGroupSync`, `OrganizationGroupSyncStatus`, `OrganizationInvite`, `OrganizationInviteExtend`, `OrganizationMembership`, `OrganizationMembershipRoleUpdate`, `OrganizationMembershipVisibilityUpdate`, `OrganizationPackageLicensePolicy`, `OrganizationPackageVulnerabilityPolicy`, `OrganizationSamlAuth`, `OrganizationTeam`, `OrganizationTeamMember`, `Package`, `PackageDenyPolicy`, `PackageFilePartsUpload`, `PackageFileUpload`, `PackageLicensePolicyEvaluation`, `PackageVersionBadge`, `PackageVulnerabilityPolicyEvaluation`, `ProviderSetting`, `ProviderSettingsWrite`, `Python`, `Quota`, `Repo`, `RepositoryAuditLog`, `RepositoryEcdsaKey`, `RepositoryGeoIpRule`, `RepositoryGeoIpStatus`, `RepositoryGeoIpTestAddress`, `RepositoryGpgKey`, `RepositoryPrivilegeDict`, `RepositoryRetentionRule`, `RepositoryRsaKey`, `RepositoryToken`, `RepositoryTokenRefresh`, `RepositoryTokenSync`, `RepositoryWebhook`, `RepositoryX509EcdsaCertificate`, `RepositoryX509RsaCertificate`, `ResourcesRateCheck`, `Rpm`, `Ruby`, `Service`, `StatusBasic`, `StorageRegion`, `Swift`, `User`, `UserAuthToken`, `UserAuthenticationToken`, `UserBrief`, `UserProfile`, `Vulnerability`, `Webhook`.
 
 ## Generating and updating the SDK
 
@@ -104,11 +104,11 @@ npm run build && npm run generate
 
 To author a **new** feature:
 
-1. Define its model at `.sdk/model/feature/<name>.aon` — `name: key()`,
+1. Define its model at `.sdk/model/feature/<name>.aontu` — `name: key()`,
    `title`, `version`, `active`, `config.options.active`, a `hook`
    map (`<Stage>: active: true`), and per-language `deps`.
-2. Register it in `.sdk/model/feature/feature-index.aon` with
-   `@"<name>.aon"`.
+2. Register it in `.sdk/model/feature/feature-index.aontu` with
+   `@"<name>.aontu"`.
 3. Provide the per-language runtime under that target's feature template dir
    (`.sdk/tm/<lang>/src/feature/<name>/` for ts/js, `.sdk/tm/<lang>/feature/`
    otherwise) — the `FEATURE_Name` / `FEATURE_VERSION` placeholders are
@@ -128,18 +128,18 @@ Each language target is generated from **two layers**:
 
 Placeholders substituted on copy: `ProjectName` (Pascal-case SDK name),
 `GOMODULE` (Go module path), `FEATURE_Name` / `FEATURE_VERSION`, and the
-`$$path$$` interpolation of a model value (such as the name) in `.aon`.
+`$$path$$` interpolation of a model value (such as the name) in `.aontu`.
 
 Propagate a change: edit the template/component → `npm run build` (only
 needed if you touched a component) → `npm run generate`. Target shape and
-deps live in `.sdk/model/target/<lang>.aon`; features in
-`.sdk/model/feature/<name>.aon`.
-## The model language (aontu, `.aon` files)
+deps live in `.sdk/model/target/<lang>.aontu`; features in
+`.sdk/model/feature/<name>.aontu`.
+## The model language (aontu, `.aontu` files)
 
 The model is one structured object assembled by **aontu** (a unification
 engine) from three sources: the API model (entities/operations, from the
 OpenAPI spec via `@voxgig/apidef`), the base schema, and the target/feature
-definitions in `.sdk/model/`. An `.aon` file is a relaxed JSON (jsonic
+definitions in `.sdk/model/`. An `.aontu` file is a relaxed JSON (jsonic
 syntax) with unification semantics:
 
 | Syntax | Meaning |
@@ -149,7 +149,7 @@ syntax) with unification semantics:
 | `*default \| type` | A default value unified against a type (e.g. `*true \| boolean`). |
 | `name: key()` | Bind a field to its map key (so `feature: log: {}` gets `name: 'log'`). |
 | `$$path$$` | Interpolate a model value into a string — e.g. the SDK `name`. |
-| `@"file.aon"` | Include another fragment (how the index files work). |
+| `@"./file.aontu"` | Include another fragment (how the index files work). The `./` is required on a local path. |
 | `x: .y` | Reference another path's value (e.g. `deps: ts: .js`). |
 
 For example, the schema for every feature entry:
@@ -171,7 +171,7 @@ do not "fix" these into literal disjunctions.
 
 ```
 .sdk/
-  model/          the model: target/, feature/, and index .aon files
+  model/          the model: target/, feature/, and index .aontu files
   src/cmp/<lang>/  components — TypeScript that generates API-specific source
   tm/<lang>/       templates — verbatim source copied with placeholders
   dist/            compiled components (npm run build)

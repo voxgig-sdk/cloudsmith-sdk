@@ -6,27 +6,11 @@ The API to the Cloudsmith Service
 
 This guide introduces the API, the client libraries, and the companion tools in this repository. Start with the API capabilities, choose a client for your application, and use the linked reference when you need exact request and response details.
 
-The selected API surface contains 131 entities and 325 HTTP routes. There are 6 SDK targets and 2 companion tools.
+The selected API surface contains 75 entities and 325 HTTP routes. There are 6 SDK targets and 2 companion tools.
 
 An entity groups related API operations. An operation can have several routes with different inputs or authentication requirements. The SDK exposes the entity and its operations using the conventions of the selected language.
 
 ## What the API provides
-
-### [Abort](docs/api/abort.html)
-
-SDK operations: .
-
-### [Alpine](docs/api/alpine.html)
-
-SDK operations: .
-
-### [AuditLog](docs/api/audit_log.html)
-
-SDK operations: .
-
-### [Basic](docs/api/basic.html)
-
-SDK operations: .
 
 ### [Cargo](docs/api/cargo.html)
 
@@ -42,14 +26,6 @@ Key fields to recognise:
 - `created_at`: The datetime the upstream source was created.
 - `extra_header_1`: The key for extra header #1 to send to upstream.
 
-### [Cocoapod](docs/api/cocoapod.html)
-
-SDK operations: .
-
-### [Complete](docs/api/complete.html)
-
-SDK operations: .
-
 ### [Composer](docs/api/composer.html)
 
 Results: Created; OK.
@@ -64,10 +40,6 @@ Key fields to recognise:
 - `created_at`: The datetime the upstream source was created.
 - `extra_header_1`: The key for extra header #1 to send to upstream.
 
-### [Conan](docs/api/conan.html)
-
-SDK operations: .
-
 ### [Conda](docs/api/conda.html)
 
 Results: Created; OK.
@@ -81,10 +53,6 @@ Key fields to recognise:
 - `auth_username`: Username to provide with requests to upstream.
 - `created_at`: The datetime the upstream source was created.
 - `extra_header_1`: The key for extra header #1 to send to upstream.
-
-### [Copy](docs/api/copy.html)
-
-SDK operations: .
 
 ### [Cran](docs/api/cran.html)
 
@@ -128,18 +96,6 @@ Key fields to recognise:
 - `component`: The component to fetch from the upstream
 - `created_at`: The datetime the upstream source was created.
 
-### [DenyPolicy](docs/api/deny_policy.html)
-
-SDK operations: .
-
-### [Dependency](docs/api/dependency.html)
-
-SDK operations: .
-
-### [Disable](docs/api/disable.html)
-
-SDK operations: .
-
 ### [DistributionFull](docs/api/distribution_full.html)
 
 Results: Available package formats retrieved; OK.
@@ -148,12 +104,9 @@ SDK operations: `list`, `load`.
 
 Key fields to recognise:
 
+- `name`: The textual name for this version.
 - `slug`: The slug identifier for this distribution
 - `versions`: A list of the versions for this distribution
-
-### [Distro](docs/api/distro.html)
-
-SDK operations: .
 
 ### [Docker](docs/api/docker.html)
 
@@ -180,14 +133,6 @@ Key fields to recognise:
 - `claim_value`: The OIDC token claim value that must be present in the token for it to successfully authenticate as the mapped `service_account`. Note: This field and the dynamic mappings feature are still in early access. Breaking changes are possible as we receive feedback on this feature.
 - `service_account`: The service account associated with the provider setting and `claim_value` Note: This field and the dynamic mappings feature are still in early access. Breaking changes are possible as we receive feedback on this feature.
 
-### [Ecdsa](docs/api/ecdsa.html)
-
-SDK operations: .
-
-### [Enable](docs/api/enable.html)
-
-SDK operations: .
-
 ### [Entitlement](docs/api/entitlement.html)
 
 Results: The entitlement token statistics have been reset.; The entitlement token has been disabled.; The entitlement token has been enabled.; Retrieved the metrics for entitlements.; Soft-deleted the specified entitlement token successfully.
@@ -199,10 +144,6 @@ Key fields to recognise:
 - `active`: Number of packages with at least 1 download
 - `inactive`: Packages with zero downloads
 - `total`: Total number of packages in repo
-
-### [Evaluation](docs/api/evaluation.html)
-
-SDK operations: .
 
 ### [File](docs/api/file.html)
 
@@ -224,10 +165,6 @@ Key fields to recognise:
 - `name`: Name for the package format
 - `premium`: If true the package format is a premium-only feature
 
-### [Geoip](docs/api/geoip.html)
-
-SDK operations: .
-
 ### [Gon](docs/api/gon.html)
 
 Results: Created; OK.
@@ -241,14 +178,6 @@ Key fields to recognise:
 - `auth_username`: Username to provide with requests to upstream.
 - `created_at`: The datetime the upstream source was created.
 - `extra_header_1`: The key for extra header #1 to send to upstream.
-
-### [Gpg](docs/api/gpg.html)
-
-SDK operations: .
-
-### [Group](docs/api/group.html)
-
-SDK operations: .
 
 ### [Helm](docs/api/helm.html)
 
@@ -278,10 +207,6 @@ Key fields to recognise:
 - `created_at`: The datetime the upstream source was created.
 - `extra_header_1`: The key for extra header #1 to send to upstream.
 
-### [History](docs/api/history.html)
-
-SDK operations: .
-
 ### [Huggingface](docs/api/huggingface.html)
 
 Results: Created; OK.
@@ -296,26 +221,6 @@ Key fields to recognise:
 - `created_at`: The datetime the upstream source was created.
 - `extra_header_1`: The key for extra header #1 to send to upstream.
 
-### [Info](docs/api/info.html)
-
-SDK operations: .
-
-### [Invite](docs/api/invite.html)
-
-SDK operations: .
-
-### [LicensePolicy](docs/api/license_policy.html)
-
-SDK operations: .
-
-### [Limit](docs/api/limit.html)
-
-SDK operations: .
-
-### [Luarock](docs/api/luarock.html)
-
-SDK operations: .
-
 ### [Maven](docs/api/maven.html)
 
 Results: Created; OK.
@@ -329,14 +234,6 @@ Key fields to recognise:
 - `auth_username`: Username to provide with requests to upstream.
 - `created_at`: The datetime the upstream source was created.
 - `extra_header_1`: The key for extra header #1 to send to upstream.
-
-### [Member](docs/api/member.html)
-
-SDK operations: .
-
-### [Move](docs/api/move.html)
-
-SDK operations: .
 
 ### [Namespace](docs/api/namespace.html)
 
@@ -378,10 +275,6 @@ Key fields to recognise:
 - `created_at`: The datetime the upstream source was created.
 - `extra_header_1`: The key for extra header #1 to send to upstream.
 
-### [OpenidConnect](docs/api/openid_connect.html)
-
-SDK operations: .
-
 ### [Org](docs/api/org.html)
 
 Results: Org member API key has been refreshed.; SAML Group Sync has been disabled for this organization.; SAML Group Sync has been enabled for this organization.; OK; Removed the organization member successfully.; Deleted the service successfully.; No Content; Deleted the organization invite successfully.; Deleted the specified OpenID Connect provider setting successfully.; Mapping removed successfully; Deleted the team successfully.; The team members were replaced.
@@ -390,7 +283,9 @@ SDK operations: `create`, `list`, `load`, `remove`, `update`.
 
 Key fields to recognise:
 
+- `created_at`: The time this scan result was stored.
 - `location`: The city/town/area your organization is based in.
+- `name`: The name of this package.
 - `tagline`: A short public descriptive for your organization.
 
 ### [OrganizationGroupSync](docs/api/organization_group_sync.html)
@@ -487,14 +382,6 @@ Results: The users were added to the team.; Retrieved users for the specified te
 
 SDK operations: `create`, `list`.
 
-### [Oss](docs/api/oss.html)
-
-SDK operations: .
-
-### [P2n](docs/api/p2n.html)
-
-SDK operations: .
-
 ### [Package](docs/api/package.html)
 
 Results: Copied specified package to destination repository.; Moved specified package to destination repository.; Changed the package&#39;s quarantine status.; Modified tags for the package.; Upload acknowledged and queued for synchronization.; Validation was successful, parameters are OK.; Scheduled the package for resynchronisation.; Scheduled the package for scanning.; Retrieved the list of package groups.; Retrieved the list of packages; Retrieved stored dependencies for specified package.; Retrieved the metrics for packages.; Retrieved the specified package successfully.; Retrieved status for specified package.; Deleted the specified package successfully.
@@ -560,14 +447,6 @@ Key fields to recognise:
 
 - `allow_unknown_severity`: Denotes whether vulnerabilities detected by a security scan with an unknown severity are permitted by this policy.
 
-### [Privilege](docs/api/privilege.html)
-
-SDK operations: .
-
-### [Profile](docs/api/profile.html)
-
-SDK operations: .
-
 ### [ProviderSetting](docs/api/provider_setting.html)
 
 Results: Retrieved the list of OpenID Connect provider settings for the org; OK.
@@ -610,27 +489,11 @@ Key fields to recognise:
 - `created_at`: The datetime the upstream source was created.
 - `extra_header_1`: The key for extra header #1 to send to upstream.
 
-### [Quarantine](docs/api/quarantine.html)
-
-SDK operations: .
-
 ### [Quota](docs/api/quota.html)
 
 Results: OK.
 
 SDK operations: `load`.
-
-### [Raw](docs/api/raw.html)
-
-SDK operations: .
-
-### [Refresh](docs/api/refresh.html)
-
-SDK operations: .
-
-### [Regenerate](docs/api/regenerate.html)
-
-SDK operations: .
 
 ### [Repo](docs/api/repo.html)
 
@@ -701,7 +564,7 @@ Key fields to recognise:
 - `fingerprint`: The long identifier used by GPG for this key.
 - `public_key`: The public key given to repository users.
 
-### [RepositoryPrivilegeInput](docs/api/repository_privilege_input.html)
+### [RepositoryPrivilegeDict](docs/api/repository_privilege_dict.html)
 
 Results: Retrieved privileges for the specified repository.
 
@@ -822,10 +685,6 @@ Key fields to recognise:
 - `certificate_fingerprint`: The SHA-256 long identifier used
 - `default`: If selected this is the default key for this repository.
 
-### [Reset](docs/api/reset.html)
-
-SDK operations: .
-
 ### [ResourcesRateCheck](docs/api/resources_rate_check.html)
 
 Results: Rate check was successful.
@@ -839,14 +698,6 @@ Key fields to recognise:
 - `remaining`: The number of requests that are remaining in the current rate limit window
 - `reset`: The UTC epoch timestamp at which the current rate limit window will reset
 - `reset_iso_8601`: The ISO 8601 datetime at which the current rate limit window will reset
-
-### [Resync](docs/api/resync.html)
-
-SDK operations: .
-
-### [Retention](docs/api/retention.html)
-
-SDK operations: .
 
 ### [Rpm](docs/api/rpm.html)
 
@@ -862,10 +713,6 @@ Key fields to recognise:
 - `created_at`: The datetime the upstream source was created.
 - `distro_version`: The distribution version that packages found on this upstream will be associated with.
 
-### [Rsa](docs/api/rsa.html)
-
-SDK operations: .
-
 ### [Ruby](docs/api/ruby.html)
 
 Results: Created; OK.
@@ -880,18 +727,6 @@ Key fields to recognise:
 - `created_at`: The datetime the upstream source was created.
 - `extra_header_1`: The key for extra header #1 to send to upstream.
 
-### [SamlGroupSync](docs/api/saml_group_sync.html)
-
-SDK operations: .
-
-### [Scan](docs/api/scan.html)
-
-SDK operations: .
-
-### [Self](docs/api/self.html)
-
-SDK operations: .
-
 ### [Service](docs/api/service.html)
 
 Results: Created the service within the org; Refreshed the service token successfully.; Retrieved the list of services within the org; OK; Updated the service within the org.
@@ -905,10 +740,6 @@ Key fields to recognise:
 - `key_expires_at`: The time at which the API key will expire. This will only be populated if the Organization has an active API Key Policy.
 - `name`: The name of the service
 - `role`: The role of the service.
-
-### [Status](docs/api/status.html)
-
-SDK operations: .
 
 ### [StatusBasic](docs/api/status_basic.html)
 
@@ -945,34 +776,6 @@ Key fields to recognise:
 - `auth_username`: Username to provide with requests to upstream.
 - `created_at`: The datetime the upstream source was created.
 - `extra_header_1`: The key for extra header #1 to send to upstream.
-
-### [Sync](docs/api/sync.html)
-
-SDK operations: .
-
-### [Tag](docs/api/tag.html)
-
-SDK operations: .
-
-### [Team](docs/api/team.html)
-
-SDK operations: .
-
-### [Terraform](docs/api/terraform.html)
-
-SDK operations: .
-
-### [Test](docs/api/test.html)
-
-SDK operations: .
-
-### [Token](docs/api/token.html)
-
-SDK operations: .
-
-### [TransferRegion](docs/api/transfer_region.html)
-
-SDK operations: .
 
 ### [User](docs/api/user.html)
 
@@ -1021,18 +824,6 @@ Key fields to recognise:
 
 - `tagline`: Your tagline is a sentence about you. Make it funny. Make it professional. Either way, it&#39;s public and it represents who you are.
 
-### [Vagrant](docs/api/vagrant.html)
-
-SDK operations: .
-
-### [Validate](docs/api/validate.html)
-
-SDK operations: .
-
-### [Version](docs/api/version.html)
-
-SDK operations: .
-
 ### [Vulnerability](docs/api/vulnerability.html)
 
 Results: OK.
@@ -1045,23 +836,11 @@ Key fields to recognise:
 - `has_vulnerabilities`: Do the results contain any known vulnerabilities?
 - `scan_id`: Deprecated (23-05-15): Please use &#39;identifier&#39; instead. Previously: A monotonically increasing number that identified a scan within a repository.
 
-### [VulnerabilityPolicy](docs/api/vulnerability_policy.html)
-
-SDK operations: .
-
 ### [Webhook](docs/api/webhook.html)
 
 Results: Deleted the specified webhook successfully.
 
 SDK operations: `remove`.
-
-### [X509Ecdsa](docs/api/x509_ecdsa.html)
-
-SDK operations: .
-
-### [X509Rsa](docs/api/x509_rsa.html)
-
-SDK operations: .
 
 ### Route map
 
@@ -1341,7 +1120,7 @@ Use this map to locate a capability. Consult the entity reference before supplyi
 | [RepositoryGpgKey](docs/api/repository_gpg_key.html) | `create` | `POST /repos/{owner}/{identifier}/gpg/` | Required |
 | [RepositoryGpgKey](docs/api/repository_gpg_key.html) | `create` | `POST /repos/{owner}/{identifier}/gpg/regenerate/` | Required |
 | [RepositoryGpgKey](docs/api/repository_gpg_key.html) | `load` | `GET /repos/{owner}/{identifier}/gpg/` | Required |
-| [RepositoryPrivilegeInput](docs/api/repository_privilege_input.html) | `list` | `GET /repos/{owner}/{identifier}/privileges` | Required |
+| [RepositoryPrivilegeDict](docs/api/repository_privilege_dict.html) | `list` | `GET /repos/{owner}/{identifier}/privileges` | Required |
 | [RepositoryRetentionRule](docs/api/repository_retention_rule.html) | `load` | `GET /repos/{owner}/{repo}/retention/` | Required |
 | [RepositoryRetentionRule](docs/api/repository_retention_rule.html) | `update` | `PATCH /repos/{owner}/{repo}/retention/` | Required |
 | [RepositoryRsaKey](docs/api/repository_rsa_key.html) | `create` | `POST /repos/{owner}/{identifier}/rsa/` | Required |
@@ -1451,7 +1230,7 @@ Use the MCP server to expose supported API operations to an MCP client.
 
 Repository directory: `go-mcp/`. Not published. Build from the go-mcp directory.
 
-- `cloudsmith_list`: List records for an entity. Supported entities: `cargo`, `composer`, `conda`, `cran`, `dart`, `deb`, `distribution_full`, `docker`, `dynamic_mapping`, `format`, `gon`, `helm`, `hex`, `huggingface`, `maven`, `namespace`, `npm`, `nuget`, `org`, `organization_group_sync`, `organization_invite`, `organization_membership`, `organization_package_license_policy`, `organization_package_vulnerability_policy`, `organization_team`, `organization_team_member`, `package`, `package_deny_policy`, `package_license_policy_evaluation`, `package_vulnerability_policy_evaluation`, `provider_setting`, `python`, `repo`, `repository_audit_log`, `repository_privilege_input`, `repository_token`, `repository_webhook`, `rpm`, `ruby`, `service`, `storage_region`, `swift`, `user`, `vulnerability`.
+- `cloudsmith_list`: List records for an entity. Supported entities: `cargo`, `composer`, `conda`, `cran`, `dart`, `deb`, `distribution_full`, `docker`, `dynamic_mapping`, `format`, `gon`, `helm`, `hex`, `huggingface`, `maven`, `namespace`, `npm`, `nuget`, `org`, `organization_group_sync`, `organization_invite`, `organization_membership`, `organization_package_license_policy`, `organization_package_vulnerability_policy`, `organization_team`, `organization_team_member`, `package`, `package_deny_policy`, `package_license_policy_evaluation`, `package_vulnerability_policy_evaluation`, `provider_setting`, `python`, `repo`, `repository_audit_log`, `repository_privilege_dict`, `repository_token`, `repository_webhook`, `rpm`, `ruby`, `service`, `storage_region`, `swift`, `user`, `vulnerability`.
 - `cloudsmith_load`: Load one record for an entity. Supported entities: `cargo`, `composer`, `conda`, `cran`, `dart`, `deb`, `distribution_full`, `docker`, `dynamic_mapping`, `entitlement`, `format`, `gon`, `helm`, `hex`, `huggingface`, `maven`, `namespace`, `namespace_audit_log`, `npm`, `nuget`, `org`, `organization_group_sync_status`, `organization_membership`, `organization_package_license_policy`, `organization_package_vulnerability_policy`, `organization_saml_auth`, `organization_team`, `package`, `package_deny_policy`, `package_file_parts_upload`, `package_license_policy_evaluation`, `package_version_badge`, `package_vulnerability_policy_evaluation`, `provider_setting`, `python`, `quota`, `repo`, `repository_ecdsa_key`, `repository_geo_ip_rule`, `repository_geo_ip_status`, `repository_gpg_key`, `repository_retention_rule`, `repository_rsa_key`, `repository_token`, `repository_webhook`, `repository_x509_ecdsa_certificate`, `repository_x509_rsa_certificate`, `resources_rate_check`, `rpm`, `ruby`, `service`, `status_basic`, `storage_region`, `swift`, `user_brief`, `user_profile`, `vulnerability`.
 
 ## Operational features

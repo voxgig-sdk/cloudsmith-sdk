@@ -1,0 +1,24 @@
+# BasicPackageFileUploadFlow
+
+main: kit: flow: BasicPackageFileUploadFlow:
+{
+  entity: "package_file_upload",
+  kind: "basic",
+  name: "BasicPackageFileUploadFlow",
+  step: [
+    {
+      i: {
+        ref: "package_file_upload_ref01"
+      }
+
+      m: {
+        identifier: "identifier01",
+        owner: "owner01",
+        repo: "repo01"
+      }
+
+      o: "create"
+    }
+  ],
+  "key$": "BasicPackageFileUploadFlow"
+}

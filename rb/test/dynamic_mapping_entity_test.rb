@@ -111,7 +111,7 @@ def dynamic_mapping_basic_setup(extra)
 
   # Generate idmap via transform.
   idmap = Vs.transform(
-    ["dynamic_mapping01", "dynamic_mapping02", "dynamic_mapping03", "org01", "org02", "org03", "openid_connect01", "openid_connect02", "openid_connect03", "provider_setting01"],
+    ["dynamic_mapping01", "dynamic_mapping02", "dynamic_mapping03", "org01", "org02", "org03", "provider_setting01", "openid_connect01"],
     {
       "`$PACK`" => ["", {
         "`$KEY`" => "`$COPY`",

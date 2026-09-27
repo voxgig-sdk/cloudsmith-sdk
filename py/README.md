@@ -4,7 +4,7 @@
 
 The Python SDK for the Cloudsmith API — an entity-oriented client following Pythonic conventions.
 
-The SDK exposes the API as capitalised, semantic **Entities** — for example `client.Abort()` — each
+The SDK exposes the API as capitalised, semantic **Entities** — for example `client.Cargo()` — each
 carrying a small, uniform set of operations (`list`, `load`, `create`, `update`, `remove`, `patch`) instead of raw URL
 paths and query strings. You work with named resources and verbs, which
 keeps the cognitive load low.
@@ -39,6 +39,20 @@ client = CloudsmithSDK({
 })
 ```
 
+### 2. List cargo records
+
+`list()` returns a `list` of records (each a `dict`) and raises on
+error — iterate it directly.
+
+```python
+try:
+    cargos = client.Cargo().list({"identifier": "example", "owner": "example"})
+    for cargo in cargos:
+        print(cargo)
+except Exception as err:
+    print(f"list failed: {err}")
+```
+
 ### 3. Load a cargo
 
 Cargo is nested under identifier, so provide the `identifier`.
@@ -50,6 +64,17 @@ try:
     print(cargo)
 except Exception as err:
     print(f"load failed: {err}")
+```
+
+### 4. Create, update, and remove
+
+```python
+# Create — returns the ENTITY (call data_get() for the record)
+created = client.Cargo().create({"identifier": "example_identifier", "owner": "example_owner", "name": "example_name", "upstream_url": "example_upstream_url"})
+
+# Update — the created record's id is a plain dict key
+client.Cargo().update({"id": created.data_get()["id"], "identifier": "example_identifier", "owner": "example_owner"})
+
 ```
 
 
@@ -207,54 +232,27 @@ Creates a test-mode client with mock transport. Both arguments may be `None`.
 | `get_utility` | `() -> Utility` | Copy of the SDK utility object. |
 | `prepare` | `(fetchargs) -> dict` | Build an HTTP request definition without sending. Raises on error. |
 | `direct` | `(fetchargs) -> dict` | Build and send an HTTP request. Returns a result dict (branch on `ok`). |
-| `Abort` | `(data) -> AbortEntity` | Create an Abort entity instance. |
-| `Alpine` | `(data) -> AlpineEntity` | Create an Alpine entity instance. |
-| `AuditLog` | `(data) -> AuditLogEntity` | Create an AuditLog entity instance. |
-| `Basic` | `(data) -> BasicEntity` | Create a Basic entity instance. |
 | `Cargo` | `(data) -> CargoEntity` | Create a Cargo entity instance. |
-| `Cocoapod` | `(data) -> CocoapodEntity` | Create a Cocoapod entity instance. |
-| `Complete` | `(data) -> CompleteEntity` | Create a Complete entity instance. |
 | `Composer` | `(data) -> ComposerEntity` | Create a Composer entity instance. |
-| `Conan` | `(data) -> ConanEntity` | Create a Conan entity instance. |
 | `Conda` | `(data) -> CondaEntity` | Create a Conda entity instance. |
-| `Copy` | `(data) -> CopyEntity` | Create a Copy entity instance. |
 | `Cran` | `(data) -> CranEntity` | Create a Cran entity instance. |
 | `Dart` | `(data) -> DartEntity` | Create a Dart entity instance. |
 | `Deb` | `(data) -> DebEntity` | Create a Deb entity instance. |
-| `DenyPolicy` | `(data) -> DenyPolicyEntity` | Create a DenyPolicy entity instance. |
-| `Dependency` | `(data) -> DependencyEntity` | Create a Dependency entity instance. |
-| `Disable` | `(data) -> DisableEntity` | Create a Disable entity instance. |
 | `DistributionFull` | `(data) -> DistributionFullEntity` | Create a DistributionFull entity instance. |
-| `Distro` | `(data) -> DistroEntity` | Create a Distro entity instance. |
 | `Docker` | `(data) -> DockerEntity` | Create a Docker entity instance. |
 | `DynamicMapping` | `(data) -> DynamicMappingEntity` | Create a DynamicMapping entity instance. |
-| `Ecdsa` | `(data) -> EcdsaEntity` | Create an Ecdsa entity instance. |
-| `Enable` | `(data) -> EnableEntity` | Create an Enable entity instance. |
 | `Entitlement` | `(data) -> EntitlementEntity` | Create an Entitlement entity instance. |
-| `Evaluation` | `(data) -> EvaluationEntity` | Create an Evaluation entity instance. |
 | `File` | `(data) -> FileEntity` | Create a File entity instance. |
 | `Format` | `(data) -> FormatEntity` | Create a Format entity instance. |
-| `Geoip` | `(data) -> GeoipEntity` | Create a Geoip entity instance. |
 | `Gon` | `(data) -> GonEntity` | Create a Gon entity instance. |
-| `Gpg` | `(data) -> GpgEntity` | Create a Gpg entity instance. |
-| `Group` | `(data) -> GroupEntity` | Create a Group entity instance. |
 | `Helm` | `(data) -> HelmEntity` | Create a Helm entity instance. |
 | `Hex` | `(data) -> HexEntity` | Create a Hex entity instance. |
-| `History` | `(data) -> HistoryEntity` | Create a History entity instance. |
 | `Huggingface` | `(data) -> HuggingfaceEntity` | Create a Huggingface entity instance. |
-| `Info` | `(data) -> InfoEntity` | Create an Info entity instance. |
-| `Invite` | `(data) -> InviteEntity` | Create an Invite entity instance. |
-| `LicensePolicy` | `(data) -> LicensePolicyEntity` | Create a LicensePolicy entity instance. |
-| `Limit` | `(data) -> LimitEntity` | Create a Limit entity instance. |
-| `Luarock` | `(data) -> LuarockEntity` | Create a Luarock entity instance. |
 | `Maven` | `(data) -> MavenEntity` | Create a Maven entity instance. |
-| `Member` | `(data) -> MemberEntity` | Create a Member entity instance. |
-| `Move` | `(data) -> MoveEntity` | Create a Move entity instance. |
 | `Namespace` | `(data) -> NamespaceEntity` | Create a Namespace entity instance. |
 | `NamespaceAuditLog` | `(data) -> NamespaceAuditLogEntity` | Create a NamespaceAuditLog entity instance. |
 | `Npm` | `(data) -> NpmEntity` | Create a Npm entity instance. |
 | `Nuget` | `(data) -> NugetEntity` | Create a Nuget entity instance. |
-| `OpenidConnect` | `(data) -> OpenidConnectEntity` | Create an OpenidConnect entity instance. |
 | `Org` | `(data) -> OrgEntity` | Create an Org entity instance. |
 | `OrganizationGroupSync` | `(data) -> OrganizationGroupSyncEntity` | Create an OrganizationGroupSync entity instance. |
 | `OrganizationGroupSyncStatus` | `(data) -> OrganizationGroupSyncStatusEntity` | Create an OrganizationGroupSyncStatus entity instance. |
@@ -268,8 +266,6 @@ Creates a test-mode client with mock transport. Both arguments may be `None`.
 | `OrganizationSamlAuth` | `(data) -> OrganizationSamlAuthEntity` | Create an OrganizationSamlAuth entity instance. |
 | `OrganizationTeam` | `(data) -> OrganizationTeamEntity` | Create an OrganizationTeam entity instance. |
 | `OrganizationTeamMember` | `(data) -> OrganizationTeamMemberEntity` | Create an OrganizationTeamMember entity instance. |
-| `Oss` | `(data) -> OssEntity` | Create an Oss entity instance. |
-| `P2n` | `(data) -> P2nEntity` | Create a P2n entity instance. |
 | `Package` | `(data) -> PackageEntity` | Create a Package entity instance. |
 | `PackageDenyPolicy` | `(data) -> PackageDenyPolicyEntity` | Create a PackageDenyPolicy entity instance. |
 | `PackageFilePartsUpload` | `(data) -> PackageFilePartsUploadEntity` | Create a PackageFilePartsUpload entity instance. |
@@ -277,16 +273,10 @@ Creates a test-mode client with mock transport. Both arguments may be `None`.
 | `PackageLicensePolicyEvaluation` | `(data) -> PackageLicensePolicyEvaluationEntity` | Create a PackageLicensePolicyEvaluation entity instance. |
 | `PackageVersionBadge` | `(data) -> PackageVersionBadgeEntity` | Create a PackageVersionBadge entity instance. |
 | `PackageVulnerabilityPolicyEvaluation` | `(data) -> PackageVulnerabilityPolicyEvaluationEntity` | Create a PackageVulnerabilityPolicyEvaluation entity instance. |
-| `Privilege` | `(data) -> PrivilegeEntity` | Create a Privilege entity instance. |
-| `Profile` | `(data) -> ProfileEntity` | Create a Profile entity instance. |
 | `ProviderSetting` | `(data) -> ProviderSettingEntity` | Create a ProviderSetting entity instance. |
 | `ProviderSettingsWrite` | `(data) -> ProviderSettingsWriteEntity` | Create a ProviderSettingsWrite entity instance. |
 | `Python` | `(data) -> PythonEntity` | Create a Python entity instance. |
-| `Quarantine` | `(data) -> QuarantineEntity` | Create a Quarantine entity instance. |
 | `Quota` | `(data) -> QuotaEntity` | Create a Quota entity instance. |
-| `Raw` | `(data) -> RawEntity` | Create a Raw entity instance. |
-| `Refresh` | `(data) -> RefreshEntity` | Create a Refresh entity instance. |
-| `Regenerate` | `(data) -> RegenerateEntity` | Create a Regenerate entity instance. |
 | `Repo` | `(data) -> RepoEntity` | Create a Repo entity instance. |
 | `RepositoryAuditLog` | `(data) -> RepositoryAuditLogEntity` | Create a RepositoryAuditLog entity instance. |
 | `RepositoryEcdsaKey` | `(data) -> RepositoryEcdsaKeyEntity` | Create a RepositoryEcdsaKey entity instance. |
@@ -294,7 +284,7 @@ Creates a test-mode client with mock transport. Both arguments may be `None`.
 | `RepositoryGeoIpStatus` | `(data) -> RepositoryGeoIpStatusEntity` | Create a RepositoryGeoIpStatus entity instance. |
 | `RepositoryGeoIpTestAddress` | `(data) -> RepositoryGeoIpTestAddressEntity` | Create a RepositoryGeoIpTestAddress entity instance. |
 | `RepositoryGpgKey` | `(data) -> RepositoryGpgKeyEntity` | Create a RepositoryGpgKey entity instance. |
-| `RepositoryPrivilegeInput` | `(data) -> RepositoryPrivilegeInputEntity` | Create a RepositoryPrivilegeInput entity instance. |
+| `RepositoryPrivilegeDict` | `(data) -> RepositoryPrivilegeDictEntity` | Create a RepositoryPrivilegeDict entity instance. |
 | `RepositoryRetentionRule` | `(data) -> RepositoryRetentionRuleEntity` | Create a RepositoryRetentionRule entity instance. |
 | `RepositoryRsaKey` | `(data) -> RepositoryRsaKeyEntity` | Create a RepositoryRsaKey entity instance. |
 | `RepositoryToken` | `(data) -> RepositoryTokenEntity` | Create a RepositoryToken entity instance. |
@@ -303,41 +293,20 @@ Creates a test-mode client with mock transport. Both arguments may be `None`.
 | `RepositoryWebhook` | `(data) -> RepositoryWebhookEntity` | Create a RepositoryWebhook entity instance. |
 | `RepositoryX509EcdsaCertificate` | `(data) -> RepositoryX509EcdsaCertificateEntity` | Create a RepositoryX509EcdsaCertificate entity instance. |
 | `RepositoryX509RsaCertificate` | `(data) -> RepositoryX509RsaCertificateEntity` | Create a RepositoryX509RsaCertificate entity instance. |
-| `Reset` | `(data) -> ResetEntity` | Create a Reset entity instance. |
 | `ResourcesRateCheck` | `(data) -> ResourcesRateCheckEntity` | Create a ResourcesRateCheck entity instance. |
-| `Resync` | `(data) -> ResyncEntity` | Create a Resync entity instance. |
-| `Retention` | `(data) -> RetentionEntity` | Create a Retention entity instance. |
 | `Rpm` | `(data) -> RpmEntity` | Create a Rpm entity instance. |
-| `Rsa` | `(data) -> RsaEntity` | Create a Rsa entity instance. |
 | `Ruby` | `(data) -> RubyEntity` | Create a Ruby entity instance. |
-| `SamlGroupSync` | `(data) -> SamlGroupSyncEntity` | Create a SamlGroupSync entity instance. |
-| `Scan` | `(data) -> ScanEntity` | Create a Scan entity instance. |
-| `Self` | `(data) -> SelfEntity` | Create a Self entity instance. |
 | `Service` | `(data) -> ServiceEntity` | Create a Service entity instance. |
-| `Status` | `(data) -> StatusEntity` | Create a Status entity instance. |
 | `StatusBasic` | `(data) -> StatusBasicEntity` | Create a StatusBasic entity instance. |
 | `StorageRegion` | `(data) -> StorageRegionEntity` | Create a StorageRegion entity instance. |
 | `Swift` | `(data) -> SwiftEntity` | Create a Swift entity instance. |
-| `Sync` | `(data) -> SyncEntity` | Create a Sync entity instance. |
-| `Tag` | `(data) -> TagEntity` | Create a Tag entity instance. |
-| `Team` | `(data) -> TeamEntity` | Create a Team entity instance. |
-| `Terraform` | `(data) -> TerraformEntity` | Create a Terraform entity instance. |
-| `Test` | `(data) -> TestEntity` | Create a Test entity instance. |
-| `Token` | `(data) -> TokenEntity` | Create a Token entity instance. |
-| `TransferRegion` | `(data) -> TransferRegionEntity` | Create a TransferRegion entity instance. |
 | `User` | `(data) -> UserEntity` | Create an User entity instance. |
 | `UserAuthToken` | `(data) -> UserAuthTokenEntity` | Create an UserAuthToken entity instance. |
 | `UserAuthenticationToken` | `(data) -> UserAuthenticationTokenEntity` | Create an UserAuthenticationToken entity instance. |
 | `UserBrief` | `(data) -> UserBriefEntity` | Create an UserBrief entity instance. |
 | `UserProfile` | `(data) -> UserProfileEntity` | Create an UserProfile entity instance. |
-| `Vagrant` | `(data) -> VagrantEntity` | Create a Vagrant entity instance. |
-| `Validate` | `(data) -> ValidateEntity` | Create a Validate entity instance. |
-| `Version` | `(data) -> VersionEntity` | Create a Version entity instance. |
 | `Vulnerability` | `(data) -> VulnerabilityEntity` | Create a Vulnerability entity instance. |
-| `VulnerabilityPolicy` | `(data) -> VulnerabilityPolicyEntity` | Create a VulnerabilityPolicy entity instance. |
 | `Webhook` | `(data) -> WebhookEntity` | Create a Webhook entity instance. |
-| `X509Ecdsa` | `(data) -> X509EcdsaEntity` | Create a X509Ecdsa entity instance. |
-| `X509Rsa` | `(data) -> X509RsaEntity` | Create a X509Rsa entity instance. |
 
 ### Entity interface
 
@@ -377,42 +346,6 @@ On error, `ok` is `False` and `err` contains the error value.
 
 ### Entities
 
-#### Abort
-
-| Field | Description |
-| --- | --- |
-
-Operations: .
-
-API path: ``
-
-#### Alpine
-
-| Field | Description |
-| --- | --- |
-
-Operations: .
-
-API path: ``
-
-#### AuditLog
-
-| Field | Description |
-| --- | --- |
-
-Operations: .
-
-API path: ``
-
-#### Basic
-
-| Field | Description |
-| --- | --- |
-
-Operations: .
-
-API path: ``
-
 #### Cargo
 
 | Field | Description |
@@ -440,24 +373,6 @@ API path: ``
 Operations: Create, List, Load, Patch, Update.
 
 API path: `/repos/{owner}/{identifier}/upstream/cargo/`
-
-#### Cocoapod
-
-| Field | Description |
-| --- | --- |
-
-Operations: .
-
-API path: ``
-
-#### Complete
-
-| Field | Description |
-| --- | --- |
-
-Operations: .
-
-API path: ``
 
 #### Composer
 
@@ -487,15 +402,6 @@ Operations: Create, List, Load, Patch, Update.
 
 API path: `/repos/{owner}/{identifier}/upstream/composer/`
 
-#### Conan
-
-| Field | Description |
-| --- | --- |
-
-Operations: .
-
-API path: ``
-
 #### Conda
 
 | Field | Description |
@@ -523,15 +429,6 @@ API path: ``
 Operations: Create, List, Load, Patch, Update.
 
 API path: `/repos/{owner}/{identifier}/upstream/conda/`
-
-#### Copy
-
-| Field | Description |
-| --- | --- |
-
-Operations: .
-
-API path: ``
 
 #### Cran
 
@@ -625,33 +522,6 @@ Operations: Create, List, Load, Patch, Update.
 
 API path: `/repos/{owner}/{identifier}/upstream/deb/`
 
-#### DenyPolicy
-
-| Field | Description |
-| --- | --- |
-
-Operations: .
-
-API path: ``
-
-#### Dependency
-
-| Field | Description |
-| --- | --- |
-
-Operations: .
-
-API path: ``
-
-#### Disable
-
-| Field | Description |
-| --- | --- |
-
-Operations: .
-
-API path: ``
-
 #### DistributionFull
 
 | Field | Description |
@@ -667,15 +537,6 @@ API path: ``
 Operations: List, Load.
 
 API path: `/distros/`
-
-#### Distro
-
-| Field | Description |
-| --- | --- |
-
-Operations: .
-
-API path: ``
 
 #### Docker
 
@@ -717,24 +578,6 @@ Operations: List, Load.
 
 API path: `/orgs/{org}/openid-connect/{provider_setting}/dynamic-mappings/`
 
-#### Ecdsa
-
-| Field | Description |
-| --- | --- |
-
-Operations: .
-
-API path: ``
-
-#### Enable
-
-| Field | Description |
-| --- | --- |
-
-Operations: .
-
-API path: ``
-
 #### Entitlement
 
 | Field | Description |
@@ -749,15 +592,6 @@ API path: ``
 Operations: Create, Load, Remove.
 
 API path: `/entitlements/{owner}/{repo}/{identifier}/reset/`
-
-#### Evaluation
-
-| Field | Description |
-| --- | --- |
-
-Operations: .
-
-API path: ``
 
 #### File
 
@@ -787,15 +621,6 @@ Operations: List, Load.
 
 API path: `/formats/`
 
-#### Geoip
-
-| Field | Description |
-| --- | --- |
-
-Operations: .
-
-API path: ``
-
 #### Gon
 
 | Field | Description |
@@ -822,24 +647,6 @@ API path: ``
 Operations: Create, List, Load, Patch, Update.
 
 API path: `/repos/{owner}/{identifier}/upstream/go/`
-
-#### Gpg
-
-| Field | Description |
-| --- | --- |
-
-Operations: .
-
-API path: ``
-
-#### Group
-
-| Field | Description |
-| --- | --- |
-
-Operations: .
-
-API path: ``
 
 #### Helm
 
@@ -897,15 +704,6 @@ Operations: Create, List, Load, Patch, Update.
 
 API path: `/repos/{owner}/{identifier}/upstream/hex/`
 
-#### History
-
-| Field | Description |
-| --- | --- |
-
-Operations: .
-
-API path: ``
-
 #### Huggingface
 
 | Field | Description |
@@ -933,51 +731,6 @@ API path: ``
 Operations: Create, List, Load, Patch, Update.
 
 API path: `/repos/{owner}/{identifier}/upstream/huggingface/`
-
-#### Info
-
-| Field | Description |
-| --- | --- |
-
-Operations: .
-
-API path: ``
-
-#### Invite
-
-| Field | Description |
-| --- | --- |
-
-Operations: .
-
-API path: ``
-
-#### LicensePolicy
-
-| Field | Description |
-| --- | --- |
-
-Operations: .
-
-API path: ``
-
-#### Limit
-
-| Field | Description |
-| --- | --- |
-
-Operations: .
-
-API path: ``
-
-#### Luarock
-
-| Field | Description |
-| --- | --- |
-
-Operations: .
-
-API path: ``
 
 #### Maven
 
@@ -1010,24 +763,6 @@ API path: ``
 Operations: Create, List, Load, Patch, Update.
 
 API path: `/repos/{owner}/{identifier}/upstream/maven/`
-
-#### Member
-
-| Field | Description |
-| --- | --- |
-
-Operations: .
-
-API path: ``
-
-#### Move
-
-| Field | Description |
-| --- | --- |
-
-Operations: .
-
-API path: ``
 
 #### Namespace
 
@@ -1124,15 +859,6 @@ API path: `/repos/{owner}/{identifier}/upstream/npm/`
 Operations: Create, List, Load, Patch, Update.
 
 API path: `/repos/{owner}/{identifier}/upstream/nuget/`
-
-#### OpenidConnect
-
-| Field | Description |
-| --- | --- |
-
-Operations: .
-
-API path: ``
 
 #### Org
 
@@ -1352,24 +1078,6 @@ Operations: Create, List.
 
 API path: `/orgs/{org}/teams/{team}/members`
 
-#### Oss
-
-| Field | Description |
-| --- | --- |
-
-Operations: .
-
-API path: ``
-
-#### P2n
-
-| Field | Description |
-| --- | --- |
-
-Operations: .
-
-API path: ``
-
 #### Package
 
 | Field | Description |
@@ -1569,24 +1277,6 @@ Operations: Create, List, Load.
 
 API path: `/orgs/{org}/vulnerability-policy/{policy_slug_perm}/evaluation/`
 
-#### Privilege
-
-| Field | Description |
-| --- | --- |
-
-Operations: .
-
-API path: ``
-
-#### Profile
-
-| Field | Description |
-| --- | --- |
-
-Operations: .
-
-API path: ``
-
 #### ProviderSetting
 
 | Field | Description |
@@ -1650,15 +1340,6 @@ Operations: Create, List, Load, Patch, Update.
 
 API path: `/repos/{owner}/{identifier}/upstream/python/`
 
-#### Quarantine
-
-| Field | Description |
-| --- | --- |
-
-Operations: .
-
-API path: ``
-
 #### Quota
 
 | Field | Description |
@@ -1671,33 +1352,6 @@ API path: ``
 Operations: Load.
 
 API path: `/quota/{owner}/`
-
-#### Raw
-
-| Field | Description |
-| --- | --- |
-
-Operations: .
-
-API path: ``
-
-#### Refresh
-
-| Field | Description |
-| --- | --- |
-
-Operations: .
-
-API path: ``
-
-#### Regenerate
-
-| Field | Description |
-| --- | --- |
-
-Operations: .
-
-API path: ``
 
 #### Repo
 
@@ -1858,7 +1512,7 @@ Operations: Create, Load.
 
 API path: `/repos/{owner}/{identifier}/gpg/`
 
-#### RepositoryPrivilegeInput
+#### RepositoryPrivilegeDict
 
 | Field | Description |
 | --- | --- |
@@ -2086,15 +1740,6 @@ Operations: Load.
 
 API path: `/repos/{owner}/{identifier}/x509-rsa/`
 
-#### Reset
-
-| Field | Description |
-| --- | --- |
-
-Operations: .
-
-API path: ``
-
 #### ResourcesRateCheck
 
 | Field | Description |
@@ -2109,24 +1754,6 @@ API path: ``
 Operations: Load.
 
 API path: `/rates/limits/`
-
-#### Resync
-
-| Field | Description |
-| --- | --- |
-
-Operations: .
-
-API path: ``
-
-#### Retention
-
-| Field | Description |
-| --- | --- |
-
-Operations: .
-
-API path: ``
 
 #### Rpm
 
@@ -2162,15 +1789,6 @@ Operations: Create, List, Load, Patch, Update.
 
 API path: `/repos/{owner}/{identifier}/upstream/rpm/`
 
-#### Rsa
-
-| Field | Description |
-| --- | --- |
-
-Operations: .
-
-API path: ``
-
 #### Ruby
 
 | Field | Description |
@@ -2199,33 +1817,6 @@ Operations: Create, List, Load, Patch, Update.
 
 API path: `/repos/{owner}/{identifier}/upstream/ruby/`
 
-#### SamlGroupSync
-
-| Field | Description |
-| --- | --- |
-
-Operations: .
-
-API path: ``
-
-#### Scan
-
-| Field | Description |
-| --- | --- |
-
-Operations: .
-
-API path: ``
-
-#### Self
-
-| Field | Description |
-| --- | --- |
-
-Operations: .
-
-API path: ``
-
 #### Service
 
 | Field | Description |
@@ -2245,15 +1836,6 @@ API path: ``
 Operations: Create, List, Load, Update.
 
 API path: `/orgs/{org}/services/`
-
-#### Status
-
-| Field | Description |
-| --- | --- |
-
-Operations: .
-
-API path: ``
 
 #### StatusBasic
 
@@ -2305,69 +1887,6 @@ API path: `/storage-regions/`
 Operations: Create, List, Load, Patch, Update.
 
 API path: `/repos/{owner}/{identifier}/upstream/swift/`
-
-#### Sync
-
-| Field | Description |
-| --- | --- |
-
-Operations: .
-
-API path: ``
-
-#### Tag
-
-| Field | Description |
-| --- | --- |
-
-Operations: .
-
-API path: ``
-
-#### Team
-
-| Field | Description |
-| --- | --- |
-
-Operations: .
-
-API path: ``
-
-#### Terraform
-
-| Field | Description |
-| --- | --- |
-
-Operations: .
-
-API path: ``
-
-#### Test
-
-| Field | Description |
-| --- | --- |
-
-Operations: .
-
-API path: ``
-
-#### Token
-
-| Field | Description |
-| --- | --- |
-
-Operations: .
-
-API path: ``
-
-#### TransferRegion
-
-| Field | Description |
-| --- | --- |
-
-Operations: .
-
-API path: ``
 
 #### User
 
@@ -2435,33 +1954,6 @@ Operations: Load.
 
 API path: `/users/profile/{slug}/`
 
-#### Vagrant
-
-| Field | Description |
-| --- | --- |
-
-Operations: .
-
-API path: ``
-
-#### Validate
-
-| Field | Description |
-| --- | --- |
-
-Operations: .
-
-API path: ``
-
-#### Version
-
-| Field | Description |
-| --- | --- |
-
-Operations: .
-
-API path: ``
-
 #### Vulnerability
 
 | Field | Description |
@@ -2480,15 +1972,6 @@ Operations: List, Load.
 
 API path: `/vulnerabilities/{owner}/{repo}/{package}/`
 
-#### VulnerabilityPolicy
-
-| Field | Description |
-| --- | --- |
-
-Operations: .
-
-API path: ``
-
 #### Webhook
 
 | Field | Description |
@@ -2499,47 +1982,9 @@ Operations: Remove.
 
 API path: `/webhooks/{owner}/{repo}/{identifier}/`
 
-#### X509Ecdsa
-
-| Field | Description |
-| --- | --- |
-
-Operations: .
-
-API path: ``
-
-#### X509Rsa
-
-| Field | Description |
-| --- | --- |
-
-Operations: .
-
-API path: ``
-
 
 
 ## Entities
-
-
-### Abort
-
-Create an instance: `abort = client.Abort()`
-
-
-### Alpine
-
-Create an instance: `alpine = client.Alpine()`
-
-
-### AuditLog
-
-Create an instance: `audit_log = client.AuditLog()`
-
-
-### Basic
-
-Create an instance: `basic = client.Basic()`
 
 
 ### Cargo
@@ -2603,16 +2048,6 @@ cargo = client.Cargo().create({
 ```
 
 
-### Cocoapod
-
-Create an instance: `cocoapod = client.Cocoapod()`
-
-
-### Complete
-
-Create an instance: `complete = client.Complete()`
-
-
 ### Composer
 
 Create an instance: `composer = client.Composer()`
@@ -2674,11 +2109,6 @@ composer = client.Composer().create({
 ```
 
 
-### Conan
-
-Create an instance: `conan = client.Conan()`
-
-
 ### Conda
 
 Create an instance: `conda = client.Conda()`
@@ -2738,11 +2168,6 @@ conda = client.Conda().create({
     "upstream_url": "example_upstream_url",  # str
 })
 ```
-
-
-### Copy
-
-Create an instance: `copy = client.Copy()`
 
 
 ### Cran
@@ -2937,21 +2362,6 @@ deb = client.Deb().create({
 ```
 
 
-### DenyPolicy
-
-Create an instance: `deny_policy = client.DenyPolicy()`
-
-
-### Dependency
-
-Create an instance: `dependency = client.Dependency()`
-
-
-### Disable
-
-Create an instance: `disable = client.Disable()`
-
-
 ### DistributionFull
 
 Create an instance: `distribution_full = client.DistributionFull()`
@@ -2986,11 +2396,6 @@ distribution_full = client.DistributionFull().load({"slug": "slug"})
 ```python
 distribution_fulls = client.DistributionFull().list()
 ```
-
-
-### Distro
-
-Create an instance: `distro = client.Distro()`
 
 
 ### Docker
@@ -3086,16 +2491,6 @@ dynamic_mappings = client.DynamicMapping().list({"org_id": "example", "provider_
 ```
 
 
-### Ecdsa
-
-Create an instance: `ecdsa = client.Ecdsa()`
-
-
-### Enable
-
-Create an instance: `enable = client.Enable()`
-
-
 ### Entitlement
 
 Create an instance: `entitlement = client.Entitlement()`
@@ -3136,11 +2531,6 @@ entitlement = client.Entitlement().create({
     "downloads": {},  # dict
 })
 ```
-
-
-### Evaluation
-
-Create an instance: `evaluation = client.Evaluation()`
 
 
 ### File
@@ -3202,11 +2592,6 @@ formats = client.Format().list()
 ```
 
 
-### Geoip
-
-Create an instance: `geoip = client.Geoip()`
-
-
 ### Gon
 
 Create an instance: `gon = client.Gon()`
@@ -3265,16 +2650,6 @@ gon = client.Gon().create({
     "upstream_url": "example_upstream_url",  # str
 })
 ```
-
-
-### Gpg
-
-Create an instance: `gpg = client.Gpg()`
-
-
-### Group
-
-Create an instance: `group = client.Group()`
 
 
 ### Helm
@@ -3399,11 +2774,6 @@ hex = client.Hex().create({
 ```
 
 
-### History
-
-Create an instance: `history = client.History()`
-
-
 ### Huggingface
 
 Create an instance: `huggingface = client.Huggingface()`
@@ -3463,31 +2833,6 @@ huggingface = client.Huggingface().create({
     "upstream_url": "example_upstream_url",  # str
 })
 ```
-
-
-### Info
-
-Create an instance: `info = client.Info()`
-
-
-### Invite
-
-Create an instance: `invite = client.Invite()`
-
-
-### LicensePolicy
-
-Create an instance: `license_policy = client.LicensePolicy()`
-
-
-### Limit
-
-Create an instance: `limit = client.Limit()`
-
-
-### Luarock
-
-Create an instance: `luarock = client.Luarock()`
 
 
 ### Maven
@@ -3553,16 +2898,6 @@ maven = client.Maven().create({
     "upstream_url": "example_upstream_url",  # str
 })
 ```
-
-
-### Member
-
-Create an instance: `member = client.Member()`
-
-
-### Move
-
-Create an instance: `move = client.Move()`
 
 
 ### Namespace
@@ -3758,11 +3093,6 @@ nuget = client.Nuget().create({
     "upstream_url": "example_upstream_url",  # str
 })
 ```
-
-
-### OpenidConnect
-
-Create an instance: `openid_connect = client.OpenidConnect()`
 
 
 ### Org
@@ -4260,16 +3590,6 @@ organization_team_member = client.OrganizationTeamMember().create({
 ```
 
 
-### Oss
-
-Create an instance: `oss = client.Oss()`
-
-
-### P2n
-
-Create an instance: `p2n = client.P2n()`
-
-
 ### Package
 
 Create an instance: `package = client.Package()`
@@ -4637,16 +3957,6 @@ package_vulnerability_policy_evaluation = client.PackageVulnerabilityPolicyEvalu
 ```
 
 
-### Privilege
-
-Create an instance: `privilege = client.Privilege()`
-
-
-### Profile
-
-Create an instance: `profile = client.Profile()`
-
-
 ### ProviderSetting
 
 Create an instance: `provider_setting = client.ProviderSetting()`
@@ -4783,11 +4093,6 @@ python = client.Python().create({
 ```
 
 
-### Quarantine
-
-Create an instance: `quarantine = client.Quarantine()`
-
-
 ### Quota
 
 Create an instance: `quota = client.Quota()`
@@ -4812,21 +4117,6 @@ Create an instance: `quota = client.Quota()`
 ```python
 quota = client.Quota().load({"id": "quota_id"})
 ```
-
-
-### Raw
-
-Create an instance: `raw = client.Raw()`
-
-
-### Refresh
-
-Create an instance: `refresh = client.Refresh()`
-
-
-### Regenerate
-
-Create an instance: `regenerate = client.Regenerate()`
 
 
 ### Repo
@@ -5118,9 +4408,9 @@ repository_gpg_key = client.RepositoryGpgKey().create({
 ```
 
 
-### RepositoryPrivilegeInput
+### RepositoryPrivilegeDict
 
-Create an instance: `repository_privilege_input = client.RepositoryPrivilegeInput()`
+Create an instance: `repository_privilege_dict = client.RepositoryPrivilegeDict()`
 
 #### Operations
 
@@ -5140,7 +4430,7 @@ Create an instance: `repository_privilege_input = client.RepositoryPrivilegeInpu
 #### Example: List
 
 ```python
-repository_privilege_inputs = client.RepositoryPrivilegeInput().list({"identifier": "example", "owner": "example"})
+repository_privilege_dicts = client.RepositoryPrivilegeDict().list({"identifier": "example", "owner": "example"})
 ```
 
 
@@ -5521,11 +4811,6 @@ repository_x509_rsa_certificate = client.RepositoryX509RsaCertificate().load({"i
 ```
 
 
-### Reset
-
-Create an instance: `reset = client.Reset()`
-
-
 ### ResourcesRateCheck
 
 Create an instance: `resources_rate_check = client.ResourcesRateCheck()`
@@ -5552,16 +4837,6 @@ Create an instance: `resources_rate_check = client.ResourcesRateCheck()`
 ```python
 resources_rate_check = client.ResourcesRateCheck().load()
 ```
-
-
-### Resync
-
-Create an instance: `resync = client.Resync()`
-
-
-### Retention
-
-Create an instance: `retention = client.Retention()`
 
 
 ### Rpm
@@ -5632,11 +4907,6 @@ rpm = client.Rpm().create({
 ```
 
 
-### Rsa
-
-Create an instance: `rsa = client.Rsa()`
-
-
 ### Ruby
 
 Create an instance: `ruby = client.Ruby()`
@@ -5698,21 +4968,6 @@ ruby = client.Ruby().create({
 ```
 
 
-### SamlGroupSync
-
-Create an instance: `saml_group_sync = client.SamlGroupSync()`
-
-
-### Scan
-
-Create an instance: `scan = client.Scan()`
-
-
-### Self
-
-Create an instance: `self = client.Self()`
-
-
 ### Service
 
 Create an instance: `service = client.Service()`
@@ -5762,11 +5017,6 @@ service = client.Service().create({
     "name": "example_name",  # str
 })
 ```
-
-
-### Status
-
-Create an instance: `status = client.Status()`
 
 
 ### StatusBasic
@@ -5884,41 +5134,6 @@ swift = client.Swift().create({
     "upstream_url": "example_upstream_url",  # str
 })
 ```
-
-
-### Sync
-
-Create an instance: `sync = client.Sync()`
-
-
-### Tag
-
-Create an instance: `tag = client.Tag()`
-
-
-### Team
-
-Create an instance: `team = client.Team()`
-
-
-### Terraform
-
-Create an instance: `terraform = client.Terraform()`
-
-
-### Test
-
-Create an instance: `test = client.Test()`
-
-
-### Token
-
-Create an instance: `token = client.Token()`
-
-
-### TransferRegion
-
-Create an instance: `transfer_region = client.TransferRegion()`
 
 
 ### User
@@ -6045,21 +5260,6 @@ user_profile = client.UserProfile().load({"id": "user_profile_id"})
 ```
 
 
-### Vagrant
-
-Create an instance: `vagrant = client.Vagrant()`
-
-
-### Validate
-
-Create an instance: `validate = client.Validate()`
-
-
-### Version
-
-Create an instance: `version = client.Version()`
-
-
 ### Vulnerability
 
 Create an instance: `vulnerability = client.Vulnerability()`
@@ -6098,11 +5298,6 @@ vulnerabilitys = client.Vulnerability().list({"owner": "example", "repo": "examp
 ```
 
 
-### VulnerabilityPolicy
-
-Create an instance: `vulnerability_policy = client.VulnerabilityPolicy()`
-
-
 ### Webhook
 
 Create an instance: `webhook = client.Webhook()`
@@ -6119,16 +5314,6 @@ Create an instance: `webhook = client.Webhook()`
 | --- | --- | --- |
 | `id` | `str` |  |
 
-
-### X509Ecdsa
-
-Create an instance: `x509_ecdsa = client.X509Ecdsa()`
-
-
-### X509Rsa
-
-Create an instance: `x509_rsa = client.X509Rsa()`
-
 ## Features
 
 This SDK ships 8 optional features. Each is **inactive until you
@@ -6140,14 +5325,14 @@ above:
 
 | Feature | What it does |
 |---|---|
-| [`debug`](#debug) | Request/response capture ring buffer for debugging |
-| [`idempotency`](#idempotency) | Idempotency keys for safe retries of mutating operations |
-| [`metrics`](#metrics) | Statistics capture: per-operation counters and latency |
-| [`paging`](#paging) | Pagination signals for list operations |
-| [`ratelimit`](#ratelimit) | Client-side rate limiting via a token bucket |
-| [`retry`](#retry) | Automatic retry of transient failures with exponential backoff |
-| [`test`](#test) | In-memory mock transport for testing without a live server |
-| [`timeout`](#timeout) | Per-request timeout with transport abort |
+| [`debug`](#debug) | Debug capture |
+| [`idempotency`](#idempotency) | Idempotency |
+| [`metrics`](#metrics) | Metrics |
+| [`paging`](#paging) | Paging |
+| [`ratelimit`](#ratelimit) | Rate limiting |
+| [`retry`](#retry) | Retry |
+| [`test`](#test) | Test transport |
+| [`timeout`](#timeout) | Timeout |
 
 > **Order matters for `ratelimit`, `retry`, `timeout`.** These wrap the
 > transport, so each one wraps whatever is already installed: the order you
@@ -6156,7 +5341,7 @@ above:
 
 ### debug
 
-Request/response capture ring buffer for debugging.
+Debug capture.
 
 | Option | Default |
 |---|---|
@@ -6168,7 +5353,7 @@ Set `feature.debug.active` to enable it, then override any of the options above.
 
 ### idempotency
 
-Idempotency keys for safe retries of mutating operations.
+Idempotency.
 
 | Option | Default |
 |---|---|
@@ -6181,7 +5366,7 @@ Set `feature.idempotency.active` to enable it, then override any of the options 
 
 ### metrics
 
-Statistics capture: per-operation counters and latency.
+Metrics.
 
 | Option | Default |
 |---|---|
@@ -6191,7 +5376,7 @@ Set `feature.metrics.active` to enable it, then override any of the options abov
 
 ### paging
 
-Pagination signals for list operations.
+Paging.
 
 | Option | Default |
 |---|---|
@@ -6207,7 +5392,7 @@ Set `feature.paging.active` to enable it, then override any of the options above
 
 ### ratelimit
 
-Client-side rate limiting via a token bucket.
+Rate limiting.
 
 | Option | Default |
 |---|---|
@@ -6223,7 +5408,7 @@ activated earlier.
 
 ### retry
 
-Automatic retry of transient failures with exponential backoff.
+Retry.
 
 | Option | Default |
 |---|---|
@@ -6242,7 +5427,7 @@ activated earlier.
 
 ### test
 
-In-memory mock transport for testing without a live server.
+Test transport.
 
 | Option | Default |
 |---|---|
@@ -6252,7 +5437,7 @@ Set `feature.test.active` to enable it, then override any of the options above.
 
 ### timeout
 
-Per-request timeout with transport abort.
+Timeout.
 
 | Option | Default |
 |---|---|
@@ -6304,14 +5489,14 @@ with hook methods named after pipeline stages (e.g. `PrePoint`,
 
 The SDK ships with built-in features:
 
-- **DebugFeature**: Request/response capture ring buffer for debugging
-- **IdempotencyFeature**: Idempotency keys for safe retries of mutating operations
-- **MetricsFeature**: Statistics capture: per-operation counters and latency
-- **PagingFeature**: Pagination signals for list operations
-- **RatelimitFeature**: Client-side rate limiting via a token bucket
-- **RetryFeature**: Automatic retry of transient failures with exponential backoff
-- **TestFeature**: In-memory mock transport for testing without a live server
-- **TimeoutFeature**: Per-request timeout with transport abort
+- **DebugFeature**: Debug capture
+- **IdempotencyFeature**: Idempotency
+- **MetricsFeature**: Metrics
+- **PagingFeature**: Paging
+- **RatelimitFeature**: Rate limiting
+- **RetryFeature**: Retry
+- **TestFeature**: Test transport
+- **TimeoutFeature**: Timeout
 
 Features are initialized in order. Hooks fire in the order features
 were added, so later features can override earlier ones.
@@ -6331,6 +5516,7 @@ Use `helpers.to_map()` to safely validate that a value is a dict.
 py/
 ├── cloudsmith_sdk.py         -- Main SDK module
 ├── config.py                    -- Configuration
+├── schema.py                    -- Generated option + entity specs
 ├── features.py                  -- Feature factory
 ├── core/                        -- Core types and context
 ├── entity/                      -- Entity implementations

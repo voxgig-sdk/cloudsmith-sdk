@@ -41,49 +41,17 @@ local client = sdk.test()
 
 ### Instance Methods
 
-#### `Abort(data)`
-
-Create a new `Abort` entity instance. Pass `nil` for no initial data.
-
-#### `Alpine(data)`
-
-Create a new `Alpine` entity instance. Pass `nil` for no initial data.
-
-#### `AuditLog(data)`
-
-Create a new `AuditLog` entity instance. Pass `nil` for no initial data.
-
-#### `Basic(data)`
-
-Create a new `Basic` entity instance. Pass `nil` for no initial data.
-
 #### `Cargo(data)`
 
 Create a new `Cargo` entity instance. Pass `nil` for no initial data.
-
-#### `Cocoapod(data)`
-
-Create a new `Cocoapod` entity instance. Pass `nil` for no initial data.
-
-#### `Complete(data)`
-
-Create a new `Complete` entity instance. Pass `nil` for no initial data.
 
 #### `Composer(data)`
 
 Create a new `Composer` entity instance. Pass `nil` for no initial data.
 
-#### `Conan(data)`
-
-Create a new `Conan` entity instance. Pass `nil` for no initial data.
-
 #### `Conda(data)`
 
 Create a new `Conda` entity instance. Pass `nil` for no initial data.
-
-#### `Copy(data)`
-
-Create a new `Copy` entity instance. Pass `nil` for no initial data.
 
 #### `Cran(data)`
 
@@ -97,25 +65,9 @@ Create a new `Dart` entity instance. Pass `nil` for no initial data.
 
 Create a new `Deb` entity instance. Pass `nil` for no initial data.
 
-#### `DenyPolicy(data)`
-
-Create a new `DenyPolicy` entity instance. Pass `nil` for no initial data.
-
-#### `Dependency(data)`
-
-Create a new `Dependency` entity instance. Pass `nil` for no initial data.
-
-#### `Disable(data)`
-
-Create a new `Disable` entity instance. Pass `nil` for no initial data.
-
 #### `DistributionFull(data)`
 
 Create a new `DistributionFull` entity instance. Pass `nil` for no initial data.
-
-#### `Distro(data)`
-
-Create a new `Distro` entity instance. Pass `nil` for no initial data.
 
 #### `Docker(data)`
 
@@ -125,21 +77,9 @@ Create a new `Docker` entity instance. Pass `nil` for no initial data.
 
 Create a new `DynamicMapping` entity instance. Pass `nil` for no initial data.
 
-#### `Ecdsa(data)`
-
-Create a new `Ecdsa` entity instance. Pass `nil` for no initial data.
-
-#### `Enable(data)`
-
-Create a new `Enable` entity instance. Pass `nil` for no initial data.
-
 #### `Entitlement(data)`
 
 Create a new `Entitlement` entity instance. Pass `nil` for no initial data.
-
-#### `Evaluation(data)`
-
-Create a new `Evaluation` entity instance. Pass `nil` for no initial data.
 
 #### `File(data)`
 
@@ -149,21 +89,9 @@ Create a new `File` entity instance. Pass `nil` for no initial data.
 
 Create a new `Format` entity instance. Pass `nil` for no initial data.
 
-#### `Geoip(data)`
-
-Create a new `Geoip` entity instance. Pass `nil` for no initial data.
-
 #### `Gon(data)`
 
 Create a new `Gon` entity instance. Pass `nil` for no initial data.
-
-#### `Gpg(data)`
-
-Create a new `Gpg` entity instance. Pass `nil` for no initial data.
-
-#### `Group(data)`
-
-Create a new `Group` entity instance. Pass `nil` for no initial data.
 
 #### `Helm(data)`
 
@@ -173,45 +101,13 @@ Create a new `Helm` entity instance. Pass `nil` for no initial data.
 
 Create a new `Hex` entity instance. Pass `nil` for no initial data.
 
-#### `History(data)`
-
-Create a new `History` entity instance. Pass `nil` for no initial data.
-
 #### `Huggingface(data)`
 
 Create a new `Huggingface` entity instance. Pass `nil` for no initial data.
 
-#### `Info(data)`
-
-Create a new `Info` entity instance. Pass `nil` for no initial data.
-
-#### `Invite(data)`
-
-Create a new `Invite` entity instance. Pass `nil` for no initial data.
-
-#### `LicensePolicy(data)`
-
-Create a new `LicensePolicy` entity instance. Pass `nil` for no initial data.
-
-#### `Limit(data)`
-
-Create a new `Limit` entity instance. Pass `nil` for no initial data.
-
-#### `Luarock(data)`
-
-Create a new `Luarock` entity instance. Pass `nil` for no initial data.
-
 #### `Maven(data)`
 
 Create a new `Maven` entity instance. Pass `nil` for no initial data.
-
-#### `Member(data)`
-
-Create a new `Member` entity instance. Pass `nil` for no initial data.
-
-#### `Move(data)`
-
-Create a new `Move` entity instance. Pass `nil` for no initial data.
 
 #### `Namespace(data)`
 
@@ -228,10 +124,6 @@ Create a new `Npm` entity instance. Pass `nil` for no initial data.
 #### `Nuget(data)`
 
 Create a new `Nuget` entity instance. Pass `nil` for no initial data.
-
-#### `OpenidConnect(data)`
-
-Create a new `OpenidConnect` entity instance. Pass `nil` for no initial data.
 
 #### `Org(data)`
 
@@ -285,14 +177,6 @@ Create a new `OrganizationTeam` entity instance. Pass `nil` for no initial data.
 
 Create a new `OrganizationTeamMember` entity instance. Pass `nil` for no initial data.
 
-#### `Oss(data)`
-
-Create a new `Oss` entity instance. Pass `nil` for no initial data.
-
-#### `P2n(data)`
-
-Create a new `P2n` entity instance. Pass `nil` for no initial data.
-
 #### `Package(data)`
 
 Create a new `Package` entity instance. Pass `nil` for no initial data.
@@ -321,14 +205,6 @@ Create a new `PackageVersionBadge` entity instance. Pass `nil` for no initial da
 
 Create a new `PackageVulnerabilityPolicyEvaluation` entity instance. Pass `nil` for no initial data.
 
-#### `Privilege(data)`
-
-Create a new `Privilege` entity instance. Pass `nil` for no initial data.
-
-#### `Profile(data)`
-
-Create a new `Profile` entity instance. Pass `nil` for no initial data.
-
 #### `ProviderSetting(data)`
 
 Create a new `ProviderSetting` entity instance. Pass `nil` for no initial data.
@@ -341,25 +217,9 @@ Create a new `ProviderSettingsWrite` entity instance. Pass `nil` for no initial 
 
 Create a new `Python` entity instance. Pass `nil` for no initial data.
 
-#### `Quarantine(data)`
-
-Create a new `Quarantine` entity instance. Pass `nil` for no initial data.
-
 #### `Quota(data)`
 
 Create a new `Quota` entity instance. Pass `nil` for no initial data.
-
-#### `Raw(data)`
-
-Create a new `Raw` entity instance. Pass `nil` for no initial data.
-
-#### `Refresh(data)`
-
-Create a new `Refresh` entity instance. Pass `nil` for no initial data.
-
-#### `Regenerate(data)`
-
-Create a new `Regenerate` entity instance. Pass `nil` for no initial data.
 
 #### `Repo(data)`
 
@@ -389,9 +249,9 @@ Create a new `RepositoryGeoIpTestAddress` entity instance. Pass `nil` for no ini
 
 Create a new `RepositoryGpgKey` entity instance. Pass `nil` for no initial data.
 
-#### `RepositoryPrivilegeInput(data)`
+#### `RepositoryPrivilegeDict(data)`
 
-Create a new `RepositoryPrivilegeInput` entity instance. Pass `nil` for no initial data.
+Create a new `RepositoryPrivilegeDict` entity instance. Pass `nil` for no initial data.
 
 #### `RepositoryRetentionRule(data)`
 
@@ -425,53 +285,21 @@ Create a new `RepositoryX509EcdsaCertificate` entity instance. Pass `nil` for no
 
 Create a new `RepositoryX509RsaCertificate` entity instance. Pass `nil` for no initial data.
 
-#### `Reset(data)`
-
-Create a new `Reset` entity instance. Pass `nil` for no initial data.
-
 #### `ResourcesRateCheck(data)`
 
 Create a new `ResourcesRateCheck` entity instance. Pass `nil` for no initial data.
-
-#### `Resync(data)`
-
-Create a new `Resync` entity instance. Pass `nil` for no initial data.
-
-#### `Retention(data)`
-
-Create a new `Retention` entity instance. Pass `nil` for no initial data.
 
 #### `Rpm(data)`
 
 Create a new `Rpm` entity instance. Pass `nil` for no initial data.
 
-#### `Rsa(data)`
-
-Create a new `Rsa` entity instance. Pass `nil` for no initial data.
-
 #### `Ruby(data)`
 
 Create a new `Ruby` entity instance. Pass `nil` for no initial data.
 
-#### `SamlGroupSync(data)`
-
-Create a new `SamlGroupSync` entity instance. Pass `nil` for no initial data.
-
-#### `Scan(data)`
-
-Create a new `Scan` entity instance. Pass `nil` for no initial data.
-
-#### `Self(data)`
-
-Create a new `Self` entity instance. Pass `nil` for no initial data.
-
 #### `Service(data)`
 
 Create a new `Service` entity instance. Pass `nil` for no initial data.
-
-#### `Status(data)`
-
-Create a new `Status` entity instance. Pass `nil` for no initial data.
 
 #### `StatusBasic(data)`
 
@@ -484,34 +312,6 @@ Create a new `StorageRegion` entity instance. Pass `nil` for no initial data.
 #### `Swift(data)`
 
 Create a new `Swift` entity instance. Pass `nil` for no initial data.
-
-#### `Sync(data)`
-
-Create a new `Sync` entity instance. Pass `nil` for no initial data.
-
-#### `Tag(data)`
-
-Create a new `Tag` entity instance. Pass `nil` for no initial data.
-
-#### `Team(data)`
-
-Create a new `Team` entity instance. Pass `nil` for no initial data.
-
-#### `Terraform(data)`
-
-Create a new `Terraform` entity instance. Pass `nil` for no initial data.
-
-#### `Test(data)`
-
-Create a new `Test` entity instance. Pass `nil` for no initial data.
-
-#### `Token(data)`
-
-Create a new `Token` entity instance. Pass `nil` for no initial data.
-
-#### `TransferRegion(data)`
-
-Create a new `TransferRegion` entity instance. Pass `nil` for no initial data.
 
 #### `User(data)`
 
@@ -533,37 +333,13 @@ Create a new `UserBrief` entity instance. Pass `nil` for no initial data.
 
 Create a new `UserProfile` entity instance. Pass `nil` for no initial data.
 
-#### `Vagrant(data)`
-
-Create a new `Vagrant` entity instance. Pass `nil` for no initial data.
-
-#### `Validate(data)`
-
-Create a new `Validate` entity instance. Pass `nil` for no initial data.
-
-#### `Version(data)`
-
-Create a new `Version` entity instance. Pass `nil` for no initial data.
-
 #### `Vulnerability(data)`
 
 Create a new `Vulnerability` entity instance. Pass `nil` for no initial data.
 
-#### `VulnerabilityPolicy(data)`
-
-Create a new `VulnerabilityPolicy` entity instance. Pass `nil` for no initial data.
-
 #### `Webhook(data)`
 
 Create a new `Webhook` entity instance. Pass `nil` for no initial data.
-
-#### `X509Ecdsa(data)`
-
-Create a new `X509Ecdsa` entity instance. Pass `nil` for no initial data.
-
-#### `X509Rsa(data)`
-
-Create a new `X509Rsa` entity instance. Pass `nil` for no initial data.
 
 #### `options_map() -> table`
 
@@ -597,150 +373,6 @@ Prepare a fetch definition without sending the request. Accepts the
 same parameters as `direct()`.
 
 **Returns:** `table, err`
-
-
----
-
-## AbortEntity
-
-```lua
-local abort = client:Abort(nil)
-```
-
-### Common Methods
-
-#### `data_get() -> table`
-
-Get the entity data. Returns a copy of the current data.
-
-#### `data_set(data)`
-
-Set the entity data.
-
-#### `match_get() -> table`
-
-Get the entity match criteria.
-
-#### `match_set(match)`
-
-Set the entity match criteria.
-
-#### `make() -> Entity`
-
-Create a new `AbortEntity` instance with the same client and
-options.
-
-#### `get_name() -> string`
-
-Return the entity name.
-
-
----
-
-## AlpineEntity
-
-```lua
-local alpine = client:Alpine(nil)
-```
-
-### Common Methods
-
-#### `data_get() -> table`
-
-Get the entity data. Returns a copy of the current data.
-
-#### `data_set(data)`
-
-Set the entity data.
-
-#### `match_get() -> table`
-
-Get the entity match criteria.
-
-#### `match_set(match)`
-
-Set the entity match criteria.
-
-#### `make() -> Entity`
-
-Create a new `AlpineEntity` instance with the same client and
-options.
-
-#### `get_name() -> string`
-
-Return the entity name.
-
-
----
-
-## AuditLogEntity
-
-```lua
-local audit_log = client:AuditLog(nil)
-```
-
-### Common Methods
-
-#### `data_get() -> table`
-
-Get the entity data. Returns a copy of the current data.
-
-#### `data_set(data)`
-
-Set the entity data.
-
-#### `match_get() -> table`
-
-Get the entity match criteria.
-
-#### `match_set(match)`
-
-Set the entity match criteria.
-
-#### `make() -> Entity`
-
-Create a new `AuditLogEntity` instance with the same client and
-options.
-
-#### `get_name() -> string`
-
-Return the entity name.
-
-
----
-
-## BasicEntity
-
-```lua
-local basic = client:Basic(nil)
-```
-
-### Common Methods
-
-#### `data_get() -> table`
-
-Get the entity data. Returns a copy of the current data.
-
-#### `data_set(data)`
-
-Set the entity data.
-
-#### `match_get() -> table`
-
-Get the entity match criteria.
-
-#### `match_set(match)`
-
-Set the entity match criteria.
-
-#### `make() -> Entity`
-
-Create a new `BasicEntity` instance with the same client and
-options.
-
-#### `get_name() -> string`
-
-Return the entity name.
 
 
 ---
@@ -840,78 +472,6 @@ Set the entity match criteria.
 #### `make() -> Entity`
 
 Create a new `CargoEntity` instance with the same client and
-options.
-
-#### `get_name() -> string`
-
-Return the entity name.
-
-
----
-
-## CocoapodEntity
-
-```lua
-local cocoapod = client:Cocoapod(nil)
-```
-
-### Common Methods
-
-#### `data_get() -> table`
-
-Get the entity data. Returns a copy of the current data.
-
-#### `data_set(data)`
-
-Set the entity data.
-
-#### `match_get() -> table`
-
-Get the entity match criteria.
-
-#### `match_set(match)`
-
-Set the entity match criteria.
-
-#### `make() -> Entity`
-
-Create a new `CocoapodEntity` instance with the same client and
-options.
-
-#### `get_name() -> string`
-
-Return the entity name.
-
-
----
-
-## CompleteEntity
-
-```lua
-local complete = client:Complete(nil)
-```
-
-### Common Methods
-
-#### `data_get() -> table`
-
-Get the entity data. Returns a copy of the current data.
-
-#### `data_set(data)`
-
-Set the entity data.
-
-#### `match_get() -> table`
-
-Get the entity match criteria.
-
-#### `match_set(match)`
-
-Set the entity match criteria.
-
-#### `make() -> Entity`
-
-Create a new `CompleteEntity` instance with the same client and
 options.
 
 #### `get_name() -> string`
@@ -1025,42 +585,6 @@ Return the entity name.
 
 ---
 
-## ConanEntity
-
-```lua
-local conan = client:Conan(nil)
-```
-
-### Common Methods
-
-#### `data_get() -> table`
-
-Get the entity data. Returns a copy of the current data.
-
-#### `data_set(data)`
-
-Set the entity data.
-
-#### `match_get() -> table`
-
-Get the entity match criteria.
-
-#### `match_set(match)`
-
-Set the entity match criteria.
-
-#### `make() -> Entity`
-
-Create a new `ConanEntity` instance with the same client and
-options.
-
-#### `get_name() -> string`
-
-Return the entity name.
-
-
----
-
 ## CondaEntity
 
 ```lua
@@ -1156,42 +680,6 @@ Set the entity match criteria.
 #### `make() -> Entity`
 
 Create a new `CondaEntity` instance with the same client and
-options.
-
-#### `get_name() -> string`
-
-Return the entity name.
-
-
----
-
-## CopyEntity
-
-```lua
-local copy = client:Copy(nil)
-```
-
-### Common Methods
-
-#### `data_get() -> table`
-
-Get the entity data. Returns a copy of the current data.
-
-#### `data_set(data)`
-
-Set the entity data.
-
-#### `match_get() -> table`
-
-Get the entity match criteria.
-
-#### `match_set(match)`
-
-Set the entity match criteria.
-
-#### `make() -> Entity`
-
-Create a new `CopyEntity` instance with the same client and
 options.
 
 #### `get_name() -> string`
@@ -1522,114 +1010,6 @@ Return the entity name.
 
 ---
 
-## DenyPolicyEntity
-
-```lua
-local deny_policy = client:DenyPolicy(nil)
-```
-
-### Common Methods
-
-#### `data_get() -> table`
-
-Get the entity data. Returns a copy of the current data.
-
-#### `data_set(data)`
-
-Set the entity data.
-
-#### `match_get() -> table`
-
-Get the entity match criteria.
-
-#### `match_set(match)`
-
-Set the entity match criteria.
-
-#### `make() -> Entity`
-
-Create a new `DenyPolicyEntity` instance with the same client and
-options.
-
-#### `get_name() -> string`
-
-Return the entity name.
-
-
----
-
-## DependencyEntity
-
-```lua
-local dependency = client:Dependency(nil)
-```
-
-### Common Methods
-
-#### `data_get() -> table`
-
-Get the entity data. Returns a copy of the current data.
-
-#### `data_set(data)`
-
-Set the entity data.
-
-#### `match_get() -> table`
-
-Get the entity match criteria.
-
-#### `match_set(match)`
-
-Set the entity match criteria.
-
-#### `make() -> Entity`
-
-Create a new `DependencyEntity` instance with the same client and
-options.
-
-#### `get_name() -> string`
-
-Return the entity name.
-
-
----
-
-## DisableEntity
-
-```lua
-local disable = client:Disable(nil)
-```
-
-### Common Methods
-
-#### `data_get() -> table`
-
-Get the entity data. Returns a copy of the current data.
-
-#### `data_set(data)`
-
-Set the entity data.
-
-#### `match_get() -> table`
-
-Get the entity match criteria.
-
-#### `match_set(match)`
-
-Set the entity match criteria.
-
-#### `make() -> Entity`
-
-Create a new `DisableEntity` instance with the same client and
-options.
-
-#### `get_name() -> string`
-
-Return the entity name.
-
-
----
-
 ## DistributionFullEntity
 
 ```lua
@@ -1687,42 +1067,6 @@ Set the entity match criteria.
 #### `make() -> Entity`
 
 Create a new `DistributionFullEntity` instance with the same client and
-options.
-
-#### `get_name() -> string`
-
-Return the entity name.
-
-
----
-
-## DistroEntity
-
-```lua
-local distro = client:Distro(nil)
-```
-
-### Common Methods
-
-#### `data_get() -> table`
-
-Get the entity data. Returns a copy of the current data.
-
-#### `data_set(data)`
-
-Set the entity data.
-
-#### `match_get() -> table`
-
-Get the entity match criteria.
-
-#### `match_set(match)`
-
-Set the entity match criteria.
-
-#### `make() -> Entity`
-
-Create a new `DistroEntity` instance with the same client and
 options.
 
 #### `get_name() -> string`
@@ -1898,78 +1242,6 @@ Return the entity name.
 
 ---
 
-## EcdsaEntity
-
-```lua
-local ecdsa = client:Ecdsa(nil)
-```
-
-### Common Methods
-
-#### `data_get() -> table`
-
-Get the entity data. Returns a copy of the current data.
-
-#### `data_set(data)`
-
-Set the entity data.
-
-#### `match_get() -> table`
-
-Get the entity match criteria.
-
-#### `match_set(match)`
-
-Set the entity match criteria.
-
-#### `make() -> Entity`
-
-Create a new `EcdsaEntity` instance with the same client and
-options.
-
-#### `get_name() -> string`
-
-Return the entity name.
-
-
----
-
-## EnableEntity
-
-```lua
-local enable = client:Enable(nil)
-```
-
-### Common Methods
-
-#### `data_get() -> table`
-
-Get the entity data. Returns a copy of the current data.
-
-#### `data_set(data)`
-
-Set the entity data.
-
-#### `match_get() -> table`
-
-Get the entity match criteria.
-
-#### `match_set(match)`
-
-Set the entity match criteria.
-
-#### `make() -> Entity`
-
-Create a new `EnableEntity` instance with the same client and
-options.
-
-#### `get_name() -> string`
-
-Return the entity name.
-
-
----
-
 ## EntitlementEntity
 
 ```lua
@@ -2040,42 +1312,6 @@ Set the entity match criteria.
 #### `make() -> Entity`
 
 Create a new `EntitlementEntity` instance with the same client and
-options.
-
-#### `get_name() -> string`
-
-Return the entity name.
-
-
----
-
-## EvaluationEntity
-
-```lua
-local evaluation = client:Evaluation(nil)
-```
-
-### Common Methods
-
-#### `data_get() -> table`
-
-Get the entity data. Returns a copy of the current data.
-
-#### `data_set(data)`
-
-Set the entity data.
-
-#### `match_get() -> table`
-
-Get the entity match criteria.
-
-#### `match_set(match)`
-
-Set the entity match criteria.
-
-#### `make() -> Entity`
-
-Create a new `EvaluationEntity` instance with the same client and
 options.
 
 #### `get_name() -> string`
@@ -2203,42 +1439,6 @@ Return the entity name.
 
 ---
 
-## GeoipEntity
-
-```lua
-local geoip = client:Geoip(nil)
-```
-
-### Common Methods
-
-#### `data_get() -> table`
-
-Get the entity data. Returns a copy of the current data.
-
-#### `data_set(data)`
-
-Set the entity data.
-
-#### `match_get() -> table`
-
-Get the entity match criteria.
-
-#### `match_set(match)`
-
-Set the entity match criteria.
-
-#### `make() -> Entity`
-
-Create a new `GeoipEntity` instance with the same client and
-options.
-
-#### `get_name() -> string`
-
-Return the entity name.
-
-
----
-
 ## GonEntity
 
 ```lua
@@ -2333,78 +1533,6 @@ Set the entity match criteria.
 #### `make() -> Entity`
 
 Create a new `GonEntity` instance with the same client and
-options.
-
-#### `get_name() -> string`
-
-Return the entity name.
-
-
----
-
-## GpgEntity
-
-```lua
-local gpg = client:Gpg(nil)
-```
-
-### Common Methods
-
-#### `data_get() -> table`
-
-Get the entity data. Returns a copy of the current data.
-
-#### `data_set(data)`
-
-Set the entity data.
-
-#### `match_get() -> table`
-
-Get the entity match criteria.
-
-#### `match_set(match)`
-
-Set the entity match criteria.
-
-#### `make() -> Entity`
-
-Create a new `GpgEntity` instance with the same client and
-options.
-
-#### `get_name() -> string`
-
-Return the entity name.
-
-
----
-
-## GroupEntity
-
-```lua
-local group = client:Group(nil)
-```
-
-### Common Methods
-
-#### `data_get() -> table`
-
-Get the entity data. Returns a copy of the current data.
-
-#### `data_set(data)`
-
-Set the entity data.
-
-#### `match_get() -> table`
-
-Get the entity match criteria.
-
-#### `match_set(match)`
-
-Set the entity match criteria.
-
-#### `make() -> Entity`
-
-Create a new `GroupEntity` instance with the same client and
 options.
 
 #### `get_name() -> string`
@@ -2622,42 +1750,6 @@ Return the entity name.
 
 ---
 
-## HistoryEntity
-
-```lua
-local history = client:History(nil)
-```
-
-### Common Methods
-
-#### `data_get() -> table`
-
-Get the entity data. Returns a copy of the current data.
-
-#### `data_set(data)`
-
-Set the entity data.
-
-#### `match_get() -> table`
-
-Get the entity match criteria.
-
-#### `match_set(match)`
-
-Set the entity match criteria.
-
-#### `make() -> Entity`
-
-Create a new `HistoryEntity` instance with the same client and
-options.
-
-#### `get_name() -> string`
-
-Return the entity name.
-
-
----
-
 ## HuggingfaceEntity
 
 ```lua
@@ -2753,186 +1845,6 @@ Set the entity match criteria.
 #### `make() -> Entity`
 
 Create a new `HuggingfaceEntity` instance with the same client and
-options.
-
-#### `get_name() -> string`
-
-Return the entity name.
-
-
----
-
-## InfoEntity
-
-```lua
-local info = client:Info(nil)
-```
-
-### Common Methods
-
-#### `data_get() -> table`
-
-Get the entity data. Returns a copy of the current data.
-
-#### `data_set(data)`
-
-Set the entity data.
-
-#### `match_get() -> table`
-
-Get the entity match criteria.
-
-#### `match_set(match)`
-
-Set the entity match criteria.
-
-#### `make() -> Entity`
-
-Create a new `InfoEntity` instance with the same client and
-options.
-
-#### `get_name() -> string`
-
-Return the entity name.
-
-
----
-
-## InviteEntity
-
-```lua
-local invite = client:Invite(nil)
-```
-
-### Common Methods
-
-#### `data_get() -> table`
-
-Get the entity data. Returns a copy of the current data.
-
-#### `data_set(data)`
-
-Set the entity data.
-
-#### `match_get() -> table`
-
-Get the entity match criteria.
-
-#### `match_set(match)`
-
-Set the entity match criteria.
-
-#### `make() -> Entity`
-
-Create a new `InviteEntity` instance with the same client and
-options.
-
-#### `get_name() -> string`
-
-Return the entity name.
-
-
----
-
-## LicensePolicyEntity
-
-```lua
-local license_policy = client:LicensePolicy(nil)
-```
-
-### Common Methods
-
-#### `data_get() -> table`
-
-Get the entity data. Returns a copy of the current data.
-
-#### `data_set(data)`
-
-Set the entity data.
-
-#### `match_get() -> table`
-
-Get the entity match criteria.
-
-#### `match_set(match)`
-
-Set the entity match criteria.
-
-#### `make() -> Entity`
-
-Create a new `LicensePolicyEntity` instance with the same client and
-options.
-
-#### `get_name() -> string`
-
-Return the entity name.
-
-
----
-
-## LimitEntity
-
-```lua
-local limit = client:Limit(nil)
-```
-
-### Common Methods
-
-#### `data_get() -> table`
-
-Get the entity data. Returns a copy of the current data.
-
-#### `data_set(data)`
-
-Set the entity data.
-
-#### `match_get() -> table`
-
-Get the entity match criteria.
-
-#### `match_set(match)`
-
-Set the entity match criteria.
-
-#### `make() -> Entity`
-
-Create a new `LimitEntity` instance with the same client and
-options.
-
-#### `get_name() -> string`
-
-Return the entity name.
-
-
----
-
-## LuarockEntity
-
-```lua
-local luarock = client:Luarock(nil)
-```
-
-### Common Methods
-
-#### `data_get() -> table`
-
-Get the entity data. Returns a copy of the current data.
-
-#### `data_set(data)`
-
-Set the entity data.
-
-#### `match_get() -> table`
-
-Get the entity match criteria.
-
-#### `match_set(match)`
-
-Set the entity match criteria.
-
-#### `make() -> Entity`
-
-Create a new `LuarockEntity` instance with the same client and
 options.
 
 #### `get_name() -> string`
@@ -3041,78 +1953,6 @@ Set the entity match criteria.
 #### `make() -> Entity`
 
 Create a new `MavenEntity` instance with the same client and
-options.
-
-#### `get_name() -> string`
-
-Return the entity name.
-
-
----
-
-## MemberEntity
-
-```lua
-local member = client:Member(nil)
-```
-
-### Common Methods
-
-#### `data_get() -> table`
-
-Get the entity data. Returns a copy of the current data.
-
-#### `data_set(data)`
-
-Set the entity data.
-
-#### `match_get() -> table`
-
-Get the entity match criteria.
-
-#### `match_set(match)`
-
-Set the entity match criteria.
-
-#### `make() -> Entity`
-
-Create a new `MemberEntity` instance with the same client and
-options.
-
-#### `get_name() -> string`
-
-Return the entity name.
-
-
----
-
-## MoveEntity
-
-```lua
-local move = client:Move(nil)
-```
-
-### Common Methods
-
-#### `data_get() -> table`
-
-Get the entity data. Returns a copy of the current data.
-
-#### `data_set(data)`
-
-Set the entity data.
-
-#### `match_get() -> table`
-
-Get the entity match criteria.
-
-#### `match_set(match)`
-
-Set the entity match criteria.
-
-#### `make() -> Entity`
-
-Create a new `MoveEntity` instance with the same client and
 options.
 
 #### `get_name() -> string`
@@ -3453,42 +2293,6 @@ Set the entity match criteria.
 #### `make() -> Entity`
 
 Create a new `NugetEntity` instance with the same client and
-options.
-
-#### `get_name() -> string`
-
-Return the entity name.
-
-
----
-
-## OpenidConnectEntity
-
-```lua
-local openid_connect = client:OpenidConnect(nil)
-```
-
-### Common Methods
-
-#### `data_get() -> table`
-
-Get the entity data. Returns a copy of the current data.
-
-#### `data_set(data)`
-
-Set the entity data.
-
-#### `match_get() -> table`
-
-Get the entity match criteria.
-
-#### `match_set(match)`
-
-Set the entity match criteria.
-
-#### `make() -> Entity`
-
-Create a new `OpenidConnectEntity` instance with the same client and
 options.
 
 #### `get_name() -> string`
@@ -4485,78 +3289,6 @@ Return the entity name.
 
 ---
 
-## OssEntity
-
-```lua
-local oss = client:Oss(nil)
-```
-
-### Common Methods
-
-#### `data_get() -> table`
-
-Get the entity data. Returns a copy of the current data.
-
-#### `data_set(data)`
-
-Set the entity data.
-
-#### `match_get() -> table`
-
-Get the entity match criteria.
-
-#### `match_set(match)`
-
-Set the entity match criteria.
-
-#### `make() -> Entity`
-
-Create a new `OssEntity` instance with the same client and
-options.
-
-#### `get_name() -> string`
-
-Return the entity name.
-
-
----
-
-## P2nEntity
-
-```lua
-local p2n = client:P2n(nil)
-```
-
-### Common Methods
-
-#### `data_get() -> table`
-
-Get the entity data. Returns a copy of the current data.
-
-#### `data_set(data)`
-
-Set the entity data.
-
-#### `match_get() -> table`
-
-Get the entity match criteria.
-
-#### `match_set(match)`
-
-Set the entity match criteria.
-
-#### `make() -> Entity`
-
-Create a new `P2nEntity` instance with the same client and
-options.
-
-#### `get_name() -> string`
-
-Return the entity name.
-
-
----
-
 ## PackageEntity
 
 ```lua
@@ -5250,78 +3982,6 @@ Return the entity name.
 
 ---
 
-## PrivilegeEntity
-
-```lua
-local privilege = client:Privilege(nil)
-```
-
-### Common Methods
-
-#### `data_get() -> table`
-
-Get the entity data. Returns a copy of the current data.
-
-#### `data_set(data)`
-
-Set the entity data.
-
-#### `match_get() -> table`
-
-Get the entity match criteria.
-
-#### `match_set(match)`
-
-Set the entity match criteria.
-
-#### `make() -> Entity`
-
-Create a new `PrivilegeEntity` instance with the same client and
-options.
-
-#### `get_name() -> string`
-
-Return the entity name.
-
-
----
-
-## ProfileEntity
-
-```lua
-local profile = client:Profile(nil)
-```
-
-### Common Methods
-
-#### `data_get() -> table`
-
-Get the entity data. Returns a copy of the current data.
-
-#### `data_set(data)`
-
-Set the entity data.
-
-#### `match_get() -> table`
-
-Get the entity match criteria.
-
-#### `match_set(match)`
-
-Set the entity match criteria.
-
-#### `make() -> Entity`
-
-Create a new `ProfileEntity` instance with the same client and
-options.
-
-#### `get_name() -> string`
-
-Return the entity name.
-
-
----
-
 ## ProviderSettingEntity
 
 ```lua
@@ -5571,42 +4231,6 @@ Return the entity name.
 
 ---
 
-## QuarantineEntity
-
-```lua
-local quarantine = client:Quarantine(nil)
-```
-
-### Common Methods
-
-#### `data_get() -> table`
-
-Get the entity data. Returns a copy of the current data.
-
-#### `data_set(data)`
-
-Set the entity data.
-
-#### `match_get() -> table`
-
-Get the entity match criteria.
-
-#### `match_set(match)`
-
-Set the entity match criteria.
-
-#### `make() -> Entity`
-
-Create a new `QuarantineEntity` instance with the same client and
-options.
-
-#### `get_name() -> string`
-
-Return the entity name.
-
-
----
-
 ## QuotaEntity
 
 ```lua
@@ -5653,114 +4277,6 @@ Set the entity match criteria.
 #### `make() -> Entity`
 
 Create a new `QuotaEntity` instance with the same client and
-options.
-
-#### `get_name() -> string`
-
-Return the entity name.
-
-
----
-
-## RawEntity
-
-```lua
-local raw = client:Raw(nil)
-```
-
-### Common Methods
-
-#### `data_get() -> table`
-
-Get the entity data. Returns a copy of the current data.
-
-#### `data_set(data)`
-
-Set the entity data.
-
-#### `match_get() -> table`
-
-Get the entity match criteria.
-
-#### `match_set(match)`
-
-Set the entity match criteria.
-
-#### `make() -> Entity`
-
-Create a new `RawEntity` instance with the same client and
-options.
-
-#### `get_name() -> string`
-
-Return the entity name.
-
-
----
-
-## RefreshEntity
-
-```lua
-local refresh = client:Refresh(nil)
-```
-
-### Common Methods
-
-#### `data_get() -> table`
-
-Get the entity data. Returns a copy of the current data.
-
-#### `data_set(data)`
-
-Set the entity data.
-
-#### `match_get() -> table`
-
-Get the entity match criteria.
-
-#### `match_set(match)`
-
-Set the entity match criteria.
-
-#### `make() -> Entity`
-
-Create a new `RefreshEntity` instance with the same client and
-options.
-
-#### `get_name() -> string`
-
-Return the entity name.
-
-
----
-
-## RegenerateEntity
-
-```lua
-local regenerate = client:Regenerate(nil)
-```
-
-### Common Methods
-
-#### `data_get() -> table`
-
-Get the entity data. Returns a copy of the current data.
-
-#### `data_set(data)`
-
-Set the entity data.
-
-#### `match_get() -> table`
-
-Get the entity match criteria.
-
-#### `match_set(match)`
-
-Set the entity match criteria.
-
-#### `make() -> Entity`
-
-Create a new `RegenerateEntity` instance with the same client and
 options.
 
 #### `get_name() -> string`
@@ -6296,10 +4812,10 @@ Return the entity name.
 
 ---
 
-## RepositoryPrivilegeInputEntity
+## RepositoryPrivilegeDictEntity
 
 ```lua
-local repository_privilege_input = client:RepositoryPrivilegeInput(nil)
+local repository_privilege_dict = client:RepositoryPrivilegeDict(nil)
 ```
 
 ### Fields
@@ -6318,7 +4834,7 @@ local repository_privilege_input = client:RepositoryPrivilegeInput(nil)
 List entities matching the given criteria. Returns an array.
 
 ```lua
-local results, err = client:RepositoryPrivilegeInput():list()
+local results, err = client:RepositoryPrivilegeDict():list()
 ```
 
 ### Common Methods
@@ -6341,7 +4857,7 @@ Set the entity match criteria.
 
 #### `make() -> Entity`
 
-Create a new `RepositoryPrivilegeInputEntity` instance with the same client and
+Create a new `RepositoryPrivilegeDictEntity` instance with the same client and
 options.
 
 #### `get_name() -> string`
@@ -7000,42 +5516,6 @@ Return the entity name.
 
 ---
 
-## ResetEntity
-
-```lua
-local reset = client:Reset(nil)
-```
-
-### Common Methods
-
-#### `data_get() -> table`
-
-Get the entity data. Returns a copy of the current data.
-
-#### `data_set(data)`
-
-Set the entity data.
-
-#### `match_get() -> table`
-
-Get the entity match criteria.
-
-#### `match_set(match)`
-
-Set the entity match criteria.
-
-#### `make() -> Entity`
-
-Create a new `ResetEntity` instance with the same client and
-options.
-
-#### `get_name() -> string`
-
-Return the entity name.
-
-
----
-
 ## ResourcesRateCheckEntity
 
 ```lua
@@ -7084,78 +5564,6 @@ Set the entity match criteria.
 #### `make() -> Entity`
 
 Create a new `ResourcesRateCheckEntity` instance with the same client and
-options.
-
-#### `get_name() -> string`
-
-Return the entity name.
-
-
----
-
-## ResyncEntity
-
-```lua
-local resync = client:Resync(nil)
-```
-
-### Common Methods
-
-#### `data_get() -> table`
-
-Get the entity data. Returns a copy of the current data.
-
-#### `data_set(data)`
-
-Set the entity data.
-
-#### `match_get() -> table`
-
-Get the entity match criteria.
-
-#### `match_set(match)`
-
-Set the entity match criteria.
-
-#### `make() -> Entity`
-
-Create a new `ResyncEntity` instance with the same client and
-options.
-
-#### `get_name() -> string`
-
-Return the entity name.
-
-
----
-
-## RetentionEntity
-
-```lua
-local retention = client:Retention(nil)
-```
-
-### Common Methods
-
-#### `data_get() -> table`
-
-Get the entity data. Returns a copy of the current data.
-
-#### `data_set(data)`
-
-Set the entity data.
-
-#### `match_get() -> table`
-
-Get the entity match criteria.
-
-#### `match_set(match)`
-
-Set the entity match criteria.
-
-#### `make() -> Entity`
-
-Create a new `RetentionEntity` instance with the same client and
 options.
 
 #### `get_name() -> string`
@@ -7276,42 +5684,6 @@ Return the entity name.
 
 ---
 
-## RsaEntity
-
-```lua
-local rsa = client:Rsa(nil)
-```
-
-### Common Methods
-
-#### `data_get() -> table`
-
-Get the entity data. Returns a copy of the current data.
-
-#### `data_set(data)`
-
-Set the entity data.
-
-#### `match_get() -> table`
-
-Get the entity match criteria.
-
-#### `match_set(match)`
-
-Set the entity match criteria.
-
-#### `make() -> Entity`
-
-Create a new `RsaEntity` instance with the same client and
-options.
-
-#### `get_name() -> string`
-
-Return the entity name.
-
-
----
-
 ## RubyEntity
 
 ```lua
@@ -7416,114 +5788,6 @@ Return the entity name.
 
 ---
 
-## SamlGroupSyncEntity
-
-```lua
-local saml_group_sync = client:SamlGroupSync(nil)
-```
-
-### Common Methods
-
-#### `data_get() -> table`
-
-Get the entity data. Returns a copy of the current data.
-
-#### `data_set(data)`
-
-Set the entity data.
-
-#### `match_get() -> table`
-
-Get the entity match criteria.
-
-#### `match_set(match)`
-
-Set the entity match criteria.
-
-#### `make() -> Entity`
-
-Create a new `SamlGroupSyncEntity` instance with the same client and
-options.
-
-#### `get_name() -> string`
-
-Return the entity name.
-
-
----
-
-## ScanEntity
-
-```lua
-local scan = client:Scan(nil)
-```
-
-### Common Methods
-
-#### `data_get() -> table`
-
-Get the entity data. Returns a copy of the current data.
-
-#### `data_set(data)`
-
-Set the entity data.
-
-#### `match_get() -> table`
-
-Get the entity match criteria.
-
-#### `match_set(match)`
-
-Set the entity match criteria.
-
-#### `make() -> Entity`
-
-Create a new `ScanEntity` instance with the same client and
-options.
-
-#### `get_name() -> string`
-
-Return the entity name.
-
-
----
-
-## SelfEntity
-
-```lua
-local self = client:Self(nil)
-```
-
-### Common Methods
-
-#### `data_get() -> table`
-
-Get the entity data. Returns a copy of the current data.
-
-#### `data_set(data)`
-
-Set the entity data.
-
-#### `match_get() -> table`
-
-Get the entity match criteria.
-
-#### `match_set(match)`
-
-Set the entity match criteria.
-
-#### `make() -> Entity`
-
-Create a new `SelfEntity` instance with the same client and
-options.
-
-#### `get_name() -> string`
-
-Return the entity name.
-
-
----
-
 ## ServiceEntity
 
 ```lua
@@ -7608,42 +5872,6 @@ Set the entity match criteria.
 #### `make() -> Entity`
 
 Create a new `ServiceEntity` instance with the same client and
-options.
-
-#### `get_name() -> string`
-
-Return the entity name.
-
-
----
-
-## StatusEntity
-
-```lua
-local status = client:Status(nil)
-```
-
-### Common Methods
-
-#### `data_get() -> table`
-
-Get the entity data. Returns a copy of the current data.
-
-#### `data_set(data)`
-
-Set the entity data.
-
-#### `match_get() -> table`
-
-Get the entity match criteria.
-
-#### `match_set(match)`
-
-Set the entity match criteria.
-
-#### `make() -> Entity`
-
-Create a new `StatusEntity` instance with the same client and
 options.
 
 #### `get_name() -> string`
@@ -7863,258 +6091,6 @@ Set the entity match criteria.
 #### `make() -> Entity`
 
 Create a new `SwiftEntity` instance with the same client and
-options.
-
-#### `get_name() -> string`
-
-Return the entity name.
-
-
----
-
-## SyncEntity
-
-```lua
-local sync = client:Sync(nil)
-```
-
-### Common Methods
-
-#### `data_get() -> table`
-
-Get the entity data. Returns a copy of the current data.
-
-#### `data_set(data)`
-
-Set the entity data.
-
-#### `match_get() -> table`
-
-Get the entity match criteria.
-
-#### `match_set(match)`
-
-Set the entity match criteria.
-
-#### `make() -> Entity`
-
-Create a new `SyncEntity` instance with the same client and
-options.
-
-#### `get_name() -> string`
-
-Return the entity name.
-
-
----
-
-## TagEntity
-
-```lua
-local tag = client:Tag(nil)
-```
-
-### Common Methods
-
-#### `data_get() -> table`
-
-Get the entity data. Returns a copy of the current data.
-
-#### `data_set(data)`
-
-Set the entity data.
-
-#### `match_get() -> table`
-
-Get the entity match criteria.
-
-#### `match_set(match)`
-
-Set the entity match criteria.
-
-#### `make() -> Entity`
-
-Create a new `TagEntity` instance with the same client and
-options.
-
-#### `get_name() -> string`
-
-Return the entity name.
-
-
----
-
-## TeamEntity
-
-```lua
-local team = client:Team(nil)
-```
-
-### Common Methods
-
-#### `data_get() -> table`
-
-Get the entity data. Returns a copy of the current data.
-
-#### `data_set(data)`
-
-Set the entity data.
-
-#### `match_get() -> table`
-
-Get the entity match criteria.
-
-#### `match_set(match)`
-
-Set the entity match criteria.
-
-#### `make() -> Entity`
-
-Create a new `TeamEntity` instance with the same client and
-options.
-
-#### `get_name() -> string`
-
-Return the entity name.
-
-
----
-
-## TerraformEntity
-
-```lua
-local terraform = client:Terraform(nil)
-```
-
-### Common Methods
-
-#### `data_get() -> table`
-
-Get the entity data. Returns a copy of the current data.
-
-#### `data_set(data)`
-
-Set the entity data.
-
-#### `match_get() -> table`
-
-Get the entity match criteria.
-
-#### `match_set(match)`
-
-Set the entity match criteria.
-
-#### `make() -> Entity`
-
-Create a new `TerraformEntity` instance with the same client and
-options.
-
-#### `get_name() -> string`
-
-Return the entity name.
-
-
----
-
-## TestEntity
-
-```lua
-local test = client:Test(nil)
-```
-
-### Common Methods
-
-#### `data_get() -> table`
-
-Get the entity data. Returns a copy of the current data.
-
-#### `data_set(data)`
-
-Set the entity data.
-
-#### `match_get() -> table`
-
-Get the entity match criteria.
-
-#### `match_set(match)`
-
-Set the entity match criteria.
-
-#### `make() -> Entity`
-
-Create a new `TestEntity` instance with the same client and
-options.
-
-#### `get_name() -> string`
-
-Return the entity name.
-
-
----
-
-## TokenEntity
-
-```lua
-local token = client:Token(nil)
-```
-
-### Common Methods
-
-#### `data_get() -> table`
-
-Get the entity data. Returns a copy of the current data.
-
-#### `data_set(data)`
-
-Set the entity data.
-
-#### `match_get() -> table`
-
-Get the entity match criteria.
-
-#### `match_set(match)`
-
-Set the entity match criteria.
-
-#### `make() -> Entity`
-
-Create a new `TokenEntity` instance with the same client and
-options.
-
-#### `get_name() -> string`
-
-Return the entity name.
-
-
----
-
-## TransferRegionEntity
-
-```lua
-local transfer_region = client:TransferRegion(nil)
-```
-
-### Common Methods
-
-#### `data_get() -> table`
-
-Get the entity data. Returns a copy of the current data.
-
-#### `data_set(data)`
-
-Set the entity data.
-
-#### `match_get() -> table`
-
-Get the entity match criteria.
-
-#### `match_set(match)`
-
-Set the entity match criteria.
-
-#### `make() -> Entity`
-
-Create a new `TransferRegionEntity` instance with the same client and
 options.
 
 #### `get_name() -> string`
@@ -8403,114 +6379,6 @@ Return the entity name.
 
 ---
 
-## VagrantEntity
-
-```lua
-local vagrant = client:Vagrant(nil)
-```
-
-### Common Methods
-
-#### `data_get() -> table`
-
-Get the entity data. Returns a copy of the current data.
-
-#### `data_set(data)`
-
-Set the entity data.
-
-#### `match_get() -> table`
-
-Get the entity match criteria.
-
-#### `match_set(match)`
-
-Set the entity match criteria.
-
-#### `make() -> Entity`
-
-Create a new `VagrantEntity` instance with the same client and
-options.
-
-#### `get_name() -> string`
-
-Return the entity name.
-
-
----
-
-## ValidateEntity
-
-```lua
-local validate = client:Validate(nil)
-```
-
-### Common Methods
-
-#### `data_get() -> table`
-
-Get the entity data. Returns a copy of the current data.
-
-#### `data_set(data)`
-
-Set the entity data.
-
-#### `match_get() -> table`
-
-Get the entity match criteria.
-
-#### `match_set(match)`
-
-Set the entity match criteria.
-
-#### `make() -> Entity`
-
-Create a new `ValidateEntity` instance with the same client and
-options.
-
-#### `get_name() -> string`
-
-Return the entity name.
-
-
----
-
-## VersionEntity
-
-```lua
-local version = client:Version(nil)
-```
-
-### Common Methods
-
-#### `data_get() -> table`
-
-Get the entity data. Returns a copy of the current data.
-
-#### `data_set(data)`
-
-Set the entity data.
-
-#### `match_get() -> table`
-
-Get the entity match criteria.
-
-#### `match_set(match)`
-
-Set the entity match criteria.
-
-#### `make() -> Entity`
-
-Create a new `VersionEntity` instance with the same client and
-options.
-
-#### `get_name() -> string`
-
-Return the entity name.
-
-
----
-
 ## VulnerabilityEntity
 
 ```lua
@@ -8579,42 +6447,6 @@ Return the entity name.
 
 ---
 
-## VulnerabilityPolicyEntity
-
-```lua
-local vulnerability_policy = client:VulnerabilityPolicy(nil)
-```
-
-### Common Methods
-
-#### `data_get() -> table`
-
-Get the entity data. Returns a copy of the current data.
-
-#### `data_set(data)`
-
-Set the entity data.
-
-#### `match_get() -> table`
-
-Get the entity match criteria.
-
-#### `match_set(match)`
-
-Set the entity match criteria.
-
-#### `make() -> Entity`
-
-Create a new `VulnerabilityPolicyEntity` instance with the same client and
-options.
-
-#### `get_name() -> string`
-
-Return the entity name.
-
-
----
-
 ## WebhookEntity
 
 ```lua
@@ -8667,90 +6499,18 @@ Return the entity name.
 
 ---
 
-## X509EcdsaEntity
-
-```lua
-local x509_ecdsa = client:X509Ecdsa(nil)
-```
-
-### Common Methods
-
-#### `data_get() -> table`
-
-Get the entity data. Returns a copy of the current data.
-
-#### `data_set(data)`
-
-Set the entity data.
-
-#### `match_get() -> table`
-
-Get the entity match criteria.
-
-#### `match_set(match)`
-
-Set the entity match criteria.
-
-#### `make() -> Entity`
-
-Create a new `X509EcdsaEntity` instance with the same client and
-options.
-
-#### `get_name() -> string`
-
-Return the entity name.
-
-
----
-
-## X509RsaEntity
-
-```lua
-local x509_rsa = client:X509Rsa(nil)
-```
-
-### Common Methods
-
-#### `data_get() -> table`
-
-Get the entity data. Returns a copy of the current data.
-
-#### `data_set(data)`
-
-Set the entity data.
-
-#### `match_get() -> table`
-
-Get the entity match criteria.
-
-#### `match_set(match)`
-
-Set the entity match criteria.
-
-#### `make() -> Entity`
-
-Create a new `X509RsaEntity` instance with the same client and
-options.
-
-#### `get_name() -> string`
-
-Return the entity name.
-
-
----
-
 ## Features
 
 | Feature | Version | Description |
 | --- | --- | --- |
-| `debug` | 0.0.1 | Request/response capture ring buffer for debugging |
-| `idempotency` | 0.0.1 | Idempotency keys for safe retries of mutating operations |
-| `metrics` | 0.0.1 | Statistics capture: per-operation counters and latency |
-| `paging` | 0.0.1 | Pagination signals for list operations |
-| `ratelimit` | 0.0.1 | Client-side rate limiting via a token bucket |
-| `retry` | 0.0.1 | Automatic retry of transient failures with exponential backoff |
-| `test` | 0.0.1 | In-memory mock transport for testing without a live server |
-| `timeout` | 0.0.1 | Per-request timeout with transport abort |
+| `debug` | 0.0.1 | Debug capture |
+| `idempotency` | 0.0.1 | Idempotency |
+| `metrics` | 0.0.1 | Metrics |
+| `paging` | 0.0.1 | Paging |
+| `ratelimit` | 0.0.1 | Rate limiting |
+| `retry` | 0.0.1 | Retry |
+| `test` | 0.0.1 | Test transport |
+| `timeout` | 0.0.1 | Timeout |
 
 
 Features are activated via the `feature` option:
@@ -8796,7 +6556,7 @@ rather than the transport, so their order does not affect what they observe.
 
 #### `debug`
 
-Request/response capture ring buffer for debugging.
+Debug capture.
 
 **Configuration**
 
@@ -8827,7 +6587,7 @@ its default unless you name it.
 
 #### `idempotency`
 
-Idempotency keys for safe retries of mutating operations.
+Idempotency.
 
 **Configuration**
 
@@ -8858,7 +6618,7 @@ its default unless you name it.
 
 #### `metrics`
 
-Statistics capture: per-operation counters and latency.
+Metrics.
 
 **Configuration**
 
@@ -8886,7 +6646,7 @@ its default unless you name it.
 
 #### `paging`
 
-Pagination signals for list operations.
+Paging.
 
 **Configuration**
 
@@ -8921,7 +6681,7 @@ its default unless you name it.
 
 #### `ratelimit`
 
-Client-side rate limiting via a token bucket.
+Rate limiting.
 
 **Configuration**
 
@@ -8952,7 +6712,7 @@ its default unless you name it.
 
 #### `retry`
 
-Automatic retry of transient failures with exponential backoff.
+Retry.
 
 **Configuration**
 
@@ -8986,7 +6746,7 @@ its default unless you name it.
 
 #### `test`
 
-In-memory mock transport for testing without a live server.
+Test transport.
 
 **Configuration**
 
@@ -9017,7 +6777,7 @@ its default unless you name it.
 
 #### `timeout`
 
-Per-request timeout with transport abort.
+Timeout.
 
 **Configuration**
 
